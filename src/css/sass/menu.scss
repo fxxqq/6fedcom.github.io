@@ -1,0 +1,26 @@
+$indicator-color: #3593f2;
+.left-menu {
+  flex: 1 1 150px;
+  min-height: 150px;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  color: #666;
+  li {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    margin: .25rem 0;
+    cursor: pointer;
+    font-size: $fs8;
+    &:hover {
+      text-shadow: 0 0 6px rgba(0,120,255,.9);
+    }
+    span{
+      margin-left: 50px;
+    }
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .left-menu{ display: block; }
+}
