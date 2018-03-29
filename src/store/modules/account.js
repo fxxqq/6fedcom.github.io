@@ -10,20 +10,20 @@ const state = {
     auth: {
         proxy: 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token', // 这个不要修改，这个不要修改，这个不要修改。
         clientID: '98e32e7c09d595fa47b8', // 改成你在 https://github.com/settings/applications/new 新建的 OAuth application 的 Client ID
-        clientSecret: 'bddeb46d60fe92f914fab63c9ad7ad2eb63b37b9' // 改成你在 https://github.com/settings/applications/new 新建的 OAuth application 的 Client Secret
+        clientSecret: 'a36c0e24807456f36e14f6ceda9c2c5a7c5c273e' // 改成你在 https://github.com/settings/applications/new 新建的 OAuth application 的 Client Secret
     },
     gitHubUser: null, // 这个不要修改，这个不要修改，这个不要修改。
-    gitHubUsername: 'ixiejs', // 修改成你自己的 GitHub 账号
+    gitHubUsername: 'ye63', // 修改成你自己的 GitHub 账号
     copyright: '2015 - 2018', // 修改成你自己的
     recordNumber: 'null', // 修改成你自己的备案编号，如果没有备案的话就设置为 null
-    repo: 'ixiejs/frontend', // 记录 Issue 的仓库的全名「用户名/仓库名」
+    repo: 'ye63/ye63.github.io', // 记录 Issue 的仓库的全名「用户名/仓库名」
     pageSize: 10, // 博客列表每页显示多少条博客
     showQQGroup: true, // 如果要显示你自己的 QQ 群二维码图片的话这里配置成 true 并且替换「BGAIssueBlog-Web/static/img/qq-group.png」为你自己的 QQ 群二维码图片，否则配置成 false 即可
     thirdPartySite: [ // 配置你想在左上角展示的第三方站点信息
-        // {
-        //     img: 'static/img/github.png', // 第三方站点图标，存放在「BGAIssueBlog-Web/static/img」目录中
-        //     url: 'https://github.com/Moonlightg' // 第三方站点的 url
-        // }
+        {
+            img: '/static/img/github.png', // 第三方站点图标，存放在「BGAIssueBlog-Web/static/img」目录中
+            url: 'https://github.com/Moonlightg' // 第三方站点的 url
+        }
         // 如果还有其他站点需要显示，继续在这里追加
     ]
 }

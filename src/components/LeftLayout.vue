@@ -4,8 +4,8 @@
       <div class="left-layout-container pc">
         <div class="user-info">
           <img v-if="gitHubUser" @click="home" :src="gitHubUser.avatar_url">
-          <div v-if="gitHubUser" class="login-name">{{gitHubUser.login}}</div>
-          <div v-if="gitHubUser">{{gitHubUser.bio}}</div>
+          <div v-if="gitHubUser" class="login-name">{{gitHubUser.name}}</div>
+          <!-- <div v-if="gitHubUser" class="user-bio">{{gitHubUser.bio}}</div> -->
         </div>
         <ul class="other-site">
           <li v-for="site in thirdPartySite" :key="site.url" @click="openThirdPartySite(site.url)">
@@ -15,10 +15,10 @@
         <ul class="left-menu">
           <router-link :class="isBlog ? 'selected-menu':''" tag="li" :to="{name: 'BlogList'}"><span>个人笔记</span></router-link>
           <router-link :class="isWebNav ? 'selected-menu':''" tag="li" :to="{name: 'WebNav'}"><span>前端导航</span></router-link>
-          <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" :to="{name: 'AboutMe'}"><span>关于我</span></router-link>
+          <!-- <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" :to="{name: 'AboutMe'}"><span>关于我</span></router-link> -->
         </ul>
         <div v-if="showQQGroup" class="qq-group">
-          <img src="static/img/qq-group.jpg">
+          <img src="/static/img/subscription.jpg">
         </div>
         <div class="copyright">@ {{copyright}}</div>
       </div>
