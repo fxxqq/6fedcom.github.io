@@ -13,7 +13,13 @@ export default [{
         path: '/WebNav',
         component: resolve => require.ensure([], () => resolve(require('@/views/WebNav.vue')), 'WebNav')
     },
+    // {
+    //     path: '/docs',
+    //     component: resolve => require.ensure([], () => resolve(require('@/views/Blog.vue')), 'Blog'),
+    //     children: blogRoutes
+    // },
     {
+        name: 'docs',
         path: '/docs',
         component: resolve => require.ensure([], () => resolve(require('@/views/Blog.vue')), 'Blog'),
         children: blogRoutes
