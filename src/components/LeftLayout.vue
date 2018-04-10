@@ -44,7 +44,7 @@
         <div class="left-layout-container" v-if="showMenu">
           <div class="user-info">
             <img v-if="gitHubUser" @click="home" :src="gitHubUser.avatar_url">
-            <div v-if="gitHubUser" class="login-name">{{gitHubUser.login}}</div>
+            <div v-if="gitHubUser" class="login-name">{{gitHubUser.name}}</div>
           </div>
           <ul class="other-site">
             <li v-for="site in thirdPartySite" :key="site.url" @click="openThirdPartySite(site.url)">
@@ -54,7 +54,7 @@
           <ul class="left-menu">
             <router-link :class="isBlog ? 'selected-menu':''" tag="li" :to="{name: 'BlogList'}" @click.native="toggleMenu()"><span>个人笔记</span></router-link>
             <router-link :class="isWebNav ? 'selected-menu':''" tag="li" :to="{name: 'WebNav'}" @click.native="toggleMenu()"><span>前端导航</span></router-link>
-            <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" :to="{name: 'AboutMe'}" @click.native="toggleMenu()"><span>关于我</span></router-link>
+            <!-- <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" :to="{name: 'AboutMe'}" @click.native="toggleMenu()"><span>关于我</span></router-link> -->
           </ul>
           <div class="copyright">@ {{copyright}}</div>
         </div>
