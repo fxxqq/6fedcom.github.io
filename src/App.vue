@@ -6,6 +6,7 @@
                   :svgType="'rocket_smoke'"/>
   </div>
 </template>
+
 <script>
   import LeftLayout from './components/LeftLayout.vue'
   import { mapActions } from 'vuex'
@@ -18,15 +19,20 @@
       ...mapActions([
         'setLabels',
         'setGitHubUser'
-      ])
+      ]),
+      
     },
     mounted () {
+      const that=this;
       this.$nextTick(function () {
         this.$gitHubApi.getUserInfo(this).then(this.$http.spread((userResp, labelResp) => {
           this.setGitHubUser(userResp.data)
           this.setLabels(labelResp.data)
         }))
-      })
+      });
+       
+    
+    
     }
   }
 </script>
