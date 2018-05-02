@@ -17,9 +17,11 @@
           <router-link :class="isWebNav ? 'selected-menu':''" tag="li" :to="{name: 'WebNav'}"><span>前端导航</span></router-link>
           <!-- <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" :to="{name: 'AboutMe'}"><span>关于我</span></router-link> -->
         </ul>
+        <span id='cnzz_stat_icon_1262532008'></span>
         <div v-if="showQQGroup" class="qq-group">
           <img src="/static/img/subscription.jpg">
         </div>
+     
         <div class="copyright">@ {{copyright}}</div>
       </div>
       <!-- 移动端 -->
@@ -127,3 +129,8 @@
     }
   }
 </script>
+
+
+ 
+       
+
