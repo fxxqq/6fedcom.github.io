@@ -1,21 +1,19 @@
 module.exports = {
-    getToken(vue) {
-        let headers;
-        return headers = { "Authorization": "token 675638b9fa0af7cc4e84a80f8e5cae2c00fd6a99" }
+    getToken() {
+        return `0d4f280c571d92e2c588de3593478be165d176b9`
     },
 
     getLabels(vue) {
-        console.log(this.getToken())
         return vue.$http.get(`https://api.github.com/repos/${vue.$store.getters.repo}/labels`, {
             headers: {
-                "Authorization": "token 675638b9fa0af7cc4e84a80f8e5cae2c00fd6a99"
+                "Authorization": `token ${this.getToken()}`
             }
         })
     },
     getGitHubUser(vue) {
         return vue.$http.get(`https://api.github.com/users/${vue.$store.getters.gitHubUsername}`, {
             headers: {
-                "Authorization": "token 675638b9fa0af7cc4e84a80f8e5cae2c00fd6a99"
+                "Authorization": `token ${this.getToken()}`
             }
         })
     },
@@ -31,7 +29,7 @@ module.exports = {
         return vue.$http.get(`https://api.github.com/search/issues?q=${data.keyword}+state:open+repo:${vue.$store.getters.repo}${label}&sort=created&order=desc&page=${data.currentPage}&per_page=${data.pageSize}`, {
             headers: {
                 'Accept': 'application/vnd.github.v3.html',
-                "Authorization": "token 675638b9fa0af7cc4e84a80f8e5cae2c00fd6a99"
+                "Authorization": `token ${this.getToken()}`
             }
         })
     },
@@ -39,7 +37,7 @@ module.exports = {
         return vue.$http.get(`https://api.github.com/repos/${vue.$store.getters.repo}/issues/${number}`, {
             headers: {
                 'Accept': 'application/vnd.github.v3.html',
-                "Authorization": "token 675638b9fa0af7cc4e84a80f8e5cae2c00fd6a99"
+                "Authorization": `token ${this.getToken()}`
             }
         })
     },
@@ -47,7 +45,7 @@ module.exports = {
         return vue.$http.get(url, {
             headers: {
                 'Accept': 'application/vnd.github.v3.html',
-                "Authorization": "token 675638b9fa0af7cc4e84a80f8e5cae2c00fd6a99"
+                "Authorization": `token ${this.getToken()}`
             }
         })
     },
@@ -55,7 +53,7 @@ module.exports = {
         return vue.$http.get(`https://raw.githubusercontent.com/${vue.$store.getters.repo}/master/README.md`, {
             headers: {
                 'Accept': 'application/vnd.github.v3.html',
-                "Authorization": "token 675638b9fa0af7cc4e84a80f8e5cae2c00fd6a99"
+                "Authorization": `token ${this.getToken()}`
             }
         })
     },
