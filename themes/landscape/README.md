@@ -70,12 +70,7 @@ google_plus:
 ### Fancybox
 
 Landscape uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
-
-```
-![img caption](img url)
-
-{% fancybox img_url [img_thumbnail] [img_caption] %}
-```
+ 
 
 ### Sidebar
 
