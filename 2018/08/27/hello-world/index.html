@@ -37,7 +37,7 @@
         <link rel="alternate" type="application/atom+xml" title="前端迷" href="/note/atom.xml">
     
     <link rel="shortcut icon" href="/note/img/favicon.ico">
-    <link rel="stylesheet" href="/note/css/style.css?v=0.5.1">
+    <link rel="stylesheet" href="/note/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -103,9 +103,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://ye63.com/i" target="_blank" >
+              <a href="https://ye63.com/jy" target="_blank" >
                 <i class="icon icon-lg icon-link"></i>
-                简约版
+                简约风格
               </a>
             </li>
         
@@ -126,7 +126,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -206,7 +206,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2018-08-27T12:18:09.824Z" itemprop="dateUpdated">2018-08-27 20:18:09</time>
+    Last updated: <time datetime="2018-08-27T12:18:09.824Z" itemprop="dateUpdated">2018-08-27 20:18:09</time>
 </span><br>
 
 
@@ -341,7 +341,7 @@
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
-        谢谢大爷~
+        谢谢~
         <i class="icon icon-quote-right"></i>
     </h3>
     <div class="reward-content">
@@ -384,7 +384,7 @@
             
                 <span><a href="/note/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -455,7 +455,7 @@ var BLOG = { ROOT: '/note/', SHARE: true, REWARD: true };
 
 </script>
 
-<script src="/note/js/main.min.js?v=0.5.1"></script>
+<script src="/note/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -475,7 +475,7 @@ var BLOG = { ROOT: '/note/', SHARE: true, REWARD: true };
 </li>
 </template>
 
-<script src="/note/js/search.min.js?v=0.5.1" async></script>
+<script src="/note/js/search.min.js?v=1.7.2" async></script>
 
 
 
@@ -485,23 +485,6 @@ var BLOG = { ROOT: '/note/', SHARE: true, REWARD: true };
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '死鬼去哪里了！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(つェ⊂)咦!又好了!';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
-</script>
 
 
 
