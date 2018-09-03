@@ -1,21 +1,25 @@
-(function() {
+(function () {
 
-    var searchIco = document.getElementById('search'),
-        searchWrap = document.getElementById('search-wrap'),
-        keyInput = document.getElementById('key'),
-        back = document.getElementById('back'),
-        searchPanel = document.getElementById('search-panel'),
-        searchResult = document.getElementById('search-result'),
-        searchTpl = document.getElementById('search-tpl').innerHTML,
+    var G = window || this,
+        even = G.BLOG.even,
+        $ = G.BLOG.$,
+        searchIco = $('#search'),
+        searchWrap = $('#search-wrap'),
+        keyInput = $('#key'),
+        back = $('#back'),
+        searchPanel = $('#search-panel'),
+        searchResult = $('#search-result'),
+        searchTpl = $('#search-tpl').innerHTML,
+        JSON_DATA = (G.BLOG.ROOT + '/content.json').replace(/\/{2}/g, '/'),
         searchData;
 
     function loadData(success) {
 
         if (!searchData) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/content.json', true);
+            xhr.open('GET', JSON_DATA, true);
 
-            xhr.onload = function() {
+            xhr.onload = function () {
                 if (this.status >= 200 && this.status < 300) {
                     var res = JSON.parse(this.response);
                     searchData = res instanceof Array ? res : res.posts;
@@ -25,7 +29,7 @@
                 }
             };
 
-            xhr.onerror = function() {
+            xhr.onerror = function () {
                 console.error(this.statusText);
             };
 
@@ -37,22 +41,22 @@
     }
 
     function tpl(html, data) {
-        return html.replace(/\{\w+\}/g, function(str) {
+        return html.replace(/\{\w+\}/g, function (str) {
             var prop = str.replace(/\{|\}/g, '');
             return data[prop] || '';
         });
     }
 
-    var docEl = document[navigator.userAgent.indexOf('Firefox') !== -1 ? 'documentElement' : 'body'],
-        noop = function() {};
+    var noop = G.BLOG.noop;
+    var root = $('html');
 
     var Control = {
-        show: function() {
-            window.innerWidth < 760 ? docEl.classList.add('lock-size') : noop;
+        show: function () {
+            G.innerWidth < 760 ? root.classList.add('lock-size') : noop;
             searchPanel.classList.add('in');
         },
-        hide: function() {
-            window.innerWidth < 760 ? docEl.classList.remove('lock-size') : noop;
+        hide: function () {
+            G.innerWidth < 760 ? root.classList.remove('lock-size') : noop;
             searchPanel.classList.remove('in');
         }
     };
@@ -61,13 +65,13 @@
         var html = '';
         if (data.length) {
 
-            html = data.map(function(post) {
+            html = data.map(function (post) {
 
                 return tpl(searchTpl, {
                     title: post.title,
-                    path: post.path,
+                    path: (G.BLOG.ROOT + '/' + post.path).replace(/\/{2,}/g, '/'),
                     date: new Date(post.date).toLocaleDateString(),
-                    tags: post.tags.map(function(tag) {
+                    tags: post.tags.map(function (tag) {
                         return '<span>#' + tag.name + '</span>';
                     }).join('')
                 });
@@ -80,12 +84,14 @@
 
         searchResult.innerHTML = html;
     }
+
     function regtest(raw, regExp) {
         regExp.lastIndex = 0;
         return regExp.test(raw);
     }
+
     function matcher(post, regExp) {
-        return regtest(post.title, regExp) || post.tags.some(function(tag) {
+        return regtest(post.title, regExp) || post.tags.some(function (tag) {
             return regtest(tag.name, regExp);
         }) || regtest(post.text, regExp);
     }
@@ -98,9 +104,9 @@
 
         var regExp = new RegExp(key.replace(/[ ]/g, '|'), 'gmi');
 
-        loadData(function(data) {
+        loadData(function (data) {
 
-            var result = data.filter(function(post) {
+            var result = data.filter(function (post) {
                 return matcher(post, regExp);
             });
 
@@ -112,24 +118,24 @@
     }
 
 
-    searchIco.addEventListener('click', function() {
+    searchIco.addEventListener(even, function () {
         searchWrap.classList.toggle('in');
         keyInput.value = '';
-        keyInput.focus();
+        searchWrap.classList.contains('in') ? keyInput.focus() : keyInput.blur();
     });
 
-    back.addEventListener('click', function() {
+    back.addEventListener(even, function () {
         searchWrap.classList.remove('in');
         Control.hide();
     });
 
-    document.addEventListener('click', function(e) {
-        if (e.target.id !== 'key') {
+    document.addEventListener(even, function (e) {
+        if (e.target.id !== 'key' && even === 'click') {
             Control.hide();
         }
     });
 
     keyInput.addEventListener('input', search);
-    keyInput.addEventListener('click', search);
+    keyInput.addEventListener(even, search);
 
-})();
+}).call(this);
