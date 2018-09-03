@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-
-    
-
-    
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>移动端限制input框只能输入数字 | 前端迷</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="html5">
-    <meta name="description" content="在安卓端设置input类型为number，可限制键盘只输入数字，在ios端，要加入pattern验证输入字段的模式，才能限制数字输入">
+  <meta charset="utf-8">
+  
+  <title>移动端限制input框只能输入数字 | 前端迷 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="html5">
+  <meta name="description" content="在安卓端设置input类型为number，可限制键盘只输入数字，在ios端，要加入pattern验证输入字段的模式，才能限制数字输入">
 <meta name="keywords" content="html5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端限制input框只能输入数字">
@@ -33,89 +22,92 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端限制input框只能输入数字">
 <meta name="twitter:description" content="在安卓端设置input类型为number，可限制键盘只输入数字，在ios端，要加入pattern验证输入字段的模式，才能限制数字输入">
-    
-        <link rel="alternate" type="application/atom+xml" title="前端迷" href="/note/atom.xml">
-    
-    <link rel="shortcut icon" href="/note/img/favicon.ico">
-    <link rel="stylesheet" href="/note/css/style.css?v=1.7.2">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
+  
+    <link rel="alternative" href="/atom.xml" title="前端迷" type="application/atom+xml">
+  
+  <meta name="summary" content="前端开发爱好者frank的工作笔记">
+  <link rel="shortcut icon" href="/note/favicon.ico">
+  <link rel="stylesheet" href="/note/css/style.css">
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+  <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/note/img/brand.jpg)">
-      <div class="brand">
-        <a href="/note/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/note/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">frank</h5>
-          <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/note/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/note/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/note/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/note/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/ye63" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/i" target="_blank" >
-                <i class="icon icon-lg icon-清新版"></i>
-                清新版
-              </a>
-            </li>
-        
-      </ul>
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/note/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">frank</h5>
+        <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+      </hgroup>
     </div>
   </div>
-</aside>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/note/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/note/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/note/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              Tags
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/yscoder" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://ye63.com/i" target="_blank" >
+              <i class="icon icon-lg icon-清新版"></i>
+              清新版
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/note/404"  >
+              <i class="icon icon-lg icon-link"></i>
+              测试
+            </a>
+          </li>
+      
+    </ul>
 
-    <main id="main">
-        <header class="top-header" id="header">
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>前端迷 &copy; 2018</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
@@ -126,62 +118,94 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
         
     </div>
 </header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">移动端限制input框只能输入数字</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-09-03T08:56:58.000Z" itemprop="datePublished" class="page-time">
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">移动端限制input框只能输入数字</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2018-09-03T08:56:58.000Z" itemprop="datePublished" class="page-time">
   2018-09-03
 </time>
 
 
-            
-        </h5>
-    </div>
-
-    
-
-
+        
+    </h5>
+  </div>
 </header>
 
+    <div class="container body-wrap">
+      <article id="post-移动端限制input框只能输入数字" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/note/tags/html5/">html5</a></li></ul>
 
-<div class="container body-wrap">
-    
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
 
-<article id="post-移动端限制input框只能输入数字"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">移动端限制input框只能输入数字</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-09-03 16:56:58" datetime="2018-09-03T08:56:58.000Z"  itemprop="datePublished">2018-09-03</time>
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
 
             
 
-
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            <nav class="post-toc-wrap" id="post-toc">
+            
+            </nav>
+            
+        </aside>
 
+        <div class="post-main">
 
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
+            <div class="post-content" id="post-content" itemprop="postContent">
             <p>html5 中，input 的 type 属性规定 input 元素的类型。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"value"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>有很多选项，详细可以参考<a href="http://www.w3school.com.cn/html5/att_input_type.asp" target="_blank" rel="noopener">HTML 5 type 属性</a></p>
 <p>但是在移动端，还要区分是安卓用户，还是ios用户，所以这样写：</p>
@@ -189,99 +213,27 @@
 <p>在安卓端设置input类型为number，可限制键盘只输入数字，在ios端，要加入pattern验证输入字段的模式，才能限制数字输入。</p>
 <p>另： <code>autofocus=&quot;autofocus&quot;</code>可以自动对焦。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    Last updated: <time datetime="2018-09-03T09:12:29.416Z" itemprop="dateUpdated">2018-09-03 17:12:29</time>
-</span><br>
-
-
-        
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/2018/09/03/移动端限制input框只能输入数字/" target="_blank" rel="external">http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://ye63.github.io/note">
-            <img src="/note/img/avatar.jpg" alt="frank">
-            frank
-        </a>
-    </footer>
-</blockquote>
-
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/note/tags/html5/">html5</a></li></ul>
-
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/&title=《移动端限制input框只能输入数字》 — 前端迷&pic=http://ye63.github.io/note/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/&title=《移动端限制input框只能输入数字》 — 前端迷&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端限制input框只能输入数字》 — 前端迷&url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/&via=http://ye63.github.io/note" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+            </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/" target="_blank" rel="external">http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/</a>
+                </p>
+                <footer><cite><a href="http://ye63.github.io/note">@前端迷</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
   
 
   
-    <div class="waves-block waves-effect next">
+    <div class="waves-block waves-effect next fr">
       <a href="/note/2018/09/03/React-Js-微信分享封装/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">React Js 微信分享封装</h4>
@@ -291,171 +243,121 @@
 </nav>
 
 
-
-    
-
-
-
-
-
-
-
-
-<section class="comments" id="comments">
-    <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
-    <script>
-        var gitment = new Gitment({
-            owner: '',
-            repo: '',
-            oauth: {
-                client_id: '',
-                client_secret: '',
-            },
-        })
-        gitment.render('comments')
-    </script>
-</section>
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="移动端限制input框只能输入数字" data-title="移动端限制input框只能输入数字" data-url="http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ysblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
 
-
-
-
-
-
+        </div>
+    </div>
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
-        谢谢~
+        谢谢大爷~
         <i class="icon icon-quote-right"></i>
     </h3>
-    <div class="reward-content">
+    <ul class="reward-items">
         
-        <div class="reward-code">
-            <img id="rewardCode" src="/note/img/wechat.jpg" alt="打赏二维码">
-        </div>
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
         
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/note/img/wechat.jpg" data-alipay="/note/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
+
         
-    </div>
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
 </div>
 
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/note/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
-        </p>
     </div>
-    <div class="bottom">
-        <p><span>frank &copy; 2014 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
+  </main>
+<div class="mask" id="mask"></div>
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-
-
-<div class="global-share" id="globalShare">
+<script>
+var BLOG_SHARE = {
+    title: "移动端限制input框只能输入数字",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/&title=《移动端限制input框只能输入数字》 — 前端迷&pic=http://ye63.github.io/note/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/&title=《移动端限制input框只能输入数字》 — 前端迷&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/" data-title=" Facebook">
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端限制input框只能输入数字》 — 前端迷&url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/&via=http://ye63.github.io/note" data-title=" Twitter">
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/note/2018/09/03/移动端限制input框只能输入数字/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
         </a>
       </li>
     </ul>
  </div>
 
 
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aQY4bMQwEwP3/pzdArskMuknJ2QA1J8M2NCodRILk11f8fP9+kl+//3jylZ/WSfawevDw8PBGW396khe/r/O0uff1n1bO94yHh4d3m5df9+937+z7/WE9fo+Hh4f3T3lt2p0Hg2QneHh4eP8jL09t83LG+5rtcePh4eF9kpeksJtf84s+/3y41oKHh4cX89oG2E/4fLG/h4eHh7foqr9fuLPCQV7qbYPBX3aLh4eHd4E3K6dumv1np6Si9fHw8PAu8NpFN2Eg2Uo++FVQ8fDw8A7xThVD27NMtp43xh5XxsPDw7vAa5PjvASQh4fZQQyLEXh4eHhr3izlTcJD8k0biurSBh4eHt41XpIQz5LgtvSwL2Hg4eHhfYa32UTbpmqLtvmvq0iCh4eHV+ar7xf6qUR5M16wCUt4eHh4Z3ltKXYzCNWWYts6QzFohYeHh7fgJdd9myK35YlZC63eFR4eHt5R3gzQlhLaa70daBhOhOHh4eEteG362x5N8s88FOVhAw8PD+82b3NZJwWIvFzbDjFEVWo8PDy8o7ximOnQSEHLa0vDeHh4eDd4s1JpO2JVpL9lel2EBDw8PLwLvLxw0I5nzcCboQQ8PDy8e7x2pOnUC+qRqVFCj4eHh3eDlyS4m1R71lSbwaI6Ch4eHt5R3iyN3qTFt+ej8PDw8G7w2vtzk+AmaXpSnC1geHh4eBd4+StnyW7bNqsLsu9BCw8PD+8yb7ahWbrcFiySg3gcusLDw8M7ymuv+7xemo8R5OEhCRt4eHh4n+Htr+w2PGxacXVgwMPDw7vGy6/7fesrH+qajXDh4eHh/Rxe3qbKE/RZqCjeiIeHh/eDeW0A2LS+iuPGw8PDu8bbb7S9vtt0OSmO4OHh4X2GN0uC85edGjjY/AcPDw/vEO8X3CzkKcWtYkYAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
+<script src="/note/js/main.js"></script>
 
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/note/', SHARE: true, REWARD: true };
-
-
-</script>
-
-<script src="/note/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
     <ul class="search-result" id="search-result"></ul>
 </div>
-<template id="search-tpl">
+<script type="text/template" id="search-tpl">
 <li class="item">
-    <a href="{path}" class="waves-block waves-effect">
+    <a href="/{path}" class="waves-block waves-effect">
         <div class="title ellipsis" title="{title}">{title}</div>
         <div class="flex-row flex-middle">
             <div class="tags ellipsis">
@@ -465,35 +367,15 @@ var BLOG = { ROOT: '/note/', SHARE: true, REWARD: true };
         </div>
     </a>
 </li>
-</template>
-
-<script src="/note/js/search.min.js?v=1.7.2" async></script>
-
-
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '死鬼去哪里了！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(つェ⊂)咦!又好了!';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
 </script>
+
+<script src="/note/js/search.js"></script>
+
+
+
+
+
+
 
 
 
