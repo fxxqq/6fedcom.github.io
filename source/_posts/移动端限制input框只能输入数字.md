@@ -21,5 +21,4 @@ html5 中，input 的 type 属性规定 input 元素的类型。
 
 在安卓端设置input类型为number，可限制键盘只输入数字，在ios端，要加入pattern验证输入字段的模式，才能限制数字输入。
 
-另： 
-`autofocus="autofocus"`可以自动对焦。
+另： `autofocus="autofocus"`可以自动对焦。

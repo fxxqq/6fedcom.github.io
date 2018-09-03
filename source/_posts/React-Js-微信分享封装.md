@@ -5,6 +5,10 @@ tags:
      - React
 description: 本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：
 ---
+
+本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：
+
+
 ```jsx
 import Fetch from './FetchIt';
 import API_URL from './url';
