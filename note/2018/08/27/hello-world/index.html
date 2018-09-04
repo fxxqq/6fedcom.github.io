@@ -28,7 +28,7 @@
 <meta property="og:url" content="http://ye63.github.io/note/2018/08/27/hello-world/index.html">
 <meta property="og:site_name" content="前端迷(Front-end fan)">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-08-27T12:18:09.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
@@ -309,25 +309,32 @@
 
 
 
-<section class="comments" id="comments">
-    <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
     <script>
-        var gitment = new Gitment({
-            owner: '',
-            repo: '',
-            oauth: {
-                client_id: '',
-                client_secret: '',
-            },
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
         })
-        gitment.render('comments')
     </script>
-</section>
-
-
-
+    <!-- Valine Comments end -->
 
 
 
