@@ -1,5 +1,5 @@
 [ye63.github.io](https://ye63.github.io/)
-frank的前端养成记
+frank的前端养成记(hexo博客)
 
 ### hexo 新建一篇文章给它添加分类和标签:
 ```
