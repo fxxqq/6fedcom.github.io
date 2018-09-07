@@ -20,4 +20,12 @@ description: #你對本頁的描述 可以省略
 ```
 
 ### 发布
+```
 hexo clean && hexo g && hexo d
+```
+
+### 创建新页面
+
+```
+hexo new page "about"
+```
