@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>合并数组的相同的key值，并且计算相同key值的个数 | 前端迷(Front-end fan)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js代码片段">
+    <meta name="description" content="需求：合并数组的相同的key值，并且计算相同key值的个数 场景：根据list数组的每一项的key值coupon_sn合并数组，并且计数 js代码json数组：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364l">
+<meta name="keywords" content="js代码片段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="合并数组的相同的key值，并且计算相同key值的个数">
+<meta property="og:url" content="http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/index.html">
+<meta property="og:site_name" content="前端迷(Front-end fan)">
+<meta property="og:description" content="需求：合并数组的相同的key值，并且计算相同key值的个数 场景：根据list数组的每一项的key值coupon_sn合并数组，并且计数 js代码json数组：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364l">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-10T02:35:26.390Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="合并数组的相同的key值，并且计算相同key值的个数">
+<meta name="twitter:description" content="需求：合并数组的相同的key值，并且计算相同key值的个数 场景：根据list数组的每一项的key值coupon_sn合并数组，并且计数 js代码json数组：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364l">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/green.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">frank</h5>
+          <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ye63" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/share"  >
+                <i class="icon icon-lg icon-share"></i>
+                好文分享
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://ye63.com/jy" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简约风格
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">合并数组的相同的key值，并且计算相同key值的个数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">合并数组的相同的key值，并且计算相同key值的个数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-30T07:33:19.000Z" itemprop="datePublished" class="page-time">
+  2018-08-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#需求："><span class="post-toc-number">1.</span> <span class="post-toc-text">需求：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#场景："><span class="post-toc-number">2.</span> <span class="post-toc-text">场景：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#js代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">js代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#json数组："><span class="post-toc-number">3.1.</span> <span class="post-toc-text">json数组：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#js代码-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">js代码</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-合并数组的相同的key值，并且计算相同key值的个数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">合并数组的相同的key值，并且计算相同key值的个数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-30 15:33:19" datetime="2018-08-30T07:33:19.000Z"  itemprop="datePublished">2018-08-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h4><p>合并数组的相同的key值，并且计算相同key值的个数</p>
+<h4 id="场景："><a href="#场景：" class="headerlink" title="场景："></a>场景：</h4><p>根据list数组的每一项的key值coupon_sn合并数组，并且计数</p>
+<h4 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h4><h5 id="json数组："><a href="#json数组：" class="headerlink" title="json数组："></a>json数组：</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">let list = [&#123;</span><br><span class="line">	"id": 5899,</span><br><span class="line">	"is_use": 0,</span><br><span class="line">	"use_time": null,</span><br><span class="line">	"expired_time": "2018-12-31 00:00:00",</span><br><span class="line">	"coupon": &#123;</span><br><span class="line">		"coupon_sn": "1",</span><br><span class="line">		"name": "满减",</span><br><span class="line">		"type": 2,</span><br><span class="line">		"count": 99993,</span><br><span class="line">		"receive_count": 6,</span><br><span class="line">		"is_fare": 0,</span><br><span class="line">		"available_money": "2000.00",</span><br><span class="line">		"reduce_money": "100.00",</span><br><span class="line">		"discount": "1.000",</span><br><span class="line">		"receive_start_time": "2018-07-27 00:00:00",</span><br><span class="line">		"receive_end_time": "2020-12-31 00:00:00",</span><br><span class="line">		"info": "",</span><br><span class="line">		"created_at": "2018-07-27 21:22:51",</span><br><span class="line">		"restriction_description": "仅限非板材使用"</span><br><span class="line">	&#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">	"id": 5899,</span><br><span class="line">	"is_use": 0,</span><br><span class="line">	"use_time": null,</span><br><span class="line">	"expired_time": "2018-12-31 00:00:00",</span><br><span class="line">	"coupon": &#123;</span><br><span class="line">		"coupon_sn": "2",</span><br><span class="line">		"name": "满减",</span><br><span class="line">		"type": 2,</span><br><span class="line">		"count": 99993,</span><br><span class="line">		"receive_count": 6,</span><br><span class="line">		"is_fare": 0,</span><br><span class="line">		"available_money": "2000.00",</span><br><span class="line">		"reduce_money": "100.00",</span><br><span class="line">		"discount": "1.000",</span><br><span class="line">		"receive_start_time": "2018-07-27 00:00:00",</span><br><span class="line">		"receive_end_time": "2020-12-31 00:00:00",</span><br><span class="line">		"info": "",</span><br><span class="line">		"created_at": "2018-07-27 21:22:51",</span><br><span class="line">		"restriction_description": "仅限非板材使用"</span><br><span class="line">	&#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">	"id": 5899,</span><br><span class="line">	"is_use": 0,</span><br><span class="line">	"use_time": null,</span><br><span class="line">	"expired_time": "2018-12-31 00:00:00",</span><br><span class="line">	"coupon": &#123;</span><br><span class="line">		"coupon_sn": "2",</span><br><span class="line">		"name": "满减",</span><br><span class="line">		"type": 2,</span><br><span class="line">		"count": 99993,</span><br><span class="line">		"receive_count": 6,</span><br><span class="line">		"is_fare": 0,</span><br><span class="line">		"available_money": "2000.00",</span><br><span class="line">		"reduce_money": "100.00",</span><br><span class="line">		"discount": "1.000",</span><br><span class="line">		"receive_start_time": "2018-07-27 00:00:00",</span><br><span class="line">		"receive_end_time": "2020-12-31 00:00:00",</span><br><span class="line">		"info": "",</span><br><span class="line">		"created_at": "2018-07-27 21:22:51",</span><br><span class="line">		"restriction_description": "仅限非板材使用"</span><br><span class="line">	&#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<h5 id="js代码-1"><a href="#js代码-1" class="headerlink" title="js代码"></a>js代码</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> hash = &#123;</span><br><span class="line">	coupon: &#123;&#125;,</span><br><span class="line">&#125;, i = <span class="number">0</span>, res = [];</span><br><span class="line">list.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item </span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> coupon_sn = item.coupon.coupon_sn;</span><br><span class="line">	<span class="keyword">if</span> (hash[coupon_sn]) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!res[hash[coupon_sn] - <span class="number">1</span>].count) &#123;</span><br><span class="line">			res[hash[coupon_sn] - <span class="number">1</span>].count = <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">		res[hash[coupon_sn] - <span class="number">1</span>].count += <span class="number">1</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		hash[coupon_sn] = ++i &amp;&amp; res.push(&#123;</span><br><span class="line">			<span class="string">"count"</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">"id"</span>: item.id,</span><br><span class="line">			<span class="string">"is_use"</span>: item.is_use,</span><br><span class="line">			<span class="string">"use_time"</span>: item.use_time,</span><br><span class="line">			<span class="string">"expired_time"</span>: item.expired_time,</span><br><span class="line">			<span class="string">"coupon"</span>: item.coupon</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(res);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-09-10T02:35:26.390Z" itemprop="dateUpdated">2018-09-10 10:35:26</time>
+</span><br>
+
+
+        
+        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/108" target='_blank'>编辑《合并数组的相同的key值，并且计算相同key值的个数》这篇文章</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ye63.github.io">
+            <img src="/img/avatar.jpg" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js代码片段/">js代码片段</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/&title=《合并数组的相同的key值，并且计算相同key值的个数》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/&title=《合并数组的相同的key值，并且计算相同key值的个数》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《合并数组的相同的key值，并且计算相同key值的个数》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/&via=http://ye63.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/30/错误码：events-js-183-throw-er-Unhandled-error-event—解决办法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">错误码：events.js:183 throw er; // Unhandled &#39;error&#39; event—解决办法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/09/03/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello Hexo Blog</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：81<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>frank &copy; 2014 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/&title=《合并数组的相同的key值，并且计算相同key值的个数》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/&title=《合并数组的相同的key值，并且计算相同key值的个数》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《合并数组的相同的key值，并且计算相同key值的个数》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/&via=http://ye63.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/08/30/合并数组的相同的key值，并且计算相同key值的个数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLUlEQVR42u3aSW4jQQwEQP//0xpgriPJmWR7oC5HnwyjlwoeTHP5+oqvx9/r35+TO19d7+9//4ZX9198YWNjY9+EPTtcTn3/VPL1V9+aBRobGxv7VHaeinLq+5Dlb2sTXhIsbGxs7N/JrpNE8P4kWPmz2NjY2Nh5Atukk1eAWVCwsbGxsfOm0qbpswfkrauLe2nY2NjYH8/eDHo/7ef/NN/GxsbG/hj2o7z2Y922CNkvBj05ITY2NvZB7PyI79tGeVsnX9xpC5K6sYWNjY19BDv5QLu4M7uzPVVbPmFjY2Ofzc7LhnYAkIyK82TWJjxsbGxs7Bw5G8FuFoPasuRJOwkbGxv7CPZszaVd8bkqHJvhxNeMgY2Njf3x7NnRrxoDJA2stuCJ3oaNjY19HDv5o/9zLaG8uT9rVz15ChsbG/sgdg7IFx+vak7NhrjDrSVsbGzs27LzQe9mgaZNVJsRcnRCbGxs7IPYeeM+OfSmCJklwkd8RR01bGxs7Nuy29WZ9vdt8ssZs7YXNjY29nnsTSt/NvrNy4Y2XRVDCGxsbOwj2HnzKG/rtylnNgaeDYCfzLexsbGxb87OH86XYzZJaDYS2AwnsLGxsc9jXzUMaJ9NEk87Nih6adjY2Ng3Z7dFRT4kaJPQbCmnLVewsbGxz2bPBrGz4e6sbbRJh8WgFxsbG/tW7CQJ5cs9s+b+teGokxw2Njb2bdmz1n/bsp818WfhiBIYNjY29kHszT/6bfJIFnQ2C5rt+BkbGxv7DPamNTMrUfJGz+z+KCjY2NjYx7GTB/KPtW2pWXOqPS02Njb2qexZw+iqQmXTJNqEABsbG/sk9qO88slpe+jk/UnIopNgY2NjH8eelSVtwmvXgPIQ1Ms92NjY2Mex2wS2Sh6jwXA7uvgmfNjY2NgHsWcJIBkVJOntgm2jONyztIeNjY19F/aszJiB81Jkth6UD4axsbGxz2PnxUDS7rmqLNmUFtF8GxsbG/uXsfNSZJOu8hO24cbGxsbGbpv1P7d8k7/z4gSGjY2N/cHsFjNLOZtU1Caqb1IpNjY29kHs2aB3s3CzaWm1gwpsbGzso9l/ACGWbfHjL+xfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
