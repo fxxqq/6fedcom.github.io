@@ -19,25 +19,25 @@
     
     
     
-    <title>Hello Hexo Blog | 前端迷(Front-end fan)</title>
+    <title>reactjs中事件传参(关于event) | 前端迷(Front-end fan)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：">
-<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ye63.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+    <meta name="keywords" content="react">
+    <meta name="description" content="问题描述我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应1234567891011121314151617181920212223242526onHan">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Hexo Blog">
-<meta property="og:url" content="http://ye63.github.io/2015/09/03/hello-world/index.html">
+<meta property="og:title" content="reactjs中事件传参(关于event)">
+<meta property="og:url" content="http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/index.html">
 <meta property="og:site_name" content="前端迷(Front-end fan)">
-<meta property="og:description" content="本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：">
+<meta property="og:description" content="问题描述我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应1234567891011121314151617181920212223242526onHan">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-07T07:57:44.205Z">
+<meta property="og:updated_time" content="2018-09-10T07:21:40.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Hexo Blog">
-<meta name="twitter:description" content="本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：">
+<meta name="twitter:title" content="reactjs中事件传参(关于event)">
+<meta name="twitter:description" content="问题描述我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应1234567891011121314151617181920212223242526onHan">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
     
@@ -132,7 +132,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Hello Hexo Blog</div>
+        <div class="flex-col header-title ellipsis">reactjs中事件传参(关于event)</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -154,15 +154,13 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Hello Hexo Blog</h1>
+        <h1 class="title">reactjs中事件传参(关于event)</h1>
         <h5 class="subtitle">
             
-                <time datetime="2015-09-03T07:17:54.000Z" itemprop="datePublished" class="page-time">
-  2015-09-03
+                <time datetime="2018-09-10T07:06:44.000Z" itemprop="datePublished" class="page-time">
+  2018-09-10
 </time>
 
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo教程/">Hexo教程</a></li></ul>
 
             
         </h5>
@@ -179,22 +177,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#问题描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">问题描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#摘自"><span class="post-toc-number">2.</span> <span class="post-toc-text">摘自</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-hello-world"
+<article id="post-reactjs中事件传参-关于event"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Hello Hexo Blog</h1>
+        <h1 class="post-card-title">reactjs中事件传参(关于event)</h1>
         <div class="post-meta">
-            <time class="post-time" title="2015-09-03 15:17:54" datetime="2015-09-03T07:17:54.000Z"  itemprop="datePublished">2015-09-03</time>
+            <time class="post-time" title="2018-09-10 15:06:44" datetime="2018-09-10T07:06:44.000Z"  itemprop="datePublished">2018-09-10</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo教程/">Hexo教程</a></li></ul>
-
 
 
             
@@ -205,15 +201,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。<br>但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">onHandleChange(index,event)&#123;</span><br><span class="line">    <span class="keyword">let</span> val=event.target.value</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关键代码</span></span><br><span class="line">source.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;input type="text" value=&#123;item.name&#125; </span><br><span class="line">      onChange=&#123;this.onHandleChange.bind(this,index)&#125; /&gt;</span><br><span class="line">&#125;);</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">#### 代码解释</span><br><span class="line">有的同学应该已经看出区别了，onHandleChange在声明时有两个参数，但在调用时却只传递了一个参数，这就是今天要讲的:</span><br><span class="line"></span><br><span class="line">&gt; **在给方法传递新参数时，方法原有的参数会排在新参数之后**</span><br><span class="line"></span><br><span class="line">做过reactjs的同学都知道，event这个参数是不需要手动传递的，直接在方法中声明就可以使用，如下代码：</span><br><span class="line">```jsx</span><br><span class="line">onChangeHandle(event)&#123;</span><br><span class="line">      let val=event.target.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render()&#123;</span><br><span class="line">  return (&lt;div&gt;</span><br><span class="line">    &lt;input type="text" onChange=&#123;this.onChangeHandle.bind(this)&#125; /&gt;</span><br><span class="line">&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h4><blockquote>
+<p>作者：不将就人生<br>链接：<a href="https://www.jianshu.com/p/1026d71d04d6" target="_blank" rel="noopener">https://www.jianshu.com/p/1026d71d04d6</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+</blockquote>
 
         </div>
 
@@ -222,12 +213,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-07T07:57:44.205Z" itemprop="dateUpdated">2018-09-07 15:57:44</time>
+    Last updated: <time datetime="2018-09-10T07:21:40.294Z" itemprop="dateUpdated">2018-09-10 15:21:40</time>
 </span><br>
 
 
         
-        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/" target='_blank'>编辑《Hello Hexo Blog》这篇文章</a>
+        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/115" target='_blank'>编辑《reactjs中事件传参(关于event)》这篇文章</a>
         
     </div>
     
@@ -248,6 +239,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -256,7 +249,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2015/09/03/hello-world/&title=《Hello Hexo Blog》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/&title=《reactjs中事件传参(关于event)》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -266,22 +259,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2015/09/03/hello-world/&title=《Hello Hexo Blog》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/&title=《reactjs中事件传参(关于event)》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2015/09/03/hello-world/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello Hexo Blog》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2015/09/03/hello-world/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《reactjs中事件传参(关于event)》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/&via=http://ye63.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2015/09/03/hello-world/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -301,16 +294,16 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">怎么把数组倒置，又不影响原来数组，reverse不行</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.</h4>
+      </a>
+    </div>
   
 </nav>
 
@@ -429,7 +422,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2015/09/03/hello-world/&title=《Hello Hexo Blog》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/&title=《reactjs中事件传参(关于event)》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -439,22 +432,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2015/09/03/hello-world/&title=《Hello Hexo Blog》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/&title=《reactjs中事件传参(关于event)》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2015/09/03/hello-world/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello Hexo Blog》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2015/09/03/hello-world/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《reactjs中事件传参(关于event)》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/&via=http://ye63.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2015/09/03/hello-world/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/10/reactjs中事件传参-关于event/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -465,7 +458,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aS3KDMBAFQN//0mTrlAO80cipQmpWLgdLahaT+fB6xdfxdr1/c3bP53V959kuky8MDIzHMpLtq3/9XD/5nO/7BxUDA2MDxlkEu77nep2bjYfC+un3GBgYGMVDVENwEpQxMDAwckaUqMXBNE8lMTAwMJIytbpNtXzNHxkGBsZujLzr/v+fvzLfwMDAeBTjKF79VHLWSX6tiYGBsTSj00rLi9VO4ljYBQMDY2lG0g4rtL3iYWT+TXInBgbGzowkCObJYmdUGWEwMDCWYySvRHRK3HzNsdI3ylsxMDAezsgTtc6WYweqJqMYGBirMsZa9tWEclaCWGixYWBgLMf4XrOsU+6Wi1gMDIzNGJ1wPBZwkztPz4aBgbENIy9i81Sv/9JG9FsMDIylGdUAmpOSdfovYWBgYOzAyLccC5HVBtzgKAIDA2Mbxqw0rlqOjrXnCtU2BgbGwxlJa37sKEn4vl55wjgTAwNjA0b/ddUk+UtGp4VaHAMDY1HGWPFZxfdXvkkcMTAwNmB0hpRjgTgP09FvMTAwNmBUU7GkZZ8fMSmPb2AYGBiLMo7ilQfQwgCyUfRiYGDswKhOBjvIsRfFxh4EBgbGeoz+4WbFvVbIxsDA2IAxK/BdN+P6j+N0NQwMDIy4AZcgxwafUdMNAwMDozgkqI4z85HA5P8bGBgYD2H0X7moNulmJYgYGBg7MPKfVVPDQgnaCLsYGBhLM34AHjPk8+t5Xy0AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpElEQVR42u3aUY7CMAwFQO5/afYAqOXZjoGVpl8rtpRMkBLznMcjvp4vV3Ln1Xtf/zv/3NGFh4eHNx76/RBf33v/99X9+XRcPf9+zHh4eHjbvPuh5B+Tv55McTKeNxY8PDy8H+DNwTnp/r14eHh4/4WXDzpJCSafi4eHh/ddXjVsrYYXSbhwj1zPWvDw8PBiXt5F+p2/V/p7eHh4eOOuevW4wKnpOzZaPDw8vAXe2UdPiulqjJuMEw8PD2+Dlzf+kzCi2rjqHTgobFR4eHh4a7zJr/tk4e4hk0bXm/Hj4eHhLfBOkebl8qlBH4h68fDw8GJer4zuRb35AYWkCRd9b3h4eHiHeFVGXtpOgozkv9E04eHh4S3zek2mhN0rxJNy+c2T8fDw8NZ4vYNNeWnbK8QPHD7Aw8PDW+DlC/FkiJNFvzeheHh4eHu83iGn/BBAdWrm7bQ3YQQeHh7eAq/XjqquyXnRXA07Cj09PDw8vBYvL4Lnm0fvUEI+tvL5CDw8PLwxr/roU+Vyb/ryrwcPDw/vLK/avqrGu71yPJnQ0dEBPDw8vDEv3wZ6rf3ewdZCxHDFxsPDw1vgVWOIfLHuTVwe45Y3Gzw8PLw13qS5ld9f3UJ6T8DDw8P7DC/fGDb6b70YN7oTDw8P7yivutROIoxe6dzcDPDw8PCWedWluXc4oLcZ3I+w+VsBDw8P7xCv+kq+QOetr+pVCHDx8PDwxrxn8crL3OoWcmo6Lg9d4eHh4R3iVRffPJKYT0FyPx4eHt63ePMIIK9j50cEyiEyHh4e3hqv1znKA9kDqUlrA8PDw8P7BV6yDVTT1GpzKw+L8fDw8H6BNymp5/jkmXh4eHif4c0fPY9rq2FuYWPAw8PDO8rrxQT5Et/bMCYjwcPDw1vj/QHizfk+xuzPIAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
