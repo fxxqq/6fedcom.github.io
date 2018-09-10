@@ -1,6 +1,8 @@
 ---
 title: javascript截取文件名的后缀
 date: 2018-09-06 19:22:37
+categories: "前端" 
+issues: 112
 tags: [js代码片段]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Hello Hexo Blog
 date: 2015-09-03 15:17:54
+categories: "Hexo教程" 
 tags:
      
 description: 本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：
