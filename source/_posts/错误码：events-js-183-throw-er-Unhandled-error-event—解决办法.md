@@ -2,7 +2,7 @@
 title: '错误码：events.js:183 throw er; // Unhandled ''error'' event—解决办法'
 date: 2018-08-30 22:48:30
 tags: 
-    - html5
+    - npm
 issues: 109
 ---
 
