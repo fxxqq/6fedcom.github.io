@@ -26,18 +26,18 @@
     
     
     <meta name="keywords" content="前端优化">
-    <meta name="description" content="前端开发爱好者frank的工作笔记">
+    <meta name="description" content="配置：安装VsCode的EsLint和vetur插件为项目安装EsLint包注意要安装在开发环境上，还有就是如果你使用的是脚手架的话，选了Eslint选项，会自带这些包。 在项目的根目录下添加.eslintrc.js用于校验代码格式，根据项目情况，可自行编写校验规则：123module.exports = &amp;#123;    // Eslint规则&amp;#125; 首选项设置：将下面这部分放入首选项设">
 <meta name="keywords" content="前端优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VsCode读取项目文件的Eslint规则 保存时自动修复格式错误">
 <meta property="og:url" content="http://ye63.github.io/2018/09/19/VsCode读取项目文件的Eslint规则-保存时自动修复格式错误/index.html">
 <meta property="og:site_name" content="前端迷(Front-end fan)">
-<meta property="og:description" content="前端开发爱好者frank的工作笔记">
+<meta property="og:description" content="配置：安装VsCode的EsLint和vetur插件为项目安装EsLint包注意要安装在开发环境上，还有就是如果你使用的是脚手架的话，选了Eslint选项，会自带这些包。 在项目的根目录下添加.eslintrc.js用于校验代码格式，根据项目情况，可自行编写校验规则：123module.exports = &amp;#123;    // Eslint规则&amp;#125; 首选项设置：将下面这部分放入首选项设">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-19T02:14:49.132Z">
+<meta property="og:updated_time" content="2018-09-19T02:28:38.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VsCode读取项目文件的Eslint规则 保存时自动修复格式错误">
-<meta name="twitter:description" content="前端开发爱好者frank的工作笔记">
+<meta name="twitter:description" content="配置：安装VsCode的EsLint和vetur插件为项目安装EsLint包注意要安装在开发环境上，还有就是如果你使用的是脚手架的话，选了Eslint选项，会自带这些包。 在项目的根目录下添加.eslintrc.js用于校验代码格式，根据项目情况，可自行编写校验规则：123module.exports = &amp;#123;    // Eslint规则&amp;#125; 首选项设置：将下面这部分放入首选项设">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
     
@@ -174,6 +174,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置："><span class="post-toc-number">1.</span> <span class="post-toc-text">配置：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装VsCode的EsLint和vetur插件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装VsCode的EsLint和vetur插件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#为项目安装EsLint包"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">为项目安装EsLint包</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#在项目的根目录下添加-eslintrc-js"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">在项目的根目录下添加.eslintrc.js</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#大功告成："><span class="post-toc-number"></span> <span class="post-toc-text">大功告成：</span></a>
+        </nav>
+    </aside>
+
 
 <article id="post-VsCode读取项目文件的Eslint规则-保存时自动修复格式错误"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -194,7 +201,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h4 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h4><h5 id="安装VsCode的EsLint和vetur插件"><a href="#安装VsCode的EsLint和vetur插件" class="headerlink" title="安装VsCode的EsLint和vetur插件"></a>安装VsCode的EsLint和vetur插件</h5><h5 id="为项目安装EsLint包"><a href="#为项目安装EsLint包" class="headerlink" title="为项目安装EsLint包"></a>为项目安装EsLint包</h5><p>注意要安装在开发环境上，还有就是如果你使用的是脚手架的话，选了Eslint选项，会自带这些包。</p>
+<h5 id="在项目的根目录下添加-eslintrc-js"><a href="#在项目的根目录下添加-eslintrc-js" class="headerlink" title="在项目的根目录下添加.eslintrc.js"></a>在项目的根目录下添加.eslintrc.js</h5><p>用于校验代码格式，根据项目情况，可自行编写校验规则：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// Eslint规则</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首选项设置：<br>将下面这部分放入首选项设置中：</p>
+<pre><code class="js"><span class="string">"eslint.autoFixOnSave"</span>: <span class="literal">true</span>,  <span class="comment">//  启用保存时自动修复,默认只支持.js文件</span>
+<span class="string">"eslint.validate"</span>: [
+   <span class="string">"javascript"</span>,  <span class="comment">//  用eslint的规则检测js文件</span>
+   {
+     <span class="string">"language"</span>: <span class="string">"vue"</span>,   <span class="comment">// 检测vue文件</span>
+     <span class="string">"autoFix"</span>: <span class="literal">true</span>   <span class="comment">//  为vue文件开启保存自动修复的功能</span>
+   },
+   {
+     <span class="string">"language"</span>: <span class="string">"html"</span>,
+     <span class="string">"autoFix"</span>: <span class="literal">true</span>
+   },
+ ],
+
+</code></pre>
+<h3 id="大功告成："><a href="#大功告成：" class="headerlink" title="大功告成："></a>大功告成：</h3><p>点开文件，你可能会看到如下报错，无需一个一个去改，只要保存一下文件，就可以自动修复这些代码格式上的问题了。</p>
+<blockquote>
+<p>注意：<br>如果整个文件都飘红的话，不会一次性修改如果的格式问题，会一下改一部分，你可能需要多按几次保存。</p>
+</blockquote>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -202,7 +230,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-19T02:14:49.132Z" itemprop="dateUpdated">2018-09-19 10:14:49</time>
+    Last updated: <time datetime="2018-09-19T02:28:38.795Z" itemprop="dateUpdated">2018-09-19 10:28:38</time>
 </span><br>
 
 
