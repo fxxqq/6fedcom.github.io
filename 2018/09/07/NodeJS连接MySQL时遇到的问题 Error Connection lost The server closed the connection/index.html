@@ -18,11 +18,13 @@
     
     
     
+    <link rel="canonical" href="ture/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/">
     
-    <title>NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection. | 前端迷(Front-end fan)</title>
+    
+    <title>NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection. | 前端迷 (front-end fan)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#006fbc">
     
     
     <meta name="keywords" content="node">
@@ -30,22 +32,22 @@
 <meta name="keywords" content="node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.">
-<meta property="og:url" content="http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/index.html">
-<meta property="og:site_name" content="前端迷(Front-end fan)">
+<meta property="og:url" content="http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/index.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="今天用NodeJS连接Mysql时遇到点折磨人的问题，记录下解决方法。 NodeJS和Mysql都已经正确安装了，但是NodeJS和Mysql的连接出现问题，查找网上一些解决办法都不能解决问题。报错如下：                                                                                             image">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45206239-1cfe7e80-b2b7-11e8-96d3-c104fa5c7b14.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45206324-520ad100-b2b7-11e8-8814-8d6d5b2fb7ae.png">
-<meta property="og:updated_time" content="2018-09-11T07:43:09.047Z">
+<meta property="og:updated_time" content="2018-09-20T03:46:25.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.">
 <meta name="twitter:description" content="今天用NodeJS连接Mysql时遇到点折磨人的问题，记录下解决方法。 NodeJS和Mysql都已经正确安装了，但是NodeJS和Mysql的连接出现问题，查找网上一些解决办法都不能解决问题。报错如下：                                                                                             image">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/22697565/45206239-1cfe7e80-b2b7-11e8-96d3-c104fa5c7b14.png">
     
-        <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/note/atom.xml">
     
-    <link rel="shortcut icon" href="/img/green.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/note/img/blue.ico">
+    <link rel="stylesheet" href="/note/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -61,10 +63,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/note/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/note/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/note/img/avatar.gif">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">frank</h5>
@@ -73,33 +75,34 @@
       </div>
     </div>
     <div class="scroll-wrap flex-col">
+        <img src="/note/img/qrcode.png">
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/note/"  >
                 <i class="icon icon-lg icon-home"></i>
-                Home
+                主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/note/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
-                Tags
+                标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/note/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                Categories
+                目录
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/note/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                Archives
+                归档
               </a>
             </li>
         
@@ -111,20 +114,14 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/share"  >
-                <i class="icon icon-lg icon-share"></i>
-                好文分享
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://ye63.com/jy" target="_blank" >
+              <a href="https://github.com/ye63/ye63.github.io/issues"  >
                 <i class="icon icon-lg icon-link"></i>
-                简约风格
+                issues
               </a>
             </li>
         
       </ul>
+ 
     </div>
   </div>
 </aside>
@@ -165,7 +162,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/note/categories/前端/">前端</a></li></ul>
 
             
         </h5>
@@ -189,7 +186,7 @@
             <time class="post-time" title="2018-09-07 15:54:30" datetime="2018-09-07T07:54:30.000Z"  itemprop="datePublished">2018-09-07</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/note/categories/前端/">前端</a></li></ul>
 
 
 
@@ -229,33 +226,29 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-11T07:43:09.047Z" itemprop="dateUpdated">2018-09-11 15:43:09</time>
+    Last updated: <time datetime="2018-09-20T03:46:25.524Z" itemprop="dateUpdated">2018-09-20 11:46:25</time>
 </span><br>
 
 
         
-        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/114" target='_blank'>编辑《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》这篇文章</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" target="_blank" rel="external">http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/</a>
         
     </div>
     
     <footer>
-        <a href="http://ye63.github.io">
-            <img src="/img/avatar.jpg" alt="frank">
+        <a href="http://ye63.github.io/note">
+            <img src="/note/img/avatar.gif" alt="frank">
             frank
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/note/tags/node/">node</a></li></ul>
 
 
             
@@ -265,7 +258,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&pic=http://ye63.github.io/note/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -275,22 +268,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ye63.github.io/note" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -313,18 +306,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/09/10/前端周刊-2018年09月第2周/" id="post-prev" class="post-nav-link">
+      <a href="/note/2018/09/10/ES6-基础-【好文分享】/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">前端周刊-2018年09月第2周</h4>
+        <h4 class="title">前端开发周刊-(2018年09月第2周)</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/09/07/小邵教你玩转es6/" id="post-next" class="post-nav-link">
+      <a href="/note/2018/09/07/使用hexo搭建github-io博客/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">ES6学习笔记</h4>
+        <h4 class="title">使用hexo搭建github.io博客</h4>
       </a>
     </div>
   
@@ -361,7 +354,8 @@
             appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
             appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
             avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            qrcode: "",
+            placeholder: "Just go go",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
@@ -376,32 +370,6 @@
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
-
 
 
 </div>
@@ -411,26 +379,32 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        站点总访客数：1881<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：81<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：274<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span><a href="/note/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>
+                This blog is licensed under a <a rel="license">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>frank &copy; 2014 - 2018</span>
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
             <span>
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="javascript:;" target="_blank">indigo</a>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
             </span>
         </p>
     </div>
@@ -445,7 +419,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&pic=http://ye63.github.io/note/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -455,22 +429,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ye63.github.io/note" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -481,7 +455,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEi0lEQVR42u3aSXLDRhAEQP3/0/TVBxOq6gYdHChxUnABZxKKmN5+fuLr9a/r+t3kk+9eeQXX9XeTlb/75A0XJkyYMGH6SqZkWclyrxfULu76u/makztHjxkTJkyYMB3OlC+0PYY36ElI0QYxLSUmTJgwYfqbTMm289fbd9ugoU2DMWHChAnTX2Zqq6D5YX9XAtyGJpgwYcKE6S8wtbfbtx7bZDi/T/IIP1gLx4QJEyZMX8a0OZhP//sj802YMGHChOlrmF7ltR+jmTU486bm6wMXJkyYMGE6l2lWwG2X3qap1/fM25azXbz9JCZMmDBhOpxpUx7dtxiTzczapW0ogwkTJkyYns2U3zQ/tvOkd5bizj6ZP3JMmDBhwnQuUzIQk7++GbVJ7pyvth0k+oUeEyZMmDAdy9SmlJsDftOw3DdZ81Gkt+EFJkyYMGE6lumu4dQ8oU2S1VmrNX/As9YpJkyYMGE6lyk5sPODuT2eP3FUt7so/mswYcKECdNRTO2BOivO5neepcF5kJGXhjFhwoQJ07OZ8gM1P7DbtmKbTrdN03zcBxMmTJgwnciUNzJnhdG7Rn/y8Zq8mVqMEGHChAkTpocyzYKD9ltt03Q/6FPvFBMmTJgwHcuUH/nJoZ4P8bSss3JzOzz0y3owYcKECdMjmHKCtoTasuYBR160Te7/Nv3GhAkTJkyPYMrHVTdHbNukzEOW4oAvk3NMmDBhwnQ6U5J8zgZl8kXPCrhtqpz/1g23w4QJEyZMX8D0iQVtEuDikB6tfLYvTJgwYcJ0IlNe4szfvWuTsxS3DUSiXWDChAkTpsOZriH2gzh3jfLsm5fDsSFMmDBhwnQ4U9u2zIdvkisvH7eNyVk7FhMmTJgwPYmpTUqTdDFPYpMS7azpmAQBbQqNCRMmTJjOZfpE8/Je3DwxbsOU+vTHhAkTJkxHMbVF0s1gzW3NxVvHfRJQTJgwYcJ0LtNsobMCbtvOzMOCWQt2WOTFhAkTJkwHMrWI0bBLgNsezHk6nZNtWq2YMGHChOksprypeW+TMm80tt/K0+aiaYoJEyZMmB7HlB+rbSK6DyNmAcGmKYsJEyZMmE5nShp+nyPLD/U2IGgfzE8RI2DChAkTpm9naoHyDbRAeSLdbrUNCP7jW5gwYcKE6UCmDcGstNqWgNtAYb+Gt/9HmDBhwoTpWKbkIM9vnYcIeWrajhAVGX8SUmDChAkTpscxtU3Ndumbd2cNzllDFBMmTJgwPYnpE63HvJXYNiOjIZtZXzevgmPChAkTpq9nahf9fyais4JsyzfbOyZMmDBhOoXpVV6bxDV/pX0AmzBl2PXFhAkTJkyHMLWHcbKZ65/fpKbtna/vsw9QMGHChAnTKUxJELA5vDel3nyrd/3WL01NTJgwYcJ0LNPmkJ4lvW359a6S9ComwoQJEyZMf4BpU97dZ5f5715/Mnm9mHLChAkTJkyPY2rT1DY4uLfReMOoKyZMmDBhOpwpb1jOFpQ3MtsS8yxFb0MQTJgwYcJ0LtOswpmPeLYDpkmBuH1Um/YnJkyYMGE6lukfpXCgYfzVfbwAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEhUlEQVR42u3aS27jSBAFQN//0m5gVtNwS3ovkwZUVHBlWHKRFTRQ+fv6iq/v/67///zz+vnpo+8/Wj9Zc/b7n59+/caFCRMmTJjekun76ZUw5es/f9Dnq10FkazzjxUwYcKECdPhTMlys022x3nyV+1dkn292AsmTJgwYfoApuSgnR3GbZLcvp4LQhNMmDBhwvQBTO1B/nxjbbE1eZ5Z+RgTJkyYMH0CU9ukzAOCWTuzTVzzZ/v1WjgmTJgwYXozpv1hfO7PF1+YMGHChOnNmL5HV5Li5kM2s3Q6D0Qu2C8mTJgwYTqWaVZy3dx+H460n+5bm5gwYcKE6XSmurE3KssmAcSmTHzV91/862DChAkTpmOZ8uGbNgFuma4dD9p/igkTJkyYzmXaDOLkEPm7au+4f6ooqcaECRMmTDdiaoues1bibIXZgNEFjVVMmDBhwnQsU9uSnJV6N8M617YnZwk2JkyYMGE6nWmWms5agJsmaMs6K0zX80qYMGHChOkQptnmN4fujDhJd9t/i+g7mDBhwoTpQKb80G0HZWZH++zuVzVNX7QzMWHChAnTsUyb43Z2wM9ew36dvHiNCRMmTJjuwdSmpnmqOTukN6XnnKl9/ZgwYcKE6R5M+UhNciTnG8jvtRkDygOdhytgwoQJE6ZbMM023LYM96XeWRCTp8S1KyZMmDBhekumWRLbtifbsGMzfNOuGT0zJkyYMGE6lmmfNObHcL5+27DMh4RmyTAmTJgwYTqdKWkN5uXa2SZnaXBS/B3WA55jYcKECROmQ5g2BdNZQ3RTnE2O+fxVrSabMGHChAnTgUztwdmmuO0Ks03OitQvIiZMmDBhwnQsUz5q0xaF88GdWcF3tvkWFBMmTJgw3YNpkwDPBmXyR2zLx+1YzzB6woQJEyZMhzAlBEUxtCy25kMzs7/dYP31G0yYMGHCdCzTrAG5J5sFB/nLyPdVPyEmTJgwYTqWqT1oZ2Q5/b4JetUKmDBhwoTpTkybUGD2nTYEaRulm8IxJkyYMGG6B9PsiG0bjUlS2l6z++bhDiZMmDBhuivTrDE5S4Pbh86L0W3TNJpvwoQJEyZMRzHlG9snnO1dknw9SZhnJeCH/0eYMGHChOkoprzpuB92SQ7sdvNtENM2UzFhwoQJ0ycwbTa/GcdpQ4S8lHxZKIAJEyZMmA5h2iSKVyXAm+P5qkbmi08xYcKECdOBTPt24P6Qzv8qP+AvTn0xYcKECdMtmJIsr21StonotQXlWTKPCRMmTJjuxNQet22S2b6etui8GYpdPSEmTJgwYTqE6bu8ZgltEljsh3JyuPpemDBhwoTpWKbNYTxbOtnMbOQ0D1AupsGECRMmTG/PlAcBVzUdZ4d0Hmok5eO20IwJEyZMmE5nmgUBvz2Emhz8Lf2wAI0JEyZMmD6GqW0uzkZ/9mOsz79fhAKYMGHChOljmGYpcTtks2ms5kFDXW7GhAkTJkyHM101rJMUVdsG5KY5Ois6r9qZmDBhwoTpzZg2pc+2DTkrvG6K0XkocwEcJkyYMGF6L6Y/as4FtquCBB0AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -489,12 +463,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/note/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/note/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -514,7 +488,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/note/js/search.min.js?v=1.7.2" async></script>
 
 
 

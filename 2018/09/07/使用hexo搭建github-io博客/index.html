@@ -18,11 +18,13 @@
     
     
     
+    <link rel="canonical" href="ture/note/2018/09/07/使用hexo搭建github-io博客/">
     
-    <title>使用hexo搭建github.io博客 | 前端迷(Front-end fan)</title>
+    
+    <title>使用hexo搭建github.io博客 | 前端迷 (front-end fan)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#006fbc">
     
     
     <meta name="keywords" content="">
@@ -30,8 +32,8 @@
 <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ye63.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo搭建github.io博客">
-<meta property="og:url" content="http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/index.html">
-<meta property="og:site_name" content="前端迷(Front-end fan)">
+<meta property="og:url" content="http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/index.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="Introduction 回顾一下我三年搭建博客的历程，最初是选择wordpress，Wordpress全部由php编写，数组库采用MySQL。优点：用户只需要将Wordpress的源代码复制到网站根目录下，然后访问网站，之后的安装操作全部在浏览器上完成。即使不是软件行业的人，也可以在几分钟之内完成安装工作。甚至很多虚拟主机供应商都提供了Wordpress的一键式安装工具。用户连上传文件的步骤都省">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45201116-7ca05e00-b2a6-11e8-8e6c-8658ee49dc8f.png">
@@ -39,16 +41,16 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45201369-a73ee680-b2a7-11e8-9c20-8a347e477f0b.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45201445-f7b64400-b2a7-11e8-91d2-704c587815a6.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45201608-c0946280-b2a8-11e8-94f4-f091267ce8d7.png">
-<meta property="og:updated_time" content="2018-09-11T07:43:09.092Z">
+<meta property="og:updated_time" content="2018-09-20T03:46:25.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo搭建github.io博客">
 <meta name="twitter:description" content="Introduction 回顾一下我三年搭建博客的历程，最初是选择wordpress，Wordpress全部由php编写，数组库采用MySQL。优点：用户只需要将Wordpress的源代码复制到网站根目录下，然后访问网站，之后的安装操作全部在浏览器上完成。即使不是软件行业的人，也可以在几分钟之内完成安装工作。甚至很多虚拟主机供应商都提供了Wordpress的一键式安装工具。用户连上传文件的步骤都省">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/22697565/45201116-7ca05e00-b2a6-11e8-8e6c-8658ee49dc8f.png">
     
-        <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/note/atom.xml">
     
-    <link rel="shortcut icon" href="/img/green.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/note/img/blue.ico">
+    <link rel="stylesheet" href="/note/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -64,10 +66,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/note/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/note/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/note/img/avatar.gif">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">frank</h5>
@@ -76,33 +78,34 @@
       </div>
     </div>
     <div class="scroll-wrap flex-col">
+        <img src="/note/img/qrcode.png">
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/note/"  >
                 <i class="icon icon-lg icon-home"></i>
-                Home
+                主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/note/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
-                Tags
+                标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/note/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                Categories
+                目录
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/note/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                Archives
+                归档
               </a>
             </li>
         
@@ -114,20 +117,14 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/share"  >
-                <i class="icon icon-lg icon-share"></i>
-                好文分享
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://ye63.com/jy" target="_blank" >
+              <a href="https://github.com/ye63/ye63.github.io/issues"  >
                 <i class="icon icon-lg icon-link"></i>
-                简约风格
+                issues
               </a>
             </li>
         
       </ul>
+ 
     </div>
   </div>
 </aside>
@@ -168,7 +165,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo教程/">Hexo教程</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/note/categories/Hexo教程/">Hexo教程</a></li></ul>
 
             
         </h5>
@@ -199,7 +196,7 @@
             <time class="post-time" title="2018-09-07 10:57:11" datetime="2018-09-07T02:57:11.000Z"  itemprop="datePublished">2018-09-07</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo教程/">Hexo教程</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/note/categories/Hexo教程/">Hexo教程</a></li></ul>
 
 
 
@@ -280,28 +277,24 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-11T07:43:09.092Z" itemprop="dateUpdated">2018-09-11 15:43:09</time>
+    Last updated: <time datetime="2018-09-20T03:46:25.540Z" itemprop="dateUpdated">2018-09-20 11:46:25</time>
 </span><br>
 
 
         
-        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/113" target='_blank'>编辑《使用hexo搭建github.io博客》这篇文章</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/2018/09/07/使用hexo搭建github-io博客/" target="_blank" rel="external">http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/</a>
         
     </div>
     
     <footer>
-        <a href="http://ye63.github.io">
-            <img src="/img/avatar.jpg" alt="frank">
+        <a href="http://ye63.github.io/note">
+            <img src="/note/img/avatar.gif" alt="frank">
             frank
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -314,7 +307,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷 (front-end fan)&pic=http://ye63.github.io/note/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -324,22 +317,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo搭建github.io博客》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo搭建github.io博客》 — 前端迷 (front-end fan)&url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/&via=http://ye63.github.io/note" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -362,16 +355,16 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/09/07/小邵教你玩转es6/" id="post-prev" class="post-nav-link">
+      <a href="/note/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">ES6学习笔记</h4>
+        <h4 class="title">NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/09/06/javascript截取文件名的后缀/" id="post-next" class="post-nav-link">
+      <a href="/note/2018/09/06/javascript截取文件名的后缀/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">javascript截取文件名的后缀</h4>
       </a>
@@ -410,7 +403,8 @@
             appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
             appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
             avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            qrcode: "",
+            placeholder: "Just go go",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
@@ -425,32 +419,6 @@
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
-
 
 
 </div>
@@ -460,26 +428,32 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        站点总访客数：1881<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：81<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：274<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span><a href="/note/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>
+                This blog is licensed under a <a rel="license">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>frank &copy; 2014 - 2018</span>
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
             <span>
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="javascript:;" target="_blank">indigo</a>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
             </span>
         </p>
     </div>
@@ -494,7 +468,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷 (front-end fan)&pic=http://ye63.github.io/note/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -504,22 +478,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/&title=《使用hexo搭建github.io博客》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo搭建github.io博客》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo搭建github.io博客》 — 前端迷 (front-end fan)&url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/&via=http://ye63.github.io/note" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/使用hexo搭建github-io博客/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/note/2018/09/07/使用hexo搭建github-io博客/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -530,7 +504,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3ay27jMAwF0Pz/T7fbAYrIlw9lsjheFUUs8ziAxJB8veLrp3j9vevf/7xb/90Tz/cuXHh4eHiroZ8fdn78ebX8xVXvwsPDw/sM77xZ9z6Tb+Xn0Hvx4OHh4X0bb/5Skm09oeLh4eF9P++83SfJ9/y5eHh4eN/AywsBZ8w8Hc9Lusu1Fjw8PLyY1ysW/N+/r/T38PDw8K4NBOSbdXJ45Bt6OVo8PDy8C7x8w62288+wvAHWWwcPDw/vk7z85/3tbb1a5nibfOPh4eGt8iYt/Co+b4NNRrXWJhTw8PDwjnclKXIvLZ4n5dVX8DAZgYeHh7fES5bIxwt6B0Yew6gZhoeHh7fEO390Um6YBJqv8xAhHh4e3iovT5qrB0M13N6m/0DFw8PDu8BLUuo88c2PkOqVlzDw8PDwbvOqBYVqeSIvQFS/jULrCw8PD+8Cb7fMOi/L5u2xBzweHh7eBd6kqV9NnauBVksS0emHh4eHN+b1EtxqEysPN0/No5eCh4eHd4GXB5Qvkd+1UHvunYF4eHh4Y14ebpIc92CToauHQwUPDw/vg7xkfKpXwuglx8lQ19vfDXh4eHhLvGpBIS/UJuMFu4VjPDw8vM/wkiAmafS8bVYdQcDDw8P7DC9faLJlV8HVFx0VfPHw8PCWeHmTaR7WVkk3WRkPDw/vNq/aZKqWMPKDITlICqk5Hh4e3jXeaAx03B7rFSmi4woPDw9vlfdTvHqkPB3Pk+8kocfDw8O7watuvtWlq8WIZIVJIw0PDw9vi9cbHUjY1XfcG0d4OBLw8PDwrvF67a551TQvBPeejoeHh/cNvPwY6MGqbbmHl4KHh4f3ZbzeWFV1dCBP/V/5CYOHh4c35m2NOk1qybtjBHh4eHj3eJMCa9IS67XTcvBCrw8PDw8vfcovILX33V68WoIAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACyElEQVR42u3awW7rMAwEwPz/T7fAOxVo7e6SVvMO41MQ2JZGAUSG1OsVXx//rq+fr67v9189dXXn/bivExceHh7eaOr5dK+GuSLdj3L//vv779+Jh4eHd5rXBoPv3yeb+9VT7T35EuPh4eG9l9dOPQkV98vUJuJ4eHh4/xsv2crzqd+/OX8/Hh4e3rt4SbEg2b5nxdk2OB2pteDh4eHFvFkD7L2fj/f38PDw8EZd9Vmzqt248yBUzxYPDw/vAC8pK7SFg5yUv39WHMHDw8M7x8ub9+2rE1h7MCtJrKNaNR4eHt6Cl2/fbWF3c6hrlpRfptR4eHh4j/Ly+mdbNd2nxW14wMPDwzvN23TM8sJrshybJlzzxwEPDw9vy5v12TdTbANJ/mMMYx0eHh7eiNeWIfYBY7a4wwYbHh4e3gFeW4ZoW2JJ+aANFbNFxMPDw9vzNsWIZCOeFXPbdPxIrQUPDw+vvLWdVpL47kPLau3x8PDwHuK1jfx86u0xgpYUHW7Aw8PDO8DL0+JZGTff+vNFHy4NHh4e3kO8tkDQprltityGnF9+Bjw8PLw/5OV9s7Y80S5fvsQ/jIuHh4d3gJc3wzYJ9yyczI5qDXt9eHh4eOWds622TYuHp8DKysrwfwMeHh5ezMsbYPtW1uZYQHJAYXV0AA8PD2/Ey0sMm3ZXXrDYzAoPDw/vXbyoyTRajg2jOEaAh4eHd4CXDNkeDG2374/gavF4eHh453izRPlcMaIoNCRj4eHh4R3mtRt0nijPDmMl5Yxflg8PDw/vAC+/kjCQT2WW+yeAPJzg4eHhbXhPvbpNypOlaQ8Q/DAuHh4e3jHerCDbPtvC8qW8fAoPDw/vrbzZhr5Jstsi8iow4OHh4R3jzUoMs/R9lrKvAgMeHh7eo3XOWTDY1JLzJYjOlOHh4eE9xGsbYPkAeZDIefXU8fDw8J7kfQLB6+4DFWI65AAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -538,12 +512,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/note/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/note/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -563,7 +537,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/note/js/search.min.js?v=1.7.2" async></script>
 
 
 
