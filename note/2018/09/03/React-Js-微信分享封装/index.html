@@ -18,30 +18,32 @@
     
     
     
+    <link rel="canonical" href="ture/2018/09/03/React-Js-微信分享封装/">
     
-    <title>React Js 微信分享封装 | 前端迷(Front-end fan)</title>
+    
+    <title>React Js 微信分享封装 | 前端迷 (front-end fan) | 欢迎投稿，投稿QQ：188105274(微信，邮箱同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="React">
+    <meta name="keywords" content="react">
     <meta name="description" content="本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：">
-<meta name="keywords" content="React">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Js 微信分享封装">
-<meta property="og:url" content="http://ye63.github.io/2018/09/03/React-Js-微信分享封装/index.html">
-<meta property="og:site_name" content="前端迷(Front-end fan)">
+<meta property="og:url" content="http://ru23.github.io/2018/09/03/React-Js-微信分享封装/index.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-07T09:24:03.183Z">
+<meta property="og:updated_time" content="2018-09-21T08:08:07.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Js 微信分享封装">
 <meta name="twitter:description" content="本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：">
     
-        <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/img/green.ico">
+    <link rel="shortcut icon" href="/img/blue.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -61,7 +63,7 @@
     <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+          <img src="/img/avatar.gif">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">frank</h5>
@@ -70,58 +72,53 @@
       </div>
     </div>
     <div class="scroll-wrap flex-col">
+        <img src="/img/qrcode.png">
       <ul class="nav">
         
             <li class="waves-block waves-effect">
               <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
-                Home
+                主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
-                Tags
+                标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                Categories
+                目录
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                Archives
+                归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ye63" target="_blank" >
+              <a href="https://github.com/ru23" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/share"  >
-                <i class="icon icon-lg icon-share"></i>
-                好文分享
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://ye63.com/jy" target="_blank" >
+              <a href="https://github.com/ru23/ru23.github.io/issues"  >
                 <i class="icon icon-lg icon-link"></i>
-                简约风格
+                issues
               </a>
             </li>
         
       </ul>
+ 
     </div>
   </div>
 </aside>
@@ -162,8 +159,6 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
-
             
         </h5>
     </div>
@@ -176,13 +171,6 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Introductions"><span class="post-toc-number">1.</span> <span class="post-toc-text">Introductions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">2.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分享功能"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">分享功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分享配置"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">分享配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开启分享"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">开启分享</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
 
 <article id="post-React-Js-微信分享封装"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -193,8 +181,6 @@
             <time class="post-time" title="2018-09-03 15:17:54" datetime="2018-09-03T07:17:54.000Z"  itemprop="datePublished">2018-09-03</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
-
 
 
             
@@ -205,10 +191,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="Introductions"><a href="#Introductions" class="headerlink" title="Introductions"></a>Introductions</h2><p>本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="分享功能"><a href="#分享功能" class="headerlink" title="分享功能"></a>分享功能</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Fetch <span class="keyword">from</span> <span class="string">'./FetchIt'</span>;</span><br><span class="line"><span class="keyword">import</span> API_URL <span class="keyword">from</span> <span class="string">'./url'</span>;</span><br><span class="line"><span class="keyword">import</span> Share <span class="keyword">from</span> <span class="string">'./Share'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> wxUtils = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 分享</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> getshareinfo?type=</span></span><br><span class="line"><span class="comment"> type :goods 课程详情 team 团详情</span></span><br><span class="line"><span class="comment"> id 课程id</span></span><br><span class="line"><span class="comment"> tid 团ID</span></span><br><span class="line"><span class="comment"> * @param config</span></span><br><span class="line"><span class="comment"> * @param shareInfo &#123;imgUrl,title,description,link&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">share2wx</span>(<span class="params">config, shareInfo</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> share = <span class="keyword">new</span> Share(&#123;</span><br><span class="line">        appid: config.appid, <span class="comment">// 必填，公众号的唯一标识</span></span><br><span class="line">        timestamp: config.timestamp, <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">        nonceStr: config.nonceStr, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">        signature: config.signature, <span class="comment">// 必填，签名</span></span><br><span class="line">    &#125;);</span><br><span class="line">    share.init(<span class="built_in">Object</span>.assign(&#123;&#125;, shareInfo));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getConfig</span>(<span class="params">shareInfo</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> href = <span class="built_in">window</span>.location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">const</span> url = <span class="built_in">encodeURIComponent</span>(href <span class="comment">/*window.location.href*/</span>);</span><br><span class="line">    Fetch.get(<span class="string">`<span class="subst">$&#123;API_URL.mobile.signature_path&#125;</span>?url=<span class="subst">$&#123;url&#125;</span>`</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        share2wx(data, shareInfo);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param shareInfo</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">wxUtils.share = <span class="function"><span class="keyword">function</span> (<span class="params">shareInfo</span>) </span>&#123;</span><br><span class="line">    getConfig(shareInfo);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 分享结束</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 是否开启右上角Menu</span></span><br><span class="line"><span class="comment"> * @param open</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">wxUtils.optionMenu = <span class="function"><span class="keyword">function</span> (<span class="params">open = true</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (open) &#123;</span><br><span class="line">        openOptionMenu();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        disabledOptionMenu();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 是否禁用右上角</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">disabledOptionMenu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">true</span>), <span class="literal">false</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">true</span>));</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">true</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        onBridgeReady(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 开启menu</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">openOptionMenu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">false</span>), <span class="literal">false</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">false</span>));</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        onBridgeReady(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onBridgeReady</span>(<span class="params">disable = true</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge !== <span class="string">"undefined"</span>) WeixinJSBridge.call(disable ? <span class="string">'hideOptionMenu'</span> : <span class="string">'showOptionMenu'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 隐藏微信网页底部的导航栏</span></span><br><span class="line"><span class="comment"> * @param disable</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">wxUtils.disabledToolbar = <span class="function"><span class="keyword">function</span> (<span class="params">disable = true</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, <span class="function"><span class="keyword">function</span> <span class="title">onBridgeReady</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 通过下面这个API隐藏底部导航栏</span></span><br><span class="line">        WeixinJSBridge.call(disable ? <span class="string">'hideToolbar'</span> : <span class="string">'showToolbar'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> wxUtils;</span><br></pre></td></tr></table></figure>
-<h3 id="分享配置"><a href="#分享配置" class="headerlink" title="分享配置"></a>分享配置</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 分享</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Share</span>(<span class="params">config</span>) </span>&#123;</span><br><span class="line">    wx.config(&#123;</span><br><span class="line">        debug: <span class="literal">false</span>, <span class="comment">// 开启调试模式</span></span><br><span class="line">        appId: config.appid, <span class="comment">// 必填，公众号的唯一标识</span></span><br><span class="line">        timestamp: config.timestamp, <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">        nonceStr: config.nonceStr, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">        signature: config.signature, <span class="comment">// 必填，签名，见附录1</span></span><br><span class="line">        jsApiList: [<span class="string">'onMenuShareTimeline'</span>, <span class="string">'onMenuShareAppMessage'</span>, <span class="string">'onMenuShareWeibo'</span>], <span class="comment">// 必填，需要使用的JS接口列表，所有JS接口列表见附录2</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Share.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Share,</span><br><span class="line"></span><br><span class="line">    init(config) &#123;</span><br><span class="line">        <span class="keyword">this</span>.imgUrl = config.imgUrl;</span><br><span class="line">        <span class="keyword">this</span>.link = config.link;</span><br><span class="line">        <span class="comment">// this.musicPath = config.musicPath;</span></span><br><span class="line">        <span class="keyword">this</span>.description = config.description;</span><br><span class="line">        <span class="keyword">this</span>.title = config.title;</span><br><span class="line"></span><br><span class="line">        wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// if (this.musicPath) &#123;</span></span><br><span class="line">            <span class="comment">//     document.getElementById('musicIcon').play();</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            <span class="keyword">this</span>.toFriend();</span><br><span class="line">            <span class="keyword">this</span>.toTimeline();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        wx.error(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;res&#125;</span>`</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    toFriend() &#123;</span><br><span class="line">        wx.onMenuShareAppMessage(&#123;</span><br><span class="line">            imgUrl: <span class="keyword">this</span>.imgUrl,</span><br><span class="line">            link: <span class="keyword">this</span>.link,</span><br><span class="line">            title: <span class="keyword">this</span>.title,</span><br><span class="line">            desc: <span class="keyword">this</span>.description,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    toTimeline() &#123;</span><br><span class="line">        wx.onMenuShareTimeline(&#123;</span><br><span class="line">            imgUrl: <span class="keyword">this</span>.imgUrl,</span><br><span class="line">            link: <span class="keyword">this</span>.link,</span><br><span class="line">            title: <span class="keyword">this</span>.title,</span><br><span class="line">            desc: <span class="keyword">this</span>.description,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Share;</span><br></pre></td></tr></table></figure>
-<h3 id="开启分享"><a href="#开启分享" class="headerlink" title="开启分享"></a>开启分享</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开启分享</span></span><br><span class="line">BaseComponent.wxUtils.optionMenu(<span class="literal">true</span>);</span><br><span class="line">BaseComponent.wxUtils.share(&#123;</span><br><span class="line">    imgUrl: activityData.sharePicUrl,</span><br><span class="line">    title: activityData.shareTitle,</span><br><span class="line">    description: activityData.shareContent,</span><br><span class="line">    link: url,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+            <p>本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Fetch <span class="keyword">from</span> <span class="string">'./FetchIt'</span>;</span><br><span class="line"><span class="keyword">import</span> API_URL <span class="keyword">from</span> <span class="string">'./url'</span>;</span><br><span class="line"><span class="keyword">import</span> Share <span class="keyword">from</span> <span class="string">'./Share'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> wxUtils = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 分享</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> getshareinfo?type=</span></span><br><span class="line"><span class="comment"> type :goods 课程详情 team 团详情</span></span><br><span class="line"><span class="comment"> id 课程id</span></span><br><span class="line"><span class="comment"> tid 团ID</span></span><br><span class="line"><span class="comment"> * @param config</span></span><br><span class="line"><span class="comment"> * @param shareInfo &#123;imgUrl,title,description,link&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">share2wx</span>(<span class="params">config, shareInfo</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> share = <span class="keyword">new</span> Share(&#123;</span><br><span class="line">        appid: config.appid, <span class="comment">// 必填，公众号的唯一标识</span></span><br><span class="line">        timestamp: config.timestamp, <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">        nonceStr: config.nonceStr, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">        signature: config.signature, <span class="comment">// 必填，签名</span></span><br><span class="line">    &#125;);</span><br><span class="line">    share.init(<span class="built_in">Object</span>.assign(&#123;&#125;, shareInfo));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getConfig</span>(<span class="params">shareInfo</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> href = <span class="built_in">window</span>.location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">const</span> url = <span class="built_in">encodeURIComponent</span>(href <span class="comment">/*window.location.href*/</span>);</span><br><span class="line">    Fetch.get(<span class="string">`<span class="subst">$&#123;API_URL.mobile.signature_path&#125;</span>?url=<span class="subst">$&#123;url&#125;</span>`</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        share2wx(data, shareInfo);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param shareInfo</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">wxUtils.share = <span class="function"><span class="keyword">function</span> (<span class="params">shareInfo</span>) </span>&#123;</span><br><span class="line">    getConfig(shareInfo);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 分享结束</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 是否开启右上角Menu</span></span><br><span class="line"><span class="comment"> * @param open</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">wxUtils.optionMenu = <span class="function"><span class="keyword">function</span> (<span class="params">open = true</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (open) &#123;</span><br><span class="line">        openOptionMenu();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        disabledOptionMenu();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 是否禁用右上角</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">disabledOptionMenu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">true</span>), <span class="literal">false</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">true</span>));</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">true</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        onBridgeReady(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 开启menu</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">openOptionMenu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">false</span>), <span class="literal">false</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">false</span>));</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, onBridgeReady(<span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        onBridgeReady(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onBridgeReady</span>(<span class="params">disable = true</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge !== <span class="string">"undefined"</span>) WeixinJSBridge.call(disable ? <span class="string">'hideOptionMenu'</span> : <span class="string">'showOptionMenu'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 隐藏微信网页底部的导航栏</span></span><br><span class="line"><span class="comment"> * @param disable</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">wxUtils.disabledToolbar = <span class="function"><span class="keyword">function</span> (<span class="params">disable = true</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, <span class="function"><span class="keyword">function</span> <span class="title">onBridgeReady</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 通过下面这个API隐藏底部导航栏</span></span><br><span class="line">        WeixinJSBridge.call(disable ? <span class="string">'hideToolbar'</span> : <span class="string">'showToolbar'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> wxUtils;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 分享</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Share</span>(<span class="params">config</span>) </span>&#123;</span><br><span class="line">    wx.config(&#123;</span><br><span class="line">        debug: <span class="literal">false</span>, <span class="comment">// 开启调试模式</span></span><br><span class="line">        appId: config.appid, <span class="comment">// 必填，公众号的唯一标识</span></span><br><span class="line">        timestamp: config.timestamp, <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">        nonceStr: config.nonceStr, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">        signature: config.signature, <span class="comment">// 必填，签名，见附录1</span></span><br><span class="line">        jsApiList: [<span class="string">'onMenuShareTimeline'</span>, <span class="string">'onMenuShareAppMessage'</span>, <span class="string">'onMenuShareWeibo'</span>], <span class="comment">// 必填，需要使用的JS接口列表，所有JS接口列表见附录2</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Share.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Share,</span><br><span class="line"></span><br><span class="line">    init(config) &#123;</span><br><span class="line">        <span class="keyword">this</span>.imgUrl = config.imgUrl;</span><br><span class="line">        <span class="keyword">this</span>.link = config.link;</span><br><span class="line">        <span class="comment">// this.musicPath = config.musicPath;</span></span><br><span class="line">        <span class="keyword">this</span>.description = config.description;</span><br><span class="line">        <span class="keyword">this</span>.title = config.title;</span><br><span class="line"></span><br><span class="line">        wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// if (this.musicPath) &#123;</span></span><br><span class="line">            <span class="comment">//     document.getElementById('musicIcon').play();</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            <span class="keyword">this</span>.toFriend();</span><br><span class="line">            <span class="keyword">this</span>.toTimeline();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        wx.error(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;res&#125;</span>`</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    toFriend() &#123;</span><br><span class="line">        wx.onMenuShareAppMessage(&#123;</span><br><span class="line">            imgUrl: <span class="keyword">this</span>.imgUrl,</span><br><span class="line">            link: <span class="keyword">this</span>.link,</span><br><span class="line">            title: <span class="keyword">this</span>.title,</span><br><span class="line">            desc: <span class="keyword">this</span>.description,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    toTimeline() &#123;</span><br><span class="line">        wx.onMenuShareTimeline(&#123;</span><br><span class="line">            imgUrl: <span class="keyword">this</span>.imgUrl,</span><br><span class="line">            link: <span class="keyword">this</span>.link,</span><br><span class="line">            title: <span class="keyword">this</span>.title,</span><br><span class="line">            desc: <span class="keyword">this</span>.description,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Share;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开启分享</span></span><br><span class="line">BaseComponent.wxUtils.optionMenu(<span class="literal">true</span>);</span><br><span class="line">BaseComponent.wxUtils.share(&#123;</span><br><span class="line">    imgUrl: activityData.sharePicUrl,</span><br><span class="line">    title: activityData.shareTitle,</span><br><span class="line">    description: activityData.shareContent,</span><br><span class="line">    link: url,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -216,33 +202,29 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-07T09:24:03.183Z" itemprop="dateUpdated">2018-09-07 17:24:03</time>
+    Last updated: <time datetime="2018-09-21T08:08:07.449Z" itemprop="dateUpdated">2018-09-21 16:08:07</time>
 </span><br>
 
 
         
-        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/110" target='_blank'>编辑《React Js 微信分享封装》这篇文章</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/09/03/React-Js-微信分享封装/" target="_blank" rel="external">http://ru23.github.io/2018/09/03/React-Js-微信分享封装/</a>
         
     </div>
     
     <footer>
-        <a href="http://ye63.github.io">
-            <img src="/img/avatar.jpg" alt="frank">
+        <a href="http://ru23.github.io">
+            <img src="/img/avatar.gif" alt="frank">
             frank
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
 
             
@@ -252,7 +234,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -262,22 +244,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React Js 微信分享封装》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React Js 微信分享封装》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -348,7 +330,8 @@
             appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
             appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
             avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            qrcode: "",
+            placeholder: "Just go go",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
@@ -363,32 +346,6 @@
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
-
 
 
 </div>
@@ -398,26 +355,32 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：81<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：5274<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>
+                This blog is licensed under a <a rel="license">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>frank &copy; 2014 - 2018</span>
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
             <span>
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="javascript:;" target="_blank">indigo</a>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
             </span>
         </p>
     </div>
@@ -432,7 +395,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -442,22 +405,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/&title=《React Js 微信分享封装》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React Js 微信分享封装》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React Js 微信分享封装》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/09/03/React-Js-微信分享封装/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -468,7 +431,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3ay47iMBAF0Pz/T9PSrKbVQ7i3HEaNc7xCQBIfFoXrcRzxevxZP18/+/Tv9exuP79zftUFCwMD42MZj9N1zki2cn7n5CeL7oCBgXEDRn679to2mJ4H96fvY2BgYMSPXwmsGBgYGNcG3PxhbUKLgYGBsZLEzt7PYXkCjIGBcTfGSmPg3a//U38DAwPjFzMe5VpPX/PGQ7ErDAyMrRnJ8EQ7cjFrgrYN0SPvRWBgYHw4IwHkYTRJR/MDaNL4/Pa/gYGBsSlj5bg2K5Al5ba6JYCBgbE1Iy/35wfBdszi/GdNjo8YGBh3YLxvCGwWvpemRTAwMLZjrG8xaQC0ZbW83PaChIGBsQWjHc/Ky/dtY3I25IGBgXEfxgzwvkGNpCGBgYGBkfNmrYK2hfni6ImBgbE1Iw9tbV2rbUy2811Lm8DAwNiCkaep7TGuPQgu9WMxMDC2YLQBLnnYShhtWxEYGBj3YayMWbRDEm1QjgYvMDAwtmbk4a8tgc3aBm3572ijOAYGxgcyZjfNi3H5FmeBHgMD4z6MlWGvq8bIZmMW/8jFMTAwtmO020rCYttIOOL14ioMDIxNGbNUMy+lzQ6O9egGBgbG1ow22M1K/7PRjfyIiYGBcQfG+0r2+dFwNiKGgYFxN0YS+Npi3EoaXAd9DAwMjDgdXTkstjU0DAwMjHzw4uKMedS6wMDAuAMjSWLXw2LSbJg1DDAwMPZmzBLIdqP55vLS2wX9DQwMjN/O+AK/z3+tpq6q8QAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aW27DMAwF0ex/0y6QrwJtlLmkUtTU6CvIQ/ZxAIIPPR54Xc/18/Wrb35f/DvrX21YMmTIuC3jWq41g9zKemfyyNAOMmTIOIDBt0sDdLoDCe4yZMiQUduuH1hlyJAhY1fAXSeO/YJWhgwZMjpFLFnrRHANS68rQ4aMcxidwcCnX//RfEOGDBn/mHGFq1++8sFDcFcyZMgYzVg38WuHJGpD0HQgGswiZMiQcXMGD3xrEvk0HV7yq8iQIWM2Iy0m+WByV7qJRgIyZMgYzeBJXprG8WMWabB+Wb7KkCFjNIOHWtJu46GcF7rBaREZMmSMZnSaazwcp8EaUWXIkHE8Iw24tcFkK0GUIUPGAYw4wDU6Xbw9R5JOGTJknMBID632G3NpG642QJUhQ8ZsBg9teweT/IhG/A/IkCFjBCMtR2vjAZ4CksQUDTJlyJAxgsFHlWlpmiZ8PHCjwYAMGTLGMXibPi1fyUC0v6cMGTJmM7Z15nCATm+XFMYyZMiYzeAX6Bz24ukgf0Dxk5MhQ8bNGZ1Gf+3ARGfk+cunMmTIGM3gs00yAOBpZT/pRF09GTJkjGDUSk1+kIJQawEXdQ1lyJAxgpEGu9rlyTspT4YMGacx+i173mLrFLFvHoQMGTIOYKSFa5q61QrXICmUIUOGjFJzLU0WO+NVGTJkyEgPb6UVM2/MbUgNZciQcVtG58AEugz4VWdgIEOGjNmMWgFZSwfJbrVhgwwZMoYyvgDMnQ8sgiHsJwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -476,7 +439,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

@@ -18,11 +18,13 @@
     
     
     
+    <link rel="canonical" href="ture/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/">
     
-    <title>怎么把数组倒置，又不影响原来数组，reverse不行 | 前端迷(Front-end fan)</title>
+    
+    <title>怎么把数组倒置，又不影响原来数组，reverse不行 | 前端迷 (front-end fan) | 欢迎投稿，投稿QQ：188105274(微信，邮箱同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#006fbc">
     
     
     <meta name="keywords" content="js代码片段">
@@ -30,18 +32,18 @@
 <meta name="keywords" content="js代码片段">
 <meta property="og:type" content="article">
 <meta property="og:title" content="怎么把数组倒置，又不影响原来数组，reverse不行">
-<meta property="og:url" content="http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/index.html">
-<meta property="og:site_name" content="前端迷(Front-end fan)">
+<meta property="og:url" content="http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/index.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="情景：怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。1234var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;];var bbb = arr.reverse()console.log(arr); //[&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;]console.log(bbb); //[&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;] 直接改的话bbb和arr指向是同一个数组对象。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-10T06:32:00.399Z">
+<meta property="og:updated_time" content="2018-09-20T03:46:25.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="怎么把数组倒置，又不影响原来数组，reverse不行">
 <meta name="twitter:description" content="情景：怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。1234var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;];var bbb = arr.reverse()console.log(arr); //[&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;]console.log(bbb); //[&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;] 直接改的话bbb和arr指向是同一个数组对象。">
     
-        <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/img/green.ico">
+    <link rel="shortcut icon" href="/img/blue.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -61,7 +63,7 @@
     <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+          <img src="/img/avatar.gif">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">frank</h5>
@@ -70,58 +72,53 @@
       </div>
     </div>
     <div class="scroll-wrap flex-col">
+        <img src="/img/qrcode.png">
       <ul class="nav">
         
             <li class="waves-block waves-effect">
               <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
-                Home
+                主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
-                Tags
+                标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                Categories
+                目录
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                Archives
+                归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ye63" target="_blank" >
+              <a href="https://github.com/ru23" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/share"  >
-                <i class="icon icon-lg icon-share"></i>
-                好文分享
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://ye63.com/jy" target="_blank" >
+              <a href="https://github.com/ru23/ru23.github.io/issues"  >
                 <i class="icon icon-lg icon-link"></i>
-                简约风格
+                issues
               </a>
             </li>
         
       </ul>
+ 
     </div>
   </div>
 </aside>
@@ -213,28 +210,24 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-10T06:32:00.399Z" itemprop="dateUpdated">2018-09-10 14:32:00</time>
+    Last updated: <time datetime="2018-09-20T03:46:25.540Z" itemprop="dateUpdated">2018-09-20 11:46:25</time>
 </span><br>
 
 
         
-        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/105" target='_blank'>编辑《怎么把数组倒置，又不影响原来数组，reverse不行》这篇文章</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" target="_blank" rel="external">http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/</a>
         
     </div>
     
     <footer>
-        <a href="http://ye63.github.io">
-            <img src="/img/avatar.jpg" alt="frank">
+        <a href="http://ru23.github.io">
+            <img src="/img/avatar.gif" alt="frank">
             frank
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -249,7 +242,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -259,22 +252,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -304,13 +297,6 @@
     </div>
   
 
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2015/09/03/hello-world/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello Hexo Blog</h4>
-      </a>
-    </div>
   
 </nav>
 
@@ -345,7 +331,8 @@
             appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
             appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
             avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            qrcode: "",
+            placeholder: "Just go go",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
@@ -360,32 +347,6 @@
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
-
 
 
 </div>
@@ -395,26 +356,32 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：81<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：5274<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>
+                This blog is licensed under a <a rel="license">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>frank &copy; 2014 - 2018</span>
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
             <span>
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="javascript:;" target="_blank">indigo</a>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
             </span>
         </p>
     </div>
@@ -429,7 +396,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -439,22 +406,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&title=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《怎么把数组倒置，又不影响原来数组，reverse不行》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -465,7 +432,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLUlEQVR42u3awY7iQAwE0Pn/n2avK40IVTZIpOflhGYh6dc51Nrun5/4evx3Xf/l979e//bZHfKnP/vVGy5sbGzsm7Afl1e+0OTz7+cmvNnLeLE12NjY2Mexr5f1bImbsJkhNxGIjY2Njd3GRh5mSdWQrwQbGxsbuy0n2pJgVti0d8DGxsb+a+zN7fJi4/rvM+THe2nY2NjYX8/eFwPf8/kj821sbGzsL2bPCoakjGkP+ryrIIkU2NjY2Aex8wBINiIvQtoQui5m2vVjY2Njn8feNHTyIzXvBc9ezKo4wcbGxv5i9mYY0D5ytolJFNUhh42NjX0QO9+CfINmS58Ng2eDDWxsbOwz2G2RkETX7DDNbGCQv4ynUxFsbGzsm7Pb/8pvkEmkzWKyHVFgY2Njn8eeFRifiJxZ4OWjDmxsbOxT2fumUjFJXowl8mZTvTZsbGzs27LbW7QD1w0pL3vy1WJjY2Ofx06+NGv3XC+uPXCTY5LNxcbGxj6JvWkDta2c2bPaI0HR97GxsbEPYueN+CTSNg2mPDjzaHwRtNjY2NhHsJMbzUa/bZOo/TwbLWNjY2Ofyk7Kibx51AbeppgZhiU2Njb2cex9I74dyuaHbGZHiF68HmxsbOzj2LPmTtuyb0Mrf249zMDGxsY+iN02j2bxk29o267Kv18c3MHGxsa+LXs2Os2Lh1mLfxZj9bgXGxsb+7bszQh2s015+dEWKtE2YWNjYx/Ezg/utN/JWz+zuNpsNzY2NvZJ7PxoTnv4Jm9OtZs1O3szPJGEjY2N/fXsfDTbxkl+t3b0ux85YGNjY5/Kng1oZ2EzOyTUbkTRVMLGxsY+gt0WG+0W5C3+WUDW4YeNjY19KDuPojz8Nm2sHJ8nFDY2NvZJ7Ed57UuIvLmfr6feRGxsbOyD2G1gbIbBnytX8sM69aZgY2Nj34Sdh8R7g/Bzg+SoxMLGxsY+jt2WGZsh7uZYT569xaAXGxsb+4+x85Hw5mBNUlTkLwYbGxsbO19EspQk8GZHhYqhMjY2NvZx7E0DqA2zdgjRPv3NvTRsbGzsr2fnDZpZA2j223az6gDDxsbGPoH9DyWRIUwtsRnEAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADPElEQVR42u3aQW7jQAwEwPz/09nrLhZRukkZsMalk5HY0tT4QJM9X1/x9f3Xdf2X//97/dmf7pA//adP3XBhY2NjP4T9fXnlC01e///chDf7Mn7ZGmxsbOzj2NfL+mmJm2IzQ25KIDY2NjZ2WzbyYpZ0DflKsLGxsbHbNuO6qUiu/Cn5HbCxsbE/jX3Xgq7bkuu/z5Avn6VhY2Njvz173wy8z+uX5NvY2NjYb8zeNAxJYWhLzr4hiRTY2NjYB7HzAtCOb66bkLYI5ffJ14+NjY19EvvegU6yBXeBk5Xf1pxgY2NjvzF7U5zacXwe0N51hygVwcbGxn44O9+CpIy1Ue6weSibkF/ej42Njf1Ydtsk5FFBe5imDQw2TRE2Njb2eexNpDrbjqTMtAFAcp8oo8DGxsZ+FLv9Wb8/djM7yjNLPKL3Y2NjYx/B3v/oL5LkRSyRj6uKYzrY2NjYx7E3RSvZxHyheduTl0xsbGzsU9n3thmzADhvV5JP1dUKGxsb+7Hsdm82o5zZyKk9shO9HxsbG/sgdhvr5kP8r9HVBs95wfuxA8PGxsZ+OLsdtecNTDskal/PomVsbGzsU9lJO7EPg/M2Y/bcYZ3ExsbGPoLdDuLb8DUf9LRHgtpDP//M0rCxsbEPYrfDnVnI2hat2YHLaLuxsbGxD2K3w6P2cM9sQ2dHfOoNwsbGxj6OPTv+uG9dNuOqVdHFxsbGPoK9iWCTWDcveG2okG9icUYJGxsb+4HsdrmbEPeuyKENCYrvHBsbG/uB7GvSfiQ0G04lw6P27E1Rt7GxsbEfxU6C0nxTZndro9+kEBbfOTY2NvZB7KQxaEOCWaFKxklt+4SNjY39CexZ6Wqj3+EoPx5OFQpsbGzsD2DvS91+jJXj86KIjY2NfRL7u7z2LUQ+3M/XU28iNjY29kHsWRzbhsGvblfywzr1pmBjY2M/hJ0XiXsL4euC5Gj8hI2NjX0cu20zNiHu5lhPXnuLoBcbGxv7I9nJpuSblTQY+0NF2NjY2NjJT/zk8Xmc3B4VKkJlbGxs7OPYs9F8UmA2w6k8Nmi/HmxsbOyT2PmAph3rz47jFIOhuEwOD/RgY2Njvzv7DwU/ShUL70fPAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -473,7 +440,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

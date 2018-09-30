@@ -18,11 +18,13 @@
     
     
     
+    <link rel="canonical" href="ture/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/">
     
-    <title>NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection. | 前端迷(Front-end fan)</title>
+    
+    <title>NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection. | 前端迷 (front-end fan) | 欢迎投稿，投稿QQ：188105274(微信，邮箱同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#006fbc">
     
     
     <meta name="keywords" content="node">
@@ -30,21 +32,21 @@
 <meta name="keywords" content="node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.">
-<meta property="og:url" content="http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/index.html">
-<meta property="og:site_name" content="前端迷(Front-end fan)">
+<meta property="og:url" content="http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/index.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="今天用NodeJS连接Mysql时遇到点折磨人的问题，记录下解决方法。 NodeJS和Mysql都已经正确安装了，但是NodeJS和Mysql的连接出现问题，查找网上一些解决办法都不能解决问题。报错如下：                                                                                             image">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45206239-1cfe7e80-b2b7-11e8-96d3-c104fa5c7b14.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/45206324-520ad100-b2b7-11e8-8814-8d6d5b2fb7ae.png">
-<meta property="og:updated_time" content="2018-09-11T07:39:19.636Z">
+<meta property="og:updated_time" content="2018-09-20T03:46:25.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.">
 <meta name="twitter:description" content="今天用NodeJS连接Mysql时遇到点折磨人的问题，记录下解决方法。 NodeJS和Mysql都已经正确安装了，但是NodeJS和Mysql的连接出现问题，查找网上一些解决办法都不能解决问题。报错如下：                                                                                             image">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/22697565/45206239-1cfe7e80-b2b7-11e8-96d3-c104fa5c7b14.png">
     
-        <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/img/green.ico">
+    <link rel="shortcut icon" href="/img/blue.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -64,7 +66,7 @@
     <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+          <img src="/img/avatar.gif">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">frank</h5>
@@ -73,58 +75,53 @@
       </div>
     </div>
     <div class="scroll-wrap flex-col">
+        <img src="/img/qrcode.png">
       <ul class="nav">
         
             <li class="waves-block waves-effect">
               <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
-                Home
+                主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
-                Tags
+                标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                Categories
+                目录
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                Archives
+                归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ye63" target="_blank" >
+              <a href="https://github.com/ru23" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/share"  >
-                <i class="icon icon-lg icon-share"></i>
-                好文分享
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://ye63.com/jy" target="_blank" >
+              <a href="https://github.com/ru23/ru23.github.io/issues"  >
                 <i class="icon icon-lg icon-link"></i>
-                简约风格
+                issues
               </a>
             </li>
         
       </ul>
+ 
     </div>
   </div>
 </aside>
@@ -229,28 +226,24 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-11T07:39:19.636Z" itemprop="dateUpdated">2018-09-11 15:39:19</time>
+    Last updated: <time datetime="2018-09-20T03:46:25.524Z" itemprop="dateUpdated">2018-09-20 11:46:25</time>
 </span><br>
 
 
         
-        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/114" target='_blank'>编辑《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》这篇文章</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" target="_blank" rel="external">http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/</a>
         
     </div>
     
     <footer>
-        <a href="http://ye63.github.io">
-            <img src="/img/avatar.jpg" alt="frank">
+        <a href="http://ru23.github.io">
+            <img src="/img/avatar.gif" alt="frank">
             frank
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -265,7 +258,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -275,22 +268,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -361,7 +354,8 @@
             appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
             appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
             avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            qrcode: "",
+            placeholder: "Just go go",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
@@ -376,32 +370,6 @@
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
-
 
 
 </div>
@@ -411,26 +379,32 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：81<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：5274<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>
+                This blog is licensed under a <a rel="license">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>frank &copy; 2014 - 2018</span>
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
             <span>
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="javascript:;" target="_blank">indigo</a>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
             </span>
         </p>
     </div>
@@ -445,7 +419,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -455,22 +429,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&title=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -481,7 +455,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEi0lEQVR42u3aSXLDRhAEQP3/0/TVBxOq6gYdHChxUnABZxKKmN5+fuLr9a/r+t3kk+9eeQXX9XeTlb/75A0XJkyYMGH6SqZkWclyrxfULu76u/makztHjxkTJkyYMB3OlC+0PYY36ElI0QYxLSUmTJgwYfqbTMm289fbd9ugoU2DMWHChAnTX2Zqq6D5YX9XAtyGJpgwYcKE6S8wtbfbtx7bZDi/T/IIP1gLx4QJEyZMX8a0OZhP//sj802YMGHChOlrmF7ltR+jmTU486bm6wMXJkyYMGE6l2lWwG2X3qap1/fM25azXbz9JCZMmDBhOpxpUx7dtxiTzczapW0ogwkTJkyYns2U3zQ/tvOkd5bizj6ZP3JMmDBhwnQuUzIQk7++GbVJ7pyvth0k+oUeEyZMmDAdy9SmlJsDftOw3DdZ81Gkt+EFJkyYMGE6lumu4dQ8oU2S1VmrNX/As9YpJkyYMGE6lyk5sPODuT2eP3FUt7so/mswYcKECdNRTO2BOivO5neepcF5kJGXhjFhwoQJ07OZ8gM1P7DbtmKbTrdN03zcBxMmTJgwnciUNzJnhdG7Rn/y8Zq8mVqMEGHChAkTpocyzYKD9ltt03Q/6FPvFBMmTJgwHcuUH/nJoZ4P8bSss3JzOzz0y3owYcKECdMjmHKCtoTasuYBR160Te7/Nv3GhAkTJkyPYMrHVTdHbNukzEOW4oAvk3NMmDBhwnQ6U5J8zgZl8kXPCrhtqpz/1g23w4QJEyZMX8D0iQVtEuDikB6tfLYvTJgwYcJ0IlNe4szfvWuTsxS3DUSiXWDChAkTpsOZriH2gzh3jfLsm5fDsSFMmDBhwnQ4U9u2zIdvkisvH7eNyVk7FhMmTJgwPYmpTUqTdDFPYpMS7azpmAQBbQqNCRMmTJjOZfpE8/Je3DwxbsOU+vTHhAkTJkxHMbVF0s1gzW3NxVvHfRJQTJgwYcJ0LtNsobMCbtvOzMOCWQt2WOTFhAkTJkwHMrWI0bBLgNsezHk6nZNtWq2YMGHChOksprypeW+TMm80tt/K0+aiaYoJEyZMmB7HlB+rbSK6DyNmAcGmKYsJEyZMmE5nShp+nyPLD/U2IGgfzE8RI2DChAkTpm9naoHyDbRAeSLdbrUNCP7jW5gwYcKE6UCmDcGstNqWgNtAYb+Gt/9HmDBhwoTpWKbkIM9vnYcIeWrajhAVGX8SUmDChAkTpscxtU3Ndumbd2cNzllDFBMmTJgwPYnpE63HvJXYNiOjIZtZXzevgmPChAkTpq9nahf9fyais4JsyzfbOyZMmDBhOoXpVV6bxDV/pX0AmzBl2PXFhAkTJkyHMLWHcbKZ65/fpKbtna/vsw9QMGHChAnTKUxJELA5vDel3nyrd/3WL01NTJgwYcJ0LNPmkJ4lvW359a6S9ComwoQJEyZMf4BpU97dZ5f5715/Mnm9mHLChAkTJkyPY2rT1DY4uLfReMOoKyZMmDBhOpwpb1jOFpQ3MtsS8yxFb0MQTJgwYcJ0LtOswpmPeLYDpkmBuH1Um/YnJkyYMGE6lukfpXCgYfzVfbwAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEjUlEQVR42u3aSXIbQQwEQP3/0/RVDotUFTCU2VTOSSHO1jkHNJaPj/i4fTo2v/57zuf/3ILj8bXJu90784IDEyZMmDC9JFPyWo9ft+XI3+retfk7J3dOPgkmTJgwYTqdKX/RhOBWHu32YrOJaSkxYcKECdPvZEq2C/n/21/bTUObBmPChAkTpt/M1FZB82B/VQKcn4MJEyZMmH4PU3u7fesxLyK3W5O8AP2UWjgmTJgwYXoxpk1gPv3vp8w3YcKECROml2GaNR03YzSbwaA8XZ+F/7vXYsKECROmY5lmBdz21ds0NRkJmt25/QyYMGHChOl0plmwf/zIWYsxWcysXXrB6jBhwoQJ07FMyan5ApLmZc7dhvb2zPyTY8KECROmc5n2C86vykd2Zu3JzSDRN/SYMGHChOlYpryVuA/wm4blvsmajyLd3V5gwoQJE6ZjmWYNyFkymae1s1ZrvqGZtU4xYcKECdO5TG1Cm4fq2dDMPlQnZd/8rTBhwoQJ07lMm4Ca/2cT+GdF4c0HrisEmDBhwoTpQKY29LatynwBsy1FWyb+ZvuCCRMmTJgOZJqlrG3434/+bN6nbYh+8SsmTJgwYXpTpjY1bRPRvFF6VXo8XCkmTJgwYTqWqR1nacNqnojOIIbl2rKEjQkTJkyY3okpT4P3fG0qOysit8R3029MmDBhwvQWTMnF7YBp+59Z1pk/a1ZKxoQJEyZM5zIll20GZdrR1Tb9blPl/Fm7kzBhwoQJ0/9natPOTSuxHay5tp/YPuuve2LChAkTpsOZ2mGa2XjNrAi7KTFfNiSECRMmTJgOZ9o0L9sFbEZ59s3L4dgQJkyYMGF6C6a8GJoP3yRHXj5uG5OzdiwmTJgwYXonpk3xtP01WVI7yjP7kLMUGhMmTJgwncv0jOZlWxTeJ6uzbUod/TFhwoQJ01FMbZF0M1hzWXPx0nGfBBQTJkyYMJ3LNHvRtoA7a2fm24JZC3ZY5MWECRMmTAcyzRD3xdY2MOfpdDtONGu1YsKECROms5japuYs0G4aje1VedpcNE0xYcKECdNbMO13Flf9+owNwaYpiwkTJkyYTmdKGn5JEbYtvz6+w35D0H6Yj80XxoQJEyZML8aULyxPjJOg3paPN0ttNwRfXIUJEyZMmA5kasuj+9JqjpsE9U2CnRSv6xwaEyZMmDC9JFMSyDetzVm6O9t21Bl/sqXAhAkTJkxvx9SOe7avvvl11uBsB5JW/VVMmDBhwvSSTM9oPeatxLYZuRkkajcfmDBhwoTpXKbZS/9MIjoryLZ8+doxYcKECdOJTLfy2CSum+Ge9vPMtiBF1xcTJkyYMB3C1AbjZDGPH79JTds7P3uDggkTJkyYTmFKNgGb4H1VkM4bsZtnfdPUxIQJEyZMxzJtgvQs6W3Lr6vq9VV7IkyYMGHC9AuYNuXdfXaZP/fxmcn/iyknTJgwYcL0RkxJlMxLtLMhoU2ROi9eP3HfhAkTJkyYfpwpb1hu8sS2XNuWdNvPmW9BMGHChAnTuUyzxSRhfnZtfud28zFrf2LChAkTpmOZ/gBNTskq4j2ZvQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -489,7 +463,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
