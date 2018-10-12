@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/2018/03/29/emoji表情存储后台报错的问题/">
+    
+    
+    <title>emoji表情存储后台报错的问题 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="javascript">
+    <meta name="description" content="123456789101112131415161718192021/** * 用于把用utf16编码的字符转换成实体字符，以供后台存储* @param  &amp;#123;string&amp;#125; str 将要转换的字符串，其中含有utf16字符将被自动检出* @return &amp;#123;string&amp;#125;     转换后的字符串，utf16字符将被转换成&amp;amp;#xxxx;形式的实体字符*/u">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="emoji表情存储后台报错的问题">
+<meta property="og:url" content="http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/index.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="123456789101112131415161718192021/** * 用于把用utf16编码的字符转换成实体字符，以供后台存储* @param  &amp;#123;string&amp;#125; str 将要转换的字符串，其中含有utf16字符将被自动检出* @return &amp;#123;string&amp;#125;     转换后的字符串，utf16字符将被转换成&amp;amp;#xxxx;形式的实体字符*/u">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-12T08:55:18.709Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="emoji表情存储后台报错的问题">
+<meta name="twitter:description" content="123456789101112131415161718192021/** * 用于把用utf16编码的字符转换成实体字符，以供后台存储* @param  &amp;#123;string&amp;#125; str 将要转换的字符串，其中含有utf16字符将被自动检出* @return &amp;#123;string&amp;#125;     转换后的字符串，utf16字符将被转换成&amp;amp;#xxxx;形式的实体字符*/u">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23" target="_blank"
+                         >
+                        <i class="icon icon-lg icon-github"></i>
+                        Github
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23/ru23.github.io/issues"  >
+                        <i class="icon icon-lg icon-link"></i>
+                        issues
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">emoji表情存储后台报错的问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">emoji表情存储后台报错的问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-29T08:54:07.000Z" itemprop="datePublished" class="page-time">
+  2018-03-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-emoji表情存储后台报错的问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">emoji表情存储后台报错的问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-29 16:54:07" datetime="2018-03-29T08:54:07.000Z"  itemprop="datePublished">2018-03-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">* 用于把用utf16编码的字符转换成实体字符，以供后台存储</span></span><br><span class="line"><span class="comment">* @param  &#123;string&#125; str 将要转换的字符串，其中含有utf16字符将被自动检出</span></span><br><span class="line"><span class="comment">* @return &#123;string&#125;     转换后的字符串，utf16字符将被转换成&amp;#xxxx;形式的实体字符</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">utf16toEntities(str) &#123;</span><br><span class="line">    <span class="keyword">var</span> patt = <span class="regexp">/[\ud800-\udbff][\udc00-\udfff]/g</span>; <span class="comment">// 检测utf16字符正则  </span></span><br><span class="line">    str = str.replace(patt, <span class="function"><span class="keyword">function</span>(<span class="params">char</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> H, L, code;</span><br><span class="line">        <span class="keyword">if</span> (char.length === <span class="number">2</span>) &#123;</span><br><span class="line">            H = char.charCodeAt(<span class="number">0</span>); <span class="comment">// 取出高位  </span></span><br><span class="line">            L = char.charCodeAt(<span class="number">1</span>); <span class="comment">// 取出低位  </span></span><br><span class="line">            code = (H - <span class="number">0xD800</span>) * <span class="number">0x400</span> + <span class="number">0x10000</span> + L - <span class="number">0xDC00</span>; <span class="comment">// 转换算法  </span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">"&amp;#"</span> + code + <span class="string">";"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> char;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-10-12T08:55:18.709Z" itemprop="dateUpdated">2018-10-12 16:55:18</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/29/emoji表情存储后台报错的问题/" target="_blank" rel="external">http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ru23.github.io">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/&title=《emoji表情存储后台报错的问题》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/&title=《emoji表情存储后台报错的问题》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《emoji表情存储后台报错的问题》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/&via=http://ru23.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/19/frank的前端开发规范（逐步完善）/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">frank的前端开发规范（逐步完善）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/22/lazyload页面中间有滚动条，滑动鼠标无法触发图片预加载/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">lazyload页面中间有滚动条，滑动鼠标无法触发图片预加载</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：5274<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                This blog is licensed under a <a rel="license">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/&title=《emoji表情存储后台报错的问题》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/&title=《emoji表情存储后台报错的问题》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《emoji表情存储后台报错的问题》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/&via=http://ru23.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/03/29/emoji表情存储后台报错的问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3awW7bQAwEUP//T6dAkUOKQspwqE18eDoZSi3v24OWHfL1iq+Pv9f/n7/e+Xpd/TW/n/zLxy48PDy8aulXVwK434j8aVdPTp5wuTY8PDy8Y7x8offfyt/S+dKTw+nyPh4eHt6v8vKSd3/ATNeAh4eH9868DaCD4eHh4b0nLwkj8kVMC+LkOcezFjw8PLyYt2mA/dbnH+rv4eHh4Q276vkrvntlJ3e6dX4+Bw8PD+8Ar2vkn4huB8uN14OHh4d3gjd+yQabksS190fL5jn/fMbDw8M7wMsfl4eq09baNIyY3sHDw8N7ljd9cU+L7C4sTqKNwbmHh4eHd4C3b8NPI4n8u8khEZ1yeHh4eI/yyup7HRlM22DToh8PDw/vHG8fwu6D3bwVl68NDw8P7xyvC0n3Awf7EYFBjIuHh4f3EK9r528GCLrCvdtKPDw8vNO8+59PXspdxJAPTpWFNR4eHt6jvH0Y0UUJm+J4/D8GPDw8vAO8rjHfha1JWZwX2d8cMHh4eHjHePufzAeqNsfDNGLGw8PDO8fLg9ckjJgGCq/hlW8BHh4e3gle94qfLqIr1qdFdrk3eHh4eFUnPW9KTb87HSDIhxIiER4eHt4xXo5MCuuulbWKa/Hw8PB+kJc8tJvkerZ5tt9KPDw8vKd40wGp5MfySCIPQcqNw8PDwzvM68rlTUhxvxHTkYJo6AoPDw9vzdtHANPDYD/gtSnl8fDw8Pa8j+GVh7x5o6uLQqLtxsPDwzvA28wvTaPe/HXfMUoYHh4eXsXbDwR0A1LTCKP8FTw8PLxjvGlp2x0S09J8WoLj4eHhvRtv04LqBgu6rcHDw8N7N16y0Hx8qjseBsMNeHh4eMd4XRixDw7yJtn908ouHx4eHl7F6wabprHF9MBIMPv4GA8PD2/I+wOFWJKXyQlQTgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
