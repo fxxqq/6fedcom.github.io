@@ -18,11 +18,13 @@
     
     
     
+    <link rel="canonical" href="ture/2018/09/07/小邵教你玩转es6/">
     
-    <title>ES6学习笔记 | 前端迷(Front-end fan)</title>
+    
+    <title>ES6学习笔记 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#006fbc">
     
     
     <meta name="keywords" content="优质文章分享">
@@ -30,23 +32,23 @@
 <meta name="keywords" content="优质文章分享">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6学习笔记">
-<meta property="og:url" content="http://ye63.github.io/2018/09/07/小邵教你玩转es6/index.html">
-<meta property="og:site_name" content="前端迷(Front-end fan)">
+<meta property="og:url" content="http://ru23.github.io/2018/09/07/小邵教你玩转es6/index.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="前言：大家好，我叫邵威儒，大家都喜欢喊我小邵，学的金融专业却凭借兴趣爱好入了程序猿的坑，从大学买的第一本vb和自学vb，我就与编程结下不解之缘，随后自学易语言写游戏辅助、交易软件，至今进入了前端领域，看到不少朋友都写文章分享，自己也弄一个玩玩，以下文章纯属个人理解，便于记录学习，肯定有理解错误或理解不到位的地方，意在站在前辈的肩膀，分享个人对技术的通俗理解，共同成长！  后续我会陆陆续续更新jav">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/23/165667de41433ef6?w=736&h=592&f=png&s=37794">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/23/165667ee2ec6da30?w=590&h=504&f=png&s=39703">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/24/1656b6202ef1d745?w=1128&h=1602&f=png&s=538332">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/29/16583897f9a176f8">
-<meta property="og:updated_time" content="2018-09-17T05:46:38.996Z">
+<meta property="og:updated_time" content="2018-09-30T10:51:20.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记">
 <meta name="twitter:description" content="前言：大家好，我叫邵威儒，大家都喜欢喊我小邵，学的金融专业却凭借兴趣爱好入了程序猿的坑，从大学买的第一本vb和自学vb，我就与编程结下不解之缘，随后自学易语言写游戏辅助、交易软件，至今进入了前端领域，看到不少朋友都写文章分享，自己也弄一个玩玩，以下文章纯属个人理解，便于记录学习，肯定有理解错误或理解不到位的地方，意在站在前辈的肩膀，分享个人对技术的通俗理解，共同成长！  后续我会陆陆续续更新jav">
 <meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/8/23/165667de41433ef6?w=736&h=592&f=png&s=37794">
     
-        <link rel="alternate" type="application/atom+xml" title="前端迷(Front-end fan)" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/img/green.ico">
+    <link rel="shortcut icon" href="/img/blue.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -59,77 +61,76 @@
     <div id="loading" class="active"></div>
 
     <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
         </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">frank</h5>
-          <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-        </hgroup>
-      </div>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23" target="_blank"
+                         >
+                        <i class="icon icon-lg icon-github"></i>
+                        Github
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23/ru23.github.io/issues"  >
+                        <i class="icon icon-lg icon-link"></i>
+                        issues
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                Home
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/ye63" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/share"  >
-                <i class="icon icon-lg icon-share"></i>
-                好文分享
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://ye63.com/jy" target="_blank" >
-                <i class="icon icon-lg icon-link"></i>
-                简约风格
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
 </aside>
+
 
     <main id="main">
         <header class="top-header" id="header">
@@ -372,28 +373,24 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-17T05:46:38.996Z" itemprop="dateUpdated">2018-09-17 13:46:38</time>
+    Last updated: <time datetime="2018-09-30T10:51:20.613Z" itemprop="dateUpdated">2018-09-30 18:51:20</time>
 </span><br>
 
 
         
-        欢迎阅读，您可以<a href="#comments"  rel="external">点击这里可以给作者留言或者评论</a>，或者<a href="https://github.com/ye63/ye63.github.io/issues/" target='_blank'>编辑《ES6学习笔记》这篇文章</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/09/07/小邵教你玩转es6/" target="_blank" rel="external">http://ru23.github.io/2018/09/07/小邵教你玩转es6/</a>
         
     </div>
     
     <footer>
-        <a href="http://ye63.github.io">
-            <img src="/img/avatar.jpg" alt="frank">
+        <a href="http://ru23.github.io">
+            <img src="/img/avatar.gif" alt="frank">
             frank
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -408,7 +405,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -418,22 +415,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6学习笔记》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6学习笔记》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -456,18 +453,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/09/07/NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection/" id="post-prev" class="post-nav-link">
+      <a href="/2018/09/07/使用hexo搭建github-io博客/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.</h4>
+        <h4 class="title">使用hexo搭建github.io博客</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/09/07/使用hexo搭建github-io博客/" id="post-next" class="post-nav-link">
+      <a href="/2018/09/06/javascript截取文件名的后缀/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">使用hexo搭建github.io博客</h4>
+        <h4 class="title">javascript截取文件名的后缀</h4>
       </a>
     </div>
   
@@ -504,7 +501,8 @@
             appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
             appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
             avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            qrcode: "",
+            placeholder: "Just go go",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
@@ -519,32 +517,6 @@
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
-
 
 
 </div>
@@ -554,26 +526,32 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：81<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>
+                This blog is licensed under a <a rel="license">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>frank &copy; 2014 - 2018</span>
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
             <span>
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="javascript:;" target="_blank">indigo</a>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
             </span>
         </p>
     </div>
@@ -588,7 +566,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷(Front-end fan)&pic=http://ye63.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷 (front-end fan)&pic=http://ru23.github.io/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -598,22 +576,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷(Front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/&title=《ES6学习笔记》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ye63.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ru23.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6学习笔记》 — 前端迷(Front-end fan)&url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/&via=http://ye63.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6学习笔记》 — 前端迷 (front-end fan)&url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/&via=http://ru23.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ye63.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ru23.github.io/2018/09/07/小邵教你玩转es6/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -624,7 +602,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aQW7DQAgF0Nz/0um2UtTRB5xKxm9WlRt7/LxADPB6xev9a31e//zN5zrfdd7lsoWBgXFbRrL9+YXOL/0XIHlC/mkwMDCewDhvOQmsyX/PV5LPgYGBgXF+dCEsFp+PgYGB0WMkh9tqUtjbFwMD42mM5DCZJ3DVY3By12VncQwMjBsy8qr7///9lf4GBgbGrRjv4uqVyZJA+R4sDAyM3Yw8wE2K+3mrYPQ+GBgYqxm9MYi8DPftkhwGBsZuRjVQVhsD1fQxCeWv6jYYGBiLGPN0sFfo731WDAyMpzHyovz88FltCUTJKAYGxmpGL72bD1g0X7RZgcPAwNjAyEmTYD2BlX+JgYGxiJEcUwvjDsUS2/lYWxhjxcDAWM2oHjWr6eMkWPdaERgYGPsY+bhqdYNqqK0eazEwMJ7D6NWvyslZjKwOZ5QxGBgYN2T0jqm9xmQv4JaHLTAwMNYxJm3FeUmul4wWkBgYGEsZvRJbcrjtNQOagRgDA2MdYz6jkb9oL6GMCnMYGBgPYORl+uqW17YHook2DAyMpYzeUEVe6B/NfeT9WAwMjHWMXslsPviVIwvFNQwMjKWMybBFr4h/VRvgspkRDAyMmzB6QbZ3pRqOMTAwMKoFtWpyOWlYVkM/BgYGRlJo6xX986dFJ3IMDAyMVtkrTxnzgYzLAi4GBsatGNX0rtoe6N1bTg0xMDCWMiZBs9dWTIYzkh0xMDAewPgBaRzGBEh1DIwAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNklEQVR42u3awW6DQAxF0fz/T1Opq1ZV4D7PEBX7zgpFQOawsOyxXy+8ju/17vrnL3+f4s+ev23DkiFDxmMZx+l6d8/5H59v5QCL702GDBlzGCTIkgC6K4jzvcmQIUMGTwdrQZkkizJkyJCRMtK0kofsjwZcGTJkPJBBiklelPKQzQ/gttXiMmTIeCDjjoJz1/VH+xsyZMj4l4wjXGl4JQ0DkkRe7EqGDBmtGWl5WSt07wj9KMOVIUNGI8ZK+ONF6d4juYsPJ0OGjAEMEtTSO0n6mCagr12bkyFDxkMYadCsjUesBN8gKZQhQ0YjxnoJev73JPiSIHvxuWXIkDGGQV7Nj/hr4Tv9HDJkyJjDqIW8lbRy/Z5fO5EhQ0ZrRm3miofXuPUYtk5lyJAxgVELZDwp5Fs8/0AXd8qQIWM8gzcg+eEa2WiQpMqQIWMAozYGwUPz+nHbxeeQIUNGawYpQfnv94VjNDMiQ4aMAQy+aV70polgGnBlyJAxjVFrK9ZaCOmgGHlWhgwZXRnrQxW8kVlrNsSNARkyZLRmBEkYbj3ufVswDyJDhoxGjPURiqWcNFwIJkOGjHaMI1y1pgIPuGkxfJEaypAhowVjJdilx3BxaRoe6smQIaM3g7cB+N+nvcXa8IcMGTKmMWqHX/wQbVdxG1ThMmTIGMngAxlpIcobnxsCrgwZMsYw0oI2vY73I0OGjAGMdOQrbSGkBW08uiFDhozWjPXGAO88pK3Q9P0yZMhox/gCbA8zCI7vot0AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -632,7 +610,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
@@ -664,7 +642,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
