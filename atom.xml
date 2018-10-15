@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ru23.github.io/"/>
-  <updated>2018-09-30T10:51:23.477Z</updated>
+  <updated>2018-10-15T10:32:38.862Z</updated>
   <id>http://ru23.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Module not found: Error: Cannot resolve module &#39;fs&#39; in</title>
+    <link href="http://ru23.github.io/2018/10/15/Module-not-found-Error-Cannot-resolve-module-fs-in/"/>
+    <id>http://ru23.github.io/2018/10/15/Module-not-found-Error-Cannot-resolve-module-fs-in/</id>
+    <published>2018-10-15T10:32:13.000Z</published>
+    <updated>2018-10-15T10:32:38.862Z</updated>
+    
+    <content type="html"><![CDATA[<p>控制台报错：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">However I see <span class="keyword">this</span> error</span><br><span class="line"></span><br><span class="line">./~<span class="regexp">/adal-node/</span>lib/util.js</span><br><span class="line">Module not found: <span class="built_in">Error</span>: Cannot resolve <span class="built_in">module</span> <span class="string">'fs'</span> <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">resolve <span class="built_in">module</span> fs <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">  looking <span class="keyword">for</span> modules <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">    /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib/fs doesn<span class="string">'t exist (module as directory)</span></span><br><span class="line"><span class="string">    resolve '</span>file<span class="string">' fs in /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span></span><br><span class="line"><span class="string">      resolve file</span></span><br></pre></td></tr></table></figure></p><p>解决方案：</p><p>add this to webpack.config.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target: <span class="string">'node'</span>,</span><br></pre></td></tr></table></figure></p><p>原文：<a href="https://stackoverflow.com/questions/40541044/module-not-found-error-cannot-resolve-module-fs-in" target="_blank" rel="noopener">https://stackoverflow.com/questions/40541044/module-not-found-error-cannot-resolve-module-fs-in</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;控制台报错：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="npm" scheme="http://ru23.github.io/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue路由传参的三种基本方式</title>
+    <link href="http://ru23.github.io/2018/10/15/vue%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%B9%E5%BC%8F/"/>
+    <id>http://ru23.github.io/2018/10/15/vue路由传参的三种基本方式/</id>
+    <published>2018-10-15T10:31:11.000Z</published>
+    <updated>2018-10-15T10:31:31.227Z</updated>
+    
+    <content type="html"><![CDATA[<p>现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。<br>父组件中：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"article in articles"</span> @<span class="attr">click</span>=<span class="string">"getDescribe(article.id)"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>methods：</p><h5 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      getDescribe(id) &#123;</span><br><span class="line"><span class="comment">//   直接调用$router.push 实现携带参数的跳转</span></span><br><span class="line">        <span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">          path: <span class="string">`/describe/<span class="subst">$&#123;id&#125;</span>`</span>,</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure><p>方案一，需要对应路由配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/describe/:id'</span>,</span><br><span class="line">  name: <span class="string">'Describe'</span>,</span><br><span class="line">  component: Describe</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>很显然，需要在path中添加/:id来对应 $router.push 中path携带的参数。在子组件中可以使用来获取传递的参数值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$route.params.id</span><br></pre></td></tr></table></figure></p><h5 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h5><p>父组件中：通过路由属性中的name来确定匹配的路由，通过params来传递参数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">          name: <span class="string">'Describe'</span>,</span><br><span class="line">          params: &#123;</span><br><span class="line">            id: id</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></p><p>对应路由配置: 注意这里不能使用:/id来传递参数了，因为父组件中，已经使用params来携带参数了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/describe'</span>,</span><br><span class="line">  name: <span class="string">'Describe'</span>,</span><br><span class="line">  component: Describe</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>子组件中: 这样来获取参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$route.params.id</span><br></pre></td></tr></table></figure></p><p>方案三：<br>父组件：使用path来匹配路由，然后通过query来传递参数<br>这种情况下 query传递的参数会显示在url后面?id=？<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">      path: <span class="string">'/describe'</span>,</span><br><span class="line">      query: &#123;</span><br><span class="line">        id: id</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p><p>对应路由配置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/describe'</span>,</span><br><span class="line">  name: <span class="string">'Describe'</span>,</span><br><span class="line">  component: Describe</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>对应子组件: 这样来获取参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$route.query.id</span><br></pre></td></tr></table></figure></p><blockquote><p><strong>这里要特别注意 在子组件中 获取参数的时候是$route.params 而不是$router 这很重要~~~</strong> </p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。&lt;br&gt;父组件中：&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="vue" scheme="http://ru23.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flex水平垂直居中</title>
+    <link href="http://ru23.github.io/2018/10/15/flex%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+    <id>http://ru23.github.io/2018/10/15/flex水平垂直居中/</id>
+    <published>2018-10-15T10:30:39.000Z</published>
+    <updated>2018-10-15T10:30:51.873Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line"><span class="attribute">display</span>: flex;</span><br><span class="line"><span class="attribute">align-items</span>: center;<span class="comment">/*垂直居中*/</span></span><br><span class="line"><span class="attribute">justify-content</span>: center;<span class="comment">/*水平居中*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="css" scheme="http://ru23.github.io/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>前端开发最全面试题</title>
@@ -198,7 +274,7 @@
     <published>2018-09-10T07:06:44.000Z</published>
     <updated>2018-09-20T03:46:25.540Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。<br>但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">onHandleChange(index,event)&#123;</span><br><span class="line">    <span class="keyword">let</span> val=event.target.value</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关键代码</span></span><br><span class="line">source.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;input type="text" value=&#123;item.name&#125; </span><br><span class="line">      onChange=&#123;this.onHandleChange.bind(this,index)&#125; /&gt;</span><br><span class="line">&#125;);</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">#### 代码解释</span><br><span class="line">有的同学应该已经看出区别了，onHandleChange在声明时有两个参数，但在调用时却只传递了一个参数，这就是今天要讲的:</span><br><span class="line"></span><br><span class="line">&gt; **在给方法传递新参数时，方法原有的参数会排在新参数之后**</span><br><span class="line"></span><br><span class="line">做过reactjs的同学都知道，event这个参数是不需要手动传递的，直接在方法中声明就可以使用，如下代码：</span><br><span class="line">```jsx</span><br><span class="line">onChangeHandle(event)&#123;</span><br><span class="line">      let val=event.target.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render()&#123;</span><br><span class="line">  return (&lt;div&gt;</span><br><span class="line">    &lt;input type="text" onChange=&#123;this.onChangeHandle.bind(this)&#125; /&gt;</span><br><span class="line">&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h4><blockquote><p>作者：不将就人生<br>链接：<a href="https://www.jianshu.com/p/1026d71d04d6" target="_blank" rel="noopener">https://www.jianshu.com/p/1026d71d04d6</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。<br>但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">onHandleChange(index,event)&#123;</span><br><span class="line">    <span class="keyword">let</span> val=event.target.value</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关键代码</span></span><br><span class="line">source.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">&#123;item.name&#125;</span> </span></span></span><br><span class="line"><span class="xml">      onChange=&#123;this.onHandleChange.bind(this,index)&#125; /&gt;</span></span><br><span class="line"><span class="xml">&#125;);</span></span><br><span class="line"><span class="xml">```  </span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">#### 代码解释</span></span><br><span class="line"><span class="xml">有的同学应该已经看出区别了，onHandleChange在声明时有两个参数，但在调用时却只传递了一个参数，这就是今天要讲的:</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&gt; **在给方法传递新参数时，方法原有的参数会排在新参数之后**</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">做过reactjs的同学都知道，event这个参数是不需要手动传递的，直接在方法中声明就可以使用，如下代码：</span></span><br><span class="line"><span class="xml">```jsx</span></span><br><span class="line"><span class="xml">onChangeHandle(event)&#123;</span></span><br><span class="line"><span class="xml">      let val=event.target.value;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">render()&#123;</span></span><br><span class="line">  return (&lt;div&gt;</span><br><span class="line">    &lt;input type="text" onChange=&#123;this.onChangeHandle.bind(this)&#125; /&gt;</span><br><span class="line">&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h4><blockquote><p>作者：不将就人生<br>链接：<a href="https://www.jianshu.com/p/1026d71d04d6" target="_blank" rel="noopener">https://www.jianshu.com/p/1026d71d04d6</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -429,81 +505,6 @@
     
     
       <category term="js代码片段" scheme="http://ru23.github.io/tags/js%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>怎么把数组倒置，又不影响原来数组，reverse不行</title>
-    <link href="http://ru23.github.io/2018/08/18/%E6%80%8E%E4%B9%88%E6%8A%8A%E6%95%B0%E7%BB%84%E5%80%92%E7%BD%AE%EF%BC%8C%E5%8F%88%E4%B8%8D%E5%BD%B1%E5%93%8D%E5%8E%9F%E6%9D%A5%E6%95%B0%E7%BB%84%EF%BC%8Creverse%E4%B8%8D%E8%A1%8C/"/>
-    <id>http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/</id>
-    <published>2018-08-18T15:33:00.000Z</published>
-    <updated>2018-09-20T03:46:25.540Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="情景："><a href="#情景：" class="headerlink" title="情景："></a>情景：</h3><p>怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>];</span><br><span class="line"><span class="keyword">var</span> bbb = arr.reverse()</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//["4", "3", "2", "1"]</span></span><br><span class="line"><span class="built_in">console</span>.log(bbb); <span class="comment">//["4", "3", "2", "1"]</span></span><br></pre></td></tr></table></figure></p><p>直接改的话bbb和arr指向是同一个数组对象。reverse改变的是数组对象，a指向它，所以改变了，要改变就要让其指向不同</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>];</span><br><span class="line"><span class="comment">//列举4个解决方案</span></span><br><span class="line"><span class="keyword">var</span> bbb = [...arr].reverse() <span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> bbb = [].concat(arr).reverse()  <span class="comment">//方法2</span></span><br><span class="line"><span class="keyword">var</span> bbb = <span class="built_in">Object</span>.assign([],arr).reverse()<span class="comment">//方法3</span></span><br><span class="line"><span class="keyword">var</span> bbb = arr.slice().reverse()<span class="comment">//方法4</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); </span><br><span class="line"><span class="built_in">console</span>.log(bbb);</span><br></pre></td></tr></table></figure><p> ES6语法很方便~</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;情景：&quot;&gt;&lt;a href=&quot;#情景：&quot; class=&quot;headerlink&quot; title=&quot;情景：&quot;&gt;&lt;/a&gt;情景：&lt;/h3&gt;&lt;p&gt;怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。&lt;br&gt;&lt;figure class=&quot;highlight
-      
-    
-    </summary>
-    
-    
-      <category term="js代码片段" scheme="http://ru23.github.io/tags/js%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>javascript怎么设置和暂停stream流</title>
-    <link href="http://ru23.github.io/2018/08/16/javascript%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%E5%92%8C%E6%9A%82%E5%81%9Cstream%E6%B5%81/"/>
-    <id>http://ru23.github.io/2018/08/16/javascript怎么设置和暂停stream流/</id>
-    <published>2018-08-16T08:43:46.000Z</published>
-    <updated>2018-10-12T08:44:34.335Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopStream</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.stream) &#123;</span><br><span class="line">        <span class="built_in">window</span>.stream.getTracks().forEach(<span class="function"><span class="keyword">function</span> (<span class="params">track</span>) </span>&#123;</span><br><span class="line">            track.stop();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gotStream</span>(<span class="params">stream</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.stream = stream; <span class="comment">// make stream available to console</span></span><br><span class="line">    videoElement.srcObject = stream;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="javascript" scheme="http://ru23.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>组(Array)操作之splice() --删除、插入、替换</title>
-    <link href="http://ru23.github.io/2018/07/19/%E7%BB%84-Array-%E6%93%8D%E4%BD%9C%E4%B9%8Bsplice-%E5%88%A0%E9%99%A4%E3%80%81%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%BF%E6%8D%A2/"/>
-    <id>http://ru23.github.io/2018/07/19/组-Array-操作之splice-删除、插入、替换/</id>
-    <published>2018-07-19T09:23:41.000Z</published>
-    <updated>2018-10-12T09:25:38.102Z</updated>
-    
-    <content type="html"><![CDATA[<p>splice()方法，号称最强大的数组方法！！</p><p>splice()的主要用途是向数组的中部插入项，但是用这种方法的方式则有如下3中。</p><p>1、删除：可以删除任意数量的项，只需指定2个参数：要删除的第一项的位置和要删除的项数。例如，splice(0, 2)会删除数组中的前两项。</p><p>2、插入：可以向指定位置插入任意数量的项，只需提供3个参数：起始位置、0(要删除的项数)和要插入的项。如果要插入多个项，可以再传入第四、第五，以至任意多个项。例如，splice(2, 0, “red”, “green”)会从当前数组的位置2开始插字符串”red”和”green”。</p><p>3、替换：可以向指定位置插入任意数量的项，且同时删除任意数量的项，只需指定3个参数：起始位置、要删除的项数和要插入的任意数量的项。插入的项不必与删除的项相等。例如，splice(2, 1, “red”, “green”)，会删除当前数组位置2的项，然后再从位置2开始插入字符串”red”和”green”。</p><p>splice()方法始终都会返回一个数组，该数组中包含从原数组删除的项（如果没有删除任何项，则返回一个空数组）。下面的代码展示了上述3中使用splice()方法的方式。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];</span><br><span class="line"><span class="keyword">var</span> removed = colors.splice(<span class="number">0</span>, <span class="number">1</span>);    <span class="comment">//删除第一项</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"colors："</span> + colors);    <span class="comment">//green, blue</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"返回的数组："</span> + removed);    <span class="comment">//red,返回的数组中只包含一项</span></span><br><span class="line"></span><br><span class="line">removed = colors.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">"yellow"</span>, <span class="string">"orange"</span>);  <span class="comment">//从位置1开始插入两项</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"colors："</span> + colors);    <span class="comment">//green, yellow, orange, blue</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"返回的数组："</span> + removed);    <span class="comment">//返回的是一个空数组</span></span><br><span class="line"></span><br><span class="line">removed = colors.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">"red"</span>, <span class="string">"purple"</span>);   <span class="comment">//从位置1 删除一项，插入两项</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"colors："</span> + colors);    <span class="comment">//green, red, purple, orange, blue</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"返回的数组："</span> + removed);    <span class="comment">//yellow,返回的数组中只包含一项</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;splice()方法，号称最强大的数组方法！！&lt;/p&gt;
-&lt;p&gt;splice()的主要用途是向数组的中部插入项，但是用这种方法的方式则有如下3中。&lt;/p&gt;
-&lt;p&gt;1、删除：可以删除任意数量的项，只需指定2个参数：要删除的第一项的位置和要删除的项数。例如，splice(0, 2
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="javascript" scheme="http://ru23.github.io/tags/javascript/"/>
     
   </entry>
   
