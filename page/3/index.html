@@ -172,57 +172,11 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-怎么把数组倒置，又不影响原来数组，reverse不行"
+            <article id="post-vue路由传参的三种基本方式"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-18 23:33:00" datetime="2018-08-18T15:33:00.000Z"  itemprop="datePublished">2018-08-18</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/">怎么把数组倒置，又不影响原来数组，reverse不行</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        情景：怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。1234var arr = ["1","2","3","4"];var bbb = arr.reverse()console.log(arr); //["4", "3", "2", "1"]console.log(bbb); //["4", "3", "2", "1"]
-直接改的话bbb和arr指向是同一个数组...
-    
-
-        <a href="/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js代码片段/">js代码片段</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-javascript怎么设置和暂停stream流"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-16 16:43:46" datetime="2018-08-16T08:43:46.000Z"  itemprop="datePublished">2018-08-16</time>
+        <time class="post-time" title="2018-08-15 18:31:11" datetime="2018-08-15T10:31:11.000Z"  itemprop="datePublished">2018-08-15</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
@@ -236,7 +190,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/08/16/javascript怎么设置和暂停stream流/">javascript怎么设置和暂停stream流</a>
+      <a class="post-title-link" href="/2018/08/15/vue路由传参的三种基本方式/">vue路由传参的三种基本方式</a>
     </h3>
   
 
@@ -246,18 +200,20 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1234567function stopStream() &#123;    if (window.stream) &#123;        window.stream.getTracks().forEach(function (track) &#123;            track.stop();        &#125;);    &#125;&#125;
-1234functi...
+        现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。父组件中：
+1&lt;li v-for="article in articles" @click="getDescribe(article.id)"&gt;
+methods：
+方案一：12345      getDescribe(id) &#123;//   直接调用$router.push 实现携带参数的跳转...
     
 
-        <a href="/2018/08/16/javascript怎么设置和暂停stream流/" class="post-more waves-effect waves-button">
+        <a href="/2018/08/15/vue路由传参的三种基本方式/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -662,6 +618,56 @@ ElementUI是饿了么推出的一套基于vue2.x的一个ui框架。官方文档
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elementUI/">elementUI</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-详解angularJS动态生成的页面中ng-click无效解决办法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-24 16:34:39" datetime="2018-04-24T08:34:39.000Z"  itemprop="datePublished">2018-04-24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/24/详解angularJS动态生成的页面中ng-click无效解决办法/">详解angularJS动态生成的页面中ng-click无效解决办法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        今天碰到了一个这样的需求，在自己写的动态的页面中，写入的AngularJS无效不能点击响应事件，以下给出代码以及解决方案
+ 1.首先将我们要赋值给页面的数据new一下
+
+1234567var html = "&lt;a href='javascript:void(0);' ng-click='test()'&gt;&lt;/a&gt;"```  &lt;h5&gt;2.用$compile函数...
+    
+
+        <a href="/2018/04/24/详解angularJS动态生成的页面中ng-click无效解决办法/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/踩过的坑/">踩过的坑</a></li></ul>
 
     </div>
     

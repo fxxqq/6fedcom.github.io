@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ru23.github.io/"/>
-  <updated>2018-10-15T10:32:38.862Z</updated>
+  <updated>2018-09-30T10:51:23.477Z</updated>
   <id>http://ru23.github.io/</id>
   
   <author>
@@ -15,82 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Module not found: Error: Cannot resolve module &#39;fs&#39; in</title>
-    <link href="http://ru23.github.io/2018/10/15/Module-not-found-Error-Cannot-resolve-module-fs-in/"/>
-    <id>http://ru23.github.io/2018/10/15/Module-not-found-Error-Cannot-resolve-module-fs-in/</id>
-    <published>2018-10-15T10:32:13.000Z</published>
-    <updated>2018-10-15T10:32:38.862Z</updated>
-    
-    <content type="html"><![CDATA[<p>控制台报错：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">However I see <span class="keyword">this</span> error</span><br><span class="line"></span><br><span class="line">./~<span class="regexp">/adal-node/</span>lib/util.js</span><br><span class="line">Module not found: <span class="built_in">Error</span>: Cannot resolve <span class="built_in">module</span> <span class="string">'fs'</span> <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">resolve <span class="built_in">module</span> fs <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">  looking <span class="keyword">for</span> modules <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">    /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib/fs doesn<span class="string">'t exist (module as directory)</span></span><br><span class="line"><span class="string">    resolve '</span>file<span class="string">' fs in /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span></span><br><span class="line"><span class="string">      resolve file</span></span><br></pre></td></tr></table></figure></p><p>解决方案：</p><p>add this to webpack.config.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target: <span class="string">'node'</span>,</span><br></pre></td></tr></table></figure></p><p>原文：<a href="https://stackoverflow.com/questions/40541044/module-not-found-error-cannot-resolve-module-fs-in" target="_blank" rel="noopener">https://stackoverflow.com/questions/40541044/module-not-found-error-cannot-resolve-module-fs-in</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;控制台报错：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="npm" scheme="http://ru23.github.io/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue路由传参的三种基本方式</title>
-    <link href="http://ru23.github.io/2018/10/15/vue%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%B9%E5%BC%8F/"/>
-    <id>http://ru23.github.io/2018/10/15/vue路由传参的三种基本方式/</id>
-    <published>2018-10-15T10:31:11.000Z</published>
-    <updated>2018-10-15T10:31:31.227Z</updated>
-    
-    <content type="html"><![CDATA[<p>现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。<br>父组件中：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"article in articles"</span> @<span class="attr">click</span>=<span class="string">"getDescribe(article.id)"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>methods：</p><h5 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      getDescribe(id) &#123;</span><br><span class="line"><span class="comment">//   直接调用$router.push 实现携带参数的跳转</span></span><br><span class="line">        <span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">          path: <span class="string">`/describe/<span class="subst">$&#123;id&#125;</span>`</span>,</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure><p>方案一，需要对应路由配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/describe/:id'</span>,</span><br><span class="line">  name: <span class="string">'Describe'</span>,</span><br><span class="line">  component: Describe</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>很显然，需要在path中添加/:id来对应 $router.push 中path携带的参数。在子组件中可以使用来获取传递的参数值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$route.params.id</span><br></pre></td></tr></table></figure></p><h5 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h5><p>父组件中：通过路由属性中的name来确定匹配的路由，通过params来传递参数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">          name: <span class="string">'Describe'</span>,</span><br><span class="line">          params: &#123;</span><br><span class="line">            id: id</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></p><p>对应路由配置: 注意这里不能使用:/id来传递参数了，因为父组件中，已经使用params来携带参数了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/describe'</span>,</span><br><span class="line">  name: <span class="string">'Describe'</span>,</span><br><span class="line">  component: Describe</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>子组件中: 这样来获取参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$route.params.id</span><br></pre></td></tr></table></figure></p><p>方案三：<br>父组件：使用path来匹配路由，然后通过query来传递参数<br>这种情况下 query传递的参数会显示在url后面?id=？<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">      path: <span class="string">'/describe'</span>,</span><br><span class="line">      query: &#123;</span><br><span class="line">        id: id</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p><p>对应路由配置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/describe'</span>,</span><br><span class="line">  name: <span class="string">'Describe'</span>,</span><br><span class="line">  component: Describe</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>对应子组件: 这样来获取参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$route.query.id</span><br></pre></td></tr></table></figure></p><blockquote><p><strong>这里要特别注意 在子组件中 获取参数的时候是$route.params 而不是$router 这很重要~~~</strong> </p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。&lt;br&gt;父组件中：&lt;/p&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="vue" scheme="http://ru23.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>flex水平垂直居中</title>
-    <link href="http://ru23.github.io/2018/10/15/flex%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
-    <id>http://ru23.github.io/2018/10/15/flex水平垂直居中/</id>
-    <published>2018-10-15T10:30:39.000Z</published>
-    <updated>2018-10-15T10:30:51.873Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line"><span class="attribute">display</span>: flex;</span><br><span class="line"><span class="attribute">align-items</span>: center;<span class="comment">/*垂直居中*/</span></span><br><span class="line"><span class="attribute">justify-content</span>: center;<span class="comment">/*水平居中*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="css" scheme="http://ru23.github.io/tags/css/"/>
-    
-  </entry>
   
   <entry>
     <title>前端开发最全面试题</title>
@@ -141,6 +65,31 @@
     
     
       <category term="react" scheme="http://ru23.github.io/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Module not found: Error: Cannot resolve module &#39;fs&#39; in</title>
+    <link href="http://ru23.github.io/2018/09/22/Module-not-found-Error-Cannot-resolve-module-fs-in/"/>
+    <id>http://ru23.github.io/2018/09/22/Module-not-found-Error-Cannot-resolve-module-fs-in/</id>
+    <published>2018-09-22T10:32:13.000Z</published>
+    <updated>2018-10-15T10:35:03.847Z</updated>
+    
+    <content type="html"><![CDATA[<p>控制台报错：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">However I see <span class="keyword">this</span> error</span><br><span class="line"></span><br><span class="line">./~<span class="regexp">/adal-node/</span>lib/util.js</span><br><span class="line">Module not found: <span class="built_in">Error</span>: Cannot resolve <span class="built_in">module</span> <span class="string">'fs'</span> <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">resolve <span class="built_in">module</span> fs <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">  looking <span class="keyword">for</span> modules <span class="keyword">in</span> /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span><br><span class="line">    /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib/fs doesn<span class="string">'t exist (module as directory)</span></span><br><span class="line"><span class="string">    resolve '</span>file<span class="string">' fs in /Users/luis.valencia/Documents/GraphSamples/Sample1/node_modules/adal-node/lib</span></span><br><span class="line"><span class="string">      resolve file</span></span><br></pre></td></tr></table></figure></p><p>解决方案：</p><p>add this to webpack.config.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target: <span class="string">'node'</span>,</span><br></pre></td></tr></table></figure></p><p>原文：<a href="https://stackoverflow.com/questions/40541044/module-not-found-error-cannot-resolve-module-fs-in" target="_blank" rel="noopener">https://stackoverflow.com/questions/40541044/module-not-found-error-cannot-resolve-module-fs-in</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;控制台报错：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="npm" scheme="http://ru23.github.io/tags/npm/"/>
     
   </entry>
   
@@ -274,7 +223,7 @@
     <published>2018-09-10T07:06:44.000Z</published>
     <updated>2018-09-20T03:46:25.540Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。<br>但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">onHandleChange(index,event)&#123;</span><br><span class="line">    <span class="keyword">let</span> val=event.target.value</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关键代码</span></span><br><span class="line">source.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">&#123;item.name&#125;</span> </span></span></span><br><span class="line"><span class="xml">      onChange=&#123;this.onHandleChange.bind(this,index)&#125; /&gt;</span></span><br><span class="line"><span class="xml">&#125;);</span></span><br><span class="line"><span class="xml">```  </span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">#### 代码解释</span></span><br><span class="line"><span class="xml">有的同学应该已经看出区别了，onHandleChange在声明时有两个参数，但在调用时却只传递了一个参数，这就是今天要讲的:</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&gt; **在给方法传递新参数时，方法原有的参数会排在新参数之后**</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">做过reactjs的同学都知道，event这个参数是不需要手动传递的，直接在方法中声明就可以使用，如下代码：</span></span><br><span class="line"><span class="xml">```jsx</span></span><br><span class="line"><span class="xml">onChangeHandle(event)&#123;</span></span><br><span class="line"><span class="xml">      let val=event.target.value;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">render()&#123;</span></span><br><span class="line">  return (&lt;div&gt;</span><br><span class="line">    &lt;input type="text" onChange=&#123;this.onChangeHandle.bind(this)&#125; /&gt;</span><br><span class="line">&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h4><blockquote><p>作者：不将就人生<br>链接：<a href="https://www.jianshu.com/p/1026d71d04d6" target="_blank" rel="noopener">https://www.jianshu.com/p/1026d71d04d6</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。<br>但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">onHandleChange(index,event)&#123;</span><br><span class="line">    <span class="keyword">let</span> val=event.target.value</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关键代码</span></span><br><span class="line">source.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;input type="text" value=&#123;item.name&#125; </span><br><span class="line">      onChange=&#123;this.onHandleChange.bind(this,index)&#125; /&gt;</span><br><span class="line">&#125;);</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">#### 代码解释</span><br><span class="line">有的同学应该已经看出区别了，onHandleChange在声明时有两个参数，但在调用时却只传递了一个参数，这就是今天要讲的:</span><br><span class="line"></span><br><span class="line">&gt; **在给方法传递新参数时，方法原有的参数会排在新参数之后**</span><br><span class="line"></span><br><span class="line">做过reactjs的同学都知道，event这个参数是不需要手动传递的，直接在方法中声明就可以使用，如下代码：</span><br><span class="line">```jsx</span><br><span class="line">onChangeHandle(event)&#123;</span><br><span class="line">      let val=event.target.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render()&#123;</span><br><span class="line">  return (&lt;div&gt;</span><br><span class="line">    &lt;input type="text" onChange=&#123;this.onChangeHandle.bind(this)&#125; /&gt;</span><br><span class="line">&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h4><blockquote><p>作者：不将就人生<br>链接：<a href="https://www.jianshu.com/p/1026d71d04d6" target="_blank" rel="noopener">https://www.jianshu.com/p/1026d71d04d6</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -342,30 +291,6 @@
   </entry>
   
   <entry>
-    <title>使用hexo搭建github.io博客</title>
-    <link href="http://ru23.github.io/2018/09/07/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BAgithub-io%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://ru23.github.io/2018/09/07/使用hexo搭建github-io博客/</id>
-    <published>2018-09-07T02:57:11.000Z</published>
-    <updated>2018-09-20T03:46:25.540Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><blockquote><p>回顾一下我三年搭建博客的历程，最初是选择wordpress，Wordpress全部由php编写，数组库采用MySQL。优点：用户只需要将Wordpress的源代码复制到网站根目录下，然后访问网站，之后的安装操作全部在浏览器上完成。即使不是软件行业的人，也可以在几分钟之内完成安装工作。甚至很多虚拟主机供应商都提供了Wordpress的一键式安装工具。用户连上传文件的步骤都省了。缺点：项目太臃肿了，Wordpress耗损CPU严重，不容易操作，运行稍慢。尤其是后期文章数目较多的时候，想要登陆下网站的管理后台，心态简直是抓狂的。loading了好久，有时候还会失败，发一篇文章也很费劲，索性就不维护了。<br>后来在github网站上找到一个vue模板：<a href="https://github.com/ye63/vue-blog-use-github-issues" target="_blank" rel="noopener">github地址</a>和<a href="https://ye63.com/jy/" target="_blank" rel="noopener">demo预览</a>二次开发了一下，的确是实现了很多功能，也挺轻便的，样式也可以自定义，博客可以直接写在github的issue，很方便，用了三个月后才发现百度的搜索引擎居然只收录了首页，搜索引擎的基础爬虫的原理就是抓取你的url，然后获取你的html源代码并解析。 而你的页面通常用了vue等js的数据绑定机制来展示页面数据，爬虫获取到的html是你的模型页面而不是最终数据的渲染页面，所以说用js来渲染数据对seo并不友好。而且github api在国内访问速度也没有想象中那么快，可能是github的CDN被墙屏了。<br> 使用github.io可以搭建一个自己的博客,把静态文件项目托管到github上,可以写博客,可以使用markdown语法,也可以展示作品.灵活性高.但是有较大的难度,但是这对于一个熟悉git操作的前端开发工程师来说，都不算什么的。重点是hexo和github.io的域名和服务器都是<strong>免费</strong>的。当然也可以选择用自己的服务器和域名。</p></blockquote><h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><h4 id="安装-node-git，注册好github账号"><a href="#安装-node-git，注册好github账号" class="headerlink" title="安装 node,git，注册好github账号"></a>安装 node,git，注册好github账号</h4><p> (网站有很多教程，安装方法这里就不详细展开了，<strong>注意:github账号用户名一定不能有大写.</strong>)</p><h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo:"></a>安装hexo:</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure><h4 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹:"></a>创建hexo文件夹:</h4><p>cmd窗口切换到对应的目录下,然后执行: <code>hexo init</code><br>也可以在 E:\hexo 下右键,选择git bash,在窗口中执行<code>hexo init</code><br>自动安装了需要的文件.</p><h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖:"></a>安装依赖:</h4><p>继续执行: <code>npm install</code></p><h4 id="完成本地安装"><a href="#完成本地安装" class="headerlink" title="完成本地安装:"></a>完成本地安装:</h4><p>继续在 <code>E:\hexo</code> 下执行:  <code>hexo generate</code></p><p>继续执行: <code>hexo server</code></p><p>然后在打开浏览器 <code>localhost:4000</code> ,就可以看到,本地已经安装好了.</p><h4 id="在github上创建博客仓库"><a href="#在github上创建博客仓库" class="headerlink" title="在github上创建博客仓库:"></a>在github上创建博客仓库:</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201116-7ca05e00-b2a6-11e8-8e6c-8658ee49dc8f.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure><p> 跳转的后如下填写:(其中Repository name的格式是 ‘用户名’.github.io  ),然后点创建仓库，Repository name必须和用户名（Owner）一致，不能有大写字母<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201238-1e27af80-b2a7-11e8-8eb4-ad31cfbaf6f6.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201369-a73ee680-b2a7-11e8-9c20-8a347e477f0b.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure></p><h4 id="创建SSH-keys"><a href="#创建SSH-keys" class="headerlink" title="创建SSH keys"></a>创建SSH keys</h4><h5 id="监测是否有已经存在的SSH-keys"><a href="#监测是否有已经存在的SSH-keys" class="headerlink" title="监测是否有已经存在的SSH keys:"></a>监测是否有已经存在的SSH keys:</h5><p>打开 <code>git bash</code> 终端(可以在  E:\hexo 下右键打开,也可以直接在开始菜单里打开)</p><p>执行:  <code>$ ls -al ~/.ssh</code><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201445-f7b64400-b2a7-11e8-91d2-704c587815a6.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure></p><h5 id="如果没有的话-就生成一个SSH-keys-写自己的邮箱"><a href="#如果没有的话-就生成一个SSH-keys-写自己的邮箱" class="headerlink" title="如果没有的话,就生成一个SSH keys: 写自己的邮箱"></a>如果没有的话,就生成一个SSH keys: 写自己的邮箱</h5><p><code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code></p><p>然后会出现:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/you/.ssh/id_rsa):</span><br></pre></td></tr></table></figure></p><p>就是让你输入SSH keys要保存在哪里,一般不用改,就直接回车就好了.输入一个密码,这个密码后面会用到,所以要记住咯</p><h5 id="保存SSH-keys"><a href="#保存SSH-keys" class="headerlink" title="保存SSH keys:"></a>保存SSH keys:</h5><p>创建成功后,他会提示你SSH keys保存在哪里:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"></span><br><span class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span><br><span class="line"></span><br><span class="line"># The key fingerprint is:</span><br><span class="line"></span><br><span class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure></p><h5 id="找到SSH-keys"><a href="#找到SSH-keys" class="headerlink" title="找到SSH keys:"></a>找到SSH keys:</h5><p>根据上一步里告诉你的路径,找到保存SSH keys的地方,我的是在 C:\Users\2000104591.ssh</p><p>其中 id_rsa.pub 就是SSH keys 如果为了防止以后找不到,可以把他们自己另存到其它地方</p><h4 id="为github仓库添加SSH-keys"><a href="#为github仓库添加SSH-keys" class="headerlink" title="为github仓库添加SSH keys"></a>为github仓库添加SSH keys</h4><p>然后把创建的id_rsa.pub里的内容复制到Key里去,Title部分随便填. 点击’Add key’</p><p>添加的过程中,还要再输入一次github的密码<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201608-c0946280-b2a8-11e8-94f4-f091267ce8d7.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure></p><h4 id="配置-config-yml文件并发布"><a href="#配置-config-yml文件并发布" class="headerlink" title="配置_config.yml文件并发布:"></a>配置_config.yml文件并发布:</h4><p>在 <code>E:\hexo</code>(文件根目录下) 下,有一个文件叫 _config.yml ,打开它,拉到最底下,做如下修改:　</p><p>然后再执行:</p><p><code>hexo generate</code></p><p><code>hexo deploy</code></p><p>然后访问: <a href="https://ye63.github.io/" target="_blank" rel="noopener">https://ye63.github.io/</a> (用户名改成自己的),就可以看到了.</p><h4 id="快捷命令"><a href="#快捷命令" class="headerlink" title="快捷命令"></a>快捷命令</h4><h5 id="hexo-新建一篇文章给它添加分类和标签"><a href="#hexo-新建一篇文章给它添加分类和标签" class="headerlink" title="hexo 新建一篇文章给它添加分类和标签:"></a>hexo 新建一篇文章给它添加分类和标签:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;移动端限制input框只能输入数字&quot;</span><br></pre></td></tr></table></figure><h5 id="通过mou编辑器打开：添加tags和categories"><a href="#通过mou编辑器打开：添加tags和categories" class="headerlink" title="通过mou编辑器打开：添加tags和categories"></a>通过mou编辑器打开：添加tags和categories</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: title #文章標題</span><br><span class="line">date: 2016-06-01 23:47:44 #文章生成時間</span><br><span class="line">categories: &quot;Hexo教程&quot; #文章分類目錄 可以省略</span><br><span class="line">tags: #文章标签 可以省略</span><br><span class="line">     - 标签1</span><br><span class="line">     - 标签2</span><br><span class="line">description: #你對本頁的描述 可以省略</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h5 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><h5 id="创建新页面"><a href="#创建新页面" class="headerlink" title="创建新页面"></a>创建新页面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;回顾一下我三年搭建博客的历程，最初
-      
-    
-    </summary>
-    
-      <category term="Hexo教程" scheme="http://ru23.github.io/categories/Hexo%E6%95%99%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>ES6学习笔记</title>
     <link href="http://ru23.github.io/2018/09/07/%E5%B0%8F%E9%82%B5%E6%95%99%E4%BD%A0%E7%8E%A9%E8%BD%ACes6/"/>
     <id>http://ru23.github.io/2018/09/07/小邵教你玩转es6/</id>
@@ -387,6 +312,30 @@
     
     
       <category term="优质文章分享" scheme="http://ru23.github.io/tags/%E4%BC%98%E8%B4%A8%E6%96%87%E7%AB%A0%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用hexo搭建github.io博客</title>
+    <link href="http://ru23.github.io/2018/09/07/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BAgithub-io%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://ru23.github.io/2018/09/07/使用hexo搭建github-io博客/</id>
+    <published>2018-09-07T02:57:11.000Z</published>
+    <updated>2018-09-20T03:46:25.540Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><blockquote><p>回顾一下我三年搭建博客的历程，最初是选择wordpress，Wordpress全部由php编写，数组库采用MySQL。优点：用户只需要将Wordpress的源代码复制到网站根目录下，然后访问网站，之后的安装操作全部在浏览器上完成。即使不是软件行业的人，也可以在几分钟之内完成安装工作。甚至很多虚拟主机供应商都提供了Wordpress的一键式安装工具。用户连上传文件的步骤都省了。缺点：项目太臃肿了，Wordpress耗损CPU严重，不容易操作，运行稍慢。尤其是后期文章数目较多的时候，想要登陆下网站的管理后台，心态简直是抓狂的。loading了好久，有时候还会失败，发一篇文章也很费劲，索性就不维护了。<br>后来在github网站上找到一个vue模板：<a href="https://github.com/ye63/vue-blog-use-github-issues" target="_blank" rel="noopener">github地址</a>和<a href="https://ye63.com/jy/" target="_blank" rel="noopener">demo预览</a>二次开发了一下，的确是实现了很多功能，也挺轻便的，样式也可以自定义，博客可以直接写在github的issue，很方便，用了三个月后才发现百度的搜索引擎居然只收录了首页，搜索引擎的基础爬虫的原理就是抓取你的url，然后获取你的html源代码并解析。 而你的页面通常用了vue等js的数据绑定机制来展示页面数据，爬虫获取到的html是你的模型页面而不是最终数据的渲染页面，所以说用js来渲染数据对seo并不友好。而且github api在国内访问速度也没有想象中那么快，可能是github的CDN被墙屏了。<br> 使用github.io可以搭建一个自己的博客,把静态文件项目托管到github上,可以写博客,可以使用markdown语法,也可以展示作品.灵活性高.但是有较大的难度,但是这对于一个熟悉git操作的前端开发工程师来说，都不算什么的。重点是hexo和github.io的域名和服务器都是<strong>免费</strong>的。当然也可以选择用自己的服务器和域名。</p></blockquote><h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><h4 id="安装-node-git，注册好github账号"><a href="#安装-node-git，注册好github账号" class="headerlink" title="安装 node,git，注册好github账号"></a>安装 node,git，注册好github账号</h4><p> (网站有很多教程，安装方法这里就不详细展开了，<strong>注意:github账号用户名一定不能有大写.</strong>)</p><h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo:"></a>安装hexo:</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure><h4 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹:"></a>创建hexo文件夹:</h4><p>cmd窗口切换到对应的目录下,然后执行: <code>hexo init</code><br>也可以在 E:\hexo 下右键,选择git bash,在窗口中执行<code>hexo init</code><br>自动安装了需要的文件.</p><h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖:"></a>安装依赖:</h4><p>继续执行: <code>npm install</code></p><h4 id="完成本地安装"><a href="#完成本地安装" class="headerlink" title="完成本地安装:"></a>完成本地安装:</h4><p>继续在 <code>E:\hexo</code> 下执行:  <code>hexo generate</code></p><p>继续执行: <code>hexo server</code></p><p>然后在打开浏览器 <code>localhost:4000</code> ,就可以看到,本地已经安装好了.</p><h4 id="在github上创建博客仓库"><a href="#在github上创建博客仓库" class="headerlink" title="在github上创建博客仓库:"></a>在github上创建博客仓库:</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201116-7ca05e00-b2a6-11e8-8e6c-8658ee49dc8f.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure><p> 跳转的后如下填写:(其中Repository name的格式是 ‘用户名’.github.io  ),然后点创建仓库，Repository name必须和用户名（Owner）一致，不能有大写字母<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201238-1e27af80-b2a7-11e8-8eb4-ad31cfbaf6f6.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201369-a73ee680-b2a7-11e8-9c20-8a347e477f0b.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure></p><h4 id="创建SSH-keys"><a href="#创建SSH-keys" class="headerlink" title="创建SSH keys"></a>创建SSH keys</h4><h5 id="监测是否有已经存在的SSH-keys"><a href="#监测是否有已经存在的SSH-keys" class="headerlink" title="监测是否有已经存在的SSH keys:"></a>监测是否有已经存在的SSH keys:</h5><p>打开 <code>git bash</code> 终端(可以在  E:\hexo 下右键打开,也可以直接在开始菜单里打开)</p><p>执行:  <code>$ ls -al ~/.ssh</code><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201445-f7b64400-b2a7-11e8-91d2-704c587815a6.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure></p><h5 id="如果没有的话-就生成一个SSH-keys-写自己的邮箱"><a href="#如果没有的话-就生成一个SSH-keys-写自己的邮箱" class="headerlink" title="如果没有的话,就生成一个SSH keys: 写自己的邮箱"></a>如果没有的话,就生成一个SSH keys: 写自己的邮箱</h5><p><code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code></p><p>然后会出现:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/you/.ssh/id_rsa):</span><br></pre></td></tr></table></figure></p><p>就是让你输入SSH keys要保存在哪里,一般不用改,就直接回车就好了.输入一个密码,这个密码后面会用到,所以要记住咯</p><h5 id="保存SSH-keys"><a href="#保存SSH-keys" class="headerlink" title="保存SSH keys:"></a>保存SSH keys:</h5><p>创建成功后,他会提示你SSH keys保存在哪里:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"></span><br><span class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span><br><span class="line"></span><br><span class="line"># The key fingerprint is:</span><br><span class="line"></span><br><span class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure></p><h5 id="找到SSH-keys"><a href="#找到SSH-keys" class="headerlink" title="找到SSH keys:"></a>找到SSH keys:</h5><p>根据上一步里告诉你的路径,找到保存SSH keys的地方,我的是在 C:\Users\2000104591.ssh</p><p>其中 id_rsa.pub 就是SSH keys 如果为了防止以后找不到,可以把他们自己另存到其它地方</p><h4 id="为github仓库添加SSH-keys"><a href="#为github仓库添加SSH-keys" class="headerlink" title="为github仓库添加SSH keys"></a>为github仓库添加SSH keys</h4><p>然后把创建的id_rsa.pub里的内容复制到Key里去,Title部分随便填. 点击’Add key’</p><p>添加的过程中,还要再输入一次github的密码<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://user-images.githubusercontent.com/22697565/45201608-c0946280-b2a8-11e8-94f4-f091267ce8d7.png" alt="image" title="">                </div>                <div class="image-caption">image</div>            </figure></p><h4 id="配置-config-yml文件并发布"><a href="#配置-config-yml文件并发布" class="headerlink" title="配置_config.yml文件并发布:"></a>配置_config.yml文件并发布:</h4><p>在 <code>E:\hexo</code>(文件根目录下) 下,有一个文件叫 _config.yml ,打开它,拉到最底下,做如下修改:　</p><p>然后再执行:</p><p><code>hexo generate</code></p><p><code>hexo deploy</code></p><p>然后访问: <a href="https://ye63.github.io/" target="_blank" rel="noopener">https://ye63.github.io/</a> (用户名改成自己的),就可以看到了.</p><h4 id="快捷命令"><a href="#快捷命令" class="headerlink" title="快捷命令"></a>快捷命令</h4><h5 id="hexo-新建一篇文章给它添加分类和标签"><a href="#hexo-新建一篇文章给它添加分类和标签" class="headerlink" title="hexo 新建一篇文章给它添加分类和标签:"></a>hexo 新建一篇文章给它添加分类和标签:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;移动端限制input框只能输入数字&quot;</span><br></pre></td></tr></table></figure><h5 id="通过mou编辑器打开：添加tags和categories"><a href="#通过mou编辑器打开：添加tags和categories" class="headerlink" title="通过mou编辑器打开：添加tags和categories"></a>通过mou编辑器打开：添加tags和categories</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: title #文章標題</span><br><span class="line">date: 2016-06-01 23:47:44 #文章生成時間</span><br><span class="line">categories: &quot;Hexo教程&quot; #文章分類目錄 可以省略</span><br><span class="line">tags: #文章标签 可以省略</span><br><span class="line">     - 标签1</span><br><span class="line">     - 标签2</span><br><span class="line">description: #你對本頁的描述 可以省略</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h5 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><h5 id="创建新页面"><a href="#创建新页面" class="headerlink" title="创建新页面"></a>创建新页面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;回顾一下我三年搭建博客的历程，最初
+      
+    
+    </summary>
+    
+      <category term="Hexo教程" scheme="http://ru23.github.io/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+    
     
   </entry>
   
@@ -505,6 +454,54 @@
     
     
       <category term="js代码片段" scheme="http://ru23.github.io/tags/js%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么把数组倒置，又不影响原来数组，reverse不行</title>
+    <link href="http://ru23.github.io/2018/08/18/%E6%80%8E%E4%B9%88%E6%8A%8A%E6%95%B0%E7%BB%84%E5%80%92%E7%BD%AE%EF%BC%8C%E5%8F%88%E4%B8%8D%E5%BD%B1%E5%93%8D%E5%8E%9F%E6%9D%A5%E6%95%B0%E7%BB%84%EF%BC%8Creverse%E4%B8%8D%E8%A1%8C/"/>
+    <id>http://ru23.github.io/2018/08/18/怎么把数组倒置，又不影响原来数组，reverse不行/</id>
+    <published>2018-08-18T15:33:00.000Z</published>
+    <updated>2018-09-20T03:46:25.540Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="情景："><a href="#情景：" class="headerlink" title="情景："></a>情景：</h3><p>怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>];</span><br><span class="line"><span class="keyword">var</span> bbb = arr.reverse()</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//["4", "3", "2", "1"]</span></span><br><span class="line"><span class="built_in">console</span>.log(bbb); <span class="comment">//["4", "3", "2", "1"]</span></span><br></pre></td></tr></table></figure></p><p>直接改的话bbb和arr指向是同一个数组对象。reverse改变的是数组对象，a指向它，所以改变了，要改变就要让其指向不同</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>];</span><br><span class="line"><span class="comment">//列举4个解决方案</span></span><br><span class="line"><span class="keyword">var</span> bbb = [...arr].reverse() <span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> bbb = [].concat(arr).reverse()  <span class="comment">//方法2</span></span><br><span class="line"><span class="keyword">var</span> bbb = <span class="built_in">Object</span>.assign([],arr).reverse()<span class="comment">//方法3</span></span><br><span class="line"><span class="keyword">var</span> bbb = arr.slice().reverse()<span class="comment">//方法4</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); </span><br><span class="line"><span class="built_in">console</span>.log(bbb);</span><br></pre></td></tr></table></figure><p> ES6语法很方便~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;情景：&quot;&gt;&lt;a href=&quot;#情景：&quot; class=&quot;headerlink&quot; title=&quot;情景：&quot;&gt;&lt;/a&gt;情景：&lt;/h3&gt;&lt;p&gt;怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。&lt;br&gt;&lt;figure class=&quot;highlight
+      
+    
+    </summary>
+    
+    
+      <category term="js代码片段" scheme="http://ru23.github.io/tags/js%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript怎么设置和暂停stream流</title>
+    <link href="http://ru23.github.io/2018/08/16/javascript%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%E5%92%8C%E6%9A%82%E5%81%9Cstream%E6%B5%81/"/>
+    <id>http://ru23.github.io/2018/08/16/javascript怎么设置和暂停stream流/</id>
+    <published>2018-08-16T08:43:46.000Z</published>
+    <updated>2018-10-12T08:44:34.335Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopStream</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.stream) &#123;</span><br><span class="line">        <span class="built_in">window</span>.stream.getTracks().forEach(<span class="function"><span class="keyword">function</span> (<span class="params">track</span>) </span>&#123;</span><br><span class="line">            track.stop();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gotStream</span>(<span class="params">stream</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.stream = stream; <span class="comment">// make stream available to console</span></span><br><span class="line">    videoElement.srcObject = stream;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://ru23.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="javascript" scheme="http://ru23.github.io/tags/javascript/"/>
     
   </entry>
   
