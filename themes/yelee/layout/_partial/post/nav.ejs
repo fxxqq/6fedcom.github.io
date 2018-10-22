@@ -1,0 +1,35 @@
+<% if ((post.original != false && !is_page() && theme.copyright) || post.original){ %>
+    <div class="copyright">
+        <p><span><%= __('copyright_info.title') %>:</span><a href="<%- url_for(post.path) %>"><%= post.title %></a></p>
+        <p><span><%= __('copyright_info.author') %>:</span><a href="/" title="<%= __('tooltip.back2home') %>"><%=theme.author%></a></p>
+        <p><span><%= __('copyright_info.date') %>:</span><%= post.date.format("YYYY-MM-DD, HH:mm:ss") %></p>
+        <p><span><%= __('copyright_info.updated') %>:</span><%= post.updated.format("YYYY-MM-DD, HH:mm:ss") %></p>
+        <p>
+            <span><%= __('copyright_info.url') %>:</span><a class="post-url" href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.permalink %></a>
+            <span class="copy-path" data-clipboard-text="<%= __('copyright_info.from') %> <%= post.permalink %>　　<%= __('copyright_info.by') %> <%=theme.author%>" title="<%= __('tooltip.copyPath') %>"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span><%= __('copyright_info.license') %>:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"<%= __('copyright_info.cc') %>"</a> <%= __('copyright_info.notice') %>
+        </p>
+    </div>
+<% } %>
+
+<% if (post.prev || post.next){ %>
+    <nav id="article-nav">
+        <% if (post.prev){ %>
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="<%- url_for(post.prev.path) %>">
+                    <%= post.prev.title %>
+                </a>
+            </div>
+        <% } %>
+        <% if (post.next){ %>
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="<%- url_for(post.next.path) %>">
+                    <%= post.next.title %>
+                </a>
+            </div>
+        <% } %>
+    </nav>
+<% } %>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = 'Archives';
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Category: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tag: ' + page.tag;
+  }
+  %>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="<%= config.url %>">
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <% if (theme.rss){ %>
+    <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+  <% if (theme.favicon){ %>
+    <link rel="icon" href="<%- theme.favicon %>">
+  <% } %>
+  <%- css('main') %>
+  <%- partial('google-analytics') %>
+  <style>
+	.donate_bar {
+	text-align: center;
+	margin-top: 5%
+}
+
+.donate_bar a.btn_donate {
+	display: inline-block;
+	width: 82px;
+	height: 82px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif)no-repeat;
+	-webkit-transition: background 0s;
+	-moz-transition: background 0s;
+	-o-transition: background 0s;
+	-ms-transition: background 0s;
+	transition: background 0s
+}
+
+.donate_bar a.btn_donate:hover {
+	background-position: 0 -82px
+}
+
+.donate_bar .donate_txt {
+	display: block;
+	color: #9d9d9d;
+	font: 14px/2 "Microsoft Yahei"
+}
+.donate_bar.hidden{
+	display: none
+}
+
+.post-donate{
+	margin-top: 80px;
+}
+
+#donate_guide{
+	height: 210px;
+	width: 420px;
+	margin: 0 auto;
+}
+
+#donate_guide img{
+	height: 200px;
+	height: 200px;
+}
+  </style>
+</head>

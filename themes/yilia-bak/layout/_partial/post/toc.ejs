@@ -1,0 +1,26 @@
+﻿<div style="width:100%;float:left;margin-bottom:25px;">
+	<div id="toc" class="toc-article" >
+		<div class="toc-title">
+			<p>
+				<span> 目录 </span>
+				<a href="#" onclick="javascript:return openct(this);" title="展开">[+]</a>
+			</p>
+		</div>
+		<%- toc(post.content, {list_number: false}) %>
+		
+	</div>
+</div>
+
+<script>
+	function openct(e){    
+		if (e.innerHTML == '[+]') {
+			$(e).attr('title', '收起').html('[-]');
+			$(".toc-article ol").show();
+		} else {
+			$(e).attr('title', '展开').html('[+]');
+			$(".toc-article ol").hide();
+		}
+		e.blur();
+		return false;
+	}
+</script>
