@@ -1,8 +1,9 @@
 ---
 title: 编码神器Atom使用详解
-date: 2016-03-14 16:21:16
 tags: Atom
 categories: 工欲善其事必先利其器
+abbrlink: '96063689'
+date: 2016-03-14 16:21:16
 ---
 
 

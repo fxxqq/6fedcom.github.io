@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/de81bfb9.html">
+    
+    
+    <title>ES6新特性 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="JavaScript,ES6">
+    <meta name="description" content="一、作用域  块级作用域 块级变量let 块级常量 const  二、箭头函数  sum = (a,b)=&amp;gt; a + b nums.forEach(v=&amp;gt; {console.log(v)}) 词法 this  三、参数处理  默认参数值 剩余参数 展开运算符  四、模板字面量  多行字符串 字符串插值 带标签的模板字面量 原始字符串  五、原有字面量加强  更安全的二进制字面量(0b1">
+<meta name="keywords" content="JavaScript,ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6新特性">
+<meta property="og:url" content="https://ru23.com/frontend/de81bfb9.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、作用域  块级作用域 块级变量let 块级常量 const  二、箭头函数  sum = (a,b)=&amp;gt; a + b nums.forEach(v=&amp;gt; {console.log(v)}) 词法 this  三、参数处理  默认参数值 剩余参数 展开运算符  四、模板字面量  多行字符串 字符串插值 带标签的模板字面量 原始字符串  五、原有字面量加强  更安全的二进制字面量(0b1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T08:47:46.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6新特性">
+<meta name="twitter:description" content="一、作用域  块级作用域 块级变量let 块级常量 const  二、箭头函数  sum = (a,b)=&amp;gt; a + b nums.forEach(v=&amp;gt; {console.log(v)}) 词法 this  三、参数处理  默认参数值 剩余参数 展开运算符  四、模板字面量  多行字符串 字符串插值 带标签的模板字面量 原始字符串  五、原有字面量加强  更安全的二进制字面量(0b1">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ES6新特性</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ES6新特性</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-04T10:20:43.000Z" itemprop="datePublished" class="page-time">
+  2017-02-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、作用域"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、作用域</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、箭头函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、箭头函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三、参数处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、参数处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四、模板字面量"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、模板字面量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#五、原有字面量加强"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、原有字面量加强</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#六、解构赋值"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、解构赋值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#七、模块"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、模块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#八、类"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#九、迭代"><span class="post-toc-number">9.</span> <span class="post-toc-text">九、迭代</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十、生成器"><span class="post-toc-number">10.</span> <span class="post-toc-text">十、生成器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十一、promise"><span class="post-toc-number">11.</span> <span class="post-toc-text">十一、promise</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十二、元编程"><span class="post-toc-number">12.</span> <span class="post-toc-text">十二、元编程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十三、新增数据类型"><span class="post-toc-number">13.</span> <span class="post-toc-text">十三、新增数据类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十四、原有内置对象API增强"><span class="post-toc-number">14.</span> <span class="post-toc-text">十四、原有内置对象API增强</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2017-02-es6-new-property"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ES6新特性</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-04 18:20:43" datetime="2017-02-04T10:20:43.000Z"  itemprop="datePublished">2017-02-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="一、作用域"><a href="#一、作用域" class="headerlink" title="一、作用域"></a>一、作用域</h4><hr>
+<ul>
+<li>块级作用域</li>
+<li>块级变量<code>let</code></li>
+<li>块级常量 <code>const</code></li>
+</ul>
+<h4 id="二、箭头函数"><a href="#二、箭头函数" class="headerlink" title="二、箭头函数"></a>二、箭头函数</h4><hr>
+<ul>
+<li><code>sum = (a,b)=&gt; a + b</code></li>
+<li><code>nums.forEach(v=&gt; {console.log(v)})</code></li>
+<li>词法 <code>this</code></li>
+</ul>
+<h4 id="三、参数处理"><a href="#三、参数处理" class="headerlink" title="三、参数处理"></a>三、参数处理</h4><hr>
+<ul>
+<li>默认参数值</li>
+<li>剩余参数</li>
+<li>展开运算符</li>
+</ul>
+<h4 id="四、模板字面量"><a href="#四、模板字面量" class="headerlink" title="四、模板字面量"></a>四、模板字面量</h4><hr>
+<ul>
+<li>多行字符串</li>
+<li>字符串插值</li>
+<li>带标签的模板字面量</li>
+<li>原始字符串</li>
+</ul>
+<h4 id="五、原有字面量加强"><a href="#五、原有字面量加强" class="headerlink" title="五、原有字面量加强"></a>五、原有字面量加强</h4><hr>
+<ul>
+<li>更安全的二进制字面量(0b1111101)</li>
+<li>更安全的八进制字面量(0o767)</li>
+<li>字符串支持<code>Unicode</code><ul>
+<li><code>String.fromCodePoint</code></li>
+<li><code>String.prototype.codePointAt</code></li>
+</ul>
+</li>
+<li>正则表达式字面量添加 Unicode</li>
+<li>正则表达式添加y标记，支持粘滞匹配</li>
+<li>对象属性加强<ul>
+<li>属性定义支持短语法<code>obj = {x,y}</code></li>
+<li>属性名支持表达式 <code>obj = {[&quot;baz&quot;+quux()]:42}</code></li>
+<li>添加<code>__proto__</code>属性，但不建议使用</li>
+</ul>
+</li>
+</ul>
+<h4 id="六、解构赋值"><a href="#六、解构赋值" class="headerlink" title="六、解构赋值"></a>六、解构赋值</h4><hr>
+<ul>
+<li>匹配 <code>[b,a] = [a,b]</code></li>
+<li>对象匹配 <code>let {a,b,c} = objABC</code></li>
+<li>参数匹配 <code>function g({name:n,val:v}){}</code></li>
+</ul>
+<h4 id="七、模块"><a href="#七、模块" class="headerlink" title="七、模块"></a>七、模块</h4><hr>
+<ul>
+<li>导入(<code>import</code>)</li>
+<li>导出(<code>export</code>)</li>
+<li>默认导出(<code>export default</code>)</li>
+</ul>
+<h4 id="八、类"><a href="#八、类" class="headerlink" title="八、类"></a>八、类</h4><hr>
+<ul>
+<li>使用<code>extends</code>继承</li>
+<li>重写构造器</li>
+<li><code>super</code>关键字</li>
+</ul>
+<h4 id="九、迭代"><a href="#九、迭代" class="headerlink" title="九、迭代"></a>九、迭代</h4><hr>
+<ul>
+<li>迭代器</li>
+<li><code>for of</code></li>
+</ul>
+<h4 id="十、生成器"><a href="#十、生成器" class="headerlink" title="十、生成器"></a>十、生成器</h4><hr>
+<h4 id="十一、promise"><a href="#十一、promise" class="headerlink" title="十一、promise"></a>十一、promise</h4><hr>
+<h4 id="十二、元编程"><a href="#十二、元编程" class="headerlink" title="十二、元编程"></a>十二、元编程</h4><hr>
+<ul>
+<li>代理(<code>proxy</code>)</li>
+<li>反射(<code>Reflex</code>)</li>
+</ul>
+<h4 id="十三、新增数据类型"><a href="#十三、新增数据类型" class="headerlink" title="十三、新增数据类型"></a>十三、新增数据类型</h4><hr>
+<ul>
+<li><code>Symbol</code>类型</li>
+<li><code>Set</code>类型</li>
+<li><code>Map</code>类型</li>
+<li><code>WeakSet</code>类型</li>
+<li><code>WeakMap</code>类型</li>
+<li><code>TypedArray</code>类型</li>
+</ul>
+<h4 id="十四、原有内置对象API增强"><a href="#十四、原有内置对象API增强" class="headerlink" title="十四、原有内置对象API增强"></a>十四、原有内置对象<code>API</code>增强</h4><hr>
+<ul>
+<li><p><code>Object.assign</code></p>
+</li>
+<li><p><code>Array.from</code></p>
+</li>
+<li><p><code>Array.of</code></p>
+</li>
+<li><p><code>Array.prototype.fill</code></p>
+</li>
+<li><p><code>Array.prototype.find</code></p>
+</li>
+<li><p><code>Array.prototype.findIndex</code></p>
+</li>
+<li><p><code>Array.prototype.copyWithin</code></p>
+</li>
+<li><p><code>Array.prototype.entries</code></p>
+</li>
+<li><p><code>Array.prototype.keys</code></p>
+</li>
+<li><p><code>Array.prototype.values</code></p>
+</li>
+<li><p><code>String.prototype.includes</code></p>
+</li>
+<li><p><code>String.prototype.repeat</code></p>
+</li>
+<li><p><code>String.prototype.startsWidth</code></p>
+</li>
+<li><p><code>String.prototype.endsWidth()</code></p>
+</li>
+<li><p><code>Number.EPSILON</code></p>
+</li>
+<li><p><code>Number.isInteger</code></p>
+</li>
+<li><p><code>Number.isSafeInteger</code></p>
+</li>
+<li><p><code>Number.isFinite</code></p>
+</li>
+<li><p><code>Number.isNaN(&quot;NaN&quot;)</code></p>
+</li>
+<li><p><code>Math.acosh</code></p>
+</li>
+<li><p><code>Math.hypot</code></p>
+</li>
+<li><p><code>Math.imul</code></p>
+</li>
+<li><p><code>Math.sign</code></p>
+</li>
+<li><p><code>Math.trunc</code></p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:46.361Z" itemprop="dateUpdated">2018-10-23 16:47:46</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/de81bfb9.html" target="_blank" rel="external">https://ru23.com/frontend/de81bfb9.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/de81bfb9.html&title=《ES6新特性》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/de81bfb9.html&title=《ES6新特性》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/de81bfb9.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6新特性》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/de81bfb9.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/de81bfb9.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/cc5b9b13.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">弹性布局总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/3e0bf339.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">基于gulp的工作流配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/de81bfb9.html&title=《ES6新特性》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/de81bfb9.html&title=《ES6新特性》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/de81bfb9.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6新特性》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/de81bfb9.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/de81bfb9.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByUlEQVR42u3awa6jMAwFUP7/p5ntkzpE13GwWJysUEvDoQvLdnxd8bof1u+3fz/5vf7d83pj4eLitrn3cu1xk52T/f/zSri4uIPcdaBZ39N5yXKww8XF/Tw3yUMOp0G4uLif5CaI5PVwcXG/z83TkeTx6xcbqtVwcXEb3Dxlee/6lf4uLi7uFvcuriRI9Vsqj0/HxcUd4VbTlzwFSV6g+lxcXNwZ7l7zolPkVJ+y+b/i4uIe4iaBqR/U1qlPlJHh4uKOcJMiZx28zh6rPJZPuLi4n+HmiUue1uyFNlxc3ElutSGSD2TkhyWHazVcXNyjfYZqCpL/Kh+8iAIZLi7uCDc/e6mmL0lRFH2Li4s7zo0aE8E4RXVEY7P4wcXFfY1bTjKKg1ado9zH3+Li4g5y966rhU3enI3myHBxcV/mdjY9lRJFoRMXF3ecm2y3V8x0RjGuvXkQXFzcLe5dXK2xqv5xLC4u7gg3X3nTpNpwqaY7uLi4M9z8WHR9f75bZyADFxd3kls93kiKpWpBVe7v4uLifoZbPVDJRysKFRsuLu6HuXkq0+9y4OLiznOrJc3e8Un/Tlxc3BluOZQUm5574e9AfxcXF3eH+w8t6uIxvE2LEwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

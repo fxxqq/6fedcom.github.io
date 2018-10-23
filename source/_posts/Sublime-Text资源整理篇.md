@@ -1,8 +1,9 @@
 ---
 title: Sublime Text资源整理篇
-date: 2016-03-15 09:40:30
 tags: sublime
 categories: 工欲善其事必先利其器
+abbrlink: ae4ebfd1
+date: 2016-03-15 09:40:30
 ---
 
 ### Sublime Text：学习资源篇

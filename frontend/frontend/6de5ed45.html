@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/6de5ed45.html">
+    
+    
+    <title>Hexo主题功能优化 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Hexo">
+    <meta name="description" content="添加音乐播放器">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo主题功能优化">
+<meta property="og:url" content="https://ru23.com/frontend/6de5ed45.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="添加音乐播放器">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T08:47:46.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo主题功能优化">
+<meta name="twitter:description" content="添加音乐播放器">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hexo主题功能优化</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hexo主题功能优化</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-06T18:08:41.000Z" itemprop="datePublished" class="page-time">
+  2016-07-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加音乐播放器"><span class="post-toc-number">1.</span> <span class="post-toc-text">添加音乐播放器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NexT使用自定义的CSS样式"><span class="post-toc-number">2.</span> <span class="post-toc-text">NexT使用自定义的CSS样式</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2016-07-Hexo主题功能优化"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hexo主题功能优化</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-07 02:08:41" datetime="2016-07-06T18:08:41.000Z"  itemprop="datePublished">2016-07-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="添加音乐播放器"><a href="#添加音乐播放器" class="headerlink" title="添加音乐播放器"></a><strong>添加音乐播放器</strong></h3><hr>
+<a id="more"></a>
+<p>以前觉得网页嵌入播放器很牛逼的感觉，原来就是一句代码的事儿！感谢外连接，感谢开源，让这个世界变得更美好。</p>
+<p>markdown语法是完全兼容html代码的，直接把html代码扔进去就oook咯。</p>
+<ul>
+<li><strong>添加豆瓣音乐</strong></li>
+</ul>
+<p>复制下面代码到你的博文任意位置，然后Hexo s预览。</p>
+<p>加入豆瓣音乐 歌曲是随机播放，游客可切歌，不能定制播哪首歌，而且不能按钮停止，只能音量调到0，无语，有利有弊的吧。</p>
+<p>尽量放在最下面，如果你放在最上面，很有可能别人还未点击进入博文，你的博客就有了背景音乐了，要想赶紧播放音乐的另说。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span> <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">name</span>=<span class="string">"iframe_canvas"</span> <span class="attr">src</span>=<span class="string">"http://douban.fm/partner/baidu/doubanradio"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"200"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span> <span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>添加网易云音乐</strong><br>打开网页版网易云音乐。</li>
+</ul>
+<p>如果只是加入单曲，只需要搜索歌曲，点开歌曲名，点击生成外链播放器，复制html代码（可以选择是否自动播放），将html代码无需任何修改放入markdown文章里就OK了。</p>
+<p>如果想要加入歌单，就需要自己创建歌单，然后分享歌单，找到自己的分享动态，点进去可以看到有“生成外链播放器”这些字眼，其余操作就和上面一样了。不过，你的歌单有变化的话，这个外链的歌曲同样跟着变，这一点挺棒的。</p>
+<p>例如，播放待你长发及腰这首歌，自动播放只需要嵌入一下代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">"http://music.163.com/outchain/player?type=2&amp;id=28947001&amp;auto=1&amp;height=66"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="NexT使用自定义的CSS样式"><a href="#NexT使用自定义的CSS样式" class="headerlink" title="NexT使用自定义的CSS样式"></a><strong>NexT使用自定义的CSS样式</strong></h3><hr>
+<p><strong>添加样式支持</strong></p>
+<p>首先，在样式文件的<code>source</code>文件夹下找到css文件夹，打<code>开main.sty</code>l文件，在最后添加：<code>@import &quot;_my/mycss&quot;;</code></p>
+<p>新建自定义样式<br>找到样式文件夹css 新建_my文件夹，在其中新建<code>mycss.styl</code>文件，之后就可以按照style的格式自定义样式了。</p>
+<p>例子<br>例如：我想在文章中添加个自定义样式的按钮，怎么做呢？？？</p>
+<p>打开新建的<code>mycss.styl</code>文件，在其中添加样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.myButton</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>:<span class="number">#0f94bd</span>;</span><br><span class="line">    <span class="attribute">-moz-border-radius</span>:<span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">-webkit-border-radius</span>:<span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>:<span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">display</span>:inline-block;</span><br><span class="line">    <span class="attribute">cursor</span>:pointer;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">font-family</span>:Arial;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">17px</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">11px</span> <span class="number">27px</span>;</span><br><span class="line">    <span class="attribute">text-decoration</span>:none;</span><br><span class="line">    <span class="attribute">text-shadow</span>:<span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="number">#2f6627</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.myButton</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>:<span class="number">#5cbf2a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.myButton</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">1px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>引用：在想要引用的时候添加</p>
+<p><code>&lt;a href=&quot;#&quot; class=&quot;myButton&quot;&gt;MyButton&lt;/a&gt;</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:46.174Z" itemprop="dateUpdated">2018-10-23 16:47:46</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/6de5ed45.html" target="_blank" rel="external">https://ru23.com/frontend/6de5ed45.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/6de5ed45.html&title=《Hexo主题功能优化》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/6de5ed45.html&title=《Hexo主题功能优化》 — 前端迷 (front-end fan)&source=添加音乐播放器" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/6de5ed45.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo主题功能优化》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/6de5ed45.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/6de5ed45.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/8100a68b.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ubuntu下无法安装Hexo简单做法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/8e459e48.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hexo持续集成自动部署到github</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/6de5ed45.html&title=《Hexo主题功能优化》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/6de5ed45.html&title=《Hexo主题功能优化》 — 前端迷 (front-end fan)&source=添加音乐播放器" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/6de5ed45.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo主题功能优化》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/6de5ed45.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/6de5ed45.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aS26DUAwF0Ox/03QBaei1DQ6qzhtFCoFDBpZ/r1d8jrfz6Zrzz5+uv/jg4uKOucfpeb/m/Ff5nZO7/fJKuLi4i9w8MCURJnmlZrDDxcV9MDdJd5JQiIuL+z+4eVqTBD5cXNwnc3vpSELP052LazVcXNwBN+9S3vf5lv4uLi5ui3sUT/LbavpSeDouLu4Kt9cMnTRPewUSLi7uJjcvRfLliV4BEz0dFxd3kdsrcs5DVRIEq+sauLi4m9xe8ZMnLtVA9vHPwsXFfQy3ypqUUn/cExcXd4WbB5FqaKuOSAulFy4u7go3CVX5t1VEPrDBxcXd506aI0lYvOPvwMXFvZtbTXR6i1ZV1mV5GS4u7phbTUHyRatJ6MTFxd3k9kqUXpi7YDyDi4u7zs1bEkkhlDdNkmIJFxd3n5sEmuqiRv5KhXUNXFzcm7m9xayripnyOBYXF3eFm595yyNpqVTTLFxc3Pu4vWQlf3B1hSvaI8PFxV3hTsYb1UHLZBCLi4v7TG6eDI0ao9WuCS4u7le51dHpvPFxWdzFxcUtcqsLFtXlreqgZTRkxcXFHXPLoWRQ3lRbrqP+Li4ubof7A1rTAS8yYfMbAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

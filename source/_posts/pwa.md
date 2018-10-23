@@ -1,10 +1,11 @@
 ---
 title: 浅谈PWA(Progressive Web App)
-date: 2018-09-04 18:00:43
-tags: 
-   - JavaScript
-   - PWA
+tags:
+  - JavaScript
+  - PWA
 categories: Front-End
+abbrlink: c8cbf86a
+date: 2018-09-04 18:00:43
 ---
 
 

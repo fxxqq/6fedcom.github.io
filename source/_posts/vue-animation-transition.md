@@ -1,8 +1,9 @@
 ---
 title: vue过渡与动画（十五）
-date: 2018-08-28 20:10:32
 tags: Vue
 categories: Front-End
+abbrlink: 880e7c61
+date: 2018-08-28 20:10:32
 ---
 
 ## 一、transition标签结合css

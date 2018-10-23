@@ -1,8 +1,9 @@
 ---
 title: 小程序之自定义组件
-date: 2018-08-12 23:43:20
 tags: 小程序
 categories: Front-End
+abbrlink: 356b2ea3
+date: 2018-08-12 23:43:20
 ---
 
 一、创建自定义组件

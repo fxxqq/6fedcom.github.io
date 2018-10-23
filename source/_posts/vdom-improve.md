@@ -1,10 +1,11 @@
 ---
 title: 虚拟DOM（二）
-date: 2018-10-20 23:10:14
-tags: 
-   - JavaScript
-   - 虚拟DOM
+tags:
+  - JavaScript
+  - 虚拟DOM
 categories: Front-End
+abbrlink: a6c4da3d
+date: 2018-10-20 23:10:14
 ---
 
 ## 一、为什么需要虚拟DOM

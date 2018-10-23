@@ -1,9 +1,11 @@
 ---
 title: 合并数组的相同的key值，并且计算相同key值的个数
-date: 2018-08-30 15:33:19
-categories: "前端" 
-tags: [js代码片段]
+categories: 前端
+tags:
+  - js代码片段
 issues: 108
+abbrlink: 6de8207f
+date: 2018-08-30 15:33:19
 ---
 
 #### 需求：

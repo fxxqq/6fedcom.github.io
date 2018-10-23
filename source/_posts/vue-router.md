@@ -1,8 +1,9 @@
 ---
 title: vue路由（十一）
-date: 2018-08-28 15:30:32
 tags: Vue
 categories: Front-End
+abbrlink: 35f2d11f
+date: 2018-08-28 15:30:32
 ---
 
 ## 一、路由基础介绍

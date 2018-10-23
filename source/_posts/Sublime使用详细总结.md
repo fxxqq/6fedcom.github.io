@@ -1,8 +1,9 @@
 ---
 title: Sublime使用详细总结
-date: 2016-03-14 13:37:18
 tags: sublime
 categories: 工欲善其事必先利其器
+abbrlink: 35c2a187
+date: 2016-03-14 13:37:18
 ---
 
 # Sublime使用详细总结

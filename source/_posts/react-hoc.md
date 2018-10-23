@@ -1,10 +1,11 @@
 ---
 title: 浅析React高阶组件HOC
-date: 2018-07-23 00:10:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: 76f030b4
+date: 2018-07-23 00:10:24
 ---
 
 ### 高阶组件是什么

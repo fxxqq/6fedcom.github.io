@@ -1,10 +1,11 @@
 ---
 title: 持续集成 Travis CI
-date: 2018-02-23 12:12:08
-tags: 
-   - Travis CI
-   - 部署
+tags:
+  - Travis CI
+  - 部署
 categories: Back-end
+abbrlink: 18fb4cf4
+date: 2018-02-23 12:12:08
 ---
 
 > 来源于互联网

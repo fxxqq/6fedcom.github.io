@@ -1,10 +1,11 @@
 ---
 title: ubuntu下如何用命令行运行deb安装包
-date: 2016-07-07 02:55:20
-tags: 
-    - Ubuntu
-    - Linux
+tags:
+  - Ubuntu
+  - Linux
 categories: Back-end
+abbrlink: 3961640b
+date: 2016-07-07 02:55:20
 ---
 
 如果`ubuntu`要安装新软件，已有`deb`安装包（例如：`iptux.deb`），但是无法登录到桌面环境。那该怎么安装？答案是：使用`dpkg`命令。

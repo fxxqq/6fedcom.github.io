@@ -1,10 +1,11 @@
 ---
 title: react知识点回顾
-date: 2017-11-07 19:55:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: eb2df852
+date: 2017-11-07 19:55:24
 ---
 
 > 来源于互联网

@@ -1,10 +1,11 @@
 ---
 title: Mocha+Chai+Istanbul单元测试
-date: 2017-10-22 15:35:43
-tags: 
+tags:
   - JavaScript
   - 测试
 categories: Front-End
+abbrlink: fac8b8e7
+date: 2017-10-22 15:35:43
 ---
 
 

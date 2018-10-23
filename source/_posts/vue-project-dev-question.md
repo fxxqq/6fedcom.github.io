@@ -1,8 +1,9 @@
 ---
 title: vue项目中的痛点（十四）
-date: 2018-08-28 17:10:30
 tags: Vue
 categories: Front-End
+abbrlink: c560373d
+date: 2018-08-28 17:10:30
 ---
 
 ## 一、列表进入详情页传参

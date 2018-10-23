@@ -1,8 +1,9 @@
 ---
 title: MVC、MVP、MVVM之间的关系
-date: 2016-12-13 14:35:24
 tags: MVC
 categories: Front-End
+abbrlink: cec34af5
+date: 2016-12-13 14:35:24
 ---
 
 ## 一、MVC

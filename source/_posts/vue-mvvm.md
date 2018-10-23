@@ -1,8 +1,9 @@
 ---
 title: 实现数据的双向绑定mvvm-剖析Vue的原理
-date: 2018-02-25 17:12:32
 tags: MVVM
 categories: Front-End
+abbrlink: bfaf4cce
+date: 2018-02-25 17:12:32
 ---
 
 > 完成的效果

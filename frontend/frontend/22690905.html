@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/22690905.html">
+    
+    
+    <title>编写可维护的JavaScript | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="JavaScript,读书笔记">
+    <meta name="description" content="一、事件处理 1.1 规则1：隔离应用层 好的写法，拆分应用逻辑  1234567891011121314var myApp = &amp;#123;    handleClick: function(e)&amp;#123;      this.showPopup(e);      &amp;#125;,    showPopup: function(e)&amp;#123;        var popup = docume">
+<meta name="keywords" content="JavaScript,读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编写可维护的JavaScript">
+<meta property="og:url" content="https://ru23.com/frontend/22690905.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、事件处理 1.1 规则1：隔离应用层 好的写法，拆分应用逻辑  1234567891011121314var myApp = &amp;#123;    handleClick: function(e)&amp;#123;      this.showPopup(e);      &amp;#125;,    showPopup: function(e)&amp;#123;        var popup = docume">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T09:16:15.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编写可维护的JavaScript">
+<meta name="twitter:description" content="一、事件处理 1.1 规则1：隔离应用层 好的写法，拆分应用逻辑  1234567891011121314var myApp = &amp;#123;    handleClick: function(e)&amp;#123;      this.showPopup(e);      &amp;#125;,    showPopup: function(e)&amp;#123;        var popup = docume">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">编写可维护的JavaScript</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">编写可维护的JavaScript</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-24T02:10:43.000Z" itemprop="datePublished" class="page-time">
+  2017-10-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、事件处理"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、事件处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-规则1：隔离应用层"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 规则1：隔离应用层</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-规则2：不要分发事件对象"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 规则2：不要分发事件对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、javascript中的检测方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、javascript中的检测方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-检测原始值"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 检测原始值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-检测引用值"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 检测引用值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-检测函数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 检测函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-检测数组"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 检测数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-检测属性"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">2.5 检测属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、将配置数据从代码中分离"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、将配置数据从代码中分离</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2017-10-js-good-style"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">编写可维护的JavaScript</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-24 10:10:43" datetime="2017-10-24T02:10:43.000Z"  itemprop="datePublished">2017-10-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、事件处理"><a href="#一、事件处理" class="headerlink" title="一、事件处理"></a>一、事件处理</h2><hr>
+<h3 id="1-1-规则1：隔离应用层"><a href="#1-1-规则1：隔离应用层" class="headerlink" title="1.1 规则1：隔离应用层"></a>1.1 规则1：隔离应用层</h3><ul>
+<li>好的写法，拆分应用逻辑</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myApp = &#123;</span><br><span class="line">    handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.showPopup(e);  </span><br><span class="line">    &#125;,</span><br><span class="line">    showPopup: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> popup = <span class="built_in">document</span>.getElementById(<span class="string">"popup"</span>);</span><br><span class="line">        popup.style.left = e.clientX + <span class="string">"px"</span>;</span><br><span class="line">        popup.style.top = e.clientY + <span class="string">"px"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">addEventListener(element,<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    MyApp.handleClick(e);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-规则2：不要分发事件对象"><a href="#1-2-规则2：不要分发事件对象" class="headerlink" title="1.2 规则2：不要分发事件对象"></a>1.2 规则2：不要分发事件对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myApp = &#123;</span><br><span class="line">    handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">     <span class="comment">// 假设事件支持 DOMlevel2</span></span><br><span class="line">     </span><br><span class="line">     e.preventDefault();</span><br><span class="line">     e.stopPropagation();</span><br><span class="line">     </span><br><span class="line">     <span class="comment">//传入应用逻辑</span></span><br><span class="line">      <span class="keyword">this</span>.showPopup(e.clientX,e.clientY);  </span><br><span class="line">    &#125;,</span><br><span class="line">    showPopup: <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> popup = <span class="built_in">document</span>.getElementById(<span class="string">"popup"</span>);</span><br><span class="line">        popup.style.left = x + <span class="string">"px"</span>;</span><br><span class="line">        popup.style.top = y + <span class="string">"px"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">addEventListener(element,<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    MyApp.handleClick(e);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="二、javascript中的检测方法"><a href="#二、javascript中的检测方法" class="headerlink" title="二、javascript中的检测方法"></a>二、javascript中的检测方法</h2><hr>
+<h3 id="2-1-检测原始值"><a href="#2-1-检测原始值" class="headerlink" title="2.1 检测原始值"></a>2.1 检测原始值</h3><hr>
+<blockquote>
+<p>在<code>JavaScript</code>中有五种原始类型：字符串、数字、布尔值、<code>null</code>、<code>undefined</code>。如果你希望一个值是字符串、数字、布尔值或<code>undefined</code>，最佳选择是使用typeof运算符。typeof运算符会返回一个表示值 饿类型的字符串</p>
+</blockquote>
+<ul>
+<li>对于字符串，<code>typeof</code>返回<code>string</code></li>
+<li>对于数字，<code>typeof</code>返回<code>number</code></li>
+<li>对于布尔值，<code>typeof</code>返回<code>boolean</code></li>
+<li>对于<code>undefined</code>，typeof返回<code>undefined</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测字符串</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="keyword">typeof</span> name === <span class="string">"string"</span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//检测数字</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="keyword">typeof</span> count === <span class="string">"number"</span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//检测布尔值</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="keyword">typeof</span> found === <span class="string">"boolean"</span> &amp;&amp; found)&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//检测undefined</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="keyword">typeof</span> myApp === <span class="string">"undefined"</span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//检测null</span></span><br><span class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>);</span><br><span class="line"><span class="keyword">if</span> ( ele !== <span class="literal">null</span>)&#123;</span><br><span class="line">    ele.className = <span class="string">"found"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-检测引用值"><a href="#2-2-检测引用值" class="headerlink" title="2.2 检测引用值"></a>2.2 检测引用值</h3><hr>
+<blockquote>
+<p>有几种内置的引用类型 <code>Object</code>、<code>Array</code>、<code>Date</code>、<code>Error</code>。<code>typeof</code>运算符在判断这些引用类型时显得力不从心，因为所有对象都会返回<code>undefined</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;); <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []); <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>()); <span class="comment">//object</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>检测某个引用类型的最好方法使用<code>instanceof</code>运算符。  </li>
+<li>语法 <code>value instanceof constructor</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 检测日期</span></span><br><span class="line"><span class="keyword">if</span>( value <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value.getFullYear());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//检测正则表达式</span></span><br><span class="line"><span class="keyword">if</span> (value <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (value.test(antherValue)) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"poetries"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-检测函数"><a href="#2-3-检测函数" class="headerlink" title="2.3 检测函数"></a>2.3 检测函数</h3><hr>
+<p>typeof运算符可以检测函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> myFunc === <span class="string">"function"</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-检测数组"><a href="#2-4-检测数组" class="headerlink" title="2.4 检测数组"></a>2.4 检测数组</h3><hr>
+<ul>
+<li>优雅的方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">"[object Array]"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-检测属性"><a href="#2-5-检测属性" class="headerlink" title="2.5 检测属性"></a>2.5 检测属性</h3><hr>
+<ul>
+<li>判断属性是否存在的最好方法是使用<code>in</code>运算符，<code>in</code>运算符仅仅是判断属性是否存在，而不会去读属性的值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">    count: <span class="number">0</span>,</span><br><span class="line">    related: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//好的写法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="string">"count"</span> <span class="keyword">in</span> object)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果只是想检查实例对象的某个属性是否存在，则使用<code>hasOwnProperty()</code>方法。所有继承<code>Object</code>的对象都有这个方法，如果实例存在则返回<code>true</code>。</li>
+<li>需要注意的是在<code>IE8</code>以及更早的版本中，<code>DOM</code>对象并非继承<code>Object</code>，因此也不包含这个方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于所有非DOM对象来说，这是好的做法</span></span><br><span class="line"><span class="keyword">if</span>(object.hasOwnProperty(<span class="string">"related"</span>)) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你不确定是否为DOM对象 则需要这样写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="string">"hasOwnProperty"</span> <span class="keyword">in</span> object &amp;&amp; object.hasOwnProperty(<span class="string">"related"</span>)) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在判断实例是否存在时，更倾向使用in运算符，只有在需要判断实例属性时才用hasOwnProperty</p>
+<h2 id="三、将配置数据从代码中分离"><a href="#三、将配置数据从代码中分离" class="headerlink" title="三、将配置数据从代码中分离"></a>三、将配置数据从代码中分离</h2><hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将配置数据抽离出来</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    MSG_INVALID_VALUE: <span class="string">"invalid value"</span>,</span><br><span class="line">    URL_INVALID: <span class="string">"errors/invalid.php"</span>,</span><br><span class="line">    CSS_SELECTED: <span class="string">"selected"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validate</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!value)&#123;</span><br><span class="line">        alert(config.MSG_INVALID_VALUE);</span><br><span class="line">        location.href = config.URL_INVALID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考<ul>
+<li>编写可维护的JavaScript</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T09:16:15.218Z" itemprop="dateUpdated">2018-10-23 17:16:15</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/22690905.html" target="_blank" rel="external">https://ru23.com/frontend/22690905.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/22690905.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/22690905.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/22690905.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/a87a6818.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JavaScript启示录阅读笔录</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/30ed4e0c.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">前后端分离之数据Mock</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/22690905.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/22690905.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/22690905.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzElEQVR42u3aQW6EQAwEwP3/p4mUU6SIwW3DLIea0yoQKDhYdg+fT3kdv2t99O85Z7/r1xwtXFzcMfdYrrPb/7/Z+grrx6gYcHFx93PXhaZy+0pRq9AvbLi4uC/j9orazW0QLi7uy7i9cSWl4+LivodbGX7qD9CLUW6e1XBxcQfcNDB94veD+S4uLm7IPcJ19l9paTtaCxcXdw93HXqmEWelMKUtVGm/FxcXdyO3Mn7Ux5i0hQo2WXFxcR/jVopUpYmpn9Mskbi4uFu4915oMkQFRRAXF/dhbhp5NN9HeQS6eIm4uLhbuJUy1NsUSaPVeGMVFxf3Ye66GKWfSvTClGDzFRcX9zFu2o6kbUpv4+T0KC4u7kZuPehMS1t69CKOwcXF3citx51ps1IZmYKXhYuLu4U730SplKTeRuxFvouLi/sYd/6pxDxsDcYkXFzcjdxStQsjj2Zqu35luLi4G7m9jyrSVqYSlzR3gHFxcW/lpgVl0uj0hqtmEcTFxR1zJ59TTApW82FwcXE3cuOctdWmpOec5ru4uLiv4fbanfmLaF4UFxf3S9x541L5Cy4u7re483AzvX3vTFxc3D3cSWBaH2bS+AMXF/dL3B/fbCULj+ei7wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

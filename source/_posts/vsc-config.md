@@ -1,8 +1,9 @@
 ---
 title: VS Code折腾记
-date: 2018-02-02 11:40:43
 tags: VS Code
 categories: Tools
+abbrlink: dde95dab
+date: 2018-02-02 11:40:43
 ---
 
 ## VS Code常用插件

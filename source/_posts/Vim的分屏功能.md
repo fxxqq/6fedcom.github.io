@@ -1,8 +1,9 @@
 ---
 title: Vim的分屏功能
-date: 2016-03-21 10:04:57
 tags: Vim
 categories: 工欲善其事必先利其器
+abbrlink: a753b8d8
+date: 2016-03-21 10:04:57
 ---
 
 

@@ -1,8 +1,9 @@
 ---
 title: vue-axios封装请求（十二）
-date: 2018-08-28 15:35:32
 tags: Vue
 categories: Front-End
+abbrlink: ed55b987
+date: 2018-08-28 15:35:32
 ---
 
 ## 一、axios 简介

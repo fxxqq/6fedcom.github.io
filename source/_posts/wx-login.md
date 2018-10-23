@@ -1,8 +1,9 @@
 ---
 title: 小程序之登录
-date: 2018-08-13 00:01:20
 tags: 小程序
 categories: Front-End
+abbrlink: b106285
+date: 2018-08-13 00:01:20
 ---
 
 一、登录流程

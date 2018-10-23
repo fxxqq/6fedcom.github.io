@@ -1,8 +1,9 @@
 ---
 title: 在sublime-text中设置浏览器预览
-date: 2016-05-28 14:24:49
 tags: sublime
 categories: 工欲善其事必先利其器
+abbrlink: f3739653
+date: 2016-05-28 14:24:49
 ---
 
 配置在Chrome,Firefox中打开

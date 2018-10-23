@@ -1,6 +1,7 @@
 ---
 title: 关于数组中forEach() 、map()、filter()、reduce()、some()、every()的总结
 categories: 前端
+abbrlink: afd16d4c
 date: 2018-10-22 22:43:01
 tags:
 ---

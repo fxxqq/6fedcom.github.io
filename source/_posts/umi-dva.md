@@ -1,10 +1,11 @@
 ---
 title: 使用umi改进dva项目开发
-date: 2018-09-07 20:10:23
-tags: 
+tags:
   - Dva
   - Umi
 categories: Front-End
+abbrlink: c9093d3b
+date: 2018-09-07 20:10:23
 ---
 
 

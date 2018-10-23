@@ -1,10 +1,11 @@
 ---
 title: JavaScript原生数组及高阶函数
-date: 2017-11-07 18:55:24
-tags: 
-   - JavaScript
-   - 高阶函数
+tags:
+  - JavaScript
+  - 高阶函数
 categories: Front-End
+abbrlink: ba91dc04
+date: 2017-11-07 18:55:24
 ---
 
 一、map

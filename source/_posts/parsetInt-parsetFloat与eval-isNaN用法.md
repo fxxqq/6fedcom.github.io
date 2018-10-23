@@ -1,8 +1,9 @@
 ---
 title: parsetInt-parsetFloat与eval-isNaN用法
-date: 2016-07-27 00:50:43
 tags: JavaScript
 categories: Front-End
+abbrlink: 898d51f5
+date: 2016-07-27 00:50:43
 ---
 
 ### parsetInt与parseFloat

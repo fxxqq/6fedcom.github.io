@@ -1,8 +1,10 @@
 ---
 title: '[react]-动态添加class'
 categories: 前端
+tags:
+  - react
+abbrlink: 76ba0f83
 date: 2018-06-17 19:09:19
-tags: [react]
 ---
 
 ```jsx

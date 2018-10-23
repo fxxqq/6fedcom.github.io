@@ -1,8 +1,9 @@
 ---
 title: Sublime Text添加插入带当前时间作者详细说明
-date: 2016-06-03 16:40:12
 tags: sublime
 categories: 工欲善其事必先利其器
+abbrlink: 9b02e30a
+date: 2016-06-03 16:40:12
 ---
 
 ### 创建插件：

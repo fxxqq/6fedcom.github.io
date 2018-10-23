@@ -1,10 +1,11 @@
 ---
 title: 在小程序中集成redux/immutable/thunk第三方库
-date: 2018-08-11 13:30:43
-tags: 
+tags:
   - 小程序
   - redux
 categories: Front-End
+abbrlink: '110e7213'
+date: 2018-08-11 13:30:43
 ---
 
 ### 一、前言

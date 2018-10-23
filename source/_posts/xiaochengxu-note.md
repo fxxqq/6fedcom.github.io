@@ -1,8 +1,9 @@
 ---
 title: 小程序入门总结篇
-date: 2018-08-09 16:20:20
 tags: 小程序
 categories: Front-End
+abbrlink: cb152701
+date: 2018-08-09 16:20:20
 ---
 
 

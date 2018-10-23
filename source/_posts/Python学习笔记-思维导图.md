@@ -1,8 +1,9 @@
 ---
 title: 'Python学习笔记[思维导图]'
-date: 2016-04-20 17:31:39
 tags: python
 categories: Back-end
+abbrlink: '85e04178'
+date: 2016-04-20 17:31:39
 ---
 
 

@@ -1,10 +1,11 @@
 ---
 title: HTML5中的视频音频使用详解
-date: 2016-12-30 14:35:24
-tags: 
+tags:
   - HTML5
   - video
 categories: Front-End
+abbrlink: 1c7bdfba
+date: 2016-12-30 14:35:24
 ---
 
 

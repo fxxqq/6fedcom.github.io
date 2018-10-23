@@ -1,10 +1,11 @@
 ---
 title: React之组件的生命周期以及属性状态（三）
-date: 2017-11-19 10:12:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: b0cc8a93
+date: 2017-11-19 10:12:24
 ---
 
 一、什么是生命周期

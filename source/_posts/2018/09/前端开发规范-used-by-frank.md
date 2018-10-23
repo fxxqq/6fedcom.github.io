@@ -1,8 +1,10 @@
 ---
 title: 前端开发规范-used by frank
+tags:
+  - 前端自动化
+categories: 前端
+abbrlink: bf4c76a0
 date: 2018-09-21 16:20:34
-tags: [前端自动化]
-categories: "前端" 
 ---
 
 ### js方法注释规范

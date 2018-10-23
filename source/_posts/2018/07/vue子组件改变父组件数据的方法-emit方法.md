@@ -1,8 +1,10 @@
 ---
 title: vue子组件改变父组件数据的方法 emit方法
 categories: 前端
+tags:
+  - vue
+abbrlink: 4859b5d8
 date: 2018-07-18 16:45:09
-tags: [vue]
 ---
 
 **场景**：自己封装的插件需要点击子组件的按钮去操作父组件的数据

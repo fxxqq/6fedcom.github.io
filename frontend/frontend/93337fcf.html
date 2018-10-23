@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/93337fcf.html">
+    
+    
+    <title>Nodejs之简单入门（一） | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="JavaScript,Node">
+    <meta name="description" content="一、前言 nodejs是事件驱动、非阻塞I/O模型   阻塞：i/o时进程休眠等待完成后进行下一步 非阻塞：i/o时函数立即返回，进程不等待i/o返回   i/o完成后通知主程序，如何告诉呢？通过事件驱动  事件驱动  i/o等异步操作结束后通知 内部实现是观察者模式  CPU密集和I/O密集  CPU密集：压缩、解压、加密、解密 I/O密集：文件操作、网络操作、数据库  web常见场景(web是">
+<meta name="keywords" content="JavaScript,Node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs之简单入门（一）">
+<meta property="og:url" content="https://ru23.com/frontend/93337fcf.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、前言 nodejs是事件驱动、非阻塞I/O模型   阻塞：i/o时进程休眠等待完成后进行下一步 非阻塞：i/o时函数立即返回，进程不等待i/o返回   i/o完成后通知主程序，如何告诉呢？通过事件驱动  事件驱动  i/o等异步操作结束后通知 内部实现是观察者模式  CPU密集和I/O密集  CPU密集：压缩、解压、加密、解密 I/O密集：文件操作、网络操作、数据库  web常见场景(web是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-64c380eb78d068a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-23T08:47:45.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nodejs之简单入门（一）">
+<meta name="twitter:description" content="一、前言 nodejs是事件驱动、非阻塞I/O模型   阻塞：i/o时进程休眠等待完成后进行下一步 非阻塞：i/o时函数立即返回，进程不等待i/o返回   i/o完成后通知主程序，如何告诉呢？通过事件驱动  事件驱动  i/o等异步操作结束后通知 内部实现是观察者模式  CPU密集和I/O密集  CPU密集：压缩、解压、加密、解密 I/O密集：文件操作、网络操作、数据库  web常见场景(web是">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-64c380eb78d068a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Nodejs之简单入门（一）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Nodejs之简单入门（一）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-15T03:40:43.000Z" itemprop="datePublished" class="page-time">
+  2017-10-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、nodejs与JavaScrip异同"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、nodejs与JavaScrip异同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、模块"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、模块 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、node目录的配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、node目录的配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、第一个node服务器"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、第一个node服务器</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-learn-node-start"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Nodejs之简单入门（一）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-15 11:40:43" datetime="2017-10-15T03:40:43.000Z"  itemprop="datePublished">2017-10-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><blockquote>
+<p>nodejs是事件驱动、非阻塞I/O模型</p>
+</blockquote>
+<ul>
+<li>阻塞：i/o时进程休眠等待完成后进行下一步</li>
+<li>非阻塞：i/o时函数立即返回，进程不等待i/o返回</li>
+</ul>
+<blockquote>
+<p>i/o完成后通知主程序，如何告诉呢？通过事件驱动</p>
+</blockquote>
+<p><strong>事件驱动</strong></p>
+<ul>
+<li>i/o等异步操作结束后通知</li>
+<li>内部实现是观察者模式</li>
+</ul>
+<p><strong>CPU密集和I/O密集</strong></p>
+<ul>
+<li><code>CPU</code>密集：压缩、解压、加密、解密</li>
+<li><code>I/O</code>密集：文件操作、网络操作、数据库</li>
+</ul>
+<p><strong>web常见场景(web是一个I/O密集)</strong></p>
+<ul>
+<li>静态资源读取</li>
+<li>数据库操作</li>
+<li>渲染页面</li>
+</ul>
+<p><strong>高并发应用之道</strong></p>
+<ul>
+<li>增加机器数</li>
+<li>增加每台机器CPU数-多核</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-64c380eb78d068a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<p><strong>进程、线程</strong></p>
+<ul>
+<li>进程：一个运行的程序（进程包括线程，如何水分子里面还有分子原子）</li>
+<li>线程：进程内一个独立的，可调度的执行单元</li>
+<li>多线程：启动一个进程，在一个进程内启动多个线程，这样多个线程可以执行多个任务</li>
+</ul>
+<p><strong>Nodejs的单线程</strong></p>
+<ul>
+<li>单线程只是针对主进程，I/O操作系统底层多线程调度</li>
+<li>单线程并不是单进程</li>
+</ul>
+<p><strong>Nodejs原理</strong></p>
+<ul>
+<li>Node是单线程的，只开一个进程，一个进程也只开一个线程。一个CPU上只开一个进程，一个进程里面只有一个线程</li>
+</ul>
+<p><strong>nodejs高性能的前提</strong></p>
+<ul>
+<li>高并发</li>
+<li><code>I/O</code>密集</li>
+</ul>
+<p><strong>常用场景</strong></p>
+<ul>
+<li><code>web Server</code></li>
+<li>本地代码构建 (<code>webpack/grunt/gulp</code>)</li>
+<li>使用工具的开发</li>
+</ul>
+<h2 id="二、nodejs与JavaScrip异同"><a href="#二、nodejs与JavaScrip异同" class="headerlink" title="二、nodejs与JavaScrip异同"></a>二、nodejs与JavaScrip异同</h2><ul>
+<li><code>ECMAScript</code></li>
+<li>语法</li>
+<li>内置对象、方法</li>
+</ul>
+<p><strong>顶层对象</strong></p>
+<ul>
+<li><code>JavaScript</code>：<code>window</code></li>
+<li><p><code>nodejs</code>: <code>global</code></p>
+</li>
+<li><p>在ECMA部分node和JavaScript是一样的，比如数据类型的定义，语法结构、内置对象</p>
+</li>
+</ul>
+<h2 id="三、模块"><a href="#三、模块" class="headerlink" title="三、模块 "></a>三、模块 </h2><ul>
+<li>在<code>node</code>中文件和模块是一一对应的，也就是一个文件一个模块。<strong>file是每个模块下必有的一个属性，输出文件的绝对路径。`</strong>dirname` 是文件夹名称绝对路径</li>
+<li>每个模块都有自己的作用域</li>
+<li>我们通过var声明的变量并非全局，而是该模块作用域下的</li>
+</ul>
+<p><strong>模块加载机制</strong></p>
+<ul>
+<li><code>require</code>加载模块</li>
+<li>1、首先按照加载模块的文件名称进行查找</li>
+<li>2、如果没有找到就会在文件模块文件名称后加载<code>.js</code>进行查找</li>
+<li>3、如果还没有找到，就在文件名称后加载<code>.json</code>后缀，进行查找</li>
+<li>4、如果还没找到，就会在文件名称后加上<code>.node</code>进行查找</li>
+<li>查找流程：<strong>文件名称-&gt;.js -&gt; .json-&gt;.node</strong></li>
+</ul>
+<p><strong>exports、module</strong></p>
+<ul>
+<li>保存当前模块有关的一些信息</li>
+<li><code>module.exports</code> 一般使用这个,把一个模块中的变量对外提供访问</li>
+<li>在模块作用域，还有一个内置的模块对象，<code>exports</code>其实就是<code>module.exports</code>,他们两个都是指向同一个对象</li>
+</ul>
+<h2 id="四、node目录的配置"><a href="#四、node目录的配置" class="headerlink" title="四、node目录的配置"></a>四、node目录的配置</h2><ul>
+<li>配置文件 : <code>package.json</code><ul>
+<li>dependencies :  当前项目所使用到的依赖模块</li>
+<li>安装方式: <code>npm install</code> 自动读取<code>package.json</code>自动安装</li>
+</ul>
+</li>
+<li><code>router</code>目录 用来存放路由文件</li>
+<li><code>views</code>目录  用来存放<code>html</code>模板文件</li>
+<li><code>module</code>目录  自己写的一些模块</li>
+</ul>
+<h2 id="五、第一个node服务器"><a href="#五、第一个node服务器" class="headerlink" title="五、第一个node服务器"></a>五、第一个node服务器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//   安装好node就有的一个模块</span></span><br><span class="line"><span class="comment">//  用来创建http服务器的</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">`http`</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">request,response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//request 请求对象     浏览器 请求 服务器所有的内容保存在这个对象里</span></span><br><span class="line">    <span class="comment">//response 响应对象     服务器响应浏览器 所有的方法</span></span><br><span class="line">    response.writeHead(<span class="number">200</span> , &#123; <span class="string">'Content-Type'</span>:<span class="string">'text/html'</span> &#125; );</span><br><span class="line">    <span class="comment">//  .end() 结束响应 同时发送一个 Hello Word</span></span><br><span class="line">    response.end(<span class="string">'Hello Word'</span>)</span><br><span class="line">&#125;).listen(<span class="number">233</span>);</span><br><span class="line"><span class="comment">//.listen(); 监听端口 233  自定义的端口号</span></span><br><span class="line"><span class="comment">// 如果开启了node服务器  修改完之后的代码必须 重启才能生效</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:45.754Z" itemprop="dateUpdated">2018-10-23 16:47:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/93337fcf.html" target="_blank" rel="external">https://ru23.com/frontend/93337fcf.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/93337fcf.html&title=《Nodejs之简单入门（一）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/93337fcf.html&title=《Nodejs之简单入门（一）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/93337fcf.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Nodejs之简单入门（一）》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/93337fcf.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/93337fcf.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/795a0309.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Nodejs之环境&amp;调试（二）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/6ef2cf5a.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">高阶函数map reduce filter</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/93337fcf.html&title=《Nodejs之简单入门（一）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/93337fcf.html&title=《Nodejs之简单入门（一）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/93337fcf.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Nodejs之简单入门（一）》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/93337fcf.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/93337fcf.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3aQQ7CMAwFUe5/6bJFQinz7cat0GSFoCQPFpbt+PXC6/hYn+98P3P+evX8xUuuXLlt7nG6VtzVd/nOq/3P95QrV+4k9zzQkKDDEa1gJ1eu3EdyfwQaQJcrV+7/ccm3eOCTK1fuk7k8HSHHk/C3vVaTK1dug8u7lPteb+nvypUrt8Q9wsUvV3j6EpwuV67cEW6nGZq+Ty5m0Lly5cp9ADctSGoFTNCQlStX7ji3Q+HjF+nzy0AmV67cDdzaQNVdzVa5cuXOcPmoBD+g1hDhe8qVK3eGy7fjR6bXJOngl1y5cvdxCYgUSGnrk/+XqPiRK1fupdxa4yMNcCTY8U/lypW7m8uHHkjbggS49F+Mp0XkypXb5qYXHvzTNA3i6ZRcuXInuXyLfiqTFl3LO2G5cuXexE2LnE4ChFIfuXLljnNrW9RKJn59G8RXuXLltrlHuDrFTC3dkStX7jw3HY/gP6Y2cpGmWXLlyt3HTa9SOq2Q/kCGXLlyJ7m1QJNGx/SZy/q7cuXKHeSSAEcCGf8xcuXKfSaXJyvXdjnkypU7z+UlTT+okVTmxyWrXLlyN3PjUNLovKYt11Z/V65cuRXuG4C1UsF7mAofAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

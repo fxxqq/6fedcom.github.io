@@ -1,10 +1,11 @@
 ---
 title: 实现一个迷你版的redux
-date: 2018-07-23 09:20:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: b247df08
+date: 2018-07-23 09:20:24
 ---
 
 ### 迷你版redux实现

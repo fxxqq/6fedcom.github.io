@@ -1,8 +1,9 @@
 ---
 title: TortoiseSVN的基使用方法
-date: 2016-07-08 15:25:20
 tags: SVN
 categories: VCS
+abbrlink: 6cdcec50
+date: 2016-07-08 15:25:20
 ---
 
 

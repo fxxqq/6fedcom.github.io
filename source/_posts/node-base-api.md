@@ -1,10 +1,11 @@
 ---
 title: Nodejs之基础API（三）
-date: 2017-10-15 20:50:35
-tags: 
-   - JavaScript
-   - Node
+tags:
+  - JavaScript
+  - Node
 categories: Back-end
+abbrlink: b424fccc
+date: 2017-10-15 20:50:35
 ---
 
 Path

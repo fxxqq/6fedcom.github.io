@@ -1,8 +1,9 @@
 ---
 title: vue 基本指令（四）
-date: 2018-08-26 14:10:32
 tags: Vue
 categories: Front-End
+abbrlink: 63a9f06
+date: 2018-08-26 14:10:32
 ---
 
 ![image.png](http://upload-images.jianshu.io/upload_images/1480597-95bb7e600db0b04a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

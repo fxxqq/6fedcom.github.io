@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/d3019ce8.html">
+    
+    
+    <title>vue中的数据绑定（二） | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Vue">
+    <meta name="description" content="Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化                                                                                                             一、数据渲染123&amp;lt;div&amp;gt;&amp;#123;message&amp;#">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue中的数据绑定（二）">
+<meta property="og:url" content="https://ru23.com/frontend/d3019ce8.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化                                                                                                             一、数据渲染123&amp;lt;div&amp;gt;&amp;#123;message&amp;#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://malun666.github.io/aicoder_vip_doc/pages/vue/imgs/02vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A.jpg">
+<meta property="og:updated_time" content="2018-10-23T08:47:45.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue中的数据绑定（二）">
+<meta name="twitter:description" content="Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化                                                                                                             一、数据渲染123&amp;lt;div&amp;gt;&amp;#123;message&amp;#">
+<meta name="twitter:image" content="https://malun666.github.io/aicoder_vip_doc/pages/vue/imgs/02vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue中的数据绑定（二）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue中的数据绑定（二）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-26T06:01:32.000Z" itemprop="datePublished" class="page-time">
+  2018-08-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、数据渲染"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、数据渲染</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、属性绑定"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、属性绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、类名绑定"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、类名绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、样式绑定"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、样式绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、条件绑定"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、条件绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、事件绑定"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、事件绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、按键绑定"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、按键绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、双向绑定"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、双向绑定</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vue-data-bind"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue中的数据绑定（二）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-26 14:01:32" datetime="2018-08-26T06:01:32.000Z"  itemprop="datePublished">2018-08-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://malun666.github.io/aicoder_vip_doc/pages/vue/imgs/02vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="一、数据渲染"><a href="#一、数据渲染" class="headerlink" title="一、数据渲染"></a>一、数据渲染</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;message&#125; <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--数据绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"htmlMess"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--html绑定--&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-text</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  <span class="comment">&lt;!--数据绑定--&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="二、属性绑定"><a href="#二、属性绑定" class="headerlink" title="二、属性绑定"></a>二、属性绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>  <span class="comment">&lt;!--属性绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span>  <span class="comment">&lt;!--属性绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span>    <span class="comment">&lt;!--简写--&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、类名绑定"><a href="#三、类名绑定" class="headerlink" title="三、类名绑定"></a>三、类名绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--类绑定，当isActive为true时类名生效--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"active : isActive"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--多类名绑定，用逗号隔开--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"active:isActive,red:isRed"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--对象类名绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"classObj"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--类名数组绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[active,red]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--三元运算符类名绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"isActive ? active : red"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、样式绑定"><a href="#四、样式绑定" class="headerlink" title="四、样式绑定"></a>四、样式绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--内联样式绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123;width:width,height:height&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--内联样式对象绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:sytle</span>=<span class="string">"styleObj"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--内联样式对象数组绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"[styleObj1,styleObj2]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="五、条件绑定"><a href="#五、条件绑定" class="headerlink" title="五、条件绑定"></a>五、条件绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--条件为真时显示，css中直接有无此元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"seen"</span>&gt;</span>hahah<span class="tag">&lt;/<span class="name">p</span>&gt;</span>    </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--效果同if，css中为display：none--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-show</span>=<span class="string">"seen"</span>&gt;</span>hah<span class="tag">&lt;/<span class="name">p</span>&gt;</span>     </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--循环绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"list in lists"</span>&gt;</span>&#123;&#123;alist.text&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--绑定lists数组--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"value in lists"</span>&gt;</span>&#123;&#123;value&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>     </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--值循环输出--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"(key value) in lists"</span>&gt;</span>&#123;&#123;key&#125;&#125;:&#123;&#123;value&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>     </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--键值对输出--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"(index key value) in lists"</span>&gt;</span>&#123;&#123;index&#125;&#125;:&#123;&#123;key&#125;&#125;:&#123;&#123;value&#125;&#125; <span class="tag">&lt;/<span class="name">p</span>&gt;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--索引加键值对输出--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"n in 10"</span>&gt;</span>&#123;&#123;n&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="六、事件绑定"><a href="#六、事件绑定" class="headerlink" title="六、事件绑定"></a>六、事件绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--事件对应fun1方法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"fun1"</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">a</span>&gt;</span>    </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--事件绑定简写--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"fun1"</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">a</span>&gt;</span>     </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--事件修饰符：--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 阻止单击事件冒泡 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 提交事件不再重载页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修饰符可以串联  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop.prevent</span>=<span class="string">"doThat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 只有修饰符 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 添加事件侦听器时使用事件捕获模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.capture</span>=<span class="string">"doThis"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.self</span>=<span class="string">"doThat"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- click 事件只能点击一次，2.1.4版本新增 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="七、按键绑定"><a href="#七、按键绑定" class="headerlink" title="七、按键绑定"></a>七、按键绑定</h2><blockquote>
+<p>相应按键按下时触发</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>全部的按键别名：</p>
+</blockquote>
+<ul>
+<li><code>.enter</code>  </li>
+<li><code>.tab</code></li>
+<li><code>.delete</code> (捕获 “删除” 和 “退格” 键) </li>
+<li><code>.esc</code></li>
+<li><code>.space</code> </li>
+<li><code>.up</code></li>
+<li><code>.down</code> </li>
+<li><code>.left</code> </li>
+<li><code>.right</code>  </li>
+<li><code>.ctrl</code></li>
+<li><code>.alt</code></li>
+<li><code>.shift</code> </li>
+<li><code>.meta</code></li>
+</ul>
+<h2 id="八、双向绑定"><a href="#八、双向绑定" class="headerlink" title="八、双向绑定"></a>八、双向绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;message&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--input输入值将传入Vue中的message--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"message"</span>/&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">id</span>=<span class="string">"aa"</span>&gt;</span>     </span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>腾讯<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>阿里<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>绑定修饰符</strong></p>
+<ul>
+<li><code>v-model.lazy</code> 将<code>input</code>同步改为<code>change</code>同步    -</li>
+<li><code>v-model.mumber</code> 将能转化为数字的字符串转化为数字</li>
+<li><code>v-model.trim</code> 过滤空格</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:45.956Z" itemprop="dateUpdated">2018-10-23 16:47:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/d3019ce8.html" target="_blank" rel="external">https://ru23.com/frontend/d3019ce8.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/d3019ce8.html&title=《vue中的数据绑定（二）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/d3019ce8.html&title=《vue中的数据绑定（二）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/d3019ce8.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue中的数据绑定（二）》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/d3019ce8.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/d3019ce8.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/c1cea378.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue之class与style绑定（三）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/3658c71f.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">初识vue与环境搭建（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/d3019ce8.html&title=《vue中的数据绑定（二）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/d3019ce8.html&title=《vue中的数据绑定（二）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/d3019ce8.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue中的数据绑定（二）》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/d3019ce8.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/d3019ce8.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aS47DIBAFwNz/0h4pqxlpSF7TBrMoVpET4SKLFv15veJ1vdfoyfVrjb5N9rxt4eLitrnXx1V9/WiHz/skBlxc3P3cz4HmyxYDdHX/KNjh4uIexh2BcvQN1yBcXNzDuHNpTJWOi4t7DjdJfvJLT+cAt+VquLi4DW61YLri88L6Li4ubpF7FVe+W7XIEr0dFxd3CzdpoObPq0eaS4dwcXF3ckfoTqm0eoyobYOLi7uYmwxb5EfKxy/ysYw/T3Bxcbdwk5ZJcim5a4fyYBYuLu4CbidpqTZX8hRoGPhwcXEf4hbKE8VySZJEfTkqLi7uFm5eNk1CT15AyffBxcXdz82JkyWMqXA5/BYXF3cjdy6xqRZPq+0ZXFzck7n9y0rnL8DFxd3PrQ5mVcNW9ZfRNQsXF3cxN39Bf+wyb5ng4uKewG2VKqaKKfnCxcV9iltNfpK2R96GKTdWcXFxF3OrAaXTQO20ZMqHwcXFbXOrwSthVS9DuLi4Z3JXBK98uLNV38XFxX2U27nEzI1//bMDLi7uwdy5wkr12Li4uM9y54aoOq+f+yUuLu4ebrVg2h/NnAuXuLi4W7g/z+eqoQykzkgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

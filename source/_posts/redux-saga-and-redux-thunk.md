@@ -1,10 +1,11 @@
 ---
 title: 浅析redux-saga中间件及用法
-date: 2018-08-29 19:20:20
-tags: 
- - Redux
- - 中间件
+tags:
+  - Redux
+  - 中间件
 categories: Front-End
+abbrlink: 54c6f1e
+date: 2018-08-29 19:20:20
 ---
 
 ## 一、redux-thunk

@@ -1,8 +1,10 @@
 ---
 title: vue路由传参的三种基本方式
 categories: 前端
+tags:
+  - vue
+abbrlink: 701e9ca3
 date: 2018-08-15 18:31:11
-tags: [vue]
 ---
 
 现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。

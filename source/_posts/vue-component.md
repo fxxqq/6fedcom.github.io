@@ -1,8 +1,9 @@
 ---
 title: vue组件（九)
-date: 2018-08-27 11:20:32
 tags: Vue
 categories: Front-End
+abbrlink: a45ffb2e
+date: 2018-08-27 11:20:32
 ---
 
 ## 一、组件的基本使用

@@ -1,8 +1,9 @@
 ---
 title: python 3.5下xadmin的使用方法
-date: 2017-05-05 11:35:24
 tags: python
 categories: Back-end
+abbrlink: 1c74e0c7
+date: 2017-05-05 11:35:24
 ---
 
 ### 安装方法

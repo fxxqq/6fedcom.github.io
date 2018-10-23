@@ -1,8 +1,9 @@
 ---
 title: Nginx基础配置篇
-date: 2017-05-08 22:35:08
 tags: Nginx
 categories: Back-end
+abbrlink: a404b8b6
+date: 2017-05-08 22:35:08
 ---
 
 ### Nginx的启动、停止与重启

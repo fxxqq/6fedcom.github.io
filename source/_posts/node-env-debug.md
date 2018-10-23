@@ -1,10 +1,11 @@
 ---
 title: Nodejs之环境&调试（二）
-date: 2017-10-15 16:30:15
-tags: 
-   - JavaScript
-   - Node
+tags:
+  - JavaScript
+  - Node
 categories: Back-end
+abbrlink: 795a0309
+date: 2017-10-15 16:30:15
 ---
 
 一、环境

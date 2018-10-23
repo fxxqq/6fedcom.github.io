@@ -1,8 +1,10 @@
 ---
 title: redux入门
 categories: 前端
+tags:
+  - react
+abbrlink: c5bbc436
 date: 2018-09-28 19:43:17
-tags: [react]
 ---
 Redux由Flux演变而来，提供几个简单的API来实现状态管理，所谓状态指的是应用数据，所以，Redux本质上是用来管理数据的。
 进一步，Redux配合支持数据绑定的视图库使用，就可以将应用状态和视图一一对应，开发者不需要再去关心DOM操作，只关心如何组织数据即可。

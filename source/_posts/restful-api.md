@@ -1,10 +1,11 @@
 ---
 title: 初探RESTful API
-date: 2017-10-23 16:35:24
-tags: 
-   - JavaScript
-   - RESTful API
+tags:
+  - JavaScript
+  - RESTful API
 categories: Front-End
+abbrlink: 5d687d0f
+date: 2017-10-23 16:35:24
 ---
 
 ## 一、RESTful API 简介

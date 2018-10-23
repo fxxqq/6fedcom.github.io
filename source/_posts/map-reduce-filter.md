@@ -1,10 +1,11 @@
 ---
 title: 高阶函数map reduce filter
-date: 2017-09-17 17:33:00
-tags: 
+tags:
   - JavaScript
   - 高阶函数
 categories: Front-End
+abbrlink: 6ef2cf5a
+date: 2017-09-17 17:33:00
 ---
 
 > 整理于互联网

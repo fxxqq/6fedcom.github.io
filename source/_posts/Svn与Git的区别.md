@@ -1,10 +1,11 @@
 ---
 title: Svn与Git的区别
-date: 2016-07-22 21:15:20
-tags: 
-    - GitHub
-    - SVN
+tags:
+  - GitHub
+  - SVN
 categories: VCS
+abbrlink: 55ec2a12
+date: 2016-07-22 21:15:20
 ---
 
 

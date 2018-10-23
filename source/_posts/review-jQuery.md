@@ -1,10 +1,11 @@
 ---
 title: jQuery笔记总结篇
-date: 2016-10-20 09:35:08
-tags: 
-    - JavaScript
-    - jQuery
+tags:
+  - JavaScript
+  - jQuery
 categories: Front-End
+abbrlink: ed6083ef
+date: 2016-10-20 09:35:08
 ---
 
 > 原文链接 http://blog.poetries.top/2016/10/20/review-jQuery

@@ -1,8 +1,10 @@
 ---
 title: 使用slice()简单封装实现将数组分割为几个等长度的子数组
 categories: 前端
+tags:
+  - Javascript
+abbrlink: d7aaf523
 date: 2018-07-16 16:42:32
-tags: [javascript]
 ---
 
 使用数组的时候，我们有时候希望将一个数组分成几个相同长度的子数组，使用slice()方法可以返回一个子数组，所以我们可以将slice()再进行封装一下，以实现上面的功能。

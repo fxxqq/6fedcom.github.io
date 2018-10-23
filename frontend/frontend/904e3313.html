@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/904e3313.html">
+    
+    
+    <title>React之context | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="JavaScript,react">
+    <meta name="description" content="简介 React 组件之间的通信是基于 props 的单向数据流，即父组件通过 props 向子组件传值，亦或是子组件执行传入的函数来更新父组件的state，这都满足了我们大部分的使用场景 一般地，对于兄弟组件之间的通信，是通过它们共同的祖先组件进行的，即 Lifting State Up，官方文档也有介绍。组件一通过事件将状态变更通知它们共同的祖先组件，祖先组再将状态同步到组件二 但是，如果组件">
+<meta name="keywords" content="JavaScript,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React之context">
+<meta property="og:url" content="https://ru23.com/frontend/904e3313.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="简介 React 组件之间的通信是基于 props 的单向数据流，即父组件通过 props 向子组件传值，亦或是子组件执行传入的函数来更新父组件的state，这都满足了我们大部分的使用场景 一般地，对于兄弟组件之间的通信，是通过它们共同的祖先组件进行的，即 Lifting State Up，官方文档也有介绍。组件一通过事件将状态变更通知它们共同的祖先组件，祖先组再将状态同步到组件二 但是，如果组件">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T08:47:45.788Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React之context">
+<meta name="twitter:description" content="简介 React 组件之间的通信是基于 props 的单向数据流，即父组件通过 props 向子组件传值，亦或是子组件执行传入的函数来更新父组件的state，这都满足了我们大部分的使用场景 一般地，对于兄弟组件之间的通信，是通过它们共同的祖先组件进行的，即 Lifting State Up，官方文档也有介绍。组件一通过事件将状态变更通知它们共同的祖先组件，祖先组再将状态同步到组件二 但是，如果组件">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">React之context</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">React之context</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-23T01:50:12.000Z" itemprop="datePublished" class="page-time">
+  2018-07-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例1"><span class="post-toc-number">2.</span> <span class="post-toc-text">例1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例2"><span class="post-toc-number">3.</span> <span class="post-toc-text">例2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#context在Provider种应用"><span class="post-toc-number">4.</span> <span class="post-toc-text">context在Provider种应用</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-react-context"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">React之context</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-23 09:50:12" datetime="2018-07-23T01:50:12.000Z"  itemprop="datePublished">2018-07-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><code>React</code> 组件之间的通信是基于 <code>props</code> 的单向数据流，即父组件通过 <code>props</code> 向子组件传值，亦或是子组件执行传入的函数来更新父组件的<code>state</code>，这都满足了我们大部分的使用场景</li>
+<li>一般地，对于兄弟组件之间的通信，是通过它们共同的祖先组件进行的，即 Lifting State Up，官方文档也有介绍。组件一通过事件将状态变更通知它们共同的祖先组件，祖先组再将状态同步到组件二</li>
+<li>但是，如果组件之间嵌套的比较深，即使提升状态到共同父组件，再同步状态到相应的组件还是需要一层一层的传递下去，可能会比较繁琐</li>
+<li>在对应的场景中，<code>context</code> 就可以缩短父组件到子组件的属性传递路径</li>
+</ul>
+<h2 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Parent <span class="keyword">from</span> <span class="string">'./Parent'</span></span><br><span class="line"><span class="keyword">import</span> ChildOne <span class="keyword">from</span> <span class="string">'../components/ChildOne'</span></span><br><span class="line"><span class="keyword">import</span> ChildTwo <span class="keyword">from</span> <span class="string">'../components/ChildTwo'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Container</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123; <span class="attr">value</span>: <span class="string">''</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    changeValue = <span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123; value &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getChildContext() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            value: <span class="keyword">this</span>.state.value,</span><br><span class="line">            changeValue: <span class="keyword">this</span>.changeValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Parent&gt;</span><br><span class="line">                    &lt;ChildOne /&gt;</span><br><span class="line">                &lt;<span class="regexp">/Parent&gt;</span></span><br><span class="line"><span class="regexp">                &lt;Parent&gt;</span></span><br><span class="line"><span class="regexp">                    &lt;ChildTwo /</span>&gt;</span><br><span class="line">                &lt;<span class="regexp">/Parent&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Container.childContextTypes = &#123;</span><br><span class="line">    value: PropTypes.string,</span><br><span class="line">    changeValue: PropTypes.func</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Parent.jsx</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Parent = <span class="function">(<span class="params">props</span>) =&gt;</span> (</span><br><span class="line">    &lt;div &#123;...props&#125; /&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Parent</span><br></pre></td></tr></table></figure>
+<p>ChildOne.jsx</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ChildOne</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    handleChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; changeValue &#125; = <span class="keyword">this</span>.context</span><br><span class="line">        changeValue(e.target.value)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                子组件一</span><br><span class="line">                &lt;input onChange=&#123;<span class="keyword">this</span>.handleChange&#125; /&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ChildOne.contextTypes = &#123;</span></span><br><span class="line"><span class="regexp">    changeValue: PropTypes.func</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>ChildTwo.jsx</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ChildTwo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                子组件二</span><br><span class="line">                &lt;p&gt;&#123;<span class="keyword">this</span>.context.value&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ChildTwo.contextTypes = &#123;</span><br><span class="line">    value: PropTypes.string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在 <code>Container.childContextTypes</code> 中进行接口的声明，通过 <code>getChildContext</code> 返回更新后的<code>state</code>，在 <code>Child.contextTypes</code> 中声明要获取的接口，这样在子组件内部就能通过 <code>this.context</code> 获取到。通过 <code>Context</code> 这样一个中间对象，<code>ChildOne</code> 和 <code>ChildTwo</code> 就可以相互通信了</p>
+</blockquote>
+<h2 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h2><blockquote>
+<p>组件嵌套传递属性，在导航里面引用<code>Page</code>中的变量</p>
+</blockquote>
+<ul>
+<li>使用<code>context</code>来传递</li>
+<li>使用props层级传递</li>
+</ul>
+<blockquote>
+<p>使用<code>context</code>组件需要定义<code>propTypes</code>,需要严格校验、声明类型、字段</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Page</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> childContextTypes = &#123;</span><br><span class="line">       user:PropTypes.string</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props)</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;<span class="attr">user</span>:<span class="string">'poetries'</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    getChildContext()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.state</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">            &lt;p&gt;我是&#123;<span class="keyword">this</span>.state.user&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">            &lt;Siderbar /</span>&gt;</span><br><span class="line">          &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">class Siderbar extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">    static childContextTypes = &#123;</span></span><br><span class="line"><span class="regexp">       user:PropTypes.string</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    render()&#123;</span></span><br><span class="line"><span class="regexp">        return (</span></span><br><span class="line"><span class="regexp">          &lt;div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;p&gt;侧边栏&lt;/</span>p&gt;</span><br><span class="line">            &lt;Navbar /&gt;</span><br><span class="line">          &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">class Navbar extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">    static childContextTypes = &#123;</span></span><br><span class="line"><span class="regexp">       user:PropTypes.string</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    render()&#123;</span></span><br><span class="line"><span class="regexp">        return (</span></span><br><span class="line"><span class="regexp">          &lt;div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;p&gt;我是&#123;this.context.user&#125;的导航栏&lt;/</span>p&gt;</span><br><span class="line">            &lt;Siderbar /&gt;</span><br><span class="line">          &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="context在Provider种应用"><a href="#context在Provider种应用" class="headerlink" title="context在Provider种应用"></a>context在Provider种应用</h2><blockquote>
+<p><code>provider</code>组件就是使用<code>context</code>，把<code>store</code>放到<code>context</code>里，所有的子元素可以直接取到<code>store</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Provider</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> childContextTypes = &#123;</span><br><span class="line">        store:Protypes.object</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">constructor</span>(props,context)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props,context)</span><br><span class="line">        <span class="keyword">this</span>.store = props.store</span><br><span class="line">    &#125;</span><br><span class="line">    getChildContext()&#123;</span><br><span class="line">        <span class="comment">//把传进来的store放进全局</span></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="attr">store</span>:<span class="keyword">this</span>.store&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.props.children</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>connect</code> 负责连接组件，给到<code>redux</code>里的数据放到组件的属性里</p>
+</blockquote>
+<ul>
+<li>负责接收一个组件，把<code>state</code>里的一些数据放进去，返回一个组件</li>
+<li>数据变化的时候，能够通知组件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//高阶组件写法</span></span><br><span class="line"><span class="keyword">const</span> connect = <span class="function">(<span class="params">mapStateToProps=state=&gt;state,mapDispatchToProps=&#123;&#125;</span>)=&gt;</span><span class="function">(<span class="params">wrapperComponent</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnectComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">        <span class="comment">//负责接收组件</span></span><br><span class="line">        <span class="keyword">static</span> contextTypes = &#123;</span><br><span class="line">            store:PropTypes.obejct</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">            <span class="keyword">super</span>(props, context)&#123;</span><br><span class="line">                <span class="keyword">this</span>.state = &#123;</span><br><span class="line">                    props:&#123;&#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        componentDidMount()&#123;</span><br><span class="line">            <span class="keyword">const</span> &#123;store&#125; = <span class="keyword">this</span>.context</span><br><span class="line">            store.subscribe(<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">this</span>.update())</span><br><span class="line">            <span class="keyword">this</span>.update()</span><br><span class="line">        &#125;</span><br><span class="line">        update()&#123;</span><br><span class="line">            <span class="comment">//  获取mapStateToProps、mapDispatchToProps 放入this.props里</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">const</span> &#123;store&#125;=<span class="keyword">this</span>.context</span><br><span class="line">            <span class="keyword">const</span> stateProps = mapStateToProps(store.getState())</span><br><span class="line">            <span class="keyword">const</span> dispatchProps = bindActionCreators(mapDispatchProps,store.dispatch)</span><br><span class="line">            <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                props:&#123;</span><br><span class="line">                    ...this.state.props,</span><br><span class="line">                    ...stateProps,</span><br><span class="line">                    ...dispatchProps</span><br><span class="line">                 &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        render()&#123;</span><br><span class="line">            <span class="comment">// 把数据放入</span></span><br><span class="line">            <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">wrapperComponent</span> &#123;<span class="attr">...this.state.props</span>&#125;/&gt;</span></span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:45.788Z" itemprop="dateUpdated">2018-10-23 16:47:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/904e3313.html" target="_blank" rel="external">https://ru23.com/frontend/904e3313.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/904e3313.html&title=《React之context》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/904e3313.html&title=《React之context》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/904e3313.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React之context》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/904e3313.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/904e3313.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/6d683f02.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">React之组件通信方式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/b247df08.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">实现一个迷你版的redux</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/904e3313.html&title=《React之context》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/904e3313.html&title=《React之context》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/904e3313.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React之context》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/904e3313.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/904e3313.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aS27DMAwFwNz/0inQXYHafU+/uMBoFditNPKCICm9XvF4f4/758nvZM4FAxcXd5r7vh3JkskMyZaSGXBxcU9ykyCVh602kBXBDhcX92Hcq7+/ejK2YVxc3P/FHStXWjouLu5zuEnxkyyQv91eq+Hi4k5w24bpjt8b+7u4uLgl912OfJ48YSpWx8XFPcLN2xwJKwlMC1IoXFzczdy89ZmULvdBqk2hBkMYLi7uUu5YYGqJ7bWMH09wcXEfw20vXN7PM1YCFXvCxcWd5uaJS5vczJRA0SfDxcU9zp1vf7RNkPqSBy4u7mZuHlBmrmu0AREXF/dT3LGEJg9zYwcnl29xcXGPcPMg0hYq+SbrFiouLu5m7kyIyVsbbap0+V+4uLhHuG1Ski9fX63I58TFxd3MTcqYsdC24yAWFxf3JDdPTcY20B7AXBZduLi4B7n5aNOavCGy4BwYFxd3EbcNKG3IS9Kasbe4uLi7uavaoGNF1ODJDy4u7hHuqmZoHhDb4xZcXNxnctvl5z/ELzPg4uI+kjvT8kiuevzxmXBxcQ9yZ5qb7WWsnD5Vq+Hi4k5w24bpTMsjL59wcXE/xP0CD78GHIFrniQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

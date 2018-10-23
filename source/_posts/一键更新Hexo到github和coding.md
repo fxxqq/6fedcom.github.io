@@ -1,8 +1,9 @@
 ---
 title: 一键更新Hexo到github和coding
-date: 2016-07-02 20:48:22
 tags: Hexo
 categories: Hexo
+abbrlink: 11e7f6eb
+date: 2016-07-02 20:48:22
 ---
 
 ### **一、 _config.yml配置**

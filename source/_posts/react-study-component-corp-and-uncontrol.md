@@ -1,10 +1,11 @@
 ---
 title: React之组件的协同及（不）可控组件（五）
-date: 2017-11-19 10:14:26
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: a802abee
+date: 2017-11-19 10:14:26
 ---
 
 一、为什么要进行组件的协同

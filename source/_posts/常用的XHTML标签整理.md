@@ -1,8 +1,9 @@
 ---
 title: 常用的XHTML标签整理
-date: 2016-03-26 10:54:51
 tags: XHTML
 categories: Front-End
+abbrlink: 43c4688e
+date: 2016-03-26 10:54:51
 ---
 
 

@@ -1,10 +1,11 @@
 ---
 title: JavaScript数组、字符串、对象常用方法
-date: 2018-02-23 15:10:12
-tags: 
+tags:
   - JavaScript
   - API
 categories: Front-End
+abbrlink: 1196ec8b
+date: 2018-02-23 15:10:12
 ---
 
 ## 一、String对象

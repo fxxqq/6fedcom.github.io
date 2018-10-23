@@ -1,10 +1,11 @@
 ---
 title: React之事件（四）
-date: 2017-11-19 10:13:32
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: 7d76909e
+date: 2017-11-19 10:13:32
 ---
 
 一、编写事件处理函数

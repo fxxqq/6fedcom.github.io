@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/7205ee34.html">
+    
+    
+    <title>reactjs中事件传参(关于event) | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="react">
+    <meta name="description" content="问题描述我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应1234567891011121314151617181920212223242526onHan">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reactjs中事件传参(关于event)">
+<meta property="og:url" content="https://ru23.com/frontend/7205ee34.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="问题描述我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应1234567891011121314151617181920212223242526onHan">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T08:47:46.571Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="reactjs中事件传参(关于event)">
+<meta name="twitter:description" content="问题描述我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应1234567891011121314151617181920212223242526onHan">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">reactjs中事件传参(关于event)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">reactjs中事件传参(关于event)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-10T07:06:44.000Z" itemprop="datePublished" class="page-time">
+  2018-09-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#问题描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">问题描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#摘自"><span class="post-toc-number">2.</span> <span class="post-toc-text">摘自</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2018-09-reactjs中事件传参-关于event"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">reactjs中事件传参(关于event)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-10 15:06:44" datetime="2018-09-10T07:06:44.000Z"  itemprop="datePublished">2018-09-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>我们在事件中通常需要获取控件的值，通常通过event.target.value的方式来取值，在绑定事件时，event参数也不需要传递，在方法中直接使用即可。<br>但是，有些时候需要传入一些其他的参数，比如需要循环绑定一些输入框，在绑定onChange事件时，需要传入索引index和数据源的索引进行对应<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">onHandleChange(index,event)&#123;</span><br><span class="line">    <span class="keyword">let</span> val=event.target.value</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关键代码</span></span><br><span class="line">source.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">&#123;item.name&#125;</span> </span></span></span><br><span class="line"><span class="xml">      onChange=&#123;this.onHandleChange.bind(this,index)&#125; /&gt;</span></span><br><span class="line"><span class="xml">&#125;);</span></span><br><span class="line"><span class="xml">```  </span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">#### 代码解释</span></span><br><span class="line"><span class="xml">有的同学应该已经看出区别了，onHandleChange在声明时有两个参数，但在调用时却只传递了一个参数，这就是今天要讲的:</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&gt; **在给方法传递新参数时，方法原有的参数会排在新参数之后**</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">做过reactjs的同学都知道，event这个参数是不需要手动传递的，直接在方法中声明就可以使用，如下代码：</span></span><br><span class="line"><span class="xml">```jsx</span></span><br><span class="line"><span class="xml">onChangeHandle(event)&#123;</span></span><br><span class="line"><span class="xml">      let val=event.target.value;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">render()&#123;</span></span><br><span class="line">  return (&lt;div&gt;</span><br><span class="line">    &lt;input type="text" onChange=&#123;this.onChangeHandle.bind(this)&#125; /&gt;</span><br><span class="line">&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h4><blockquote>
+<p>作者：不将就人生<br>链接：<a href="https://www.jianshu.com/p/1026d71d04d6" target="_blank" rel="noopener">https://www.jianshu.com/p/1026d71d04d6</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:46.571Z" itemprop="dateUpdated">2018-10-23 16:47:46</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/7205ee34.html" target="_blank" rel="external">https://ru23.com/frontend/7205ee34.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/7205ee34.html&title=《reactjs中事件传参(关于event)》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/7205ee34.html&title=《reactjs中事件传参(关于event)》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/7205ee34.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《reactjs中事件传参(关于event)》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/7205ee34.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/7205ee34.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/73a03d66.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端周刊-2018年09月第2周</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/d53aad1e.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">前端开发周刊-(2018年09月第2周)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/7205ee34.html&title=《reactjs中事件传参(关于event)》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/7205ee34.html&title=《reactjs中事件传参(关于event)》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/7205ee34.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《reactjs中事件传参(关于event)》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/7205ee34.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/7205ee34.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3aS4oDMQxF0ex/0xXoWRPK3CfLShGuRw1tXMcZCOvzeuF1/a27v+/+u97/ubNtyZUrd5t7LRdn8dPINW6vJFeu3EEuCV4kYK3D0zogrvfLlSv3mdx10ElZcuXK/T0uOho8gOTKlftkLkl+yFOGg47nanLlyt3g7hdMe581x+u7cuXK3ehKkICyU2CNvy5XrtwR7k5CQgqm/GHEvyJXrtwZLv9krY1Kxi8aRjHkypXbyiXtEB6q0iSKX0muXLkz3P0GCU94Gho2cuXKHeTutDzTS6YNlX975MqVO8glAYWXTfkjKU5+5MqVO8hNcbysSVos/AeVK1fuPJeMSXW1QBrqN3Llyj3G5ThSPE25cfIjV67cQS5voNYaJ7XT4nRIrly5TVz+iCGfIalOOqCJkh+5cuWOcGtF0jR2crRcuXInuTwtSVssaTGlVl6RK1fuCe4Vrp3qZdpwlStX7re4aVghwY7XMcg5cuXK/RaXlycIml+s2OKVK1fuIDdNhFJEV+iUK1fu07h8OIMnSEEIkytX7oO5fFSLh8Ji+0SuXLmHubXkh5RT+XAGCo5y5cod4dZSET6WkTZTSdCUK1fuMe4bMDwLCSyPkf0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

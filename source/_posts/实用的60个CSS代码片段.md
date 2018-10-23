@@ -1,10 +1,11 @@
 ---
 title: 实用的60个CSS代码片段
-date: 2016-08-13 12:25:08
-tags: 
-   - CSS
-   - Snippet
+tags:
+  - CSS
+  - Snippet
 categories: Front-End
+abbrlink: 4ffb583
+date: 2016-08-13 12:25:08
 ---
 
 

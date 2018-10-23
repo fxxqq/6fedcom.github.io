@@ -1,9 +1,10 @@
 ---
 title: NodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.
-date: 2018-09-07 15:54:30
 issues: 114
-categories: "前端" 
-tags: node 
+categories: 前端
+tags: node
+abbrlink: 500f0fbd
+date: 2018-09-07 15:54:30
 ---
 
 今天用NodeJS连接Mysql时遇到点折磨人的问题，记录下解决方法。

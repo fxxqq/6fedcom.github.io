@@ -1,8 +1,9 @@
 ---
 title: Vim快捷键分类
-date: 2016-03-25 09:24:36
 tags: Vim
 categories: 工欲善其事必先利其器
+abbrlink: 3512468a
+date: 2016-03-25 09:24:36
 ---
 
 

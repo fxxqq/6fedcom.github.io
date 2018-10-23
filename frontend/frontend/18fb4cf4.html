@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/18fb4cf4.html">
+    
+    
+    <title>持续集成 Travis CI | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="部署,Travis CI">
+    <meta name="description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
+<meta name="keywords" content="部署,Travis CI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="持续集成 Travis CI">
+<meta property="og:url" content="https://ru23.com/frontend/18fb4cf4.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017121903.png">
+<meta property="og:updated_time" content="2018-10-23T08:47:45.877Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="持续集成 Travis CI">
+<meta name="twitter:description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
+<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017121903.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">持续集成 Travis CI</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">持续集成 Travis CI</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-02-23T04:12:08.000Z" itemprop="datePublished" class="page-time">
+  2018-02-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、什么是持续集成？"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、什么是持续集成？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、-travis-yml"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、.travis.yml</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三、运行流程"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、运行流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-1-install-阶段"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 install 阶段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-2、script-字段"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2、script 字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-3-实例：Node-项目"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 实例：Node 项目</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-4-部署"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">3.4 部署</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-5-钩子方法"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">3.5 钩子方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-6-运行状态"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">3.6 运行状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四、使用技巧"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、使用技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1-环境变量"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">4.1 环境变量</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-加密信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">4.2 加密信息</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-travis-ci"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">持续集成 Travis CI</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-02-23 12:12:08" datetime="2018-02-23T04:12:08.000Z"  itemprop="datePublished">2018-02-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>来源于互联网</p>
+</blockquote>
+<h4 id="一、什么是持续集成？"><a href="#一、什么是持续集成？" class="headerlink" title="一、什么是持续集成？"></a>一、什么是持续集成？</h4><ul>
+<li><code>Travis CI</code> 提供的是持续集成服务（<code>Continuous Integration</code>，简称 <code>CI</code>）。它绑定 <code>Github</code> 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。</li>
+<li>持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。</li>
+<li>持续集成的好处在于，每次代码的小幅变更，就能看到运行结果，从而不断累积小的变更，而不是在开发周期结束时，一下子合并一大块代码</li>
+</ul>
+<h4 id="二、-travis-yml"><a href="#二、-travis-yml" class="headerlink" title="二、.travis.yml"></a>二、.travis.yml</h4><blockquote>
+<p>Travis 要求项目的根目录下面，必须有一个<code>.travis.yml</code>文件。这是配置文件，指定了 <code>Travis</code> 的行为。该文件必须保存在 <code>Github</code> 仓库里面，一旦代码仓库有新的 <code>Commit</code>，<code>Travis</code>就会去找这个文件，执行里面的命令</p>
+</blockquote>
+<ul>
+<li>这个文件采用 <code>YAML</code> 格式。下面是一个最简单的 <code>Python</code> 项目的<code>.travis.yml</code>文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: python</span><br><span class="line">script: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>language</code>字段指定了默认运行环境，这里设定使用 <code>Python</code> 环境</li>
+<li><code>script</code>字段指定要运行的脚本，<code>script: true</code>表示不执行任何脚本，状态直接设为成功</li>
+</ul>
+<p><strong>面是一个稍微复杂一点的.travis.yml</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">language: python</span><br><span class="line">sudo: required</span><br><span class="line">before_install: sudo pip install foo</span><br><span class="line">script: py.test</span><br></pre></td></tr></table></figure>
+<h4 id="三、运行流程"><a href="#三、运行流程" class="headerlink" title="三、运行流程"></a>三、运行流程</h4><ul>
+<li><code>Travis</code> 的运行流程很简单，任何项目都会经过两个阶段<ul>
+<li><code>install</code>  阶段：安装依赖</li>
+<li><code>script</code> 阶段：运行脚本</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-1-install-阶段"><a href="#3-1-install-阶段" class="headerlink" title="3.1 install 阶段"></a>3.1 install 阶段</h5><blockquote>
+<p><code>install</code>字段用来指定安装脚本</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install: ./install-dependencies.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果有多个脚本，可以写成下面的形式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">install:</span><br><span class="line"> - command1</span><br><span class="line"> - command2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面代码中，如果<code>command1</code>失败了，整个构建就会停下来，不再往下进行。</li>
+<li>如果不需要安装，即跳过安装阶段，就直接设为<code>true</code>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install: true</span><br></pre></td></tr></table></figure>
+<h5 id="3-2、script-字段"><a href="#3-2、script-字段" class="headerlink" title="3.2、script 字段"></a>3.2、script 字段</h5><ul>
+<li><code>script</code>字段用来指定构建或测试脚本</li>
+</ul>
+<p><code>script: bundle exec thor build</code></p>
+<ul>
+<li>如果有多个脚本，可以写成下面的形式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">script:</span><br><span class="line"> - command1</span><br><span class="line"> - command2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意</strong>，<code>script</code>与<code>install</code>不一样，如果<code>command1</code>失败，<code>command2</code>会继续执行。但是，整个构建阶段的状态是失败。如果<code>command2</code>只有在<code>command1</code>成功后才能执行，就要写成下面这样。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">script: command1 &amp;&amp; command2</span><br></pre></td></tr></table></figure>
+<h5 id="3-3-实例：Node-项目"><a href="#3-3-实例：Node-项目" class="headerlink" title="3.3 实例：Node 项目"></a>3.3 实例：Node 项目</h5><ul>
+<li><code>Node</code> 项目的环境需要写成下面这样</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">  - <span class="string">"8"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面代码中，<code>node_js</code>字段用来指定 <code>Node</code> 版本。</li>
+<li><code>Node</code> 项目的<code>install</code>和<code>script</code>阶段都有默认脚本，可以省略<ul>
+<li><code>install</code>默认值：<code>npm install</code></li>
+<li><code>script</code>默认值：<code>npm test</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="3-4-部署"><a href="#3-4-部署" class="headerlink" title="3.4 部署"></a>3.4 部署</h5><ul>
+<li><code>script</code>阶段结束以后，还可以设置<a href="https://docs.travis-ci.com/user/notifications/" target="_blank" rel="noopener">通知步骤（notification）</a>和<a href="https://docs.travis-ci.com/user/deployment/" target="_blank" rel="noopener">部署步骤</a>（deployment），它们不是必须的</li>
+</ul>
+<blockquote>
+<p>部署的脚本可以在<code>script</code>阶段执行，也可以使用 <code>Travis</code> 为几十种常见服务提供的快捷部署功能。比如，要部署到 <code>Github Pages</code>，可以写成下面这样</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  provider: pages</span><br><span class="line">  skip_cleanup: <span class="literal">true</span></span><br><span class="line">  github_token: <span class="variable">$GITHUB_TOKEN</span> <span class="comment"># Set in travis-ci.org dashboard</span></span><br><span class="line">  on:</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://docs.travis-ci.com/user/deployment/" target="_blank" rel="noopener">其他部署方式</a></li>
+</ul>
+<h5 id="3-5-钩子方法"><a href="#3-5-钩子方法" class="headerlink" title="3.5 钩子方法"></a>3.5 钩子方法</h5><blockquote>
+<p><code>Travis</code> 为上面这些阶段提供了7个钩子</p>
+</blockquote>
+<ul>
+<li><code>before_install</code>：install 阶段之前执行</li>
+<li><code>before_script</code>：script 阶段之前执行</li>
+<li><code>after_failure</code>：script 阶段失败时执行</li>
+<li><code>after_success</code>：script 阶段成功时执行</li>
+<li><code>before_deploy</code>：deploy 步骤之前执行</li>
+<li><code>after_deploy</code>：deploy 步骤之后执行</li>
+<li><code>after_script</code>：script 阶段之后执行</li>
+</ul>
+<blockquote>
+<p>完整的生命周期，从开始到结束是下面的流程</p>
+</blockquote>
+<ul>
+<li><code>before_install</code></li>
+<li><code>install</code></li>
+<li><code>before_script</code></li>
+<li><code>script</code></li>
+<li><code>aftersuccess or afterfailure</code></li>
+<li><code>[OPTIONAL] before_deploy</code></li>
+<li><code>[OPTIONAL] deploy</code></li>
+<li><code>[OPTIONAL] after_deploy</code></li>
+<li><p><code>after_script</code></p>
+</li>
+<li><p>下面是一个before_install钩子的例子</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">before_install:</span><br><span class="line">  - sudo apt-get -qq update</span><br><span class="line">  - sudo apt-get install -y libxml2-dev</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码表示<code>before_install</code>阶段要做两件事，第一件事是要更新依赖，第二件事是安装<code>libxml2-dev</code>。用到的几个参数的含义如下：-qq表示减少中间步骤的输出，-y表示如果需要用户输入，总是输入yes</p>
+</blockquote>
+<h5 id="3-6-运行状态"><a href="#3-6-运行状态" class="headerlink" title="3.6 运行状态"></a>3.6 运行状态</h5><ul>
+<li>最后，<code>Travis</code> 每次运行，可能会返回四种状态<ul>
+<li><code>passed</code>：运行成功，所有步骤的退出码都是0</li>
+<li><code>canceled</code>：用户取消执行</li>
+<li><code>errored</code>：<code>before_install</code>、<code>install</code>、<code>before_script</code>有非零退出码，运行会立即停止</li>
+<li><code>failed</code> ：<code>script</code>有非零状态码 ，会继续运行</li>
+</ul>
+</li>
+</ul>
+<h4 id="四、使用技巧"><a href="#四、使用技巧" class="headerlink" title="四、使用技巧"></a>四、使用技巧</h4><h5 id="4-1-环境变量"><a href="#4-1-环境变量" class="headerlink" title="4.1 环境变量"></a>4.1 环境变量</h5><ul>
+<li><code>.travis.yml</code>的env字段可以定义环境变量,然后，脚本内部就使用这些变量了</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env:</span><br><span class="line">  - DB=postgres</span><br><span class="line">  - SH=bash</span><br><span class="line">  - PACKAGE_VERSION=<span class="string">"1.0.*"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有些环境变量（比如用户名和密码）不能公开，这时可以通过 Travis 网站，写在每个仓库的设置页里面，Travis 会自动把它们加入环境变量。这样一来，脚本内部依然可以使用这些环境变量，但是只有管理员才能看到变量的值,<a href="https://docs.travis-ci.com/user/environment-variables" target="_blank" rel="noopener">具体操作文档</a></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017121903.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h5 id="4-2-加密信息"><a href="#4-2-加密信息" class="headerlink" title="4.2 加密信息"></a>4.2 加密信息</h5><ul>
+<li>如果不放心保密信息明文存在 <code>Travis</code> 的网站，可以使用 <code>Travis</code> 提供的加密功能</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:45.877Z" itemprop="dateUpdated">2018-10-23 16:47:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/18fb4cf4.html" target="_blank" rel="external">https://ru23.com/frontend/18fb4cf4.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Travis-CI/">Travis CI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部署/">部署</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/18fb4cf4.html&title=《持续集成 Travis CI》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/18fb4cf4.html&title=《持续集成 Travis CI》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/18fb4cf4.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《持续集成 Travis CI》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/18fb4cf4.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/18fb4cf4.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/1196ec8b.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JavaScript数组、字符串、对象常用方法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/dfae90e4.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">pm2用法之ecosystem部署nodejs项目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/18fb4cf4.html&title=《持续集成 Travis CI》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/18fb4cf4.html&title=《持续集成 Travis CI》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/18fb4cf4.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《持续集成 Travis CI》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/18fb4cf4.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/18fb4cf4.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3awWrsMAwF0Pz/T+dBVy2vNle2o0nheDWEiXK0EbLs64rX/bVGz7+v//8/f/d6YuHi4m5z7+kafX70ZBRhnkYeARcXt5M7LzRJGvNkkvhRscPFxX0Zd60PSdLAxcX9u9ykcdmn4+LivoebbH5y7k4Cx/ZquLi4G9zqwPSJ3w/Od3FxcYvcu7jyt6oNUxQTFxe3hVttUJLGpVqLqtshXFzcp7n30TWPWW2hhiUMFxe3hbs/xKxev8ivZfx4gouL28KtDj7yD5/aREV9GS4u7lHu2gFJNYHqFmgYExcXt5FbLWrzJ2tDkChhXFzcFm714lRe+NauX0SDV1xc3HbuWqNTLXZrEXBxcXu41RHG2RPP8ggVFxf3o9x8K5J8JilYySYKFxe3h/vE5idPIB/K4OLidnLzUrUzGF27wIGLi/tZbn4xKxlx5uOVZOHi4n6KuzPIWCtVeZxrZxKDi4u7xK0WlPzqxk5ZLB+74uLiPsCtHqXkBW6nIOLi4r6Bmw8udw5dkgoazXdxcXFfw01an7NjlF/i4+LivpK7k0Z+lDuMg4uL28jdaWKqh6ZrV7hwcXE7udWBaT4uOXtwi4uL28L9B3l+GzE3kYWvAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

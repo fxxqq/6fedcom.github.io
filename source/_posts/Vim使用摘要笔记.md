@@ -1,8 +1,9 @@
 ---
 title: Vim使用摘要笔记
-date: 2016-03-19 09:04:38
 tags: Vim
 categories: 工欲善其事必先利其器
+abbrlink: 2f66c6f7
+date: 2016-03-19 09:04:38
 ---
 
 ### 插入模式和退出VIM的方法

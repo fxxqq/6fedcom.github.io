@@ -1,10 +1,11 @@
 ---
 title: Set与Map
-date: 2017-09-17 14:33:00
-tags: 
+tags:
   - JavaScript
   - ES6
 categories: Front-End
+abbrlink: d9bfddfa
+date: 2017-09-17 14:33:00
 ---
 
 Map

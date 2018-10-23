@@ -1,8 +1,9 @@
 ---
 title: vue过滤器（八）
-date: 2018-08-27 10:20:32
 tags: Vue
 categories: Front-End
+abbrlink: c243ab9b
+date: 2018-08-27 10:20:32
 ---
 
 ## 一、全局过滤器

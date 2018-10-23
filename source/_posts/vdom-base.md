@@ -1,10 +1,11 @@
 ---
 title: 虚拟DOM（一）
-date: 2018-10-20 22:12:12
-tags: 
-   - JavaScript
-   - 虚拟DOM
+tags:
+  - JavaScript
+  - 虚拟DOM
 categories: Front-End
+abbrlink: 96d236e5
+date: 2018-10-20 22:12:12
 ---
 
 ## 一、什么是 vdom

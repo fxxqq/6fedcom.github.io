@@ -1,8 +1,9 @@
 ---
 title: 初识vue与环境搭建（一）
-date: 2018-08-26 13:12:32
 tags: Vue
 categories: Front-End
+abbrlink: 3658c71f
+date: 2018-08-26 13:12:32
 ---
 
 

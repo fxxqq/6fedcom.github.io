@@ -1,8 +1,9 @@
 ---
-title: windows下提升效率必备软件[转]
-date: 2016-03-15 18:42:30
+title: 'windows下提升效率必备软件[转]'
 tags: Tools
 categories: 工欲善其事必先利其器
+abbrlink: f9a8244c
+date: 2016-03-15 18:42:30
 ---
 
 #### 提升效率必备软件

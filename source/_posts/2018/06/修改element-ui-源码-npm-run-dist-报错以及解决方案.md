@@ -1,8 +1,12 @@
 ---
 title: 修改element ui 源码 npm run dist 报错以及解决方案
 categories: 前端
+tags:
+  - npm
+  - elementUI
+  - vue
+abbrlink: 47bf543f
 date: 2018-06-25 16:36:54
-tags: [npm,elementUI,vue]
 ---
 报错
 ```jsx

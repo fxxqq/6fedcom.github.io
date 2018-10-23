@@ -1,7 +1,8 @@
 ---
 title: 使用hexo搭建github.io博客
-categories: "Hexo教程" #文章分類目錄 可以省略,
+categories: Hexo教程
 issues: 113
+abbrlink: c16b4f29
 date: 2018-09-07 10:57:11
 tags:
 ---

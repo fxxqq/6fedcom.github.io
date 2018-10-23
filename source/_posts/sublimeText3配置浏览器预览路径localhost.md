@@ -1,8 +1,9 @@
 ---
 title: sublimeText3配置浏览器预览路径localhost
-date: 2016-05-29 08:45:35
 tags: sublime
 categories: 工欲善其事必先利其器
+abbrlink: fba80764
+date: 2016-05-29 08:45:35
 ---
 
 Sublime Text 2 Sublime Text 3 都可以使用:

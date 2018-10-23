@@ -1,10 +1,11 @@
 ---
 title: Taro开发小程序体验
-date: 2018-09-03 19:30:43
-tags: 
+tags:
   - 小程序
   - Taro
 categories: Front-End
+abbrlink: '70e88573'
+date: 2018-09-03 19:30:43
 ---
 
 

@@ -1,10 +1,11 @@
 ---
 title: React之组件通信方式
-date: 2018-07-29 23:20:24
-tags: 
- - 组件通信
- - react
+tags:
+  - 组件通信
+  - react
 categories: Front-End
+abbrlink: 6d683f02
+date: 2018-07-29 23:20:24
 ---
 
 

@@ -1,8 +1,9 @@
 ---
 title: vue 表单控件与绑定（七）
-date: 2018-08-27 10:10:32
 tags: Vue
 categories: Front-End
+abbrlink: 79c90ec
+date: 2018-08-27 10:10:32
 ---
 
 ## 一、文本框

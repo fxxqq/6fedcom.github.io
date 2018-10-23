@@ -1,8 +1,11 @@
 ---
 title: 详解angularJS动态生成的页面中ng-click无效解决办法
 categories: 前端
+tags:
+  - angular
+  - 踩过的坑
+abbrlink: f99d9594
 date: 2018-04-24 16:34:39
-tags: [angular,踩过的坑]
 ---
 
 今天碰到了一个这样的需求，在自己写的动态的页面中，写入的AngularJS无效不能点击响应事件，以下给出代码以及解决方案

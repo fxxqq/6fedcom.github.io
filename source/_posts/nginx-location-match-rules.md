@@ -1,8 +1,9 @@
 ---
 title: nginx之location的匹配规则
-date: 2018-02-28 13:01:42
 tags: Nginx
 categories: Back-end
+abbrlink: e5e3e139
+date: 2018-02-28 13:01:42
 ---
 
 ## 一、语法规则

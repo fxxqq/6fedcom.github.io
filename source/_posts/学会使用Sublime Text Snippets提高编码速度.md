@@ -1,8 +1,9 @@
 ---
 title: 学会使用Sublime Text Snippets提高编码速度
-date: 2016-08-13 22:10:08
 tags: sublime
 categories: 工欲善其事必先利其器
+abbrlink: e3137a15
+date: 2016-08-13 22:10:08
 ---
 
 

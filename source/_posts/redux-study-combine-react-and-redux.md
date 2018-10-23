@@ -1,10 +1,11 @@
 ---
 title: Redux之react结合redux实战篇（十）
-date: 2017-11-19 18:40:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: 32ffbfbb
+date: 2017-11-19 18:40:24
 ---
 
 > 以`TODO`为例分析，实际开发中并不是那么简单，下面的原型只是开发中的一个原型，这个简单的例子，有助于掌握数据处理传递的原则。

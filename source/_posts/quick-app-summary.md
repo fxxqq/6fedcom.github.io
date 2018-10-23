@@ -1,8 +1,9 @@
 ---
 title: 快应用入门小结篇
-date: 2018-08-21 18:05:43
 tags: 快应用
 categories: Front-End
+abbrlink: 97c34044
+date: 2018-08-21 18:05:43
 ---
 
 > MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_posts/quick-app-summary.md

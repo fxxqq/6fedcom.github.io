@@ -1,10 +1,11 @@
 ---
-title:  移动端适配
-date: 2017-05-23 21:35:08
-tags: 
-   - 移动端
-   - HTML5
+title: 移动端适配
+tags:
+  - 移动端
+  - HTML5
 categories: Front-End
+abbrlink: 783ce8a9
+date: 2017-05-23 21:35:08
 ---
 
 - 物理像素:移动端设备的分辨率

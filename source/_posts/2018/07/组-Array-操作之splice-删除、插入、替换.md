@@ -1,8 +1,10 @@
 ---
 title: 组(Array)操作之splice() --删除、插入、替换
 categories: 前端
+tags:
+  - Javascript
+abbrlink: c9afb08d
 date: 2018-07-19 17:23:41
-tags: [javascript]
 ---
 
 splice()方法，号称最强大的数组方法！！

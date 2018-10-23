@@ -1,8 +1,9 @@
 ---
 title: 学会使用box-sizingCSS布局
-date: 2016-09-04 17:20:08
 tags: CSS
 categories: Front-End
+abbrlink: b485e090
+date: 2016-09-04 17:20:08
 ---
 
 ### 盒子模型

@@ -1,8 +1,9 @@
 ---
 title: vue中的数据绑定（二）
-date: 2018-08-26 14:01:32
 tags: Vue
 categories: Front-End
+abbrlink: d3019ce8
+date: 2018-08-26 14:01:32
 ---
 
 > Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化

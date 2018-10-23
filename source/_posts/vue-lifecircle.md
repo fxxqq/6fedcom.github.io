@@ -1,8 +1,9 @@
 ---
 title: vue生命周期（五）
-date: 2018-08-26 17:21:32
 tags: Vue
 categories: Front-End
+abbrlink: 3ab58e3e
+date: 2018-08-26 17:21:32
 ---
 
 > 每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是vue的生命周期

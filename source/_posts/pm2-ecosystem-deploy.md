@@ -1,10 +1,11 @@
 ---
 title: pm2用法之ecosystem部署nodejs项目
-date: 2018-02-22 17:12:08
-tags: 
-   - Node
-   - 部署
+tags:
+  - Node
+  - 部署
 categories: Back-end
+abbrlink: dfae90e4
+date: 2018-02-22 17:12:08
 ---
 
 

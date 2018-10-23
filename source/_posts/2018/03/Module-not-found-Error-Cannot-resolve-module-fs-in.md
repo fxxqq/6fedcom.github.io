@@ -1,8 +1,10 @@
 ---
 title: 'Module not found: Error: Cannot resolve module ''fs'' in'
 categories: 前端
+tags:
+  - npm
+abbrlink: 9782d4af
 date: 2018-09-22 18:32:13
-tags: [npm]
 ---
 
 控制台报错：

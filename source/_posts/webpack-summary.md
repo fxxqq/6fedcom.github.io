@@ -1,8 +1,9 @@
 ---
 title: webpack学习总结(二)
-date: 2017-01-14 17:40:43
 tags: webpack
 categories: Build
+abbrlink: c6147aa3
+date: 2017-01-14 17:40:43
 ---
 
 > 声明 本教程整理于互联网

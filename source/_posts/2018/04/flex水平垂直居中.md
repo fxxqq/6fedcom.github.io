@@ -1,8 +1,10 @@
 ---
 title: flex水平垂直居中
 categories: 前端
+tags:
+  - css
+abbrlink: 7db1780c
 date: 2018-04-11 18:30:39
-tags: [css]
 ---
 
 ```css

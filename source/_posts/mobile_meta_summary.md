@@ -1,8 +1,9 @@
 ---
 title: 移动端meta标签一览
-date: 2017-08-23 18:40:43
 tags: 移动端
 categories: Front-End
+abbrlink: a2eb1a7
+date: 2017-08-23 18:40:43
 ---
 
 ```html

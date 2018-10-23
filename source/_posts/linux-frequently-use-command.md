@@ -1,8 +1,9 @@
 ---
 title: 日常频繁使用的Linux命令
-date: 2018-02-25 09:32:41
 tags: Linux
 categories: Back-end
+abbrlink: fcca662b
+date: 2018-02-25 09:32:41
 ---
 
 一、文件管理

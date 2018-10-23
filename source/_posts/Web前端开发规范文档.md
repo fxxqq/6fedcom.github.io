@@ -1,8 +1,9 @@
 ---
 title: Web前端开发规范文档
-date: 2016-07-19 19:50:20
 tags: 规范
 categories: Front-End
+abbrlink: c7552608
+date: 2016-07-19 19:50:20
 ---
 
 

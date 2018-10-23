@@ -1,8 +1,9 @@
 ---
 title: vue状态管理之vuex（十六）
-date: 2018-08-29 11:30:32
 tags: Vue
 categories: Front-End
+abbrlink: a8440b25
+date: 2018-08-29 11:30:32
 ---
 
 

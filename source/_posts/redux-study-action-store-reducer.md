@@ -1,10 +1,11 @@
 ---
 title: Redux之action、store、reducer分析（六）
-date: 2017-11-19 10:16:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: b007a017
+date: 2017-11-19 10:16:24
 ---
 
 > redux的核心概念就是store、action、reducer，从调用关系来看如下所示

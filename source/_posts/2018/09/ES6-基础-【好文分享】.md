@@ -1,8 +1,10 @@
 ---
 title: 前端开发周刊-(2018年09月第2周)
+categories: 优质文章分享
+tags:
+  - 优质文章分享
+abbrlink: d53aad1e
 date: 2018-09-10 11:48:21
-categories: "优质文章分享" #文章分類目錄 可以省略
-tags: [优质文章分享]
 issues:
 ---
 
@@ -134,7 +136,7 @@ promise.then(function(result) {
 1）索引0是树的根节点；2）除根节点为，任意节点N的父节点是N/2；3）节点L的左子节点是2*L；4）节点R的右子节点为2*R + 1
 本质上就是先构建二叉树，然后把根节点与最后一个进行交换，然后对剩下对元素进行二叉树构建，进行交换，直到剩下最后一个
 
-#### 5.[javaScript常用知识点](https://github.com/qianbin01/frontend_train#javascript)
+#### 5.[Javascript常用知识点](https://github.com/qianbin01/frontend_train#javascript)
 
 ##### url: https://github.com/qianbin01/frontend_train#javascript
 

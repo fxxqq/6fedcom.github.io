@@ -1,8 +1,10 @@
 ---
 title: reactjs中事件传参(关于event)
-date: 2018-09-10 15:06:44
-tags: [react]
+tags:
+  - react
 issues: 115
+abbrlink: 7205ee34
+date: 2018-09-10 15:06:44
 ---
 
 #### 问题描述

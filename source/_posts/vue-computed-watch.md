@@ -1,8 +1,9 @@
 ---
 title: vue计算属性与数据监听（十）
-date: 2018-08-28 14:10:42
 tags: Vue
 categories: Front-End
+abbrlink: fdf99685
+date: 2018-08-28 14:10:42
 ---
 
 ## 一、监听属性

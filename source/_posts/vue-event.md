@@ -1,8 +1,9 @@
 ---
 title: vue事件（六）
-date: 2018-08-27 00:10:32
 tags: Vue
 categories: Front-End
+abbrlink: dd238463
+date: 2018-08-27 00:10:32
 ---
 
 ## 一、方法传参

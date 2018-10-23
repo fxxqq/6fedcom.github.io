@@ -1,9 +1,11 @@
 ---
 title: frank的前端开发规范（逐步完善）
-date: 2018-04-19 19:49:01
-tags: [开发规范]
-categories: "前端" 
+tags:
+  - 开发规范
+categories: 前端
 issues: 12
+abbrlink: 91d30337
+date: 2018-04-19 19:49:01
 ---
 
 

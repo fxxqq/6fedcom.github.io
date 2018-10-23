@@ -1,10 +1,11 @@
 ---
 title: React之Immutable学习记录（十二）
-date: 2017-11-20 20:10:24
-tags: 
- - Immutable
- - react
+tags:
+  - Immutable
+  - react
 categories: Front-End
+abbrlink: 2a0f702d
+date: 2017-11-20 20:10:24
 ---
 
 

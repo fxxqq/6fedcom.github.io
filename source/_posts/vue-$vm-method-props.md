@@ -1,8 +1,9 @@
 ---
 title: vue实例方法（十三)
-date: 2018-08-28 16:04:43
 tags: Vue
 categories: Front-End
+abbrlink: e3a5e3c3
+date: 2018-08-28 16:04:43
 ---
 
 ## 一、Vue之实例属性

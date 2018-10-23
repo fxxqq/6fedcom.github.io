@@ -1,8 +1,10 @@
 ---
 title: React 如何监听路由变化重新渲染数据
 categories: 前端
+tags:
+  - react
+abbrlink: 85383de6
 date: 2018-07-17 16:46:55
-tags: [react]
 ---
 **应用场景：**
 ```jsx

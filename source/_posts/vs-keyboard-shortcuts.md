@@ -1,8 +1,9 @@
 ---
 title: Visual Studio Code 常用快捷键
-date: 2017-07-23 19:40:03
 tags: VS
 categories: 工欲善其事必先利其器
+abbrlink: cc661528
+date: 2017-07-23 19:40:03
 ---
 
 ### 主命令框

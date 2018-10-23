@@ -1,10 +1,11 @@
 ---
 title: Redux之源码分析（九）
-date: 2017-11-19 17:35:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: d7a0e557
+date: 2017-11-19 17:35:24
 ---
 
 一、index.js

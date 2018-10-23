@@ -1,10 +1,11 @@
 ---
 title: 浅谈styled-components
-date: 2017-11-08 16:55:24
-tags: 
- - JavaScript
- - react
+tags:
+  - JavaScript
+  - react
 categories: Front-End
+abbrlink: 54b36672
+date: 2017-11-08 16:55:24
 ---
 
 

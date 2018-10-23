@@ -1,10 +1,11 @@
 ---
 title: Ubuntu下安裝 Zsh 及 Oh-my-zsh
-date: 2016-06-26 15:35:19
-tags: 
-   - Linux
-   - Ubuntu
+tags:
+  - Linux
+  - Ubuntu
 categories: Back-end
+abbrlink: '168815e7'
+date: 2016-06-26 15:35:19
 ---
 
 

@@ -1,11 +1,12 @@
 ---
 title: 移动端限制input框只能输入数字
-date: 2018-09-03 16:56:58
-categories: "前端" 
+categories: 前端
 issues: 111
-tags: 
-     - html5
+tags:
+  - html5
 description: 在安卓端设置input类型为number，可限制键盘只输入数字，在ios端，要加入pattern验证输入字段的模式，才能限制数字输入
+abbrlink: bef00dcb
+date: 2018-09-03 16:56:58
 ---
 
 html5 中，input 的 type 属性规定 input 元素的类型。

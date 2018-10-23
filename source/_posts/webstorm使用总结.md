@@ -1,8 +1,9 @@
 ---
 title: webstorm常用快捷键
-date: 2016-04-10 11:18:06
 tags: webstorm
 categories: 工欲善其事必先利其器
+abbrlink: 6bf097e2
+date: 2016-04-10 11:18:06
 ---
 
 **webstorm常用快捷键**

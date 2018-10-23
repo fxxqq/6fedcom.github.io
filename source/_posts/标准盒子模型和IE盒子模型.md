@@ -1,8 +1,9 @@
 ---
 title: 标准盒子模型和IE盒子模型
-date: 2016-09-05 18:50:32
 tags: CSS
 categories: Front-End
+abbrlink: '85343e48'
+date: 2016-09-05 18:50:32
 ---
 
 ### 标准盒子模型

@@ -1,10 +1,11 @@
 ---
 title: ubuntu下无法安装Hexo简单做法
-date: 2016-07-07 02:25:41
-tags: 
-    - Ubuntu
-    - Linux
+tags:
+  - Ubuntu
+  - Linux
 categories: Back-end
+abbrlink: 8100a68b
+date: 2016-07-07 02:25:41
 ---
 
 - 安装 `Git sudo apt-get install git-core`

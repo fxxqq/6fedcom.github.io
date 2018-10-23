@@ -1,8 +1,9 @@
 ---
 title: 梳理常见的CSS属性（二）
-date: 2016-06-25 23:56:31
 tags: CSS
 categories: Front-End
+abbrlink: 7dab39f7
+date: 2015-11-25 23:56:31
 ---
 
 

@@ -1,8 +1,10 @@
 ---
 title: vue数组中数据变化但是视图没有更新解决方案
 categories: 前端
-date: 2018-7-11 16:41:15
-tags: [vue]
+tags:
+  - vue
+abbrlink: d6f8e949
+date: 2018-07-11 16:41:15
 ---
 
 ## 数组更新检测

@@ -1,8 +1,9 @@
 ---
 title: 浅析JSON.stringify
-date: 2017-10-21 14:40:43
 tags: JavaScript
 categories: Front-End
+abbrlink: 320f1b94
+date: 2017-10-21 14:40:43
 ---
 
 ## 一、JSON.stringify参数详解
