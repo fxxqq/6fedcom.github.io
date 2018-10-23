@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/fb0e9d3a.html">
+    
+    
+    <title>浅谈JavaScript中的异步处理 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="JavaScript,异步回调">
+    <meta name="description" content="整理于互联网    在JavaScript的世界中，所有代码都是单线程执行的 由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现 异步操作会在将来的某个时间点触发一个函数调用    主流的异步处理方案主要有：回调函数(CallBack)、Promise、Generator函数、async/await。  一、回调函数(CallBac">
+<meta name="keywords" content="JavaScript,异步回调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈JavaScript中的异步处理">
+<meta property="og:url" content="https://ru23.com/frontend/fb0e9d3a.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="整理于互联网    在JavaScript的世界中，所有代码都是单线程执行的 由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现 异步操作会在将来的某个时间点触发一个函数调用    主流的异步处理方案主要有：回调函数(CallBack)、Promise、Generator函数、async/await。  一、回调函数(CallBac">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T01:44:50.668Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈JavaScript中的异步处理">
+<meta name="twitter:description" content="整理于互联网    在JavaScript的世界中，所有代码都是单线程执行的 由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现 异步操作会在将来的某个时间点触发一个函数调用    主流的异步处理方案主要有：回调函数(CallBack)、Promise、Generator函数、async/await。  一、回调函数(CallBac">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23" target="_blank"
+                         >
+                        <i class="icon icon-lg icon-github"></i>
+                        Github
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23/ru23.github.io/issues"  >
+                        <i class="icon icon-lg icon-link"></i>
+                        issues
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">浅谈JavaScript中的异步处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">浅谈JavaScript中的异步处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-27T03:40:43.000Z" itemprop="datePublished" class="page-time">
+  2017-08-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、回调函数-CallBack"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、回调函数(CallBack)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、发布-订阅"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、发布/订阅</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Promise"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、async-await"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、async/await</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、Generator"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、Generator</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-js-cb-promise-generator-async"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">浅谈JavaScript中的异步处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-27 11:40:43" datetime="2017-08-27T03:40:43.000Z"  itemprop="datePublished">2017-08-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>整理于互联网</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>在<code>JavaScript</code>的世界中，所有代码都是单线程执行的</li>
+<li>由于这个“缺陷”，导致<code>JavaScript</code>的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现</li>
+<li>异步操作会在将来的某个时间点触发一个函数调用</li>
+</ul>
+</blockquote>
+<ul>
+<li>主流的异步处理方案主要有：回调函数<code>(CallBack)</code>、<code>Promise</code>、<code>Generator</code>函数、<code>async/await</code>。</li>
+</ul>
+<h2 id="一、回调函数-CallBack"><a href="#一、回调函数-CallBack" class="headerlink" title="一、回调函数(CallBack)"></a>一、回调函数(CallBack)</h2><hr>
+<ul>
+<li>这是异步编程最基本的方法</li>
+<li>假设我们有一个 <code>getData</code> 方法，用于异步获取数据，第一个参数为请求的 <code>url</code> 地址，第二个参数是回调函数，如下：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span> (<span class="params">url, callBack</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 模拟发送网络请求</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 假设 res 就是返回的数据</span></span><br><span class="line">        <span class="keyword">var</span> res = &#123;</span><br><span class="line">            url: url,</span><br><span class="line">            data: <span class="built_in">Math</span>.random()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 执行回调，将数据作为参数传递</span></span><br><span class="line">        callBack(res)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们预先设定一个场景，假设我们要请求三次服务器，每一次的请求依赖上一次请求的结果，如下：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getData(<span class="string">'/page/1?param=123'</span>, (res1) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">    getData(<span class="string">`/page/2?param=<span class="subst">$&#123;res1.data&#125;</span>`</span>, (res2) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res2)</span><br><span class="line">        getData(<span class="string">`/page/3?param=<span class="subst">$&#123;res2.data&#125;</span>`</span>, (res3) =&gt; &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res3)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>通过上面的代码可以看出，第一次请求的 <code>url</code> 地址为：<code>/page/1?param=123</code>，返回结果为 <code>res1</code>。</p>
+</li>
+<li><p>第二个请求的 <code>url</code> 地址为：<code>/page/2?param=${res1.data}</code>，依赖第<code>一次请求的</code>res1.data<code>，返回结果为</code>res2`。</p>
+</li>
+<li><p>第三次请求的 <code>url</code>地址为：<code>/page/3?param=${res2.data}</code>，依赖第二次请求的 <code>res2.data</code>，返回结果为 <code>res3</code>。</p>
+</li>
+<li><p>由于后续请求依赖前一个请求的结果，所以我们只能把下一次请求写到上一次请求的回调函数内部，这样就形成了常说的：回调地狱。</p>
+</li>
+</ul>
+<h2 id="二、发布-订阅"><a href="#二、发布-订阅" class="headerlink" title="二、发布/订阅"></a>二、发布/订阅</h2><blockquote>
+<p>我们假定，存在一个”信号中心”，某个任务执行完成，就向信号中心”发布”（<code>publish</code>）一个信号，其他任务可以向信号中心”订阅”（<code>subscribe</code>）这个信号，从而知道什么时候自己可以开始执行。这就叫做”发布/订阅模式”（publish-subscribe pattern），又称”观察者模式”（observer pattern）</p>
+</blockquote>
+<ul>
+<li>这个模式有多种实现，下面采用的是Ben Alman的<a href="https://gist.github.com/661855" target="_blank" rel="noopener">Tiny Pub/Sub</a>，这是<code>jQuery</code>的一个插件</li>
+<li>首先，<code>f2</code>向”信号中心”<code>jQuery</code>订阅”<code>done</code>“信号</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.subscribe(<span class="string">"done"</span>, f2);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>f1进行如下改写</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">　　　　　　<span class="comment">// f1的任务代码</span></span><br><span class="line">　　　　　　jQuery.publish(<span class="string">"done"</span>);</span><br><span class="line">　　　　&#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>jQuery.publish(&quot;done&quot;)</code>的意思是，<code>f1</code>执行完成后，向”信号中心<code>&quot;jQuery</code>发布<code>&quot;done&quot;</code>信号，从而引发f2的执行。 此外，f2完成执行后，也可以取消订阅（<code>unsubscribe</code>）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.unsubscribe(<span class="string">"done"</span>, f2);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这种方法的性质与”事件监听”类似，但是明显优于后者。因为我们可以通过查看”消息中心”，了解存在多少信号、每个信号有多少订阅者，从而监控程序的运行。</li>
+</ul>
+<h2 id="三、Promise"><a href="#三、Promise" class="headerlink" title="三、Promise"></a>三、Promise</h2><hr>
+<blockquote>
+<ul>
+<li><code>Promise</code> 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大</li>
+<li>所谓<code>Promise</code>，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，<code>Promise</code> 是一个对象，从它可以获取异步操作的消息。<code>Promise</code> 提供统一的 <code>API</code>，各种异步操作都可以用同样的方法进行处理</li>
+</ul>
+</blockquote>
+<ul>
+<li>简单说，它的思想是，每一个异步任务返回一个<code>Promise</code>对象，该对象有一个<code>then</code>方法，允许指定回调函数。</li>
+<li>现在我们使用 <code>Promise</code> 重新实现上面的案例，首先，我们要把异步请求数据的方法封装成 <code>Promise</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDataAsync</span> (<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> res = &#123;</span><br><span class="line">                url: url,</span><br><span class="line">                data: <span class="built_in">Math</span>.random()</span><br><span class="line">            &#125;</span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>那么请求的代码应该这样写</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">getDataAsync(<span class="string">'/page/1?param=123'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">res1</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res1)</span><br><span class="line">        <span class="keyword">return</span> getDataAsync(<span class="string">`/page/2?param=<span class="subst">$&#123;res1.data&#125;</span>`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res2</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res2)</span><br><span class="line">        <span class="keyword">return</span> getDataAsync(<span class="string">`/page/3?param=<span class="subst">$&#123;res2.data&#125;</span>`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res3</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res3)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>then</code> 方法返回一个新的 <code>Promise</code> 对象，<code>then</code> 方法的链式调用避免了 <code>CallBack</code> 回调地狱</li>
+<li>但也并不是完美，比如我们要添加很多 <code>then</code> 语句， 每一个 <code>then</code> 还是要写一个回调。</li>
+<li>如果场景再复杂一点，比如后边的每一个请求依赖前面所有请求的结果，而不仅仅依赖上一次请求的结果，那会更复杂。 为了做的更好，<code>async/await</code> 就应运而生了，来看看使用 <code>async/await</code> 要如何实现</li>
+</ul>
+<h2 id="四、async-await"><a href="#四、async-await" class="headerlink" title="四、async/await"></a>四、async/await</h2><hr>
+<ul>
+<li><p><code>await</code>后面必须是一个<code>Promise</code>对象</p>
+</li>
+<li><p><code>getDataAsync</code> 方法不变，如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getDataAsync</span> (<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> res = &#123;</span><br><span class="line">                url: url,</span><br><span class="line">                data: <span class="built_in">Math</span>.random()</span><br><span class="line">            &#125;</span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>业务代码如下</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res1 = <span class="keyword">await</span> getDataAsync(<span class="string">'/page/1?param=123'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">    <span class="keyword">var</span> res2 = <span class="keyword">await</span> getDataAsync(<span class="string">`/page/2?param=<span class="subst">$&#123;res1.data&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(res2)</span><br><span class="line">    <span class="keyword">var</span> res3 = <span class="keyword">await</span> getDataAsync(<span class="string">`/page/2?param=<span class="subst">$&#123;res2.data&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(res3)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以看到使用<code>async\await</code>就像写同步代码一样</li>
+<li>对比 <code>Promise</code> 感觉怎么样？是不是非常清晰，但是 <code>async/await</code> 是基于 <code>Promise</code> 的，因为使用 <code>async</code> 修饰的方法最终返回一个 <code>Promise</code>， 实际上，<code>async/await</code> 可以看做是使用 <code>Generator</code> 函数处理异步的语法糖，我们来看看如何使用 <code>Generator</code> 函数处理异步</li>
+</ul>
+<h2 id="五、Generator"><a href="#五、Generator" class="headerlink" title="五、Generator"></a>五、Generator</h2><hr>
+<ul>
+<li>首先异步函数依然是</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDataAsync</span> (<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> res = &#123;</span><br><span class="line">                url: url,</span><br><span class="line">                data: <span class="built_in">Math</span>.random()</span><br><span class="line">            &#125;</span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 <code>Generator</code> 函数可以这样写</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> * <span class="title">getData</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res1 = <span class="keyword">yield</span> getDataAsync(<span class="string">'/page/1?param=123'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">    <span class="keyword">var</span> res2 = <span class="keyword">yield</span> getDataAsync(<span class="string">`/page/2?param=<span class="subst">$&#123;res1.data&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(res2)</span><br><span class="line">    <span class="keyword">var</span> res3 = <span class="keyword">yield</span> getDataAsync(<span class="string">`/page/2?param=<span class="subst">$&#123;res2.data&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(res3))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后我们这样逐步执行</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> g = getData()</span><br><span class="line">g.next().value.then(<span class="function"><span class="params">res1</span> =&gt;</span> &#123;</span><br><span class="line">    g.next(res1).value.then(<span class="function"><span class="params">res2</span> =&gt;</span> &#123;</span><br><span class="line">        g.next(res2).value.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            g.next()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面的代码，我们逐步调用遍历器的 <code>next()</code> 方法，由于每一个 <code>next()</code> 方法返回值的 <code>value</code> 属性为一个 <code>Promise</code>对象</li>
+<li>所以我们为其添加 <code>then</code> 方法， 在 <code>then</code> 方法里面接着运行 <code>next</code> 方法挪移遍历器指针，直到 <code>Generator</code> 函数运行完成，实际上，这个过程我们不必手动完成，可以封装成一个简单的执行器</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params">gen</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> g = gen()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">next</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> res = g.next(data)</span><br><span class="line">        <span class="keyword">if</span> (res.done) <span class="keyword">return</span> res.value</span><br><span class="line">        res.value.then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">            next(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    next()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>run 方法用来自动运行异步的 Generator 函数，其实就是一个递归的过程调用的过程。这样我们就不必手动执行 Generator 函数了。 有了 run 方法，我们只需要这样运行 getData 方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run(getData)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样，我们就可以把异步操作封装到 <code>Generator</code> 函数内部，使用 <code>run</code> 方法作为 <code>Generator</code> 函数的自执行器，来处理异步。其实我们不难发现， <code>async/await</code> 方法相比于 <code>Generator</code> 处理异步的方式，有很多相似的地方，只不过 <code>async/await</code> 在语义化方面更加明显，同时 <code>async/await</code> 不需要我们手写执行器，其内部已经帮我们封装好了，这就是为什么说 <code>async/await</code> 是 <code>Generator</code> 函数处理异步的语法糖了</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T01:44:50.668Z" itemprop="dateUpdated">2018-10-23 09:44:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/fb0e9d3a.html" target="_blank" rel="external">https://ru23.com/frontend/fb0e9d3a.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步回调/">异步回调</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/fb0e9d3a.html&title=《浅谈JavaScript中的异步处理》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/fb0e9d3a.html&title=《浅谈JavaScript中的异步处理》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/fb0e9d3a.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅谈JavaScript中的异步处理》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/fb0e9d3a.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/fb0e9d3a.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/2d05014a.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">iframe+表单跨域提交POST请求</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/a2eb1a7.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">移动端meta标签一览</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/fb0e9d3a.html&title=《浅谈JavaScript中的异步处理》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/fb0e9d3a.html&title=《浅谈JavaScript中的异步处理》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/fb0e9d3a.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅谈JavaScript中的异步处理》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/fb0e9d3a.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/fb0e9d3a.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aQW4CMRAEQP7/6c01EmLT7YkNicqnFULegsNoPO3HI17X0/r+ef78vOdjx8LFxR1zr9v1/J37ffKdX+3/6ju4uLjnufevv39uEaNih4uL+8Hc+5clpRAXF/c/ce+bnqQZwsXF/SvctXYk+UmTZggXF/dd3HxKue95y3wXFxd3iXuVKxmPtu1L8XZcXNwj3LygJK1PMhZZOyDh4uKe57bEfCwyGZHUhx9cXNxt3LUh5v3WeRGshyO4uLjbuG382YavbSH7wYCLi3uQ2wau+ZWL3yptuLi4Z7gtbg29FtUU8xtcXNzN3DY+mSSk9fAFFxf3TdzRsSQebbRBCy4u7kluG39OQtMWXZzVcHFxN3PrsjLJbeI/oq6suLi4G7j5IDUfgOY/44cSiYuL+ybuFaz2+kX7eXT4wcXF3czNh6Fr44zJVYzHJKvBxcUtuVe51opU3vTUaQwuLu4G7iQizY9GbUGcX+bAxcWdc/NYNG9l8kNReyEDFxf3JLctNGulbS1W+YX5Li4u7pu4bdS62Crh4uJ+JLe4KjE4Gr3cARcX9yA3aVnm0cj8QIWLi3uGW5eSOKzNW58t811cXNwV7hf2q1yb4sKvoQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

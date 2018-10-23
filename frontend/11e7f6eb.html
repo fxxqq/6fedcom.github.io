@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/11e7f6eb.html">
+    
+    
+    <title>一键更新Hexo到github和coding | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Hexo">
+    <meta name="description" content="一、 _config.yml配置">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一键更新Hexo到github和coding">
+<meta property="og:url" content="https://ru23.com/frontend/11e7f6eb.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、 _config.yml配置">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1637925-3cbdade49c4ed7ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1637925-e9759ccb34032256.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1637925-665ded40c0fb65bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1637925-dbe1323655714ed7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1637925-50b39c29a8ef1785.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1637925-3e1794da1fa2c9c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-23T01:44:50.744Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一键更新Hexo到github和coding">
+<meta name="twitter:description" content="一、 _config.yml配置">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1637925-3cbdade49c4ed7ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23" target="_blank"
+                         >
+                        <i class="icon icon-lg icon-github"></i>
+                        Github
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23/ru23.github.io/issues"  >
+                        <i class="icon icon-lg icon-link"></i>
+                        issues
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一键更新Hexo到github和coding</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">一键更新Hexo到github和coding</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-02T12:48:22.000Z" itemprop="datePublished" class="page-time">
+  2016-07-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、-config-yml配置"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、 _config.yml配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、coding上创建一个新项目"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、coding上创建一个新项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、同步本地hexo到coding上"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、同步本地hexo到coding上</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、pages服务方式部署"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、pages服务方式部署</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、演示方式部署"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、演示方式部署</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、设置自动部署"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、设置自动部署</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-一键更新Hexo到github和coding"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一键更新Hexo到github和coding</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-02 20:48:22" datetime="2016-07-02T12:48:22.000Z"  itemprop="datePublished">2016-07-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="一、-config-yml配置"><a href="#一、-config-yml配置" class="headerlink" title="一、 _config.yml配置"></a><strong>一、 _config.yml配置</strong></h3><a id="more"></a>
+<p>想要同时部署到2个平台，就要修改博客根目录下面的<code>_config.yml</code>文件中的deploy如下<br>根据Hexo官方文档需要修改成下面的形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  message: [message]</span><br><span class="line">  repo:</span><br><span class="line">    github: &lt;repository url&gt;,[branch]</span><br><span class="line">    gitcafe: &lt;repository url&gt;,[branch]</span><br></pre></td></tr></table></figure>
+<p>我的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: # 同时部署到github和coding</span><br><span class="line">    github: https://github.com/poetries/poetries.github.io.git,master</span><br><span class="line">    coding: git@git.coding.net:poetry/poetry.git,master</span><br></pre></td></tr></table></figure>
+<p>提交采用的SSH密钥，这个方法有个好处，提交的时候不用输入用户名和密码</p>
+<hr>
+<h3 id="二、coding上创建一个新项目"><a href="#二、coding上创建一个新项目" class="headerlink" title="二、coding上创建一个新项目"></a><strong>二、coding上创建一个新项目</strong></h3><p>创建后进入项目的代码模块，获取到这个项目的ssh地址</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1637925-3cbdade49c4ed7ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<hr>
+<h3 id="三、同步本地hexo到coding上"><a href="#三、同步本地hexo到coding上" class="headerlink" title="三、同步本地hexo到coding上"></a><strong>三、同步本地hexo到coding上</strong></h3><p>把获取到了ssh配置在上面的_config.yml文件中的deploy下，如果是第一次使用coding的话，需要设置SSH公钥，生成的方法可以参考<a href="https://coding.net/help/doc/git/ssh-key.html" target="_blank" rel="noopener">coding帮助中心</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1637925-e9759ccb34032256.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<p>本地打开 id_rsa.pub 文件，复制其中全部内容，填写到SSH_RSA公钥key下的一栏，公钥名称可以随意起名字。完成后点击“添加”，然后输入密码或动态码即可添加完成</p>
+<hr>
+<p>添加后，在<code>git bash</code>命令输入：</p>
+<p><code>ssh -T git@git.coding.net</code></p>
+<p>如果得到下面提示就表示公钥添加成功了：</p>
+<p><code>Coding.net Tips : [Hello ! You&#39;ve conected to Coding.net by SSH successfully! ]</code></p>
+<p>最后使用部署命令就能把博客同步到coding上面：</p>
+<p><code>hexo deploy -g</code></p>
+<hr>
+<h3 id="四、pages服务方式部署"><a href="#四、pages服务方式部署" class="headerlink" title="四、pages服务方式部署"></a><strong>四、pages服务方式部署</strong></h3><p>部署博客方式有两种，第一种就是pages服务的方式，也推荐这种方式，因为可以绑定域名，而第二种演示的方式必须升级会员才能绑定自定义域名。pages方式也很简单<br>就是在<code>source/</code>需要创建一个空白文件，至于原因，是因为 coding.net需要这个文件来作为以静态文件部署的标志。就是说看到这个<code>Staticfile</code>就知道按照静态文件来发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd source/</span><br><span class="line">touch Staticfile  #名字必须是Staticfile</span><br></pre></td></tr></table></figure>
+<p>分支选择master，因为前面配置的分支是<code>master</code>,因此开启之后，也需要是master。然后看起之后就可访问了。</p>
+<p><strong>注意：</strong></p>
+<p>如果你的项目名称跟你coding的用户名一样，比如我的用户是叫tengj,博客项目名也叫tengj<br>那直接访问 poetry.coding.me就能访问博客，否则就要带上项目名：poetry.coding.me/项目名 才能访问<br>推荐项目名跟用户名一样，这样就可以省略项目名了</p>
+<hr>
+<h3 id="五、演示方式部署"><a href="#五、演示方式部署" class="headerlink" title="五、演示方式部署"></a><strong>五、演示方式部署</strong></h3><p>当你把你的静态网站上传到Coding之后，就可以着手部署演示了，Coding的演示平台支持静态网页，所以其实非常简单。在开启演示模式之前，会提醒你没有检测到环境，你直接强制开启就可以了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1637925-665ded40c0fb65bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<ul>
+<li>部署版本我没有填，默认是<code>master</code></li>
+<li>运行环境一定要选择<code>HTML</code></li>
+<li>自动部署要勾上，为后面配置自动部署做准备</li>
+<li>访问域名根据你自己喜爱填写，填好要点急后面的确认按钮</li>
+<li>应用内存也根据自己喜好填写，填好要点急后面的确认按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1637925-dbe1323655714ed7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<p>以上都配置好了，就可以按下一键部署的按钮了，部署成功后输入地址：poetry.coding.io就能访问</p>
+<hr>
+<h3 id="六、设置自动部署"><a href="#六、设置自动部署" class="headerlink" title="六、设置自动部署"></a><strong>六、设置自动部署</strong></h3><p>如果你是演示方式的话，就需要设置自动部署，这样才能同步新发布的文章</p>
+<p><strong>要配置WebHook才行</strong></p>
+<ul>
+<li>找到项目设置那边的<code>WebHook</code>,然后点击新建 <code>Hook</code></li>
+<li>第一个输入框中是填你的博客域名，然后在后面加上 <code>/_</code></li>
+<li>第二个输入框是输入一个 <code>token</code> ，我们直接填写 <code></code>就可以了,TOKEN两边的大括号见的空格记得去掉</li>
+<li>回到演示里，在左边的栏目中找到环境变量,变量名填写为 <code>WEBHOOK_TOKEN</code> ，值为 <code></code> ，接着重新启动应用就 ok 了！</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1637925-50b39c29a8ef1785.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1637925-3e1794da1fa2c9c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T01:44:50.744Z" itemprop="dateUpdated">2018-10-23 09:44:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/11e7f6eb.html" target="_blank" rel="external">https://ru23.com/frontend/11e7f6eb.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/11e7f6eb.html&title=《一键更新Hexo到github和coding》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/11e7f6eb.html&title=《一键更新Hexo到github和coding》 — 前端迷 (front-end fan)&source=一、 _config.yml配置" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/11e7f6eb.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一键更新Hexo到github和coding》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/11e7f6eb.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/11e7f6eb.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/8e459e48.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Hexo持续集成自动部署到github</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/168815e7.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu下安裝 Zsh 及 Oh-my-zsh</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/11e7f6eb.html&title=《一键更新Hexo到github和coding》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/11e7f6eb.html&title=《一键更新Hexo到github和coding》 — 前端迷 (front-end fan)&source=一、 _config.yml配置" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/11e7f6eb.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一键更新Hexo到github和coding》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/11e7f6eb.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/11e7f6eb.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aQW6EMAwF0Ln/pel2pAr4tklmWr2sUMuEFxaW+cnrFY/jbZz9/f2/Z9e/f/taMXBxccfc43Ik9+SL6c2Pi4v7Ke51obm+riJGxQ4XF/dPca9bIlxc3P/Nvf7taWvy0Py4uLg7uXk7kj9y3gzh4uJ+ipunlOuul+S7uLi4Le5RHCs+bApPx8XF3cLNC0q1BUkWUH0uLi7uHm4+aV6qeh8w1zOU3wEuLu6Am6AnhakatRRaHFxc3GXcHnT0boJCdloocXFxN3KTDde8lekFItHLwsXF/QJuEnxEuUtrqybKb3BxcRdzr5uS0WGIoHhFz8XFxd3O7TUx+fGs6qZs+eMHFxf3Ue5TwUc+QzOoxcXF3cJNCk1ShvImZnIkFBcXdz+3V8Kq0GSL5WapuLi427lPbZTmha963BMXF3cndz5dtZVp3oOLi7uYexRHtUj1GqPCbgwuLu4Cbm+L9KmjGDfxx2RzFxcXd8ytFq/qp84kYL3Jd3FxcRdzezFHdUm9eOUm38XFxf0Cbn6QaxSMVlMTXFzcL+MmIekk+Hi4kOHi4sbcarhZPWhVDV6jTVZcXNxl3HIpGd+TL36U7+Li4na4P5SmAS+Q25hfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

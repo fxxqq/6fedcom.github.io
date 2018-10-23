@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/frontend/5f9d254.html">
+    
+    
+    <title>jQuery动画基础（四） | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="jQuery">
+    <meta name="description" content="介绍jQuery动画  JavaScript语言本身不支持动画设计，必须通过改变`CSS来实现动画效果。">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery动画基础（四）">
+<meta property="og:url" content="https://ru23.com/frontend/5f9d254.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="介绍jQuery动画  JavaScript语言本身不支持动画设计，必须通过改变`CSS来实现动画效果。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T01:44:50.636Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery动画基础（四）">
+<meta name="twitter:description" content="介绍jQuery动画  JavaScript语言本身不支持动画设计，必须通过改变`CSS来实现动画效果。">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23" target="_blank"
+                         >
+                        <i class="icon icon-lg icon-github"></i>
+                        Github
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://github.com/ru23/ru23.github.io/issues"  >
+                        <i class="icon icon-lg icon-link"></i>
+                        issues
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">jQuery动画基础（四）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">jQuery动画基础（四）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-07T13:10:08.000Z" itemprop="datePublished" class="page-time">
+  2016-08-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显隐"><span class="post-toc-number">1.</span> <span class="post-toc-text">显隐</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#滑动"><span class="post-toc-number">2.</span> <span class="post-toc-text">滑动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#渐变：通过改变不透明度"><span class="post-toc-number">3.</span> <span class="post-toc-text">渐变：通过改变不透明度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义："><span class="post-toc-number">4.</span> <span class="post-toc-text">自定义：</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-jQuery动画基础（四）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">jQuery动画基础（四）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-08-07 21:10:08" datetime="2016-08-07T13:10:08.000Z"  itemprop="datePublished">2016-08-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong>介绍<code>jQuery</code>动画</strong></p>
+<ul>
+<li><p><code>JavaScript</code>语言本身不支持动画设计，必须通过改变`CSS来实现动画效果。</p>
+<a id="more"></a>
+<h3 id="显隐"><a href="#显隐" class="headerlink" title="显隐"></a>显隐</h3></li>
+<li><p><strong>显隐动画</strong></p>
+<ul>
+<li><p><code>show()</code>:显示</p>
+<ul>
+<li><code>show()</code>从上到下增加元素的高度，从左到右增加元素宽度，从0到1增加透明度，直至内容完全可见</li>
+</ul>
+</li>
+<li><p><code>hide()</code>:隐藏</p>
+<ul>
+<li><code>hide()</code>通过改变元素的高度宽度和不透明度，直到这三个属性值到0</li>
+</ul>
+</li>
+<li><p><strong>参数</strong>：</p>
+<ul>
+<li><code>show()</code></li>
+<li><p><code>show(speed,callback)</code></p>
+<ul>
+<li><code>speed:</code> 字符串或数字，表示动画将运行多久（<code>slow=0.6/normal=0.4/fast=0.2</code>）</li>
+<li><code>callback:</code> 动画完成时执行的方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>显示和隐藏式一对密不可分的动画形式。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>显隐切换</strong></p>
+<ul>
+<li><p><code>toggle()</code>:切换元素的可见状态</p>
+<ul>
+<li><p>原理：匹配元素的宽度、高度以及不透明度，同时进行动画，隐藏动画后将<code>display</code>设置为<code>none</code></p>
+</li>
+<li><p><strong>参数：</strong></p>
+<ul>
+<li><code>toggle(speed)</code></li>
+<li><code>toggle(speed,callback)</code></li>
+<li><p><code>toggle(boolean)</code></p>
+<ul>
+<li><code>speed:</code> 字符串或数字，表示动画将运行多久（<code>slow=0.6/normal=0.4/fast=0.2</code>）</li>
+<li><code>easing：</code> 使用哪个缓冲函数来过渡的字符串(<code>linear/swing</code>)</li>
+<li><code>callback：</code> 动画完成时执行的方法</li>
+<li><code>boolean:true</code>为显示 <code>false</code>为隐藏</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="滑动"><a href="#滑动" class="headerlink" title="滑动"></a>滑动</h3><ul>
+<li><p><strong>显隐滑动效果</strong></p>
+<ul>
+<li><code>slideDown():</code>滑动隐藏</li>
+<li><p><code>slidUp():</code>滑动显示</p>
+</li>
+<li><p><strong>参数:</strong></p>
+<ul>
+<li><code>slideDown(speed,callback)</code></li>
+<li><code>slidUp(speed,callback)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>显隐切换滑动</strong></p>
+<ul>
+<li><p><code>slideToggle():</code>显隐滑动切换</p>
+</li>
+<li><p><strong>参数:</strong></p>
+<ul>
+<li><code>slidUp(speed,callback)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="渐变：通过改变不透明度"><a href="#渐变：通过改变不透明度" class="headerlink" title="渐变：通过改变不透明度"></a>渐变：通过改变不透明度</h3><ul>
+<li><p><strong>淡入淡出</strong></p>
+<ul>
+<li><code>fadeIn()</code></li>
+<li><p><code>fadeOut()</code></p>
+</li>
+<li><p><strong>参数</strong></p>
+<ul>
+<li>fadeIn(speed,callback)</li>
+<li>fadeOut(speed,callback)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>设置淡出透明效果</strong></p>
+<ul>
+<li><p><code>fadeTo()</code>⁭：以渐进的方式调整到指定透明度</p>
+</li>
+<li><p><strong>参数</strong>：</p>
+<ul>
+<li><code>fadeTo(speed,opacity,callback)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>渐变切换</strong>:</p>
+<ul>
+<li>结合<code>fadeIn</code>和<code>fadeOut</code></li>
+<li><p><code>fadeToggle()</code></p>
+</li>
+<li><p><strong>参数:</strong></p>
+<ul>
+<li><code>fadeOut(speed,callback)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义："><a href="#自定义：" class="headerlink" title="自定义："></a>自定义：</h3><ul>
+<li><p>自定义动画：<code>animate()</code>    </p>
+</li>
+<li><p>用<code>animate</code>模拟<code>show()</code>:</p>
+<ul>
+<li><code>show:</code> 表示由透明到不透明</li>
+<li><code>toggle:</code> 切换</li>
+<li><code>hide:</code>表示由显示到隐藏</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T01:44:50.636Z" itemprop="dateUpdated">2018-10-23 09:44:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/frontend/5f9d254.html" target="_blank" rel="external">https://ru23.com/frontend/5f9d254.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/5f9d254.html&title=《jQuery动画基础（四）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/5f9d254.html&title=《jQuery动画基础（四）》 — 前端迷 (front-end fan)&source=介绍jQuery动画
+
+JavaScript语言本身不支持动画设计，必须通过改变`CSS来实现动画效果。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/5f9d254.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jQuery动画基础（四）》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/5f9d254.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/5f9d254.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/frontend/f854d664.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">jQuery操作DOM（三）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/frontend/62bd05db.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">jQuery选择器及优化（二）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/frontend/5f9d254.html&title=《jQuery动画基础（四）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/frontend/5f9d254.html&title=《jQuery动画基础（四）》 — 前端迷 (front-end fan)&source=介绍jQuery动画
+
+JavaScript语言本身不支持动画设计，必须通过改变`CSS来实现动画效果。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/frontend/5f9d254.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jQuery动画基础（四）》 — 前端迷 (front-end fan)&url=https://ru23.com/frontend/5f9d254.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/frontend/5f9d254.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aQU7EMBAEwP3/p4PEFcV027EJUvmE2MWucBhNevz5xOv6Xne/+fnz3afjPR9buLi4y9xruJIjkx3yhxzvgIuLe5I7LjTJ8ePHSPaPih0uLu7LuOtN0riQ4eLi/kfuHPoOiouL+35u8vKTl6Hxg433f+xdDRcXd4HbBqY7ft6Y7+Li4pbcq1zjstUWvvp0XFzcI9y2QVkPUOZaqGLei4uLu8wdD0hWRqdtKzMuc7i4uOe5eZyRByLJP6LdExcX9yR3JRjNG5c2JI3qLi4u7jZuUoDyIpUMZScDF1xc3CPcJByZjDXLEKS+5IGLi7uNO9fc5GOS9vpFkezi4uJu5ravKG0wujKCvY1FcHFxN3PnAs25wte2O7i4uG/gJgfk31l5jGjyg4uLu4Hb4uqsJX5nKc7CxcXdzC3aizhmnfurqAHCxcU9yG03bY//LCxcXNy/4q4PUNtJR37ho+iVcHFxH+K2BSX/zkpc0rZZuLi4O7i7C1A7vv3lU1xc3IPcucI0dyVrriDi4uK+k1tEGFOXOaJgBRcX95XclUHpGDoulLi4uOe5yctPe1FjpT16IBbBxcVd4LaB6VPEpFzi4uIe534BUFGVjBDLLz0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
