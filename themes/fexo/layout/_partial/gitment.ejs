@@ -1,0 +1,16 @@
+<div id="gitment"></div>
+<!-- 主页不要加载gitment -->
+<% if (!index){ %>
+<script>
+var gitment = new Gitment({
+  owner: 'poetries',
+  repo: 'poetries.github.io',
+  oauth: {
+    client_id: '1e8dd8b1f1cc682a0e96',
+    client_secret: 'e2e4411114035de33408c87ee77453e034a3da04',
+  },
+})
+gitment.render('gitment')
+</script>
+ 
+<% } %>

@@ -1,0 +1,42 @@
+baidu-share = hexo-config("share.baidu")
+addthis-share = hexo-config("share.addthis")
+
+.share
+    padding-left 40px
+    margin 1em auto .5em
+    opacity i-opacity
+    &:hover
+        opacity 1
+
+if baidu-share
+    .bdsharebuttonbox
+        a, .bds_more
+            width 30px
+            height @width !important
+            line-height @height
+            text-align center
+            padding-left 0 !important
+            font-size .68*@width !important
+            text-decoration none
+            color white !important
+            box-shadow 1px 1px 1px rgba(0,0,0, .1), 1px 1px 1px rgba(0,0,0, .3)
+            &:hover
+                transform scale(1.1)
+                color @color
+
+        // http://share.baidu.com/help/webid
+        font-logo = bds_tsina #db332f, 
+                    bds_sqq #1cbcef,
+                    bds_copy #8f8f8f,
+                    bds_mail #6fc0e4,
+                    bds_weixin #8cdc49,
+                    bds_more #8cbcf5,
+                    bds_twi #21abf4
+        for i in font-logo
+            .{i[0]}
+                background i[1] !important
+                
+if addthis-share
+    .addthis_sharing_toolbox
+        margin-top .5em
+        margin-left -2px
