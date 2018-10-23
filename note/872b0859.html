@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/872b0859.html">
+    
+    
+    <title>前端面试之MVVM浅析 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="MVVM,面试">
+    <meta name="description" content="image.png              一、说一下使用 jquery 和使用框架的区别1.1  jQuery 实现 todo-list">
+<meta name="keywords" content="MVVM,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试之MVVM浅析">
+<meta property="og:url" content="https://ru23.com/note/872b0859.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="image.png              一、说一下使用 jquery 和使用框架的区别1.1  jQuery 实现 todo-list">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-e0e229cfc78ee5d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-a6e157c329007a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-49817bcd534d8b6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-9eeb873dbeab8fd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-ae4d1af8796ca210.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-d2c6b8c8bd1d954a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-4c4f92a1598b8111.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-41caaec1c3c29299.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-b037083258565102.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-5a22356afe0fc249.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-9cd08cb0657479a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-2cd1392e845ce6e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-eb81593136db9979.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-b73efe6842725d85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-3b0a4523b3a21f06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-48f05d2febca5466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-a393a094aba2dbaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-9cd1e28e1b4be677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-161bb616d8d82ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-324e1d882233345a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-2ae04b9b261c06f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-991804d9e7cbc521.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-0ea6f157db6ded1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-721a5fade82e7677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-5aafaf7b6286bfb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-b9817fca90782813.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-81f02a1c168d1d25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-114a451f4dfe201a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-e6e45a3f2b8c986c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-f4b05281f852dbe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-23T08:47:46.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试之MVVM浅析">
+<meta name="twitter:description" content="image.png              一、说一下使用 jquery 和使用框架的区别1.1  jQuery 实现 todo-list">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1480597-e0e229cfc78ee5d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端面试之MVVM浅析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端面试之MVVM浅析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-20T16:10:02.000Z" itemprop="datePublished" class="page-time">
+  2018-10-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、说一下使用-jquery-和使用框架的区别"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、说一下使用 jquery 和使用框架的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-jQuery-实现-todo-list"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1  jQuery 实现 todo-list</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-vue-实现-todo-list"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 vue 实现 todo-list</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-jQuery-和框架的区别"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 jQuery 和框架的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、说一下对-MVVM-的理解"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、说一下对 MVVM 的理解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-MVC"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 MVC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-MVVM"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 MVVM</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-关于-ViewModel"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 关于 ViewModel</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-MVVM-框架的三大要素"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 MVVM 框架的三大要素</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、vue-中如何实现响应式"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、vue 中如何实现响应式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-什么是响应式"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 什么是响应式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-Object-defineProperty"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 Object.defineProperty</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-模拟实现"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 模拟实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、vue-中如何解析模板"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、vue 中如何解析模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-模板是什么"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">4.1 模板是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-render-函数"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">4.2 render 函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-render-函数与-vdom"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">4.3 render 函数与 vdom</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、vue-的整个实现流程"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、vue 的整个实现流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-第一步：解析模板成-render-函数"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">5.1 第一步：解析模板成 render 函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-第二步：响应式开始监听"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">5.2 第二步：响应式开始监听</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-第三步：首次渲染，显示页面，且绑定依赖"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">5.3 第三步：首次渲染，显示页面，且绑定依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-4-第四步：data-属性变化"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">5.4 第四步：data 属性变化</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2018-10-fe-interview-mvvm"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端面试之MVVM浅析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-21 00:10:02" datetime="2018-10-20T16:10:02.000Z"  itemprop="datePublished">2018-10-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-e0e229cfc78ee5d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h2 id="一、说一下使用-jquery-和使用框架的区别"><a href="#一、说一下使用-jquery-和使用框架的区别" class="headerlink" title="一、说一下使用 jquery 和使用框架的区别"></a>一、说一下使用 jquery 和使用框架的区别</h2><h3 id="1-1-jQuery-实现-todo-list"><a href="#1-1-jQuery-实现-todo-list" class="headerlink" title="1.1  jQuery 实现 todo-list"></a>1.1  jQuery 实现 todo-list</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-a6e157c329007a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="1-2-vue-实现-todo-list"><a href="#1-2-vue-实现-todo-list" class="headerlink" title="1.2 vue 实现 todo-list"></a>1.2 vue 实现 todo-list</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-49817bcd534d8b6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="1-3-jQuery-和框架的区别"><a href="#1-3-jQuery-和框架的区别" class="headerlink" title="1.3 jQuery 和框架的区别"></a>1.3 jQuery 和框架的区别</h3><ul>
+<li>数据和视图的分离，解耦（开放封闭原则）</li>
+<li>以数据驱动视图，只关心数据变化，DOM 操作被封装</li>
+</ul>
+<h2 id="二、说一下对-MVVM-的理解"><a href="#二、说一下对-MVVM-的理解" class="headerlink" title="二、说一下对 MVVM 的理解"></a>二、说一下对 MVVM 的理解</h2><h3 id="2-1-MVC"><a href="#2-1-MVC" class="headerlink" title="2.1 MVC"></a>2.1 MVC</h3><ul>
+<li><code>M - Model</code> 数据</li>
+<li><code>V - View</code> 视图、界面</li>
+<li><code>C - Controller</code> 控制器、逻辑处理</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-9eeb873dbeab8fd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-ae4d1af8796ca210.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="2-2-MVVM"><a href="#2-2-MVVM" class="headerlink" title="2.2 MVVM"></a>2.2 MVVM</h3><ul>
+<li><code>Model</code> - 模型、数据</li>
+<li><code>View</code> - 视图、模板（视图和模型是分离的）</li>
+<li><code>ViewModel</code> - 连接 <code>Model</code> 和 <code>View</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-d2c6b8c8bd1d954a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="2-3-关于-ViewModel"><a href="#2-3-关于-ViewModel" class="headerlink" title="2.3 关于 ViewModel"></a>2.3 关于 ViewModel</h3><ul>
+<li><code>MVVM</code> 不算是一种创新</li>
+<li>但其中的 <code>ViewModel</code> 确实一种创新</li>
+<li>真正结合前端场景应用的创建</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-4c4f92a1598b8111.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-41caaec1c3c29299.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="2-4-MVVM-框架的三大要素"><a href="#2-4-MVVM-框架的三大要素" class="headerlink" title="2.4 MVVM 框架的三大要素"></a>2.4 MVVM 框架的三大要素</h3><ul>
+<li>响应式：<code>vue</code>如何监听到 <code>data</code> 的每个属性变化？</li>
+<li>模板引擎：<code>vue</code> 的模板如何被解析，指令如何处理？</li>
+<li>渲染：<code>vue</code> 的模板如何被渲染成 <code>html</code> ？以及渲染过程</li>
+</ul>
+<h2 id="三、vue-中如何实现响应式"><a href="#三、vue-中如何实现响应式" class="headerlink" title="三、vue 中如何实现响应式"></a>三、vue 中如何实现响应式</h2><h3 id="3-1-什么是响应式"><a href="#3-1-什么是响应式" class="headerlink" title="3.1 什么是响应式"></a>3.1 什么是响应式</h3><ul>
+<li>修改 data 属性之后，vue 立刻监听到</li>
+<li>data 属性被代理到 vm 上</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-b037083258565102.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="3-2-Object-defineProperty"><a href="#3-2-Object-defineProperty" class="headerlink" title="3.2 Object.defineProperty"></a>3.2 Object.defineProperty</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-5a22356afe0fc249.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="3-3-模拟实现"><a href="#3-3-模拟实现" class="headerlink" title="3.3 模拟实现"></a>3.3 模拟实现</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-9cd08cb0657479a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-2cd1392e845ce6e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h2 id="四、vue-中如何解析模板"><a href="#四、vue-中如何解析模板" class="headerlink" title="四、vue 中如何解析模板"></a>四、vue 中如何解析模板</h2><h3 id="4-1-模板是什么"><a href="#4-1-模板是什么" class="headerlink" title="4.1 模板是什么"></a>4.1 模板是什么</h3><ul>
+<li>本质：字符串</li>
+<li>有逻辑，如 <code>v-if</code> <code>v-for</code> 等</li>
+<li>与 <code>html</code> 格式很像，但有很大区别</li>
+<li>最终还要转换为 <code>html</code> 来显示</li>
+</ul>
+<p><strong>模板最终必须转换成 JS 代码，因为</strong></p>
+<ul>
+<li>有逻辑（<code>v-if</code> <code>v-for</code>），必须用 <code>JS</code>才能实现</li>
+<li>转换为 <code>html</code> 渲染页面，必须用 <code>JS</code> 才能实现</li>
+<li>因此，模板最重要转换成一个 <code>JS</code> 函数（<code>render</code> 函数）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-eb81593136db9979.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="4-2-render-函数"><a href="#4-2-render-函数" class="headerlink" title="4.2 render 函数"></a>4.2 render 函数</h3><ul>
+<li>模板中所有信息都包含在了 <code>render</code> 函数中</li>
+<li><code>this</code> 即<code>vm</code></li>
+<li><code>price</code> 即 <code>this.price</code> 即 <code>vm.price</code>，即 <code>data</code> 中的 <code>price</code></li>
+<li><code>_c</code> 即 <code>this._c</code> 即 <code>vm._c</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-b73efe6842725d85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-3b0a4523b3a21f06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-48f05d2febca5466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="4-3-render-函数与-vdom"><a href="#4-3-render-函数与-vdom" class="headerlink" title="4.3 render 函数与 vdom"></a>4.3 render 函数与 vdom</h3><ul>
+<li><code>vm._c</code> 其实就相当于 <code>snabbdom</code>中的 <code>h</code> 函数</li>
+<li><code>render</code> 函数执行之后，返回的是 <code>vnode</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-a393a094aba2dbaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-9cd1e28e1b4be677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<ul>
+<li><code>updateComponent</code>中实现了 <code>vdom</code> 的 <code>patch</code></li>
+<li>页面首次渲染执行 <code>updateComponent</code></li>
+<li><code>data</code> 中每次修改属性，执行<code>updateComponent</code></li>
+</ul>
+<h2 id="五、vue-的整个实现流程"><a href="#五、vue-的整个实现流程" class="headerlink" title="五、vue 的整个实现流程"></a>五、vue 的整个实现流程</h2><ul>
+<li>第一步：解析模板成 render 函数</li>
+<li>第二步：响应式开始监听</li>
+<li>第三步：首次渲染，显示页面，且绑定依赖</li>
+<li>第四步：<code>data</code> 属性变化，触发 <code>rerender</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-161bb616d8d82ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="5-1-第一步：解析模板成-render-函数"><a href="#5-1-第一步：解析模板成-render-函数" class="headerlink" title="5.1 第一步：解析模板成 render 函数"></a>5.1 第一步：解析模板成 render 函数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-324e1d882233345a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-2ae04b9b261c06f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-991804d9e7cbc521.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-0ea6f157db6ded1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<ul>
+<li>模板中的所有信息都被 <code>render</code>函数包含</li>
+<li>模板中用到的 <code>data</code> 中的属性，都变成了 <code>JS</code> 变量</li>
+<li>模板中的<code>v-model</code>  <code>v-for</code>  <code>v-on</code> 都变成了 <code>JS</code> 逻辑</li>
+<li><code>render</code> 函数返回 <code>vnode</code></li>
+</ul>
+<h3 id="5-2-第二步：响应式开始监听"><a href="#5-2-第二步：响应式开始监听" class="headerlink" title="5.2 第二步：响应式开始监听"></a>5.2 第二步：响应式开始监听</h3><ul>
+<li><code>Object.defineProperty</code></li>
+<li>将 <code>data</code> 的属性代理到 <code>vm</code>上</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-721a5fade82e7677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="5-3-第三步：首次渲染，显示页面，且绑定依赖"><a href="#5-3-第三步：首次渲染，显示页面，且绑定依赖" class="headerlink" title="5.3 第三步：首次渲染，显示页面，且绑定依赖"></a>5.3 第三步：首次渲染，显示页面，且绑定依赖</h3><ul>
+<li>初次渲染，执行 <code>updateComponent</code>，执行 <code>vm._render()</code></li>
+<li>执行 <code>render</code> 函数，会访问到 <code>vm.list vm.title</code></li>
+<li>会被响应式的 <code>get</code> 方法监听到</li>
+<li>执行 <code>updateComponent</code> ，会走到 <code>vdom</code> 的 <code>patch</code> 方法</li>
+<li><code>patch</code> 将 <code>vnode</code>渲染成 <code>DOM</code> ，初次渲染完成</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-5aafaf7b6286bfb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-b9817fca90782813.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<p><strong>为何要监听 get ，直接监听 set 不行吗？</strong></p>
+<ul>
+<li><code>data</code> 中有很多属性，有些被用到，有些可能不被用到</li>
+<li>被用到的会走到 <code>get</code> ，不被用到的不会走到 <code>get</code></li>
+<li>未走到 <code>get</code> 中的属性，<code>set</code>的时候我们也无需关心</li>
+<li>避免不必要的重复渲染</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-81f02a1c168d1d25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h3 id="5-4-第四步：data-属性变化"><a href="#5-4-第四步：data-属性变化" class="headerlink" title="5.4 第四步：data 属性变化"></a>5.4 第四步：data 属性变化</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-114a451f4dfe201a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-e6e45a3f2b8c986c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<ul>
+<li>修改属性，被响应式的 <code>set</code> 监听到</li>
+<li><code>set</code>中执行 <code>updateComponent</code></li>
+<li>updateComponent 重新执行 <code>vm._render()</code></li>
+<li>生成的 <code>vnode</code> 和 <code>prevVnode</code> ，通过 <code>patch</code>进行对比</li>
+<li>渲染到 <code>html</code> 中</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1480597-f4b05281f852dbe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:46.659Z" itemprop="dateUpdated">2018-10-23 16:47:46</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/872b0859.html" target="_blank" rel="external">https://ru23.com/note/872b0859.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/872b0859.html&title=《前端面试之MVVM浅析》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/872b0859.html&title=《前端面试之MVVM浅析》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/872b0859.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端面试之MVVM浅析》 — 前端迷 (front-end fan)&url=https://ru23.com/note/872b0859.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/872b0859.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/4cf9f504.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端面试之组件化</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/a6c4da3d.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">虚拟DOM（二）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/872b0859.html&title=《前端面试之MVVM浅析》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/872b0859.html&title=《前端面试之MVVM浅析》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/872b0859.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端面试之MVVM浅析》 — 前端迷 (front-end fan)&url=https://ru23.com/note/872b0859.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/872b0859.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aO27DMBAFQN//0k6bIpHfW4q0EwwrA5bEkYoF9/N4xOv5bV3/e31N8rQbFi4u7jL3ebmSa5L1Gzo34OLinucmoScPc8m97TW4uLh/l5sfd3Bxcf8TN09jkgMTLi7uJ3NXkpbrAJcfg27O1XBxcRe4eZVy3+8t9V1cXNwRd1b0bBF3FWFxcXHPcPOAMkPn9GJfXFzczdx8gza9aYctkufg4uKe4a4HoBkr32XpG+Pi4o64dxUvkoZK2zL54S5cXNwj3Luaqddh6LqVkpdUcHFxz3BXjiPDMHRXroaLi3ucm5c2Vl6jTYdwcXHfxW1HqfImazvS8SJXw8XF3cYtMqQ42M0mrIa5Gi4u7jburFmSDFqtNFlffAJcXNzN3DwYzY5ExWhFUqjFxcU9yJ0dO4qiRvDyRfKDi4v7Vm47QpE3YPJwWW+Di4u7wH2Wq22Q5O2Z6MVwcXGPcNvg0oaqNslpn4CLi7uP2wav2WhmW6Itmii4uLjbuLPxiLZ9kkTQF3fh4uJ+JPeuw9BwgAMXF/cjue2AxXrh47a4i4uLW3JnKU07qtV+Alxc3Hdx21CyPnKRF16X6ru4uLgT7heBdpp5K+ePRAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

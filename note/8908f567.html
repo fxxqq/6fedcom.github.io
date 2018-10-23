@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/8908f567.html">
+    
+    
+    <title>JavaScript语言基础之Window属性(八) | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="JavaScript">
+    <meta name="description" content="一些讨论">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript语言基础之Window属性(八)">
+<meta property="og:url" content="https://ru23.com/note/8908f567.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一些讨论">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/js%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-window%E5%B1%9E%E6%80%A7.gif">
+<meta property="og:updated_time" content="2018-10-23T08:47:46.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript语言基础之Window属性(八)">
+<meta name="twitter:description" content="一些讨论">
+<meta name="twitter:image" content="http://7xq6al.com1.z0.glb.clouddn.com/js%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-window%E5%B1%9E%E6%80%A7.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JavaScript语言基础之Window属性(八)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JavaScript语言基础之Window属性(八)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-26T16:05:43.000Z" itemprop="datePublished" class="page-time">
+  2016-07-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#附录：思维导图总结"><span class="post-toc-number">1.</span> <span class="post-toc-text">附录：思维导图总结</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2016-07-JavaScript语言基础之Window属性-八"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript语言基础之Window属性(八)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-27 00:05:43" datetime="2016-07-26T16:05:43.000Z"  itemprop="datePublished">2016-07-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><p><strong>一些讨论</strong></p>
+<a id="more"></a>
+<ul>
+<li><code>window</code> 是<code>Window</code>构造器造出来的一个对象 <code>alert(window instanceof Window)</code></li>
+<li><p><code>document</code> 是<code>Document</code>构造器造出来的一个对象</p>
+</li>
+<li><p>任何对象在我们的内存中他都是由某个构造器创建出来的 也就是说 有构造器一定有对应的原型prototype</p>
+</li>
+<li><p>例如：div是由HTMLDivElement 这个构造器创建的一个实例 <code>div = new HTMLDivElement()</code>  <code>span = new HTMLSpanElement()</code></p>
+</li>
+<li><p>查看某个对象对应的构造器：console.log();</p>
+</li>
+<li><p>整个浏览器的实现就是一个面向对象的编程思想 一切皆是对象</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>BOM 浏览器对象模型</strong></p>
+<ul>
+<li><p>a.<code>screen</code> 指的不是浏览器的宽度，指的是整个电脑屏幕的分辨率<br>   可以拿到屏幕可用分辨率</p>
+</li>
+<li><p>b.<code>navigator</code><br>   可以通过<code>userAgent</code>判断当前浏览器信息</p>
+</li>
+<li><p>c.<code>location</code></p>
+<ul>
+<li><p><code>URL</code>：统一资源定位符 <code>Union Resource Location</code></p>
+</li>
+<li><p>可以通过<code>href</code>属性重定向（改变）页面的URL，进行页面跳转</p>
+</li>
+</ul>
+</li>
+<li><p>d.<code>history</code><br>   go方法能够让我们进行历史回退或者前进</p>
+</li>
+<li><p>e.<code>frames</code><br>   获得当前窗体的子页面（<code>iframe</code>）</p>
+</li>
+<li><p>f.<code>document</code><br>   <code>DOM</code>模型的核心对象</p>
+</li>
+</ul>
+</li>
+<li><p><strong><code>DOM</code> 文档对象模型</strong></p>
+<ul>
+<li><p>document</p>
+<ul>
+<li><p>功能</p>
+<ul>
+<li><code>getElementById</code>：通过传入的ID，返回标识了这个ID的唯一对象的内存地址</li>
+<li><code>getElementsByTagName</code>:通过传入的标签名字，返回所有该标签对象（<code>HTMLCollection</code>）</li>
+<li><code>getElementsByClassName</code>:通过类的名字，返回所有该类的元素对象（<code>HTMLCollection</code>）</li>
+<li><code>createElement</code>:想要创建出来的元素能够绘制在页面中，那么它必须在DOM树中</li>
+</ul>
+</li>
+<li><p><strong>总结：</strong> <code>document</code>对象是DOM原型的核心对象，它是内存DOM树的根，所以它提供了很多功能让我们快速的找到DOM树中的某些DOM节点（对象）</p>
+</li>
+<li><p><code>element</code></p>
+<ul>
+<li><p>功能方法：（自定义属性非常灵活好用）</p>
+<ul>
+<li><code>setAttribute/getAttribute</code> //getAttribute获取标签的属性 –用来操作标签的属性</li>
+<li><code>setAttribute</code>设置标签的属性</li>
+<li><code>appendChild</code>:添加子元素</li>
+</ul>
+</li>
+<li><p>属性：</p>
+<ul>
+<li><code>id</code></li>
+<li><code>className</code>，<code>style</code></li>
+<li><code>name</code>,<code>value</code>(只有表单元素有 其他是没有的)</li>
+<li><code>href</code>,<code>src</code>…(对应的元素)</li>
+<li><code>innerHTML/innerText</code>  innerText返回文本信息</li>
+<li><code>children</code>://子元素集合</li>
+<li><code>parentNode</code>//父元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>总结：元素的功能属性直接可以通过元素对象<code>点</code>出来，除此意外的<code>自定义属性</code>，请通过<code>get/setAtribute</code>去操作</li>
+</ul>
+<hr>
+<h3 id="附录：思维导图总结"><a href="#附录：思维导图总结" class="headerlink" title="附录：思维导图总结"></a>附录：思维导图总结</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/js%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-window%E5%B1%9E%E6%80%A7.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:46.220Z" itemprop="dateUpdated">2018-10-23 16:47:46</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/8908f567.html" target="_blank" rel="external">https://ru23.com/note/8908f567.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/8908f567.html&title=《JavaScript语言基础之Window属性(八)》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/8908f567.html&title=《JavaScript语言基础之Window属性(八)》 — 前端迷 (front-end fan)&source=
+一些讨论" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/8908f567.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript语言基础之Window属性(八)》 — 前端迷 (front-end fan)&url=https://ru23.com/note/8908f567.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/8908f567.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/5bd7146a.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JavaScript语言基础之DOM操作(九)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/4d991e84.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JavaScript语言基础之数组(七)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/8908f567.html&title=《JavaScript语言基础之Window属性(八)》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/8908f567.html&title=《JavaScript语言基础之Window属性(八)》 — 前端迷 (front-end fan)&source=
+一些讨论" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/8908f567.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript语言基础之Window属性(八)》 — 前端迷 (front-end fan)&url=https://ru23.com/note/8908f567.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/8908f567.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByUlEQVR42u3aSQ7CQAwF0dz/0rBFgoT6drcZVL2KUBIeLCxPx4HP7ek8fv58z9kbyJ0Ljly5ctvc2+Uh95BzhuYGuXLlznNJ6Ll+irD4+08/lytX7o9wgzB0kuLIlSv3/7jXdQopfuTKlfud3E7RQjoYH6jV5MqV2806jk5I6l9v6e/KlSu3xK01PdOkZFUTVq5cuTPctIypUcj9wffKlSt3M3dtWZLSefs1zrPkypW7iNtJU0jwIoEMZWRy5cod4XJEWiB11ixePCVXrtwRLgkifESaNlPIqDWe/8iVK7fN7Sxe8ODFx7ELih+5cuUu4pJGRm0xIg1VKJDJlSt3hLtqlSoNYWkKJVeu3BlurW2xb1iCajW5cuWOcEkgI00TjqithMqVK3eSS16X/jA+kkmDply5cie56WA1XegkTdWg+JErV+44l5citYUMnu6gCCpXrtyl3M7SVS1NQcNU8r/KlSt3G7dW6vBXp0taPMjKlSt3N5e3RDulC1+8ePPXyJUrd5DLxxt9Ylr8oP6uXLlyP8pNR628fAoqNrly5X4ZF41C064tF8qVK3eQy1ev+A9Ir9F6lly5cke4aSjpFzbpkpZcuXIHuXddlLlo4EzLcgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
