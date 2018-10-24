@@ -1,7 +1,7 @@
 ---
 title: jQuery之思维导图
 tags:
-  - javascript
+  - Javascript
   - jQuery
 categories: Front-End
 abbrlink: f4c59ce6

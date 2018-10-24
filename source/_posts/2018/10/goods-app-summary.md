@@ -1,7 +1,7 @@
 ---
 title: 好物快应用、H5端开发小结
 tags:
-  - JavaScript
+  - Javascript
   - 快应用
 categories: Front-End
 abbrlink: 7bec924e

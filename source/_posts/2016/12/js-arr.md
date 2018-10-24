@@ -1,7 +1,7 @@
 ---
 title: Javascript数组详解
 tags:
-  - JavaScript
+  - Javascript
   - 数组
 categories: Front-End
 abbrlink: 40b57898

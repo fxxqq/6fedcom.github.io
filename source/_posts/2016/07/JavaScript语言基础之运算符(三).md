@@ -1,6 +1,6 @@
 ---
 title: JavaScript语言基础之运算符(三)
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 477e687b
 date: 2016-07-26 22:46:43

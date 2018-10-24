@@ -1,7 +1,7 @@
 ---
 title: ES6编码风格
 tags:
-  - JavaScript
+  - Javascript
   - ES6
 categories: Front-End
 abbrlink: 67fe8f98

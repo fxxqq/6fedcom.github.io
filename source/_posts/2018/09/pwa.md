@@ -1,7 +1,7 @@
 ---
 title: 浅谈PWA(Progressive Web App)
 tags:
-  - JavaScript
+  - Javascript
   - PWA
 categories: Front-End
 abbrlink: c8cbf86a

@@ -1,6 +1,6 @@
 ---
 title: javascript笔记总结篇
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 5f0d48ef
 date: 2016-09-24 10:33:00

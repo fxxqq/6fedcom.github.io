@@ -1,7 +1,7 @@
 ---
 title: Nodejs之简单入门（一）
 tags:
-  - JavaScript
+  - Javascript
   - Node
 categories: Back-end
 abbrlink: 93337fcf

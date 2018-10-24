@@ -1,6 +1,6 @@
 ---
 title: JavaScript语言基础之Window属性(八)
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 8908f567
 date: 2016-07-27 00:05:43

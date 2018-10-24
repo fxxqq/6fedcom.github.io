@@ -1,7 +1,7 @@
 ---
 title: 初探RESTful API
 tags:
-  - JavaScript
+  - Javascript
   - RESTful API
 categories: Front-End
 abbrlink: 5d687d0f

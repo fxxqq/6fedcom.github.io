@@ -1,7 +1,7 @@
 ---
 title: JavaScript运动框架之速度时间版本
 tags:
-  - JavaScript
+  - Javascript
   - 运动框架
 categories: Front-End
 abbrlink: 258fc88c

@@ -1,6 +1,6 @@
 ---
 title: JavaScript语言基础之流程控制(五)
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 51bbed
 date: 2016-07-26 23:50:43

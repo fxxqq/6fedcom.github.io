@@ -1,7 +1,7 @@
 ---
 title: 初识MobX
 tags:
-  - JavaScript
+  - Javascript
   - MobX
 categories: Front-End
 abbrlink: a5647f53

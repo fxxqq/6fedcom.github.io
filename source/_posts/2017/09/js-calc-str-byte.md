@@ -1,6 +1,6 @@
 ---
 title: JS计算字符串所占字节数
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 79d4a191
 date: 2017-09-12 19:40:43

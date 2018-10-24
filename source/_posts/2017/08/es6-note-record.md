@@ -1,7 +1,7 @@
 ---
 title: ES6笔记记录
 tags:
-  - JavaScript
+  - Javascript
   - ES6
 categories: Front-End
 abbrlink: 957a3ac4

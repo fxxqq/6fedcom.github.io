@@ -1,7 +1,7 @@
 ---
 title: React之事件（四）
 tags:
-  - JavaScript
+  - Javascript
   - react
 categories: Front-End
 abbrlink: 7d76909e

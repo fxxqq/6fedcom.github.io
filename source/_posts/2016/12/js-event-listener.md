@@ -1,7 +1,7 @@
 ---
 title: JS 中的事件绑定、事件监听、事件委托
 tags:
-  - JavaScript
+  - Javascript
   - 事件
 categories: Front-End
 abbrlink: ebeaea04

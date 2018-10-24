@@ -2,7 +2,7 @@
 title: jQuery与原生JS的DOM操作对比
 tags:
   - jQuery
-  - JavaScript
+  - Javascript
 categories: Front-End
 abbrlink: 99d7d7a9
 date: 2016-07-27 13:50:20

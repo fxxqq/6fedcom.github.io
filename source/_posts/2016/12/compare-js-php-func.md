@@ -1,7 +1,7 @@
 ---
 title: JavaScript&&PHP常用函数对比
 tags:
-  - JavaScript
+  - Javascript
   - PHP
 categories: Front-End
 abbrlink: d09b98b1

@@ -1,7 +1,7 @@
 ---
 title: 虚拟DOM（一）
 tags:
-  - JavaScript
+  - Javascript
   - 虚拟DOM
 categories: Front-End
 abbrlink: 96d236e5

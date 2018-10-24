@@ -1,6 +1,6 @@
 ---
 title: DIV企业命名参考
-tags: 规范
+tags: [前端规范]
 categories: Front-End
 abbrlink: 63d5a9a7
 date: 2015-12-14 14:09:08

@@ -1,6 +1,6 @@
 ---
 title: JavaScript语言基础之函数基础(六)
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 4bed88f0
 date: 2016-07-26 21:46:43

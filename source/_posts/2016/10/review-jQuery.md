@@ -1,7 +1,7 @@
 ---
 title: jQuery笔记总结篇
 tags:
-  - JavaScript
+  - Javascript
   - jQuery
 categories: Front-End
 abbrlink: ed6083ef

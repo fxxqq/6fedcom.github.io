@@ -1,6 +1,6 @@
 ---
 title: JavaScript之定时器
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: e59c5ebc
 date: 2016-07-27 11:40:43

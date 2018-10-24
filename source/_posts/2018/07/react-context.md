@@ -1,7 +1,7 @@
 ---
 title: React之context
 tags:
-  - JavaScript
+  - Javascript
   - react
 categories: Front-End
 abbrlink: '904e3313'

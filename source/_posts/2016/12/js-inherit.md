@@ -1,7 +1,7 @@
 ---
 title: JS继承的几种方法总结
 tags:
-  - JavaScript
+  - Javascript
   - 继承
 categories: Front-End
 abbrlink: b61cd12f

@@ -1,7 +1,7 @@
 ---
 title: ES6新特性
 tags:
-  - JavaScript
+  - Javascript
   - ES6
 categories: Front-End
 abbrlink: de81bfb9

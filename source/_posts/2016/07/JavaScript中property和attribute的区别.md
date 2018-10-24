@@ -1,7 +1,7 @@
 ---
 title: JavaScript中property和attribute的区别
 tags:
-  - JavaScript
+  - Javascript
 categories: Front-End
 abbrlink: cbc703ee
 date: 2016-07-27 13:50:20

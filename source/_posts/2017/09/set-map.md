@@ -1,7 +1,7 @@
 ---
 title: Set与Map
 tags:
-  - JavaScript
+  - Javascript
   - ES6
 categories: Front-End
 abbrlink: d9bfddfa

@@ -1,7 +1,7 @@
 ---
 title: JavaScript常用的代码片段
 tags:
-  - JavaScript
+  - Javascript
   - Snippet
 categories: Front-End
 abbrlink: 9db8c984

@@ -1,6 +1,6 @@
 ---
 title: JavaScript语言基础之字符串方法(四)
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 6a756edd
 date: 2016-07-26 23:46:43

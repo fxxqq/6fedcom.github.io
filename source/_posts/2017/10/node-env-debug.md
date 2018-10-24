@@ -1,7 +1,7 @@
 ---
 title: Nodejs之环境&调试（二）
 tags:
-  - JavaScript
+  - Javascript
   - Node
 categories: Back-end
 abbrlink: 795a0309

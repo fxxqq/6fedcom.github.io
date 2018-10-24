@@ -1,7 +1,7 @@
 ---
 title: DOM编程之API学习总结篇
 tags:
-  - JavaScript
+  - Javascript
   - DOM
 categories: Front-End
 abbrlink: 4ac22b9d

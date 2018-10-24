@@ -1,7 +1,7 @@
 ---
 title: 原生JS与jQuery操作DOM对比
 tags:
-  - JavaScript
+  - Javascript
   - DOM
 categories: Front-End
 abbrlink: 753b84db

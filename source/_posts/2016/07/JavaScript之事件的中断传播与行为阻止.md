@@ -1,6 +1,6 @@
 ---
 title: JavaScript之事件的中断传播与行为阻止
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 45243f7e
 date: 2016-07-27 11:50:43

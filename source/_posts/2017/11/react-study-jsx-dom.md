@@ -1,7 +1,7 @@
 ---
 title: React之JSX语法及非DOM操作属性（二）
 tags:
-  - JavaScript
+  - Javascript
   - react
 categories: Front-End
 abbrlink: 22a8b6f6

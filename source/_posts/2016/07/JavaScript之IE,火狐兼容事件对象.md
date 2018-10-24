@@ -1,6 +1,6 @@
 ---
 title: 'JavaScript之IE,火狐兼容事件对象'
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 41b2f700
 date: 2016-07-27 11:40:43

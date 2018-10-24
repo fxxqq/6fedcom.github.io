@@ -1,7 +1,7 @@
 ---
 title: Ajax总结篇
 tags:
-  - JavaScript
+  - Javascript
   - Ajax
 categories: Front-End
 abbrlink: d4e64c45

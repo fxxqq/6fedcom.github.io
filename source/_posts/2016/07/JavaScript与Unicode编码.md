@@ -1,6 +1,6 @@
 ---
 title: JavaScript与Unicode编码
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 82c24800
 date: 2016-07-27 11:40:43

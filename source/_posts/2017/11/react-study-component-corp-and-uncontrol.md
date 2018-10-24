@@ -1,7 +1,7 @@
 ---
 title: React之组件的协同及（不）可控组件（五）
 tags:
-  - JavaScript
+  - Javascript
   - react
 categories: Front-End
 abbrlink: a802abee

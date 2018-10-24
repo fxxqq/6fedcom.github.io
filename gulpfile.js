@@ -89,6 +89,17 @@ gulp.task('minify-img-aggressive', function() {
         .pipe(gulp.dest('./frontend/img'))
 })
 
+// 压缩frontend目录下的所有img： 最大化压缩效果。
+gulp.task('minify-img-compress', function() {
+    return gulp.src('./source/_posts/**/*.*')
+    .pipe(imagemin(
+    [imagemin.gifsicle({'optimizationLevel': 3}), 
+    imagemin.jpegtran({'progressive': true}), 
+    imagemin.optipng({'optimizationLevel': 7}), 
+    imagemin.svgo()],
+    {'verbose': true}))
+    .pipe(gulp.dest('./source/_posts'))
+})
 // cmd back 返回上一层
 gulp.task('back', function (cb) {
     exec('cd ..', function (err, stdout, stderr) {
@@ -148,3 +159,7 @@ gulp.task('build', function(cb) {
     runSequence('clean', 'generate', 'compress','add', 'commit', 'push', cb)
 });
 gulp.task('default', ['build'])
+//压缩博客目录的图片
+gulp.task('m', function(cb) {
+    runSequence('minify-img-compress', cb)
+});

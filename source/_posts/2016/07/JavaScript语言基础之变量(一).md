@@ -1,6 +1,6 @@
 ---
 title: JavaScript语言基础之变量(一)
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: e67d370b
 date: 2016-07-26 20:46:43

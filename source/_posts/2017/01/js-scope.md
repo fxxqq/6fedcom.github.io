@@ -1,7 +1,7 @@
 ---
 title: JavaScript作用域分析总结
 tags:
-  - JavaScript
+  - Javascript
   - 作用域
 categories: Front-End
 abbrlink: c4e8b3f5

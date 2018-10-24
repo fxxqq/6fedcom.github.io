@@ -1,7 +1,7 @@
 ---
 title: javascript常用积累
 tags:
-  - JavaScript
+  - Javascript
   - Snippet
 categories: Front-End
 abbrlink: 160b6587

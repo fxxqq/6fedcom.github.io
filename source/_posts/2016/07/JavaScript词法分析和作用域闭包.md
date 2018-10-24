@@ -1,6 +1,6 @@
 ---
 title: JavaScript词法分析和作用域闭包
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 1f382076
 date: 2016-07-27 00:50:43
