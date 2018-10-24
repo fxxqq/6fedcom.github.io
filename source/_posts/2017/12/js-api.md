@@ -1,7 +1,7 @@
 ---
 title: JavaScript常用API合集
 tags:
-  - JavaScript
+  - Javascript
   - API
 categories: Front-End
 abbrlink: c5d4add4

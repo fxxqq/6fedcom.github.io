@@ -18,28 +18,28 @@
     
     
     
-    <link rel="canonical" href="ture/note/0.html">
+    <link rel="canonical" href="ture/note/fc5e7486.html">
     
     
-    <title>No title | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <title>JS常用的内置函数整理 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="前端开发爱好者frank的工作笔记">
-<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+    <meta name="keywords" content="JavaScript">
+    <meta name="description" content="String字符串对象 length 属性 长度 concat(String) 连接两个或更多个字符 indexOf(string) 返回出现字符的位置 substr(num1,[num2])截取字符串 toLowerCase()转成小写 toUpperCase()转成大写 replace(str1,str2) 字符串替换">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="No title">
-<meta property="og:url" content="https://ru23.com/note/0.html">
+<meta property="og:title" content="JS常用的内置函数整理">
+<meta property="og:url" content="https://ru23.com/note/fc5e7486.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="前端开发爱好者frank的工作笔记">
+<meta property="og:description" content="String字符串对象 length 属性 长度 concat(String) 连接两个或更多个字符 indexOf(string) 返回出现字符的位置 substr(num1,[num2])截取字符串 toLowerCase()转成小写 toUpperCase()转成大写 replace(str1,str2) 字符串替换">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T03:46:02.075Z">
+<meta property="og:updated_time" content="2018-10-24T07:00:48.031Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="No title">
-<meta name="twitter:description" content="前端开发爱好者frank的工作笔记">
+<meta name="twitter:title" content="JS常用的内置函数整理">
+<meta name="twitter:description" content="String字符串对象 length 属性 长度 concat(String) 连接两个或更多个字符 indexOf(string) 返回出现字符的位置 substr(num1,[num2])截取字符串 toLowerCase()转成小写 toUpperCase()转成大写 replace(str1,str2) 字符串替换">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
@@ -118,7 +118,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis"></div>
+        <div class="flex-col header-title ellipsis">JS常用的内置函数整理</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -140,13 +140,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title"></h1>
+        <h1 class="title">JS常用的内置函数整理</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-10-23T01:44:50.574Z" itemprop="datePublished" class="page-time">
-  2018-10-23
+                <time datetime="2016-12-13T06:50:24.000Z" itemprop="datePublished" class="page-time">
+  2016-12-13
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
 
             
         </h5>
@@ -160,16 +162,25 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String字符串对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">String字符串对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date日期"><span class="post-toc-number">2.</span> <span class="post-toc-text">Date日期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Math数学对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">Math数学对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">数组对象</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-2017-03-closure-summary"
+
+<article id="post-2016-12-js-inner-func"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title"></h1>
+        <h1 class="post-card-title">JS常用的内置函数整理</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-10-23 09:44:50" datetime="2018-10-23T01:44:50.574Z"  itemprop="datePublished">2018-10-23</time>
+            <time class="post-time" title="2016-12-13 14:50:24" datetime="2016-12-13T06:50:24.000Z"  itemprop="datePublished">2016-12-13</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
 
 
             
@@ -180,7 +191,50 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h3 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h3><ul>
+<li><code>length</code> 属性 长度</li>
+<li><code>concat(String)</code> 连接两个或更多个字符</li>
+<li><code>indexOf(string)</code> 返回出现字符的位置</li>
+<li><code>substr(num1,[num2])</code>截取字符串</li>
+<li><code>toLowerCase()</code>转成小写</li>
+<li><code>toUpperCase()</code>转成大写</li>
+<li><code>replace(str1,str2)</code> 字符串替换</li>
+</ul>
+<a id="more"></a>
+<h3 id="Date日期"><a href="#Date日期" class="headerlink" title="Date日期"></a>Date日期</h3><ul>
+<li><code>getYear()</code>返回年份（<code>2</code>位或<code>4</code>为）</li>
+<li><code>getFullYear()</code>返回年份(<code>4</code>位)</li>
+<li><code>getMonth()</code>返回月份<code>0-11</code></li>
+<li><code>getDate()</code>返回日期<code>1-31</code></li>
+<li><code>getDay()</code>返回星期数<code>0-6</code></li>
+<li><code>getHours()</code>返回小时数<code>0-23</code></li>
+<li><code>getMinutes()</code>返回分钟数<code>0-59</code></li>
+<li><code>getSeconds()</code>返回秒数<code>0-59</code></li>
+<li><code>getMilliseconds()返回毫秒数</code>0-999`</li>
+</ul>
+<h3 id="Math数学对象"><a href="#Math数学对象" class="headerlink" title="Math数学对象"></a>Math数学对象</h3><ul>
+<li><code>cell(数值)</code>大于或等于该数的最小整数</li>
+<li><code>floor(数值)</code>小于或等于该数的最大整数</li>
+<li><code>min(数值1，数值2)</code>返回最小值</li>
+<li><code>max(数值1，数值2)</code>返回最大值</li>
+<li><code>pow(数值1，数值2)</code>返回数值1的数值2的次方</li>
+<li><code>random()</code>返回随机数<code>0--1</code></li>
+<li><code>round(数值)</code>四舍五入</li>
+<li><code>sqrt(数值)</code>开平方根</li>
+</ul>
+<h3 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h3><ul>
+<li><code>concat()</code>返回一个由两个数组合并组成的新数组</li>
+<li><code>join()</code>返回一个由数组中的所有元素连接在一起的<code>String</code>对象</li>
+<li><code>pop()</code>删除数组中的最后一个元素并返回该值</li>
+<li><code>push()</code>向数组中添加新元素 返回新长度</li>
+<li><code>shift()</code>删除数组中的第一个元素并返回该值</li>
+<li><code>unshift</code>返回一个数组，在该数组头部插入指定的元素</li>
+<li><code>sort()</code>返回一个元素被排序了的<code>Array</code>对象</li>
+<li><code>reverse()</code>返回一个元素反序的<code>Array</code>对象</li>
+<li><code>splice(index.num,foo...)</code>返回数组的一个片段 –剪切</li>
+<li><code>slice(start,end)</code>复制 [start,end) 负数的时候 lenght+start/end</li>
+</ul>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -188,12 +242,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T03:46:02.075Z" itemprop="dateUpdated">2018-10-24 11:46:02</time>
+    最后更新时间：<time datetime="2018-10-24T07:00:48.031Z" itemprop="dateUpdated">2018-10-24 15:00:48</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/0.html" target="_blank" rel="external">https://ru23.com/note/0.html</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/fc5e7486.html" target="_blank" rel="external">https://ru23.com/note/fc5e7486.html</a>
         
     </div>
     
@@ -210,6 +264,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -218,7 +274,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/0.html&title=前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fc5e7486.html&title=《JS常用的内置函数整理》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -228,22 +284,26 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/0.html&title=前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fc5e7486.html&title=《JS常用的内置函数整理》 — 前端迷 (front-end fan)&source=String字符串对象
+length 属性 长度
+concat(String) 连接两个或更多个字符
+indexOf(string) 返回出现字符的位置
+..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/0.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fc5e7486.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=前端迷 (front-end fan)&url=https://ru23.com/note/0.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS常用的内置函数整理》 — 前端迷 (front-end fan)&url=https://ru23.com/note/fc5e7486.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/0.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fc5e7486.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -266,18 +326,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/0.html" id="post-prev" class="post-nav-link">
+      <a href="/note/580a1014.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">[no title]</h4>
+        <h4 class="title">JS 中的 call、apply、bind 方法</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/note/afd16d4c.html" id="post-next" class="post-nav-link">
+      <a href="/note/cec34af5.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">关于数组中forEach() 、map()、filter()、reduce()、some()、every()的总结</h4>
+        <h4 class="title">MVC、MVP、MVVM之间的关系</h4>
       </a>
     </div>
   
@@ -379,7 +439,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/0.html&title=《No title》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fc5e7486.html&title=《JS常用的内置函数整理》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -389,22 +449,26 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/0.html&title=《No title》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fc5e7486.html&title=《JS常用的内置函数整理》 — 前端迷 (front-end fan)&source=String字符串对象
+length 属性 长度
+concat(String) 连接两个或更多个字符
+indexOf(string) 返回出现字符的位置
+..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/0.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fc5e7486.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — 前端迷 (front-end fan)&url=https://ru23.com/note/0.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS常用的内置函数整理》 — 前端迷 (front-end fan)&url=https://ru23.com/note/fc5e7486.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/0.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fc5e7486.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -415,7 +479,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aQY6DMAwFUO5/aUaaLVP4tiFlpJdVVark0YVlO962eO2/q/p0P6zj99sTCxcXd8zdT9cR9OnzOSXZ//w3uLi467nn4WlyTPUvuLDh4uK+jJu8TDX1wcXF/e/c3vHJy+Di4r6Tm6cp5QOCZsojtRouLu6A29v63s8P9ndxcXGL3L248pbo/Kw/TsfFxV3CTVoek1ZItViKwhwuLu7D3PzIXppyVyGEi4u7nptflvSuSfIE6OIsXFzchdzewMSk2Voth7bqDAguLu6AW70ovXdEo/p34OLifoubB7jeoNUkDcLFxV3DnYOSoqgaBHFxcd/ATb7JS5d5evRxN1xc3Ndwe8Tenhcvg4uL+yVu7xKl1+DI26O4uLgruXkRkg9S5OGvOf6Fi4v7MDcpWvIr2N6wRaFFi4uLu5A7aaQmFzN5IXQhwcXFXcitDkj1QlseKJu5Ei4u7k3cakDpXbdM9myWXri4uGNuHrx6RU6viIpmS3FxcR/mVtOR6tM8gl78HhcX92XcatMzf4FyioOLi/t6bq8cyhsuNwcyXFzcmNtrklYvVPJwdkNbBBcXd8C969K0mrgkO+Di4i7n/gDc0p9m7FPbTQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3aS27DMAwFwNz/0inQVQrU8iP1qVGMVkYQWyMvCJrk6xWv9/f6vP78Jfl9/MzFCxcXd5r7Hq4r7vj66gDj548NuLi457nV4JWEod4ruLHh4uI+jDs+RhWHi4v7P7i94DVOgHBxcZ/MTcJQEsISXDUg4uLinuf2CqZrr7fXd3FxcRd1JRaXM1o7/tgdFxf3CDdPR+YTkTxhuglzuLi4m7nV22YC3/hISSMWFxf3DHfVaMVUayTeCxcX9wx39wbjEDb12YOLi3uEm28zM4ZV/eD5pYqDi4u7mdsrXlTHLPJhjvJrwsXF3cZNbqv+p3eAqPmKi4u7mZsUMWc+ipKwVQiguLi4R7i9KJE3V/Jj54fBxcXdze1tNi6dzLdsL4MjLi7uEW5e4MiPtBZ3MzOCi4u7gdsLRtVGafUDCRcX9wncPDWZb6XMNG5xcXFPcssDUnEZpVpSac534OLiLuVWA8pMabX6zEKXGBcXdwM3L5uuarT0Cq+4uLjnudU0JS+P5olREtRwcXGfxq2OcM0UZC+TJFxc3Adz86SkN9hRniDDxcXdwK2OZyVPSI6Rj3Dh4uKe5PYKplVWtfyBi4v7R9wvNuD8M09OYS8AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
