@@ -1,1 +1,141 @@
-(function(){var n,a=window||this,t=a.BLOG.even,e=a.BLOG.$,s=e("#search"),i=e("#search-wrap"),r=e("#key"),o=e("#back"),c=e("#search-panel"),l=e("#search-result"),u=e("#search-tpl").innerHTML,d=(a.BLOG.ROOT+"/content.json").replace(/\/{2}/g,"/");a.BLOG.noop;var f=e("html"),p={show:function(){a.innerWidth<760&&f.classList.add("lock-size"),c.classList.add("in")},hide:function(){a.innerWidth<760&&f.classList.remove("lock-size"),c.classList.remove("in")}};function h(e,t){return t.lastIndex=0,t.test(e)}function v(e){var t=this.value.trim();if(t){var i=new RegExp(t.replace(/[ ]/g,"|"),"gmi");!function(t){if(n)t(n);else{var e=new XMLHttpRequest;e.open("GET",d,!0),e.onload=function(){if(200<=this.status&&this.status<300){var e=JSON.parse(this.response);n=e instanceof Array?e:e.posts,t(n)}else console.error(this.statusText)},e.onerror=function(){console.error(this.statusText)},e.send()}}(function(e){var t,n,s=e.filter(function(e){return n=i,h((t=e).title,n)||t.tags.some(function(e){return h(e.name,n)})||h(t.text,n);var t,n});n="",n=(t=s).length?t.map(function(e){return t=u,n={title:e.title,path:(a.BLOG.ROOT+"/"+e.path).replace(/\/{2,}/g,"/"),date:new Date(e.date).toLocaleDateString(),tags:e.tags.map(function(e){return"<span>#"+e.name+"</span>"}).join("")},t.replace(/\{\w+\}/g,function(e){var t=e.replace(/\{|\}/g,"");return n[t]||""});var t,n}).join(""):'<li class="tips"><i class="icon icon-coffee icon-3x"></i><p>Results not found!</p></li>',l.innerHTML=n,p.show()}),e.preventDefault()}}s.addEventListener(t,function(){i.classList.toggle("in"),r.value="",i.classList.contains("in")?r.focus():r.blur()}),o.addEventListener(t,function(){i.classList.remove("in"),p.hide()}),document.addEventListener(t,function(e){"key"!==e.target.id&&"click"===t&&p.hide()}),r.addEventListener("input",v),r.addEventListener(t,v)}).call(this);
+(function () {
+
+    var G = window || this,
+        even = G.BLOG.even,
+        $ = G.BLOG.$,
+        searchIco = $('#search'),
+        searchWrap = $('#search-wrap'),
+        keyInput = $('#key'),
+        back = $('#back'),
+        searchPanel = $('#search-panel'),
+        searchResult = $('#search-result'),
+        searchTpl = $('#search-tpl').innerHTML,
+        JSON_DATA = (G.BLOG.ROOT + '/content.json').replace(/\/{2}/g, '/'),
+        searchData;
+
+    function loadData(success) {
+
+        if (!searchData) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', JSON_DATA, true);
+
+            xhr.onload = function () {
+                if (this.status >= 200 && this.status < 300) {
+                    var res = JSON.parse(this.response);
+                    searchData = res instanceof Array ? res : res.posts;
+                    success(searchData);
+                } else {
+                    console.error(this.statusText);
+                }
+            };
+
+            xhr.onerror = function () {
+                console.error(this.statusText);
+            };
+
+            xhr.send();
+
+        } else {
+            success(searchData);
+        }
+    }
+
+    function tpl(html, data) {
+        return html.replace(/\{\w+\}/g, function (str) {
+            var prop = str.replace(/\{|\}/g, '');
+            return data[prop] || '';
+        });
+    }
+
+    var noop = G.BLOG.noop;
+    var root = $('html');
+
+    var Control = {
+        show: function () {
+            G.innerWidth < 760 ? root.classList.add('lock-size') : noop;
+            searchPanel.classList.add('in');
+        },
+        hide: function () {
+            G.innerWidth < 760 ? root.classList.remove('lock-size') : noop;
+            searchPanel.classList.remove('in');
+        }
+    };
+
+    function render(data) {
+        var html = '';
+        if (data.length) {
+
+            html = data.map(function (post) {
+
+                return tpl(searchTpl, {
+                    title: post.title,
+                    path: (G.BLOG.ROOT + '/' + post.path).replace(/\/{2,}/g, '/'),
+                    date: new Date(post.date).toLocaleDateString(),
+                    tags: post.tags.map(function (tag) {
+                        return '<span>#' + tag.name + '</span>';
+                    }).join('')
+                });
+
+            }).join('');
+
+        } else {
+            html = '<li class="tips"><i class="icon icon-coffee icon-3x"></i><p>Results not found!</p></li>';
+        }
+
+        searchResult.innerHTML = html;
+    }
+
+    function regtest(raw, regExp) {
+        regExp.lastIndex = 0;
+        return regExp.test(raw);
+    }
+
+    function matcher(post, regExp) {
+        return regtest(post.title, regExp) || post.tags.some(function (tag) {
+            return regtest(tag.name, regExp);
+        }) || regtest(post.text, regExp);
+    }
+
+    function search(e) {
+        var key = this.value.trim();
+        if (!key) {
+            return;
+        }
+
+        var regExp = new RegExp(key.replace(/[ ]/g, '|'), 'gmi');
+
+        loadData(function (data) {
+
+            var result = data.filter(function (post) {
+                return matcher(post, regExp);
+            });
+
+            render(result);
+            Control.show();
+        });
+
+        e.preventDefault();
+    }
+
+
+    searchIco.addEventListener(even, function () {
+        searchWrap.classList.toggle('in');
+        keyInput.value = '';
+        searchWrap.classList.contains('in') ? keyInput.focus() : keyInput.blur();
+    });
+
+    back.addEventListener(even, function () {
+        searchWrap.classList.remove('in');
+        Control.hide();
+    });
+
+    document.addEventListener(even, function (e) {
+        if (e.target.id !== 'key' && even === 'click') {
+            Control.hide();
+        }
+    });
+
+    keyInput.addEventListener('input', search);
+    keyInput.addEventListener(even, search);
+
+}).call(this);
