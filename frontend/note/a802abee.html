@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/a802abee.html">
+    
+    
+    <title>React之组件的协同及（不）可控组件（五） | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="JavaScript,react">
+    <meta name="description" content="一、为什么要进行组件的协同 我们在实际的开发项目的时候，不会只用几个组件，有时候遇到大型的项目，可能会有成千上百的组件，难免会遇到有功能重复的组件。要进行修改，就会修改大部分的文件。所以我们需要进行组件的协同开发。">
+<meta name="keywords" content="JavaScript,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React之组件的协同及（不）可控组件（五）">
+<meta property="og:url" content="https://ru23.com/note/a802abee.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、为什么要进行组件的协同 我们在实际的开发项目的时候，不会只用几个组件，有时候遇到大型的项目，可能会有成千上百的组件，难免会遇到有功能重复的组件。要进行修改，就会修改大部分的文件。所以我们需要进行组件的协同开发。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ca3cbaafe961fa83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-dc00c2b2c9ac3807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ceca4b322b820239.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-34b3ac31175733e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-daeeefc5cd7c054d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-23T08:47:45.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React之组件的协同及（不）可控组件（五）">
+<meta name="twitter:description" content="一、为什么要进行组件的协同 我们在实际的开发项目的时候，不会只用几个组件，有时候遇到大型的项目，可能会有成千上百的组件，难免会遇到有功能重复的组件。要进行修改，就会修改大部分的文件。所以我们需要进行组件的协同开发。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-ca3cbaafe961fa83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">React之组件的协同及（不）可控组件（五）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">React之组件的协同及（不）可控组件（五）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-19T02:14:26.000Z" itemprop="datePublished" class="page-time">
+  2017-11-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、为什么要进行组件的协同"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、为什么要进行组件的协同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、什么是组件的协同使用？"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、什么是组件的协同使用？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、如何实现组件的协同使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、如何实现组件的协同使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、组件嵌套的含义"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、组件嵌套的含义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、组件嵌套的优缺点"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、组件嵌套的优缺点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、Mixin"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、Mixin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、不可控组件"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、不可控组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、可控组件"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、可控组件</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2017-11-react-study-component-corp-and-uncontrol"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">React之组件的协同及（不）可控组件（五）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-19 10:14:26" datetime="2017-11-19T02:14:26.000Z"  itemprop="datePublished">2017-11-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、为什么要进行组件的协同"><a href="#一、为什么要进行组件的协同" class="headerlink" title="一、为什么要进行组件的协同"></a>一、为什么要进行组件的协同</h2><ul>
+<li>我们在实际的开发项目的时候，不会只用几个组件，有时候遇到大型的项目，可能会有成千上百的组件，难免会遇到有功能重复的组件。要进行修改，就会修改大部分的文件。所以我们需要进行组件的协同开发。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-ca3cbaafe961fa83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h2 id="二、什么是组件的协同使用？"><a href="#二、什么是组件的协同使用？" class="headerlink" title="二、什么是组件的协同使用？"></a>二、什么是组件的协同使用？</h2><ul>
+<li>组件的协同本质上是对组件的一种组织、管理的方式。</li>
+<li>目的：<ul>
+<li>逻辑清晰：这是组件与组件之间的逻辑</li>
+<li>代码模块化</li>
+<li>封装细节：像面向对象一样将常用的方法以及数据封装起来</li>
+<li>提高代码的复用性：因为是组件，相当于一个封装好的东西，用的时候直接调用</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、如何实现组件的协同使用"><a href="#三、如何实现组件的协同使用" class="headerlink" title="三、如何实现组件的协同使用"></a>三、如何实现组件的协同使用</h2><ul>
+<li>第一种：增加一个父组件，将其他的组件进行嵌套，更多的是实现代码的封装</li>
+<li>第二种：通过一些操作从后台获取数据，<code>React</code>中的<code>Mixin</code>，更多的是实现代码的复用</li>
+</ul>
+<h2 id="四、组件嵌套的含义"><a href="#四、组件嵌套的含义" class="headerlink" title="四、组件嵌套的含义"></a>四、组件嵌套的含义</h2><ul>
+<li>组件嵌套的本质是父子关系</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-dc00c2b2c9ac3807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h2 id="五、组件嵌套的优缺点"><a href="#五、组件嵌套的优缺点" class="headerlink" title="五、组件嵌套的优缺点"></a>五、组件嵌套的优缺点</h2><ul>
+<li>优点：<ul>
+<li>逻辑清晰：父子关系类似于人类中的父子关系</li>
+<li>模块化开发：每个模块对应一个功能，不同的模块可以同步开发</li>
+<li>封装细节：开发者必须要关注组件的功能，不需要了解细节</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>编写难度高：父子组件的关系需要经过深思熟虑，贸然编写可能导致关系混乱，代码难以维护</li>
+<li>无法掌握所有细节：使用者只知道组件的用法，不知道实现细节，遇到问题难以修复</li>
+</ul>
+</li>
+</ul>
+<h2 id="六、Mixin"><a href="#六、Mixin" class="headerlink" title="六、Mixin"></a>六、Mixin</h2><p><strong>Mixin的含义</strong></p>
+<ul>
+<li><code>Mixin=一组方法</code>。</li>
+<li>他的目的是横向抽离出组件的相似代码，把组件的共同作用以及效果的代码提出来</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-ceca4b322b820239.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<p><strong>Mixin的优缺点</strong></p>
+<ul>
+<li>优点<ul>
+<li>代码复用：抽离出通用的代码，减少开发成本，提高开发效率</li>
+<li>即插即用：可以使用许多现有的<code>Mixin</code>来开发自己的代码</li>
+<li>适应性强：改动一次代码，影响多个组件</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>编写难度高：<code>Mixin</code>可能被用在各种环境中，想要兼容多种环境就需要更多的  - 码与逻辑，通用的代价是提高复杂度</li>
+<li>降低代码的可读性：组件的优势在于将逻辑与是界面直接结合在一起，<code>Mixin</code>本质上会分散逻辑，理解起来难度大</li>
+</ul>
+</li>
+</ul>
+<h2 id="七、不可控组件"><a href="#七、不可控组件" class="headerlink" title="七、不可控组件"></a>七、不可控组件</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-34b3ac31175733e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<ul>
+<li>上图：<code>defaultValue</code>的值是固定的，这就是一个不可控组件</li>
+<li>如果要获取<code>input</code>的<code>value</code>值，只有使用<code>ref</code>获取节点来获取值</li>
+</ul>
+<h2 id="八、可控组件"><a href="#八、可控组件" class="headerlink" title="八、可控组件"></a>八、可控组件</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-daeeefc5cd7c054d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<ul>
+<li><code>defaultValue</code>的值是根据状态确定了，只需要拿到<code>this.state.value</code>的值就可以了</li>
+<li>这里需要注意一下：使用<code>value</code>的值是不可修改的，<code>defaultValue</code>的值是可以修改的</li>
+</ul>
+<p><strong>可控组件的优点</strong></p>
+<ul>
+<li>符合<code>React</code>的数据流</li>
+<li>数据存储在<code>state</code>中，便于获取</li>
+<li>便于处理数据</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:45.806Z" itemprop="dateUpdated">2018-10-23 16:47:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/a802abee.html" target="_blank" rel="external">https://ru23.com/note/a802abee.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/a802abee.html&title=《React之组件的协同及（不）可控组件（五）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/a802abee.html&title=《React之组件的协同及（不）可控组件（五）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/a802abee.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React之组件的协同及（不）可控组件（五）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/a802abee.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/a802abee.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/b007a017.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Redux之action、store、reducer分析（六）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/7d76909e.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">React之事件（四）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/a802abee.html&title=《React之组件的协同及（不）可控组件（五）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/a802abee.html&title=《React之组件的协同及（不）可控组件（五）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/a802abee.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React之组件的协同及（不）可控组件（五）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/a802abee.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/a802abee.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aS5KDMAwFQO5/6cwBJglPMhZUqlllEeM2C5U+Po74eRWf/2s/vfPY8eDi4i5zk40TSv6e3lpcXNx57vdAU/1P76hRsMPFxX0w93uw+xiGvq7FxcX9JW4vzOHi4j6fmxcteYPj5loNFxd3gZt3Kff93tLfxcXFbXF7A5JqstILXm92x8XFHeHmAaXX5uiVTCf74uLibuYm2ySv7g1o82Ft4avg4uIuc5OkZD3Y5ZRmioOLi3spt1q6rCRA1ZHJm1W4uLiD3OpgNR+75kEtuuSBi4s7yF0fkebFzMW1Gi4u7kifISlLeslNHv4K/V1cXNwN3GT73gGS8qk8uMXFxb2Ve1cSc3GthouL2+Lm7Y/e5apqyzX6ZLi4uIPcahjKD1ZoeSQhEhcXd5BbTUTWL2j2GrW4uLjz3OSCRe/+V7JL9E9cXNzN3FfxyV9dTYmiw+Di4o5w86d6jF7LNUl3cHFxZ7i9BCUfviaU8sUsXFzcEW410OQjlmoEPWmg4OLiPpKbhJ68cCq3TnBxcR/JrV6YWG98XBZ3cXFxi9yk+KmmNStrT4asuLi4m7m9wedKYrSSBuHi4m7m/gFaE8NCtG5iEgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

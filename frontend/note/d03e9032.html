@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/d03e9032.html">
+    
+    
+    <title>forever and pm2部署nodejs项目 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Node,部署">
+    <meta name="description" content="一、forever forever则可以在cmd或ssh连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启   安装 npm install -g forever forever的帮助手册  forever --help 使用forever启动项目 forever start app.js 使用forever停止项目 forever stop app.js 列出所有通过forever管理的项">
+<meta name="keywords" content="Node,部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="forever and pm2部署nodejs项目">
+<meta property="og:url" content="https://ru23.com/note/d03e9032.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、forever forever则可以在cmd或ssh连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启   安装 npm install -g forever forever的帮助手册  forever --help 使用forever启动项目 forever start app.js 使用forever停止项目 forever stop app.js 列出所有通过forever管理的项">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T08:47:46.418Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="forever and pm2部署nodejs项目">
+<meta name="twitter:description" content="一、forever forever则可以在cmd或ssh连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启   安装 npm install -g forever forever的帮助手册  forever --help 使用forever启动项目 forever start app.js 使用forever停止项目 forever stop app.js 列出所有通过forever管理的项">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">forever and pm2部署nodejs项目</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">forever and pm2部署nodejs项目</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-09T14:50:08.000Z" itemprop="datePublished" class="page-time">
+  2017-05-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、forever"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、forever</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、pm2"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、pm2</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2017-05-forever-pm2"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">forever and pm2部署nodejs项目</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-09 22:50:08" datetime="2017-05-09T14:50:08.000Z"  itemprop="datePublished">2017-05-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、forever"><a href="#一、forever" class="headerlink" title="一、forever"></a>一、forever</h2><blockquote>
+<p><code>forever</code>则可以在<code>cmd</code>或<code>ssh</code>连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启</p>
+</blockquote>
+<ul>
+<li>安装 <code>npm install -g forever</code></li>
+<li><code>forever</code>的帮助手册  <code>forever --help</code></li>
+<li>使用<code>forever</code>启动项目 <code>forever start app.js</code></li>
+<li>使用<code>forever</code>停止项目 <code>forever stop app.js</code></li>
+<li>列出所有通过<code>forever</code>管理的项目 <code>forever list</code></li>
+<li>监视项目中的文件,当文件有变动时重启项目 <code>forever -w start app.js</code></li>
+</ul>
+<h2 id="二、pm2"><a href="#二、pm2" class="headerlink" title="二、pm2"></a>二、pm2</h2><ul>
+<li>安装pm2 <code>npm install -g pm2</code></li>
+<li>运行<code>pm2 start app.js</code></li>
+<li>查看运行状态 <code>pm2 list</code></li>
+<li>追踪资源运行情况 <code>pm2 monit</code></li>
+<li>查看日志 <code>pm2 logs</code></li>
+<li>重启应用 <code>pm2 restart appId</code></li>
+<li>停止应用  <code>pm2 stop app.js</code></li>
+<li>开启<code>api</code>访问 <code>pm2 web</code></li>
+</ul>
+<p><strong>预定义运行配置文件</strong></p>
+<blockquote>
+<p>我们可以预定义一个配置文件，然后制定运行这个配置文件，比如我们定义一个文件<code>process.json</code>，内容如下</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;apps&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;ANodeBlog&quot;,</span><br><span class="line">      &quot;script&quot;: &quot;bin/www&quot;,</span><br><span class="line">      &quot;watch&quot;: &quot;../&quot;,</span><br><span class="line">      &quot;log_date_format&quot;: &quot;YYYY-MM-DD HH:mm Z&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后<code>pm2 start process.json</code></li>
+</ul>
+<p><strong>pm2与forever对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Forever</th>
+<th>PM2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep Alive</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Coffeescript</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Log aggregation</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td>API</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Terminal monitoring</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Clustering</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td>JSON configuration</td>
+<td></td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:46.418Z" itemprop="dateUpdated">2018-10-23 16:47:46</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/d03e9032.html" target="_blank" rel="external">https://ru23.com/note/d03e9032.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部署/">部署</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/d03e9032.html&title=《forever and pm2部署nodejs项目》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/d03e9032.html&title=《forever and pm2部署nodejs项目》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/d03e9032.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《forever and pm2部署nodejs项目》 — 前端迷 (front-end fan)&url=https://ru23.com/note/d03e9032.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/d03e9032.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/783ce8a9.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">移动端适配</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/a404b8b6.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Nginx基础配置篇</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/d03e9032.html&title=《forever and pm2部署nodejs项目》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/d03e9032.html&title=《forever and pm2部署nodejs项目》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/d03e9032.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《forever and pm2部署nodejs项目》 — 前端迷 (front-end fan)&url=https://ru23.com/note/d03e9032.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/d03e9032.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aQY4CMQxEUe5/6UZixQLSv2zibqSfFQJN8jILK67k8cDjeI3198fbSP/2x0OuXLlt7rEcZEkOXc+/NsiVK3eemxap2mZqM8iVK/fO3DUdlSGwebly5f4XlxxlCHe07sqVK7fBJceRtJnhccmWXk2uXLkNbhqY7vi8Md+VK1duyD3CQcIOHpXGq8uVK3eEu56atCK8GPFg5WRmuXLlbuam0SePQUnzEwcrcuXKHeSSItUJQPlWTyRy5cod53auT9IHW8WiKVeu3HFurWzVwhTe8HxIceTKlbuZm1J4CUtjkQAnV67czVwejJLSk16mxpevcuXKHeHWWhfSMpHyxA9Y8RFHrly5bS6/MqnFKDwcQf8CuXLlbuaSw0TnIiTd3sn8cuXKHeHyQwlpe9KQtBigyJUrdzOXLJNGJHFh4huWK1fuILf20IocYvq3OnLlyr2KW3tIQZbhRQptQ65cuSPctKDw5xf80VXtV7ly5e7m1opXrVTxQiZXrtw7cDvHFJTLlo5HcuXKvT+XBKY8IiEb+zCDXLlyb8xNC1Z6Bft1Xbly5Q5yO41KGsWScvaDXk2uXLkNbhqY1i5i0/hDrly5F3Gfav9N1CS7EPIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

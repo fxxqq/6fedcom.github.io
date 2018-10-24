@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/fdf99685.html">
+    
+    
+    <title>vue计算属性与数据监听（十） | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Vue">
+    <meta name="description" content="一、监听属性 我们在工作中常常需要监听某一个属性值的变化，这个时候我们就需要用到了监听属性watch  1.1 基础版监听 场景如下：输入框输入你的年龄，如果年龄在0-15岁提示信息：你还是个小孩，如果年龄在 15-25岁，提示信息：你已经是个少年，如果年龄在25岁以上，提示信息：你已经长大了  12345678910111213141516171819202122232425262728&amp;lt;">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue计算属性与数据监听（十）">
+<meta property="og:url" content="https://ru23.com/note/fdf99685.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、监听属性 我们在工作中常常需要监听某一个属性值的变化，这个时候我们就需要用到了监听属性watch  1.1 基础版监听 场景如下：输入框输入你的年龄，如果年龄在0-15岁提示信息：你还是个小孩，如果年龄在 15-25岁，提示信息：你已经是个少年，如果年龄在25岁以上，提示信息：你已经长大了  12345678910111213141516171819202122232425262728&amp;lt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T08:47:45.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue计算属性与数据监听（十）">
+<meta name="twitter:description" content="一、监听属性 我们在工作中常常需要监听某一个属性值的变化，这个时候我们就需要用到了监听属性watch  1.1 基础版监听 场景如下：输入框输入你的年龄，如果年龄在0-15岁提示信息：你还是个小孩，如果年龄在 15-25岁，提示信息：你已经是个少年，如果年龄在25岁以上，提示信息：你已经长大了  12345678910111213141516171819202122232425262728&amp;lt;">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue计算属性与数据监听（十）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue计算属性与数据监听（十）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-28T06:10:42.000Z" itemprop="datePublished" class="page-time">
+  2018-08-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、监听属性"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、监听属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-基础版监听"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 基础版监听</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-进阶版监听"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 进阶版监听</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-高级版监听"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 高级版监听</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、计算属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、计算属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-什么是计算属性"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 什么是计算属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-计算属性的用法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 计算属性的用法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-计算属性缓存"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 计算属性缓存</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2018-03-vue-computed-watch"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue计算属性与数据监听（十）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-28 14:10:42" datetime="2018-08-28T06:10:42.000Z"  itemprop="datePublished">2018-08-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、监听属性"><a href="#一、监听属性" class="headerlink" title="一、监听属性"></a>一、监听属性</h2><blockquote>
+<p>我们在工作中常常需要监听某一个属性值的变化，这个时候我们就需要用到了监听属性<code>watch</code></p>
+</blockquote>
+<h3 id="1-1-基础版监听"><a href="#1-1-基础版监听" class="headerlink" title="1.1 基础版监听"></a>1.1 基础版监听</h3><blockquote>
+<p>场景如下：输入框输入你的年龄，如果年龄在0-15岁提示信息：你还是个小孩，如果年龄在 15-25岁，提示信息：你已经是个少年，如果年龄在25岁以上，提示信息：你已经长大了</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  年齡：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">v-model</span>=<span class="string">"age"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  提示信息：<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;infoMsg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined"> data() &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">   age: <span class="string">""</span>,</span></span><br><span class="line"><span class="javascript">   infoMsg:<span class="string">""</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"> &#125;,</span></span><br><span class="line"><span class="undefined"> watch:&#123;</span></span><br><span class="line"><span class="javascript">  age:<span class="function"><span class="keyword">function</span>(<span class="params">val,oldval</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">   <span class="keyword">if</span>(val&gt;<span class="number">0</span> &amp;&amp; val&lt;<span class="number">15</span>)&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">this</span>.infoMsg=<span class="string">"你还是个小孩"</span></span></span><br><span class="line"><span class="javascript">   &#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&gt;<span class="number">15</span> &amp;&amp; val&lt;<span class="number">25</span>)&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">this</span>.infoMsg=<span class="string">"你已经是个少年"</span></span></span><br><span class="line"><span class="javascript">   &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">this</span>.infoMsg=<span class="string">"你已经长大了"</span></span></span><br><span class="line"><span class="undefined">   &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"> &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-进阶版监听"><a href="#1-2-进阶版监听" class="headerlink" title="1.2 进阶版监听"></a>1.2 进阶版监听</h3><blockquote>
+<p>下面我们改变一下需求：基础规则不变，但是因为后台数据库的更改,我们需要提交一个这样的数据结构</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">   info: &#123;</span><br><span class="line">    age: <span class="string">""</span></span><br><span class="line">   &#125;,</span><br><span class="line">   infoMsg: <span class="string">""</span></span><br><span class="line">  &#125;;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于我们监听的是对象<code>info</code>中的属性<code>age</code>值的变化，所以我们需要使用到的是深度监听，具体代码如下</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  年齡：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">v-model</span>=<span class="string">"info.age"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  提示信息：<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;infoMsg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined"> data() &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">   info: &#123;</span></span><br><span class="line"><span class="javascript">    age: <span class="string">""</span></span></span><br><span class="line"><span class="undefined">   &#125;,</span></span><br><span class="line"><span class="javascript">   infoMsg: <span class="string">""</span></span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="undefined"> &#125;,</span></span><br><span class="line"><span class="undefined"> watch: &#123;</span></span><br><span class="line"><span class="undefined">  info: &#123;</span></span><br><span class="line"><span class="javascript">   handler: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldval</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (val.age &gt; <span class="number">0</span> &amp;&amp; val.age &lt; <span class="number">15</span>) &#123;</span></span><br><span class="line"><span class="javascript">     that.infoMsg = <span class="string">"你还是个小孩"</span>;</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (val.age &gt; <span class="number">15</span> &amp;&amp; val.age &lt; <span class="number">25</span>) &#123;</span></span><br><span class="line"><span class="javascript">     that.infoMsg = <span class="string">"你已经是个少年"</span>;</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">     that.infoMsg = <span class="string">"你已经长大了"</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">   &#125;,</span></span><br><span class="line"><span class="javascript">   deep: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"> &#125;</span></span><br><span class="line"><span class="undefined">&#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里的<code>function</code>不能使用箭头函数替代，如果使用箭头函数的话，<code>this</code>的指向会是全局</li>
+<li>你会注意到这里多加入一个属性是<code>deep</code>，它的含义表示是否开启深度监听，如果开启值为<code>true</code>，反之为<code>false</code></li>
+</ul>
+<h3 id="1-3-高级版监听"><a href="#1-3-高级版监听" class="headerlink" title="1.3 高级版监听"></a>1.3 高级版监听</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  年齡：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">v-model</span>=<span class="string">"info.age"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  提示信息：<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;infoMsg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined"> data() &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">   info: &#123;</span></span><br><span class="line"><span class="javascript">    age: <span class="string">""</span>,</span></span><br><span class="line"><span class="javascript">    name: <span class="string">""</span>,</span></span><br><span class="line"><span class="javascript">    hobit: <span class="string">""</span></span></span><br><span class="line"><span class="undefined">   &#125;,</span></span><br><span class="line"><span class="javascript">   infoMsg: <span class="string">""</span></span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="undefined"> &#125;,</span></span><br><span class="line"><span class="undefined"> computed: &#123;</span></span><br><span class="line"><span class="javascript">  ageval: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">   <span class="keyword">return</span> <span class="keyword">this</span>.info.age;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"> &#125;,</span></span><br><span class="line"><span class="undefined"> watch: &#123;</span></span><br><span class="line"><span class="undefined">  ageval: &#123;</span></span><br><span class="line"><span class="javascript">   handler: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldval</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (val &gt; <span class="number">0</span> &amp;&amp; val &lt; <span class="number">15</span>) &#123;</span></span><br><span class="line"><span class="javascript">     that.infoMsg = <span class="string">"你还是个小孩"</span>;</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (val &gt; <span class="number">15</span> &amp;&amp; val &lt; <span class="number">25</span>) &#123;</span></span><br><span class="line"><span class="javascript">     that.infoMsg = <span class="string">"你已经是个少年"</span>;</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">     that.infoMsg = <span class="string">"你已经长大了"</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">   &#125;,</span></span><br><span class="line"><span class="javascript">   deep: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"> &#125;</span></span><br><span class="line"><span class="undefined">&#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这次我们监听的是计算属性<code>ageval</code>，而计算属性返回的则是<code>info</code>对象中<code>age</code>的值，与第二次的代码进行比较我们可以发现两次代码中监听的一个是对象<code>info</code>，一个是<code>info</code>对象中<code>age</code>的值</p>
+</blockquote>
+<h2 id="二、计算属性"><a href="#二、计算属性" class="headerlink" title="二、计算属性"></a>二、计算属性</h2><h3 id="2-1-什么是计算属性"><a href="#2-1-什么是计算属性" class="headerlink" title="2.1 什么是计算属性"></a>2.1 什么是计算属性</h3><blockquote>
+<p>模板内的表达式非常便利，但是设计它们的初衷是用于简单运算的。在模板中放入太多的逻辑会让模板过重且难以维护。例如</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>遇到复杂逻辑时应该使用Vue特带的计算属性<code>computed</code>来进行处理</p>
+</blockquote>
+<h3 id="2-2-计算属性的用法"><a href="#2-2-计算属性的用法" class="headerlink" title="2.2 计算属性的用法"></a>2.2 计算属性的用法</h3><blockquote>
+<p>在一个计算属性里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Original message: "&#123;&#123; message &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Computed reversed message: "&#123;&#123; reversedMessage &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span>　<span class="comment">&lt;!--我们把复杂处理放在了计算属性里面了--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#example'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">'Hello'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        reversedMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// `this` 指向 vm 实例</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>计算属性还可以依赖多个Vue 实例的数据，只要其中任一数据变化，计算属性就会重新执行，视图也会更新</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add()"</span>&gt;</span>补充货物1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>总价为：&#123;&#123;price&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;        </span><br><span class="line">       el: <span class="string">'#app'</span>, </span><br><span class="line">   data: &#123;</span><br><span class="line">       package1: &#123;</span><br><span class="line">           count: <span class="number">5</span>,</span><br><span class="line">           price: <span class="number">5</span></span><br><span class="line">       &#125;,</span><br><span class="line">       package2: &#123;</span><br><span class="line">           count: <span class="number">10</span>,</span><br><span class="line">           price: <span class="number">10</span></span><br><span class="line">       &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">     price: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">this</span>.package1.count*<span class="keyword">this</span>.package1.price+<span class="keyword">this</span>.package2.count*<span class="keyword">this</span>.package2.price　　<span class="comment">//总价随着货物或价格的改变会重新计算</span></span><br><span class="line">     &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;   <span class="comment">//对象的方法</span></span><br><span class="line">        add: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.package1.count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>每一个计算属性都包含一个<code>getter</code> 和一个<code>setter</code> ，我们上面的两个示例都是计算属性的默认用法， 只是利用了<code>getter</code> 来读取</li>
+<li>在你需要时，也可以提供一个<code>setter</code> 函数， 当手动修改计算属性的值就像修改一个普通数据那样时，就会触发<code>setter</code> 函数，执行一些自定义的操作，例如</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#demo'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        firstName: <span class="string">'Foo'</span>,</span><br><span class="line">        lastName: <span class="string">'Bar'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        fullName: &#123;</span><br><span class="line">            <span class="comment">// getter</span></span><br><span class="line">            get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// setter</span></span><br><span class="line">            set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> names = newValue.split(<span class="string">' '</span>);</span><br><span class="line">                <span class="keyword">this</span>.firstName = names[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">this</span>.lastName = names[names.length - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//现在再运行 vm.fullName = 'John Doe' 时，setter 会被调用，vm.firstName 和 vm.lastName 也会相应地被更新。</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>绝大多数情况下，我们只会用默认的<code>getter</code> 方法来读取一个计算属性，在业务中很少用到<code>setter</code>,所以在声明一个计算属性时，可以直接使用默认的写法，不必将<code>getter</code> 和<code>setter</code>都声明</p>
+</blockquote>
+<h3 id="2-3-计算属性缓存"><a href="#2-3-计算属性缓存" class="headerlink" title="2.3 计算属性缓存"></a>2.3 计算属性缓存</h3><blockquote>
+<p>除了使用计算属性外，我们也可以通过在表达式中调用方法来达到同样的效果</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;reverseTitle()&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在组件中</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  reverseTitle: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.title.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们可以将同一函数定义为一个方法而不是一个计算属性，两种方式的最终结果确实是完全相同的。只是一个使用<code>reverseTitle()</code>取值，一个使用<code>reverseTitle</code>取值。</li>
+<li>然而，不同的是计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。</li>
+<li>这就意味着只要 <code>title</code>还没有发生改变，多次访问<code>reverseTitle</code>计算属性会立即返回之前的计算结果，而不必再次执行函数。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;reverseTitle&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;reverseTitle1()&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add()"</span>&gt;</span>补充货物1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>总价为：&#123;&#123;price&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    computed: &#123;</span></span><br><span class="line"><span class="javascript">      reverseTitle: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">return</span> <span class="keyword">this</span>.title.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)　　<span class="comment">//而使用计算属性，只要title没变，页面渲染是不会重新进这里来计算的，而是使用了缓存。</span></span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="javascript">      price: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">         <span class="keyword">return</span> <span class="keyword">this</span>.package1.count*<span class="keyword">this</span>.package1.price+<span class="keyword">this</span>.package2.count*<span class="keyword">this</span>.package2.price</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">     &#125;,</span></span><br><span class="line"><span class="javascript">    methods: &#123;   <span class="comment">//对象的方法</span></span></span><br><span class="line"><span class="javascript">    add: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.package1.count++</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="javascript">    reverseTitle1: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="keyword">this</span>.title.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)　　<span class="comment">//点击补充货物，也会进这个方法，再次计算。不是刷新，而是只要页面渲染，就会进方法里重新计算。</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>相比之下，每当触发重新渲染时，调用方法将总会再次执行函数。 </li>
+<li>我们为什么需要缓存？假设我们有一个性能开销比较大的的计算属性 A，它需要遍历一个巨大的数组并做大量的计算。然后我们可能有其他的计算属性依赖于 A </li>
+<li>如果没有缓存，我们将不可避免的多次执行 A 的<code>getter</code>！如果你不希望有缓存，请用方法来替代</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T08:47:45.950Z" itemprop="dateUpdated">2018-10-23 16:47:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/fdf99685.html" target="_blank" rel="external">https://ru23.com/note/fdf99685.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fdf99685.html&title=《vue计算属性与数据监听（十）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fdf99685.html&title=《vue计算属性与数据监听（十）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fdf99685.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue计算属性与数据监听（十）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/fdf99685.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fdf99685.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/35f2d11f.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue路由（十一）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/a45ffb2e.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue组件（九)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fdf99685.html&title=《vue计算属性与数据监听（十）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fdf99685.html&title=《vue计算属性与数据监听（十）》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fdf99685.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue计算属性与数据监听（十）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/fdf99685.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fdf99685.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABz0lEQVR42u3aQW7DMAwEwPz/0+61QFNnSUpKWoxORRDF4x4WIsXHI17Xt/Xz8/w7yecLFi4u7ph73a4eN/mFZO+TV8LFxT3IvQ+aaoTd7+19BxcX9/O5SQAlsYWLi/s/uNWH/RaCuLi4n8/NYyhvcPSibVmthouLO+DmXcp9f2/p7+Li4ra4V3H1Lkh64fXk6bi4uEe4eaDkVyn35U31+IKLi/tebl7A5Jes1X9H8kRcXNzd3EmzI3+lPMiiExkuLu4Rbo6ujm1Nxiye7MLFxT3CrR50cnT1SJREJC4u7hludXyq1y6pVi4vih9cXNzN3MXFSfAy1cKpPDOCi4s75iaxlQxX9U5V1WsYXFzck9z7bb1jSnXCalnxg4uLO+ZWRyWqAxaT4qfQKsXFxd3G7VVOa18pas3g4uK+lTuJuUm0vTj64OLivombj0RUL1nz0ugxPw3h4uK2uFdx5YNTvXGNcjcFFxd3A7caLtUfrb7Squfi4uLOuXl7NDmOVPeWAw4XF/cgdxJDUaMzvoh9sQsXF/ePcPNSpxd5i4MMFxd3A7fazpi3PEZBhouLO+BWBynyMEquagrDo7i4uEe4C+5pi9/Jr2NH/V1cXNwO9wtu18NCgAnQ/wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

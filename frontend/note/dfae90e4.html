@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/dfae90e4.html">
+    
+    
+    <title>pm2用法之ecosystem部署nodejs项目 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Node,部署">
+    <meta name="description" content="一、node项目部署流程">
+<meta name="keywords" content="Node,部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pm2用法之ecosystem部署nodejs项目">
+<meta property="og:url" content="https://ru23.com/note/dfae90e4.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、node项目部署流程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/bushu-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/bushu-2.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/bushu-3.png">
+<meta property="og:updated_time" content="2018-10-24T01:54:51.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pm2用法之ecosystem部署nodejs项目">
+<meta name="twitter:description" content="一、node项目部署流程">
+<meta name="twitter:image" content="http://7xq6al.com1.z0.glb.clouddn.com/bushu-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">pm2用法之ecosystem部署nodejs项目</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">pm2用法之ecosystem部署nodejs项目</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-02-22T09:12:08.000Z" itemprop="datePublished" class="page-time">
+  2018-02-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、node项目部署流程"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、node项目部署流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、配置部署脚本文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、配置部署脚本文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、配置Nginx的server"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、配置Nginx的server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、开启防火墙"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、开启防火墙</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、部署命令"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、部署命令</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2018-02-pm2-ecosystem-deploy"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">pm2用法之ecosystem部署nodejs项目</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-02-22 17:12:08" datetime="2018-02-22T09:12:08.000Z"  itemprop="datePublished">2018-02-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、node项目部署流程"><a href="#一、node项目部署流程" class="headerlink" title="一、node项目部署流程"></a>一、node项目部署流程</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/bushu-1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/bushu-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/bushu-3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="二、配置部署脚本文件"><a href="#二、配置部署脚本文件" class="headerlink" title="二、配置部署脚本文件"></a>二、配置部署脚本文件</h2><blockquote>
+<p>在项目根目录添加<code>pm2</code>的部署脚本文件 <code>ecosystem.json</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"apps"</span>: [</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"movie"</span>, <span class="comment">//对应Nginx上的配置</span></span><br><span class="line">        <span class="string">"script"</span>: <span class="string">"app.js"</span>, <span class="comment">//入口文件</span></span><br><span class="line">        <span class="string">"env"</span>: &#123;</span><br><span class="line">            <span class="string">"COMON_VARIABLE"</span>: <span class="string">"true"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">"env_production"</span>: &#123;</span><br><span class="line">            <span class="string">"NODE_ENV"</span>: <span class="string">"production"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"deploy"</span>: &#123;</span><br><span class="line">        <span class="string">"production"</span>: &#123;</span><br><span class="line">            <span class="string">"user"</span>: <span class="string">"poetries"</span>, <span class="comment">//Nginx服务器上的username</span></span><br><span class="line">            <span class="string">"host"</span>: [<span class="string">"120.120.14.21"</span>], <span class="comment">// 服务器地址</span></span><br><span class="line">            <span class="string">"port"</span>: <span class="string">"3922"</span>,</span><br><span class="line">            <span class="string">"ref"</span>: <span class="string">"origin/master"</span>, <span class="comment">//从指定的分支拉取代码</span></span><br><span class="line">            <span class="string">"repo"</span>: <span class="string">"git@github.com:poetries/poetries.github.io.git"</span>,</span><br><span class="line">            <span class="string">"path"</span>: <span class="string">"/www/movie/production"</span>,<span class="comment">//发布到服务器指定的目录下</span></span><br><span class="line">            <span class="string">"ssh_options"</span>: <span class="string">"StrictHostKeyChecking=no"</span>,</span><br><span class="line">            <span class="comment">//构建在发布</span></span><br><span class="line">            <span class="string">"post-deploy"</span>: <span class="string">"npm install --registry=https://registry.npm.taobao.org &amp;&amp; grunt build &amp;&amp; pm2 startOrRestart ecosystem.json --env production"</span>,</span><br><span class="line">            <span class="string">"env"</span>: &#123;</span><br><span class="line">                <span class="string">"NODE_ENV"</span>: <span class="string">"production"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、配置Nginx的server"><a href="#三、配置Nginx的server" class="headerlink" title="三、配置Nginx的server"></a>三、配置Nginx的server</h2><blockquote>
+<p>在<code>nginx</code>安装目录下的<code>vhost</code>中新建一个<code>xx-3000.conf</code>的配置文件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">upstream movie &#123; <span class="comment">// website项目的目录名称</span></span><br><span class="line">    server <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">3000</span>; <span class="comment">// 服务器上的本地启动入口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置server</span></span><br><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">80</span>;</span><br><span class="line">    server_name movie.poetries.top; <span class="comment">//指向的域名</span></span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header Host $http_host;</span><br><span class="line">        proxy_set_header X-Nginx-<span class="built_in">Proxy</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        proxy_pass http:<span class="comment">//movie; // 对应上面的目录</span></span><br><span class="line">        proxy_redirect off;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 处理静态资源</span></span><br><span class="line">    location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|js|pdf|txt) &#123;</span><br><span class="line">        root /www/movie/public; <span class="comment">//静态资源路径</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、开启防火墙"><a href="#四、开启防火墙" class="headerlink" title="四、开启防火墙"></a>四、开启防火墙</h2><blockquote>
+<p>Ubuntu的设置</p>
+</blockquote>
+<ul>
+<li>打开 <code>sudo vi /etc/iptables.up.rules</code></li>
+<li>生效 <code>sudo iptables-restore &lt; /etc/iptables.up.rules</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># movie</span></span><br><span class="line">-A INPUT -s 127.0.0.1 -p tcp --destination-port 3001 -m state ESTABLISHED -j ACCEPT</span><br><span class="line"></span><br><span class="line">-A OUTPUT -s 127.0.0.1 -p tcp --destination-port 3001 -m state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure>
+<h2 id="五、部署命令"><a href="#五、部署命令" class="headerlink" title="五、部署命令"></a>五、部署命令</h2><ul>
+<li><code>pm2 deploy ecosystem.json production setup</code> 初始化</li>
+<li><code>pm2 deploy ecosystem.json production</code> 部署</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-24T01:54:51.970Z" itemprop="dateUpdated">2018-10-24 09:54:51</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/dfae90e4.html" target="_blank" rel="external">https://ru23.com/note/dfae90e4.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部署/">部署</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/dfae90e4.html&title=《pm2用法之ecosystem部署nodejs项目》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/dfae90e4.html&title=《pm2用法之ecosystem部署nodejs项目》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/dfae90e4.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《pm2用法之ecosystem部署nodejs项目》 — 前端迷 (front-end fan)&url=https://ru23.com/note/dfae90e4.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/dfae90e4.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/18fb4cf4.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">持续集成 Travis CI</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/2bcb1a06.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">梳理Immutable常用API</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/dfae90e4.html&title=《pm2用法之ecosystem部署nodejs项目》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/dfae90e4.html&title=《pm2用法之ecosystem部署nodejs项目》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/dfae90e4.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《pm2用法之ecosystem部署nodejs项目》 — 前端迷 (front-end fan)&url=https://ru23.com/note/dfae90e4.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/dfae90e4.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvElEQVR42u3aOY7DMAwFUN//0gkw1RRZPklLdoCnKnAWPaUgKJLHEa/H3/r/+vN6993k+QkLFxd3zE02TrZMoJ9/Pzk8Li7uTm4evOYxJznq2+e4uLg34/aSnuTwuLi4v8tNtql+EhcX987cJAwl7+Ylj+V3NVxc3AG3VzA99/Xy+i4uLu5JXYkkoOTPH+OFi4u7h5u3QKoXmzwilZMkXFzcxdxJW3RSOumVYHBxcfdwq4HsrELqaIwDFxf3Im6SjvSSod516Kj+l7i4uAPufDyi14zJd3lRxcHFxd3OnQxY9IY58jQIFxd3D7f3Q8k21aGrQhkFFxd3C7fXLm2mKTG33FbBxcU9lZsEsiQNyq89k8Pg4uKu5lYTl2qCUm3KftkLFxd3Czdve1THtpInzQIKLi7uYm6zKxuHpOqF6suBcXFxN3LnZdPqQMYRL1xc3Ku4vXCWDGRUiykFOy4u7jJuNaD0iqd5iSR/FxcXdzU3CV5J2Jq0WHBxce/JnaQp+QhFryCLi4t7Z25UvGg1YgstXlxc3Ntz58MZyRNcXNyruPOLyrwBE7VncHFxt3AnBdN8s3kahIuLu4X7BKVFlYzuhnZBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
