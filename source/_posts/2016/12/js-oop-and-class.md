@@ -19,14 +19,14 @@ date: 2016-12-13 14:55:24
 
 - 使用`new`运算符创建`Object`
 
-```javascript
+```js
 var p = new Object();
 p.name = "Tony";    
 ```
 
 - 使用对象字面量的形式
 
-```javascript
+```js
 //对象字面量形式
 var p ={
     name: "tony",
@@ -52,7 +52,7 @@ console.log(p.name);
 
 - 成员属性的添加
 
-```javascript
+```js
 // Object.defineProperty()方法
 Object.defineProperty(p, "age",{value: 18, writable: false});
 //Object.defineProperties()方法 添加多个属性
@@ -72,7 +72,7 @@ Object.defineProperties(p, {
     - 使用 `for..in`语句
     - `Object.keys()`方法 返回一个包含对象键名的字符串数组
 
-```javascript
+```js
 var o ={};
 o.name = "jack";
 o.age = 20;
@@ -87,7 +87,7 @@ Object.keys(o); // ["name", "age"]
     - `in` 操作符
     - `Object.hasOwnProperty()`方法
 
-```javascript
+```js
 var o = {name: "mariya"}
 "name" in o; // true
 o.hasOwnProperty("name"); // true
@@ -95,7 +95,7 @@ o.hasOwnProperty("name"); // true
 
 - 得到对象的属性特性描述 `Object.getOwnPropertyDescriptor(obj,property)`
 
-```javascript
+```js
 Object.getOwnPropertyDescriptor(o, "name");
 //Object {
 //    value: "mariya", writable: true, enumerable: true, configurable: true
@@ -105,7 +105,7 @@ Object.getOwnPropertyDescriptor(o, "name");
 - 删除属性
   - `delete`运算符,但有些对象的属性是删除不了的
   
-```javascript
+```js
 delete o.name; //true
 o.name;  // undefined 
 ```
@@ -114,7 +114,7 @@ o.name;  // undefined
 
 - `constructor`始终指向创建当前对象的构造函数
 
-```javascript
+```js
     var arr = [];
     console.log(arr.constructor === Array); // true
     var Foo = function() {};
@@ -135,7 +135,7 @@ o.name;  // undefined
 - 所谓"构造函数"，其实就是一个普通函数，但是内部使用了`this`变量。对构造函数使用`new`运算符，就能生成实例，并且`this`变量会绑定在实例对象上
 - 每一个构造函数都有一个`prototype`属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承
 
-```javascript
+```js
 //构造函数模式
 function Person(age, name){ //Class
     this.age = age;
@@ -155,13 +155,13 @@ var p1 = new Person(20, 'allen');
 
 ##### 全局代码中的this
 
-```javascript
+```js
 console.log(this === window); //true 全局范围内使用this指向window对象
 ```
 
 ##### 普通的函数调用
 
-```javascript
+```js
 function f(){
 this.name = "tony"; // this在运行时指向window对象,在严格模式下则是undefined
 }
@@ -169,7 +169,7 @@ this.name = "tony"; // this在运行时指向window对象,在严格模式下则�
 
 ##### 在对象中使用
 
-```javascript
+```js
 var o = {
     name: "tony",
     print: function(){
@@ -180,13 +180,13 @@ var o = {
 
 ##### 作为构造函数
 
-```javascript
+```js
 new F(); // 函数内部的this指向新创建的对象。
 ```
 
 ##### 多层嵌套的内部函数
 
-```javascript
+```js
 var name = "global";
 var person = {
     name : "person",
@@ -202,7 +202,7 @@ person.hello("hello world");//global says hello world
 
 - 在内部函数中，`this`没有按预想的绑定到外层函数对象上，而是绑定到了全局对象。这里普遍被认为是`JavaScript`语言的设计错误，因为没有人想让内部函数中的`this`指向全局对象。一般的处理方式是将`this`作为变量保存下来，一般约定为`that`或者`self`：
 
-```javascript
+```js
 var name = "global";
 var person = {
     name : "person",
@@ -219,7 +219,7 @@ person.hello("hello world");//person says hello world
 
 ##### 事件中的this
 
-```javascript
+```js
 var ele = document.getElementById("id");
 ele.addEventListener('click',function(){
     console.log(this);  //this指向dom元素
@@ -230,11 +230,11 @@ ele.addEventListener('click',function(){
 
 - `apply`和`call`类似，只是后面的参数是通过一个数组传入，而不是分开传入。两者都是将某个函数绑定到某个具体对象上使用，自然此时的`this`会被显式的设置为第一个参数。两者的方法定义：
 
-```javascript
+```js
 call( thisArg [，arg1，arg2，… ] );  // 参数列表，arg1，arg2，...
 apply(thisArg [，argArray] );     // 参数数组，argArray
 ```
-```javascript
+```js
 var name = 'global';
 var o = {
     name: 'job',
@@ -258,7 +258,7 @@ o.getName.call(this); // global
 
 - 该方法创建一个新函数，称为绑定函数，绑定函数会以创建它时传入`bind`方法的第一个参数作为`this`，传入`bind`方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数.
 
-```javascript
+```js
 $("#ele").click(person.hello.bind(person));
 //相应元素被点击时，输出person says hello world
 ```

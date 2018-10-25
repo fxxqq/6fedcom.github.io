@@ -1,6 +1,6 @@
 ---
 title: JavaScript对象
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 17d9136e
 date: 2016-07-27 11:40:43
@@ -32,7 +32,7 @@ date: 2016-07-27 11:40:43
   - `Obj.属性`
   - `Obj['属性']`
 
-```javascript
+```js
 var stu = {name:'小明',age:22,number:007,score:99};
 // alert(stu);
 
@@ -63,7 +63,7 @@ alert(stu.score);
  
 - 对象和数组本质一个键值对
 
-```javascript
+```js
 var stu = {name:'小明',age:22,number:007,score:99};
 
 //注意：在for in 结构中循环得到的属性取值时不能用Obj.属性的方式  只能用obj[属性]
@@ -79,7 +79,7 @@ var stu = {name:'小明',age:22,number:007,score:99};
 
 - 对象的单元删除:对象单元的删除delete obj.属性
 
-```javascript
+```js
 var stu = {name:'小明',age:22,number:007,score:99};
 
 	for(var i in stu){
@@ -104,14 +104,14 @@ var stu = {name:'小明',age:22,number:007,score:99};
  
  - `this`-->指向当前正在调用这个方法的对象（对象自身）
 
-```javascript
+```js
 //写法1
 var stu = {name:'张三',age:20,talk:function (){alert('哈哈哈');}};
 // alert(stu.talk);
 stu.talk();//调用这个函数
 ```
    
-```javascript
+```js
 //写法2
 
 var zhang = {name:'张三',age:20,talk:null};
@@ -128,7 +128,7 @@ lisi.talk = t;
 lisi.talk(lisi.name);
 ```
 
-```javascript
+```js
 //写法3  推荐
 
 var zhang = {name:'张三',age:20,talk:null};
@@ -179,7 +179,7 @@ lisi.talk();
 
   -  ` replace(oldstr1,newstr2) `//字符串替换
 
-```javascript
+```js
 var str = 'helloworld';//这是一个字符串变量
  // alert(str.length);
  
@@ -211,7 +211,7 @@ var str = 'helloworld';//这是一个字符串变量
  - `getSeconds()  `返回秒数  0-59
  - `getMilliseconds()` 返回毫秒数0-999
 
-```javascript
+```js
 var time = new Date();
 alert(time.getYear());//116
 alert(time.getFullYear());//2016
@@ -224,7 +224,7 @@ alert(time.getMinutes());//20
 alert(time.getMilliseconds());
 ```
     
-```javascript
+```js
 //页面上动态时钟
 function t(){
 
@@ -257,7 +257,7 @@ function t(){
   - ` round(数值)  `四舍五入 
   -  `sqrt(数值)  `开平方根
 
-```javascript
+```js
 for (var i = 0; i < 20; i++) {
 document.write(5+Math.random()*5+'<br>');//5-10之间的随机
 }
@@ -266,7 +266,7 @@ alert(Math.round(3.6658));//4
 alert(Math.sqrt(2));//1.4
 ```
 
-```javascript
+```js
 //输入任意两个数字 返回两个数之间的随机数的整数 
 function rd(big,small){
     return Math.ceil(Math.random()*(big-small))+small;

@@ -15,7 +15,7 @@ date: 2017-11-19 18:40:24
 
 > 这一步不是必须的
 
-```javascript
+```js
 /**
  * 常量统一保存，便于管理
  */
@@ -33,7 +33,7 @@ export const SHOW_COMPLETED = 'SHOW_COMPLETED';
 ---
 
 
-```javascript
+```js
 /**
  * 定义action creator
  */
@@ -68,7 +68,7 @@ export const setVisibilityFilter = (filter)=>{
 
 - `SetVisibility.js`
 
-```javascript
+```js
 /**
  * 处理TODO可见与不可见的reducer
  */
@@ -88,7 +88,7 @@ export const visibilityFilter = (state='SHOW_ALL',action)=>{
 
 - `addTodo.js`
 
-```javascript
+```js
 /**
  * 定义处理action的reducers
  */
@@ -118,7 +118,7 @@ export const todos = (state = [],action)=>{
 
 **合并reducer**
 
-```javascript
+```js
 /**
  * 合并reducers
  */
@@ -137,7 +137,7 @@ export default combineReducers({
 四、定义store
 ---
 
-```javascript
+```js
 import { applyMiddleware, createStore } from 'redux';
 import reducer from '../reducers/index';
 import logger from 'redux-logger';
@@ -160,7 +160,7 @@ export const store = createStore(
 
 > react-todos/src/container/FilterLink.js
 
-```javascript
+```js
 // 处理数组过滤
 
 import { connect } from 'react-redux';
@@ -194,7 +194,7 @@ export default connect(
 - 分析
   - 这里通过`connect`组件把之前`reducer`处理的那些状态链接
   
-```javascript
+```js
 
 export default combineReducers({
   todos, //这些键其实就是被拆分的状态，后面在容器组件中需要通过connect链接
@@ -205,7 +205,7 @@ export default combineReducers({
 
 > react-todos/src/container/VisibilityTodoList.js
 
-```javascript
+```js
 /**
  * 处理可见于不可见组件的逻辑
  */
@@ -263,7 +263,7 @@ export default connect(
 
 > react-todos/src/container/addTodos.js
 
-```javascript
+```js
 /**
  * Addtodo的处逻辑
  */

@@ -20,7 +20,7 @@ date: 2017-11-19 10:13:32
 
 **书写方式**
 
-```javascript
+```js
 var Demo = React.createClass({
 		getInitialState:function(){		},
 		handleClick: function(event){		},
@@ -47,7 +47,7 @@ var Demo = React.createClass({
 - 滚动事件：`onWhell`（鼠标滚动）
 - 鼠标事件：`onClick`，`onContextMenu`，`onDoubleClick`…...
 
-```javascript
+```js
 var Demo = React.createClass({
     handleClick:function(e){
         console.log(e)
@@ -61,7 +61,7 @@ var Demo = React.createClass({
 ReactDOM.render(<Demo/>,document.getElementById('app'))
 ```
 
-```javascript
+```js
 var Demo = React.createClass({
     getInitialState:function(){
         return {

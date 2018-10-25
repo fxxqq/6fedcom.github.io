@@ -6,7 +6,7 @@ abbrlink: 41b2f700
 date: 2016-07-27 11:40:43
 ---
 
-```javascript
+```js
 document.getElementById('par').addEventListener ('click',function (ev){
 
 		ev = ev||window.event;// 在IE下ev为null window.event为真 || &&在php和js中不同  在js中 第一个真 就返回 否则返回第二个
@@ -18,7 +18,7 @@ document.getElementById('par').addEventListener ('click',function (ev){
 <!--more-->
 - 在js方法和属性没区别 方法和函数都是变量
 
-```javascript
+```js
 var par = document.getElementById('par');
 	if (par.attachEvent){
 
@@ -40,7 +40,7 @@ var par = document.getElementById('par');
  
  - 下面方法更加简洁
 
-```javascript
+```js
 //document.getElementById('son').addEventListener ('click',function (){alert('son')});
 	var par = document.getElementById('par');
 

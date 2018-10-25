@@ -19,7 +19,7 @@ date: 2017-11-19 16:30:26
 
 - `Redux` 提供了 `applyMiddleware(...middlewares)` 来将中间件应用到 `createStore`。`applyMiddleware` 会返回一个函数，该函数接收原来的 `creatStore` 作为参数，返回一个应用了 `middlewares` 的增强后的 `creatStore`
 
-```javascript
+```js
 export default function applyMiddleware(...middlewares) {
   return (createStore) => (reducer, preloadedState, enhancer) => {
     //接收createStore参数
@@ -48,7 +48,7 @@ export default function applyMiddleware(...middlewares) {
 
 > 未应用中间价之前，创建 `store` 的方式如下
 
-```javascript
+```js
 import {createStore} from 'redux';
 import reducers from './reducers/index';
 
@@ -57,7 +57,7 @@ export let store = createStore(reducers);
 
 > 应用中间价之后，创建 `store `的方式如下
 
-```javascript
+```js
 import {createStore，applyMiddleware} from 'redux';
 import reducers from './reducers/index';
 
@@ -71,13 +71,13 @@ export let store = createStoreWithMiddleware(reducers);
 
 - `action creator`返回的值是这个`action`类型的对象。然后通过`store.dispatch()`进行分发
 
-```javascript
+```js
 action ---> dispatcher ---> reducers
 ```
 
 > 如果遇到异步情况，比如点击一个按钮，希望2秒之后更新视图，显示消息“Hi”。我们可能这么写`ActionCreator`
 
-```javascript
+```js
 var asyncSayActionCreator = function (message) {
     setTimeout(function () {
         return {
@@ -96,7 +96,7 @@ var asyncSayActionCreator = function (message) {
 
 > 因此，上面那个`ActionCreator`就可以改写为这样：因为`action`的返回值是一个函数
 
-```javascript
+```js
 var asyncSayActionCreator = function (message) {
     return function (dispatch) {
         setTimeout(function () {
@@ -128,7 +128,7 @@ var asyncSayActionCreator = function (message) {
 
 - `redux-thunk`源码如下
 
-```javascript
+```js
 export default function thunkMiddleware({ dispatch, getState }) {
   return next => action =>
     typeof action === 'function' ?
@@ -145,7 +145,7 @@ export default function thunkMiddleware({ dispatch, getState }) {
 
 > 中间件的签名如下
 
-```javascript
+```js
 ({ getState, dispatch }) => next => action
 ```
 
@@ -154,7 +154,7 @@ export default function thunkMiddleware({ dispatch, getState }) {
 - 应用多个中间件时，中间件调用链中任何一个缺少 `next(action)` 的调用，都会导致` action` 执行失败
 
 
-```javascript
+```js
 function callTraceMiddleware ({dispatch,getState}){
     return next=> action =>{
         console.trace();
@@ -165,7 +165,7 @@ function callTraceMiddleware ({dispatch,getState}){
 
 - 然后在调用中间件部分添加中间件
 
-```javascript
+```js
 const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware,
   loggerMiddleware,

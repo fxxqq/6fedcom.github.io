@@ -15,7 +15,7 @@ date: 2018-08-12 19:11:43
 
 > filter方法可以筛除数组和类似结构中不满足条件的元素，并返回满足条件的元素组成的数组。
 
-```javascript
+```js
 const integers = [1, 2, 3, 4, 6, 7];
 const evenIntegers = integers.filter(i => i%2 === 0);
 // evenIntegers的值为[2, 4, 6]
@@ -25,7 +25,7 @@ const evenIntegers = integers.filter(i => i%2 === 0);
 
 > find返回数组或类似结构中满足条件的第一个元素
 
-```javascript
+```js
 const posts = [
   {id: 1, title: 'Title 1'},
   {id: 2, title: 'Title 2'}
@@ -38,7 +38,7 @@ const title = posts.find(p => p.id === 1).title;
 
 > map方法的作用在于处理流式数据，比如数组。我们可以把它想象成所有元素都要经过的一个转换器。
 
-```javascript
+```js
 const integers = [1, 2, 3, 4, 6, 7];
 const twoXIntegers = integers.map(i => i*2);
 // twoXIntegers现在是 [2, 4, 6, 8, 12, 14]，而integers不发生变化。
@@ -48,7 +48,7 @@ const twoXIntegers = integers.map(i => i*2);
 
 > 当你想要将多个数据放进一个实例中时，你可以使用一个reducer
 
-```javascript
+```js
 const posts = [
   {id: 1, upVotes: 2},
   {id: 2, upVotes: 89},
@@ -85,7 +85,7 @@ console.log(totalUpvotes)//输出投票总数：92
 ---
 
 
-```javascript
+```js
 const books = [];
 const newBook = {title: 'Alice in wonderland', id: 1};
 const updatedBooks = [...books, newBook];
@@ -99,7 +99,7 @@ const updatedBooks = [...books, newBook];
 > 如果需要实现用户从购物车中删除物品，但是又不想破坏原来的购物车列表，可以使用filter方法
 
 
-```javascript
+```js
 const myId = 6;
 const userIds = [1, 5, 7, 3, 6];
 const allButMe = userIds.filter(id => id !== myId);
@@ -109,7 +109,7 @@ const allButMe = userIds.filter(id => id !== myId);
 四、向数组中新增元素
 ---
 
-```javascript
+```js
 const books = ['Positioning by Trout', 'War by Green'];
 const newBooks = [...books, 'HWFIF by Carnegie'];
 // newBooks are now ['Positioning by Trout', 'War by Green', 'HWFIF // by Carnegie']
@@ -118,7 +118,7 @@ const newBooks = [...books, 'HWFIF by Carnegie'];
 五、为对象新增一组键值对
 ---
 
-```javascript
+```js
 const user = {name: 'Shivek Khurana'};
 const updatedUser = {...user, age: 23};
 //updatedUser的值为：{name: 'Shivek Khurana', age: 23}
@@ -128,7 +128,7 @@ const updatedUser = {...user, age: 23};
 ---
 
 
-```javascript
+```js
 const dynamicKey = 'wearsSpectacles';
 const user = {name: 'Shivek Khurana'};
 const updatedUser = {...user, [dynamicKey]: true};
@@ -138,7 +138,7 @@ const updatedUser = {...user, [dynamicKey]: true};
 七、修改数组中满足条件的元素对象
 ---
 
-```javascript
+```js
 const posts = [
   {id: 1, title: 'Title 1'},
   {id: 2, title: 'Title 2'}
@@ -159,7 +159,7 @@ updatedPosts is now
 ---
 
 
-```javascript
+```js
 const posts = [
   {id: 1, title: 'Title 1'},
   {id: 2, title: 'Title 2'}
@@ -172,7 +172,7 @@ const postInQuestion = posts.find(p => p.id === 2);
 ---
 
 
-```javascript
+```js
 //方法一
 const user = {name: 'Shivek Khurana', age: 23, password: 'SantaCl@use'};
 const userWithoutPassword = Object.keys(user)
@@ -195,7 +195,7 @@ const userWithoutPassword = (({name, age}) => ({name, age}))(user);
 ---
 
 
-```javascript
+```js
 const params = {color: 'red', minPrice: 8000, maxPrice: 10000};
 const query = '?' + Object.keys(params)
   .map(k =>   
@@ -211,7 +211,7 @@ const query = '?' + Object.keys(params)
 ---
 
 
-```javascript
+```js
 const posts = [
   {id: 13, title: 'Title 221'},
   {id: 5, title: 'Title 102'},

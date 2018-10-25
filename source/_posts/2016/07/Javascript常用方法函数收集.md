@@ -12,7 +12,7 @@ date: 2016-07-19 23:25:20
 ### 字符串长度截取
 
 <!--more-->
-```javascript
+```js
 function cutstr(str, len) {
 var temp,
     icount = 0,
@@ -39,7 +39,7 @@ return strre + "..."
 
 ### 替换全部 
     
-```javascript
+```js
 String.prototype.replaceAll = function(s1, s2) {
     return this.replace(new RegExp(s1, "gm"), s2)
 }
@@ -48,7 +48,7 @@ String.prototype.replaceAll = function(s1, s2) {
 
 ### 清除空格*    
 
-```javascript
+```js
 String.prototype.trim = function() {
     var reExtraSpace = /^\s*(.*?)\s+$/;
     return this.replace(reExtraSpace, "$1")
@@ -58,7 +58,7 @@ String.prototype.trim = function() {
 
 ### 清除左空格/右空格* 
 
-```javascript
+```js
 function ltrim(s){ return s.replace( /^(\s*|　*)/, ""); } 
 function rtrim(s){ return s.replace( /(\s*|　*)$/, ""); }
 ```
@@ -66,7 +66,7 @@ function rtrim(s){ return s.replace( /(\s*|　*)$/, ""); }
 
 ### 判断是否以某个字符串开头* 
 
-```javascript
+```js
 String.prototype.startWith = function (s) {
     return this.indexOf(s) == 0
 }
@@ -74,7 +74,7 @@ String.prototype.startWith = function (s) {
 
 ### 判断是否以某个字符串结束* 
     
-```javascript
+```js
 String.prototype.endWith = function (s) {
     var d = this.length - s.length;
     return (d >= 0 && this.lastIndexOf(s) == d)
@@ -83,7 +83,7 @@ String.prototype.endWith = function (s) {
     
 ### 转义html标签* 
     
-```javascript
+```js
 function HtmlEncode(text) {
     return text.replace(/&/g, '&').replace(/\"/g, '"').replace(/</g, '<').replace(/>/g, '>')
 }
@@ -91,7 +91,7 @@ function HtmlEncode(text) {
 
 
 ### 时间日期格式转换*     
-```javascript
+```js
 Date.prototype.Format = function(formatStr) {
     var str = formatStr;
     var Week = ['日', '一', '二', '三', '四', '五', '六'];
@@ -114,7 +114,7 @@ Date.prototype.Format = function(formatStr) {
 
 
 ### 判断是否为数字类型* 
-```javascript
+```js
 function isDigit(value) {
     var patrn = /^[0-9]*$/;
     if (patrn.exec(value) == null || value == "") {
@@ -128,7 +128,7 @@ function isDigit(value) {
 
 ### 设置cookie值* 
 
-```javascript
+```js
 function setCookie(name, value, Hours) {
     var d = new Date();
     var offset = 8;
@@ -142,7 +142,7 @@ function setCookie(name, value, Hours) {
 
 ### 获取cookie值* 
     
-```javascript
+```js
 function getCookie(name) {
     var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
     if (arr != null) return unescape(arr[2]);
@@ -152,7 +152,7 @@ function getCookie(name) {
     
 ### 加入收藏夹* 
     
-```javascript
+```js
 function AddFavorite(sURL, sTitle) {
     try {
         window.external.addFavorite(sURL, sTitle)
@@ -169,7 +169,7 @@ function AddFavorite(sURL, sTitle) {
 
 ### 设为首页*     
 
-```javascript
+```js
 function setHomepage() {
     if (document.all) {
         document.body.style.behavior = 'url(#default#homepage)';
@@ -191,7 +191,7 @@ function setHomepage() {
 
 ### 加载样式文件*
 
-```javascript
+```js
 function LoadStyle(url) {
     try {
         document.createStyleSheet(url)
@@ -209,7 +209,7 @@ function LoadStyle(url) {
 
 ### 返回脚本内容 
 
-```javascript
+```js
 function evalscript(s) {
     if(s.indexOf('<script') == -1) return s;
     var p = /<script[^\>]*?>([^\x00]*?)<\/script>/ig;
@@ -232,7 +232,7 @@ function evalscript(s) {
 
 ### 清除脚本内容 
     
-```javascript
+```js
 function stripscript(s) {
     return s.replace(/<script.*?>.*?<\/script>/ig, '');
 }
@@ -240,7 +240,7 @@ function stripscript(s) {
 
 ### 动态加载脚本文件 
     
-```javascript
+```js
 function appendscript(src, text, reload, charset) {
     var id = hash(src + text);
     if(!reload && in_array(id, evalscripts)) return;
@@ -278,7 +278,7 @@ function appendscript(src, text, reload, charset) {
 
 ### 返回按ID检索的元素对象    
 
-```javascript
+```js
 function $(id) {
     return !id ? null : document.getElementById(id);
 }
@@ -287,7 +287,7 @@ function $(id) {
 
 ### 跨浏览器绑定事件 
 
-```javascript
+```js
 function addEventSamp(obj,evt,fn){ 
     if(!oTarget){return;}
     if (obj.addEventListener) { 
@@ -303,7 +303,7 @@ function addEventSamp(obj,evt,fn){
 
 ### 跨浏览器删除事件 
 
-```javascript
+```js
 function delEvt(obj,evt,fn){
     if(!obj){return;}
     if(obj.addEventListener){
@@ -319,7 +319,7 @@ function delEvt(obj,evt,fn){
 
 ### 为元素添加on方法 
     
-```javascript
+```js
 Element.prototype.on = Element.prototype.addEventListener;
  
 NodeList.prototype.on = function (event, fn) {、
@@ -332,7 +332,7 @@ NodeList.prototype.on = function (event, fn) {、
   
 ### 为元素添加trigger方法 
     
-```javascript
+```js
 Element.prototype.trigger = function (type, data) {
     var event = document.createEvent('HTMLEvents');
     event.initEvent(type, true, true);
@@ -354,7 +354,7 @@ NodeList.prototype.trigger = function (event) {
 
 ### 检验URL链接是否有效     
 
-```javascript
+```js
 function getUrlState(URL){ 
     var xmlhttp = new ActiveXObject("microsoft.xmlhttp"); 
     xmlhttp.Open("GET",URL, false);  
@@ -379,7 +379,7 @@ function getUrlState(URL){
 
 ### 格式化CSS样式代码 
 
-```javascript
+```js
 function formatCss(s){//格式化代码
     s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
     s = s.replace(/;\s*;/g, ";"); //清除连续分号
@@ -394,7 +394,7 @@ function formatCss(s){//格式化代码
 
 ### 压缩CSS样式代码 
 
-```javascript
+```js
 function compressCss (s) {//压缩代码
     s = s.replace(/\/\*(.|\n)*?\*\//g, ""); //删除注释
     s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
@@ -407,7 +407,7 @@ function compressCss (s) {//压缩代码
 
 ### 获取当前路径 
     
-```javascript
+```js
 var currentPageUrl = "";
 if (typeof this.href === "undefined") {
     currentPageUrl = document.location.toString().toLowerCase();
@@ -418,7 +418,7 @@ if (typeof this.href === "undefined") {
     
 ### 判断是否移动设备 
     
-```javascript
+```js
 function isMobile(){
     if (typeof this._isMobile === 'boolean'){
         return this._isMobile;
@@ -441,7 +441,7 @@ function isMobile(){
 
 ### 判断是否移动设备访问     
 
-```javascript
+```js
 function isMobileUserAgent(){
     return (/iphone|ipod|android.*mobile|windows.*phone|blackberry.*mobile/i.test(window.navigator.userAgent.toLowerCase()));
 }
@@ -450,7 +450,7 @@ function isMobileUserAgent(){
 
 ### 判断是否苹果移动设备访问 
 
-```javascript
+```js
 function isAppleMobileDevice(){
     return (/iphone|ipod|ipad|Macintosh/i.test(navigator.userAgent.toLowerCase()));
 }
@@ -459,7 +459,7 @@ function isAppleMobileDevice(){
 
 ### 判断是否安卓移动设备访问 
 
-```javascript
+```js
 function isAndroidMobileDevice(){
     return (/android/i.test(navigator.userAgent.toLowerCase()));
 }
@@ -467,7 +467,7 @@ function isAndroidMobileDevice(){
 
 ### 判断是否Touch屏幕 
     
-```javascript
+```js
 function isTouchScreen(){
     return (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
 }
@@ -475,7 +475,7 @@ function isTouchScreen(){
  
 ### 判断是否打开视窗   
 
-```javascript
+```js
 function isViewportOpen() {
     return !!document.getElementById('wixMobileViewport');
 }
@@ -483,7 +483,7 @@ function isViewportOpen() {
 
 ### 获取移动设备初始化大小   
 
-```javascript
+```js
 function getInitZoom(){
     if(!this._initZoom){
         var screenWidth = Math.min(screen.height, screen.width);
@@ -498,7 +498,7 @@ function getInitZoom(){
 
 ### 取移动设备最大化大小   
 
-```javascript
+```js
 function getZoom(){
     var screenWidth = (Math.abs(window.orientation) === 90) ? Math.max(screen.height, screen.width) : Math.min(screen.height, screen.width);
     if(this.isAndroidMobileDevice() && !this.isNewChromeOnAndroid()){
@@ -516,7 +516,7 @@ function getZoom(){
 
 ### 取移动设备屏幕宽度   
 
-```javascript
+```js
 function getScreenWidth(){
     var smallerSide = Math.min(screen.width, screen.height);
     var fixViewPortsExperiment = rendererModel.runningExperiments.FixViewport || rendererModel.runningExperiments.fixviewport;
@@ -532,7 +532,7 @@ function getScreenWidth(){
 
 ### 美判断是否为网址   
 
-```javascript
+```js
 function IsURL(strUrl) {
     var regular = /^\b(((https?|ftp):\/\/)?[-a-z0-9]+(\.[-a-z0-9]+)*\.(?:com|edu|gov|int|mil|net|org|biz|info|name|museum|asia|coop|aero|[a-z][a-z]|((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d))\b(\/[-a-z0-9_:\@&?=+,.!\/~%\$]*)?)$/i
     if (regular.test(strUrl)) {
@@ -545,7 +545,7 @@ function IsURL(strUrl) {
 
 ### etElementsByClassName   
 
-```javascript
+```js
 function getElementsByClassName(name) {
     var tags = document.getElementsByTagName('*') || document.all;
     var els = [];
@@ -566,7 +566,7 @@ function getElementsByClassName(name) {
 
 ### 取页面高度   
 
-```javascript
+```js
 function getPageHeight(){
     var g = document, a = g.body, f = g.documentElement, d = g.compatMode == "BackCompat"
                     ? a
@@ -577,7 +577,7 @@ function getPageHeight(){
 
 ### 取页面scrollLeft   
 
-```javascript
+```js
 function getPageScrollLeft(){
     var a = document;
     return a.documentElement.scrollLeft || a.body.scrollLeft;
@@ -586,7 +586,7 @@ function getPageScrollLeft(){
 
 ### 取页面可视宽度   
 
-```javascript
+```js
 function getPageViewWidth(){
     var d = document, a = d.compatMode == "BackCompat"
                     ? d.body
@@ -597,7 +597,7 @@ function getPageViewWidth(){
 
 ### 取页面宽度   
 
-```javascript
+```js
 function getPageWidth(){
     var g = document, a = g.body, f = g.documentElement, d = g.compatMode == "BackCompat"
                     ? a
@@ -608,7 +608,7 @@ function getPageWidth(){
 
 ### 取页面scrollTop   
 
-```javascript
+```js
 function getPageScrollTop(){
     var a = document;
     return a.documentElement.scrollTop || a.body.scrollTop;
@@ -617,7 +617,7 @@ function getPageScrollTop(){
 
 ### 取页面可视高度   
 
-```javascript
+```js
 function getPageViewHeight() {
     var d = document, a = d.compatMode == "BackCompat"
                     ? d.body
@@ -628,7 +628,7 @@ function getPageViewHeight() {
 
 ### 掉url前缀  
 
-```javascript
+```js
 function removeUrlPrefix(a){
     a=a.replace(/：/g,":").replace(/．/g,".").replace(/／/g,"/");
     while(trim(a).toLowerCase().indexOf("http://")==0){
@@ -640,7 +640,7 @@ function removeUrlPrefix(a){
 
 ### 随机数时间戳  
 
-```javascript
+```js
 function uniqueId(){
     var a=Math.random,b=parseInt;
     return Number(new Date()).toString()+b(10*a())+b(10*a())+b(10*a());
@@ -649,7 +649,7 @@ function uniqueId(){
 
 ### 全角半角转换  
 
-```javascript
+```js
 //iCase: 0全到半，1半到全，其他不转化
 function chgCase(sStr,iCase){
     if(typeof sStr != "string" || sStr.length <= 0 || !(iCase === 0 || iCase == 1)){
@@ -683,7 +683,7 @@ function chgCase(sStr,iCase){
 
 ### 确认是否键盘有效输入值  
 
-```javascript
+```js
 function checkKey(iKey){
     if(iKey == 32 || iKey == 229){return true;}/*空格和异常*/
     if(iKey>47 && iKey < 58){return true;}/*数字*/
@@ -698,7 +698,7 @@ function checkKey(iKey){
 
 ### 获取网页被卷去的位置   
 
-```javascript
+```js
 function getScrollXY() {
     return document.body.scrollTop ? {
         x: document.body.scrollLeft,
@@ -712,7 +712,7 @@ function getScrollXY() {
 
 ### 日期格式化函数+调用方法  
 
-```javascript
+```js
 Date.prototype.format = function(format){
     var o = {
         "M+" : this.getMonth()+1, //month
@@ -736,7 +736,7 @@ alert(new Date().format("yyyy-MM-dd hh:mm:ss"));
 
 ### 时间个性化输出功能
 
-```javascript
+```js
 /*
 1、< 60s, 显示为“刚刚”
 2、>= 1min && < 60 min, 显示与当前时间差“XX分钟前”
@@ -781,7 +781,7 @@ function timeFormat(time){
 
 ### 解决offsetX兼容性问题
 
-```javascript
+```js
 // 针对火狐不支持offsetX/Y
 function getOffset(e){
     var target = e.target, // 当前触发的目标对象
@@ -821,7 +821,7 @@ function getPageCoord(element){
 
 ### 常用的正则表达式
 
-```javascript
+```js
 //正整数
 /^[0-9]*[1-9][0-9]*$/;
 //负整数
@@ -887,7 +887,7 @@ function getPageCoord(element){
 
 ### 返回顶部的通用方法   
 
-```javascript
+```js
 function backTop(btnId) {
     var btn = document.getElementById(btnId);
     var d = document.documentElement;
@@ -912,7 +912,7 @@ backTop('goTop');
 
 **获得URL中GET参数值   
 
-```javascript
+```js
 // 用法：如果地址是 test.htm?t1=1&t2=2&t3=3, 那么能取得：GET["t1"], GET["t2"], GET["t3"]
 function get_get(){ 
     querystr = window.location.href.split("?")
@@ -931,7 +931,7 @@ function get_get(){
 
 ### 打开一个窗体通用方法  
 
-```javascript
+```js
 function openWindow(url,windowName,width,height){
     var x = parseInt(screen.width / 2.0) - (width / 2.0); 
     var y = parseInt(screen.height / 2.0) - (height / 2.0);
@@ -956,14 +956,14 @@ function openWindow(url,windowName,width,height){
 
 ### 提取页面代码中所有网址   
 
-```javascript
+```js
 var aa = document.documentElement.outerHTML.match(/(url\(|src=|href=)[\"\']*([^\"\'\(\)\<\>\[\] ]+)[\"\'\)]*|(http:\/\/[\w\-\.]+[^\"\'\(\)\<\>\[\] ]+)/ig).join("\r\n").replace(/^(src=|href=|url\()[\"\']*|[\"\'\>\) ]*$/igm,"");
 alert(aa);
 ```
 
 ### 清除相同的数组  
 
-```javascript
+```js
 String.prototype.unique=function(){
     var x=this.split(/[\r\n]+/);
     var y='';
@@ -978,7 +978,7 @@ String.prototype.unique=function(){
 
 ### 按字母排序，对每行进行数组排序  
 
-```javascript
+```js
 function SetSort(){
     var text=K1.value.split(/[\r\n]/).sort().join("\r\n");//顺序
     var test=K1.value.split(/[\r\n]/).sort().reverse().join("\r\n");//反序
@@ -988,7 +988,7 @@ function SetSort(){
 
 ### 字符串反序   
 
-```javascript
+```js
 function IsReverse(text){
     return text.split('').reverse().join('');
 }
@@ -996,7 +996,7 @@ function IsReverse(text){
 
 ### 清除html代码中的脚本  
 
-```javascript
+```js
 function clear_script(){
     K1.value=K1.value.replace(/<script.*?>[\s\S]*?<\/script>|\s+on[a-zA-Z]{3,16}\s?=\s?"[\s\S]*?"|\s+on[a-zA-Z]{3,16}\s?=\s?'[\s\S]*?'|\s+on[a-zA-Z]{3,16}\s?=[^ >]+/ig,"");
 }
@@ -1013,7 +1013,7 @@ function javascript(){
 
 ### 动态执行VBScript脚本  
 
-```javascript
+```js
 function vbscript(){
     try{
         var script=document.getElementById("K1").value;
@@ -1027,7 +1027,7 @@ function vbscript(){
 
 ### 金额大写转换函数  
 
-```javascript
+```js
 function transform(tranvalue) {
     try {
         var i = 1;
@@ -1106,7 +1106,7 @@ function splits(tranvalue) {
 
 ### resize的操作
 
-```javascript
+```js
 (function(){
     var fn = function(){
             var w = document.documentElement ? document.documentElement.clientWidth : document.body.clientWidth
@@ -1130,7 +1130,7 @@ function splits(tranvalue) {
 
 ### 实现base64解码   
 
-```javascript
+```js
 function base64_decode(data){
     var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
     var o1, o2, o3, h1, h2, h3, h4, bits, i = 0,ac = 0,dec = "",tmp_arr = [];
@@ -1161,7 +1161,7 @@ function base64_decode(data){
 
 ### 实现utf8解码 
 
-```javascript
+```js
 function utf8_decode(str_data){
     var tmp_arr = [],i = 0,ac = 0,c1 = 0,c2 = 0,c3 = 0;str_data += '';
     while (i < str_data.length) {
@@ -1186,7 +1186,7 @@ function utf8_decode(str_data){
 
 ### 获取窗体可见范围的宽与高  
 
-```javascript
+```js
 function getViewSize(){
     var de=document.documentElement;
     var db=document.body;
@@ -1198,7 +1198,7 @@ function getViewSize(){
 
 ### 断鼠标是否移出事件
 
-```javascript
+```js
 function isMouseOut(e, handler) {
     if (e.type !== 'mouseout') {
             return false;
@@ -1213,7 +1213,7 @@ function isMouseOut(e, handler) {
 
 ### 半角转换为全角函数  
 
-```javascript
+```js
 function ToDBC(str){
     var result = '';
     for(var i=0; i < str.length; i++){
@@ -1232,7 +1232,7 @@ function ToDBC(str){
 
 ### 全角转换为半角函数
 
-```javascript
+```js
 function ToCDB(str){
     var result = '';
     for(var i=0; i < str.length; i++){

@@ -219,7 +219,7 @@ date: 2018-08-26 14:10:32
 
 > 通过`this.$els`获取相应的DOM元素:
 
-```javascript
+```js
 this.$els.msg.textContent  // ==>  "hello"
 
 this.$els.otherMsg.textContent  // ==>  "world"

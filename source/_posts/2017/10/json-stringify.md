@@ -1,6 +1,6 @@
 ---
 title: 浅析JSON.stringify
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 320f1b94
 date: 2017-10-21 14:40:43
@@ -10,7 +10,7 @@ date: 2017-10-21 14:40:43
 
 - `stringify`方法顾名思义，就是把`JSON`序列化，其语法如下
 
-```javascript
+```js
 JSON.stringify(value [, replacer] [, space]) 
 ```
 
@@ -26,7 +26,7 @@ JSON.stringify(value [, replacer] [, space])
 
 ## 二、只传一个参数
 
-```javascript
+```js
 var obj = {
   name:"poetries",
   age:22,
@@ -43,14 +43,14 @@ JSON.stringify(obj)  //"{"name":"poetries","age":22,"job":"FED","location":"shen
 
 - 非数组对象的属性不能保证以特定的顺序出现在序列化后的字符串中
 
-```javascript
+```js
 JSON.stringify({x: 5, y: 6}) // '{"x":5,"y":6}' 或者 '{"y":6,"x":5}' 都可能
 ```
 
 - 布尔值、数字、字符串的包装对象在序列化过程中会自动转换成对应的原始值
 - `undefined`、任意的函数以及 `symbol` 值，在序列化过程中会被忽略（出现在非数组对象的属性值中时）或者被转换成 `null`（出现在数组中时）
 
-```javascript
+```js
 var obj = {
   "undefined":undefined,
   "null":null,
@@ -67,7 +67,7 @@ JSON.stringify(arr); //[null,null,null]
 
 - 不可枚举的属性会被忽略
 
-```javascript
+```js
 JSON.stringify( Object.create(null, { x: { value: 'x', enumerable: false }, y: { value: 'y', enumerable: true } }) );
 // '{"y":"y"}'
 ```
@@ -82,7 +82,7 @@ JSON.stringify( Object.create(null, { x: { value: 'x', enumerable: false }, y: {
 - 注意点：
   - 这里一定要`return`一个值给下一个遍历函数作为参数传入，如果不`return`的话，后面的遍历就没法玩下去了
 
-```javascript
+```js
 var obj = {
   name:"poetries",
   age:22,
@@ -98,7 +98,7 @@ JSON.stringify(obj, (key,value) => {
 
 ### 3.2 数组
 
-```javascript
+```js
 var obj = {
   name:"poetries",
   age:22,
@@ -118,7 +118,7 @@ JSON.stringify(obj, ["name", "age"]);
 - 如果是一个数字, 则在字符串化时每一级别会比上一级别缩进多这个数字值的空格（最多10个空格）
 - 如果是一个字符串，则每一级别会比上一级别多缩进用该字符串（或该字符串的前十个字符）
 
-```javascript
+```js
 var obj = {name:"poetries",age:22,job:"FED",location:"shenzhen of China",lov:{age:11}};
 JSON.stringify(obj, null,10);
 // //每一个层级比上一个多10个空格
@@ -133,7 +133,7 @@ JSON.stringify(obj, null,10);
 }"
 ```
 
-```javascript
+```js
 var obj = {
   name:"poetries",
   age:22,
@@ -169,7 +169,7 @@ JSON.stringify(obj, null,"\n");
 
 > 如果一个被序列化的对象拥有 `toJSON` 方法，那么该 `toJSON` 方法就会覆盖该对象默认的序列化行为
 
-```javascript
+```js
 var obj = {
   name:"poetries",
   info:{

@@ -10,7 +10,7 @@ date: 2018-07-23 09:20:24
 
 ### 迷你版redux实现
 
-```javascript
+```js
 export const createStore = (reducer,enhancer)=>{
 	if(enhancer) {
 		return enhancer(createStore)(reducer)
@@ -85,7 +85,7 @@ function bindActionCreators(creators,didpatch){
 
 > 例子 provider组件就是使用context，把store放到context里，所有的子元素可以直接取到store
 
-```javascript
+```js
 import PropTypes from 'prop-types'
 class Provider extends Component {
     static childContextTypes = {
@@ -110,7 +110,7 @@ class Provider extends Component {
 - 负责接收一个组件，把`state里`的一些数据放进去，返回一个组件
 - 数据变化的时候，能够通知组件
 
-```javascript
+```js
 //高阶组件写法
 const connect = (mapStateToProps=state=>state,mapDispatchToProps={})=>(wrapperComponent)=>{
     return class ConnectComponent extends React.Component {
@@ -155,7 +155,7 @@ const connect = (mapStateToProps=state=>state,mapDispatchToProps={})=>(wrapperCo
 
 **自己造一个中间件**
 
-```javascript
+```js
 const thunk = ({dispatch,getState})=>next=>action=>{
 
 	if(typeof action == 'function'){

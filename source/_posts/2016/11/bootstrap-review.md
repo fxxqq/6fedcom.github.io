@@ -1423,7 +1423,7 @@ date: 2016-11-19 16:55:24
 - `data-content`    默认值为空，弹出框的内容。
 - `data-viewport`    设置外围容器的边际，具体代码看示例。
 
-```javascript
+```js
    $('button').popover({
 		trigger:"click",
 		placement:"right",
@@ -1445,7 +1445,7 @@ date: 2016-11-19 16:55:24
   - `hide.bs.popover` 在调用 `hide` 方法时触发
   - `hidden.bs.popover` 在完全关闭整个弹出时触发
 
-```javascript
+```js
    $('button').on('show.bs.tab', function () {
         alert('调用 show 方法时触发！');
    });
@@ -1471,7 +1471,7 @@ date: 2016-11-19 16:55:24
 - 如果用 `JavaScript`，可以代替 `data-dismiss="alert"`
 - `Alert` 插件中的方法：
 
-```javascript
+```js
    $('.close').on('click', function () {
         $('#alert').alert('close');
    })
@@ -1481,7 +1481,7 @@ date: 2016-11-19 16:55:24
    - `close.bs.alert`   当 `close` 方法被调用后立即触发
    - `closed.bs.alert`  当警告框被完全关闭后立即触发
 
-```javascript
+```js
    $('#alert').on('close.bs.alert', function () {
         alert('当 close 方法被触发时调用！');
    });
@@ -1523,7 +1523,7 @@ date: 2016-11-19 16:55:24
 
 - `Tab` 插件中的方法：
 
-```javascript
+```js
    $('#nav a').on('click', function (e) {
         e.preventDefault();
         $(this).tab('show');
@@ -1534,7 +1534,7 @@ date: 2016-11-19 16:55:24
    - `show.bs.tab`      在调用 `tab` 方法时触发
    - `shown.bs.tab`     在显示整个标签时触发
 
-```javascript
+```js
    $('#nav a').on('show.bs.tab', function () {
         alert('调用 tab 时触发！');
    });
@@ -1581,7 +1581,7 @@ date: 2016-11-19 16:55:24
 </a>
 ```
 
-```javascript
+```js
 $('#selector a').tooltip({
 	delay : {
 		show : 500,
@@ -1602,7 +1602,7 @@ $('#selector a').tooltip({
   - `hide.bs.tooltip`  在 `hide` 方法调用时立即触发
   - `hidden.bs.tooltip` 在提示框完全隐藏之后触发
 
-```javascript
+```js
    $('#select a').on('show.bs.tooltip', function () {
         alert('调用 show 时触发！');
    });
@@ -1623,7 +1623,7 @@ $('#selector a').tooltip({
    </div>
 ```
 
-```javascript
+```js
    $("button").tooltip({
        delay:{
            show:500,
@@ -1667,7 +1667,7 @@ $('#selector a').tooltip({
    - `hide.bs.dropdown`     在 `hide` 方法调用时，但还未关闭隐藏时触发。
    - `hidden.bs.dropdown`   在下拉菜单完全隐藏之后，并且等 `CSS` 动画完成之后 触发。
 
-```javascript
+```js
    $('#dropdown').on('show.bs.dropdown', function () {
         alert('在调用 show 方法时立即触发！');
    });
@@ -1682,7 +1682,7 @@ $('#selector a').tooltip({
 
 - `scroll`插件的方法：
 
-```javascript
+```js
    $("#scroll").scrollspy({
         //offset: 0,
         target: "#nav"
@@ -1692,7 +1692,7 @@ $('#selector a').tooltip({
 - `activate.bs.scrollspy`    每当一个新条目被激活后都将由滚动监听插件触 发此事件。
 - 事件绑定在导航上
 
-```javascript
+```js
    $('#nav').on('activate.bs.scrollspy', function () {
         alert('新条目被激活后触发此事件！');
    });
@@ -1701,7 +1701,7 @@ $('#selector a').tooltip({
 - 滚动监听还有一个更新容器 `DOM` 的方法
    - `refresh`  更新容器 `DOM` 的方法
    
-```javascript
+```js
    function removeSec(e) {
        $(e).parents('.sec').remove();
        $('#content').scrollspy('refresh');
@@ -1759,7 +1759,7 @@ $('#selector a').tooltip({
 
 ```
 
-```javascript
+```js
    $('#myButton').on('click', function () {
         var btn = $(this).button('loading');
         setTimeout(function () {
@@ -1771,7 +1771,7 @@ $('#selector a').tooltip({
 - `Button` 插件中的 `button` 方法中有三个参数：`toggle`、`reset`、`string`(比如 `loading`、 `complete`)。
 - 可代替    `data-toggle="button"`
 
-```javascript
+```js
    $('button').on('click', function () {
         $(this).button('toggle');
    });
@@ -1793,7 +1793,7 @@ $('#selector a').tooltip({
 
 - `Collapse`插件的方法：`hide`、`show`、`toggle`
 
-```javascript
+```js
    $('button').on('click', function () {
         $('#collapseOne').collapse('toggle');
    });
@@ -1848,7 +1848,7 @@ $('#selector a').tooltip({
    - 在 `JavaScript` 直接设置
    - 通过 `jQuery` 方式声明
 
-```javascript
+```js
    $('#myModal').modal({
         show : true,
         backdrop : false,
@@ -1862,7 +1862,7 @@ $('#selector a').tooltip({
   - `show .modal('show')`; 触发时，显示弹窗
   - `hide .modal('hide')`; 触发时，关闭弹窗
   - 点击显示弹窗
-```javascript
+```js
 $('#btn').on('click', function () {
 	$('#myModal').modal('show');
 });
@@ -1879,7 +1879,7 @@ $('#myModal').modal({
 - `hide.bs.modal`    在 `hide` 方法调用时，但还未关闭隐藏时触发。
 - `hidden.bs.modal`  在模态框完全隐藏之后，并且等 `CSS` 动画完成之后触 发
 
-```javascript
+```js
 $('#myModal').on('show.bs.modal', function () {
 	alert('在 show 方法调用时立即触发！');
 });
@@ -1900,7 +1900,7 @@ $('#myModal').on('loaded.bs.modal', function () {
   - `data-wrap`        默认值 `true`，轮播是否持续循环。
   - 如果在 `JavaScript` 调用就直接使用键值对方法，并去掉 `data-`；
 
-```javascript
+```js
    $('#myCarousel').carousel({  //设置自定义属性
         interval : 2000,//设置自动播放`/2` 秒
         pause : 'hover',//设置暂停按钮的事件
@@ -1915,7 +1915,7 @@ $('#myModal').on('loaded.bs.modal', function () {
    - `prev` 循环轮播到上一个项目
    - `next` 循环轮播到下一个项目
 
-```javascript
+```js
    $('button').on('click', function () {//点击按钮执行
         $('#myCarousel').carousel('cycle'); //点击后，自动播放
    }
@@ -1926,7 +1926,7 @@ $('#myModal').on('loaded.bs.modal', function () {
 - `slide.bs.carousel` 当调用 `slide` 实例方式时立即触发该事件。
 - `slid.bs.carousel` 当轮播完成一个幻灯片触发该事件
 
-```javascript
+```js
 $('#myCarousel').on('slide.bs.carousel', function () {
         alert('当调用 slide 实例方式时立即触发');
    });

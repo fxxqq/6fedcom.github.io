@@ -20,7 +20,7 @@ date: 2016-07-27 13:50:20
 - 对于有些标准的特性的操作，`el.getAttribute 与 el.property `获取的值存在差异性。如: `href、src、value、style、onclic 等
 
 - `Demo1：`el.getAttribute 获取的是 href 的实际值，el.property 获取的是完整的 url
-```javascript
+```js
     alEl.href = '/';
     alert(alEl.getAttribute('href'));  // '/'
     alert(alEl.href);  				 // full URL
@@ -28,14 +28,14 @@ date: 2016-07-27 13:50:20
 
 - `Demo2：`el.property 可以从 el.setAttribute 获得同步
   
-```javascript
+```js
 inputEl.setAttribute('value', 'hello');
 alert(inputEl.value );	 		    // 'hello' -- property changed!
 ```
 
 - Demo3： el.getAttribute 不能从 el.property 获得同步
 
-```javascript
+```js
     inputEl.value = 'bye';
     alert(inputEl.getAttribute('value')); // 'hello' – attribute not changed!
 ```
@@ -48,14 +48,14 @@ alert(inputEl.value );	 		    // 'hello' -- property changed!
 - Demo5：checkbox 未选中时 -- el.getAttribute 返回 null，el.property 返回 false
 
 checkbox 选中时 -- el.getAttribute 仍返回 null，el.property 返回 ture
-```javascript
+```js
 alert(checkboxEl.checked); 					//  boolean true
 alert(checkboxEl.getAttribute('checked')); 		//  object null
 ```
 
 - Demo6：style -- el.getAttribute 返回 string, el.property 返回 object
 
-```javascript
+```js
 alert(divEl.style); 					// 'width:200px;height:200px;'
 alert(divEl.getAttribute('style') ) 	//  [object CSSStyleDeclaration]
 ```
@@ -66,7 +66,7 @@ alert(divEl.getAttribute('style') ) 	//  [object CSSStyleDeclaration]
   - 2)` IE<8`（包括IE8种的IE7兼容模式），el.property 和 el.getAttribute 相同
   - 因为 `attribute` 对大小写不敏感，在这种情况下，用 el.getAttribute 访问特性时，浏览器会选择第一次出现的值。
  
-```javascript
+```js
 document.body.abba = 1 // assign property (now can read it by getAttribute)
 document.body.ABBA = 5 // assign property with another case
 // must get a property named 'ABba' in case-insensitive way.

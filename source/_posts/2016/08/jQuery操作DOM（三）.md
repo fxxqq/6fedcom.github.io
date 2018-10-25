@@ -19,7 +19,7 @@ date: 2016-08-07 21:10:08
 
 语法：
 
-```javascript
+```js
 document.createElement(name);
 
 var div = document.createElement("div");
@@ -29,7 +29,7 @@ document.body.appendChild(div);
 
 - 创建文本
 		
-```javascript
+```js
 var div = document.createElement("div");
 var txt = document.createTextNode("DOM");
 div.appendChild(txt);
@@ -42,7 +42,7 @@ $(body).append($div);
 - 设置属性
 	- 语法：`setAttrbute(name,value)`
 		
-```javascript
+```js
 var div = document.createElement("div");
 var txt = document.createTextNode("DOM");
 div.appendChild(txt);

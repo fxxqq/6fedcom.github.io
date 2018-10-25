@@ -14,7 +14,7 @@ date: 2018-02-23 15:10:12
 
 - `stringObject.slice(start, end)`
 
-```javascript
+```js
 var a = 'Hello world!';
 var b = a.slice(2);
 var c = a.slice(-4, -2);
@@ -27,7 +27,7 @@ var c = a.slice(-4, -2);
 
 - `stringObject.substr(start, length)`
 
-```javascript
+```js
 var a = 'Hello world!';
 var b = a.substr(0, 4);
 var c = a.substr(-5, 2);
@@ -40,7 +40,7 @@ var c = a.substr(-5, 2);
 
 - `stringObject.substring(start, stop)`
 
-```javascript
+```js
 var a = 'Hello world!';
 var b = a.substring(0, 4);
 var c = a.substring(3, 2);
@@ -59,7 +59,7 @@ var d = a.substring(0, -1);
 
 - 参数可以为具体的值，也可以为数组对象，可以任意多个。不改变现有的数组，返回被连接数组的一个副本。
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.concat(4, 5);
 var c = a.concat([4, 5]);
@@ -72,7 +72,7 @@ var c = a.concat([4, 5]);
 
 - 删除 `arrayObject` 的最后一个元素，把数组长度减 `1`，并且返回它删除的元素的值。如果数组已经为空，则 pop() 不改变数组，并返回 `undefined` 值。该方法会改变原数组
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.pop();
 // a: [1, 2]，修改了原数组
@@ -83,7 +83,7 @@ var b = a.pop();
 
 - 参数顺序添加到 `arrayObject` 的尾部，直接修改`arrayObject`
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.push(4, 5);
 // a: [1, 2, 3, 4, 5]，修改了原数组
@@ -94,7 +94,7 @@ var b = a.push(4, 5);
 
 - 把数组的第一个元素从其中删除，并返回第一个元素的值。如果数组是空的，那么 `shift()` 方法将不进行任何操作，返回`undefined`值。该方法会改变原数组。类比`pop`方法
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.shift();
 // a: [2, 3]，修改了原数组
@@ -105,7 +105,7 @@ var b = a.shift();
 
 - 向数组的开头添加一个或更多元素，并返回新的长度。该方法的第一个参数将成为数组的新元素 `0`，如果还有第二个参数，它将成为新的元素 `1`，以此类推
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.unshift(4, 5);
 // a: [ 4, 5, 1, 2, 3 ]，修改了原数组
@@ -116,7 +116,7 @@ var b = a.unshift(4, 5);
 
 - 返回一个新的数组，包含从 `start` 到 `end` （不包括该元素）的 `arrayObject` 中的元素。该方法不会修改原数组
 
-```javascript
+```js
 var a = [1, 2, 3, 4, 5];
 var b = a.slice(2);
 // a: [1, 2, 3, 4, 5]，不修改原数组
@@ -132,7 +132,7 @@ var d = c.slice(2, -1);
 
 - 可删除从 `index` 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。如果从 `arrayObject` 中删除了元素，则返回的是含有被删除的元素的数组。
 
-```javascript
+```js
 var a = [1, 2, 3, 4, 5];
 var b = a.splice(1, 1);
 // a: [1, 3, 4, 5]，修改了原数组
@@ -158,7 +158,7 @@ var h = g.splice(1, 0, 8);
 
 - 无参数时，将按字母顺序对数组中的元素进行排序。参数为比较函数时，如果要交换`prev`和`next`的值，返回大于`0`的值
 
-```javascript
+```js
 var a = [1, 10, 8, 6, 9];
 var b = a.sort(function (prev, next) {
   return prev - next;
@@ -171,7 +171,7 @@ var b = a.sort(function (prev, next) {
 
 - 用于颠倒数组中元素的顺序。会改变原数组
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.reverse();
 // a: [3, 2, 1]，修改了原数组
@@ -183,7 +183,7 @@ var b = a.reverse();
 > 有返回值，返回一个新的数组，每个元素为调用`func`的结果
 
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5];
 let other = list.map((d, i) => {
     return d * 2;
@@ -204,7 +204,7 @@ console.log(other);
 > - `array` 当前数组的引用
 
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5];
 list.forEach((d, i) => {
     this.push(d * 2);
@@ -217,7 +217,7 @@ console.log(other);
 
 - 返回数组中**第一个满足测试条件**（返回`true`）的元素。如果不存在这样的元素，返回`undefined`。`findIndex`类似，只不过返回的是第一个满足测试条件的元素的`index`
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.find((curVal) => curVal === 1);
 var c = a.find((curVal) => curVal === 4);
@@ -230,7 +230,7 @@ var c = a.find((curVal) => curVal === 4);
 
 - 返回数组中**所有满足测试条件**（返回`true`）的元素组成的数组。如果不存在这样的元素，返回`[]`
 
-```javascript
+```js
 var a = [1, 2, 3];
 var b = a.filter((curVal) => curVal > 1);
 var c = a.filter((curVal) => curVal > 3);
@@ -248,7 +248,7 @@ var c = a.filter((curVal) => curVal > 3);
 - `previousValue`是最后被调用的回调函数的返回值，`initialValue`是开始时`previousValue`被初始化的值。`currentValue`
 - 是当前被遍历的元素值，`index`是当前元素在数组中的索引值。`array`是对调用`.reduce`数组的简单引用
 
-```javascript
+```js
 Array.prototype.sum = function () {
     return this.reduce(function (partial, value) {
         return partial + value
@@ -261,7 +261,7 @@ Array.prototype.sum = function () {
 
 > 可以使用`.reduce`作为对象的字符串生成器
 
-```javascript
+```js
 function concat (input) {
     return input.reduce(function (partial, value) {
         if (partial) {
@@ -284,7 +284,7 @@ concat([
 
 > 返回一个`boolean`，判断是否有元素符合`func`条件，如果有一个元素符合`func`条件，则循环会终止
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5];
 list.some((d, i) => {
     console.log(d, i);
@@ -300,7 +300,7 @@ list.some((d, i) => {
 
 > 返回一个`boolean`，判断每个元素是否符合`func`条件，有一个元素不满足`func`条件，则循环终止，返回`false`
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5];
 list.every((d, i) => {
     console.log(d, i);
@@ -317,7 +317,7 @@ list.every((d, i) => {
 
 > `for-in`循环实际是为循环”enumerable“对象而设计的，`for in`也可以循环数组，但是不推荐这样使用，`for–in`是用来循环带有字符串`key`的对象的方法
 
-```javascript
+```js
 var obj = {a:1, b:2, c:3};
 for (var prop in obj) {
   console.log("obj." + prop + " = " + obj[prop]);
@@ -347,7 +347,7 @@ for (var prop in obj) {
 
 > 这三个方法调用后生成的遍历器对象，所遍历的都是计算生成的数据结构
 
-```javascript
+```js
 // 遍历数组
 let list = [1, 2, 3, 4, 5];
 for (let e of list) {

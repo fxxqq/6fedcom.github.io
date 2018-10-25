@@ -26,7 +26,7 @@ date: 2017-10-23 19:50:24
 
 > 修改build/dev-server.js
 
-```javascript
+```js
 //加载json数据
 var apiData = require('../src/mock/data.json')
 var home = apiData.home;
@@ -54,7 +54,7 @@ app.use('/api', apiRouter)
 - 优点：不可以在浏览器端访问 
 - 缺点：打包发布运行模拟接口也是可以用的
 
-```javascript
+```js
 import Mock from 'mockjs'  
 import apiData from './data.json'
 
@@ -73,7 +73,7 @@ Mock.mock('/api2/ratings', {code:0, data:apiData.ratings})
 - `vue-resource`是用于`ajax`请求的`vue`插件 
 - `axios`是浏览器/服务器端通用的`ajax`请求库
 
-```javascript
+```js
 //使用示例
 
 import VueResource from 'vue-resource' 
@@ -116,7 +116,7 @@ axios.get('/api2/seller').then((response) => {
 
 ### 2.2 代码描述
 
-```javascript
+```js
 // 伪代码
 if (process.env.NODE_ENV === 'development') {
   router.set('/api/*', mockapi)
@@ -163,12 +163,12 @@ function mockapi(req, res, opts) {
 
 #### 3.2.1 Node下使用
 
-```javascript
+```js
 # 安装
 npm install mockjs
 ```
 
-```javascript
+```js
 // 使用 Mock
 var Mock = require('mockjs')
 var data = Mock.mock({
@@ -184,7 +184,7 @@ console.log(JSON.stringify(data, null, 4))
 
 #### 3.2.2 RequireJS (AMD)
 
-```javascript
+```js
 // 配置 Mock 路径
 require.config({
     paths: {
@@ -217,7 +217,7 @@ require(['mock'], function(Mock){
 
 - 数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值
 
-```javascript
+```js
 // 属性名   name
 // 生成规则 rule
 // 属性值   value
@@ -255,7 +255,7 @@ require(['mock'], function(Mock){
   - `'name|min-max.dmin-dmax': number`
     - 生成一个浮点数，整数部分大于等于` min`、小于等于 `max`，小数部分保留 `dmin` 到 `dmax` 位
     
-```javascript
+```js
 Mock.mock({
     'number1|1-100.1-10': 1,
     'number2|123.1-10': 1,
@@ -301,7 +301,7 @@ Mock.mock({
   - `'name': regexp`
     - 根据正则表达式 `regexp` 反向生成可以匹配它的字符串。用于生成自定义格式的字符串
     
-```javascript
+```js
 Mock.mock({
     'regexp1': /[a-z][A-Z][0-9]/,
     'regexp2': /\w\W\s\S\d\D/,
@@ -321,7 +321,7 @@ Mock.mock({
 
 - 占位符 的格式为
 
-```javascript
+```js
 @占位符
 @占位符(参数 [, 参数])
 ```
@@ -333,7 +333,7 @@ Mock.mock({
 - 占位符 会优先引用 数据模板 中的属性
 - 占位符 支持 相对路径 和 绝对路径
 
-```javascript
+```js
 Mock.mock({
     name: {
         first: '@FIRST',
@@ -364,7 +364,7 @@ Mock.mock({
 <script src="http://mockjs.com/dist/mock.js"></script>
 ```
 
-```javascript
+```js
 // Mock.mock( template )
 var template = {
     'title': 'Syntax Demo',
@@ -409,7 +409,7 @@ $('<pre>').text(JSON.stringify(data, null, 4))
     .appendTo('body')
 ```
 
-```javascript
+```js
 //res
 {
     "title": "Syntax Demo",
@@ -454,7 +454,7 @@ $('<pre>').text(JSON.stringify(data, null, 4))
 <!-- （必选）加载 Mock -->
 <script src="http://mockjs.com/dist/mock.js"></script>
 ```
-```javascript
+```js
 // Mock.mock(rurl, template)
 Mock.mock(/\.json/, {
     'list|1-10': [{
@@ -471,7 +471,7 @@ $.ajax({
 })
 ```
 
-```javascript
+```js
 {
     "list": [
         {
@@ -498,7 +498,7 @@ $.ajax({
 
 - 记录用于生成响应数据的函数。当拦截到匹配 `rurl` 的 `Ajax` 请求时，函数 `function(options) `将被执行，并把执行结果作为响应数据返回
 
-```javascript
+```js
 // Mock.mock(rurl, function(options))
 Mock.mock(/\.json/, function(options) {
     return options
@@ -538,7 +538,7 @@ $.ajax({
 
 ```
 
-```javascript
+```js
 {
     "url": "hello.json?foo=1&bar=2&faz=3",
     "type": "GET",
@@ -563,7 +563,7 @@ $.ajax({
   
 > 指定被拦截的 `Ajax` 请求的响应时间，单位是毫秒。值可以是正整数，例如 `400`，表示 `400` 毫秒 后才会返回响应内容；也可以是横杠 `'-'` 风格的字符串，例如 `'200-600'`，表示响应时间介于 `200` 和 `600` 毫秒之间。默认值是`'10-100'`
 
-```javascript
+```js
 Mock.setup({
     timeout: 400
 })
@@ -579,7 +579,7 @@ Mock.setup({
 - `Mock.Random` 是一个工具类，用于生成各种随机数据
 - `Mock.Random `的方法在数据模板中称为『占位符』，书写格式为 `@`占位符(参数 [, 参数]) 
 
-```javascript
+```js
 var Random = Mock.Random
 Random.email()
 // => "n.clark@miller.io"
@@ -610,13 +610,13 @@ Mock.mock( { email: '@email' } )
 
 - 这里以` Webpack` 的前端工程为例
 
-```javascript
+```js
 cnpm install json-server mockjs --save
 ```
 
 - 在项目根目录新建 `mock `文件夹，新建 `mock/db.js` 作为 `mock` 数据源，`mock/server.js `作为 `mock` 服务，`mock/routes.js `重写路由表
 
-```javascript
+```js
 var Mock = require('mockjs');
 
 module.exports = {
@@ -639,7 +639,7 @@ module.exports = {
 
 - 这里我们利用 `mock.js` 生成 `mock` 数据，可以尽可能的还原真实数据，还可以减少数据构造的复杂度
 
-```javascript
+```js
 // routes.js
 module.exports = {
   "/comment/get.action": "/getComment",
@@ -647,7 +647,7 @@ module.exports = {
 }
 ```
 
-```javascript
+```js
 // server.js
 const jsonServer = require('json-server')
 const db = require('./db.js')
@@ -676,7 +676,7 @@ server.listen(port, () => {
 
 - 启动服务
 
-```javascript
+```js
 $ node mock/server.js
 ```
 
@@ -692,7 +692,7 @@ $ node mock/server.js
 > 通过 `Webpack` 配置 `proxy` 代理
 
 
-```javascript
+```js
 module.exports = {
   
   devServer: {  
@@ -712,7 +712,7 @@ module.exports = {
 
 - 接着在代码里进行 `ajax `请求就可以写成，这里以 `axios` 为例子
 
-```javascript
+```js
 function getComments () {
   axios.get('api/comment/get.action', {}).then((res) => {
     console.log(res.data)
@@ -724,11 +724,11 @@ function getComments () {
 
 > 我们希望更改 `mock `文件能和 `webpack` 热更新一样，所改即所得。这里我使用了 `nodemon`，利用 `gulp` 建立自动执行的任务。
 
-```javascript
+```js
 cnpm install gulp gulp-nodemon browser-sync --save
 ```
 
-```javascript
+```js
 // gulpfile.js 的代码如下
 onst path = require('path');
 const gulp = require('gulp');

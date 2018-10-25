@@ -27,7 +27,7 @@ canvas{
 }
 ```
 
-```javascript
+```js
 window.requestAnimFrame = ( function() {
 		return window.requestAnimationFrame ||
 					window.webkitRequestAnimationFrame ||

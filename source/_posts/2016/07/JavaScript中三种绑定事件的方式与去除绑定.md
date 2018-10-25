@@ -42,7 +42,7 @@ date: 2016-07-27 11:40:43
 </form>
 ```
 
-```javascript
+```js
 
 document.getElementsByTagName('select')[0].onclick= function (){
  	 alert('嘻嘻');
@@ -55,7 +55,7 @@ document.getElementsByName('email')[0].onblur=function (){
 }
 ```
 
-```javascript
+```js
 window.onload = function(){
 		var d = document.getElementById('school');
 		function fn1(){
@@ -75,7 +75,7 @@ window.onload = function(){
 
 - 绑定事件的第3种办法
 
-```javascript
+```js
 //错误写法1
 window.onload = function(){
 		var d = document.getElementById('school');
@@ -99,7 +99,7 @@ window.onload = function(){
 ```
 
  下面这种写法没有问题 但是给DOM树额外增加了两个变量
-```javascript
+```js
 
 window.onload = function(){
 		var d = document.getElementById('school');
@@ -122,7 +122,7 @@ window.onload = function(){
 
 不在使用`onclick`
 
-```javascript
+```js
 window.onload = function(){
 		var d = document.getElementById('school');
 		//达到了一次绑定两个函数
@@ -137,7 +137,7 @@ window.onload = function(){
 
 去除绑定 不能用匿名函数 匿名函数 当时产生 当时消失
 
-```javascript
+```js
 var fn1 = function () {alert('blue');this.style.background ='blue'};
 var fn2 = function () {alert('red');this.style.background ='red'};
 
@@ -169,7 +169,7 @@ function reme(){
 	<input type="button" value="减事件" onclick="reme();">
 ```
 
-```javascript
+```js
 var fn1 = function () {alert('blue');this.style.background ='blue'};
 var fn2 = function () {alert('red');this.style.background ='red'};
 

@@ -34,7 +34,7 @@ date: 2017-01-10 12:50:43
 
 - 举例1
 
-```javascript
+```js
 alert( a );
 var a = 10;
 alert( a );
@@ -60,7 +60,7 @@ alert( a );
 
 - 举例2
 
-```javascript
+```js
 a();
 var a = function(){alert( 1 );}
 a();
@@ -84,7 +84,7 @@ a();
 
 - 举例3
 
-```javascript
+```js
  var a = 0;
   function fn(){
            alert( a );
@@ -110,7 +110,7 @@ fn();
 
 - 举例4
 
-```javascript
+```js
 fn()();
 var a = 0;
 function fn(){
@@ -139,7 +139,7 @@ function fn(){
 
 - 举例5
 
-```javascript
+```js
 var a = 5;
 function fn(){
 	var a = 10;
@@ -176,7 +176,7 @@ c();
 
 - 举例6
 
-```javascript
+```js
 //alert(x);//9:执行弹出x,结果x没定义,错误.
 alert(i);//9:执行弹出i,然而i之前已经定义,只不过没地址,因此是undefiend
 var i = 10;//1:var i;    10:把常量池中10的地址赋给栈中的i
@@ -194,7 +194,7 @@ function m(){//8:function m;
 
 - 举例7
 
-```javascript
+```js
 function m(){
     c = 50;//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c
     alert('哈哈哈');
@@ -210,7 +210,7 @@ alert(c);//20
 
 - 举例8
 
-```javascript
+```js
 function m(){
     c = 50;//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c
     alert('哈哈哈');
@@ -249,7 +249,7 @@ alert(c);//30
         <li>04</li>
 </ul>
 ```
-```javascript
+```js
  var liDoms = document.getElementById("list").getElementsByTagName("li");
         for(var i=0;i<liDoms.length;i++){
             (function(a){
@@ -260,7 +260,7 @@ alert(c);//30
         }
 ```
 
-```javascript
+```js
 //函数也是一种数据类型 它和 number string boolean object 特殊在可以打括号去执行它
 
         //函数中的循环

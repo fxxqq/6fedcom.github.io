@@ -33,7 +33,7 @@ date: 2018-08-26 13:12:32
 <span id="uName">
 ```
 
-```javascript
+```js
 var obj = {}
 
 object.defineProerty(obj,"userName",{

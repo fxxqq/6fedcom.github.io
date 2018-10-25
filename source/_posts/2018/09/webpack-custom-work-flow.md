@@ -35,7 +35,7 @@ webpack --help
 
 > 入口可以使用 `entry `字段来进行配置，`webpack` 支持配置多个入口来进行构建
 
-```javascript
+```js
 module.exports = {
   entry: './src/index.js' 
 }
@@ -74,7 +74,7 @@ module.exports = {
 
 - 当我们需要使用不同的 `loader` 来解析处理不同类型的文件时，我们可以在 `module.rules` 字段下来配置相关的规则，例如使用 `Babel` 来处理 `.js` 文件
 
-```javascript
+```js
 module: {
   // ...
   rules: [
@@ -94,7 +94,7 @@ module: {
 > 模块代码转换的工作由 `loader` 来处理，除此之外的其他任何工作都可以交由 `plugin` 来完成。通过添加我们需要的 `plugin`，可以满足更多构建中特殊的需求。例如，要使用压缩 `JS `代码的 `uglifyjs-webpack-plugin` 插件，只需在配置中通过 `plugins `字段添加新的 `plugin `即可...
 
 
-```javascript
+```js
 const UglifyPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
@@ -110,7 +110,7 @@ module.exports = {
 
 > 构建结果的文件名、路径等都是可以配置的，使用 `output `字段
 
-```javascript
+```js
 module.exports = {
   // ...
   output: {
@@ -147,7 +147,7 @@ module.exports = {
 
 > 我们把上述涉及的几部分配置内容合到一起，就可以创建一个简单的 `webpack` 配置了，`webpack` 运行时默认读取项目下的 `webpack.config.js` 文件作为配置。所以我们在项目中创建一个 `webpack.config.js` 文件
 
-```javascript
+```js
 const path = require('path')
 const UglifyPlugin = require('uglifyjs-webpack-plugin')
 
@@ -210,7 +210,7 @@ npm install html-webpack-plugin -D
 
 > 然后在 `webpack `配置中，将 `html-webpack-plugin` 添加到 `plugins` 列表中
 
-```javascript
+```js
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -223,7 +223,7 @@ module.exports = {
 
 > 这样配置好之后，构建时 `html-webpack-plugin` 会为我们创建一个 `HTML` 文件，其中会引用构建出来的 JS 文件。实际项目中，默认创建的 `HTML` 文件并没有什么用，我们需要自己来写 `HTML` 文件，可以通过 `html-webpack-plugin` 的配置，传递一个写好的 HTML 模板...
 
-```javascript
+```js
 module.exports = {
   // ...
   plugins: [
@@ -241,7 +241,7 @@ module.exports = {
 
 > 我们编写 `CSS`，并且希望使用 `webpack` 来进行构建，为此，需要在配置中引入 `loader` 来解析和处理 `CSS` 文件
 
-```javascript
+```js
 module.exports = {
   module: {
     rules: [
@@ -266,7 +266,7 @@ module.exports = {
 
 > 经由上述两个 `loader` 的处理后，CSS 代码会转变为 JS，和 `index.js `一起打包了。如果需要单独把 CSS 文件分离出来，我们需要使用 `extract-text-webpack-plugin` 插件
 
-```javascript
+```js
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
@@ -294,7 +294,7 @@ module.exports = {
 
 > 在上述使用 CSS 的基础上，通常我们会使用 `Less/Sass` 等 CSS 预处理器，webpack 可以通过添加对应的 `loader` 来支持，以使用 `Less` 为例，我们可以在官方文档中找到对应的 `loader`
 
-```javascript
+```js
 module.exports = {
   // ...
   module: {
@@ -322,7 +322,7 @@ module.exports = {
 
 - `file-loader` 可以用于处理很多类型的文件，它的主要作用是直接输出文件，把构建后的文件路径返回。配置很简单，在 `rules`中添加一个字段，增加图片类型文件的解析配置
 
-```javascript
+```js
 module.exports = {
   // ...
   module: {
@@ -345,7 +345,7 @@ module.exports = {
 
 > `Babel` 是一个让我们能够使用 `ES` 新特性的 `JS` 编译工具，我们可以在 `webpack` 中配置 Babel，以便使用 `ES6`、`ES7` 标准来编写 `JS `代码
 
-```javascript
+```js
 module.exports = {
   // ...
   module: {
@@ -367,7 +367,7 @@ module.exports = {
 > 至此，我们完成了处理多种文件类型的 webpack 配置。我们可以使用 `webpack-dev-server` 在本地开启一个简单的静态服务来进行开发
 
 
-```javascript
+```js
 "scripts": {
   "build": "webpack --mode production",
   "start": "webpack-dev-server --mode development"
@@ -378,7 +378,7 @@ module.exports = {
 
 ## 2.7 完整示例代码
 
-```javascript
+```js
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -463,7 +463,7 @@ module.exports = {
 
 > 假设我们有个 `utils` 模块极其常用，经常编写相对路径很麻烦，希望可以直接 `import 'utils'` 来引用，那么我们可以配置某个模块的别名，如
 
-```javascript
+```js
 alias: {
   utils: path.resolve(__dirname, 'src/utils') // 这里使用 path.resolve 和 __dirname 来获取绝对路径
 }
@@ -477,7 +477,7 @@ import 'utils/query.js' // 等同于 import '[项目绝对路径]/src/utils/quer
 
 > 如果需要进行精确匹配可以使用：
 
-```javascript
+```js
 alias: {
   utils$: path.resolve(__dirname, 'src/utils') // 只会匹配 import 'utils'
 }
@@ -485,7 +485,7 @@ alias: {
 
 **resolve.extensions**
 
-```javascript
+```js
 extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],
 // 这里的顺序代表匹配后缀的优先级，例如对于 index.js 和 index.jsx，会优先选择 index.js
 ```
@@ -499,7 +499,7 @@ extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],
 
 > 当我们需要配置 `loader` 时，都是在 `module.rules` 中添加新的配置项，在该字段中，每一项被视为一条匹配使用 `loader `的规则
 
-```javascript
+```js
 module.exports = {
   // ...
   module: {
@@ -538,7 +538,7 @@ module.exports = {
 - 数组：至少包含一个条件的数组
 - 对象：匹配所有属性值的条件...
 
-```javascript
+```js
 rules: [
   {
     test: /\.jsx?/, // 正则
@@ -563,7 +563,7 @@ rules: [
 
 > `module.rules` 的匹配规则最重要的还是用于配置 `loader`，我们可以使用 `use` 字段
 
-```javascript
+```js
 rules: [
   {
     test: /\.less/,
@@ -595,7 +595,7 @@ rules: [
 - `loader` 的应用顺序在配置多个 `loader` 一起工作时很重要，通常会使用在 CSS 配置上，除了 `style-loader` 和 `css-loader`，你可能还要配置 `less-loader `然后再加个 `postcss` 的 `autoprefixer` 等。
 - 上述从后到前的顺序是在同一个 `rule` 中进行的，那如果多个 `rule` 匹配了同一个模块文件，`loader` 的应用顺序又是怎样的呢？看一份这样的配置...
 
-```javascript
+```js
 rules: [
   {
     test: /\.js$/,
@@ -615,7 +615,7 @@ rules: [
 
 - 所有的 `loader` **按照前置** -> **行**内 -> **普通** -> **后置**的顺序执行。所以当我们要确保 `eslint-loader` 在 `babel-loader` 之前执行时，可以如下添加 `enforce` 配置
 
-```javascript
+```js
 rules: [
   {
     enforce: 'pre', // 指定为前置类型
@@ -630,7 +630,7 @@ rules: [
 
 ## 4.5 完整代码
 
-```javascript
+```js
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -743,7 +743,7 @@ module.exports = {
 
 - 这个插件用于创建一些在编译时可以配置的全局常量，这些常量的值我们可以在 `webpack` 的配置中去指定，例如
 
-```javascript
+```js
 module.exports = {
   // ...
   plugins: [
@@ -762,7 +762,7 @@ module.exports = {
 
 > 有了上面的配置，就可以在应用代码文件中，访问配置好的变量了，如：
 
-```javascript
+```js
 console.log("Running App version " + VERSION);
 
 if(!BROWSER_SUPPORTS_HTML5) require("html5shiv");
@@ -783,7 +783,7 @@ if(!BROWSER_SUPPORTS_HTML5) require("html5shiv");
 
 > 我们一般会把开发的所有源码和资源文件放在 `src/` 目录下，构建的时候产出一个 `build/` 目录，通常会直接拿 `build` 中的所有文件来发布。有些文件没经过 `webpack` 处理，但是我们希望它们也能出现在 `build` 目录下，这时就可以使用 `CopyWebpackPlugin` 来处理了...
 
-```javascript
+```js
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
@@ -802,7 +802,7 @@ module.exports = {
 
 > 我们用它来把依赖的 `CSS` 分离出来成为单独的文件。这里再看一下使用 `extract-text-webpack-plugin` 的配置
 
-```javascript
+```js
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
@@ -828,7 +828,7 @@ module.exports = {
 
 > 在上述的配置中，我们使用了 `index.css` 作为单独分离出来的文件名，但有的时候构建入口不止一个，`extract-text-webpack-plugin` 会为每一个入口创建单独分离的文件，因此最好这样配置
 
-```javascript
+```js
 // 这样确保在使用多个构建入口时，生成不同名称的文件
 plugins: [
   new ExtractTextPlugin('[name].css'),
@@ -853,7 +853,7 @@ webpack-dev-server --mode development
 
 > `package` 中的 `scripts` 配置：
 
-```javascript
+```js
 {
   // ...
   "scripts": {
@@ -875,7 +875,7 @@ webpack-dev-server --mode development
 
 - `proxy `用于配置 `webpack-dev-server `将特定 `URL` 的请求代理到另外一台服务器上。当你有单独的后端开发服务器用于请求 API 时，这个配置相当有用。例如
 
-```javascript
+```js
 proxy: {
   '/api': {
     target: "http://localhost:3000", // 将 URL 中带有 /api 的请求代理到本地的 3000 端口的服务上
@@ -886,7 +886,7 @@ proxy: {
 
 - `before` 和 `after` 配置用于在 `webpack-dev-server` 定义额外的中间件，如
 
-```javascript
+```js
 before(app){
   app.get('/some/path', function(req, res) { // 当访问 /some/path 路径时，返回自定义的 json 数据
     res.json({ custom: 'response' })
@@ -908,7 +908,7 @@ before(app){
 
 > 之前我们的配置文件都是直接对外暴露一个 `JS` 对象，这种方式暂时没有办法获取到 `webpack` 的 `mode` 参数，我们需要更换一种方式来处理配置。根据官方的文档多种配置类型，配置文件可以对外暴露一个函数，因此我们可以这样做
 
-```javascript
+```js
 module.exports = (env, argv) => ({
   // ... 其他配置
   optimization: {
@@ -929,7 +929,7 @@ module.exports = (env, argv) => ({
 
 > `webpack` 的运行时环境是` Node.js`，我们可以通过 `Node.js `提供的机制给要运行的 `webpack` 程序传递环境变量，来控制不同环境下的构建行为。例如，我们在 `npm` 中的 `scripts` 字段添加一个用于生产环境的构建命令...
 
-```javascript
+```js
 {
   "scripts": {
     "build": "NODE_ENV=production webpack",
@@ -940,7 +940,7 @@ module.exports = (env, argv) => ({
 
 > 然后在 `webpack.config.js` 文件中可以通过 `process.env.NODE_ENV` 来获取命令传入的环境变量
 
-```javascript
+```js
 const config = {
   // ... webpack 配置
 }
@@ -959,7 +959,7 @@ module.exports = config...
 
 - 下面这个简单的例子，在应用开发的代码中实现一个简单的 `console `打印封装
 
-```javascript
+```js
 export default function log(...args) {
   if (process.env.NODE_ENV === 'development' && console && console.log) {
     console.log.apply(console, args)
@@ -970,7 +970,7 @@ export default function log(...args) {
 
 > 同样，以上是 `webpack 4.x` 的做法，下面简单介绍一下 `3.x` 版本应该如何实现。这里需要用到 `DefinePlugin` 插件，它可以帮助我们在构建时给运行时定义变量，那么我们只要在前面 `webpack 3.x` 版本区分构建环境的例子的基础上，再使用 `DefinePlugin` 添加环境变量即可影响到运行时的代码...
 
-```javascript
+```js
 module.exports = {
   // ...
   // webpack 的配置
@@ -1013,7 +1013,7 @@ module.exports = {
 
 > 首先我们要明白，对于 `webpack` 的配置，其实是对外暴露一个 `JS` 对象，所以对于这个对象，我们都可以用 `JS` 代码来修改它，例如
 
-```javascript
+```js
 const config = {
   // ... webpack 配置
 }
@@ -1028,7 +1028,7 @@ module.exports = config;...
 
 - 我们的 webpack 配置基础部分，即 `webpack.base.js` 应该大致是这样的
 
-```javascript
+```js
 module.exports = {
   entry: '...',
   output: {
@@ -1055,7 +1055,7 @@ module.exports = {
 
 > 然后 `webpack.development.js` 需要添加 `loader` 或 `plugin`，就可以使用 `webpack-merge `的 `API`，例如
 
-```javascript
+```js
 const { smart } = require('webpack-merge')
 const webpack = require('webpack')
 const base = require('./webpack.base.js')
@@ -1089,7 +1089,7 @@ module.exports = smart(base, {
 
 > `webpack.config.js`
 
-```javascript
+```js
 module.exports = function(env, argv) {
   return argv.mode === 'production' ?
     require('./configs/webpack.production') :
@@ -1099,7 +1099,7 @@ module.exports = function(env, argv) {
 
 > `configs/webpack.base.js`
 
-```javascript
+```js
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -1142,7 +1142,7 @@ module.exports = {
 
 > `configs/webpack.development.js`
 
-```javascript
+```js
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base')
@@ -1188,7 +1188,7 @@ module.exports = config
 
 > `configs/webpack.production.js`
 
-```javascript
+```js
 const merge = require('webpack-merge')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const baseConfig = require('./webpack.base')
@@ -1229,7 +1229,7 @@ module.exports = config
 
 > `HMR` 是 `webpack` 提供的非常有用的一个功能，跟我们之前提到的一样，安装好 `webpack-dev-server`， 添加一些简单的配置，即在` webpack` 的配置文件中添加启用` HMR `需要的两个插件
 
-```javascript
+```js
 const webpack = require('webpack')
 
 module.exports = {
@@ -1252,7 +1252,7 @@ module.exports = {
 
 - `module.hot.accept` 方法指定在应用特定代码模块更新时执行相应的 `callback`，第一个参数可以是字符串或者数组，如
 
-```javascript
+```js
 if (module.hot) {
   module.hot.accept(['./bar.js', './index.css'], () => {
     // ... 这样当 bar.js 或者 index.css 更新时都会执行该函数
@@ -1263,7 +1263,7 @@ if (module.hot) {
 - `module.hot.decline` 对于指定的代码模块，拒绝进行模块代码的更新，进入更新失败状态，如 `module.hot.decline('./bar.js')`。这个方法比较少用到
 - `module.hot.dispose` 用于添加一个处理函数，在当前模块代码被替换时运行该函数，例如
 
-```javascript
+```js
 if (module.hot) {
   module.hot.dispose((data) => {
     // data 用于传递数据，如果有需要传递的数据可以挂在 data 对象上，然后在模块代码更新后可以通过 module.hot.data 来获取
@@ -1281,7 +1281,7 @@ if (module.hot) {
 - 如果你使用的 `webpack 3.x` 版本，需要 `CSS Sprites` 的话，可以使用 `webpack-spritesmith` 或者 `sprite-webpack-plugin`。
 - 我们以 `webpack-spritesmith` 为例，先安装依赖...
 
-```javascript
+```js
 module: {
   loaders: [
     // ... 这里需要有处理图片的 loader，如 file-loader
@@ -1330,7 +1330,7 @@ plugins: [
 - 在一般的项目中，图片资源会占前端资源的很大一部分，既然代码都进行压缩了，占大头的图片就更不用说了
 - 我们之前提及使用` file-loader` 来处理图片文件，在此基础上，我们再添加一个 `image-webpack-loader`来压缩图片文件。简单的配置如下...
 
-```javascript
+```js
 module.exports = {
   // ...
   module: {
@@ -1376,7 +1376,7 @@ module.exports = {
 
 - `url-loader` 和 `file-loader` 的功能类似，但是在处理文件的时候，可以通过配置指定一个大小，当文件小于这个配置值时，`url-loader` 会将其转换为一个 `base64` 编码的 `DataURL`，配置如下
 
-```javascript
+```js
 module.exports = {
   // ...
   module: {
@@ -1403,7 +1403,7 @@ module.exports = {
 - 除了 JS 代码之外，我们一般还需要 HTML 和 CSS 文件，这两种文件也都是可以压缩的，虽然不像 JS 的压缩那么彻底（替换掉长变量等），只能移除空格换行等无用字符，但也能在一定程度上减小文件大小。在 webpack 中的配置使用也不是特别麻烦，所以我们通常也会使用。
 - 对于 HTML 文件，之前介绍的 `html-webpack-plugin` 插件可以帮助我们生成需要的 HTML 并对其进行压缩...
 
-```javascript
+```js
 module.exports = {
   // ...
   plugins: [
@@ -1422,7 +1422,7 @@ module.exports = {
 - 如上，使用 `minify` 字段配置就可以使用 `HTML` 压缩，这个插件是使用 `html-minifier` 来实现` HTML` 代码压缩的，`minify `下的配置项直接透传给 `html-minifier`，配置项参考 `html-minifier` 文档即可。
 - 对于 CSS 文件，我们之前介绍过用来处理 CSS 文件的 `css-loader`，也提供了压缩 CSS 代码的功能：...
 
-```javascript
+```js
 module.exports = {
   module: {
     rules: [
@@ -1461,7 +1461,7 @@ module.exports = {
 
 ## 10.1 webpack 4.x 的 optimization
 
-```javascript
+```js
 module.exports = {
   // ... webpack 配置
 
@@ -1484,7 +1484,7 @@ module.exports = {
 
 **显式配置共享类库可以这么操作**
 
-```javascript
+```js
 module.exports = {
   entry: {
     vendor: ["react", "lodash", "angular", ...], // 指定公共使用的第三方类库
@@ -1543,7 +1543,7 @@ module.exports = {
 
 > `webpack 3.x `以下的版本需要用到 webpack 自身提供的 `CommonsChunkPlugin` 插件。我们先来看一个最简单的例子
 
-```javascript
+```js
 module.exports = {
   // ...
   plugins: [
@@ -1561,7 +1561,7 @@ module.exports = {
 
 **CommonsChunkPlugin 也是支持显式配置共享类库的**
 
-```javascript
+```js
 module.exports = {
   entry: {
     vendor: ['react', 'react-redux'], // 指定公共使用的第三方类库
@@ -1583,7 +1583,7 @@ module.exports = {
 
 > `minChunks `其实还可以是一个函数，如：
 
-```javascript
+```js
 minChunks: (module, count) => {
   console.log(module, count);
   return true;
@@ -1592,7 +1592,7 @@ minChunks: (module, count) => {
 
 > 该函数在分析每一个依赖的时候会被调用，传入当前依赖模块的信息 `module`，以及已经被作为公共模块的数量 `count`，你可以在函数中针对每一个模块做更加精细化的控制。看一个简单的例子：
 
-```javascript
+```js
 minChunks: (module, count) => {
   return module.context && module.context.includes("node_modules"); 
   // node_modules 目录下的模块都作为公共部分，效果就如同 webpack 4.x 中的 test: path.resolve(__dirname, "node_modules")
@@ -1609,7 +1609,7 @@ minChunks: (module, count) => {
 
 > 在 webpack 的构建环境中，要按需加载代码模块很简单，遵循 ES 标准的动态加载语法 `dynamic-import` 来编写代码即可，`webpack` 会自动处理使用该语法编写的模块
 
-```javascript
+```js
 // import 作为一个方法使用，传入模块名即可，返回一个 promise 来获取模块暴露的对象
 // 注释 webpackChunkName: "lodash" 可以用于指定 chunk 的名称，在输出文件时有用
 import(/* webpackChunkName: "lodash" */ 'lodash').then((_) => { 
@@ -1622,7 +1622,7 @@ import(/* webpackChunkName: "lodash" */ 'lodash').then((_) => {
 - 如上的代码，webpack 构建时会自动把 `lodash` 模块分离出来，并且在代码内部实现动态加载 `lodash` 的功能。动态加载代码时依赖于网络，其模块内容会异步返回，所以 import 方法是返回一个 `promise` 来获取动态加载的模块内容。
 - `import` 后面的注释 `webpackChunkName: "lodash"` 用于告知 `webpack `所要动态加载模块的名称。我们在 webpack 配置中添加一个 `output.chunkFilename` 的配置...
 
-```javascript
+```js
 output: {
   path: path.resolve(__dirname, 'dist'),
   filename: '[name].[hash:8].js',
@@ -1639,7 +1639,7 @@ output: {
 
 ## 11.2 以上完整示例代码
 
-```javascript
+```js
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')

@@ -569,13 +569,13 @@ border-bottom-left-radius: 1em 3em;
 ![过渡完成事件](http://upload-images.jianshu.io/upload_images/1480597-f8a2291a249961ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - `Webkit`内核： 
-```javascript
+```js
 obj.addEventListener('webkitTransitionEnd',function(){})
 ```
 
 - 标准: 
 
-```javascript
+```js
 obj.addEventListener('transitionend',function(){})
 ```
 	
@@ -1034,7 +1034,7 @@ Graphics/SVG/1.1/DTD/svg11.dtd">
 <button id="btn">请求位置信息</button>
 <div id="box"></div>
 ```
-```javascript
+```js
 var btn = document.getElementById("btn");
 var box = document.getElementById("box");
 		
@@ -1062,7 +1062,7 @@ btn.onclick = function(){
 
 - **examp02 **
 
-```javascript
+```js
 var btn = document.getElementById("btn");
 var box = document.getElementById("box");
 		
@@ -1102,7 +1102,7 @@ btn.onclick = function(){
 src="http://webapi.amap.com/maps?v=1.3&key=278b7b8b4728ba302b7e566fc2a97b36">
 </script>
 ```
-```javascript
+```js
 var map = new AMap.Map('container');
 ```
 
@@ -1154,7 +1154,7 @@ input{
 src="http://webapi.amap.com/maps?v=1.3&key=278b7b8b4728ba302b7e566fc2a97b36">
 </script>
 ```
-```javascript
+```js
 var btn = document.getElementById("btn");
 var city = document.getElementById("city");
 var map = new AMap.Map('container');
@@ -1265,7 +1265,7 @@ btn.onclick = function(){
       - `async =“async”`: 异步加载，加载完就触发，有顺序问题
     - 浏览器兼容性：`Labjs`库
 
-```javascript
+```js
 /**
 * 动态加载script文件 （推荐方法） 只需请求一次 可加载多个JavaScript文件，减少请求次数以及页面的加载阻塞
 */
@@ -1380,7 +1380,7 @@ loadScript("js/async.js",function(){
 	margin: 50px auto;
 }
 ```
-```javascript
+```js
 //被拖拽元素事件
 drap.ondragstart = function(ev){ // 拖拽前
 	var ev = ev || window.event;
@@ -1470,7 +1470,7 @@ img{
 }
 ```
 
-```javascript
+```js
 var box = document.getElementById("box");
 var dusTbin = document.getElementById("dustbin");
 var span = box.getElementsByTagName("span")[0];
@@ -1579,7 +1579,7 @@ ul li{
   font-weight:bold;
 }
 ```
-```javascript
+```js
 var oUl = document.getElementById("box");
 var oLi = oUl.getElementsByTagName("li");
 var curr = 0;

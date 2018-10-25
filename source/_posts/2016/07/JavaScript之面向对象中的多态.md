@@ -9,7 +9,7 @@ date: 2016-07-27 11:40:43
 - 多态:同一个父类继承出来的子类各有各的形态
 <!--more-->
 
-```javascript
+```js
 function Cat(){
 	this.eat = '肉';
 }

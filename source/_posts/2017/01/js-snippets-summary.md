@@ -11,7 +11,7 @@ date: 2017-01-14 08:20:43
 #### 一、JS动画与动作不一致解决:  
 ---
 
-```javascript
+```js
 if(!$( "#handle").is(":animated")){
 	//判断元素是否处于动画状态
 }
@@ -21,7 +21,7 @@ if(!$( "#handle").is(":animated")){
 #### 二、停止事件冒泡
 ---
 
-```javascript
+```js
 event.stopPropagation();
 - 禁止JS报错
 	window.onerror = function(){
@@ -38,7 +38,7 @@ try {
 #### 三、查看JS对象属性
 ---
 
-```javascript
+```js
 	var res = '' ; 
 var obj = eval( obj );
 	for( var p in eval( obj ) ){
@@ -51,7 +51,7 @@ var obj = eval( obj );
 #### 四、页面刷新时禁用提交按钮
 ---
 
-```javascript
+```js
 	window.onbeforeunload = function(){
 		$(':submit').attr('disabled',true);
 	}
@@ -61,7 +61,7 @@ var obj = eval( obj );
 #### 五、获取事件
 ---
 
-```javascript
+```js
 var getEvent = function(){
 	var ieEvent = window.event ; 
 	var ffEvent = arguments.callee.caller.arguments[0] ; 
@@ -75,7 +75,7 @@ var getEvent = function(){
 
 - 获取鼠标距离浏览器顶部 左侧的实际距离 兼容IE
 
-```javascript
+```js
 function getXY(ev){
 	var ev = ev || window.event;
 	var xx  = 0;
@@ -104,7 +104,7 @@ function getXY(ev){
 #### 六、获取键盘码
 ---
 
-```javascript
+```js
 var getKCode = function(){
 		var ieEvent = window.event ; 
 		var ffEvent = arguments.callee.caller.arguments[0] ; 
@@ -117,7 +117,7 @@ var getKCode = function(){
 #### 七、 鼠标滑入/滑出样式切换
 ---
 
-```javascript
+```js
 $("div").on("mouseover mouseout", function(){
     $(this).toggleClass("over");
  });
@@ -126,7 +126,7 @@ $("div").on("mouseover mouseout", function(){
 #### 八、点击鼠标,显示/隐藏切换
 ---
 
-```javascript
+```js
 $("#panel h5.head").toggle(function(){
 	$(this).toggleClass("highlight");
 	$(this).next().toggle();
@@ -139,7 +139,7 @@ $("#panel h5.head").toggle(function(){
 #### 九、JS 调试
 ---
 
-```javascript
+```js
 console.log() ;			//打印变量
 console.dir() ; 		//打印对象
 console.dirxml() ; 		//打印节点
@@ -150,7 +150,7 @@ window.document.title = str;
 ####  十、为子元素集合绑定事件
 ---
 
-```javascript
+```js
 $("div").delegate("button","click",function(){
 	$("p").slideToggle();
 });
@@ -168,7 +168,7 @@ $("div").delegate("button","click",function(){
 #### 十二、注册事件
 ---
 
-```javascript
+```js
 // 标准浏览器
 form1.addEventListener('submit', function(e){
     e.preventDefault();		//阻止浏览器默认动作
@@ -176,7 +176,7 @@ form1.addEventListener('submit', function(e){
 });
 ```
 
-```javascript
+```js
 // IE8及更早版本IE浏览器
 form1.attachEvent('submit', function(){
 	event.cancelBubble = true; //阻止浏览器默认动作--IE8及更早版本IE浏览器

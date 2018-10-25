@@ -36,7 +36,7 @@ cd projectName && npm i
 
 生成的目录结构
 
-```javascript
+```js
 ├── sign rpk //包签名模块
 │ └── debug //调试环境
 │ ├── certificate.pem //证书文件
@@ -198,7 +198,7 @@ npm run server
 > https://doc.quickapp.cn/framework/manifest.html
 
 
-```javascript
+```js
 {
     # 包名，区分不同应用的唯一id，因为名称其实是可以一样的
     "package": "com.application.demo",
@@ -501,7 +501,7 @@ import system from "@system"
 
 > 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
 
-```javascript
+```js
  export default {
     props: ['title', 'dataList'],  // 传入属性：必须字母开头，全小写、数字和 `-` ，不能保留字和函数，不能以符号开头
     public: {
@@ -552,7 +552,7 @@ import system from "@system"
 |`required` |`Boolean`|	设置属性是否必填|
 `validator `|	`Function`|	设置自定义验证函数。若函数的返回值为真，则通过验证；否则验证失败|
 
-```javascript
+```js
 export default {
     props: {
       // 单一类型检查的简写
@@ -878,7 +878,7 @@ export default {
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-7761414ce847115c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-```javascript
+```js
 import {
   natives
 } from './util/asyncNatives'
@@ -905,7 +905,7 @@ export default {
 - 在`app.ux`中，开发者可以做一些独立于页面的操作。比如：引入公共的JS资源，然后暴露给所有页面
 - 在`app.ux`中，通过`this.$def`访问`app.ux`中定义的数据和方法
 
-```javascript
+```js
 console.info(`获取：APP文件中的数据：${this.$def.data1.name}`)
 console.info(`执行：APP文件中的方法`, this.$def.method1())
 console.info(`获取：manifest.json的应用名称：${this.$def.manifest.name}`)
@@ -914,7 +914,7 @@ console.info(`获取：manifest.json的config.data的数据：${this.$data.name}
 
 > 在`pageName.ux`中，通过`this.$app.$def`访问`app.ux`中定义的数据和方法
 
-```javascript
+```js
 console.info(`获取：APP文件中的数据：${this.$app.$def.data1.name}`)
 console.info(`执行：APP文件中的方法`, this.$app.$def.method1())
 console.info(`获取：manifest.json的应用名称：${this.$app.$def.manifest.name}`)
@@ -936,7 +936,7 @@ console.info(`获取：manifest.json的config.data的数据：${this.$app.$data.
 
 > 表示ViewModel的数据已经准备好，可以开始使用页面中的数据
 
-```javascript
+```js
 private: {
   // 生命周期的文本列表
   lcList: []
@@ -959,7 +959,7 @@ onInit () {
 
 > 表示ViewModel的模板已经编译完成，可以开始获取DOM节点（如：this.$element(idxxx)
 
-```javascript
+```js
 onReady () {
   this.lcList.push('onReady')
 
@@ -974,7 +974,7 @@ onReady () {
 
 - 判断页面的显示状态，可以调用`ViewModel`的`$visible`属性：`true`表示显示，`false`表示隐藏
 
-```javascript
+```js
 onShow () {
   this.lcList.push('onShow')
 
@@ -995,7 +995,7 @@ onHide () {
 
 - 所以，页面销毁时应该做一些释放资源的操作，如：取消接口订阅监听`geolocation.unsubscribe()`
 
-```javascript
+```js
 onDestroy () {
   console.info(`触发：onDestroy`)
   console.info(`执行：页面要被销毁，销毁状态：${this.$valid}，应该做取消接口订阅监听的操作: geolocation.unsubscribe()`)    // true，即将销毁
@@ -1011,7 +1011,7 @@ onDestroy () {
 
 - 如果事件响应方法最后返回true表示不返回，自己处理业务逻辑（完毕后开发者自行调用API返回）；否则：不返回数据，或者返回其它数据：表示遵循系统逻辑：返回到上一页
 
-```javascript
+```js
 onBackPress () {
   console.info(`触发：onBackPress`)
 
@@ -1027,7 +1027,7 @@ onBackPress () {
 
 > 当使用原生的顶部标题栏时，可以通过manifest.json中的menu属性配置是否显示右上角的菜单
 
-```javascript
+```js
 onMenuPress () {
   this.lcList.push('onMenuPress')
 
@@ -1059,7 +1059,7 @@ onMenuPress () {
 > `this.$page.setTitleBar` 参数属性包括
 
 
-```javascript
+```js
 {
   text: 'Hello QuickApp',        //标题栏文字
   textColor: '#ffff',            //文字颜色
@@ -1163,7 +1163,7 @@ import router from '@system.router'
 
 > 通过 `router` 接口：`router.push()`, `router.replace()`, 接受一个如下结构的对象，用法这个和前端 `router` 一致。
 
-```javascript
+```js
 {
   url: '/src/home/index.html',
   params: { key: 2333 /* 需要传递的参数 */ }
@@ -1174,7 +1174,7 @@ import router from '@system.router'
 
 > 上述2种传递参数的方法，其接收方法一致，在接收参数页面的 `protected `对象中获取即可（可设置默认值）
 
-```javascript
+```js
  export default {
     protected: {
       key: ''
@@ -1322,7 +1322,7 @@ import router from '@system.router'
 
 > 配合`<web>`标签框架支持通过链接从外部打开应用，格式
 
-```javascript
+```js
 http://hapjs.org/app/<package>/[path][?key=value]
 https://hapjs.org/app/<package>/[path][?key=value]
 hap://app/<package>/[path][?key=value]
@@ -1347,7 +1347,7 @@ hap://app/<package>/[path][?key=value]
 
 > 在当前页面注册监听事件， 可监听`$emit()`、 `$dispatch()`、 `$broadcast()`等触发的自定义事件，不能用于注册组件节点的事件响应
 
-```javascript
+```js
 export default {
     onInit(){
       this.$on('customEvtType1', this.customEvtType1Handler)
@@ -1363,7 +1363,7 @@ export default {
 
 > 移除事件监听，参数 fnHandler 为可选，传递仅移除指定的响应函数，不传递则移除此事件的所有监听
 
-```javascript
+```js
 export default {
     removeEventHandler () {
       // 不传递fnHandler：移除所有监听
@@ -1383,7 +1383,7 @@ export default {
 - 触发当前实例监听事件函数，与 `$on()` 配合使用
 - 注意：`$emit()` 目前只触发 `$on` 所监听的事件
 
-```javascript
+```js
 export default {
     emitEvent () {
       this.$emit('customEvtType1', { params: '参数内容' })

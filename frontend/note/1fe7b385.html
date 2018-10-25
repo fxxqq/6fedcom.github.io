@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="多态:同一个父类继承出来的子类各有各的形态">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T03:46:01.722Z">
+<meta property="og:updated_time" content="2018-10-25T09:40:14.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript之面向对象中的多态">
 <meta name="twitter:description" content="多态:同一个父类继承出来的子类各有各的形态">
@@ -188,7 +188,7 @@
 <li>多态:同一个父类继承出来的子类各有各的形态<a id="more"></a>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.eat = <span class="string">'肉'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Tiger</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color = <span class="string">'黑黄相间'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cheetah</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color = <span class="string">'报文'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Lion</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color = <span class="string">'土黄色'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Tiger.prototype =  Cheetah.prototype = Lion.prototype = <span class="keyword">new</span> Cat();<span class="comment">//共享一个祖先 Cat</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> T = <span class="keyword">new</span> Tiger();</span><br><span class="line"><span class="keyword">var</span> C = <span class="keyword">new</span> Cheetah();</span><br><span class="line"><span class="keyword">var</span> L = <span class="keyword">new</span> Lion();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(T.color);</span><br><span class="line"><span class="built_in">console</span>.log(C.color);</span><br><span class="line"><span class="built_in">console</span>.log(L.color);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(T.eat);</span><br><span class="line"><span class="built_in">console</span>.log(C.eat);</span><br><span class="line"><span class="built_in">console</span>.log(L.eat);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.eat = <span class="string">'肉'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Tiger</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color = <span class="string">'黑黄相间'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cheetah</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color = <span class="string">'报文'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Lion</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color = <span class="string">'土黄色'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Tiger.prototype =  Cheetah.prototype = Lion.prototype = <span class="keyword">new</span> Cat();<span class="comment">//共享一个祖先 Cat</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> T = <span class="keyword">new</span> Tiger();</span><br><span class="line"><span class="keyword">var</span> C = <span class="keyword">new</span> Cheetah();</span><br><span class="line"><span class="keyword">var</span> L = <span class="keyword">new</span> Lion();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(T.color);</span><br><span class="line"><span class="built_in">console</span>.log(C.color);</span><br><span class="line"><span class="built_in">console</span>.log(L.color);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(T.eat);</span><br><span class="line"><span class="built_in">console</span>.log(C.eat);</span><br><span class="line"><span class="built_in">console</span>.log(L.eat);</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -197,7 +197,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T03:46:01.722Z" itemprop="dateUpdated">2018-10-24 11:46:01</time>
+    最后更新时间：<time datetime="2018-10-25T09:40:14.820Z" itemprop="dateUpdated">2018-10-25 17:40:14</time>
 </span><br>
 
 
@@ -278,18 +278,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/45243f7e.html" id="post-prev" class="post-nav-link">
+      <a href="/note/3de25d52.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript之事件的中断传播与行为阻止</h4>
+        <h4 class="title">JavaScript之捕捉模型与冒泡模型</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/note/41b2f700.html" id="post-next" class="post-nav-link">
+      <a href="/note/bec5cc2b.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">JavaScript之IE,火狐兼容事件对象</h4>
+        <h4 class="title">JavaScript之面向对象中的封装</h4>
       </a>
     </div>
   
@@ -469,8 +469,8 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script type="text/javascript" class="autoinsert" src="/js/jquery-1.2.6.min.min.js?v=1.7.2"></script>
-<script src="/js/snowfall.jquery.min.js?v=1.7.2"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
 
         $(document).snowfall('clear');

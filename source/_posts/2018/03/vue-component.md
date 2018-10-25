@@ -12,7 +12,7 @@ date: 2018-08-27 11:20:32
 
 > 注册组件就是利用`Vue.component()`方法，先传入一个自定义组件的名字，然后传入这个组件的配置
 
-```javascript
+```js
 Vue.component('mycomponent',{
     template: `<div>这是一个自定义组件</div>`,
     data () {
@@ -47,7 +47,7 @@ Vue.component('mycomponent',{
 
 > 直接使用`Vue.component()`创建的组件，所有的Vue实例都可以使用。还可以在某个Vue实例中注册只有自己能使用的组件
 
-```javascript
+```js
 var app = new Vue({
     el: '#app',
     data: {
@@ -134,7 +134,7 @@ template: `<div>这是一个局部的自定义组件，只能在当前Vue实例�
 
 > Vue组件通过`props`属性来声明一个自己的属性，然后父组件就可以往里面传递数据
 
-```javascript
+```js
 Vue.component('mycomponent',{
     template: '<div>这是一个自定义组件,父组件传给我的内容是：{{myMessage}}</div>',
     props: ['myMessage'],
@@ -209,7 +209,7 @@ Vue.component('mycomponent',{
 
 > 然后在子组件中改变相应的属性
 
-```javascript
+```js
  methods: {
      changeArray () {
        this.counter++
@@ -224,7 +224,7 @@ Vue.component('mycomponent',{
 
 - 父组件传递了一个基本类型值，那么可以在子组件中创建一个新的属性，并以传递进来的值进行初始化，之后就可以操作这个新的属性了
 
-```javascript
+```js
 props: ['initialCounter'],
 data: function () {
   return { counter: this.initialCounter }
@@ -254,7 +254,7 @@ data: function () {
 > 我们可以给组件的`props`属性添加验证，当传入的数据不符合要求时，`Vue`会发出警告
 
 
-```javascript
+```js
 Vue.component('example', {
   props: {
     // 基础类型检测 (`null` 意思是任何类型都可以)
@@ -299,7 +299,7 @@ Vue.component('example', {
 - `Symbol`
 - `type `也可以是一个自定义构造器函数，使用 `instanceof` 检测
 
-```javascript
+```js
 // 自定义Person构造器
  function Person(name, age) {
     this.name = name
@@ -657,14 +657,14 @@ data(){
 
 > 第一种方法
 
-```javascript
+```js
 props: ['childCom']
 ```
 
 > 第二种方法
 
 
-```javascript
+```js
 props: {
     childCom: String // 这里指定了字符串类型，如果类型不一致会警告哦
 }
@@ -672,7 +672,7 @@ props: {
 
 > 第三种方法
 
-```javascript
+```js
 props: {
     childCom: {
         type: String,

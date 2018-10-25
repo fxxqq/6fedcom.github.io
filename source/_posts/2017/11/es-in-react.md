@@ -11,7 +11,7 @@ date: 2017-11-07 21:55:24
 一、数组遍历显示
 ---
 
-```javascript
+```js
 import React,{Component} from 'react';
 class RepeatArray extends Component{
   constructor() {
@@ -34,7 +34,7 @@ export default RepeatArray;
 二、ol与li的实现
 ---
 
-```javascript
+```js
 import React,{Component} from 'react';
 class RepeatLi extends Component{
   render(){
@@ -70,7 +70,7 @@ export default RepeatArray;
 三、从服务端获取数据
 ---
 
-```javascript
+```js
 import React,{Component} from 'react';
 class UserGist extends Component{
   constructor(){
@@ -118,7 +118,7 @@ export default RepeatArray;
 四、初始化STATE
 ---
 
-```javascript
+```js
 class Video extends React.Component {
     constructor(props){
         super(props);
@@ -134,7 +134,7 @@ class Video extends React.Component {
 
 > 在给子组件传递一批属性更为方便了。下面的例子把`className`以外的所有属性传递给`div`标签
 
-```javascript
+```js
 class AutoloadingPostsGrid extends React.Component {
     render() {
         var {
@@ -154,7 +154,7 @@ class AutoloadingPostsGrid extends React.Component {
 > 使用`react`开发最常见的问题就是父组件要传给子组件的属性较多时比较麻烦
 
 
-```javascript
+```js
 class MyComponent extends React.Component{
 //假设MyComponent已经有了name和age属性
   render(){
@@ -168,7 +168,7 @@ class MyComponent extends React.Component{
 
 > 使用扩展操作符可以变得很简单
 
-```javascript
+```js
 class MyComponent extends React.Component{
 //假设MyComponent已经有了name和age属性
   render(){
@@ -182,7 +182,7 @@ class MyComponent extends React.Component{
 
 > 上述方式是将父组件的所有属性都传递下去，如果这其中有些属性我不需要传递呢？也很简单
 
-```javascript
+```js
 class MyComponent extends React.Component{
 //假设MyComponent有很多属性，而name属性不需要传递给子组件
   var {name,...MyProps}=this.props;
@@ -201,7 +201,7 @@ class MyComponent extends React.Component{
 六、创建组件
 ---
 
-```javascript
+```js
 import React,{Component} from "react";
 class MyComponent extends Component{
 //组件内部代码
@@ -213,7 +213,7 @@ class MyComponent extends Component{
 
 > `es6`允许将`props`和`propTypes`当作静态属性在类外初始化
 
-```javascript
+```js
 class MyComponent extends React.Component{}
 MyComponent.defaultProps={
   name:"SunnyChuan",
@@ -228,7 +228,7 @@ MyComponent.propTypes={
 
 > `es7`支持直接在类中使用变量表达式
 
-```javascript
+```js
 class MyComponent extends React.Component{
   static defaultProps={
     name:"SunnyChuan",
@@ -243,7 +243,7 @@ class MyComponent extends React.Component{
 
 - `state`和前两个不同，它不是静态的
 
-```javascript
+```js
 class MyComponent extends React.Component{
   static defaultProps={
     name:"SunnyChuan",
@@ -263,7 +263,7 @@ class MyComponent extends React.Component{
 七、当你构建通用容器时，扩展属性会非常有用
 ---
 
-```javascript
+```js
 function App1() {
   return <Greeting firstName="Ben" lastName="Hector" />;
 }
@@ -277,7 +277,7 @@ function App2() {
 八、使用es6的计算属性代替
 ---
 
-```javascript
+```js
 this.setState({
    [name]:value
 })

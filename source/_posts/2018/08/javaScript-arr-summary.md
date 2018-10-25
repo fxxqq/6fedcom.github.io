@@ -1,6 +1,6 @@
 ---
 title: JavaScript数组方法总结篇
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: cd524e3e
 date: 2018-08-18 18:40:43
@@ -18,7 +18,7 @@ date: 2018-08-18 18:40:43
 
 > 参数: item1, item2, ..., itemX ,要添加到数组末尾的元素
 
-```javascript
+```js
 let arr = [1,2,3];
 
 let length = arr.push('末尾1','末尾2'); // 返回数组长度
@@ -34,7 +34,7 @@ console.log(arr,length)
 
 - 方法删除数组的最后一个元素，减小数组长度并返回它删除的值
 
-```javascript
+```js
 //组合使用push()和pop()能够用JavaScript数组实现先进后出的栈
 
 let stack = [];
@@ -50,7 +50,7 @@ stack.pop() // 返回删除的值2，这时stack的值是[1]
 
 > 方法在数组的头部添加一个或多个元素，并将已存在的元素移动到更高索引的位置来获得足够的空间，最后返回数组新的长度
 
-```javascript
+```js
 let arr = [3,4,5];
 
 let length = arr.unshift(1,2); // 返回长度是5
@@ -66,7 +66,7 @@ console.log(arr, length)
 
 > 方法删除数组的第一个元素并将其返回，然后把所有随后的元素下移一个位置来填补数组头部的空缺，返回值是删除的元素
 
-```javascript
+```js
 let arr = [1,2,3];
 
 let item = arr.shift(); // 返回删除的值1
@@ -82,7 +82,7 @@ console.log(arr, item)
 
 > 方法是在数组中插入或删除元素的通用方法
 
-```javascript
+```js
 // start不超过数组长度(以下操作是连续的)
 let arr = [1,2,3,4,5];
 
@@ -122,7 +122,7 @@ arr.splice(1,0,[2,3]) // arr是[1,[2,3],4,5]，返回值是[]
 
 > `sort()` 方法将数组中的元素排序并返回排序后的数组
 
-```javascript
+```js
 var stringArray = ["Blue", "Humpback", "Beluga"];
 var numberArray = [40, 1, 5, 200];
 
@@ -158,7 +158,7 @@ console.log('Sorted with compareNumbers:'+ numberArray.sort(compareNumbers));
 
 > 方法将数组中的元素颠倒顺序，返回逆序的数组
 
-```javascript
+```js
 let arr = [1,2,3];
 
 arr.reverse() // arr是[3,2,1]，返回值是[3,2,1]
@@ -181,7 +181,7 @@ arr.fill(value[, start[, end]])
 
 > 返回值： 修改后的数组
 
-```javascript
+```js
 [1, 2, 3].fill(4); // [4, 4, 4]
 
 [1, 2, 3].fill(4, 1); // [1, 4, 4]
@@ -213,7 +213,7 @@ Array(3).fill(4); // [4, 4, 4]
 
 - 返回值： 一个含有提取元素的新数组
 
-```javascript
+```js
 let arr = [1,2,3,4,5];
 
 let arr1 = arr.slice(1,3); // arr是[1,2,3,4,5]， arr1是[2,3]
@@ -254,7 +254,7 @@ arr1[1] = "two"; // arr是[1,2,3]，arr1是[1,"tow",3]
 
 - 返回值： 一个所有数组元素连接的字符串。如果 arr.length 为0，则返回空字符串
 
-```javascript
+```js
 let num = [1,2,3];
 
 let str1 = num.join(); // 1,2,3
@@ -280,7 +280,7 @@ let num = [{num: 1},2,3];
 let str1 = num.join('-'); // [object Object]-2-3
 ```
 
-```javascript
+```js
 // 扁平化简单的二维数组
 const arr = [11, [22, 33], [44, 55], 66];
 const flatArr = arr.join().split(','); // ["11", "22", "33", "44", "55", "66"]
@@ -290,7 +290,7 @@ const flatArr = arr.join().split(','); // ["11", "22", "33", "44", "55", "66"]
 
 > 方法将数组的每个元素转化为字符串(如有必要将调用元素的`toString()`方法)并且输出用逗号分割的字符串列表。返回一个字符串表示数组中的元素
 
-```javascript
+```js
 [1,2,3].toString(); // 1,2,3
 
 [1,[2,'c']].toString(); //1,2,c
@@ -310,7 +310,7 @@ const flatArr = arr.join().split(','); // ["11", "22", "33", "44", "55", "66"]
 
 > 返回值： 返回一个字符串表示数组中的元素
 
-```javascript
+```js
 // 扁平化简单的二维数组
 const arr = [11, [22, 33], [44, 55], 66];
 
@@ -321,7 +321,7 @@ const flatArr = arr.toString().split(','); // ["11", "22", "33", "44", "55", "66
 
 > 数组中的元素将使用各自的 toLocaleString 方法转成字符串，这些字符串将使用一个特定语言环境的字符串（例如一个逗号 ","）隔开
 
-```javascript
+```js
 //数组中的元素将会使用各自的 toLocaleString 方法：
 
 // Object: Object.prototype.toLocaleString()
@@ -353,7 +353,7 @@ prices.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' }); // "￥7
 
 > 它的元素包括调用concat()的原始数组的元素和concat()的每个参数，但是要注意，concat()不会递归扁平化数组的数组，concat()也不会修改调用的数组
 
-```javascript
+```js
 [1,2,3].concat([4,5,6],[7,8,9]) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ['a','b','c'].concat(1,[2,3],[[4,5]]) // ["a", "b", "c", 1, 2, 3, [4,5]]
@@ -398,7 +398,7 @@ console.log(num1,num2); // [1, 2, 3] ["a", 2, 3]
 > 用于确定传递的值是否是一个 Array
 
 
-```javascript
+```js
 // 下面的函数调用都返回 true
 
 Array.isArray([]);
@@ -441,7 +441,7 @@ Array.isArray({ __proto__: Array.prototype });
 
 - `callback` 为数组中每个元素执行的函数，该函数接收三个参数
 
-```javascript
+```js
 // 1、 空元素不遍历,undefined和null是会遍历的。
 
 let numberArr = [1,2,,3];
@@ -582,7 +582,7 @@ console.log(result) // undefined ，即使中间return vlaue，也还是undefine
 - 空数组上调用every方法，返回 true，因为空数组没有元素，所以空数组中所有元素都符合给定的条件
 - 返回值： 一个布尔值，当所有的元素都符合条件才返回true，否则返回false
 
-```javascript
+```js
 let arr = [12,34,5,23,44];
 let num = 0;
 let result = arr.every(function (element, index, array) {
@@ -623,7 +623,7 @@ console.log(result) // 打印 true
 - 空数组调用some，返回false
 - 返回值： 只要数组中的任意一个元素在回调函数中返回的是真值，就返回true，否则为false
 
-```javascript
+```js
 // 一个简单的例子说明
 function isBiggerThan10(element, index, array) {
     console.log(index)
@@ -667,7 +667,7 @@ console.log(result) // 打印 false
 - 如果数组为空且没有提供initialValue，会抛出TypeError 。如果数组仅有一个元素（无论位置如何）并且没有提供initialValue， 或者有提供initialValue但是数组为空，那么此唯一值将被返回并且callback不会被执行
 - 返回值： 函数累计处理的结果
 
-```javascript
+```js
 let arr = [1,2,3,4,5];
 
 let sum = arr.reduce((x,y) => x + y,0);
@@ -715,7 +715,7 @@ console.log(arr)
 - 注意： `indexOf` 使用严格相等（即 `===`）比较 `searchElement` 和数组中的元素。而且`indexOf()`不能识别 `NaN`
 - 返回值： 首个被找到的元素在数组中的索引位置; 若没有找到则返回 -1
 
-```javascript
+```js
 let array = [2, 5, 9];
 array.indexOf(2) // 0
 
@@ -741,7 +741,7 @@ array1.indexOf(NaN) // -1
 
 - 返回值： 一个布尔值，根据情况，如果包含则返回 true，否则返回false
 
-```javascript
+```js
 [1, 2, 3].includes(2); // true
 [1, 2, 3].includes(4); // false
 [1, 2, 3].includes(3, 3); // false
@@ -757,7 +757,7 @@ array1.indexOf(NaN) // -1
 - `find` 方法，当某个元素通过 callback 的测试时，返回数组中的一个值，否则返回 undefined。
 - `findIndex`方法，返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1
 
-```javascript
+```js
 // find
 let a = [1, 4, -5, 10].find((n) => n < 0); // 返回元素-5
 

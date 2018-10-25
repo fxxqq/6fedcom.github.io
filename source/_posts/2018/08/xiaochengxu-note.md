@@ -50,7 +50,7 @@ tabBar  配置小程序tab栏的样式和对应的页面
 > `app.json`
 
 
-```javascript
+```js
 "pages": [ //设置页面的路径
   "pages/index/index", //不需要写index.wxml,index.js,index,wxss,框架会自动寻找并整合
   "pages/logs/logs"
@@ -137,7 +137,7 @@ tabBar  配置小程序tab栏的样式和对应的页面
 > `.wxml` 中的动态数据都来自`Page`中的`data`。数据绑定使用数据绑定使用双大括号将变量包起来，可以作用于内容、组件属性(需要在双引号之内)、控制属性(需要在双引号之内)、关键字(需要在双引号之内)
 
 
-```javascript
+```js
 Page({
     data: {
         message: "Hello",
@@ -197,7 +197,7 @@ Page({
 </view>
 ```
 
-```javascript
+```js
 Page({
   data: {
     array: ["AA","BB","CC"]
@@ -281,7 +281,7 @@ Page({
 
 > 前台、后台定义： 当用户点击左上角关闭，或者按了设备 Home 键离开微信，小程序并没有直接销毁，而是进入了后台；当再次进入微信或再次打开小程序，又会从后台进入前台
 
-```javascript
+```js
 //app.js
 App({
   onLaunch: function() { 
@@ -313,7 +313,7 @@ App({
 - 当小程序有后台进入到前台运行或重新进入页面时，触发`onShow`方法。
 - 当使用重定向方法`wx.redirectTo(OBJECT)`或关闭当前页返回上一页`wx.navigateBack()`，触发`onUnload`
 
-```javascript
+```js
 //index.js
 Page({
   onLoad: function(options) {
@@ -386,7 +386,7 @@ Page({
 
 - 使用`wx.navigateTo`接口跳转,原页面保留
 
-```javascript
+```js
 wx.navigateTo({
   //目的页面地址
   url: 'pages/logs/index',
@@ -397,7 +397,7 @@ wx.navigateTo({
 
 - 使用`wx.redirectTo`接口跳转，关闭原页面,不能返回
 
-```javascript
+```js
 wx.redirectTo({
   //目的页面地址
   url: 'pages/logs/index',
@@ -416,7 +416,7 @@ wx.redirectTo({
 
 用户点击左上角返回按钮，或调用`wx.navigateBack`接口返回上一页
 
-```javascript
+```js
 wx.navigateBack({
     delta: 1
 })
@@ -482,7 +482,7 @@ url?key=value&key1=value1
 - `url`传递**
 
 
-```javascript
+```js
 // A页面-传递数据
 
 // 需要注意的是，wx.switchTab 中的 url 不能传参数。
@@ -509,7 +509,7 @@ onLoad: function(option){
 
 > 通常把不会更改的数据放在`app.js`的`Data`中，在各个页面中都可以通过`APP`实例获取`Data`数据
 
-```javascript
+```js
 var app = getApp();
 var data = app.data;
 ```
@@ -534,7 +534,7 @@ wx.navigateTo({
 
 > 在`js`页面中`onLoad`方法中接收
 
-```javascript
+```js
 Page({
   onLoad: function(options) {
       var testId = options.testId
@@ -553,7 +553,7 @@ Page({
 
 > 传递到js后从`options`中得到的是个字符串，每个图片的url通过','分隔，所以此时还需要对其进行处理，重新组装为数组
 
-```javascript
+```js
 Page({
     data: {
          // 相册列表数据
@@ -582,7 +582,7 @@ Page({
 
 > 在js页面中自定义方法clickMe中接收
 
-```javascript
+```js
 Page({
     clickMe: function(event) {
         var testId = event.currentTarget.dataset.testid;
@@ -601,7 +601,7 @@ Page({
 </view>
 ```
 
-```javascript
+```js
 在js页面中自定义方法clickMe中接收
 
 Page({
@@ -629,7 +629,7 @@ try {
 
 > `wx.getStorageSync(KEY)`获取数据
 
-```javascript
+```js
 try {
   var value = wx.getStorageSync('key')
   if (value) {
@@ -700,7 +700,7 @@ page {
 - `wx.request post` 的 `content-type` 默认为 `‘application/json '`
 - 如果服务器没有用到 `json` 解释的话，可以把 `content-type` 设置回 `urlencoded`
 
-```javascript
+```js
 wx.request({
 ....
 method: "POST",
@@ -735,7 +735,7 @@ header: {
 
 > 直接写一个合并对象的方法
 
-```javascript
+```js
 function assignObject(o, n) {
     for (var p in n) {
         if (n.hasOwnProperty(p) && (!o.hasOwnProperty(p)))

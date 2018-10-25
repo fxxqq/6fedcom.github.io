@@ -120,7 +120,7 @@ date: 2017-10-15 11:40:43
 五、第一个node服务器
 ---
 
-```javascript
+```js
 //   安装好node就有的一个模块
 //  用来创建http服务器的
 const http = require(`http`);

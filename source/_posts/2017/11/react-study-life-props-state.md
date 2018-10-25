@@ -29,7 +29,7 @@ date: 2017-11-19 10:12:24
 - `render`：只能访问`this.props`与`this.state`，只有一个顶层标签（组件），不允许修改状态和`DOM`输出
 - `componentDidMount`：成功`render`并渲染完成真实`DOM`之后出发，可以修改`DOM`，要操作`DOM`也必须在这个阶段完成
 
-```javascript
+```js
 var Demo = React.createClass({
     // 第一步执行顺序：设置初始的属性，指执行一次
     getDefaultProps:function(){
@@ -102,7 +102,7 @@ ReactDOM.render(<Demo/>,document.getElementById("app"))
 - `reder`：只能访问`this.props与this.state`，只有一个顶层标签（组件），不允许修改状态和`DOM`输出
 - `componentDidUpdate`：可以修改`DOM`
 
-```javascript
+```js
 var HelloReact = React.createClass({
     // 组件将要接收新的属性
     componentWillReceiveProps:function(newProps){
@@ -158,7 +158,7 @@ ReactDOM.render(<Demo/>,document.getElementById("app"))
 - `componentWillUnmount`：组件将要卸载
 - 在`ReactDOM`中提供一个方法`unmountComponentAtNode`(删除节点的名字)
 
-```javascript
+```js
 var HelloReact = React.createClass({
     // 组件将要接收新的属性
     componentWillReceiveProps:function(newProps){
@@ -228,7 +228,7 @@ ReactDOM.render(<Demo/>,document.getElementById("app"))
 - 含义：`props = properties`
 - 属性：一个事物的性质与关系，属性往往是与生俱来，无法自己改变的
 
-```javascript
+```js
 // 组件传递props
 var Demo = React.createClass({
     render:function(){
@@ -238,7 +238,7 @@ var Demo = React.createClass({
 ReactDOM.render(<Demo title={"Demo"}/>,document.getElementById("app"))
 ``` 
 
-```javascript
+```js
 /*
     ...this.props
     props的一个语法糖，可以将父组件中的全部属性复制给子组件，
@@ -261,7 +261,7 @@ ReactDOM.render(<Demo {...props}/>,document.getElementById("app"))
 
 - `this.props.chilidren`
 
-```javascript
+```js
 /*
     this.props.children
     children没有与组件的属性一一对应，表示组件的所有子节点
@@ -295,7 +295,7 @@ ReactDOM.render(
 
 - `PropTypes`
 
-```javascript
+```js
 // 属性验证：PropTypes   
 // 验证组件的属性是否符合要求
 var Demo = React.createClass({
@@ -318,7 +318,7 @@ ReactDOM.render(<Demo title={'title'} />,document.getElementById("app"))
   - 数组`{[1,2,3]}`
   - 变量`{var}`
 
-```javascript
+```js
 <Demo  {…props} />
 var  props = {
 	one:”123”,
@@ -338,7 +338,7 @@ var  props = {
 - `getInitialState`：初始化状态
 - `setState`：更新状态
 
-```javascript
+```js
 /*
     state 状态的意思，一般在页面中存在状态的变化以及涉及到与状态相关的
         东西的时候会用他
@@ -367,7 +367,7 @@ var Demo = React.createClass({
 ReactDOM.render(<Demo />,document.getElementById("app"))
 ```
 
-```javascript
+```js
 var Demo = React.createClass({
     // 设置默认的属性
     getDefaultProps: function(){

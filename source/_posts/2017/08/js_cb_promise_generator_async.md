@@ -23,7 +23,7 @@ date: 2017-08-27 11:40:43
 - 这是异步编程最基本的方法
 - 假设我们有一个 `getData` 方法，用于异步获取数据，第一个参数为请求的 `url` 地址，第二个参数是回调函数，如下：
 
-```javascript
+```js
 function getData (url, callBack) {
     // 模拟发送网络请求
     setTimeout(() => {
@@ -39,7 +39,7 @@ function getData (url, callBack) {
 ```
 - 我们预先设定一个场景，假设我们要请求三次服务器，每一次的请求依赖上一次请求的结果，如下：
 
-```javascript
+```js
 getData('/page/1?param=123', (res1) => {
     console.log(res1)
     getData(`/page/2?param=${res1.data}`, (res2) => {
@@ -66,12 +66,12 @@ getData('/page/1?param=123', (res1) => {
 - 这个模式有多种实现，下面采用的是Ben Alman的[Tiny Pub/Sub](https://gist.github.com/661855)，这是`jQuery`的一个插件
 - 首先，`f2`向"信号中心"`jQuery`订阅"`done`"信号
 
-```javascript
+```js
 jQuery.subscribe("done", f2);
 ```
 - f1进行如下改写
 
-```javascript
+```js
 function f1(){
 　　　　setTimeout(function () {
 　　　　　　// f1的任务代码
@@ -81,7 +81,7 @@ function f1(){
 ```
 - `jQuery.publish("done")`的意思是，`f1`执行完成后，向"信号中心`"jQuery`发布`"done"`信号，从而引发f2的执行。 此外，f2完成执行后，也可以取消订阅（`unsubscribe`）
 
-```javascript
+```js
 jQuery.unsubscribe("done", f2);
 ```
 
@@ -96,7 +96,7 @@ jQuery.unsubscribe("done", f2);
 - 简单说，它的思想是，每一个异步任务返回一个`Promise`对象，该对象有一个`then`方法，允许指定回调函数。
 - 现在我们使用 `Promise` 重新实现上面的案例，首先，我们要把异步请求数据的方法封装成 `Promise`
 
-```javascript
+```js
 function getDataAsync (url) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -111,7 +111,7 @@ function getDataAsync (url) {
 ```
 - 那么请求的代码应该这样写
 
-```javascript
+```js
 getDataAsync('/page/1?param=123')
     .then(res1 => {
         console.log(res1)
@@ -136,7 +136,7 @@ getDataAsync('/page/1?param=123')
 
 - `getDataAsync` 方法不变，如下
  
- ```javascript
+ ```js
  function getDataAsync (url) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -152,7 +152,7 @@ getDataAsync('/page/1?param=123')
 
 - 业务代码如下
 
-```javascript
+```js
 async function getData () {
     var res1 = await getDataAsync('/page/1?param=123')
     console.log(res1)
@@ -170,7 +170,7 @@ async function getData () {
 
 - 首先异步函数依然是
 
-```javascript
+```js
 function getDataAsync (url) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -186,7 +186,7 @@ function getDataAsync (url) {
 
 - 使用 `Generator` 函数可以这样写
 
-```javascript
+```js
 function * getData () {
     var res1 = yield getDataAsync('/page/1?param=123')
     console.log(res1)
@@ -199,7 +199,7 @@ function * getData () {
 
 - 然后我们这样逐步执行
 
-```javascript
+```js
 var g = getData()
 g.next().value.then(res1 => {
     g.next(res1).value.then(res2 => {
@@ -212,7 +212,7 @@ g.next().value.then(res1 => {
 - 上面的代码，我们逐步调用遍历器的 `next()` 方法，由于每一个 `next()` 方法返回值的 `value` 属性为一个 `Promise `对象
 - 所以我们为其添加 `then` 方法， 在 `then` 方法里面接着运行 `next` 方法挪移遍历器指针，直到 `Generator` 函数运行完成，实际上，这个过程我们不必手动完成，可以封装成一个简单的执行器
 
-```javascript
+```js
 function run (gen) {
     var g = gen()
 
@@ -230,7 +230,7 @@ function run (gen) {
 ```
 > run 方法用来自动运行异步的 Generator 函数，其实就是一个递归的过程调用的过程。这样我们就不必手动执行 Generator 函数了。 有了 run 方法，我们只需要这样运行 getData 方法
 
-```javascript
+```js
 run(getData)
 ```
 > 这样，我们就可以把异步操作封装到 `Generator` 函数内部，使用 `run` 方法作为 `Generator` 函数的自执行器，来处理异步。其实我们不难发现， `async/await` 方法相比于 `Generator` 处理异步的方式，有很多相似的地方，只不过 `async/await` 在语义化方面更加明显，同时 `async/await` 不需要我们手写执行器，其内部已经帮我们封装好了，这就是为什么说 `async/await` 是 `Generator` 函数处理异步的语法糖了

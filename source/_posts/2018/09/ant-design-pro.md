@@ -128,7 +128,7 @@ $ pro new  # 安装脚手架
 
 比如：
 
-```javascript
+```js
 "extraBabelPlugins": ["transform-runtime"],
 "env": {
   "development": {
@@ -139,7 +139,7 @@ $ pro new  # 安装脚手架
 
 > 这样，开发环境下的 `extraBabelPlugins` 是 `["transform-runtime", "dva-hmr"]`，而生产环境下是 `["transform-runtime"]`。
 
-```javascript
+```js
 "env": {
   "development": {
     "extraBabelPlugins": [
@@ -187,7 +187,7 @@ $ pro new  # 安装脚手架
 
 > 通常布局是和路由系统紧密结合的，Ant Design Pro 的路由使用了 `Umi` 的路由方案，为了统一方便的管理路由和页面的关系，我们将配置信息统一抽离到 `config/router.config.js` 下，通过如下配置定义每个页面的布局
 
-```javascript
+```js
 module.exports = [{
   path: '/',
   component: '../layouts/BasicLayout',  // 指定以下页面的布局
@@ -214,7 +214,7 @@ module.exports = [{
 
 > 我们在 `router.config.js` 扩展了一些关于 `pro` 全局菜单的配置
 
-```javascript
+```js
 {
   name: 'dashboard',
   icon: 'dashboard',
@@ -281,7 +281,7 @@ module.exports = [{
 
 `breadcrumbNameMap` 示例数据如下：
 
-```javascript
+```js
 {
   '/': { path: '/', redirect: '/dashboard/analysis', locale: 'menu' },
   '/dashboard/analysis': {
@@ -305,7 +305,7 @@ module.exports = [{
 
 如果你的页面可以利用这两种布局，那么只需要在路由配置中增加一条即可
 
-```javascript
+```js
  // app
   {
     path: '/',
@@ -324,7 +324,7 @@ module.exports = [{
 
 > 在脚手架中我们通过嵌套路由来实现布局模板。`router.config.js` 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以在直接增加一个新的一级数组
 
-```javascript
+```js
 module.exports = [
    // user
    {
@@ -351,7 +351,7 @@ module.exports = [
 
 > 脚手架默认支持带参数的路由,但是在菜单中显示带参数的路由并不是个好主意，我们并不会自动的帮你注入一个参数，你可能需要在代码中自行处理
 
-```javascript
+```js
 { 
     path: '/dashboard/:page',
     hideInMenu:true, 
@@ -362,7 +362,7 @@ module.exports = [
 
 你可以通过以下代码来跳转到这个路由
 
-```javascript
+```js
 import router from 'umi/router';
 
 router.push('/dashboard/anyParams')
@@ -416,7 +416,7 @@ import Link from 'umi/link';
 
 - 在使用组件时，默认会在 `index.js` 中寻找 `export` 的对象，如果你的组件比较复杂，可以分为多个文件，最后在 `index.js `中统一 `export`，就像这样
 
-```javascript
+```js
 // MainComponent.js
 export default ({ ... }) => (...);
 
@@ -438,7 +438,7 @@ export default MainComponent;
 
 你的代码大概是这个样子
 
-```javascript
+```js
 // index.js
 import React from 'react';
 import styles from './index.less';    // 按照 CSS Modules 的方式引入样式文件。
@@ -473,7 +473,7 @@ export default ({ src, desc, style }) => (
 
 > 在要使用这个组件的地方，按照组件定义的 `API` 传入参数，直接使用就好，不过别忘了先引入
 
-```javascript
+```js
 import React from 'react';
 import ImageWrapper from '@/components/ImageWrapper';  // @ 表示相对于源文件根目录
 
@@ -609,7 +609,7 @@ services/
 
 > 其中，`utils/request.js `是基于 `fetch` 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等
 
-```javascript
+```js
 // services/user.js
 import request from '../utils/request';
 
@@ -637,7 +637,7 @@ effects: {
 
 > 在处理复杂的异步请求的时候，很容易让逻辑混乱，陷入嵌套陷阱，所以 `Ant Design Pro` 的底层基础框架 `dva `使用 `effect` 的方式来管理同步化异步请求
 
-```javascript
+```js
 effects: {
   *fetch({ payload }, { call, put }) {
     yield put({
@@ -672,7 +672,7 @@ effects: {
 $ npm install react-quill --save
 ```
 
-```javascript
+```js
 import React from 'react';
 import { Button, notification, Card } from 'antd';
 import ReactQuill from 'react-quill'; 
@@ -718,7 +718,7 @@ export default class NewPage extends React.Component {
 
 Charts 图表套件是在 `components/Charts` 包中，引用到项目就像使用其它组件一样
 
-```javascript
+```js
 import { ChartCard, MiniBar } from '@/components/Charts';
 import { Tooltip, Icon } from 'antd';
 
@@ -768,7 +768,7 @@ https://github.com/alibaba/BizCharts
 npm install bizcharts --save
 ```
 
-```javascript
+```js
 import { Chart, Axis, Tooltip, Geom } from 'bizcharts';
 
 const data = [...];
@@ -869,7 +869,7 @@ export default IconFont;
 
 > umi 里约定 mock 文件夹下的文件即 mock 文件，文件导出接口定义，支持基于 require 动态分析的实时刷新，支持 ES6 语法，以及友好的出错提示
 
-```javascript
+```js
 export default {
   // 支持值为 Object 和 Array
   'GET /api/users': { users: [1, 2] },
@@ -917,7 +917,7 @@ theme: {
 
 > 如需对某些页面进行权限控制，只须在路由配置文件 `router.config.js` 中设置 `authority` 属性即可，代表该路由的准入权限，pro 的路由系统中会默认包裹 `Authorized` 进行判断处理。
 
-```javascript
+```js
 {
   path: '/form',
   icon: 'form',
@@ -965,7 +965,7 @@ theme: {
 
 - 然后就是`menu.js`,如下，展示了我们在配置菜单的时候怎么配身份
 
-```javascript
+```js
 const menuData = [{
   name: '题库管理',
   path: 'question',
@@ -999,7 +999,7 @@ const menuData = [{
 
 > 登录成功以后怎么获取权限了
 
-```javascript
+```js
 effects：{
 * login({payload}, {call, put}) {
       const response = yield call(login, payload);
@@ -1031,7 +1031,7 @@ reducers: {
 
 - 我们看看`setAuthority`、`reloadAuthorized`这两个方法都做了什么事儿
 
-```javascript
+```js
 //设置身份
 export function setAuthority(authority) {
   return localStorage.setItem('antd-pro-authority', authority);
@@ -1044,7 +1044,7 @@ export function getAuthority() {
 
 > 如此而且，只是把新的身份值存在`localStorage`里边，注意`getAuthority`，下边会用到
 
-```javascript
+```js
 import RenderAuthorized from '../components/Authorized';
 import { getAuthority } from './authority';
 let Authorized = RenderAuthorized(getAuthority());
@@ -1128,7 +1128,7 @@ $ npm run analyze
 
 - 可以在 `config/config.js` 中进行配置选择用哪个方式：
 
-```javascript
+```js
 export default {
   history: 'hash', // 默认是 browser
 }
@@ -1140,7 +1140,7 @@ export default {
 
 > 需要在配置文件中(`.webpackrc`)加入如下代码
 
-```javascript
+```js
 "proxy": {
   "/api": {
     "target": "http://xxx:xx/",
@@ -1154,7 +1154,7 @@ export default {
 如果需要多次代理且需要代理到不同的服务器则可以在配置文件中进行如下配置
 
 
-```javascript
+```js
 "proxy": {
       "/test": {
         "target": "http://xxx:xx/",
@@ -1175,7 +1175,7 @@ export default {
 
 **错误写法**
 
-```javascript
+```js
 // effects将按顺序执行
 const response = yield call(fetch, '/users');
 const res = yield call(fetch, '/roles');
@@ -1183,7 +1183,7 @@ const res = yield call(fetch, '/roles');
 
 **正确写法**
 
-```javascript
+```js
 // effects将会同步执行
 const [response, res] = yield [
   call(fetch, '/users'),

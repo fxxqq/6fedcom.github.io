@@ -48,7 +48,7 @@ date: 2018-10-20 23:10:14
 
 > 用`js`对象来模拟`DOM`节点如下
 
-```javascript
+```js
 const tree = Element('div', { id: 'virtual-container' }, [
     Element('p', {}, ['Virtual DOM']),
     Element('div', {}, ['before update']),
@@ -65,7 +65,7 @@ document.getElementById('virtualDom').appendChild(root);
 
 > 用`js`对象模拟`DOM`节点的好处是，页面的更新可以先全部反映在`js`对象上，操作内存中的`js`对象的速度显然要快多了。等更新完后，再将最终的`js`对象映射成真实的`DOM`，交由浏览器去绘制
 
-```javascript
+```js
 function Element(tagName, props, children) {
     if (!(this instanceof Element)) {
         return new Element(tagName, props, children);
@@ -93,7 +93,7 @@ function Element(tagName, props, children) {
 
 > 有了`js`对象后，最终还需要将其映射成真实的`DOM`
 
-```javascript
+```js
 Element.prototype.render = function() {
     const el = document.createElement(this.tagName);
     const props = this.props;
@@ -124,7 +124,7 @@ Element.prototype.render = function() {
 我们新创建一棵树，用于和之前的树进行比较
 
 
-```javascript
+```js
 const newTree = Element('div', { id: 'virtual-container' }, [
     Element('h3', {}, ['Virtual DOM']),                     // REPLACE
     Element('div', {}, ['after update']),                   // TEXT
@@ -155,7 +155,7 @@ renderB: <ul class: 'marginLeft10'>
 
 > 我们将这个过程称之为`PROPS`。此时不会触发节点的卸载（`componentWillUnmount`）和装载（`componentWillMount`）动作。而是执行节点更新（`shouldComponentUpdate`到`componentDidUpdate`的一系列方法）
 
-```javascript
+```js
 function diffProps(oldNode, newNode) {
     const oldProps = oldNode.props;
     const newProps = newNode.props;
@@ -206,7 +206,7 @@ function diffProps(oldNode, newNode) {
 
 最终`Diff`出来的结果如下
 
-```javascript
+```js
 {
     1: [ {type: REPLACE, node: Element} ],
     4: [ {type: TEXT, content: "after update"} ],
@@ -224,7 +224,7 @@ function diffProps(oldNode, newNode) {
 
 深度遍历DOM将Diff的内容更新进去
 
-```javascript
+```js
 function dfsWalk(node, walker, patches) {
     const currentPatches = patches[walker.index];
 
@@ -242,7 +242,7 @@ function dfsWalk(node, walker, patches) {
 
 > 具体更新的代码如下，其实就是根据`Diff`信息调用源生`API`操作`DOM`
 
-```javascript
+```js
 function applyPatches(node, currentPatches) {
     currentPatches.forEach((currentPatch) => {
         switch (currentPatch.type) {

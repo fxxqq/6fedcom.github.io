@@ -14,7 +14,7 @@ date: 2017-01-14 11:30:43
 #### 1.1 原生`JS`创建元素节点
 ---
 
-```javascript
+```js
 document.createElement("p");
 ```
 
@@ -22,7 +22,7 @@ document.createElement("p");
 ---
 <!--more-->
 
-```javascript
+```js
 $('<p></p>');`
 ```
 
@@ -32,13 +32,13 @@ $('<p></p>');`
 #### 2.1 原生JS创建文本节点
 ---
 
-```javascript
+```js
 `document.createTextNode("Text Content");
 ```
 
 - 通常创建文本节点和创建元素节点配合使用，比如：
 
-```javascript
+```js
 var textEl = document.createTextNode("Hello World.");
 var pEl = document.createElement("p");
 pEl.appendChild(textEl);
@@ -47,7 +47,7 @@ pEl.appendChild(textEl);
 #### 2.2 `jQuery`创建并添加文本节点：
 ---
 
-```javascript
+```js
 var $p = $('<p>Hello World.</p>');
 ```
 
@@ -57,7 +57,7 @@ var $p = $('<p>Hello World.</p>');
 #### 3.1 原生`JS`复制节点: 
 ---
 
-```javascript
+```js
 var newEl = pEl.cloneNode(true);  `
 ```
 - `true`和`false`的区别：
@@ -68,7 +68,7 @@ var newEl = pEl.cloneNode(true);  `
 #### 3.2 `jQuery`复制节点
 ---
 
-```javascript
+```js
 $newEl = $('#pEl').clone(true);
 ```
 
@@ -80,13 +80,13 @@ $newEl = $('#pEl').clone(true);
 #### 4.1 原生JS向子节点列表的末尾添加新的子节点
 ---
 
-```javascript
+```js
 El.appendChild(newNode);
 ```
 
 - 原生JS在节点的已有子节点之前插入一个新的子节点：
 
-```javascript
+```js
 El.insertBefore(newNode, targetNode);
 ```
 
@@ -95,48 +95,48 @@ El.insertBefore(newNode, targetNode);
 
 - 在匹配元素子节点列表结尾添加内容
 
-```javascript
+```js
 $('#El').append('<p>Hello World.</p>');		     
 ```
 
 - 把匹配元素添加到目标元素子节点列表结尾
 
-```javascript
+```js
 $('<p>Hello World.</p>').appendTo('#El');     	 
 ```
 - 在匹配元素子节点列表开头添加内容
 
-```javascript
+```js
 $('#El').prepend('<p>Hello World.</p>');		 
 ```
 
 - 把匹配元素添加到目标元素子节点列表开头
 
-```javascript
+```js
 $('<p>Hello World.</p>').prependTo('#El');     
 ```
 
 - 在匹配元素之前添加目标内容
 
-```javascript
+```js
 $('#El').before('<p>Hello World.</p>');		     
 ```
 
 -  把匹配元素添加到目标元素之前
 
-```javascript
+```js
 $('<p>Hello World.</p>').insertBefore('#El'); 	 
 ```
 
 - 在匹配元素之后添加目标内容
 
-```javascript
+```js
 $('#El').after('<p>Hello World.</p>');		      
 ```
 
 -  把匹配元素添加到目标元素之后
 
-```javascript
+```js
 $('<p>Hello World.</p>').insertAfter('#El');	  	 
 ```
 
@@ -146,14 +146,14 @@ $('<p>Hello World.</p>').insertAfter('#El');
 #### 5.1 原生JS删除节点
 ---
 
-```javascript
+```js
 El.parentNode.removeChild(El);
 ```
 
 #### 5.2 jQuery删除节点
 ---
 
-```javascript
+```js
 $('#El').remove();
 ```
 
@@ -163,7 +163,7 @@ $('#El').remove();
 #### 6.1 原生JS替换节点
 ---
 
-```javascript
+```js
 El.repalceChild(newNode, oldNode);
 ```
 
@@ -172,7 +172,7 @@ El.repalceChild(newNode, oldNode);
 #### 6.2 jQuery替换节点
 ---
 
-```javascript
+```js
 $('p').replaceWith('<p>Hello World.</p>');
 ```
 
@@ -182,7 +182,7 @@ $('p').replaceWith('<p>Hello World.</p>');
 #### 7.1 原生JS设置属性/获取属性
 ---
 
-```javascript
+```js
 imgEl.setAttribute("title", "logo");
 imgEl.getAttribute("title");
 checkboxEl.checked = true;
@@ -193,7 +193,7 @@ checkboxEl.checked;
 #### 7.2 jQuery设置属性/获取属性:
 ---
 
-```javascript
+```js
 $("#logo").attr({"title": "logo"});
 $("#logo").attr("title");
 $("#checkbox").prop({"checked": true});

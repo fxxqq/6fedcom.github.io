@@ -64,7 +64,7 @@ date: 2016-07-27 11:40:43
 </form>
 ```
 
-```javascript
+```js
 //失去焦点
 function t1(){
     var con = document.getElementsByName('email')[0].value;
@@ -92,7 +92,7 @@ function t2(){
 </form>
 ```
 
-```javascript
+```js
 function t1(){
     var con = document.getElementsByName('email')[0].value='请填写您的email';
 
@@ -136,7 +136,7 @@ function t2(){
 </style>
  ```
     
-```javascript
+```js
 function t1(){
  	alert('来了');
  	

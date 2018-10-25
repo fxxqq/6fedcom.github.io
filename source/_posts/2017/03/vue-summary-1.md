@@ -24,7 +24,7 @@ date: 2017-03-19 12:24:08
 
 - 每个 `Vue.js` 应用都是通过构造函数 `Vue` 创建一个 `Vue` 的根实例 启动的
 
-```javascript
+```js
 var vm = new Vue({
 // 选项
 })
@@ -35,7 +35,7 @@ var vm = new Vue({
 
 - 每个 `Vue `实例都会代理其` data` 对象里所有的属性
 
-```javascript
+```js
 var data = { a: 1 }
 var vm = new Vue({
 data: data
@@ -52,7 +52,7 @@ vm.a // -> 3
 
 - 除了 `data `属性， `Vue `实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 `$ `，以便与代理的`data `属性区分。例如：
 
-```javascript
+```js
 var data = { a: 1 }
 var vm = new Vue({
 el: '#example',
@@ -71,7 +71,7 @@ vm.$watch('a', function (newVal, oldVal) {
 **实例生命周期**
 
 
-```javascript
+```js
 var vm = new Vue({
 data: { a: 1 },
 created: function () {
@@ -146,7 +146,7 @@ console.log('a is: ' + this.a)
 
 - `Vue.js` 允许你自定义过滤器，被用作一些常见的文本格式化。过滤器应该被添加在` mustache` 插值的尾部，由“管道符”指示：
 
-```javascript
+```js
 {{ message | capitalize }}
 ```
 **指令**
@@ -223,7 +223,7 @@ console.log('a is: ' + this.a)
 </div>
 ```
 
-```javascript
+```js
 var vm = new Vue({ 
 	el: '#example', data: { message: 'Hello' }, 
 	computed: {
@@ -248,7 +248,7 @@ var vm = new Vue({
 <p>Reversed message: "{{ reverseMessage() }}"</p>
 ```
 
-```javascript
+```js
 // in component
 methods: {
 reverseMessage: function () {
@@ -261,7 +261,7 @@ reverseMessage: function () {
 
 - 这也同样意味着如下计算属性将不会更新，因为 `Date.now() `不是响应式依赖：
 
-```javascript
+```js
 computed: { now: function () { return Date.now() }}
 ```
 - 相比而言，每当重新渲染的时候，`method` 调用总会执行函数
@@ -276,7 +276,7 @@ computed: { now: function () { return Date.now() }}
 
 - 计算属性默认只有 `getter `，不过在需要时你也可以提供一个 `setter `：
 
-```javascript
+```js
 // ...
 computed: {
 fullName: { 
@@ -326,7 +326,7 @@ fullName: {
 ```
 - 如下 `data`:
 
-```javascript
+```js
 data: { isActive: true, hasError: false}
 ```
 
@@ -344,7 +344,7 @@ data: { isActive: true, hasError: false}
 <div v-bind:class="classObject"></div>
 ```
 
-```javascript
+```js
 data: { classObject: { active: true, 'text-danger': false }}
 ```
 
@@ -356,7 +356,7 @@ data: { classObject: { active: true, 'text-danger': false }}
 <div v-bind:class="[activeClass, errorClass]">
 ```
 
-```javascript
+```js
 data: { activeClass: 'active', errorClass: 'text-danger'}
 ```
 
@@ -384,7 +384,7 @@ v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
 </div>
 ```
 
-```javascript
+```js
 data: { activeColor: 'red', fontSize: 30}
 ```
 
@@ -394,7 +394,7 @@ data: { activeColor: 'red', fontSize: 30}
 <div v-bind:style="styleObject"></div>
 ```
 
-```javascript
+```js
 data: { styleObject: { color: 'red', fontSize: '13px' }}
 ```
 
@@ -416,7 +416,7 @@ data: { styleObject: { color: 'red', fontSize: '13px' }}
 
 - 在字符串模板中，如 `Handlebars `，我们得像这样写一个条件块
 
-```javascript
+```js
 <!-- Handlebars 模板 -->
 {{#if ok}} <h1>Yes</h1>{{/if}}
 ```
@@ -506,7 +506,7 @@ data: { styleObject: { color: 'red', fontSize: '13px' }}
 	<li v-for="value in object"> {{ value }} </li>
 </ul>
 ```
-```javascript
+```js
 new Vue({
 	el: '#repeat-object', 
 	data: { 
@@ -567,7 +567,7 @@ v-bind:item="item" v-bind:index="index">
 	<p>这个按钮被点击了 {{ counter }} 次。</p>
 </div>
 ```
-```javascript
+```js
 var example1 = new Vue({ 
 el: '#example-1', 
 data: { 
@@ -589,7 +589,7 @@ data: {
 </div>
 ```
 
-```javascript
+```js
 new Vue({
 el: '#example-3', 
 methods: { 
@@ -605,7 +605,7 @@ methods: {
 v-on:click="warn('Form cannot be submitted yet.', $event)">
 Submit</button>
 ```
-```javascript
+```js
 methods: {
 warn: function (message, event) {
 // 现在我们可以访问原生事件对象 
@@ -722,7 +722,7 @@ ames">
 <span>Checked names: {{ checkedNames }}</span>
 ```
 
-```javascript
+```js
 new Vue({ el: '...', data: { checkedNames: [] }})
 ```
 
@@ -741,14 +741,14 @@ new Vue({ el: '...', data: { checkedNames: [] }})
 **注册**
 - 之前说过，我们可以通过以下方式创建一个 `Vue `实例
 
-```javascript
+```js
 new Vue({ el: '#some-element', // 选项})
 ```
 - 要注册一个全局组件，你可以使用 `Vue.component(tagName, options) 。 `例如：`Vue.component('my-component', { // 选项})`
 
 - 组件在注册之后，便可以在父实例的模块中以自定义元素 `<my-component></my-component>` 的形式使用。要确保在初始化根实例 之前 注册了组件：`<div id="example"> <my-component></my-component></div>`
 
-```javascript
+```js
 // 注册
 Vue.component('my-component', 
 { template: '<div>A custom component!</div>'
@@ -777,7 +777,7 @@ new Vue({ el: '#example'})
 - 组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用`props `把数据传给子组件。
 - `prop `是父组件用来传递数据的一个自定义属性。子组件需要显式地用 `props` 选项 声明 `“prop”：`
 
-```javascript
+```js
 Vue.component('child', { 
 // 声明 props
 props: ['message'],

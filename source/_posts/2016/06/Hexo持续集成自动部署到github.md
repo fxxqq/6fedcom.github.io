@@ -110,7 +110,7 @@ $ git branch -dr [remote/branch]
   
 其中内容如下：
 
-```javascript
+```js
 language: node_js
 node_js: stable
 

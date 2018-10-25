@@ -13,7 +13,7 @@ date: 2017-10-24 10:30:13
 ### 1.1 创建对象
 ---
 
-```javascript
+```js
 //创建copy对象
 var copy = new Object();
 
@@ -35,7 +35,7 @@ console.log(cody);
 - 构造函数的作用是创建多个共享特定特性和行为的对象。
 - 构造函数主要是用于生成对象的模具，这些对象具有默认属性和属性方法
 
-```javascript
+```js
 //Pserson是一个构造函数 使用new关键字进行实例化
   var Person = function(living,age,gender){
         //this表示即将创建的新对象
@@ -72,7 +72,7 @@ console.log(cody);
 
 - 使用`new`关键字实例化每个原生构造函数
 
-```javascript
+```js
 var number = new Number(22);
 var string = new String("male");
 var boolean = new Boolean(false);
@@ -92,7 +92,7 @@ var error = new Error("Crap");
 
 - `Object()`、`Array()`、 `Function()`对象可以包含其他复杂对象
 
-```javascript
+```js
 //使用对象封装，创建对象链
 var obj1 = {
     obj1_1: {
@@ -105,13 +105,13 @@ var obj1 = {
 
 ```
 
-```javascript
+```js
 //使用数组封装 创建多维数组链
 
 var myArr = [ [ [] ] ];
 ```
 
-```javascript
+```js
 //使用function封装
 
 var myFunc = function(){
@@ -127,7 +127,7 @@ var myFunc = function(){
 ### 2.2 用点表示法或中括号表示法获取/设置/更新对象属性
 ---
 
-```javascript
+```js
 // creating cody Object() object
 var cody = new Object();
 
@@ -155,7 +155,7 @@ cody['getGender'] = function() {return 'Gender = ' + cody.gender;};
 ### 2.3 删除对象属性
 ---
 
-```javascript
+```js
 var foo = {bar:"bar"};
 delete foo.bar;
 
@@ -165,7 +165,7 @@ console.log("bar" in foo);
 ### 2.4 使用hasOwnProperty验证对象属性是否来自原型链
 ---
 
-```javascript
+```js
 var obj = {foo:"value"};
 console.log(obj.hasOwnProperty("foo"));//true
 ```
@@ -173,7 +173,7 @@ console.log(obj.hasOwnProperty("foo"));//true
 ### 2.5 使用in操作符来检查一个对象是否包含给定属性
 ---
 
-```javascript
+```js
 var myObject = {foo: 'value'};
 console.log('foo' in myObject); // logs true
 ```
@@ -181,7 +181,7 @@ console.log('foo' in myObject); // logs true
 ### 2.6 使用for in循环枚举对象属性
 ---
 
-```javascript
+```js
 var copy = {
     age:23,
     gender:'male'
@@ -199,7 +199,7 @@ for(var key in copy){//key表示每个属性的名称
 ### 3.1 Object对象概要
 ---
 
-```javascript
+```js
 var copy = {};
 for (key in copy){
     if(copy.hasOwnproperty(key)){
@@ -251,7 +251,7 @@ for (key in copy){
 
 - `arguments`对象是一种类数组对象，它包含所有传递给函数的参数
 
-```javascript
+```js
 var add = function(){
 
     return arguments[0] + arguments[1];
@@ -261,7 +261,7 @@ console.log(add(4,4));//8
 
 ```
 
-```javascript
+```js
 var myObject1 = {
     name: 'myObject1',
     myMethod: function(){console.log(this.name);}
@@ -279,7 +279,7 @@ myObject2(); // logs Window
 
 - `argument`对象有一个独特的`length`属性，它给出的是在调用时发送给函数的参数数量
 
-```javascript
+```js
 var myObject1 = {
     name: 'myObject1',
     myMethod: function(){console.log(this.name);}
@@ -295,7 +295,7 @@ myObject2(); // logs Window
 
 - 通过`Function()`实例的`length`属性，实际上可以获得函数所需要的参数总数量
 
-```javascript
+```js
 var myFunction = function(z, s, d, e, r, m, q) {
     return myFunction.length;
 };
@@ -307,7 +307,7 @@ console.log(myFunction()); //logs 7
 ### 4.5 定义函数语句、表达式、构造函数
 ---
 
-```javascript
+```js
 //函数构造函数
 var addConstructor = new Function("x","y","return x + y");
 
@@ -332,7 +332,7 @@ var addExp = function(){
    - 使用`call`、`apply`
    
 
-```javascript
+```js
 // function pattern
 var myFunction = function(){return 'foo'};
 console.log(myFunction()); // log 'foo'
@@ -376,7 +376,7 @@ greet.runGreet.apply(lisa, ['foo','bar']); //logs lisa
 ### 6.1 this概要及this如何引用
 ---
 
-```javascript
+```js
 var cody = {
     living : true,
     age : 23,
@@ -389,7 +389,7 @@ console.log(cody.getGender()); // logs 'male'
 
 - 使用`this`来重写`copy`对象
 
-```javascript
+```js
 var cody = {
     living: true, 
     age: 23, 
@@ -410,7 +410,7 @@ console.log(cody.getGender()); // logs 'male'
 ### 6.3 在嵌套函数中用this关键字引用head对象
 ---
 
-```javascript
+```js
 var myObject = {
     func1: function() {
         console.log(this); // logs myObject
@@ -433,7 +433,7 @@ myObject.func1();
 
 - 可以简单在父函数中使用作用域链来保留对`this`的引用，以便`this`值不丢失
 
-```javascript
+```js
 var myObject = {
     myProperty: 'I can see the light', 
     myMethod : function(){
@@ -454,7 +454,7 @@ myObject.myMethod(); // 调用 myMethod
 
 - `this`值通常取决于调用函数的上下文，但我们可以使用`apply`、`call`重写`this`值
 
-```javascript
+```js
 var myObject = {};
 
 var myFunction = function(param1, param2) {
@@ -469,7 +469,7 @@ myFunction.call(myObject, 'foo', 'bar'); // invoke function, set this value to m
 console.log(myObject) // logs Object {foo = 'foo', bar = 'bar'}
 ```
 
-```javascript
+```js
 var myObject = {};
 
 var myFunction = function(param1, param2) {

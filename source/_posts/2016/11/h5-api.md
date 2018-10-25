@@ -286,7 +286,7 @@ date: 2016-11-26 14:35:24
 
   - 百度地图`API`
   
-```javascript
+```js
 <script src="http://api.map.baidu.com/api?v=2.0&ak=qZfInp9MaT9Qa0PoNy4Rmx3Y9W9ZXMfw"></script>
 ```
 

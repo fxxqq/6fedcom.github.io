@@ -39,7 +39,7 @@ date: 2017-11-08 18:55:24
 三、执行 GET 请求
 ---
 
-```javascript
+```js
 // 向具有指定ID的用户发出请求
 axios.get('/user?ID=12345')
 .then(function (res) {
@@ -66,7 +66,7 @@ axios.get('/user', {
 四、执行 POST 请求
 ---
 
-```javascript
+```js
 axios.post('/user', {
     userId:"123"
 },{
@@ -87,7 +87,7 @@ axios.post('/user', {
 
 > `get`请求是发送参数，在`params`中定义。而`POST`请求是发送`request body`,需要在`data`中定义
 
-```javascript
+```js
 // get 在params中定义
 axios({
     url:"pakage.json",
@@ -121,7 +121,7 @@ axios({
 六、执行多个并发请求
 ---
 
-```javascript
+```js
 function getUserAcount(){
     // 返回一个promise对象
     return axios.get("/user/1234");
@@ -143,7 +143,7 @@ axios.all([getUserAccount(),getUserPerssions()]).then(axios.spread((acct, perms)
 
 > 组件首次“挂载”（`mount`）时，该方法就会执行。在组件生命周期中，该方法只会执行一次
 
-```javascript
+```js
 componentDidMount() {
     axios.get(`http://www.reddit.com/r/${this.props.subreddit}.json`)
       .then(res => {

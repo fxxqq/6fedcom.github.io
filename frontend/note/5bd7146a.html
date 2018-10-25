@@ -27,9 +27,9 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="JavaScript">
+    <meta name="keywords" content="Javascript">
     <meta name="description" content="DOM 操作">
-<meta name="keywords" content="JavaScript">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript语言基础之DOM操作(九)">
 <meta property="og:url" content="https://ru23.com/note/5bd7146a.html">
@@ -37,7 +37,7 @@
 <meta property="og:description" content="DOM 操作">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/DOM%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.gif">
-<meta property="og:updated_time" content="2018-10-24T03:46:01.767Z">
+<meta property="og:updated_time" content="2018-10-25T09:40:16.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript语言基础之DOM操作(九)">
 <meta name="twitter:description" content="DOM 操作">
@@ -260,7 +260,7 @@
 <li><p>4、<code>nextSibling</code> <code>previousSibling</code> <code>firstChild</code> <code>lastChild</code>这四个属性容易受到<code>空白文本</code>的影响 <code>建议不用</code></p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//============给Object原型加一个方法 消除文本节点对DOM操作的影响 例如：nextSibling` `previousSibling` `firstChild` `lastChild （受到换行 和文本节点影响）</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.prototype.next = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//NodeType == 3 text的代号</span></span><br><span class="line">  <span class="comment">//NodeType == 1 tag的代号</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.nextSibling)&#123;<span class="comment">//判断下一个兄弟节点是否存在</span></span><br><span class="line">  <span class="keyword">switch</span>(<span class="keyword">this</span>.nextSibling.nodeType)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.nextSibling;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.nextSibling.nextSibling;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(div1.next().next().innerText);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//============给Object原型加一个方法 消除文本节点对DOM操作的影响 例如：nextSibling` `previousSibling` `firstChild` `lastChild （受到换行 和文本节点影响）</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.prototype.next = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//NodeType == 3 text的代号</span></span><br><span class="line">  <span class="comment">//NodeType == 1 tag的代号</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.nextSibling)&#123;<span class="comment">//判断下一个兄弟节点是否存在</span></span><br><span class="line">  <span class="keyword">switch</span>(<span class="keyword">this</span>.nextSibling.nodeType)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.nextSibling;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.nextSibling.nextSibling;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(div1.next().next().innerText);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>5、对于查到的某个元素里面的子元素非常多 这时候还可利用<code>getElementsByTagname</code>进一步筛选</li>
 </ul>
@@ -294,7 +294,7 @@
 <hr>
 <p>通过给原型添加方法在元素后面创建标签</p>
 <p>启示：在项目中，很多很多地方都需要一个方法但是系统没提供，这时可以通过原型扩展</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var p = document.createElement('p');</span></span><br><span class="line"><span class="comment">//p.innerHTML = "this is a p";</span></span><br><span class="line"><span class="comment">//var child = document.getElementsByTagName('div');</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//给Div的HTMLDivElement构造器原型加一个创建元素的方法 要所有的元素都有这个方法 改成 Object</span></span><br><span class="line">HTMLDivElement.prototype.createElement = <span class="function"><span class="keyword">function</span>(<span class="params">tagName</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> child = <span class="built_in">document</span>.createElement(tagName);</span><br><span class="line">  <span class="keyword">this</span>.appendChild(child);</span><br><span class="line">  <span class="keyword">return</span> child;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> child = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">2</span>].createElement(<span class="string">"p"</span>);</span><br><span class="line">child.innerHTML = <span class="string">'pppppp'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var p = document.createElement('p');</span></span><br><span class="line"><span class="comment">//p.innerHTML = "this is a p";</span></span><br><span class="line"><span class="comment">//var child = document.getElementsByTagName('div');</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//给Div的HTMLDivElement构造器原型加一个创建元素的方法 要所有的元素都有这个方法 改成 Object</span></span><br><span class="line">HTMLDivElement.prototype.createElement = <span class="function"><span class="keyword">function</span>(<span class="params">tagName</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> child = <span class="built_in">document</span>.createElement(tagName);</span><br><span class="line">  <span class="keyword">this</span>.appendChild(child);</span><br><span class="line">  <span class="keyword">return</span> child;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> child = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">2</span>].createElement(<span class="string">"p"</span>);</span><br><span class="line">child.innerHTML = <span class="string">'pppppp'</span>;</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="附录：思维导图总结"><a href="#附录：思维导图总结" class="headerlink" title="附录：思维导图总结"></a>附录：思维导图总结</h3><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -311,7 +311,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T03:46:01.767Z" itemprop="dateUpdated">2018-10-24 11:46:01</time>
+    最后更新时间：<time datetime="2018-10-25T09:40:16.445Z" itemprop="dateUpdated">2018-10-25 17:40:16</time>
 </span><br>
 
 
@@ -333,7 +333,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
 
 
             
@@ -391,18 +391,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/d5559bcf.html" id="post-prev" class="post-nav-link">
+      <a href="/note/8908f567.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript语言基础之正则表达式(十)</h4>
+        <h4 class="title">JavaScript语言基础之Window属性(八)</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/note/4d991e84.html" id="post-next" class="post-nav-link">
+      <a href="/note/51bbed.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">JavaScript语言基础之数组(七)</h4>
+        <h4 class="title">JavaScript语言基础之流程控制(五)</h4>
       </a>
     </div>
   
@@ -581,8 +581,8 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script type="text/javascript" class="autoinsert" src="/js/jquery-1.2.6.min.min.js?v=1.7.2"></script>
-<script src="/js/snowfall.jquery.min.js?v=1.7.2"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
 
         $(document).snowfall('clear');

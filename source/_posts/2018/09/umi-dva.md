@@ -56,7 +56,7 @@ $ yarn create umi
 
 > `dva` 项目之前通常都是这种扁平的组织方式
 
-```javascript
+```js
 + models
   - global.js
   - a1.js
@@ -72,7 +72,7 @@ $ yarn create umi
 
 > 用了 `umi` 后，可以按页面维度进行组织
 
-```javascript
+```js
 + models/global.js
 + pages
   + a
@@ -121,7 +121,7 @@ $ yarn create umi
 
 > 一个复杂应用的目录结构如下
 
-```javascript
+```js
 .
 ├── dist/                          // 默认的 build 输出目录
 ├── mock/                          // mock 文件所在目录，基于 express
@@ -155,7 +155,7 @@ $ yarn create umi
 
 比如，新建` mock/users.js`，内容如下：
 
-```javascript
+```js
 export default {
   '/api/users': ['a', 'b'],
 }
@@ -194,7 +194,7 @@ export default {
 
 比如，你的路由是：
 
-```javascript
+```js
 [
   { path: '/', component: './pages/index' },
   { path: '/users', component: './pages/users' },
@@ -203,7 +203,7 @@ export default {
 
 如果有 `layouts/index.js`，那么路由则变为：
 
-```javascript
+```js
 
 [
   { path: '/', component: './layouts/index', routes: [
@@ -281,7 +281,7 @@ BROWSER=none
 
 那么，umi 会自动生成路由配置如下：
 
-```javascript
+```js
 [
   { path: '/', component: './pages/index.js' },
   { path: '/users/', component: './pages/users/index.js' },
@@ -307,7 +307,7 @@ BROWSER=none
 
 会生成路由配置如下：
 
-```javascript
+```js
 [
   { path: '/', component: './pages/index.js' },
   { path: '/users/:id', component: './pages/users/$id.js' },
@@ -331,7 +331,7 @@ BROWSER=none
 
 会生成路由配置如下：
 
-```javascript
+```js
 [
   { path: '/': component: './pages/index.js' },
   { path: '/users/:id?': component: './pages/users/$id$.js' },
@@ -354,7 +354,7 @@ BROWSER=none
 
 会生成路由配置如下：
 
-```javascript
+```js
 [
   { path: '/users': component: './pages/users/_layout.js'
     routes: [
@@ -371,7 +371,7 @@ BROWSER=none
 
 比如：
 
-```javascript
+```js
 export default function(props) {
   return (
     <>
@@ -389,7 +389,7 @@ export default function(props) {
 
 - 比如想要针对 `/login` 输出简单布局，
 
-```javascript
+```js
 export default function(props) {
   if (props.location.pathname === '/login') {
     return <SimpleLayout>{ props.children }</SimpleLayout>
@@ -411,7 +411,7 @@ export default function(props) {
 
 比如：
 
-```javascript
+```js
 export default () => {
   return (
     <div>I am a customized 404 page</div>
@@ -435,7 +435,7 @@ export default () => {
 
 > 如果` pages/index.js` 里包含：
 
-```javascript
+```js
 /**
  * title: Index Page
  * Routes:
@@ -446,7 +446,7 @@ export default () => {
 
 则会生成路由配置：
 
-```javascript
+```js
 [
   { path: '/', component: './index.js',
     title: 'Index Page',
@@ -462,7 +462,7 @@ export default () => {
 比如：
 
 
-```javascript
+```js
 export default {
   routes: [
     { path: '/', component: './a' },
@@ -485,7 +485,7 @@ export default {
 
 比如有以下配置：
 
-```javascript
+```js
 [
   { path: '/', component: './pages/index.js' },
   { path: '/list', component: './pages/list.js', Routes: ['./routes/PrivateRoute.js'] },
@@ -496,7 +496,7 @@ export default {
 
 `./routes/PrivateRoute.js` 文件示例：
 
-```javascript
+```js
 export default (props) => {
   return (
     <div>
@@ -519,7 +519,7 @@ $ yarn add react-transition-group
 
 > 在 ` layout`  组件（` layouts/index.js`  或者 `pages` 子目录下的 _layout.js）里在渲染子组件时用 `TransitionGroup` 和 `CSSTransition` 包裹一层，并以 `location.key` 为 `key`，
 
-```javascript
+```js
 import withRouter from 'umi/withRouter';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -559,7 +559,7 @@ $ yarn add react-router-breadcrumbs-hoc
 
 然后实现一个 `Breakcrumbs.js`，比如：
 
-```javascript
+```js
 import NavLink from 'umi/navlink';
 import withBreadcrumbs from 'react-router-breadcrumbs-hoc';
 
@@ -589,7 +589,7 @@ export default withBreadcrumbs(routes)(({ breadcrumbs }) => (
 
 > `umi` 默认是用的 `Browser History`，如果要用 `Hash History`，需配置：
 
-```javascript
+```js
 export default {
   history: 'hash',
 }
@@ -622,7 +622,7 @@ export default withRouter(Layout);
 
 > 基于 `umi/link`，通常作为 `React` 组件使用。
 
-```javascript
+```js
 import Link from 'umi/link';
 
 export default () => (
@@ -634,7 +634,7 @@ export default () => (
 
 > 基于 `umi/router`，通常在事件处理中被调用。
 
-```javascript
+```js
 import router from 'umi/router';
 
 function goToListPage() {
@@ -650,7 +650,7 @@ function goToListPage() {
 
 比如：
 
-```javascript
+```js
 export default {
   base: '/admin/',
   publicPath: 'http://cdn.com/foo',
@@ -672,7 +672,7 @@ export default {
 
 举个例子，
 
-```javascript
+```js
 // .umirc.js
 export default { a: 1, b: 2 };
 
@@ -709,7 +709,7 @@ export default { c: 'local' };
 
 > `umi` 里约定 `mock` 文件夹下的文件即` mock `文件，文件导出接口定义，支持基于 `require` 动态分析的实时刷新，支持 ES6 语法，以及友好的出错提示
 
-```javascript
+```js
 export default {
   // 支持值为 Object 和 Array
   'GET /api/users': { users: [1, 2] },
@@ -728,7 +728,7 @@ export default {
 
 > `Mock.js` 是常用的辅助生成模拟数据的第三方库，当然你可以用你喜欢的任意库来结合 roadhog 构建数据模拟功能
 
-```javascript
+```js
 import mockjs from 'mockjs';
 
 export default {
@@ -743,7 +743,7 @@ export default {
 
 > 设置 `response` 的请求头即可：
 
-```javascript
+```js
 'POST /api/users/create': (req, res) => {
   ...
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -765,7 +765,7 @@ export default {
 
 你可以在重写请求的代理方法，在其中添加模拟延迟的处理，如：
 
-```javascript
+```js
 'POST /api/forms': (req, res) => {
   setTimeout(() => {
     res.send('Ok');
@@ -777,7 +777,7 @@ export default {
 
 > 上面的方法虽然简便，但是当你需要添加所有的请求延迟的时候，可能就麻烦了，不过可以通过第三方插件来简化这个问题，如：`roadhog-api-doc#delay`。
 
-```javascript
+```js
 import { delay } from 'roadhog-api-doc';
 
 const proxy = {
@@ -827,7 +827,7 @@ $ yarn add umi-plugin-react
 
 然后在 `.umirc.js` 里配置插件：
 
-```javascript
+```js
 export default {
   plugins: [
     [
@@ -839,7 +839,7 @@ export default {
 
 推荐开启 `dva-immer` 以简化 `reducer` 编写，
 
-```javascript
+```js
 export default {
   plugins: [
     [
@@ -903,7 +903,7 @@ export default {
 
 > 新建 `src/dva.js`，通过导出的 `config` 方法来返回额外配置项，比如：
 
-```javascript
+```js
 import { message } from 'antd';
 
 export function config() {
@@ -925,7 +925,7 @@ export function config() {
 
 > `layouts/index.js` 里如果用了 `connect` 传数据，需要用 `umi/withRouter` 高阶一下
 
-```javascript
+```js
 import withRouter from 'umi/withRouter';
 
 export default withRouter(connect(mapStateToProps)(LayoutComponent));
@@ -933,7 +933,7 @@ export default withRouter(connect(mapStateToProps)(LayoutComponent));
 
 **3、如何访问到 store 或 dispatch 方法？**
 
-```javascript
+```js
 window.g_app._store
 window.g_app._store.dispatch
 ```
@@ -942,7 +942,7 @@ window.g_app._store.dispatch
 
 > 在 `.umirc.js` 里配置：
 
-```javascript
+```js
 export default {
   disableDynamicImport: true,
 };

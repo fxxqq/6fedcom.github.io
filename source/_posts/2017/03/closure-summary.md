@@ -17,7 +17,7 @@ date: 2017-03-22 14:24:08
 
 例：变量的搜索是从内到外而非从外到 内的
 
-```javascript
+```js
 var a=1;
 var func1 = function(){ 
     var b=2;
@@ -39,7 +39,7 @@ func1();
 
 例一：
 
-```javascript
+```js
 var func = function(){ 
     var a=1;
     return function(){ 
@@ -57,7 +57,7 @@ f();// 输出:5
 
 例二，假设页面上有 5 个 div 节点,我们通过循环来给每个 div绑定 onclick 事件,按照索引顺序,点击第 1 个 div 时弹出 0,点击第 2 个 div 时出 1,以此类
 
-```javascript
+```js
 var nodes = document.getElementsByTagName( 'div' );
 for(var i=0,len=nodes.length;i&lt;len;i++){ 
     nodes[ i ].onclick = function(){
@@ -71,7 +71,7 @@ for(var i=0,len=nodes.length;i&lt;len;i++){
 - 所以在 `div `的 `onclick` 事件函数中顺着作用域链从内到外查找变量 i 时,查找到的值总是 `5`。
 - 解决方法是在闭包的帮助下,每次循环的` i` 值都封闭起来。当在事件函数中顺着作用域链从内到外查找变量 `i `时,会先找到被封闭在闭包环境中的` i,`如果有` 5 `个`div`,这里的` i `分别 是 `0,1,2,3,4`
 
-```javascript
+```js
 for(var i=0,len=nodes.length;i&lt;len;i++){ 
     (function( i ){
         nodes[ i ].onclick = function(){ 
@@ -87,7 +87,7 @@ for(var i=0,len=nodes.length;i&lt;len;i++){
 
 - 例一，计算乘积
 
-```javascript
+```js
 var mult = function(){ 
     var a=1;
     for(var i=0,l=arguments.length;i&lt;l;i++){ 
@@ -100,7 +100,7 @@ var mult = function(){
 
 ## 四、闭包与内存泄漏
 
-```javascript
+```js
 function a() {
     var i = 0;
 

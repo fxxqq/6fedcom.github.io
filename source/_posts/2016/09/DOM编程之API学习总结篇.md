@@ -29,7 +29,7 @@ date: 2016-09-22 17:10:43
 
 - 假设我们要判断一个`Node`是不是元素，我们可以这样判断
 
-```javascript
+```js
 if(someNode.nodeType == 1){
 console.log("Node is a element");
 }
@@ -114,7 +114,7 @@ console.log("Node is a element");
 ---
 - 在一棵节点树上，`childNodes`属性可以用来获取任何一个元素的所有子节点，它是一个包含这个元素全部子元素的数组
 
-```javascript
+```js
 element.childNodes
 ```
 
@@ -139,7 +139,7 @@ element.childNodes
 
 - 每一个节点都有`nodeType`属性
 
-```javascript
+```js
 node.nodeType
 ```
 - `nodeType`属性总共有12中可能取值，但其中仅有3种有实用价值
@@ -148,7 +148,7 @@ node.nodeType
     - 文本节点的`nodeType`属性值是3
 
 
-```javascript
+```js
 description.firstChild.nodeValue = text;
 ```
 
@@ -165,18 +165,18 @@ description.firstChild.nodeValue = text;
 ---
 - 数组元素`childNodes[0]`有个更直观的同义词。无论如何，只要访问`childNodes`数组的第一个元素，都可以把它写成`firstChild`
 
-```javascript
+```js
 node.firstChild
 ```
 与下面等价
 
-```javascript
+```js
 node.childNodes[0]
 ```
 
 - `DOM`还提供了一个与之对应的`lastChild`属性
 
-```javascript
+```js
 node.lastChild
 ```
 
@@ -190,7 +190,7 @@ node.lastChild
 
 - `createElement`通过传入指定的一个标签名来创建一个元素，如果传入的标签名是一个未知的，则会创建一个自定义的标签，注意：`IE8`以下浏览器不支持自定义标签
 
-```javascript
+```js
 
 var div = document.createElement("div");
 ```
@@ -202,7 +202,7 @@ var div = document.createElement("div");
 
 - `createTextNode`用来创建一个文本节点，用法如下
 
-```javascript
+```js
 
 var textNode = document.createTextNode("一个TextNode");
 ```
@@ -212,7 +212,7 @@ var textNode = document.createTextNode("一个TextNode");
 
 - `cloneNode`是用来返回调用方法的节点的一个副本，它接收一个`bool`参数，用来表示是否复制子元素，使用如下：
 
-```javascript
+```js
 var parent = document.getElementById("parentElement"); 
 var parent2 = parent.cloneNode(true);// 传入true
 parent2.id = "parent2";
@@ -265,7 +265,7 @@ document.getElementById("btnCopy").onclick = function(){
 
 - `createDocumentFragment`方法主要是用于添加大量节点到文档中时会使用到。假设要循环一组数据，然后创建多个节点添加到文档中
 
-```javascript
+```js
 <ul id="list"></ul>
 <input type="button" value="添加多项" id="btnAdd" />
 
@@ -283,7 +283,7 @@ document.getElementById("btnAdd").onclick = function(){
 
 - `DocumentFragment`不是文档树的一部分，它是保存在内存中的，所以不会造成回流问题。我们修改上面的代码如下
 
-```javascript
+```js
 document.getElementById("btnAdd").onclick = function(){
 	var list = document.getElementById("list");	
 	var fragment = document.createDocumentFragment();
@@ -319,7 +319,7 @@ document.getElementById("btnAdd").onclick = function(){
 
 - `appendChild`我们在前面已经用到多次，就是将指定的节点添加到调用该方法的节点的子元素的末尾。调用方法如下：
 
-```javascript
+```js
 parent.appendChild(child);
 ```
 - `child`节点将会作为`parent`节点的最后一个子节点
@@ -353,7 +353,7 @@ document.getElementById("btnMove").onclick = function(){
 
 - `insertBefore`用来添加一个节点到一个参照节点之前，用法如下
 
-```javascript
+```js
 
 parentNode.insertBefore(newNode,refNode);
 ```
@@ -392,7 +392,7 @@ document.getElementById("insertNode").onclick = function(){
 
 - `removeChild`顾名思义，就是删除指定的子节点并返回，用法如下
 
-```javascript
+```js
 
 var deletedChild = parent.removeChild(node);
 
@@ -402,7 +402,7 @@ var deletedChild = parent.removeChild(node);
 
 - **注意**：如果被删除的节点不是其子节点，则程序将会报错。我们可以通过下面的方式来确保可以删除：
 
-```javascript
+```js
 if(node.parentNode){
     node.parentNode.removeChild(node);
 }
@@ -415,7 +415,7 @@ if(node.parentNode){
 
 - `replaceChild`用于使用一个节点替换另一个节点，用法如下
 
-```javascript
+```js
 
 parent.replaceChild(newChild,oldChild);
 
@@ -492,7 +492,7 @@ document.getElementById("btnShowCount").onclick = function(){
 
 - 这个`API`是根据元素的`class`返回一个即时的`HTMLCollection`，用法如下
 
-```javascript
+```js
 var elements = document.getElementsByClassName(names);
 ```
 
@@ -501,7 +501,7 @@ var elements = document.getElementsByClassName(names);
   - `IE9`以下浏览器不支持
   - 如果要获取`2`个以上`classname`，可传入多个`classname`，每个用空格相隔，例如
   
-```javascript
+```js
 
 var elements = document.getElementsByClassName("test1 test2");
 ```
@@ -585,7 +585,7 @@ document.getElementById("btnShow").addEventListener("click",function(){
 
 - `nextElementSibling` `previousElementSibling` 推荐使用
 
-```javascript
+```js
 <script>
     var oUl = document.getElementById('ul1');
 
@@ -631,7 +631,7 @@ document.getElementById("btnShow").addEventListener("click",function(){
 - 如何解决兼容性？？
   - 根据子节点的`nodeType`属性值判断
 
-```javascript
+```js
 for (var i=0; i<oUl.childNodes.length; i++) {
 
      if ( oUl.childNodes[i].nodeType == 1 ) {
@@ -646,7 +646,7 @@ for (var i=0; i<oUl.childNodes.length; i++) {
 
 - `children` 获取的子节点只包含元素节点
 
-```javascript
+```js
 for (var i = 0; i<oUl.children.length; i++){
     oUl.children[i].style.background = 'red';
 }
@@ -662,7 +662,7 @@ for (var i = 0; i<oUl.children.length; i++){
 
 - `firstElementChild `、 `lastElementChild` 获取第一个元素子节点，最后一个元素子节点 推荐使用
 
-```javascript
+```js
 var oUl = document.getElementById('ul1');
 
 //    oUl.firstChild.style.background = 'red';//标准浏览器 报错
@@ -687,7 +687,7 @@ oUl.lastElementChild.style.background = 'red';
 - 通过`setAttribute`对文档做出修改后，在通过浏览器的查看源码选项看到的任然是改变之前的属性值，也就是说`setAttribue`做出的修改，不会反应到文档本身的源码里
 - `setAttribute`优势在于可以修改文档中的任何一个属性
 
-```javascript
+```js
 
 element.setAttribute(name, value);
 ```
@@ -695,7 +695,7 @@ element.setAttribute(name, value);
 - 其中`name`是特性名，`value`是特性值。如果元素不包含该特性，则会创建该特性并赋值。
 - 如果元素本身包含指定的特性名为属性，则可以访问属性进行赋值，比如下面两条代码是等价
 
-```javascript
+```js
 
 element.setAttribute("id","test");
 
@@ -707,12 +707,12 @@ element.id = "test";
     - 其实不用`setAttribute`也可以改变元素的属性
     - `setAttribute`方法是第一级`DOM`的组成部分，它可以设计任何元素节点的任意属性。在第1级`DOM`出现之前，你可以通过另外一种办法设置大部分元素的属性
 
-```javascript
+```js
 element.value = "the new value";
 ```
 与下面语句等价
 
-```javascript
+```js
 element.setAttribute("value","the new value");
 ```
 
@@ -724,7 +724,7 @@ element.setAttribute("value","the new value");
 - `getAttribute`不属性`doucment`对象，不能通过`document`对象调用，只能通过元素节点对象调用
 - 例如可以与`getElementsByTagName`方法合用，获取每个`p`的`title`属性
 
-```javascript
+```js
 var paras = document.getElementsByTagName("p");
 for(var i=0;i<para.lenght;i++){
     alert(paras.getAttrtitube("title"));

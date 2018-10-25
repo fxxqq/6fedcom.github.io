@@ -1,9 +1,9 @@
 ---
-title: 跨域问题携带cookie加入withCredentials保错原因以及解决方案
+title: 跨域问题携带cookie加入withCredentials报错原因以及解决方案
 categories: 前端
 abbrlink: b2790fdc
 date: 2018-10-22 18:26:41
-tags:
+tags: [cookie，跨域，ajax]
 ---
  
 1.跨域允许
@@ -37,7 +37,9 @@ header('Access-Control-Allow-Methods:OPTIONS, GET, POST');
 header('Access-Control-Allow-Headers:x-requested-with');
 header('Access-Control-Max-Age:86400');
 ```
+
 以上汇总起来就是
+
 ```
 header('Access-Control-Allow-Methods:OPTIONS, GET, POST');
 header('Access-Control-Allow-Headers:x-requested-with');
@@ -80,19 +82,18 @@ Accept-Language: zh-CN,zh;q=0.8
 
 ```
 #path /setcookie.php
-
 session_start();
 header('Access-Control-Allow-Origin:*'); 
-
 header('Access-Control-Allow-Methods:OPTIONS, GET, POST'); // 允许option，get，post请求
 header('Access-Control-Allow-Headers:x-requested-with'); // 允许x-requested-with请求头
 header('Access-Control-Max-Age:86400'); // 允许访问的有效期
-
 // 功能...
 // ...
 ```
+
 继续测试我们的新功能，成功的解决了跨域问题
 但是，cookie没有“设置成功”。而之所以没有“设置成功”，是因为cookie存在本地，但是每个cookie都有一个domain，当你本地的cookie中存在你当前访问的域时，才会被带过去，而我的index.html文件是本地访问的，即http://localhost/index.html，而cookie的域是要跨域的域名的，所以不行了。
+
 ```js
 $.ajax({
     type: "POST",

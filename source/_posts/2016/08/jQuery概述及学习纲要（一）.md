@@ -40,7 +40,7 @@ date: 2016-08-07 19:35:08
 
 - `$()`和`document`是相等的吗
 
-```javascript
+```js
 	<div id="a" class="aa"></div>
 	<div id="b" class="aa"></div>
 	<div id="c" class="aa"></div>

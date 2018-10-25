@@ -58,7 +58,7 @@ date: 2016-10-20 09:35:08
   - 写第一个`JQUery`案例
     - 解释:在`JQuery`库中，`$`是`JQuery`的别名，`$()`等效于就`jQuery()`
 
- ```javascript
+ ```js
 <script type=“text/javascript” src=“”></script>
 <script type=“text/javascript”>
 	$(function(){
@@ -113,7 +113,7 @@ date: 2016-10-20 09:35:08
 	- 控制响应事件等
   - `jQuery`作用一样，只是更加快速简洁
 - **如何引用`JQuery`**
-```javascript
+```js
 <script type="text/javascript"></script>
 写第一个JQUery案例
 <script type=“text/javascript” src=“”></script>
@@ -130,7 +130,7 @@ date: 2016-10-20 09:35:08
   - `var jQuery==$ =function(){}` `$()`本质就是一个函数也就是 `jQuery`的核心函数
   - 只要是`jQuery`的对象都这样变量加上一个`符号$ `方便识别：`var $div = $("#")`
 
-```javascript
+```js
 function　$(id){
 		return document.getElementById(id);
 	}
@@ -163,7 +163,7 @@ alert(document.getElementById("id") == $("#aa").get(0));//返回true
 - **对象转换(`$(element)`)**
     - 原生`dom`对象和`jquery`代理对象的相互转换
 
-```javascript
+```js
 $(传入的原生对象);
 //原生对象转化成jQuery对象
 var nav = document.getElementById("nav");
@@ -512,7 +512,7 @@ alert($nav.get(0) == nav);//true
 - 1.创建元素
   - 语法：`document.createElement(name)`;
 
-```javascript
+```js
 var div = document.createElement("div");
 document.body.appendChild(div);
 ```
@@ -521,7 +521,7 @@ document.body.appendChild(div);
 
 - 2.创建文本
 
-```javascript
+```js
 var div = document.createElement("div");
 var txt = document.createTextNode("DOM");
 div.appendChild(txt);
@@ -534,7 +534,7 @@ $(body).append($div);
 - 3.设置属性
 	- 语法：`e.setAttrbute(name,value)`
 
-```javascript
+```js
 var div = document.createElement("div");
 var txt = document.createTextNode("DOM");
 div.appendChild(txt);
@@ -816,7 +816,7 @@ $(body).append($div);
 
 - **`ajax`请求处理过程**
 
-```javascript
+```js
 xhr.onreadystatechange = function(){
 	if (xhr.readyState == 4)
 	{
@@ -841,7 +841,7 @@ xhr.onreadystatechange = function(){
 
 - 案例：`ajax`封装案例
 
-```javascript
+```js
 //ajax请求后台数据
 var btn =  document.getElementsByTagName("input")[0];
 btn.onclick = function(){
@@ -917,7 +917,7 @@ function ajax(aJson){
     - 必须在加载完成后才执行的操作，该函数有三个参数 分别代表请求返回的内容、请求状态、`XMLHttpRequest`对象
     - 只要请求完成，回调函数就会被触发
 
-```javascript
+```js
 $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest){
     //respnoseText 请求返回的内容
     //textStatus 请求状态 ：sucess、error、notmodified、timeout
@@ -1020,7 +1020,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 
 - **`jQuery`官方提供的插件开发模板**
 
-```javascript
+```js
 ;(function($){
 	$.fn.plugin=function(options){
 		var defaults = {
@@ -1039,7 +1039,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 
 **自定义`jQuery`函数**：
 
-```javascript
+```js
 (function($){
 	$.extend({
 		test: function(){
@@ -1053,7 +1053,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 
 - 形式1：
 
-```javascript
+```js
 (function($){
     $.fn.extend({
         say : function(){
@@ -1065,7 +1065,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 
 - 形式2：
 
-```javascript
+```js
 (function($){
 	$.fn.say = function(){
 		alert("hello plugin");
@@ -1158,7 +1158,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 
 - 禁用页面的右键菜单
   
-```javascript
+```js
 $(document).ready(functuion(){
     $(document).bind("contextmenu",function(e){
         return false;
@@ -1167,7 +1167,7 @@ $(document).ready(functuion(){
 ```
 - 新窗口打开页面
 
-```javascript
+```js
 $(document).ready(function(){
     //例子1：href="http://"的链接将会在新窗口打开链接
     $('a[href=^="http://"]').attr("target","_blank");
@@ -1182,7 +1182,7 @@ $(document).ready(function(){
 ```
 - 判断浏览器类型
 
-```javascript
+```js
 
 $(document).reday(function(){
     //Firefox2 and above
@@ -1220,7 +1220,7 @@ $(document).reday(function(){
 ```
 - 输入框文字获取和失去焦点
 
-```javascript
+```js
 
 $(document).ready(function(){
     $("input.text1").val("Enter you search text here");
@@ -1244,7 +1244,7 @@ function textFill(input){//input focus text function
 
 - 获取鼠标位置
 
-```javascript
+```js
 
 $(document).ready(function(){
   $(document).mousemove(function(e){
@@ -1256,7 +1256,7 @@ $(document).ready(function(){
 
 - 判断元素是否存在
 
-```javascript
+```js
 $(document).ready(function(){
     if($("#id").length){
       // do some thing  
@@ -1265,7 +1265,7 @@ $(document).ready(function(){
 ```
 - 点击div也可以跳转
 
-```javascript
+```js
 $("div").click(function(){
     window.location  = $(this).find("a").attr("href");
 })
@@ -1278,7 +1278,7 @@ $("div").click(function(){
 
 - 设置div在屏幕中央
 
-```javascript
+```js
 $(document).ready(function(){
     jQuery.fn.center = function(){
         this.css("position","absolute");
@@ -1295,7 +1295,7 @@ $(document).ready(function(){
 
 - 关闭所有动画效果
 
-```javascript
+```js
 $(document).ready(function(){
     jQuery.fx.off = true;
 });
@@ -1304,7 +1304,7 @@ $(document).ready(function(){
 
 - 检测鼠标的右键和左键
 
-```javascript
+```js
 $(document).ready(function(){
     $("#xy").mousedown(function(e){
         alert(e.which);//1 = 鼠标左键  2= 鼠标中间 3 = 鼠标右键
@@ -1314,7 +1314,7 @@ $(document).ready(function(){
 ```
 - 回车提交表单
 
-```javascript
+```js
 $(document).ready(function(){
     $("input").keyup(function(e){
         if(e.which == "13"){
@@ -1326,7 +1326,7 @@ $(document).ready(function(){
 ```
 - 设置全局的Ajax参数
 
-```javascript
+```js
 $("#load").ajaxStart(function(){
     showLoading();//显示loading
     disableButtons() //禁用按钮
@@ -1339,14 +1339,14 @@ $("#load").ajaxStart(function(){
 
 - 获取选中的下拉框
 
-```javascript
+```js
 $("#someElement").find('option:selected');
 $("#someElement option:selected");
 ```
 
 - 切换复选框
 
-```javascript
+```js
 var tog = false;
 $("button").click(function(){
     $("input[type=checkbox]').attr("checked",!tog);
@@ -1356,7 +1356,7 @@ $("button").click(function(){
 
 - 个性化链接
 
-```javascript
+```js
 $(document).ready(function(){
      $("a[href$='pdf']").addClass("pdf");
      $("a[href$='zip']").addClass("zip");
@@ -1367,7 +1367,7 @@ $(document).ready(function(){
 
 - 在一段时间后自动隐藏或关闭元素
 
-```javascript
+```js
 setTimeOut(function(){
         $("div").fadeIn(400);
   },3000);
@@ -1380,7 +1380,7 @@ $("div").slideUp(300).delay(3000).fadeIn(400);
 
 - 使用事件代理绑定元素
 
-```javascript
+```js
  //为table里面的td元素绑定click事件，不管td是一直存在还是动态创建的
  //jQuery 1.4.2之前使用这种方式
  $("table").each(function(){
@@ -1403,7 +1403,7 @@ $("table").on("click","td",function(){
 
 - 预加载图片
 
-```javascript
+```js
 (function($) {
   var cache = [];
   // Arguments are image paths relative to the current page.
@@ -1420,7 +1420,7 @@ jQuery.preLoadImages("image1.gif", "/path/to/image2.png");
 
 - 让页面中的每个元素都适合在移动设备上展示
 
-```javascript
+```js
 var scr = document.createElement('script');
 scr.setAttribute('src', 'https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js');
 document.body.appendChild(scr);
@@ -1436,7 +1436,7 @@ scr.onload = function(){
 
 - 图像等比例缩放
 
-```javascript
+```js
 $(window).bind("load", function() {
 	// IMAGE RESIZE
 	$('#product_cat_list img').each(function() {
@@ -1467,7 +1467,7 @@ $(window).bind("load", function() {
 
 - 返回页面顶部
 
-```javascript
+```js
 // Back To Top
 $(document).ready(function(){ 
   $('.top').click(function() {  
@@ -1480,7 +1480,7 @@ $(document).ready(function(){
 
 - 使用jQuery打造手风琴式的折叠效果
 
-```javascript
+```js
 var accordion = {
      init: function(){
            var $container = $('#accordion');
@@ -1508,7 +1508,7 @@ var accordion = {
 
 - 使用jQuery和Ajax自动填充选择框
 
-```javascript
+```js
 $(function(){
 $("select#ctlJob").change(function(){
 $.getJSON("/select.php",{id: $(this).val(), ajax: 'true'}, function(j){
@@ -1525,7 +1525,7 @@ $("select#ctlPerson").html(options);
 ```
 - 自动替换丢失的图片
 
-```javascript
+```js
 // Safe Snippet
 $("img").error(function () {
 	$(this).unbind("error").attr("src", "missing_image.gif");
@@ -1538,7 +1538,7 @@ $("img").error(function () {
 
 - 预防对表单进行多次提交
 
-```javascript
+```js
 $(document).ready(function() {
   $('form').submit(function() {
     if(typeof jQuery.data(this, "disabledOnSubmit") == 'undefined') {
@@ -1558,7 +1558,7 @@ $(document).ready(function() {
 
 - 动态添加表单元素
 
-```javascript
+```js
 //change event on password1 field to prompt new input
 $('#password1').change(function() {
         //dynamically create new input and insert after password1
@@ -1568,7 +1568,7 @@ $('#password1').change(function() {
 
 - 在窗口滚动时自动加载内容
 
-```javascript
+```js
 var loading = false;
 $(window).scroll(function(){
 	if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
@@ -1591,7 +1591,7 @@ $(document).ready(function() {
 
 - 导航菜单背景切换效果
 
-```javascript
+```js
 <ul id='nav'> 
     <li>导航一</li> 
     <li>导航二</li> 
@@ -1609,7 +1609,7 @@ $(e.target).addClass('tclass').siblings('.tclass').removeClass('tclass');;
 ```
 - 解决`jQuery`, `prototype`共存，`$`全局变量冲突问题
 
-```javascript
+```js
 <script src="prototype.js"></script>
 <script src="http://blogbeta.blueidea.com/jquery.js"></script>
 <script type="text/javascript"> jQuery.noConflict();</script> 
@@ -1619,7 +1619,7 @@ $(e.target).addClass('tclass').siblings('.tclass').removeClass('tclass');;
 
 -  jQuery 判断元素上是否绑定了事件
 
-```javascript
+```js
 //jQuery event封装支持判断元素上是否绑定了事件，此方法只适用于jQuery绑定的事件
 var $events = $("#foo").data("events");
 if( $events && $events["click"] ){　　
@@ -1628,7 +1628,7 @@ if( $events && $events["click"] ){　　
 ```
 - 如何正确地使用`toggleClass`
 
-```javascript
+```js
 //切换（toggle）类允许你根据某个类的//是否存在来添加或是删除该类。
 //这种情况下有些开发者使用：
 a.hasClass('blueButton') ? a.removeClass('blueButton') : a.addClass('blueButton');
@@ -1638,14 +1638,14 @@ a.toggleClass('blueButton');
 
 - 如何设置IE特有的功能
 
-```javascript
+```js
 if ($.browser.msie) {
     // Internet Explorer就是个虐待狂
 }
 ```
 - 如何验证某个元素是否为空
 
-```javascript
+```js
 // 方法一
 if (! $('#keks').html()) {
     //什么都没有找到;
@@ -1657,7 +1657,7 @@ if ($('#keks').is(":empty")) {
 ```
 - 访问IFrame里的元素
 
-```javascript
+```js
 var iFrameDOM = $("iframe#someID").contents();
 //然后，就可以通过find方法来遍历获取iFrame中的元素了
 iFrameDOM.find(".message").slideUp();
@@ -1666,7 +1666,7 @@ iFrameDOM.find(".message").slideUp();
     - 现在各大网站都有搜索框，而搜索框通常都有默认值，当输入框获取焦点时，默认值消失。而一旦输入框失去焦点，而输入框里又没有输入新的值，输入框里的值又会恢复成默认值，如果往输入框里输入了新值，则输入框的值为新输入的值。这种特效用`JQuery`
 很容易实现
 
-```javascript
+```js
 $("#searchbox") .focus(function(){
       $(this).val('')
 }) .blur(function(){
@@ -1679,7 +1679,7 @@ $("#searchbox") .focus(function(){
 - 部分页面加载更新
   - 为了提高`web`性能，有更新时我们通常不会加载整个页面，而只是仅仅更新部分页面内容，如图片的延迟加载等。页面部分刷新的特效在`JQuery`中也很容易实现
 
-```javascript
+```js
 setInterval(function() { 
 //每隔5秒钟刷新页面内容 //获取的内容将增加到 id为content的元素后 
 
@@ -1688,7 +1688,7 @@ $("#content").load(url); }, 5000);
 - 采配置JQuery与其它库的兼容性
   - 如果在项目中使用`JQuery`，`$` 是最常用的变量名，但`JQuery`并不是唯一一个使用`$`作为变量名的库，为了避免命名冲突，你可以按照下面方式来组织你的代码
 
-```javascript
+```js
 //方法一： 为JQuery重新命名为
  $jvar $j = jQuery.noConflict();$j('#id').... //
 
@@ -1705,7 +1705,7 @@ $("#content").load(url); }, 5000);
 ```html
 <input type="password" name="pass" id="pass" /> <span id="passstrength"></span>
 ```
-```javascript
+```js
 //下面的正则表达式建议各位收藏哦，项目上有可能会用得着
 $('#pass').keyup(function(e) { 
 

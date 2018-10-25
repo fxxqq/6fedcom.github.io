@@ -19,7 +19,7 @@ Path
 - 返回一个 `path` 的目录名
 - 返回 `path` 的扩展名
   
-```javascript
+```js
 const {basename,dirname,extname} = require("path");
 
 const filePath = "/usr/local/bin/test.txt";
@@ -37,7 +37,7 @@ console.log(extname(filePath)); // .txt
 - `path.normalize()` 方法会规范化给定的 `path`，并解析 `'..' `和 `'.' `片段
 - `path.resolve()` 方法会把一个相对路径解析为一个绝对路径
 
-```javascript
+```js
 path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
 // 返回: '/foo/bar/baz/asdf'
 
@@ -52,7 +52,7 @@ path.join('foo', {}, 'bar');
 - `path.parse() `方法返回一个对象，对象的属性表示 `path` 的元素
 
 
-```javascript
+```js
 const {parse,format} = require("path");
 
 const filePath = "/usr/local/bin/test.txt";
@@ -65,7 +65,7 @@ console.log(format_ret);
 ```
 - 结果
 
-```javascript
+```js
 { root: '/',
   dir: '/usr/local/bin',
   base: 'test.txt',
@@ -87,7 +87,7 @@ console.log(format_ret);
 - `delimiter` 就是 `":"`
 
 
-```javascript
+```js
 const {sep,delimiter,win32,posix} = require("path");
 
 const filePath = "/usr/local/bin/test.txt";
@@ -101,7 +101,7 @@ console.log("delimiter ",delimiter);
 
 ```
 
-```javascript
+```js
 sep  \
 posix sep  /
 win32 sep  \
@@ -114,7 +114,7 @@ delimiter  ;
 
 **回顾小结**
 
-```javascript
+```js
 const path = require("path")
 
 // 路径相关
@@ -137,7 +137,7 @@ Buffer
 > Buffer 类在 Node.js 中是一个全局变量，因此无需使用 require('buffer').Buffer
 
 
-```javascript
+```js
 // 创建一个长度为 10、且用 0 填充的 Buffer。
 const buf1 = Buffer.alloc(10)
 
@@ -154,7 +154,7 @@ const buf4 = Buffer.from([1, 2, 3]);
 - `Buffer.isBuffer`判断是否是`buffer`对象
 - `Buffer.concat`拼接`Buffer`
 
-```javascript
+```js
 // byteLength 计算字符串占了几个字节
 console.log(Buffer.byteLength("test")) // 4 
 console.log(Buffer.byteLength("测试"))  // 6字节
@@ -194,7 +194,7 @@ This is a test buffer
 - `buf.copy()`
 
 
-```javascript
+```js
 const buf = Buffer.from("This is a test!");
 
 console.log(buf.length); // 15
@@ -255,7 +255,7 @@ event
 - `eventEmitter.on()` 方法用于注册监听器，`eventEmitter.emit()` 方法用于触发事件
 - 这和在浏览器上不同，在浏览器上靠的是用户做的一些UI的操作触发，如`click\hover`
 
-```javascript
+```js
 const EventEmitter = require("events");
 
 // 继承EventEmitter类
@@ -274,7 +274,7 @@ setInterval(()=>{
 },500)
 ```
 
-```javascript
+```js
 const EventEmitter = require("events");
 
 // 继承EventEmitter类
@@ -293,7 +293,7 @@ ce.emit("error", new Error("出错了"),Date.now())
 
 ```
 
-```javascript
+```js
 const EventEmitter = require("events");
 
 // 继承EventEmitter类
@@ -313,7 +313,7 @@ setInterval(()=>{
 
 ```
 
-```javascript
+```js
 const EventEmitter = require("events");
 
 // 继承EventEmitter类
@@ -350,7 +350,7 @@ fs
 - 传给回调函数的参数取决于具体方法，但回调函数的第一个参数都会保留给异常。 如果操作成功完成，则第一个参数会是 `null` 或 `undefined`
 - 当使用同步方法时，任何异常都会被立即抛出。 可以使用   `try/catch ` 来处理异常，或让异常向上冒泡
 
-```javascript
+```js
 // 读文件
 const fs = require("fs");
 
@@ -367,7 +367,7 @@ console.log(data)
 ```
 
 
-```javascript
+```js
 // 写文件
 const fs = require("fs");
 
@@ -379,7 +379,7 @@ fs.writeFile("./write.js","This is a  test",{encoding:"utf8"},err=>{
 
 ```
 
-```javascript
+```js
 const fs = require("fs");
 
 //stat文件信息
@@ -415,7 +415,7 @@ fs.stat("./fs.js",(err,stats)=>{
 
 ```
 
-```javascript
+```js
 // rename修改文件名
 const fs = require("fs");
 
@@ -428,7 +428,7 @@ fs.rename("./write.js","test.js",err=>{
 
 ```
 
-```javascript
+```js
 // unlink删除文件
 const fs = require("fs");
 
@@ -438,7 +438,7 @@ fs.unlink("./test.js",err=>{
 })
 ```
 
-```javascript
+```js
 // 读文件夹相关操作
 const fs = require("fs");
 
@@ -459,21 +459,21 @@ fs.readdir("./",(err,files)=>{
 })
 ```
 
-```javascript
+```js
 // 创建文件夹
 const fs = require("fs");
 
 fs.mkdir("test",err=>{});
 ```
 
-```javascript
+```js
 // 删除文件夹
 const fs = require("fs");
 
 fs.rmdir("./test",err=>{});
 ```
 
-```javascript
+```js
 // watch监视文件变化
 const fs = require("fs");
 
@@ -484,7 +484,7 @@ fs.watch("./",{
 })
 ```
 
-```javascript
+```js
 // readStream 流 (从一个方向流向另一个方向)
 const fs = require("fs");
 
@@ -493,7 +493,7 @@ const rs = fs.createReadStream("./fs.js");
 rs.pipe(process.stdout) // process.stdout控制台
 ```
 
-```javascript
+```js
 // writeStream 
 const fs = require("fs");
 
@@ -519,7 +519,7 @@ ws.on("finish", () => {
 异步解决方案
 ---
 
-```javascript
+```js
 // 异步回调 Node.js v8.0.0版本增加了util.promisify函数
 
 const fs = require("fs");

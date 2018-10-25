@@ -32,7 +32,7 @@ date: 2016-07-27 11:40:43
 
 - `escape`  把字符转化成各平台通用的Unicode编码
 
-```javascript
+```js
 	var str = '中国';
 	var  enc = escape(str);
 	alert(enc);

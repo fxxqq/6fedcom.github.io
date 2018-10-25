@@ -12,7 +12,7 @@ date: 2018-08-11 13:30:43
 
 > 小程序给我们暴露了两个参数`require`和`module`，`require`用来在模块中加载其他模块，`module`用来将模块中的方法暴露出去
 
-```javascript
+```js
 module.exports = function(){}
 ```
 > 所以只要需要让第三方库的代码使用这种形式的`export`就可以了
@@ -33,7 +33,7 @@ npm run build:umd && npm run build:umd
 
 > 用编辑器打开`dist`目录下的`redux.js`文件
 
-```javascript
+```js
 (function webpackUniversalModuleDefinition(root, factory) {
     if(typeof exports === 'object' && typeof module === 'object')
         module.exports = factory();
@@ -77,7 +77,7 @@ remotedev --hostname=localhost --port=5678
 
 > 在`store`下集成`devtool`
 
-```javascript
+```js
 const {createStore, compose} = require('./libs/redux.js');
 const devTools = require('./libs/remote-redux-devtools.js').default;
 const reducer = require('./reducers/index.js')
@@ -102,7 +102,7 @@ module.exports = configureStore;
 
 **Immutable使用了UMD模块化规范**
 
-```javascript
+```js
 (function (global, factory) {
  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
  typeof define === 'function' && define.amd ? define(factory) :
@@ -116,7 +116,7 @@ module.exports = configureStore;
 
 > 修改`Immutable`代码，注释原有模块导出语句，使用`module.exports = factory()` 强制导出
 
-```javascript
+```js
 (function(global, factory) {
  /*
  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :

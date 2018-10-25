@@ -14,7 +14,7 @@ date: 2016-12-13 14:55:24
 - 每个函数都有一个默认的`prototype`属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象
 - 在构造函数中的`prototype`中定义的属性和方法，会被创建的对象所继承下来。举个栗子：
 <!--more-->
-```javascript
+```js
 function F(){}
 F.prototype.work = function(){
     console.log('F is working..');

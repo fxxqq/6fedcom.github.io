@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-29b46c90a92006d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ee530718ab42bd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-f645ac53d435d6de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-24T03:46:02.202Z">
+<meta property="og:updated_time" content="2018-10-25T09:40:14.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探RESTful API">
 <meta name="twitter:description" content="一、RESTful API 简介                                                                                             image.png">
@@ -228,15 +228,15 @@
 <h3 id="2-2、域名"><a href="#2-2、域名" class="headerlink" title="2.2、域名"></a>2.2、域名</h3><ul>
 <li>应该尽量将<code>API</code>部署在专用域名之下</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//api.example.com</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//api.example.com</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//example.org/api/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//example.org/api/</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-3、版本（Versioning）"><a href="#2-3、版本（Versioning）" class="headerlink" title="2.3、版本（Versioning）"></a>2.3、版本（Versioning）</h3><ul>
 <li>应该将<code>API</code>的版本号放入<code>URL</code></li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//api.example.com/v1/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//api.example.com/v1/</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-4、路径（Endpoint）"><a href="#2-4、路径（Endpoint）" class="headerlink" title="2.4、路径（Endpoint）"></a>2.4、路径（Endpoint）</h3><ul>
 <li>表示<code>API</code>的具体网址</li>
 <li><p>在<code>RESTful</code>架构中，每个网址代表一种资源（<code>resource</code>），所以网址中不能有动词，只能有名词</p>
@@ -244,7 +244,7 @@
 <li><p>举例来说，有一个<code>API</code>提供动物园（<code>zoo</code>）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//api.example.com/v1/zoos</span></span><br><span class="line">https:<span class="comment">//api.example.com/v1/animals</span></span><br><span class="line">https:<span class="comment">//api.example.com/v1/employees</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//api.example.com/v1/zoos</span></span><br><span class="line">https:<span class="comment">//api.example.com/v1/animals</span></span><br><span class="line">https:<span class="comment">//api.example.com/v1/employees</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-5、HTTP动词"><a href="#2-5、HTTP动词" class="headerlink" title="2.5、HTTP动词"></a>2.5、HTTP动词</h3><ul>
 <li>对于资源的具体操作类型，由<code>HTTP</code>动词表示</li>
 </ul>
@@ -258,7 +258,7 @@
 <blockquote>
 <p>下面是一些例子</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /zoos：列出所有动物园</span><br><span class="line">POST /zoos：新建一个动物园</span><br><span class="line">GET /zoos/ID：获取某个指定动物园的信息</span><br><span class="line">PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）</span><br><span class="line">PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）</span><br><span class="line">DELETE /zoos/ID：删除某个动物园</span><br><span class="line">GET /zoos/ID/animals：列出某个指定动物园的所有动物</span><br><span class="line">DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /zoos：列出所有动物园</span><br><span class="line">POST /zoos：新建一个动物园</span><br><span class="line">GET /zoos/ID：获取某个指定动物园的信息</span><br><span class="line">PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）</span><br><span class="line">PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）</span><br><span class="line">DELETE /zoos/ID：删除某个动物园</span><br><span class="line">GET /zoos/ID/animals：列出某个指定动物园的所有动物</span><br><span class="line">DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物</span><br></pre></td></tr></table></figure>
 <h3 id="2-6、过滤信息"><a href="#2-6、过滤信息" class="headerlink" title="2.6、过滤信息"></a>2.6、过滤信息</h3><blockquote>
 <p>如果记录数量很多，服务器不可能都将它们返回给用户。API应该提供参数，过滤返回结果</p>
 </blockquote>
@@ -281,18 +281,18 @@
 <h3 id="2-8、错误处理"><a href="#2-8、错误处理" class="headerlink" title="2.8、错误处理"></a>2.8、错误处理</h3><blockquote>
 <p>如果状态码是<code>4xx</code>，就应该向用户返回出错信息。一般来说，返回的信息中将<code>error</code>作为键名，出错信息作为键值即可</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    error: <span class="string">"Invalid API key"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    error: <span class="string">"Invalid API key"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2-9、返回结果"><a href="#2-9、返回结果" class="headerlink" title="2.9、返回结果"></a>2.9、返回结果</h3><ul>
 <li>针对不同操作，服务器向用户返回的结果应该符合以下规范</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET /collection：返回资源对象的列表（数组）</span><br><span class="line">GET /collection/resource：返回单个资源对象</span><br><span class="line">POST /collection：返回新生成的资源对象</span><br><span class="line">PUT /collection/resource：返回完整的资源对象</span><br><span class="line">PATCH /collection/resource：返回完整的资源对象</span><br><span class="line">DELETE /collection/resource：返回一个空文档</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET /collection：返回资源对象的列表（数组）</span><br><span class="line">GET /collection/resource：返回单个资源对象</span><br><span class="line">POST /collection：返回新生成的资源对象</span><br><span class="line">PUT /collection/resource：返回完整的资源对象</span><br><span class="line">PATCH /collection/resource：返回完整的资源对象</span><br><span class="line">DELETE /collection/resource：返回一个空文档</span><br></pre></td></tr></table></figure>
 <h3 id="2-10、Hypermedia-API"><a href="#2-10、Hypermedia-API" class="headerlink" title="2.10、Hypermedia API"></a>2.10、Hypermedia API</h3><blockquote>
 <p><code>RESTful API</code>最好做到<code>Hypermedia</code>，即返回结果中提供链接，连向其他<code>API</code>方法，使得用户不查文档，也知道下一步应该做什么</p>
 </blockquote>
 <ul>
 <li>比如，当用户向<code>api.example.com</code>的根目录发出请求，会得到这样一个文档</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"link"</span>: &#123;</span><br><span class="line">  <span class="string">"rel"</span>:   <span class="string">"collection https://www.example.com/zoos"</span>,</span><br><span class="line">  <span class="string">"href"</span>:  <span class="string">"https://api.example.com/zoos"</span>,</span><br><span class="line">  <span class="string">"title"</span>: <span class="string">"List of zoos"</span>,</span><br><span class="line">  <span class="string">"type"</span>:  <span class="string">"application/vnd.yourformat+json"</span></span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"link"</span>: &#123;</span><br><span class="line">  <span class="string">"rel"</span>:   <span class="string">"collection https://www.example.com/zoos"</span>,</span><br><span class="line">  <span class="string">"href"</span>:  <span class="string">"https://api.example.com/zoos"</span>,</span><br><span class="line">  <span class="string">"title"</span>: <span class="string">"List of zoos"</span>,</span><br><span class="line">  <span class="string">"type"</span>:  <span class="string">"application/vnd.yourformat+json"</span></span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>上面代码表示，文档中有一个<code>link</code>属性，用户读取这个属性就知道下一步该调用什么<code>API</code>了。<code>rel</code>表示这个<code>API</code>与当前网址的关系（collection关系，并给出该collection的网址），<code>href</code>表示<code>API</code>的路径，<code>title</code>表示<code>API</code>的标题，<code>type</code>表示返回类型</li>
 </ul>
@@ -307,7 +307,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T03:46:02.202Z" itemprop="dateUpdated">2018-10-24 11:46:02</time>
+    最后更新时间：<time datetime="2018-10-25T09:40:14.081Z" itemprop="dateUpdated">2018-10-25 17:40:14</time>
 </span><br>
 
 
@@ -577,8 +577,8 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script type="text/javascript" class="autoinsert" src="/js/jquery-1.2.6.min.min.js?v=1.7.2"></script>
-<script src="/js/snowfall.jquery.min.js?v=1.7.2"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
 
         $(document).snowfall('clear');

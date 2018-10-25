@@ -16,7 +16,7 @@ date: 2016-07-27 00:50:43
   - 答：对于var声明的变量 以`var str = ‘local’`为例，分为 分析过程 和执行过程 先分析后执行
  先分析`var str `即仅仅声明了一个str变量 `str`变量此时没有赋值 值是`undefined` 然后在进行执行过程
 
-```javascript
+```js
 /*var age = 22;
 var num = 99;
 
@@ -40,7 +40,7 @@ var num = 99;
  
 ```
  
- ```javascript
+ ```js
 
 /*var str = 'global';
 
@@ -82,7 +82,7 @@ t();
 - 函数的变量有其作用域，引用某变量时，在某个范围内查询该变量，这个范围又在哪里？在AO上找 在函数调用的瞬间  会产生一个AO 这个AO对象的属性 即存储着该函数所能引用的到的变量
 
 
-```javascript
+```js
 var str = 'global';
 
 function t(age){
@@ -101,7 +101,7 @@ AO：{age:99} //实参赋值 AO.age属性
 AO:{age:12}  //修改AO.age的值
 
 
-```javascript
+```js
 function f(age,hei){
 	var age;
 	alert(age);
@@ -134,7 +134,7 @@ function f(age,hei){
  
 - **函数表达式**
 
-```javascript
+```js
  function fn1(){
  	alert(age);
 
@@ -178,7 +178,7 @@ function f(age,hei){
    + 只要调用一次函数就会动态开辟一块内存 创建一个封闭的空间 在自己的封闭的空间的栈中定义`var `在执行
    + 函数执行完 里面的东西全部销毁
 
-```javascript
+```js
 //alert(x);//9:执行弹出x,结果x没定义,错误.
 alert(i);//9:执行弹出i,然而i之前已经定义,只不过没地址,因此是undefiend
 var i = 10;//1:var i;    10:把常量池中10的地址赋给栈中的i
@@ -196,7 +196,7 @@ function m(){//8:function m;
 ```
 
 
-```javascript
+```js
 function m(){
     c = 50;//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c
     alert('哈哈哈');
@@ -209,7 +209,7 @@ var c = 20;//到这里一步 m()已经执行完了 函数已经销毁了  这里
 alert(c);//20
 
 ```
-```javascript
+```js
 function m(){
     c = 50;//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c
     alert('哈哈哈');

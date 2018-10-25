@@ -19,7 +19,7 @@ date: 2016-12-02 23:50:24
 
 <!--more-->
 
-```javascript
+```js
 //设置2d绘图环境
 var ctx = document.getElementById("canvas").getContext("2d");
 

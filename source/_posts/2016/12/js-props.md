@@ -1,6 +1,6 @@
 ---
 title: JavaScript及jQuery中的各种宽高属性图解
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: ae4d3c59
 date: 2016-12-13 23:35:24
@@ -64,7 +64,7 @@ date: 2016-12-13 23:35:24
 
 example1：
 
-```javascript
+```js
 body{ 
     border: 20px solid #000; 
     margin: 10px; 
@@ -80,7 +80,7 @@ console.log(document.body.clientHeight);  // 500 + padding(80) = 580
 
 example2: 在div中添加文字， 指导出现滚动条
 
-```javascript
+```js
 #exp2 {
 	width:200px;
 	height:200px;
@@ -112,7 +112,7 @@ console.log(test.clientWidth); //
 
 例：
 
-```javascript
+```js
 body{ 
     border: 20px solid #000; 
     margin: 10px; 
@@ -142,7 +142,7 @@ console.log(document.body.clientTop);  // 20
 
 例：
 
-```javascript
+```js
 body{ 
     border: 20px solid #000; 
     margin: 10px; 
@@ -189,7 +189,7 @@ console.log(document.body.offsetHeight);  // 620 = padding*2 + 500 + border*2
 
 例：
 
-```javascript
+```js
 body{ 
     border: 20px solid #000; 
     margin: 10px; 
@@ -238,7 +238,7 @@ document.body的scrollWidth和scrollHeight与div的scrollWidth和scrollHeight是
 
 例：
 
-```javascript
+```js
 body{ 
     border: 20px solid #000; 
     margin: 10px; 
@@ -287,7 +287,7 @@ document.body.scrollWidth; //
 
 与前面不同的是，这对属性是可读写的，指的是当元素其中的超出其宽高的时候，元素被卷起来的高度和宽度
 
-```javascript
+```js
 #exp {
    width:400px;
    height:200px;
@@ -322,7 +322,7 @@ console.log(mydiv.scrollTop)
 
 是父子级的关系
 
-```javascript
+```js
 body{ 
     border: 20px solid #000; 
     margin: 10px; 
@@ -352,7 +352,7 @@ console.log(document.body); //body
 
 - 兼容问题推荐使用 获取浏览器窗口可视区域大小
 
-```javascript
+```js
 document.body.clientWidth || document.documentElement.clientWidth;
 document.body.clientHeight || document.documentElement.clientHeight;
 ```
@@ -369,7 +369,7 @@ document.body.clientHeight || document.documentElement.clientHeight;
 style="width: 200px;height: 200px;background: red;margin: 100px auto;"></div>
 ```
 
-```javascript
+```js
 var example = document.getElementById("example");
 example.onclick = function(e){
 	console.log("clientX "+e.clientX + " : " + " clientY "+e.clientY);
@@ -416,7 +416,7 @@ example.onclick = function(e){
 				animation-duration: 2s;
 			}
 ```
-```javascript
+```js
 function showDiv(){
 			var example = document.getElementById("example");
 			var clients = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;//可视区域的高度
@@ -449,7 +449,7 @@ window.onscroll = showDiv;
 }
 ```
 
-```javascript
+```js
 function scrollTopOrBottom(){
 			var example2 = document.getElementById("example");
 			var clients = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;//可视区域的高度，兼容性写法
@@ -495,7 +495,7 @@ window.onscroll = scrollTopOrBottom;
 }
 ```
 
-```javascript
+```js
 var div = document.getElementById("example3");
 		function divScroll(){
 			
@@ -523,7 +523,7 @@ div.onscroll = divScroll;
 
 
 
-```javascript
+```js
 	//获取滚动轴的宽度
 		function getScrollBar(){
 			var el = document.createElement("p");
@@ -647,7 +647,7 @@ html,body {
 }
 ```
 
-```javascript
+```js
 //特殊元素的高度
 //window  document
 console.log("$(window).height()"+$(window).height());
@@ -730,7 +730,7 @@ console.log('$(".childrenDiv").position().top '+$(".childrenDiv").position().lef
 ```
 
 
-```javascript
+```js
 		$(window).scroll(function(){
 			var ks_area = $(window).height();//可视区域高度
 			var scrollHeight = $(window).scrollTop();//被卷上去的那部分
@@ -764,7 +764,7 @@ console.log('$(".childrenDiv").position().top '+$(".childrenDiv").position().lef
 ```
 
 
-```javascript
+```js
 $(window).scroll(function(){
 	var ks_area = $(window).height();
 	var scrollTop = $(window).scrollTop();

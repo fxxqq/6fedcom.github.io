@@ -30,7 +30,7 @@ date: 2018-08-28 17:10:30
 > `query`通过`this.$route.query`来接收参数，`params`通过`this.$route.params`来接收参数
 
 
-```javascript
+```js
 // query通过this.$route.query接收参数
 created () {
     const id = this.$route.query.id;
@@ -87,7 +87,7 @@ created () {
 - `vue-cli`初始化的项目，在配置文件中提供了`proxyTable`来解决本地开发的跨域问题。`config`文件的`index.js`文件中，找到`proxyTable`选项，进行如下配置
 
 
-```javascript
+```js
 proxyTable: {
       // 用‘/api’开头，代理所有请求到目标服务器
       '/api': {
@@ -117,7 +117,7 @@ proxyTable: {
 - 安装`babel-plugin-import`插件使其按需加载：  `cnpm i babel-plugin-import -D`
 - 在 `.babelrc`文件中中添加插件配置 
 
-```javascript
+```js
 libraryDirectory { 
 
     "plugins": [ 
@@ -138,7 +138,7 @@ libraryDirectory {
 
 > 在`main.js`中按需加载你需要的插件
 
-```javascript
+```js
 // 按需引入vant组件
 import {   
     DatetimePicker,   
@@ -149,7 +149,7 @@ import {
 
 > 使用组件
 
-```javascript
+```js
 // 使用vant组件
 Vue.use(DatetimePicker)  
     .use(Button)  
@@ -189,7 +189,7 @@ this.timer = (() => {
 
 > 最后在`beforeDestroy()`生命周期内清除定时器
 
-```javascript
+```js
 beforeDestroy() {
     clearInterval(this.timer);        
     this.timer = null;
@@ -205,7 +205,7 @@ beforeDestroy() {
 
 > 该方法是通过`$once`这个事件侦听器器在定义完定时器之后的位置来清除定时器。以下是完整代码
 
-```javascript
+```js
 const timer = setInterval(() =>{                    
     // 某些定时器操作                
 }, 500);            
@@ -220,7 +220,7 @@ this.$once('hook:beforeDestroy', () => {
 
 > 在做手机端时，适配是必须要处理的一个问题。例如，我们处理适配的方案就是通过写一个`rem.js`，原理很简单，就是根据网页尺寸计算`html`的`font-size`大小
 
-```javascript
+```js
 ; (function(c, d) {
     var e = document.documentElement || document.body,
     a = "orientationchange" in window ? "orientationchange": "resize",
@@ -245,7 +245,7 @@ this.$once('hook:beforeDestroy', () => {
 
 > 在`main.js`中引入`fastClick`和初始化
 
-```javascript
+```js
 import FastClick from 'fastclick'; // 引入插件
 FastClick.attach(document.body); // 使用 fastclick
 ```
@@ -256,7 +256,7 @@ FastClick.attach(document.body); // 使用 fastclick
 
 **非懒加载写法**
 
-```javascript
+```js
 import Index from '@/page/index/index';
 export default new Router({  
     routes: [    
@@ -271,7 +271,7 @@ export default new Router({
 
 **路由懒加载写法**
 
-```javascript
+```js
 export default new Router({
   routes: [    
         { 

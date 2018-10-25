@@ -15,7 +15,7 @@ date: 2017-11-19 17:35:24
 
 - 暴露了几个核心`API`
 
-```javascript
+```js
 import createStore from './createStore';
 import combineReducers from './utils/combineReducers';
 import bindActionCreators from './utils/bindActionCreators';
@@ -43,7 +43,7 @@ export {
 - `store`对象通过`reducer`来修改内部状态
 - `store`对象创建的时候，内部会主动调用`dispatch({ type: ActionTypes.INIT })`;来对内部状态进行初始化。通过断点或者日志打印就可以看到，`store`对象创建的同时，`reducer`就会被调用进行初始化
 
-```javascript
+```js
 import isPlainObject from './utils/isPlainObject';
 
 /**
@@ -226,7 +226,7 @@ export default function createStore(reducer, initialState) {
 
 - 最终 `store.getState() `返回的`state`，大概会是这么个样子`{todos: xx, filter: xx}`。简单的说，`state`被拆分成了两份，`TodoReducer`的返回值赋值给了`state.todos`，`FilterReducer`的返回值赋值给了`state.filter`
 
-```javascript
+```js
 function TodoReducer(state, action) {}
 function FilterReducer(state, action) {}
 
@@ -242,7 +242,7 @@ var finalReducers = redux.combineReducers({
 - `redux.createStore(finalReducers, initialState)` 调用时，同样会对 `state `进行初始化。这个初始化跟通过普通的`reducer`进行初始化没多大区别。举例来说，如果 `initialState.todos = undefined`，那么 `TodoReducer(state, action) `初始传入的`state`就是`undefined`；如果`initialState.todos = []`，那么 `TodoReducer(state, action) `初始传入的`state`就是`[]`
 - `store.dispatch(action)`，`finalReducers` 里面，会遍历整个`reducerMap`，依次调用每个`reducer`，并将每个`reducer`返回的子`state`赋给`state`对应的`key`。
 
-```javascript
+```js
 import { ActionTypes } from '../createStore';
 import isPlainObject from '../utils/isPlainObject';
 import mapValues from '../utils/mapValues';
@@ -416,7 +416,7 @@ export default function combineReducers(reducers) {
 
 - 先看个简单例子可能方便理解一些
 
-```javascript
+```js
 var addTodo = function(text){
     return {
         type: 'add_todo',
@@ -465,7 +465,7 @@ console.log('state is: ' + store.getState());  // state is: 读书,阅读,睡觉
 
 - 直接看代码
 
-```javascript
+```js
 import mapValues from '../utils/mapValues';
 
 function bindActionCreator(actionCreator, dispatch) {
@@ -537,7 +537,7 @@ export default function bindActionCreators(actionCreators, dispatch) {
 
 **例子：redux-thunk**
 
-```javascript
+```js
 export default function thunkMiddleware({ dispatch, getState }) {
   return next => action =>
     typeof action === 'function' ?
@@ -546,7 +546,7 @@ export default function thunkMiddleware({ dispatch, getState }) {
 }
 ```
 
-```javascript
+```js
 
 //es5
 function thunkMiddleware(store) {
@@ -565,7 +565,7 @@ function thunkMiddleware(store) {
 
 - 先看`logger`的实现
 
-```javascript
+```js
 function middleware(store){
     return function(next){
         return function(action){
@@ -577,7 +577,7 @@ function middleware(store){
 
 > 基本看出中间件声明的模版来了，就是下面这个样子。下面结合`applyMiddleware`的调用，来说明`store`、`next`、`action` 几个参数。
 
-```javascript
+```js
 function logger(store){
     return function(next){
         return function(action){
@@ -595,7 +595,7 @@ function logger(store){
 - `applyMiddleware` 的调用方式为 `applyMiddleware(...middlewares)(react.createStore)`。其实这里直接先创建 `store`，然后`applyMiddleware(...middlewares)(store)` 也很容易实现相同的效果，不过作者是故意这样设计的，为了避免在同一个store上多次应用同一个`middlerware`
 - 中间件顶层的`store`参数，并不是常规的`store`，虽然它也有 `getState`、`dispatch` 两个方法
 
-```javascript
+```js
 // 上面的store参数，其实就是这个对象
 // 其中，store 为内部的store，我们在外面 storeWithMiddleWare.dipatch的时候，内部实现是转成 store.dispatch
 // 此外，可以看到 middlewareAPI.dispatch 方法，是最终封装后的dispatch（千万注意，如果在中间件内部 调用 store.dispatch，可能导致死循环 ）
@@ -609,13 +609,13 @@ var middlewareAPI = {
 - 第二层的next函数，其实是一个“dispatch”方法
 - storeWithMiddleWare.dispatch(action) 的时候，会顺序进入各个中间件（按照定义时的顺序）。从当前的例子来看，大约如下，其实就是柯里化啦
 
-```javascript
+```js
 storeWithMiddleWare.dispatch(action) --> logger(store)(next)(action) --> timer(store)(next)(action) --> store.dispatch(action)
 ```
 
 **完整的示例代码**
 
-```javascript
+```js
 function reducer(state, action){
     if(typeof state==='undefined') state = [];
 
@@ -675,7 +675,7 @@ console.log( storeWithMiddleWare.dispatch(addTodo('reading')) );
 **源码解析**
 
 
-```javascript
+```js
 import compose from './compose';
 
 /**

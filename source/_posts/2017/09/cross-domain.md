@@ -33,7 +33,7 @@ date: 2017-09-17 11:40:43
 
 > 下面几个域名下的页面都是可以通过`document.domain`跨域互操作的： `http://a.com/foo`, `http://b.a.com/bar`, `http://c.a.com/bar`。 但只能以页面嵌套的方式来进行页面互操作，比如常见的`iframe`方式就可以完成页面嵌套
 
-```javascript
+```js
 // URL http://a.com/foo
 var ifr = document.createElement('iframe');
 ifr.src = 'http://b.a.com/bar'; 
@@ -47,14 +47,14 @@ document.body.appendChild(ifr);
 ```
 - 上述代码所在的`URL`是`http://a.com/foo`，它对`http://b.a.com/bar`的`DOM`访问要求后者将 `document.domain`往上设置一级
 
-```javascript
+```js
 // URL http://b.a.com/bar
 document.domain = 'a.com'
 ```
 
 - `document.domain`只能从子域设置到主域，往下设置以及往其他域名设置都是不允许的， 在`Chrome`中给出的错误是这样的
 
-```javascript
+```js
 Uncaught DOMException: Failed to set the 'domain' property on 'Document': 'baidu.com' is not a suffix of 'b.a.com'
 ```
 
@@ -69,7 +69,7 @@ Uncaught DOMException: Failed to set the 'domain' property on 'Document': 'baidu
 
 - 不同的`HTML`标签发送`HTTP`请求的时机不同，例如`<img>`在更改`src`属性时就会发送请求，而`script`, `iframe`, `link[rel=stylesheet]`只有在添加到`DOM`树之后才会发送`HTTP`请求：
 
-```javascript
+```js
 var img = new Image();
 img.src = 'http://some/picture';        // 发送HTTP请求
 
@@ -85,7 +85,7 @@ $('body').append(ifr);                  // 发送HTTP请求
 
 > `JSONP`利用的是`<script>`可以跨域的特性，跨域`URL`返回的脚本不仅包含数据，还包含一个回调
 
-```javascript
+```js
 // URL: http://b.a.com/foo
 var data = {
     foo: 'bar',
@@ -96,7 +96,7 @@ callback(data);
 
 - 然后在我们在主站`http://a.com`中，可以这样来跨域获取`http://b.a.com`的数据：
 
-```javascript
+```js
 // URL: http://a.com/foo
 var callback = function(data){
     // 处理跨域请求得到的数据
@@ -107,7 +107,7 @@ $('body').append(script);
 
 - 其实`jQuery`已经封装了`JSONP`的使用，我们可以这样来
 
-```javascript
+```js
 $.getJSON( "http://b.a.com/bar?callback=callback", function( data ){
     // 处理跨域请求得到的数据
 });
@@ -122,7 +122,7 @@ $.getJSON( "http://b.a.com/bar?callback=callback", function( data ){
 
 > 有些人注意到了`IE6/7`的一个漏洞：`iframe`之间的`window.navigator`对象是共享的。 我们可以把它作为一个`Messenger`，通过它来传递信息。比如一个简单的委托：
 
-```javascript
+```js
 // a.com
 navigation.onData(){
     // 数据到达的处理函数
@@ -131,7 +131,7 @@ typeof navigation.getData === 'function'
     || navigation.getData()
 ```
 
-```javascript
+```js
 // b.com
 navigation.getData = function(){
     $.get('/path/under/b.com')
@@ -153,12 +153,12 @@ navigation.getData = function(){
 
 - 例如，从`http://a.com`要访问`http://b.com`的数据，通常情况下`Chrome`会因跨域请求而报错
 
-```javascript
+```js
 XMLHttpRequest cannot load http://b.com. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://a.com' is therefore not allowed access
 ```
 - 错误原因是被请求资源没有设置`Access-Control-Allow-Origin`，所以我们在`b.com`的服务器中设置这个响应头字段即可
 
-```javascript
+```js
 Access-Control-Allow-Origin: *              # 允许所有域名访问，或者
 Access-Control-Allow-Origin: http://a.com   # 只允许所有域名访问
 ```
@@ -171,12 +171,12 @@ Access-Control-Allow-Origin: http://a.com   # 只允许所有域名访问
 
 > 这是一个安全的跨域通信方法，`postMessage(message,targetOrigin)`也是`HTML5`引入的特性。 可以给任何一个`window`发送消息，不论是否同源。第二个参数可以是*但如果你设置了一个`URL`但不相符，那么该事件不会被分发。看一个普通的使用方式吧
 
-```javascript
+```js
 // URL: http://a.com/foo
 var win = window.open('http://b.com/bar');
 win.postMessage('Hello, bar!', 'http://b.com'); 
 ```
-```javascript
+```js
 // URL: http://b.com/bar
 window.addEventListener('message',function(event) {
     console.log(event.data);

@@ -13,7 +13,7 @@ date: 2018-02-04 16:10:24
 - 作用：是最最常用的将原生JS数据转换为`ImmutableJS`数据的转换方法,默认将原生`JS`的`Array`转为`List`，`Object`转为`Map`
 
 
-```javascript
+```js
 Immutable.fromJS({
   a: {
     b: [1, 2, 3],
@@ -55,7 +55,7 @@ console.log(t2);
 - 作用：对两个对象进行比较
 - 用法：`is(map1,map2)`
 
-```javascript
+```js
 import { Map, is } from 'immutable'
 const map1 = Map({ a: 1, b: 1, c: 1 })
 const map2 = Map({ a: 1, b: 1, c: 1 })
@@ -83,7 +83,7 @@ is(map1, map2) //  true 只检测值是否相等
 
 #### 4.3.1 `size` 获取`List/Map`的长度**
 
-```javascript
+```js
 // list
 console.log(List([1,2,3,4]).size);// 4
 console.log(List.of(1, 2, 3, 4).size);// 4
@@ -95,7 +95,7 @@ console.log(Map.of({x:1}, 2, [3], 4).size);// 2
 
 #### 4.3.2 count()
 
-```javascript
+```js
 // map
 console.log(Immutable.fromJS({key: "value2", key1: "value1"}).count());// 4
 // 可以定制条件，来确定大小
@@ -122,7 +122,7 @@ console.log(Immutable.fromJS([1, 2, 5, 6]).count((value, index, array) => {
 
 > 判断是否存在某一个`key`
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,{a:4,b:5}]).has('0'); //true
 Immutable.fromJS([1,2,3,{a:4,b:5}]).has('0'); //true
 Immutable.fromJS([1,2,3,{a:4,b:5}]).hasIn([3,'b']) //true
@@ -132,7 +132,7 @@ Immutable.fromJS([1,2,3,{a:4,b:5}]).hasIn([3,'b']) //true
 
 > 判断是否存在某一个`value`
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,{a:4,b:5}]).includes(2); //true
 Immutable.fromJS([1,2,3,{a:4,b:5}]).includes('2'); //false 不包含字符2
 Immutable.fromJS([1,2,3,{a:4,b:5}]).includes(5); //false 
@@ -144,7 +144,7 @@ Immutable.fromJS([1,2,3,{a:4,b:5}]).includes(Immutable.fromJS({a:4,b:5})) //true
 
 > 用来获取第一个元素或者最后一个元素，若没有则返回`undefined`
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,{a:4,b:5}]).first()//1
 Immutable.fromJS([1,2,3,{a:4,b:5}]).last()//{a:4,b:5}
 
@@ -158,7 +158,7 @@ Immutable.fromJS({a:1,b:2,c:{d:3,e:4}}).first() //{d:3,e:4}
 
 > 设置第一层`key`、`index`的值
 
-```javascript
+```js
 / Map
 // 将 key 位置的元素替换为 value
 const $obj1 = Map({a: {a1: 34}, b: 2, c: 3, d: 444});
@@ -177,7 +177,7 @@ console.log($arr1.set(4, 0).toJS());  // [ 1, 2, 3, undefined, 0 ]  空位置为
 
 > 设置深层结构中某属性的值
 
-```javascript
+```js
 // Map
 console.log(Immutable.fromJS([1, 2, 3, {a: 45, b: 64}]).setIn(['3', 'a'], 1000).toJS());//[1, 2, 3, {a: 1000, b: 64}]
 
@@ -193,7 +193,7 @@ console.log(Immutable.fromJS([1, 2, 3, {a: 45, b: 64}]).setIn(['3', 'a'], 1000).
 
 > 对对象中的某个属性进行更新，可对原数据进行相关操作
 
-```javascript
+```js
 ////List
 const list = List([ 'a', 'b', 'c' ])
 const result = list.update(2, val => val.toUpperCase())
@@ -207,7 +207,7 @@ const newMap = aMap.update('key', value => value + value)
 
 > 清除所有数据
  
-```javascript
+```js
 Map({ key: 'value' }).clear()  //Map
 List([ 1, 2, 3, 4 ]).clear()   // List
 ```
@@ -224,7 +224,7 @@ List([ 1, 2, 3, 4 ]).clear()   // List
 - `shift`: 在`List`首部删除一个元素
 - `insert`：在`List`的`index`处插入元素
   
-```javascript
+```js
 List([ 0, 1, 2, 3, 4 ]).insert(6, 5) //List [ 0, 1, 2, 3, 4, 5 ]
 List([ 1, 2, 3, 4 ]).push(5) // List [ 1, 2, 3, 4, 5 ]
 List([ 1, 2, 3, 4 ]).pop() // List[ 1, 2, 3 ]
@@ -243,7 +243,7 @@ List([ 0, 1, 2, 3, 4 ]).shift() // List [ 1, 2, 3, 4 ]
 
 > 这里用一段示例彻底搞懂`merge`，此示例为`Map`结构，`List`与`Map`原理相同
 
-```javascript
+```js
 const Map1 = Immutable.fromJS({a:111,b:222,c:{d:333,e:444}});
  const Map2 = Immutable.fromJS({a:111,b:222,c:{e:444,f:555}});
 
@@ -267,7 +267,7 @@ const Map1 = Immutable.fromJS({a:111,b:222,c:{d:333,e:444}});
 
 > 对象的拼接，用法与`js`数组中的`concat()`相同，返回一个新的对象
 
-```javascript
+```js
 const List = list1.concat(list2)
 ```
 
@@ -275,7 +275,7 @@ const List = list1.concat(list2)
 
 > 遍历整个对象，对`Map/List`元素进行操作，返回一个新的对象
 
-```javascript
+```js
 Map({a:1,b:2}).map(val=>10*val)
 //Map{a:10,b:20}
 ```
@@ -284,7 +284,7 @@ Map({a:1,b:2}).map(val=>10*val)
 
 > `Map`特有的`mapKey()` 遍历整个对象，对`Map`元素的`key`进行操作，返回一个新的对象
 
-```javascript
+```js
 Map({a:1,b:2}).mapKey(val=>val+'l')
 //Map{al:10,bl:20}
 ```
@@ -293,7 +293,7 @@ Map({a:1,b:2}).mapKey(val=>val+'l')
 
 > `Map特有的mapEntries()`  遍历整个对象，对`Map`元素的`key`和`value`同时进行操作，返回一个新的对象。`Map`的`map()`也可实现此功能
 
-```javascript
+```js
 Map({a:1,b:2}).map((key,val)=>{
   return [key+'l',val*10]
 })
@@ -305,7 +305,7 @@ Map({a:1,b:2}).map((key,val)=>{
 > - `过滤 filter` 返回一个新的对象，包括所有满足过滤条件的元素
 > - 还有一个`filterNot()`方法，与此方法正好相反
 
-```javascript
+```js
 Map({a:1,b:2}).filter((key,val)=>{
   return val == 2
 })
@@ -316,7 +316,7 @@ Map({a:1,b:2}).filter((key,val)=>{
 
 > 作用：将数据的结构进行反转
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4, 5]).reverse(); // List [5,4,3,2,1]
 Immutable.fromJS({a:1,b:{c:2,d:3},e:4}).recerse();
 //Map {e:4,b:{c:2,d:3},a:1}
@@ -326,7 +326,7 @@ Immutable.fromJS({a:1,b:{c:2,d:3},e:4}).recerse();
 
 > `排序 sort & sortBy` 作用：对数据结构进行排序
 
-```javascript
+```js
 ///List
 Immutable.fromJS([4,3,5,2,6,1]).sort()
 // List [1,2,3,4,5,6]
@@ -365,7 +365,7 @@ Immutable.fromJS( {b:1, a: 3, c: 2, d:5} ).sortBy((value, key, obj)=> {
 
 > `分组 groupBy`  作用：对数据进行分组
 
-```javascript
+```js
 const listOfMaps = List([
   Map({ v: 0 }),
   Map({ v: 1 }),
@@ -387,7 +387,7 @@ const groupsOfMaps = listOfMaps.groupBy(x => x.get('v'))
 
 > Map不存在此方法 和`js`数组中的方法相同，查找第一个或者最后一个`value`的`index`值，找不到则返回`-1`
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).indexof(3) //2
 Immutable.fromJS([1,2,3,4]).lastIndexof(3) //2
 ```
@@ -396,7 +396,7 @@ Immutable.fromJS([1,2,3,4]).lastIndexof(3) //2
 
 > `Map`不存在此方法,查找满足要求的元素的`index`值
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).findIndex((value,index,array)=>{
   return value%2 === 0;
 })   // 1
@@ -409,7 +409,7 @@ Immutable.fromJS([1,2,3,4]).findLastIndex((value,index,array)=>{
 
 > 查找满足条件的元素的`value`值
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).find((value,index,array)=>{
   return value%2 === 0;
 })  // 2
@@ -423,7 +423,7 @@ Immutable.fromJS([1,2,3,4]).findLast((value,index,array)=>{
 
 > 查找满足条件的元素的`key`值
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).findKey((value,index,array)=>{
   return value%2 === 0;
 })  // 1
@@ -437,7 +437,7 @@ Immutable.fromJS([1,2,3,4]).findLastKey((value,index,array)=>{
 
 > 查找满足条件的元素的键值对 `key:value`
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).findEntry((value,index,array)=>{
   return value%2 === 0;
 })  // [1,2]
@@ -451,7 +451,7 @@ Immutable.fromJS([1,2,3,4]).findLastEntry((value,index,array)=>{
 
 > 查找某一个`value`对应的`key`值
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).keyOf(2) //1
 Immutable.fromJS([1,2,3,4]).lastKeyOf(2) //1
 ```
@@ -460,7 +460,7 @@ Immutable.fromJS([1,2,3,4]).lastKeyOf(2) //1
 
 > 查找最大值
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).max() //4
 
 Immutable.fromJS([{a;1},{a:2},{a: 3},{a:4}]).maxBy((value,index,array)=>{
@@ -472,7 +472,7 @@ Immutable.fromJS([{a;1},{a:2},{a: 3},{a:4}]).maxBy((value,index,array)=>{
 
 > 查找最小值
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).min() //1
 
 Immutable.fromJS([{a;1},{a:2},{a: 3},{a:4}]).minBy((value,index,array)=>{
@@ -486,7 +486,7 @@ Immutable.fromJS([{a;1},{a:2},{a: 3},{a:4}]).minBy((value,index,array)=>{
 
 > 和原生`js`中数组的`slice`数组一样，包含两个参数，`start`和`end`，`start`代表开始截取的位置，`end`代表结束的位置，不包括第`end`的元素。若不包括`end`，则返回整个对象，若`end`为负数，则返回（`start`，`length-end`）对应的数据。若`start`只有一个并且为负数，则返回最后的`end`个元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).slice(0); //[1,2,3,4]
 Immutable.fromJS([1, 2, 3, 4]).slice(0,2); //[1,2]
 Immutable.fromJS([1, 2, 3, 4]).slice(-2); //[3,4]
@@ -497,7 +497,7 @@ Immutable.fromJS([1, 2, 3, 4]).slice(0,-2); //[1,2]
 
 > 返回除第一个元素之外的所有元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).rest()//[2,3,4]
 ```
 
@@ -505,7 +505,7 @@ Immutable.fromJS([1, 2, 3, 4]).rest()//[2,3,4]
 
 > 返回除最后一个元素之外的所有元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).rest()//[1,2,3]
 ```
 
@@ -513,7 +513,7 @@ Immutable.fromJS([1, 2, 3, 4]).rest()//[1,2,3]
 
 > 有一个参数`n`, 返回截掉前`n`个元素之后剩下的所有元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).skip(1)//[2,3,4]
 ```
 
@@ -521,7 +521,7 @@ Immutable.fromJS([1, 2, 3, 4]).skip(1)//[2,3,4]
 
 > 有一个参数`n`, 返回截掉最后n个元素之后剩下的所有元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).skip(1)//[1,2,3]
 ```
 
@@ -529,7 +529,7 @@ Immutable.fromJS([1, 2, 3, 4]).skip(1)//[1,2,3]
 
 > 返回从第一次返回`false`之后的所有元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).skipWhile(list.skipWhile((value,index,list)=>{
   return value > 2;
 }))// [1,2,3,4]
@@ -540,7 +540,7 @@ skipUntil()
 
 > 有一个参数n, 返回前n个元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).take(2)//[1,2]
 ```
 
@@ -548,7 +548,7 @@ Immutable.fromJS([1, 2, 3, 4]).take(2)//[1,2]
 
 > 有一个参数n, 返回最后n个元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).takeLast(2)//[3,4]
 ```
 
@@ -556,7 +556,7 @@ Immutable.fromJS([1, 2, 3, 4]).takeLast(2)//[3,4]
 
 > 返回从第一次返回`false`之前的所有元素
 
-```javascript
+```js
 Immutable.fromJS([1, 2, 3, 4]).skipWhile(list.takeWhile((value,index,list)=>{
   return value > 2;
 }))// []
@@ -570,7 +570,7 @@ takeUntil()
 
 > 和`js`中数组中的`reduce`相同,按索引升序的顺序处理元素
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).reduce((pre,next,index,arr)=>{
   console.log(pre+next)
   return pre+next; 
@@ -582,7 +582,7 @@ Immutable.fromJS([1,2,3,4]).reduce((pre,next,index,arr)=>{
 
 > 和`js`中数组中的`reduce`相同,按索引降序的顺序处理元素
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).reduceRight((pre,next,index,arr)=>{
   console.log(pre+next)
   return pre+next; 
@@ -594,7 +594,7 @@ Immutable.fromJS([1,2,3,4]).reduceRight((pre,next,index,arr)=>{
 
 > 作用：判断整个对象总中所有的元素是不是都满足某一个条件，都满足返回`true，反之返回false
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).every((value,index,arr)=>{
   return value > 2
 }) // false
@@ -604,7 +604,7 @@ Immutable.fromJS([1,2,3,4]).every((value,index,arr)=>{
 
 > 判断整个对象总中所有的元素是不是存在满足某一个条件的元素，若存在返回true，反之返回false
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).some((value,index,arr)=>{
   return value > 2
 }) // true
@@ -615,7 +615,7 @@ Immutable.fromJS([1,2,3,4]).some((value,index,arr)=>{
 > 作用：同`js`中数组的`join`方法。把转换为字符串
 
 
-```javascript
+```js
 Immutable.fromJS([1,2,3,4]).join(',') //1,2,3,4
 ```
 
@@ -623,7 +623,7 @@ Immutable.fromJS([1,2,3,4]).join(',') //1,2,3,4
 
 > 作用：判断是否为空
 
-```javascript
+```js
 Immutable.fromJS([]).isEmpty(); // true
 Immutable.fromJS({}).isEmpty(); // true
 count()
@@ -633,7 +633,7 @@ count()
 
 > 与`count`不同的是，`countBy`返回一个对象
 
-```javascript
+```js
 const list = Immutable.fromJS([1,2,3,4]);
 const map = Immutable.fromJS({a:1,b:2,c:3,d:4});
 

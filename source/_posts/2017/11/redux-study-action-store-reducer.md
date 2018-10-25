@@ -10,11 +10,11 @@ date: 2017-11-19 10:16:24
 
 > redux的核心概念就是store、action、reducer，从调用关系来看如下所示
 
-```javascript
+```js
 store.dispatch(action) --> reducer(state, action) --> final state
 ```
 
-```javascript
+```js
 // reducer方法, 传入的参数有两个
 // state: 当前的state
 // action: 当前触发的行为, {type: 'xx'}
@@ -55,7 +55,7 @@ console.log('state is: ' + store.getState());  // state is: 读书,写作
 - `store`在这里代表的是数据模型，内部维护了一个`state`变量
 - `store`有两个核心方法，分别是`getState`、`dispatch`。前者用来获取`store`的状态（`state`），后者用来修改`store`的状态
 
-```javascript
+```js
 // 创建store, 传入两个参数
 // 参数1: reducer 用来修改state
 // 参数2(可选): [], 默认的state值,如果不传, 则为undefined
@@ -76,7 +76,7 @@ store.dispatch({type: 'add_todo', text: '读书'});
 - 对行为（如用户行为）的抽象，在`redux`里是一个普通的`js`对象
 - `action`必须有一个`type`字段来标识这个行为的类型
 
-```javascript
+```js
 {type:'add_todo', text:'读书'}
 {type:'add_todo', text:'写作'}
 {type:'add_todo', text:'睡觉', time:'晚上'}
@@ -88,7 +88,7 @@ store.dispatch({type: 'add_todo', text: '读书'});
 - 其中，`state`为当前的状态（可通过`store.getState()`获得），而`action`为当前触发的行为（通过`store.dispatch(action)`调用触发）
 - `reducer(state, action)` 返回的值，就是`store`最新的`state`值
 
-```javascript
+```js
 // reducer方法, 传入的参数有两个
 // state: 当前的state
 // action: 当前触发的行为, {type: 'xx'}
@@ -110,7 +110,7 @@ var reducer = function(state, action){
 actionCreator(args) => action
 ```
 
-```javascript
+```js
 var addTodo = function(text){
     return {
         type: 'add_todo',

@@ -22,7 +22,7 @@ date: 2017-10-15 16:30:15
 
 - `exports = module.exports` `exports`是`module.exports`的快捷方式，不能修改`exports`的指向
 
-```javascript
+```js
 // 这种方式修改了exports的指向，这样是不行的
 exports = {
     a:"",
@@ -30,7 +30,7 @@ exports = {
 }
 ```
 
-```javascript
+```js
 // 这样没问题
 module.exports = {
     a:"",
@@ -57,7 +57,7 @@ module.exports = {
   - `exevPath`调用脚本的路径 `C:\Program Files\nodejs\node.exe`
   - `>node test3.js a=1 a=2 a=3 a=4`执行的时候，传入一些外部的命令
 
-```javascript
+```js
 const {argv, argv0, execArgv, exevPath} = process;
 
 argv.forEach(item => {
@@ -69,7 +69,7 @@ argv.forEach(item => {
 
 - **process.env**
  
-```javascript
+```js
  const {env} = process;
 
 ```
@@ -77,7 +77,7 @@ argv.forEach(item => {
 - **process.cwd**
   - 打印当前路径
   
-```javascript
+```js
 C:\Users\Administrator\Desktop\learn_node
 ```
 
@@ -85,7 +85,7 @@ C:\Users\Administrator\Desktop\learn_node
   - 执行速度： `nextTick` > `setTimeout` > `setImmediate`
   - `nextTick`在异步之前执行
   
-```javascript
+```js
 // nextTick比setImmediate执行得早
 process.nextTick(()=>{
    // 当前事件队列执行完之后再执行

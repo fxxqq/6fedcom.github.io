@@ -16,7 +16,7 @@ date: 2017-10-24 10:10:43
 
 - 好的写法，拆分应用逻辑
 
-```javascript
+```js
 var myApp = {
     handleClick: function(e){
       this.showPopup(e);  
@@ -36,7 +36,7 @@ addEventListener(element,"click",function(e){
 
 ### 1.2 规则2：不要分发事件对象
 
-```javascript
+```js
 var myApp = {
     handleClick: function(e){
      // 假设事件支持 DOMlevel2
@@ -74,7 +74,7 @@ addEventListener(element,"click",function(e){
 - 对于`undefined`，typeof返回`undefined`
  
 
-```javascript
+```js
 //检测字符串
 if ( typeof name === "string"){}
 
@@ -100,7 +100,7 @@ if ( ele !== null){
 
 > 有几种内置的引用类型 `Object`、`Array`、`Date`、`Error`。`typeof`运算符在判断这些引用类型时显得力不从心，因为所有对象都会返回`undefined`
 
-```javascript
+```js
 console.log(typeof {}); //object
 console.log(typeof []); //object
 console.log(typeof new Date()); //object
@@ -110,7 +110,7 @@ console.log(typeof new RegExp()); //object
 - 检测某个引用类型的最好方法使用`instanceof`运算符。  
 - 语法 `value instanceof constructor`
 
-```javascript
+```js
 // 检测日期
 if( value instanceof Date){
     console.log(value.getFullYear());
@@ -130,7 +130,7 @@ if (value instanceof RegExp) {
 
 typeof运算符可以检测函数
 
-```javascript
+```js
 function myFunc(){
 
 }
@@ -146,7 +146,7 @@ if (typeof myFunc === "function"){
 
 - 优雅的方法
 
-```javascript
+```js
 function isArray(value){
     return Object.prototype.toString.call(value) === "[object Array]";
 }
@@ -157,7 +157,7 @@ function isArray(value){
 
 - 判断属性是否存在的最好方法是使用`in`运算符，`in`运算符仅仅是判断属性是否存在，而不会去读属性的值
 
-```javascript
+```js
 var object = {
     count: 0,
     related: null
@@ -173,7 +173,7 @@ if ("count" in object){
 - 如果只是想检查实例对象的某个属性是否存在，则使用`hasOwnProperty()`方法。所有继承`Object`的对象都有这个方法，如果实例存在则返回`true`。
 - 需要注意的是在`IE8`以及更早的版本中，`DOM`对象并非继承`Object`，因此也不包含这个方法
 
-```javascript
+```js
 //对于所有非DOM对象来说，这是好的做法
 if(object.hasOwnProperty("related")) {
 
@@ -192,7 +192,7 @@ if("hasOwnProperty" in object && object.hasOwnProperty("related")) {
 ## 三、将配置数据从代码中分离
 ---
 
-```javascript
+```js
 //将配置数据抽离出来
 
 var config = {

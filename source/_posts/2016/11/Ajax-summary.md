@@ -83,18 +83,18 @@ date: 2016-11-26 14:35:24
 所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。
 
 - 创建 `XMLHttpRequest `对象的语法：
-```javascript
+```js
 var xhr = new XMLHttpRequest();
 ```
 - 老版本的 `Internet Explorer `（IE5 和 IE6）使用` ActiveX` 对象：
-```javascript
+```js
 var xhr = new ActiveXObject("Microsoft.XMLHTTP");
 ```
 为了应对所有的现代浏览器，包括 `IE5` 和 `IE6`，请检查浏览器是否支持 `XMLHttpRequest `对象。如果支持，则创建` XMLHttpRequest `对象。如果不支持，则创建` ActiveXObject `：
 
 - 兼容各个浏览器的创建`Ajax`的工具函数
 
-```javascript
+```js
 function createRequest (){
 	try {
 		xhr = new XMLHttpRequest();
@@ -116,16 +116,16 @@ function createRequest (){
 ---
 
 - 初始化该`XMLHttpRequest`对象，接受三个参数：
-```javascript
+```js
 xhr.open(method,url,async);
 ```
 - 第一个参数表示请求类型的字符串，其值可以是`GET`或者`POST`。
 - `GET`请求：
-```javascript
+```js
 xhr.open("GET",demo.php?name=tsrot&age=24,true);
 ```
 - `POST`请求：
-```javascript
+```js
 xhr.open("POST",demo.php,true);
 ```
 - 第二个参数是要作为请求发送目标的URL。
@@ -136,19 +136,19 @@ xhr.open("POST",demo.php,true);
 #### 3、发送请求
 ---
 
-```javascript
+```js
 xhr.send();
 ```
 一般情况下，使用`Ajax`提交的参数多是些简单的字符串，可以直接使用`GET`方法将要提交的参数写到`open`方法的`url`参数中，此时`send`方法的参数为`null`或为空。
 
 - `GET`请求：
-```javascript
+```js
 xhr.open("GET",demo.php?name=tsrot&age=24,true);
 xhr.send(null);
 ```
 - `POST`请求：
 如果需要像 `HTML` 表单那样 `POST` 数据，请使用 `setRequestHeader() `来添加 `HTTP` 头。然后在` send() `方法中规定您希望发送的数据：
-```javascript
+```js
 xhr.open("POST",demo.php,true);
 xhr.setRequestHeder("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
 xhr.sen
@@ -157,7 +157,7 @@ xhr.sen
 #### 4、处理响应
 ---
 
-```javascript
+```js
 xhr.onreadystatechange = function(){
 	if(xhr.readyState == 4 && xhr.status == 200){
 		console.log(xhr.responseText);
@@ -188,7 +188,7 @@ xhr.onreadystatechange = function(){
   - 1、首先需要从`XMLHttpRequest`对象取回数据这是一个`JSON`串，把它转换为真正的`JavaScript`对象。使用`JSON.parse(xhr.responseText)`转化为`JSON`对象
   - 2、遍历得到的数组，向`DOM`中添加新元素
 
-```javascript
+```js
 function example(responseText){
 
 var saleDiv= document.getElementById("sales");
@@ -212,7 +212,7 @@ var sales = JSON.parse(responseText);
 
 -  将AJAX请求封装成ajax()方法，它接受一个配置对象params
 
-```javascript
+```js
 function ajax(params) {   
   params = params || {};   
   params.data = params.data || {};   
@@ -237,7 +237,7 @@ function ajax(params) {   
 
 - 使用实例：
 
-```javascript
+```js
 ajax({   
   url: 'test.php',   // 请求地址
   type: 'POST',   // 请求类型，默认"GET"，还可以是"POST"
@@ -253,7 +253,7 @@ ajax({   
 
 - 这个过程是一定要记在脑子里的
 
-```javascript
+```js
 function ajax(url, success, fail){
     // 1. 创建连接
     var xhr = null;
@@ -317,7 +317,7 @@ function ajax(url, success, fail){
 
 **原生JavaScript实现完整的Ajax、JSONP例子**
 
-```javascript
+```js
 function ajax(params) {
 	params = params || {};
 	params.data = params.data || {};
@@ -420,7 +420,7 @@ function ajax(params) {
 ```
 - 使用
 
-```javascript
+```js
 ajax({
 				url: 'get.php',
 				type: 'GET',
@@ -459,7 +459,7 @@ ajax({
 
 - 使用jQuery实现
 
-```javascript
+```js
 <script src="jquery-3.1.0.min.js"></script>
 		<script type="text/javascript">
 
@@ -492,7 +492,7 @@ ajax({
 
 - 原生js简洁实现
 
-```javascript
+```js
 var script = document.createElement("script");
 			script.src = 'http://music.qq.com/musicbox/shop/v3/data/hit/hit_all.js?callback=JsonCallback';
 			document.body.appendChild(script);
@@ -514,7 +514,7 @@ var script = document.createElement("script");
 
 - jQuery中的`ajax`封装案例
 
-```javascript
+```js
 //ajax请求后台数据
 var btn =  document.getElementsByTagName("input")[0];
 btn.onclick = function(){
@@ -590,7 +590,7 @@ function ajax(aJson){
     - 必须在加载完成后才执行的操作，该函数有三个参数 分别代表请求返回的内容、请求状态、`XMLHttpRequest`对象
     - 只要请求完成，回调函数就会被触发
 
-```javascript
+```js
 $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest){
     //respnoseText 请求返回的内容
     //textStatus 请求状态 ：sucess、error、notmodified、timeout

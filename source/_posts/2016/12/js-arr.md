@@ -17,7 +17,7 @@ date: 2016-12-13 14:55:24
 ##### 创建数组：
 ---
 
-```javascript
+```js
 var arr = new Array(values);
 var arr = [vaules];
 ```
@@ -37,7 +37,7 @@ var arr = [vaules];
 - `unshift()`方法 在数组的开头增加一个或多个元素，并返回数组的新长度。
 - `length` 属性
 
-```javascript
+```js
 var arr = [1, 2, 3]
 arr.push(4)
 arr  // 1, 2, 3, 4
@@ -54,7 +54,7 @@ arr  // 6, 1, 2, 3, 4, 7
 - `pop()` 方法 删除数组的最后一个元素，并返回这个元素
 - `shift()` 方法 删除数组的第一个元素，并返回这个元素
 
-```javascript
+```js
 var arr = [1,2,3];
 delete arr[0];
 arr   // [undefined,2,3]
@@ -72,7 +72,7 @@ arr //2
 - 在`js`中，有些对象被叫做“类数组对象`”（array-like object）`，因为这些对象看起来很像数组，可以使用`length`属性，但是无法使用数组的方法。 
 - 典型的类数组对象是函数的`arguments`对象，以及大多数`DOM`元素集，还有字符串
 
-```javascript
+```js
 // arguments对象
 function args() {return arguments; }
 var arraylike = args('a','b')
@@ -99,7 +99,7 @@ eles instanceof Array  // false
 ##### for...in 循环
 ---
 
-```javascript
+```js
 var a =[1, 2, 3];
 a.other = 'other';
 for (var i in arr){
@@ -113,7 +113,7 @@ for (var i in arr){
 ##### for 循环和 while 循环
 ---
 
-```javascript
+```js
 var a = [1, 2, 3];
 
 // for循环
@@ -137,7 +137,7 @@ while (l--) {
 ##### forEach()方法
 ---
 
-```javascript
+```js
 //array.forEach(callback[, thisArg])
 //callback 在数组的每一项上执行的函数，接受三个参数：item: 数组当前项的值，index: 当前项的索引，arr:数组本身。
 var arr = [1, 2, 3]
@@ -157,7 +157,7 @@ arr.forEach(function(item, index, arr){
 ##### join() 将数值转换为字符串
 ---
 
-```javascript
+```js
 var arr = [1, 2, 3];
 arr.join(); // "1,2,3"
 arr.join("_"); // "1_2_3"
@@ -166,7 +166,7 @@ arr.join("_"); // "1_2_3"
 ##### reverse() 将数组逆序
 ---
 
-```javascript
+```js
 // 原数组会被修改
 var arr = [1, 2, 3];
 arr.reverse(); // [3, 2, 1]
@@ -178,7 +178,7 @@ arr; // [3, 2, 1]
 
 - 默认情况下是升序排列的，底层是调用了每个数组项的 `toString()` 方法，然后比较得到字符串，即使每个数组项的数值是数字，比较的也是字符串
 
-```javascript
+```js
 // 原数组会被修改
 var arr = [1, 12, 213, 1432, 'a'];
 arr.sort(); // [1, 12, 1432, 213, "a"]
@@ -193,7 +193,7 @@ arr.sort(function(a, b){
 - `slice`用于复制数组，复制完后旧数组不变，返回得到的新数组是旧数组的子集
 - 第一个参数begin是开始复制的位置，需要注意的是，可以设负数。设负数表示从尾往前数几个位置开始复制
 
-```javascript
+```js
 //原数组不会被修改
 var arr = [1, 2, 3, 4, 5];
 arr.slice(); //[1, 2, 3, 4, 5]
@@ -205,7 +205,7 @@ arr; // [1, 2, 3, 4, 5]
 ##### splice() 数组拼接
 ---
 
-```javascript
+```js
 //原数组会被修改
 var arr = [1, 2, 3, 4, 5];
 //从第三个数组元素删除
@@ -221,7 +221,7 @@ arr.splice(1, 1, 'a', 'b')
 ##### isArray() 判断是否是数组
 ---
 
-```javascript
+```js
 var arr = [];
 var a = "not array";
 Array.isArray(arr); // true
@@ -233,7 +233,7 @@ Array.isArray(a); // false
 
 - 两者都用于返回项目的索引值。区别是`indexOf`从头开始找，`lastIndexOf`从尾开始找。如果查找失败，无匹配，返回`-1`
 
-```javascript
+```js
 var arr = ['a', 'b', 'c', 'd', 'e'];
 arr.indexOf('c');  // 2 找到返回数组下标
 arr.indexOf('c', 3); // -1 指定从3号位开始查找

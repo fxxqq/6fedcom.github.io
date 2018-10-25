@@ -21,7 +21,7 @@ date: 2018-08-26 17:21:32
 - `beforeDestroy`
 - `destroyed`
 
-```javascript
+```js
 var vm = new Vue({
     el: '#app',
     data: {
@@ -156,7 +156,7 @@ var vm = new Vue({
 - 可以想想什么el的判断要在template之前了~是因为vue需要通过el找到对应的outer template
 - 在vue对象中还有一个render函数，它是以createElement作为参数，然后做渲染操作，而且我们可以直接嵌入JSX.
 
-```javascript
+```js
 new Vue({
     el: '#app',
     render: function(createElement) {

@@ -25,7 +25,7 @@ date: 2018-07-29 23:20:24
 > `React`数据流动是单向的,父组件向子组件通信也是最常见的;父组件通过`props`向子组件传递需要的信息
 
 
-```javascript
+```js
 // Child.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -65,7 +65,7 @@ export default Parent;
 
 > 实现在子组件中点击隐藏组件按钮可以将自身隐藏的功能
 
-```javascript
+```js
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -140,7 +140,7 @@ export default class App extends Component {
 > 下面例子中的组件关系: ListItem是List的子组件,List是app的子组件
 
 
-```javascript
+```js
 // ListItem.jsx
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -252,7 +252,7 @@ import { EventEmitter } from 'events';
 export default new EventEmitter();
 ```
 
-```javascript
+```js
 // List.jsx
 class List extends Component {
     constructor(props) {

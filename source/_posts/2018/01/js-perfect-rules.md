@@ -1,7 +1,7 @@
 ---
 title: JavaScript工程项目的一系列最佳实践
 tags:
-  - 规范
+  - 前端规范
   - 最佳实践
 categories: Front-End
 abbrlink: 1adc5a41
@@ -112,7 +112,7 @@ git branch -d <分支>
 
 **（使用以下代码）删除所有已经不在远程仓库维护的分支**
 
-```javascript
+```js
 git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
 ```
 
@@ -159,7 +159,7 @@ git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}
 
 > 它可能会将其他人从上小时的故障排查中解救
 
-```javascript
+```js
 const joi = require('joi')
 
 const envVarsSchema = joi.object({  
@@ -453,14 +453,14 @@ module.exports = config;
 
 **坚持这样一个概念：始终以集合名起始并以标识符结束**
 
-```javascript
+```js
 /students/245743
 /airports/kjfk
 ```
 
 **避免这样的网址**
 
-```javascript
+```js
 GET /blogs/:blogId/posts/:postId/summary
 ```
 
@@ -502,7 +502,7 @@ GET /blogs/:blogId/posts/:postId/summary
 
 **对于具有v前缀（v1，v2）的版本，使用简单的序数。并将其移到URL的左侧，使其具有最高的范围表述**
 
-```javascript
+```js
 http://api.domain.com/v1/schools/3/students    
 ```
 
@@ -510,7 +510,7 @@ http://api.domain.com/v1/schools/3/students
 
 **响应消息必须是自我描述的。一个很好的错误消息响应可能如下所示**
 
-```javascript
+```js
 {
     "code": 1234,
     "message" : "Something bad happened",
@@ -520,7 +520,7 @@ http://api.domain.com/v1/schools/3/students
 
 > 或验证错误:
 
-```javascript
+```js
 {
     "code" : 2314,
     "message" : "Validation Failed",
@@ -612,7 +612,7 @@ GET /student?fields=id,name,age,class
 
 **如果存在 URL 参数就使用 URL 参数，并根据URL中使用到的名称来指定它们**
 
-```javascript
+```js
 Required: id=[integer]
 Optional: photo_id=[alphanumeric]
 ```
@@ -621,14 +621,14 @@ Optional: photo_id=[alphanumeric]
 
 **响应成功，应该对应什么样的状态代码，返回了哪些数据？当人们需要知道他们的回调应该是期望的样子，这很有用**
 
-```javascript
+```js
 Code: 200
 Content: { id : 12 }
 ```
 
 **错误响应，大多数端点都存在许多失败的可能。从未经授权的访问到错误参数等。所有的（错误描述信息）都应该列在这里。虽然有可能会重复，但它却有助于防止别人的猜想（，减少使用时的排错时间）。例如**
 
-```javascript
+```js
 {
     "code": 403,
     "message" : "Authentication failed",

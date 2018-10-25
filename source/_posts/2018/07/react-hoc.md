@@ -21,7 +21,7 @@ date: 2018-07-23 00:10:24
 
 > 属性代理是最常见的实现方式，将被处理组件的props和新的props一起传递给新组件
 
-```javascript
+```js
 export default function withHeader(WrappedComponent) {
   return class HOC extends Component {
     render() {
@@ -38,7 +38,7 @@ export default function withHeader(WrappedComponent) {
 
 > 在其他组件里，我们引用这个高阶组件，用来强化它
 
-```javascript
+```js
 @withHeader
 export default class Demo extends Component {
   render() {
@@ -53,7 +53,7 @@ export default class Demo extends Component {
 
 > 使用ES6写法可以更加简洁
 
-```javascript
+```js
 export default(title) => (WrappedComponent) => class HOC extends Component {
   render() {
     return <div>
@@ -73,7 +73,7 @@ export default(title) => (WrappedComponent) => class HOC extends Component {
 
 **反向继承**
 
-```javascript
+```js
 function HOC(WrappedComponent){
     return class HOC extends WrappedComponent {
         //继承了传入的组件

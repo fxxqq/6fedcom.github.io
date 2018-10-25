@@ -43,7 +43,7 @@ date: 2016-07-27 11:50:43
  ```
  - 捕捉写法停止传播 从最顶层开始往下
 
-```javascript
+```js
 document.getElementById('aa').addEventListener('click',function (ev){alert('aa');ev.stopPropagation();},true);// 结果捕捉到aa 加true 由冒泡变为捕捉 从上到下
 	document.getElementById('bb').addEventListener('click',function (){alert('bb')},true);
 	document.getElementById('cc').addEventListener('click',function (){alert('cc')},true);
@@ -51,7 +51,7 @@ document.getElementById('aa').addEventListener('click',function (ev){alert('aa')
 
 - 冒泡写法停止传播  从下往上
 
-```javascript
+```js
 document.getElementById('aa').addEventListener('click',function (){alert('aa');});//加true 由冒泡变为捕捉 从上到下
 	document.getElementById('bb').addEventListener('click',function (){alert('bb')});
 	document.getElementById('cc').addEventListener('click',
@@ -70,7 +70,7 @@ document.getElementById('aa').addEventListener('click',function (){alert('aa');}
   - returnValue = false //IE 取消事件效果
   - preventDefault()  //w3c取消事件效果
 
-```javascript
+```js
 	document.getElementsByTagName('a')[0].onclick = function (ev){
 		alert('点击');
 		//达到事件结束的效果 但是函数还是往下运行

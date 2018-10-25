@@ -39,7 +39,7 @@ UI——>action(side function)—>middleware—>action(plain)—>reducer—>stat
 
 > 在redux中，thunk是redux作者给出的中间件，实现极为简单，10多行代码
 
-```javascript
+```js
 function createThunkMiddleware(extraArgument) {
   return ({ dispatch, getState }) => next => action => {
     if (typeof action === 'function') {
@@ -69,7 +69,7 @@ action(dispatch, getState, extraArgument);
 
 > `thunk`的缺点也是很明显的，`thunk`仅仅做了执行这个函数，并不在乎函数主体内是什么，也就是说`thunk`使得`redux`可以接受函数作为`action`，但是函数的内部可以多种多样。比如下面是一个获取商品列表的异步操作所对应的`action`
 
-```javascript
+```js
 export default ()=>(dispatch)=>{
     fetch('/api/goodList',{ //fecth返回的是一个promise
       method: 'get',
@@ -122,7 +122,7 @@ export default ()=>(dispatch)=>{
 
 **创建一个helloSaga.js文件**
 
-```javascript
+```js
 export function * helloSaga() {
   console.log('Hello Sagas!');
 }
@@ -133,7 +133,7 @@ export function * helloSaga() {
 > 在`main.js`中
 
 
-```javascript
+```js
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { helloSaga } from './sagas'
@@ -286,7 +286,7 @@ takeLatest('login',loginFunc)
 
 - 用户名输入框和密码框onchange时触发的函数为
 
-```javascript
+```js
 changeUsername:(e)=>{
     dispatch({type:'CHANGE_USERNAME',value:e.target.value});
  },
@@ -299,7 +299,7 @@ changePassword:(e)=>{
 
 - 在`saga.js`文件中监听这两个方法并执行副作用函数，最后`put`发出转化后的`action`，给`reducer`函数调用
 
-```javascript
+```js
 function * watchUsername(){
   while(true){
     const action= yield take('CHANGE_USERNAME');
@@ -322,7 +322,7 @@ function * watchPassword(){
 
 > 在UI中发出的登陆事件为
 
-```javascript
+```js
 toLoginIn:(username,password)=>{
   dispatch({type:'TO_LOGIN_IN',username,password});
 }
@@ -330,7 +330,7 @@ toLoginIn:(username,password)=>{
 
 > 登陆事件的`action`为：`TO_LOGIN_IN`.对于登入事件的处理函数为：
 
-```javascript
+```js
 while(true){
     //监听登入事件
     const action1=yield take('TO_LOGIN_IN');
@@ -358,7 +358,7 @@ while(true){
   
 **获取列表信息**
 
-```javascript
+```js
 import {delay} from 'redux-saga';
 
 function * getList(){
@@ -388,7 +388,7 @@ yield put({type:'to_login_out'});
 
 **完整的实现登入登出和列表展示的代码**
 
-```javascript
+```js
 function * getList(){
   try {
    yield delay(3000);
@@ -463,7 +463,7 @@ yield fork(getList)
 
 > `src/store/configureStore.js`
 
-```javascript
+```js
 import { createStore, applyMiddleware, compose } from 'redux'
 // import {createLogger } from 'redux-logger'
 import createHistory from 'history/createBrowserHistory'
@@ -510,7 +510,7 @@ export default configureStore
 
 ### 6.2 配置reduce
 
-```javascript
+```js
 // src/reducers/index.js
 import {combineReducers} from 'redux'
 import {routerReducer as routing} from 'react-router-redux'
@@ -523,7 +523,7 @@ const rootReducer = combineReducers({
 export default rootReducer
 ```
 
-```javascript
+```js
 // src/reducers/poetry.js
 
 import * as ActionTypes from '../actions'
@@ -548,7 +548,7 @@ export default (state = {
 
 ### 6.3 处理action
 
-```javascript
+```js
 // src/action/index.js
 
 import { createAction } from 'redux-actions';
@@ -573,7 +573,7 @@ export const fetchPoetryFauilure= createAction(FETCH_POETRY_FAILURE)
 
 ### 6.4 处理sagas
 
-```javascript
+```js
 
 // src/sagas/index.js
 
@@ -586,7 +586,7 @@ export default function* rootSaga() {
   }
 ```
 
-```javascript
+```js
 
 // src/fetchPoetry.js
 

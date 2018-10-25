@@ -1,7 +1,7 @@
 ---
 title: editconfig配置
 tags:
-  - 规范
+  - 前端规范
   - editconfig
 categories: Front-End
 abbrlink: 59f3075e

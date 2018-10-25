@@ -77,7 +77,7 @@ date: 2017-05-08 22:35:08
 - 重新加载配置文件 `nginx -c /usr/local/etc/nginx/nginx.conf`
 - 在重启`Nginx`  `nginx -s reload`
 
-```javascript
+```js
 user  root;  //Nginx需要有有一个用户
 worker_processes  2; // Nginx进程数 最大1024
 pid        conf/nginx.pid; 
@@ -125,7 +125,7 @@ http {
 
 ### 一些错误
 
-```javascript
+```js
 nginx: [error] invalid PID number “” in “/usr/local/var/run/nginx/nginx.pid”
 ```
 - 解决办法：`nginx -c /usr/local/etc/nginx/nginx.conf`

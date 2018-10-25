@@ -34,7 +34,7 @@ date: 2018-01-12 10:05:43
 ![image.png](http://upload-images.jianshu.io/upload_images/1480597-dcc780629ce8ad78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-```javascript
+```js
 {
 
     mark : {

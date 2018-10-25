@@ -84,7 +84,7 @@ var vm = new MVVM({
 - 那么将需要`observe`的数据对象进行递归遍历，包括子属性对象的属性，都加上`setter`和`getter`
 - 这样的话，给这个对象的某个值赋值，就会触发`setter`，那么就能监听到了数据变化。相关代码可以是这样
 
-```javascript
+```js
 var data = {name: 'kindeng'};
 observe(data);
 data.name = 'dmq'; // 哈哈哈，监听到值变化了 kindeng --> dmq
@@ -119,7 +119,7 @@ function defineReactive(data, key, val) {
 
 > 这样我们已经可以监听每个数据的变化了，那么监听到变化之后就是怎么通知订阅者了，所以接下来我们需要实现一个消息订阅器，很简单，维护一个数组，用来收集订阅者，数据变动触发`notify`，再调用订阅者的`update`方法，代码改善之后是这样
 
-```javascript
+```js
 // ... 省略
 function defineReactive(data, key, val) {
 	var dep = new Dep();
@@ -154,7 +154,7 @@ Dep.prototype = {
 - 那么问题来了，谁是订阅者，怎么往订阅器添加订阅者？
 - 没错，上面的思路整理中我们已经明确订阅者应该是`Watcher`, 而且`var dep = new Dep();`是在 `defineReactive`方法内部定义的，所以想通过`dep`添加订阅者，就必须要在闭包内操作，所以我们可以在`getter`里面动手脚：
 
-```javascript
+```js
 // Observer.js
 // ...省略
 Object.defineProperty(data, key, {
@@ -189,7 +189,7 @@ Watcher.prototype = {
 - 因为遍历解析的过程有多次操作`dom`节点，为提高性能和效率，会先将跟节点`el`转换成文档碎片`fragment`进行解析编译操作
 - 解析完成，再将`fragment`添加回原来的真实`dom`节点中
 
-```javascript
+```js
 function Compile(el) {
     this.$el = this.isElementNode(el) ? el : document.querySelector(el);
     if (this.$el) {
@@ -213,7 +213,7 @@ Compile.prototype = {
 
 - `compileElement`方法将遍历所有节点及其子节点，进行扫描解析编译，调用对应的指令渲染函数进行数据渲染，并调用对应的指令更新函数进行绑定，详看代码及注释说明
 
-```javascript
+```js
 Compile.prototype = {
 	// ... 省略
 	compileElement: function(el) {
@@ -299,7 +299,7 @@ var updater = {
 - 待属性变动`dep.notice()`通知时，能调用自身的`update()`方法，并触发`Compile`中绑定的回调，则功成身退。
 
 
-```javascript
+```js
 function Watcher(vm, exp, cb) {
     this.cb = cb;
     this.vm = vm;
@@ -357,7 +357,7 @@ Dep.prototype = {
 
 - 一个简单的`MVVM`构造器是这样子：
 
-```javascript
+```js
 function MVVM(options) {
     this.$options = options;
     var data = this._data = this.$options.data;
@@ -371,7 +371,7 @@ function MVVM(options) {
 `var vm = new MVVM({data: {name: 'kindeng'}}); vm.name = 'dmq';`
 - 所以这里需要给`MVVM`实例添加一个属性代理的方法，使访问`vm`的属性代理为访问`vm._data`的属性，改造后的代码如下：
 
-```javascript
+```js
 function MVVM(options) {
     this.$options = options;
     var data = this._data = this.$options.data, me = this;

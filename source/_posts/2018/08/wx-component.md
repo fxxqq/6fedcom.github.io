@@ -22,7 +22,7 @@ date: 2018-08-12 23:43:20
 
 > 使用已注册的自定义组件前，首先要在页面的 json 文件中进行引用声明。此时需要提供每个自定义组件的标签名和对应的自定义组件文件路径
 
-```javascript
+```js
 {
   "usingComponents": {
     "component-tag-name": "path/to/the/custom/component"
@@ -81,7 +81,7 @@ date: 2018-08-12 23:43:20
 - 在组件的`wxml`中可以包含 `slot` 节点，用于承载组件使用者提供的`wxml`结构。
 - 默认情况下，一个组件的`wxml`中只能有一个`slot`。需要使用多`slot`时，可以在组件js中声明启用
 
-```javascript
+```js
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
@@ -121,7 +121,7 @@ Component({
 
 > Component构造器可用于定义组件，调用Component构造器时可以指定组件的属性、数据、方法等
 
-```javascript
+```js
 Component({
 
   behaviors: [],
@@ -191,7 +191,7 @@ Component({
 <component-tag-name bind:myevent="onMyEvent" />
 ```
 
-```javascript
+```js
 Page({
   onMyEvent: function(e){
     e.detail // 自定义组件触发事件时提供的detail对象
@@ -208,7 +208,7 @@ Page({
 <button bindtap="onTap">点击这个按钮将触发“myevent”事件</button>
 ```
 
-```javascript
+```js
 Component({
   properties: {}
   methods: {
@@ -247,7 +247,7 @@ popup.wxml
 
 popup.js
 
-```javascript
+```js
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
@@ -318,7 +318,7 @@ Component({
 
 > 在首页用这个组件需要配置一下，首先建一个名为index.json的文件，里边配置"usingComponents"，就是需要引入到首页
 
-```javascript
+```js
 {
   "usingComponents": {
     "popup": "/component/popup/popup"
@@ -347,7 +347,7 @@ Component({
 
 > 配置index.js操作点击事件
 
-```javascript
+```js
 //index.js
 //获取应用实例
 const app = getApp()

@@ -15,7 +15,7 @@ date: 2017-11-07 19:55:24
 
 > 切换淘宝镜像源
 
-```javascript
+```js
 npm config set registry https://registry.npm.taobao.org
 
 npm config get registry
@@ -25,7 +25,7 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 > 使用npm安装react
 
-```javascript
+```js
 cnpm install react react-dom --save
 ```
 
@@ -36,13 +36,13 @@ cnpm install react react-dom --save
 > 这里使用`create-react-app`初始化项目
 
 
-```javascript
+```js
 npm install create-react-app -g
 ```
 
 > 安装完成之后就可以在命令行使用 `create-react-app` 了，首先选择一个合适的目录，然后只需要简单地输入
 
-```javascript
+```js
 create-react-app yourfilename
 ```
 
@@ -57,11 +57,11 @@ create-react-app yourfilename
 
 > `JSX` 的标签同样可以拥有自己的属性
 
-```javascript
+```js
 const title = <h1 id="main">React Learning</h1>
 ```
 
-```javascript
+```js
 // 注意是 className 而不是 class
 const title = <h1 className="main">React Learning</h1>
 ```
@@ -71,7 +71,7 @@ const title = <h1 className="main">React Learning</h1>
 > `JSX` 的标签也可以像 `HTML` 一样相互嵌套，一般有嵌套解构的 `JSX` 元素外面，我们习惯于为它加上一个小括号
 
 
-```javascript
+```js
 const title = (
     <div>
         <h1 className="main">React Learning</h1>
@@ -82,7 +82,7 @@ const title = (
 
 > 需要注意的是，`JSX` 在嵌套时，最外层有且只能有一个标签，否则就会出错
 
-```javascript
+```js
 // 这是一个错误示例
 const title = (            
     <h1 className="main">React Learning</h1>
@@ -94,7 +94,7 @@ const title = (
 
 > 在 `JSX` 元素中，我们同样可以使用 `JavaScript` 表达式，在 `JSX` 当中的表达式需要用一个大括号括起来
 
-```javascript
+```js
 function sayhi(name) {
   return 'Hi,' + name
 }
@@ -115,13 +115,13 @@ const title = (
 
 > 第一种函数定义组件，非常简单啦，我们只需要定义一个接收`props`传值，返回`React`元素的方法即可
 
-```javascript
+```js
 function Title(props) {
   return <h1>Hello, {props.name}</h1>
 }
 ```
 
-```javascript
+```js
 // 甚至使用ES6的箭头函数简写之后可以变成这样
 const Title = props => <h1>Hello, {props.name}</h1>
 ```
@@ -130,7 +130,7 @@ const Title = props => <h1>Hello, {props.name}</h1>
 
 - 组件在定义好之后，可以通过`JSX`描述的方式被引用，组件之间也可以相互嵌套和组合
 
-```javascript
+```js
 class Title extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>
@@ -141,7 +141,7 @@ class Title extends React.Component {
 ### 4.2 展示与容器组件
 
 
-```javascript
+```js
 // 展示组件
 
 class CommentList extends React.Component {
@@ -160,7 +160,7 @@ class CommentList extends React.Component {
 }
 ```
 
-```javascript
+```js
 // 容器组件
 class CommentListContainer extends React.Component {
   constructor() {
@@ -213,7 +213,7 @@ class CommentListContainer extends React.Component {
 
 > 这样的组件一般只接收来自其他组件的数据。一般这样的组件中只能看到对`this.props`的调用
 
-```javascript
+```js
 // 有状态组件
 class StatefulLink extends React.Component {
   constructor(props) {
@@ -238,7 +238,7 @@ class StatefulLink extends React.Component {
 }
 ```
 
-```javascript
+```js
 // 无状态组件
 class StatelessLink extends React.Component {
   constructor(props) {
@@ -266,7 +266,7 @@ class StatelessLink extends React.Component {
 
 > 在`React`的实际开发当中，我们编写的组件大部分都是无状态组件。毕竟`React`的主要作用是编写用户界面。再加上`ES6`的新特性，绝大多数的无状态组件都可以通过箭头函数简写成类似下面这样
 
-```javascript
+```js
 const SimpleButton = props => <button>{props.text}</button>
 ```
 
@@ -306,7 +306,7 @@ const SimpleButton = props => <button>{props.text}</button>
 > 继承的写法并不符合`React`的理念。在`React`当中`props`其实是非常强大的，`props`几乎可以传入任何东西，变量、函数、甚至是组件本身
 
 
-```javascript
+```js
 function SplitPane(props) {
   return (
     <div className="SplitPane">
@@ -366,7 +366,7 @@ function App() {
 
 > 由于`props`是只读的，我们不能直接为`props`赋值。`React`专门准备了一个方法定义`props`的默认值
 
-```javascript
+```js
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -394,7 +394,7 @@ Title.propTypes = {
 - 之后就可以在组件中通过`this.state`来访问它，既然是`state`那么肯定涉及到数据的改变，因此我们还需额外定义一个负责处理`state`变化的函数，这样的函数中一般都会包含`this.setState`这个方法
 - 和之前的`props`一样，初始化`state`之后，如果我们想改变它，是不可以直接对其赋值的，直接修改`state`的值没有任何意义，因为这样的操作脱离了`React`运行的逻辑，不会触发组件的重新渲染。所以需要`this.setState`这个方法，在改变`state`的同时，触发`React`内部的一系列函数，最后在页面上重新渲染出组件
 
-```javascript
+```js
 class Counter extends React.Component {
   constructor(props) {
     super(props)
@@ -499,7 +499,7 @@ class Counter extends React.Component {
 
 > 我们在组件中声明表单元素时，一般都要为表单元素传入应用状态中的值，可以通过`state`也可以通过`props`传递，之后需要为其绑定相关事件，例如表单提交，输入改变等。在相关事件触发的处理函数中，我们需要根据表单元素中用户的输入，对应用数据进行相应的操作和改变
 
-```javascript
+```js
 class ControlledInput extends React.Component {
   constructor(props) {
     super(props)
@@ -582,7 +582,7 @@ class ControlledInput extends React.Component {
 
 > 使用时，路由器`Router`就是`React`的一个组件
 
-```javascript
+```js
 import { Router } from 'react-router';
 render(<Router/>, document.getElementById('app'));
 ```
@@ -590,7 +590,7 @@ render(<Router/>, document.getElementById('app'));
 > `Router`组件本身只是一个容器，真正的路由要通过`Route`组件定义
 
 
-```javascript
+```js
 import { Router, Route, hashHistory } from 'react-router';
 
 render((
@@ -605,7 +605,7 @@ render((
 - `Router`组件有一个参数`history`，它的值`hashHistory`表示，路由的切换由`URL`的`hash`变化决定，即`URL`的`#`部分发生变化
 - `Route`组件定义了`URL`路径与组件的对应关系。你可以同时使用多个`Route`组件
 
-```javascript
+```js
 <Router history={hashHistory}>
   <Route path="/" component={App}/>
   <Route path="/repos" component={Repos}/>
@@ -621,7 +621,7 @@ render((
 
 > `Route`组件还可以嵌套
 
-```javascript
+```js
 <Router history={hashHistory}>
   <Route path="/" component={App}>
     <Route path="/repos" component={Repos}/>
@@ -632,7 +632,7 @@ render((
 
 > 上面代码中，用户访问`/repos`时，会先加载`App`组件，然后在它的内部再加载`Repos`组件
 
-```javascript
+```js
 <App>
   <Repos/>
 </App>
@@ -640,7 +640,7 @@ render((
 
 - `App`组件要写成下面的样子
 
-```javascript
+```js
 export default React.createClass({
   render() {
     return <div>
@@ -660,7 +660,7 @@ export default React.createClass({
 
 - `Route`组件的`path`属性指定路由的匹配规则。这个属性是可以省略的，这样的话，不管路径是否匹配，总是会加载指定组件
 
-```javascript
+```js
 <Route path="inbox" component={Inbox}>
    <Route path="messages/:id" component={Message} />
 </Route>
@@ -668,7 +668,7 @@ export default React.createClass({
 
 > 当用户访问`/inbox/messages/:id`时，会加载下面的组件
 
-```javascript
+```js
 <Inbox>
   <Message/>
 </Inbox>
@@ -676,14 +676,14 @@ export default React.createClass({
 
 > 如果省略外层`Route`的`path`参数，写成下面的样子
 
-```javascript
+```js
 <Route component={Inbox}>
   <Route path="inbox/messages/:id" component={Message} />
 </Route>
 ```
 > 现在用户访问`/inbox/messages/:id`时，组件加载还是原来的样子
 
-```javascript
+```js
 <Inbox>
   <Message/>
 </Inbox>
@@ -694,7 +694,7 @@ export default React.createClass({
 
 > `path`属性可以使用通配符
 
-```javascript
+```js
 <Route path="/hello/:name">
 // 匹配 /hello/michael
 // 匹配 /hello/ryan
@@ -739,7 +739,7 @@ export default React.createClass({
 ### 8.5、IndexRoute 组件
 
 
-```javascript
+```js
 <Router>
   <Route path="/" component={App}>
     <Route path="accounts" component={Accounts}/>
@@ -752,7 +752,7 @@ export default React.createClass({
 > - 因此，通常会采用{`this.props.children` || `<Home/>}`这样的写法。这时，Home明明是`Accounts`和`Statements`的同级组件，却没有写在`Route`中
 > - IndexRoute就是解决这个问题，显式指定Home是根路由的子组件，即指定默认情况下加载的子组件。你可以把`IndexRoute`想象成某个路径的`index.html`
 
-```javascript
+```js
 <Router>
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
@@ -765,7 +765,7 @@ export default React.createClass({
 > 现在，用户访问`/`的时候，加载的组件结构如下
 
 
-```javascript
+```js
 <App>
   <Home/>
 </App>
@@ -779,7 +779,7 @@ export default React.createClass({
 
 > `<Redirect>`组件用于路由的跳转，即用户访问一个路由，会自动跳转到另一个路由
 
-```javascript
+```js
 <Route path="inbox" component={Inbox}>
   {/* 从 /inbox/messages/:id 跳转到 /messages/:id */}
   ＜Redirect from="messages/:id" to="/messages/:id" />
@@ -792,7 +792,7 @@ export default React.createClass({
 
 > `IndexRedirect`组件用于访问根路由的时候，将用户重定向到某个子组件
 
-```javascript
+```js
 <Route path="/" component={App}>
   ＜IndexRedirect to="/welcome" />
   <Route path="welcome" component={Welcome} />
@@ -808,7 +808,7 @@ export default React.createClass({
 
 > `Link`组件用于取代`<a>`元素，生成一个链接，允许用户点击后跳转到另一个路由。它基本上就是`<a>`元素的`React` 版本，可以接收`Router`的状态
 
-```javascript
+```js
 render() {
   return <div>
     <ul role="nav">
@@ -821,14 +821,14 @@ render() {
 
 > 如果希望当前的路由与其他路由有不同样式，这时可以使用`Link`组件的`activeStyle`属性
 
-```javascript
+```js
 <Link to="/about" activeStyle={{color: 'red'}}>About</Link>
 <Link to="/repos" activeStyle={{color: 'red'}}>Repos</Link>
 ```
 
 - 在`Router`组件之外，导航到路由页面，可以使用浏览器的`History API`，像下面这样写
 
-```javascript
+```js
 import { browserHistory } from 'react-router';
 browserHistory.push('/some/path');
 ```
@@ -841,7 +841,7 @@ browserHistory.push('/some/path');
 - 是因为对于根路由来说，`activeStyle`和`activeClassName`会失效，或者说总是生效，因为`/`会匹配任何子路由。而`IndexLink`组件会使用路径的精确匹配
 
 
-```javascript
+```js
 <IndexLink to="/" activeClassName="active">
   Home
 </IndexLink>
@@ -861,7 +861,7 @@ browserHistory.push('/some/path');
   
 > 如果设为`hashHistory`，路由将通过`URL`的hash部分`（#）`切换，`URL`的形式类似`example.com/#/some/path`
 
-```javascript
+```js
 import { hashHistory } from 'react-router'
 
 render(
@@ -872,7 +872,7 @@ render(
 
 > 如果设为`browserHistory`，浏览器的路由就不再通过`Hash`完成了，而显示正常的路径`example.com/some/path`，背后调用的是浏览器的`History API`
 
-```javascript
+```js
 import { browserHistory } from 'react-router'
 
 render(
@@ -889,7 +889,7 @@ render(
 
 > `Link`组件用于正常的用户点击跳转，但是有时还需要表单跳转、点击按钮跳转等操作
 
-```javascript
+```js
 <form onSubmit={this.handleSubmit}>
   <input type="text" placeholder="userName"/>
   <input type="text" placeholder="repo"/>
@@ -899,7 +899,7 @@ render(
 
 **第一种方法是使用browserHistory.push**
 
-```javascript
+```js
 import { browserHistory } from 'react-router'
 
 // ...
@@ -965,7 +965,7 @@ export default React.createClass({
   - `store.dispatch()`
   - `store.subscribe()`
   
-```javascript
+```js
 import { createStore } from 'redux';
 let { subscribe, dispatch, getState } = createStore(reducer);
 ```
@@ -974,7 +974,7 @@ let { subscribe, dispatch, getState } = createStore(reducer);
 
 - `Redux` 提供`createStore`这个函数，用来生成 `Store`
 
-```javascript
+```js
 import { createStore } from 'redux';
 const store = createStore(reducer); // 返回新生成的 Store 对象
 ```
@@ -985,7 +985,7 @@ const store = createStore(reducer); // 返回新生成的 Store 对象
 
 - 当前时刻的 `State`，可以通过`store.getState()`拿到
 
-```javascript
+```js
 import { createStore } from 'redux';
 const store = createStore(reducer);
 
@@ -999,7 +999,7 @@ const state = store.getState();
 
 - `Action` 是一个对象。其中的`type`属性是必须的，表示 `Action` 的名称。其他属性可以自由设置
 
-```javascript
+```js
 const action = {
   type: 'ADD_TODO',
   payload: 'Learn Redux'
@@ -1010,7 +1010,7 @@ const action = {
 
 > `action`有两个作用，一个是定义我们的应用可以进行的动作或操作的类型，另一个是传递改变应用状态的数据。在`Redux`的约定中，`action`只有`type`属性是必须包含的，其他的数据如何定义全在于你想要如何使用，当然如果你希望你定义的`action`能够规范一些的话，也可以遵从Flux Standard Action的标准
 
-```javascript
+```js
 {
   // action 类型
   type: 'INCREMENT',
@@ -1031,7 +1031,7 @@ const action = {
 
 > `View` 要发送多少种消息，就会有多少种 `Action`。如果都手写，会很麻烦。可以定义一个函数来生成 `Action`，这个函数就叫 `Action Creator`
 
-```javascript
+```js
 const ADD_TODO = '添加 TODO';
 
 function addTodo(text) {
@@ -1050,7 +1050,7 @@ const action = addTodo('Learn Redux');
 
 > `store.dispatch()`是 `View` 发出 `Action` 的唯一方法
 
-```javascript
+```js
 import { createStore } from 'redux';
 const store = createStore(fn);
 
@@ -1064,7 +1064,7 @@ store.dispatch({
 
 - 结合 `Action Creator`，这段代码可以改写如下
 
-```javascript
+```js
 store.dispatch(addTodo('Learn Redux'));
 ```
 
@@ -1072,7 +1072,7 @@ store.dispatch(addTodo('Learn Redux'));
 
 > `Store` 收到 `Action` 以后，必须给出一个新的 `State`，这样 `View` 才会发生变化。这种 `State` 的计算过程就叫做 `Reducer`
 
-```javascript
+```js
 const reducer = function (state, action) {
   // ...
   return new_state;
@@ -1081,7 +1081,7 @@ const reducer = function (state, action) {
 
 - 整个应用的初始状态，可以作为 `State` 的默认值。下面是一个实际的例子
 
-```javascript
+```js
 const defaultState = 0;
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -1120,7 +1120,7 @@ const store = createStore(reducer);
   
 > 由于 `Reducer` 是纯函数，就可以保证同样的`State`，必定得到同样的 `View`。但也正因为这一点，`Reducer` 函数里面不能改变 `State`，必须返回一个全新的对象，请参考下面的写法
 
-```javascript
+```js
 // State 是一个对象
 function reducer(state, action) {
   return Object.assign({}, state, { thingToChange });
@@ -1141,7 +1141,7 @@ function reducer(state, action) {
 
 > `Store` 允许使用`store.subscribe`方法设置监听函数，一旦 `State` 发生变化，就自动执行这个函数
 
-```javascript
+```js
 import { createStore } from 'redux';
 const store = createStore(reducer);
 
@@ -1152,7 +1152,7 @@ store.subscribe(listener);
 
 - `store.subscribe`方法返回一个函数，调用这个函数就可以解除监听
 
-```javascript
+```js
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 );
@@ -1165,7 +1165,7 @@ unsubscribe();
 > `Reducer` 函数负责生成 `State`。由于整个应用只有一个 `State` 对象，包含所有数据，对于大型应用来说，这个 State 必然十分庞大，导致 `Reducer` 函数也十分庞大
 
 
-```javascript
+```js
 const chatReducer = (state = defaultState, action = {}) => {
   const { type, payload } = action;
   switch (type) {
@@ -1186,7 +1186,7 @@ const chatReducer = (state = defaultState, action = {}) => {
 };
 ```
 
-```javascript
+```js
 const chatReducer = (state = defaultState, action = {}) => {
   return {
     chatLog: chatLog(state.chatLog, action),
@@ -1201,7 +1201,7 @@ const chatReducer = (state = defaultState, action = {}) => {
 > `Redux` 提供了一个`combineReducers`方法，用于 `Reducer` 的拆分。你只要定义各个子 `Reducer` 函数，然后用这个方法，将它们合成一个大的 `Reducer`
 
 
-```javascript
+```js
 import { combineReducers } from 'redux';
 
 const chatReducer = combineReducers({
@@ -1215,7 +1215,7 @@ export default todoApp;
 
 > 这种写法有一个前提，就是 State 的属性名必须与子 Reducer 同名。如果不同名，就要采用下面的写法
 
-```javascript
+```js
 function reducer(state = {}, action) {
   return {
     a: doSomethingWithA(state.a, action),
@@ -1229,7 +1229,7 @@ function reducer(state = {}, action) {
 
 - 你可以把所有子 `Reducer` 放在一个文件里面，然后统一引入
 
-```javascript
+```js
 import { combineReducers } from 'redux'
 import * as reducers from './reducers'
 
@@ -1251,26 +1251,26 @@ const reducer = combineReducers(reducers)
 
 - 首先，用户发出 `Action`
 
-```javascript
+```js
 store.dispatch(action);
 ```
 
 - 然后，`Store` 自动调用 `Reducer`，并且传入两个参数：当前 `State` 和收到的 `Action`。 `Reducer` 会返回新的 `State`
 
-```javascript
+```js
 let nextState = todoApp(previousState, action);
 ```
 
 - `State` 一旦有变化，`Store` 就会调用监听函数
 
-```javascript
+```js
 // 设置监听函数
 store.subscribe(listener);
 ```
 
 - `listener`可以通过`store.getState()`得到当前状态。如果使用的是 `React`，这时可以触发重新渲染 `View`
 
-```javascript
+```js
 function listerner() {
   let newState = store.getState();
   component.setState(newState);   
@@ -1279,7 +1279,7 @@ function listerner() {
 ### 9.5 实例：计数器
 
 
-```javascript
+```js
 const Counter = ({ value, onIncrement, onDecrement }) => (
   <div>
   <h1>{value}</h1>
@@ -1332,7 +1332,7 @@ store.subscribe(render);
 
 > 常用的中间件都有现成的，只要引用别人写好的模块即可。比如日志中间件，就有现成的`redux-logger`模块
 
-```javascript
+```js
 import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
 const logger = createLogger();
@@ -1349,7 +1349,7 @@ const store = createStore(
 
 - （1）`createStore`方法可以接受整个应用的初始状态作为参数，那样的话，`applyMiddleware`就是第三个参数了
 
-```javascript
+```js
 const store = createStore(
   reducer,
   initial_state,
@@ -1359,7 +1359,7 @@ const store = createStore(
 
 - （2）中间件的次序有讲究
 
-```javascript
+```js
 const store = createStore(
   reducer,
   applyMiddleware(thunk, promise, logger)
@@ -1386,7 +1386,7 @@ const store = createStore(
   
 > 以向服务器取出数据为例，三种 `Action` 可以有两种不同的写法
 
-```javascript
+```js
 // 写法一：名称相同，参数不同
 { type: 'FETCH_POSTS' }
 { type: 'FETCH_POSTS', status: 'error', error: 'Oops' }
@@ -1400,7 +1400,7 @@ const store = createStore(
 
 > 除了 `Action `种类不同，异步操作的 `State` 也要进行改造，反映不同的操作状态。下面是 `State` 的一个例子
 
-```javascript
+```js
 let state = {
   // ... 
   isFetching: true,
@@ -1422,7 +1422,7 @@ let state = {
 
 - 奥妙就在 `Action Creator` 之中
 
-```javascript
+```js
 class AsyncApp extends Component {
   componentDidMount() {
     const { dispatch, selectedPost } = this.props
@@ -1438,7 +1438,7 @@ class AsyncApp extends Component {
 
 ![image](http://upload-images.jianshu.io/upload_images/1480597-f0de2f9655fe28f3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-```javascript
+```js
 const fetchPosts = postTitle => (dispatch, getState) => {
   dispatch(requestPosts(postTitle));
   return fetch(`/some/API/${postTitle}.json`)
@@ -1469,7 +1469,7 @@ store.dispatch(fetchPosts('reactjs')).then(() =>
 
 - 这时，就要使用中间件`redux-thunk`
 
-```javascript
+```js
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
@@ -1493,7 +1493,7 @@ const store = createStore(
 
 - 这就需要使用`redux-promise`中间件
 
-```javascript
+```js
 import { createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import reducer from './reducers';
@@ -1509,7 +1509,7 @@ const store = createStore(
 
 - 写法一，返回值是一个 `Promise` 对象
 
-```javascript
+```js
 const fetchPosts = 
   (dispatch, postTitle) => new Promise(function (resolve, reject) {
      dispatch(requestPosts(postTitle));
@@ -1523,7 +1523,7 @@ const fetchPosts =
 
 - 写法二，`Action` 对象的`payload`属性是一个 `Promise` 对象。这需要从`redux-actions`模块引入`createAction`方法，并且写法也要变成下面这样
 
-```javascript
+```js
 import { createAction } from 'redux-actions';
 
 class AsyncApp extends Component {
@@ -1560,7 +1560,7 @@ class AsyncApp extends Component {
 - 所有数据都由参数（`this.props`）提供
 - 不使用任何 `Redux` 的 `API`
 
-```javascript
+```js
 // 例子
 const Title =
   value => <h1>{value}</h1>;
@@ -1585,7 +1585,7 @@ const Title =
 
 > `React-Redux` 提供`connect`方法，用于从 `UI` 组件生成容器组件。`connect`的意思，就是将这两种组件连起来。
 
-```javascript
+```js
 import { connect } from 'react-redux'
 const VisibleTodoList = connect()(TodoList);
 ```
@@ -1599,7 +1599,7 @@ const VisibleTodoList = connect()(TodoList);
 
 > 因此，`connect`方法的完整 `API` 如下
 
-```javascript
+```js
 import { connect } from 'react-redux'
 
 const VisibleTodoList = connect(
@@ -1616,7 +1616,7 @@ const VisibleTodoList = connect(
 
 - 作为函数，`mapStateToProps`执行后应该返回一个对象，里面的每一个键值对就是一个映射
 
-```javascript
+```js
 const mapStateToProps = (state) => {
   return {
     todos: getVisibleTodos(state.todos, state.visibilityFilter)
@@ -1629,7 +1629,7 @@ const mapStateToProps = (state) => {
 
 > 下面就是`getVisibleTodos`的一个例子，用来算出`todos`
 
-```javascript
+```js
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ALL':
@@ -1647,7 +1647,7 @@ const getVisibleTodos = (todos, filter) => {
 - `mapStateToProps`会订阅 `Store`，每当`state`更新的时候，就会自动执行，重新计算 `UI` 组件的参数，从而触发 `UI` 组件的重新渲染
 - `mapStateToProps`的第一个参数总是`state`对象，还可以使用第二个参数，代表容器组件的`props`对象
 
-```javascript
+```js
 // 容器组件的代码
 //    <FilterLink filter="SHOW_ALL">
 //      All
@@ -1673,7 +1673,7 @@ const mapStateToProps = (state, ownProps) => {
 - 也就是说，它定义了哪些用户的操作应该当作 `Action`，传给 `Store`。它可以是一个函数，也可以是一个对象
 - 如果`mapDispatchToProps`是一个函数，会得到`dispatch`和`ownProps`（容器组件的`props`对象）两个参数
 
-```javascript
+```js
 const mapDispatchToProps = (
   dispatch,
   ownProps
@@ -1692,7 +1692,7 @@ const mapDispatchToProps = (
 - 从上面代码可以看到，`mapDispatchToProps`作为函数，应该返回一个对象，该对象的每个键值对都是一个映射，定义了 `UI` 组件的参数怎样发出 `Action`
 - 如果`mapDispatchToProps`是一个对象，它的每个键名也是对应 `UI` 组件的同名参数，键值应该是一个函数，会被当作 `Action creator` ，返回的 `Action` 会由 `Redux` 自动发出。举例来说，上面的`mapDispatchToProps`写成对象就是下面这样
 
-```javascript
+```js
 const mapDispatchToProps = {
   onClick: (filter) => {
     type: 'SET_VISIBILITY_FILTER',
@@ -1710,7 +1710,7 @@ const mapDispatchToProps = {
 
 - `React-Redux` 提供`Provider`组件，可以让容器组件拿到`state`
 
-```javascript
+```js
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import todoApp from './reducers'
@@ -1734,7 +1734,7 @@ render(
 
 > 我们来看一个实例。下面是一个计数器组件，它是一个纯的 `UI` 组件
 
-```javascript
+```js
 class Counter extends Component {
   render() {
     const { value, onIncreaseClick } = this.props
@@ -1752,7 +1752,7 @@ class Counter extends Component {
 
 - 接着，定义`value`到`state`的映射，以及`onIncreaseClick`到`dispatch`的映射
 
-```javascript
+```js
 function mapStateToProps(state) {
   return {
     value: state.count
@@ -1780,7 +1780,7 @@ const App = connect(
 
 > 然后，定义这个组件的 `Reducer`
 
-```javascript
+```js
 // Reducer
 function counter(state = { count: 0 }, action) {
   const count = state.count
@@ -1795,7 +1795,7 @@ function counter(state = { count: 0 }, action) {
 
 > 最后，生成`store`对象，并使用`Provider`在根组件外面包一层
 
-```javascript
+```js
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'

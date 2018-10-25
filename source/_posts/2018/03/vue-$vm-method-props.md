@@ -104,7 +104,7 @@ date: 2018-08-28 16:04:43
 
 ### 2.1 $.watch()
 
-```javascript
+```js
 
 var data = { a: 1 }
 var vm = new Vue({

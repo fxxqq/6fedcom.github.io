@@ -18,7 +18,7 @@ date: 2016-12-02 19:35:24
 ```
 <!--more-->
 
-```javascript
+```js
 var clock = document.getElementById("clock");
 var context = clock.getContext("2d");
 

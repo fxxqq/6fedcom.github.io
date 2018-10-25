@@ -1,6 +1,6 @@
 ---
 title: arguments详解
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 4cc35512
 date: 2016-12-13 14:55:24
@@ -17,7 +17,7 @@ Arguments对象是一个伪数组对象，它有length属性，可以arguments[i
 
 Arguments的length属性，表示function函数实际所传参数的个数。函数名点length可以获取函数期望的传参个数。
 
-```javascript
+```js
 function argTest(a,b,c){
 	var t = arguments.length; //实际传参个数
 	var e = argTest.length;   //期望传参个数
@@ -36,7 +36,7 @@ argTest(11,12,13,14); //t=4,e=3
 
 Arguments对象的参数访问可以用arguments[i]来访问函数所传的参数。
 
-```javascript
+```js
 function argTest(a,b,c){
 	var arg = [];
 	for(var i=0;i<arguments.length;i++){
@@ -54,7 +54,7 @@ argTest(11,12,13,14); //[11, 12, 13, 14]
 
 Arguments的callee属性可以调用函数本身，当函数正在执行时才可调用，可以实现方法的递归调用。
 
-```javascript
+```js
 function argTest(a,b,c){
 	var e = arguments.callee.toString();
 	console.log(e);
@@ -67,7 +67,7 @@ argTest(); //打印出函数本身
 
 Function对象的caller属性可以指向当前函数的调用者，当调用者函数正在执行时才可调用，
 
-```javascript
+```js
 function callerTest(){
 
 	if(callerTest.caller){
@@ -98,7 +98,7 @@ handlerToHandler();  //返回调用者handler函数
 方法重载是指在一个类中定义多个同名的方法，但要求每个方法具有不同的参数的类型或参数的个数。
 Javascript并没有重载函数的功能，但是Arguments对象能够模拟重载。
 
-```javascript
+```js
 //普通方法实现方法重载
 
 function test(a,b,c){
@@ -116,7 +116,7 @@ test(11,12);      //23
 test(11,12,13)    //36
 ```
 
-```javascript
+```js
 //Arguments对象实现方法重载
 
 function test(){
@@ -132,7 +132,7 @@ test(11,12);     //23
 test(11,12,13);  //36
 ```
 
-```javascript
+```js
 //ES6实现方法重载
 
 function test(...nums){
@@ -152,7 +152,7 @@ test(11,12,13);  //36
 
 这样的好处就是可以实现匿名函数的递归调用。
 
-```javascript
+```js
 //实现一个阶乘函数
 
 function factorial(n){
@@ -171,7 +171,7 @@ factorial(5); //120
 
 比如说，我想判断你传给我的一些数字的大小，取出最大的那个
 
-```javascript
+```js
 function max(){
 	var maxNum = Number.NEGATIVE_INFINITY;;
 	for(var i=0;i<arguments.length;i++){

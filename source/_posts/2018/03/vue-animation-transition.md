@@ -153,7 +153,7 @@ date: 2018-08-28 20:10:32
 </transition>
 ```
 
-```javascript
+```js
 // ...
 methods: {
   // --------

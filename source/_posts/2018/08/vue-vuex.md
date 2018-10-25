@@ -19,7 +19,7 @@ date: 2018-08-29 11:30:32
 
 ### 1.2 vuex中有什么
 
-```javascript
+```js
 const store = new Vuex.Store({
     state: {
         name: 'weish',
@@ -78,7 +78,7 @@ const store = new Vuex.Store({
 
 **state示例**
 
-```javascript
+```js
 const state = {
     name: 'weish',
     age: 22
@@ -91,7 +91,7 @@ export default state;
 
 > `getters.js`示例（我们一般使用`getters`来获取`state`的状态，而不是直接使用`state`）
 
-```javascript
+```js
 export const name = (state) => {
     return state.name;
 }
@@ -116,7 +116,7 @@ export const SET_AGE = 'SET_AGE';
 
 **mutations示例**
 
-```javascript
+```js
 import * as types from './mutation-type.js';
 
 export default {
@@ -133,7 +133,7 @@ export default {
 
 > 异步操作、多个`commit`时
 
-```javascript
+```js
 import * as types from './mutation-type.js';
 
 export default {
@@ -148,7 +148,7 @@ export default {
 
 > 如果不是很复杂的应用，一般来讲是不会分模块的
 
-```javascript
+```js
 export default {
     state: {},
     getters: {},
@@ -159,7 +159,7 @@ export default {
 
 **index.js示例（组装vuex)**
 
-```javascript
+```js
 import vue from 'vue';
 import vuex from 'vuex';
 import state from './state.js';
@@ -189,7 +189,7 @@ export default new vuex.Store({
 
 > 最后将`store`实例挂载到`main.js`里面的`vue`上去就行了
 
-```javascript
+```js
 import store from './store/index.js';
 
 new Vue({
@@ -201,7 +201,7 @@ new Vue({
 
 > 在`vue`组件中使用时，我们通常会使用`mapGetters`、`mapActions`、`mapMutations`，然后就可以按照`vue`调用`methods`和`computed`的方式去调用这些变量或函数，示例如
 
-```javascript
+```js
 import {mapGetters, mapMutations, mapActions} from 'vuex';
 
 /* 只写组件中的script部分 */
@@ -230,7 +230,7 @@ export default {
 > 在 src 目录下 , 新建一个 store 文件夹 , 然后在里面新建一个 index.js
 
 
-```javascript
+```js
 import Vue from 'vue'
 import vuex from 'vuex'
 Vue.use(vuex);
@@ -244,7 +244,7 @@ export default new vuex.Store({
 
 > 在 `main.js` 里的代码应该改成,在实例化 `Vue`对象时加入 `store` 对象
 
-```javascript
+```js
 //vuex
 import store from './store'
 
@@ -261,7 +261,7 @@ new Vue({
 
 - 我们可以使用 `vuex` 的 `modules` , 把 `store` 文件夹下的 `index.js` 改成
 
-```javascript
+```js
 import Vue from 'vue'
 import vuex from 'vuex'
 Vue.use(vuex);
@@ -277,7 +277,7 @@ export default new vuex.Store({
 
 > 这里我们引用了一个 `dialog_store.js` , 在这个 `js `文件里我们就可以单独写 `dialog` 组件的状态了 
 
-```javascript
+```js
 export default {
     state:{
         show:false
@@ -289,7 +289,7 @@ export default {
 
 - 如果还有其他的组件需要使用 `vuex` , 就新建一个对应的状态文件 , 然后将他们加入 `store `文件夹下的 `index.js `文件中的 `modules` 中
 
-```javascript
+```js
 modules: {
     dialog: dialog_store,
     other: other,//其他组件
@@ -302,7 +302,7 @@ modules: {
 
 - `mutations`里的操作必须是同步的
 
-```javascript
+```js
 export default {
     state:{//state
         show:false
@@ -342,7 +342,7 @@ export default {
 
 > 多个 `state` 的操作 , 使用 `mutations`会来触发会比较好维护 , 那么需要执行多个 `mutations` 就需要用 `action` 了
 
-```javascript
+```js
 export default {
     state:{//state
         show:false
@@ -391,7 +391,7 @@ export default {
 
 - 假如我们需要一个与状态 `show` 刚好相反的状态 , 使用 `vue` 中的 `computed` 可以这样算出来
 
-```javascript
+```js
 computed(){
     not_show(){
         return !this.$store.state.dialog.show;
@@ -401,7 +401,7 @@ computed(){
 
 > 那么 , 如果很多很多个组件中都需要用到这个与 `show `刚好相反的状态 , 那么我们需要写很多很多个 `not_show `, 使用 `getters `就可以解决这种问题 
 
-```javascript
+```js
 export default {
     state:{//state
         show:false

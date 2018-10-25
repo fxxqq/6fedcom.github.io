@@ -18,7 +18,7 @@ date: 2018-07-23 09:50:12
 
 ## 例1
 
-```javascript
+```js
 import Parent from './Parent'
 import ChildOne from '../components/ChildOne'
 import ChildTwo from '../components/ChildTwo'
@@ -62,7 +62,7 @@ Container.childContextTypes = {
 
 Parent.jsx
 
-```javascript
+```js
 import React from "react"
 
 const Parent = (props) => (
@@ -74,7 +74,7 @@ export default Parent
 
 ChildOne.jsx
 
-```javascript
+```js
 export default class ChildOne extends React.Component {
 
     handleChange = (e) => {
@@ -99,7 +99,7 @@ ChildOne.contextTypes = {
 
 ChildTwo.jsx
 
-```javascript
+```js
 export default class ChildTwo extends React.Component {
     render() {
         return (
@@ -128,7 +128,7 @@ ChildTwo.contextTypes = {
 
 > 使用`context`组件需要定义`propTypes`,需要严格校验、声明类型、字段
 
-```javascript
+```js
 class Page extends React.Component {
     static childContextTypes = {
        user:PropTypes.string
@@ -182,7 +182,7 @@ class Navbar extends React.Component {
 
 > `provider`组件就是使用`context`，把`store`放到`context`里，所有的子元素可以直接取到`store`
 
-```javascript
+```js
 import PropTypes from 'prop-types'
 class Provider extends Component {
     static childContextTypes = {
@@ -207,7 +207,7 @@ class Provider extends Component {
 - 负责接收一个组件，把`state`里的一些数据放进去，返回一个组件
 - 数据变化的时候，能够通知组件
 
-```javascript
+```js
 //高阶组件写法
 const connect = (mapStateToProps=state=>state,mapDispatchToProps={})=>(wrapperComponent)=>{
     return class ConnectComponent extends React.Component {

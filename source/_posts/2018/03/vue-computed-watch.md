@@ -49,7 +49,7 @@ export default {
 
 > 下面我们改变一下需求：基础规则不变，但是因为后台数据库的更改,我们需要提交一个这样的数据结构
 
-```javascript
+```js
 data() {
   return {
    info: {
@@ -174,7 +174,7 @@ export default {
 </div>
 ```
 
-```javascript
+```js
 var vm = new Vue({
     el: '#example',
     data: {
@@ -198,7 +198,7 @@ var vm = new Vue({
 </div>
 ```
 
-```javascript
+```js
 var app = new Vue({        
        el: '#app', 
    data: {
@@ -227,7 +227,7 @@ var app = new Vue({
 - 每一个计算属性都包含一个`getter` 和一个`setter` ，我们上面的两个示例都是计算属性的默认用法， 只是利用了`getter` 来读取
 - 在你需要时，也可以提供一个`setter` 函数， 当手动修改计算属性的值就像修改一个普通数据那样时，就会触发`setter` 函数，执行一些自定义的操作，例如
 
-```javascript
+```js
 var vm = new Vue({
     el: '#demo',
     data: {
@@ -262,7 +262,7 @@ var vm = new Vue({
 <div>{{reverseTitle()}}</div>
 ```
 
-```javascript
+```js
 // 在组件中
 methods: {
   reverseTitle: function () {

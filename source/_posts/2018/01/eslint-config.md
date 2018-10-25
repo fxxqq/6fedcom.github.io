@@ -1,14 +1,14 @@
 ---
 title: eslint 常用配置
 tags:
-  - 规范
+  - 前端规范
   - eslint
 categories: Front-End
 abbrlink: f387695a
 date: 2018-01-27 22:41:24
 ---
 
-```javascript
+```js
 'rules': {
     // no-var
     'no-var': 'error',
@@ -49,7 +49,7 @@ date: 2018-01-27 22:41:24
 
 **更多配置规则说明**
 
-```javascript
+```js
 "no-alert": 0,//禁止使用alert confirm prompt
 "no-array-constructor": 2,//禁止使用数组构造器
 "no-bitwise": 0,//禁止使用按位运算符

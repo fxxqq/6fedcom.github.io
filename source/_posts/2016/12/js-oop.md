@@ -17,7 +17,7 @@ date: 2016-12-13 14:55:24
 ---
 <!--more-->
 
-```javascript
+```js
 var Person = {
     name: 'allin',
     age: 18,
@@ -50,7 +50,7 @@ Person.address.home;  // house
 ##### 深拷贝
 ---
 
-```javascript
+```js
 function extendDeeply(p, c){
     var c = c || {};
     for (var prop in p){
@@ -65,7 +65,7 @@ function extendDeeply(p, c){
 ```
 - 利用递归进行深拷贝，这样子对象的修改就不会影响到父对象
 
-```javascript
+```js
 extendDeeply(Person, programer);
 programer.address.home = 'allin';
 Person.address.home; // home
@@ -74,7 +74,7 @@ Person.address.home; // home
 ##### 利用call和apply继承
 ---
 
-```javascript
+```js
 function Parent(){
     this.name = "abc";
     this.address = {home: "home"};
@@ -87,7 +87,7 @@ function Child(){
 
 ##### ES5中的Object.create()
 
-```javascript
+```js
 var p = { name : 'allin'};
 var obj = Object.create(o);
 obj.name; // allin
@@ -95,7 +95,7 @@ obj.name; // allin
 
 - `Object.create()`作为`new`操作符的替代方案是`ES5`之后才出来的。我们也可以自己模拟该方法：
 
-```javascript
+```js
 //模拟Object.create()方法
 function myCreate(o){
     function F(){};
@@ -110,7 +110,7 @@ obj.name; // allin
 
 - 目前，各大浏览器的最新版本（包括`IE9`）都部署了这个方法。如果遇到老式浏览器，可以用下面的代码自行部署
 
-```javascript
+```js
 　if (!Object.create) {
 　　　　Object.create = function (o) {
 　　　　　　 function F() {}
@@ -126,7 +126,7 @@ obj.name; // allin
 ##### Object.create()
 ---
 
-```javascript
+```js
 function Person(name, age){}
 Person.prototype.headCount = 1;
 Person.prototype.eat = function(){
@@ -141,7 +141,7 @@ Programmer.prototype.constructor = Programmer;  // 修改constructor的指向
 ##### 调用父类方法
 ---
 
-```javascript
+```js
 function Person(name, age){
     this.name = name;
     this.age = age;
@@ -174,7 +174,7 @@ Programmer.prototype.work = function(){
 
 - `js`是没有命名空间的，因此可以用对象模拟
 
-```javascript
+```js
 var app = {};  // 命名空间app
 //模块1
 app.module1 = {
@@ -190,7 +190,7 @@ app.module1.f();  // hi robot
 ##### 静态成员
 ---
 
-```javascript
+```js
 function Person(name){
     var age = 100;
     this.name = name;
@@ -205,7 +205,7 @@ Person.walk();  // static
 ##### 私有与公有
 ---
 
-```javascript
+```js
 function Person(id){
     // 私有属性与方法
     var name = 'allin';
@@ -228,7 +228,7 @@ p1.say();  // say hello 123
 ##### 模块化
 ---
 
-```javascript
+```js
 var moduleA;
 moduleA = function() {
     var prop = 1;
@@ -250,7 +250,7 @@ moduleA = function() {
 
 - `arguments`属性可以取得函数调用的实参个数，可以利用这一点模拟方法的重载
 
-```javascript
+```js
 function demo(a, b ){
     console.log(demo.length); // 得到形参个数
     console.log(arguments.length); //得到实参个数
@@ -261,7 +261,7 @@ function demo(a, b ){
 demo(4, 5, 6);
 ```
 
-```javascript
+```js
 //实现可变长度实参的相加
 function add(){
     var total = 0;
@@ -306,7 +306,7 @@ setting({fontSize:20, backgroundColor: 'green'});
 ##### 方法重写
 ---
 
-```javascript
+```js
 function F(){}
 var f = new F();
 F.prototype.run = function(){
@@ -325,7 +325,7 @@ f.run();  // fff
 
 - 在构造器中 `throw new Error('')`; 抛异常。这样防止这个类被直接调用
 
-```javascript
+```js
 function DetectorBase() {
     throw new Error('Abstract class can not be invoked directly!');
 }

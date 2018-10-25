@@ -1,6 +1,6 @@
 ---
 title: JavaScript之面向对象中的静态方法-静态属性
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: ad8e4831
 date: 2016-07-27 11:40:43
@@ -9,7 +9,7 @@ date: 2016-07-27 11:40:43
 - 面向对象中的静态方法-静态属性：没有new对象 也能引用静态方法属性
 <!--more-->
 
-```javascript
+```js
 function Bird(){
 	this.wing = 2;
 	this.fly = function(){
@@ -32,7 +32,7 @@ function Bird(){
 
 - 既然是对象 就能给对象加静态属性
 
-```javascript
+```js
 Bird.ke = 'niaoke';
 Bird.jiao = function(){alert('叽叽喳喳')};
 

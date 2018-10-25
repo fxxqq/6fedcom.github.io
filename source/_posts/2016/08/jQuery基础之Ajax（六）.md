@@ -42,7 +42,7 @@ date: 2016-08-07 22:30:08
     
 案列：
     
-  ```javascript
+  ```js
   	var ajx = null;
 
 			if(window.XMLHttpRequest){//兼容处理

@@ -39,7 +39,7 @@ date: 2016-07-26 21:46:43
 
    - `toString()` 转换为字符串，在JavaScript中所有数据类型都可以转换为string类型
 
-    ```javascript
+    ```js
         var n1 = 12;
         var n2 = true;
         var a = [1, 2, 3];
@@ -54,7 +54,7 @@ date: 2016-07-26 21:46:43
 
    - `parseInt() `解析出一个string或者number类型的整数部分，如果没有可以转换的部分，则返回NaN（`not a number`）
 
-    ```javascript
+    ```js
         var n1 = "12";
         var n2 = "23hello";
         var n3 = "hello";
@@ -64,7 +64,7 @@ date: 2016-07-26 21:46:43
     ```
    - `parseFloat() `解析出一个string的浮点数部分，如果没有可以转换的部分，则返回`NaN`（not a number）
 
-    ```javascript
+    ```js
         var n1 = "1.2.3";
         var n2 = "1.2hello"
         var n3 = "hello"
@@ -77,7 +77,7 @@ date: 2016-07-26 21:46:43
 
   - `Boolean(value)`- 把给定的值转换成`Boolean`型
 
-    ```javascript
+    ```js
         Boolean(123); //true
         Boolean(""); //false
         Boolean([]); //true
@@ -88,7 +88,7 @@ date: 2016-07-26 21:46:43
 
   - `Number(value)`-把给定的值转换成数字（可以是整数或浮点数）
 
-    ```javascript
+    ```js
         Number("123"); //123
         Number("123h"); //NaN
         Number(true); //1
@@ -100,7 +100,7 @@ date: 2016-07-26 21:46:43
     ```
  - `String(value)`- 把给定的值转换成字符串
 
-    ```javascript
+    ```js
         String(123); //"123"
         String([1,2]); //"1,2"
         String(undefined) //"undefined"

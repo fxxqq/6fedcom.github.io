@@ -76,7 +76,7 @@ date: 2017-11-05 15:35:08
 
 > 把这段代码加入`head`中的`script`预先加载
 
-```javascript
+```js
 // rem适配用这段代码动态计算html的font-size大小
 (function(win) {
     var docEl = win.document.documentElement;
@@ -207,7 +207,7 @@ div {
 - 改变视口的缩放比例
 - 页面宽度固定死
 
-```javascript
+```js
 // 缩放比例适配方案--用这个代码 
 var width = window.screen.width,
     fixedW = 320, //设计稿宽度的一半

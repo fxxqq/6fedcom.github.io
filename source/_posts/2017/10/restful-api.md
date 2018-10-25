@@ -33,13 +33,13 @@ date: 2017-10-23 16:35:24
 
 - 应该尽量将`API`部署在专用域名之下
 
-```javascript
+```js
 https://api.example.com
 ```
 
 - 如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下
 
-```javascript
+```js
 https://example.org/api/
 ```
 
@@ -47,7 +47,7 @@ https://example.org/api/
 
 - 应该将`API`的版本号放入`URL`
 
-```javascript
+```js
 https://api.example.com/v1/
 ```
 
@@ -58,7 +58,7 @@ https://api.example.com/v1/
 
 - 举例来说，有一个`API`提供动物园（`zoo`）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样
 
-```javascript
+```js
 https://api.example.com/v1/zoos
 https://api.example.com/v1/animals
 https://api.example.com/v1/employees
@@ -77,7 +77,7 @@ https://api.example.com/v1/employees
 
 > 下面是一些例子
 
-```javascript
+```js
 GET /zoos：列出所有动物园
 POST /zoos：新建一个动物园
 GET /zoos/ID：获取某个指定动物园的信息
@@ -110,7 +110,7 @@ DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
 
 > 如果状态码是`4xx`，就应该向用户返回出错信息。一般来说，返回的信息中将`error`作为键名，出错信息作为键值即可
 
-```javascript
+```js
 {
     error: "Invalid API key"
 }
@@ -120,7 +120,7 @@ DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
 
 - 针对不同操作，服务器向用户返回的结果应该符合以下规范
 
-```javascript
+```js
 GET /collection：返回资源对象的列表（数组）
 GET /collection/resource：返回单个资源对象
 POST /collection：返回新生成的资源对象
@@ -137,7 +137,7 @@ DELETE /collection/resource：返回一个空文档
 
 - 比如，当用户向`api.example.com`的根目录发出请求，会得到这样一个文档
 
-```javascript
+```js
 {"link": {
   "rel":   "collection https://www.example.com/zoos",
   "href":  "https://api.example.com/zoos",

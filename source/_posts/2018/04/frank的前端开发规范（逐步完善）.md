@@ -1,7 +1,7 @@
 ---
 title: frank的前端开发规范（逐步完善）
 tags:
-  - 开发规范
+  - 前端规范
 categories: 前端
 issues: 12
 abbrlink: 91d30337

@@ -311,7 +311,7 @@ date: 2017-03-12 22:24:08
   - 在`cache.manifest`文件的编写离线存储的资源
   - 在离线状态时，操作`window.applicationCache`进行需求实现
 
-```javascript
+```js
 CACHE MANIFEST
 #v0.11
 CACHE:
@@ -694,7 +694,7 @@ FALLBACK:
 
 - 原型`prototype`机制或`apply`和`call`方法去实现较简单，建议使用构造函数与原型混合方式
 
-```javascript
+```js
  function Parent(){
         this.name = 'wang';
     }
@@ -737,7 +737,7 @@ FALLBACK:
 - `Ajax`的原理简单来说是在用户和服务器之间加了—个中间层(`AJAX`引擎)，通过`XmlHttpRequest`对象来向服务器发异步请求，从服务器获得数据，然后用`javascrip`t来操作`DOM`而更新页面。使用户操作与服务器响应异步化。这其中最关键的一步就是从服务器获得请求数据
 - `Ajax`的过程只涉及`JavaScript`、`XMLHttpRequest`和`DOM`。`XMLHttpRequest`是`aja`x的核心机制
 
-```javascript
+```js
  // 1. 创建连接
     var xhr = null;
     xhr = new XMLHttpRequest()
@@ -777,7 +777,7 @@ FALLBACK:
 ### 11、模块化开发怎么做？
 - 立即执行函数,不暴露私有成员
 
-```javascript
+```js
 var module1 = (function(){
 　　　　var _count = 0;
 　　　　var m1 = function(){
@@ -926,7 +926,7 @@ padding:0;
 
 - 构造一个 `Promise`，最基本的用法如下：
 
-```javascript
+```js
 var promise = new Promise(function(resolve, reject) {
 
         if (...) {  // succeed
@@ -1045,13 +1045,13 @@ promise.then(onFulfilled, onRejected)
 
 - 对象字面量的方式
 
-```javascript
+```js
 person={firstname:"Mark",lastname:"Yun",age:25,eyecolor:"black"};
 ```
 
 - 用`function`来模拟无参的构造函数
 
-```javascript
+```js
  function Person(){}
     var person=new Person();//定义一个function，如果使用new"实例化",该function可以看作是一个Class
         person.name="Mark";
@@ -1064,7 +1064,7 @@ person.work();
 
 - 用`function`来模拟参构造函数来实现（用`this`关键字定义构造的上下文属性）
 
-```javascript
+```js
 function Pet(name,age,hobby){
        this.name=name;//this作用域：当前对象
        this.age=age;
@@ -1252,7 +1252,7 @@ var last=JSON.stringify(obj);
 
 ### 1、写一个通用的事件侦听器函数
 
-```javascript
+```js
  // event(事件)工具集，来源：github.com/markyun
     markyun.Event = {
        
@@ -1304,7 +1304,7 @@ var last=JSON.stringify(obj);
 
 ### 2、如何判断一个对象是否为数组
 
-```javascript
+```js
 function isArray(arg) {
     if (typeof arg === 'object') {
         return Object.prototype.toString.call(arg) === '[object Array]';
@@ -1317,7 +1317,7 @@ function isArray(arg) {
 
 - 每次比较相邻的两个数，如果后一个比前一个小，换位置
 
-```javascript
+```js
 var arr = [3, 1, 4, 6, 5, 7, 2];
 
 function bubbleSort(arr) {
@@ -1341,7 +1341,7 @@ console.log(bubbleSort(arr));
 
 - 采用二分法，取出中间数，数组每次和中间数比较，小的放到左边，大的放到右边
 
-```javascript
+```js
 var arr = [3, 1, 4, 6, 5, 7, 2];
 
 function quickSort(arr) {
@@ -1372,7 +1372,7 @@ console.log(quickSort(arr));
 
 - 假设：一个英文字符占用一个字节，一个中文字符占用两个字节    
 
-```javascript
+```js
 function GetBytes(str){
 
         var len = str.length;
@@ -1397,7 +1397,7 @@ alert(GetBytes("你好,as"));
 - `bind`的作用与`call`和`apply`相同，区别是`call`和`apply`是立即调用函数，而`bind`是返回了一个函数，需要调用的时候再执行。
 一个简单的`bind`函数实现如下
 
-```javascript
+```js
 Function.prototype.bind = function(ctx) {
     var fn = this;
     return function() {

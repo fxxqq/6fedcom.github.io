@@ -29,7 +29,7 @@ date: 2018-10-20 21:50:43
 
 > 首先，回顾一下jQuery的ajax操作的传统写法：
 
-```javascript
+```js
 $.ajax({
 
 　　　　url: "test.html",
@@ -51,7 +51,7 @@ $.ajax({
 
 - 现在，新的写法是这样的：
 
-```javascript
+```js
 $.ajax("test.html")
 
 　　.done(function(){ alert("哈哈，成功了！"); })
@@ -70,7 +70,7 @@ $.ajax("test.html")
 
 - 很简单，直接把它加在后面就行了。
 
-```javascript
+```js
 　　$.ajax("test.html")
 
 　　.done(function(){ alert("哈哈，成功了！");} )
@@ -90,7 +90,7 @@ $.ajax("test.html")
 
 - 请看下面的代码，它用到了一个新的方法`$.when()`：
 
-```javascript
+```js
 $.when($.ajax("test1.html"), $.ajax("test2.html"))
 
 　　.done(function(){ alert("哈哈，成功了！"); })
@@ -107,7 +107,7 @@ $.when($.ajax("test1.html"), $.ajax("test2.html"))
 
 - 我们来看一个具体的例子。假定有一个很耗时的操作`wait`：
 
-```javascript
+```js
 var wait = function(){
 
 　　　　var tasks = function(){
@@ -125,7 +125,7 @@ var wait = function(){
 
 - 很自然的，你会想到，可以使用$.when()：
 
-```javascript
+```js
 $.when(wait())
 
 　　.done(function(){ alert("哈哈，成功了！"); })
@@ -136,7 +136,7 @@ $.when(wait())
 
 - 但是，这样写的话，done()方法会立即执行，起不到回调函数的作用。原因在于$.when()的参数只能是deferred对象，所以必须对wait()进行改写：
 
-```javascript
+```js
 　var dtd = $.Deferred(); // 新建一个deferred对象
 
 　　var wait = function(dtd){
@@ -158,7 +158,7 @@ $.when(wait())
 
 - 现在，`wait()`函数返回的是`deferred`对象，这就可以加上链式操作了。
 
-```javascript
+```js
 $.when(wait(dtd))
 
 　　.done(function(){ alert("哈哈，成功了！"); })
@@ -173,7 +173,7 @@ $.when(wait(dtd))
 
 > jQuery规定，deferred对象有三种执行状态----未完成，已完成和已失败。如果执行状态是"已完成"（resolved）,deferred对象立刻调用done()方法指定的回调函数；如果执行状态是"已失败"，调用fail()方法指定的回调函数；如果执行状态是"未完成"，则继续等待，或者调用progress()方法指定的回调函数（jQuery1.7版本添加）
 
-```javascript
+```js
 var dtd = $.Deferred(); // 新建一个Deferred对象
 
 　　var wait = function(dtd){

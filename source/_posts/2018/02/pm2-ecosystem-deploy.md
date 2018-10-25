@@ -20,7 +20,7 @@ date: 2018-02-22 17:12:08
 
 > 在项目根目录添加`pm2`的部署脚本文件 `ecosystem.json`
 
-```javascript
+```js
 {
     "apps": [
         "name": "movie", //对应Nginx上的配置
@@ -55,7 +55,7 @@ date: 2018-02-22 17:12:08
 
 > 在`nginx`安装目录下的`vhost`中新建一个`xx-3000.conf`的配置文件
 
-```javascript
+```js
 upstream movie { // website项目的目录名称
     server 127.0.0.1:3000; // 服务器上的本地启动入口
 }

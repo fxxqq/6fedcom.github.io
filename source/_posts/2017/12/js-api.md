@@ -16,7 +16,7 @@ date: 2017-12-24 11:10:43
 **1.1 节点属性**
 
 
-```javascript
+```js
 Node.nodeName   //返回节点名称，只读
 Node.nodeType   //返回节点类型的常数值，只读
 Node.nodeValue  //返回Text或Comment节点的文本值，只读
@@ -41,7 +41,7 @@ Node.childElementCount  //返回当前节点所有Element子节点的数目。
 
 **1.2 操作**
 
-```javascript
+```js
 Node.appendChild(node)   //向节点添加最后一个子节点
 Node.hasChildNodes()   //返回布尔值，表示当前节点是否有子节点
 Node.cloneNode(true);  // 默认为false(克隆节点), true(克隆节点及其属性，以及后代)
@@ -65,7 +65,7 @@ Node.replaceWith()
 
 **1.3.1 Document节点的属性**
 
-```javascript
+```js
 document.doctype   //
 document.documentElement  //返回当前文档的根节点
 document.defaultView   //返回document对象所在的window对象
@@ -101,7 +101,7 @@ document.cookie   //用来操作Cookie
 
 **（1）读写方法**
 
-```javascript
+```js
 document.open()   //用于新建并打开一个文档
 document.close()   //不安比open方法所新建的文档
 document.write()   //用于向当前文档写入内容
@@ -110,7 +110,7 @@ document.writeIn()  //用于向当前文档写入内容，尾部添加换行符�
 
 **（2）查找节点**
 
-```javascript
+```js
 document.querySelector(selectors)   //接受一个CSS选择器作为参数，返回第一个匹配该选择器的元素节点。
 document.querySelectorAll(selectors)  //接受一个CSS选择器作为参数，返回所有匹配该选择器的元素节点。
 document.getElementsByTagName(tagName)  //返回所有指定HTML标签的元素
@@ -122,7 +122,7 @@ document.elementFromPoint(x,y)  //返回位于页面指定位置最上层的Elem
 
 **（3）生成节点**
 
-```javascript
+```js
 document.createElement(tagName)   //用来生成HTML元素节点。
 document.createTextNode(text)   //用来生成文本节点
 document.createAttribute(name)  //生成一个新的属性对象节点，并返回它。
@@ -131,7 +131,7 @@ document.createDocumentFragment()  //生成一个DocumentFragment对象
 
 **（4）事件方法**
 
-```javascript
+```js
 document.createEvent(type)   //生成一个事件对象，该对象能被element.dispatchEvent()方法使用
 document.addEventListener(type,listener,capture)  //注册事件
 document.removeEventListener(type,listener,capture)  //注销事件
@@ -154,7 +154,7 @@ document.importNode(externalNode, deep)   //从外部文档拷贝指定节点，
 
 **（1）特性属性**
 
-```javascript
+```js
 Element.attributes  //返回当前元素节点的所有属性节点
 Element.id  //返回指定元素的id属性，可读写
 Element.tagName  //返回指定元素的大写标签名
@@ -167,7 +167,7 @@ Element.dataset   //返回元素节点中所有的data-*属性。
 
 **（2）尺寸属性**
 
-```javascript
+```js
 Element.clientHeight   //返回元素节点可见部分的高度
 Element.clientWidth   //返回元素节点可见部分的宽度
 Element.clientLeft   //返回元素节点左边框的宽度
@@ -185,7 +185,7 @@ Element.style  //返回元素节点的行内样式
 
 **（3）节点相关属性**
 
-```javascript
+```js
 Element.children   //包括当前元素节点的所有子元素
 Element.childElementCount   //返回当前元素节点包含的子HTML元素节点的个数
 Element.firstElementChild  //返回当前节点的第一个Element子节点  
@@ -199,7 +199,7 @@ Element.offsetParent   //返回当前元素节点的最靠近的、并且CSS的p
 
 **（1）位置方法**
 
-```javascript
+```js
 getBoundingClientRect()  
 // getBoundingClientRect返回一个对象，包含top,left,right,bottom,width,height // width、height 元素自身宽高
 // top 元素上外边界距窗口最上面的距离
@@ -221,7 +221,7 @@ return {
 
 **（2）属性方法**
 
-```javascript
+```js
 Element.getAttribute()：读取指定属性  
 Element.setAttribute()：设置指定属性  
 Element.hasAttribute()：返回一个布尔值，表示当前元素节点是否有指定的属性  
@@ -230,7 +230,7 @@ Element.removeAttribute()：移除指定属性
 
 **（3）查找方法**
 
-```javascript
+```js
 Element.querySelector()  
 Element.querySelectorAll()  
 Element.getElementsByTagName()  
@@ -239,7 +239,7 @@ Element.getElementsByClassName()
 
 **（4）事件方法**
 
-```javascript
+```js
 Element.addEventListener()：添加事件的回调函数  
 Element.removeEventListener()：移除事件监听函数  
 Element.dispatchEvent()：触发事件
@@ -265,7 +265,7 @@ ul.addEventListener('click', function(event) {
 
 **（5）其他**
 
-```javascript
+```js
 Element.scrollIntoView()   //滚动当前元素，进入浏览器的可见区域
 
 //解析HTML字符串，然后将生成的节点插入DOM树的指定位置。
@@ -285,7 +285,7 @@ Element.focus()   //用于将当前页面的焦点，转移到指定元素上
 
 **（1）类名操作**
 
-```javascript
+```js
 //ie8以下
 Element.className  //获取元素节点的类名
 Element.className += ' ' + newClassName  //新增一个类名
@@ -309,7 +309,7 @@ element.classList.toggle(className)  //toggle class
 
 **（2）style操作**
 
-```javascript
+```js
 element.setAttribute('style','')
 
 element.style.backgroundColor = 'red'
@@ -336,26 +336,26 @@ window.getComputedStyle(el,':after')[attrName]
 
 **（1）生成实例对象**
 
-```javascript
+```js
 var o = new Object()
 ```
 
 **（2）属性**
 
-```javascript
+```js
 Object.prototype   //返回原型对象
 ```
 
 **（3）方法**
 
-```javascript
+```js
 Object.keys(o)   //遍历对象的可枚举属性
 Object.getOwnPropertyName(o)   //遍历对象不可枚举的属性
 ```
 
 **对象实例的方法**
 
-```javascript
+```js
 valueOf()：返回当前对象对应的值。  
 toString()：返回当前对象对应的字符串形式。  
 toLocaleString()：返回当前对象对应的本地字符串形式。  
@@ -369,28 +369,28 @@ propertyIsEnumerable()：判断某个属性是否可枚举。
 
 **（1）生成实例对象**
 
-```javascript
+```js
 var a = new Array()
 ```
 
 
 **（2）属性**
 
-```javascript
+```js
 a.length  //长度
 ```
 
 
 **（3）Array.isArray()**
 
-```javascript
+```js
 Array.isArray(a)   //用来判断一个值是否为数组
 ```
 
 
 **（4）Array实例的方法**
 
-```javascript
+```js
 a.valueof()   //返回数组本身
 a.toString()  //返回数组的字符串形式
 a.push(value,vlaue....)   //用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。
@@ -419,13 +419,13 @@ lastIndexOf()  //返回给定元素在数组中最后一次出现的位置，如
 
 **（1）生成对象**
 
-```javascript
+```js
 var n = new Number()
 ```
 
 **（2）Number对象的属性**
 
-```javascript
+```js
 Number.POSITIVE_INFINITY：正的无限，指向Infinity。  
 Number.NEGATIVE_INFINITY：负的无限，指向-Infinity。  
 Number.NaN：表示非数值，指向NaN。  
@@ -437,7 +437,7 @@ Number.MIN_SAFE_INTEGER：表示能够精确表示的最小整数，即-90071992
 
 **（4）Number对象实例的方法**
 
-```javascript
+```js
 toString()   //用来将一个数值转为字符串形式.可以接受一个参数，表示输出的进制。如果省略这个参数，默认将数值先转为十进制，再输出字符串；否则，就根据参数指定的进制，将一个数字转化成某个进制的字符串。
 toFixed()   //用于将一个数转为指定位数的小数，返回这个小数对应的字符串。
 toExponential()  //用于将一个数转为科学计数法形式。可传入一个参数，参数表示小数点后有效数字的位数，范围为0到20，超出这个范围，会抛出一个RangeError。
@@ -448,20 +448,20 @@ toPrecision()  //用于将一个数转为指定位数的有效数字。
 
 **（1）生成实例对象**
 
-```javascript
+```js
 var s = new String()
 ```
 
 
 **（2）String对象的属性**
 
-```javascript
+```js
 s.length   //返回字符串的长度
 ```
 
 **（3）方法**
 
-```javascript
+```js
 s.chatAt(index)   //返回指定位置的字符
 s.fromCharCode()    //该方法的参数是一系列Unicode码点，返回对应的字符串。
 s.charCodeAt(index)    //返回给定位置字符的Unicode码点（十进制表示）
@@ -485,7 +485,7 @@ s.split()  //按照给定规则分割字符串，返回一个由分割出来的�
 
 **（1）属性**
 
-```javascript
+```js
 Math.E：常数e。  
 Math.LN2：2的自然对数。  
 Math.LN10：10的自然对数。  
@@ -498,7 +498,7 @@ Math.SQRT2：2的平方根。
 
 **（2）数学方法**
 
-```javascript
+```js
 Math.abs()：返回参数的绝对值  
 Math.ceil()：向上取整，接受一个参数，返回大于该参数的最小整数。 
 Math.floor()：向下取整  
@@ -514,7 +514,7 @@ Math.random()：返回0到1之间的一个伪随机数，可能等于0，但是�
 
 **（3）三角函数方法**
 
-```javascript
+```js
 Math.sin()：返回参数的正弦  
 Math.cos()：返回参数的余弦  
 Math.tan()：返回参数的正切  
@@ -527,7 +527,7 @@ Math.atan()：返回参数的反正切（弧度值）
 
 **（1）方法**
 
-```javascript
+```js
 JSON.stringify()   
 //用于将一个值转为字符串。该字符串应该符合JSON格式，并且可以被JSON.parse方法还原。
 //（JSON.stringify(obj, selectedProperties)）还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性。
@@ -540,7 +540,7 @@ JSON.parse()   //用于将JSON字符串转化成对象。
 
 **（1）方法**
 
-```javascript
+```js
 console.log(text,text2,...)   //用于在console窗口输出信息。它可以接受多个参数，将它们的结果连接起来输出。如果第一个参数是格式字符串（使用了格式占位符），console.log方法将依次用后面的参数替换占位符，然后再进行输出。
 console.info()   //在console窗口输出信息，同时，会在输出信息的前面，加上一个蓝色图标。
 console.debug()  //在console窗口输出信息，同时，会在输出信息的前面，加上一个蓝色图标。

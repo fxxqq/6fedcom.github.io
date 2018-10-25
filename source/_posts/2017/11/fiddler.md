@@ -136,7 +136,7 @@ date: 2017-11-04 14:09:43
 - 打开`Rules——>Customize  Rules`
 - 找到如下这段代码
 
-```javascript
+```js
 static function Main()
 {
 var today: Date = new Date();

@@ -1,6 +1,6 @@
 ---
 title: Web前端开发规范文档
-tags: 规范
+tags: 前端规范
 categories: Front-End
 abbrlink: c7552608
 date: 2016-07-19 19:50:20
@@ -298,7 +298,7 @@ float:left;//如这些定位或浮动属性
 
 **命名规范**
 
-```javascript
+```js
 常量名
     全部大写并单词间用下划线分隔
     如：CSS_BTN_CLOSE、TXT_LOADING
@@ -351,7 +351,7 @@ if (a==1) {
 
 > for-in循环体中必须用hasOwnProperty方法检查成员是否为自身成员，避免来自原型链上的污染。 长语句可考虑断行
 
-```javascript
+```js
 TEMPL_SONGLIST.replace('{TABLE}', da['results'])
     .replace('{PREV_NUM}', prev)
     .replace('{NEXT_NUM}', next)
@@ -360,7 +360,7 @@ TEMPL_SONGLIST.replace('{TABLE}', da['results'])
   ```
   为了避免和JSLint的检验机制冲突，“.”或“+”这类操作符放在行尾
   
-  ```javascript
+  ```js
   TEMPL_SONGLIST.replace('{TABLE}', da['results']).
     replace('{PREV_NUM}', prev).
     replace('{NEXT_NUM}', next).
@@ -383,7 +383,7 @@ NaN
 
 在==时，则会有一些让人难以理解的陷阱
 
-```javascript
+```js
 (function () {
     var undefined;
     undefined == null; // true
@@ -410,7 +410,7 @@ undefined与null相等
 而这些取决于另外一个对比量，即值的类型，所以对于`0`、空字符串的判断，建议使用`===` `===`会先判断两边的值类型，类型不匹配时为`false`。
 下面类型的对象不建议用`new`构造
 
-```javascript
+```js
 new Number
 new String
 new Boolean
@@ -421,7 +421,7 @@ new Array //用[]代替
 引用对象成员用obj.prop代替obj[“prop”]，除非属性名是变量。
 从number到string的转换。
 
-```javascript
+```js
 /** 推荐写法*/
 var a = 1;
 typeof(a); //"number"
@@ -435,7 +435,7 @@ new String(a)或a.toString()
 
 从string到number的转换，使用parseInt，必须显式指定第二个参数的进制。
 
-```javascript
+```js
 /** 推荐写法*/
 var a = '1';
 var aa = parseInt(a,10);
@@ -447,7 +447,7 @@ console.log(aa); //1
 
 从float到integer的转换
 
-```javascript
+```js
 /** 推荐写法*/
 Math.floor/Math.round/Math.ceil
 /** 不推荐写法*/
@@ -456,7 +456,7 @@ parseInt
 
 字符串拼接应使用数组保存字符串片段，使用时调用join方法。避免使用+或+=的方式拼接较长的字符串，每个字符串都会使用一个小的内存片段，过多的内存片段会影响性能。
 
-```javascript
+```js
 /**推荐的拼接方式array的push、join*/
 var str=[],
     list=['测试A','测试B'];

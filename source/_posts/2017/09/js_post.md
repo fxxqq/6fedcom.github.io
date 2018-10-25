@@ -22,7 +22,7 @@ var str = 'hfrom_handle=206438&dnid=&dgroup_items__x_countz_=1&dgroup_items=1&dg
 
 - 创建一个隐藏的`input(type="hidden")`,然后把解码得到的数据处理填充到`input`的`name` `value`中，最后通过表单提交到`iframe`，此过程提交不会刷新页面
 
- ```javascript
+ ```js
 /*iframe post cross domain*/
  function js_iframe(c) {
      var i, e, key, n, v, inp, a, form, iframe;

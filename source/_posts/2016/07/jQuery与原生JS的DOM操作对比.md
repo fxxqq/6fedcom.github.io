@@ -19,7 +19,7 @@ date: 2016-07-27 13:50:20
 
 - 原生JS创建文本节点：`document.createTextNode("Text Content");`
 - 通常创建文本节点和创建元素节点配合使用，比如：
-```javascript
+```js
 var textEl = document.createTextNode("Hello World.");
 var pEl = document.createElement("p");
 pEl.appendChild(textEl);

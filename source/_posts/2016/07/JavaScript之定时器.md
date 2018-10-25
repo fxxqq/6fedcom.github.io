@@ -20,7 +20,7 @@ date: 2016-07-27 11:40:43
  
 - 在创建定时器的时候 把创建的结果赋给一个定时器变量 比如：`var clock = windows.setTimeout() `再用`cleraTimeout(clock);`
 
-```javascript
+```js
 //定一段时间后执行某一个函数
 
 	function t(){
@@ -36,7 +36,7 @@ date: 2016-07-27 11:40:43
 
 `setTimeout`实现每隔几秒执行一下
 
-```javascript
+```js
 	function t(){
 		 
 		// window.location.href = 'http:///www.baidu.com';
@@ -53,7 +53,7 @@ date: 2016-07-27 11:40:43
 
 - 碰到每隔几秒执行一次事件的 推荐用setInterval
 
-```javascript
+```js
 
 	function t(){
 		alert('2秒到');

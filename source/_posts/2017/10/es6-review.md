@@ -29,13 +29,13 @@ date: 2017-10-21 20:20:43
 
 - 变量交换
 
-```javascript
+```js
 [a,b] = [b,a]
 ````
 
 - 选择性接收某些变量
 
-```javascript
+```js
 function fn() {
     return [1,2,3,4,5]
 }
@@ -46,7 +46,7 @@ function fn() {
 
 - 不确定返回数组长度，只关心第一个
 
-```javascript
+```js
 [a,...b] = [1,2,3,4,5]
 ```
 
@@ -55,7 +55,7 @@ function fn() {
 
 - 服务端返回的`json`解构应用
 
-```javascript
+```js
 let metaData = {
     title: "hah",
     test: [
@@ -74,7 +74,7 @@ let {title:esTitle,test:[{title:cnTitle,desc:cnDesc}]} = metaData;
 
 - 模板字符串是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串.
 
-```javascript
+```js
 // 普通字符串
 `In JavaScript '\n' is a line-feed.`
 
@@ -143,7 +143,7 @@ console.log(1, ...[2, 3, 4], 5)
 
 - 扩展运算符取代`apply`方法的一个实际的例子
 
-```javascript
+```js
 // ES5 的写法
 Math.max.apply(null, [14, 3, 77])
 
@@ -158,7 +158,7 @@ Math.max(14, 3, 77);
 
 - `Array.from`方法用于将两类对象转为真正的数组：类似数组的对象（`array-like object`）和可遍历（`iterable`）的对象（包括ES6新增的数据结构`Set`和`Map`）
 
-```javascript
+```js
 let arrayLike = {
     '0': 'a',
     '1': 'b',
@@ -177,7 +177,7 @@ let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 
 > `querySelectorAll`方法返回的是一个类似数组的对象，可以将这个对象转为真正的数组，再使用`forEach`方法
 
-```javascript
+```js
 // NodeList对象
 let ps = document.querySelectorAll('p');
 Array.from(ps).forEach(function (p) {
@@ -196,7 +196,7 @@ function foo() {
 - `Array.of`方法用于将一组值，转换为数组
 - `Array.of`基本上可以用来替代`Array()`或`new Array()`
 
-```javascript
+```js
 Array.of(3, 11, 8) // [3,11,8]
 Array.of(3) // [3]
 Array.of(3).length // 1
@@ -206,14 +206,14 @@ Array.of(3).length // 1
 
 > 数组实例的`find`方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为`true`的成员，然后返回该成员。如果没有符合条件的成员，则返回`undefined`
 
-```javascript
+```js
 [1, 4, -5, 10].find((n) => n < 0)
 // -5
 ```
 
 > 数组实例的`findIndex`方法的用法与`find`方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回`-1`
 
-```javascript
+```js
 [1, 5, 10, 15].findIndex(function(value, index, arr) {
   return value > 9;
 }) // 2
@@ -225,7 +225,7 @@ Array.of(3).length // 1
 - `fill`方法用于空数组的初始化非常方便。数组中已有的元素，会被全部抹去
 - `fill`方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置
 
-```javascript
+```js
 ['a', 'b', 'c'].fill(7)
 // [7, 7, 7]
 
@@ -242,7 +242,7 @@ new Array(3).fill(7)
 - `ES6` 提供三个新的方法——`entries()`，`keys()`和`values()`——用于遍历数组
 - `keys()`是对键名的遍历、`values()`是对键值的遍历，`entries()`是对键值对的遍历
 
-```javascript
+```js
 for (let index of ['a', 'b'].keys()) {
   console.log(index);
 }
@@ -266,7 +266,7 @@ for (let [index, elem] of ['a', 'b'].entries()) {
 
 - `Array.prototype.includes`方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的`includes`方法类似
 
-```javascript
+```js
 [1, 2, 3].includes(2)     // true
 [1, 2, 3].includes(4)     // false
 [1, 2, NaN].includes(NaN) // true
@@ -278,7 +278,7 @@ for (let [index, elem] of ['a', 'b'].entries()) {
 
 **属性的简洁表示法**
 
-```javascript
+```js
 function f(x, y) {
   return {x, y};
 }
@@ -291,7 +291,7 @@ function f(x, y) {
 ```
 - 除了属性简写，方法也可以简写
 
-```javascript
+```js
 const o = {
   method() {
     return "Hello!";
@@ -307,7 +307,7 @@ const o = {
 };
 ```
 
-```javascript
+```js
 module.exports = { getItem, setItem, clear };
 // 等同于
 module.exports = {
@@ -321,7 +321,7 @@ module.exports = {
 
 - `JavaScript` 定义对象的属性，有两种方法
 
-```javascript
+```js
 // 方法一
 obj.foo = true;
 
@@ -330,7 +330,7 @@ obj['a' + 'bc'] = 123;
 ```
 - `ES6 `允许字面量定义对象时，用方法二（表达式）作为对象的属性名，即把表达式放在方括号内
 
-```javascript
+```js
 let propKey = 'foo';
 
 let obj = {
@@ -341,7 +341,7 @@ let obj = {
 
 - 表达式还可以用于定义方法名
 
-```javascript
+```js
 let obj = {
   ['h' + 'ello']() {
     return 'hi';
@@ -355,7 +355,7 @@ obj.hello() // hi
 
 - `Object.is` 它用来比较两个值是否严格相等，与严格比较运算符（`===`）的行为基本一致
 
-```javascript
+```js
 Object.is('foo', 'foo')
 // true
 Object.is({}, {})
@@ -364,7 +364,7 @@ Object.is({}, {})
 
 - 不同之处只有两个：一是`+0`不等于`-0`，二是`NaN`等于自身
 
-```javascript
+```js
 +0 === -0 //true
 NaN === NaN // false
 
@@ -376,7 +376,7 @@ Object.is(NaN, NaN) // true
 
 - `Object.assign`方法用于对象的合并，将源对象的所有可枚举属性，复制到目标对象
 
-```javascript
+```js
 const target = { a: 1 };
 
 const source1 = { b: 2 };
@@ -412,7 +412,7 @@ target // {a:1, b:2, c:3}
 
 - `ES6` 允许为函数的参数设置默认值，即直接写在参数定义的后面
 
-```javascript
+```js
 function log(x, y = 'World') {
   console.log(x, y);
 }
@@ -426,7 +426,7 @@ log('Hello', '') // Hello
 
 - 参数默认值可以与解构赋值的默认值，结合起来使用
 
-```javascript
+```js
 function foo({x, y = 5}) {
   console.log(x, y);
 }
@@ -440,7 +440,7 @@ foo({x: 1, y: 2}) // 1 2
 
 - `ES6` 引入 `rest` 参数（形式为`...`变量名），用于获取函数的多余参数，这样就不需要使用`arguments`对象了。`rest` 参数搭配的变量是一个数组，该变量将多余的参数放入数组中
 
-```javascript
+```js
 function add(...values) {
   let sum = 0;
 
@@ -456,7 +456,7 @@ add(2, 5, 3) // 10
 
 **箭头函数**
 
-```javascript
+```js
 var f = v => v
 
 //箭头函数等同于
@@ -465,7 +465,7 @@ var f = function(v) {
 };
 ```
 
-```javascript
+```js
 var f = () => 5;
 // 等同于
 var f = function () { return 5 };
@@ -494,7 +494,7 @@ var sum = function(num1, num2) {
 
 > 对要保护的对象套一层，不被外界所访问。`Proxy` 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写
 
-```javascript
+```js
 let obj={
     time:'2017-03-11',
     name:'net',
@@ -556,7 +556,7 @@ let obj={
 
 > `Reflect`对象与`Proxy`对象一样，也是` ES6` 为了操作对象而提供的新 `API`
 
-```javascript
+```js
 let obj={
 time:'2017-03-11',
 name:'net',
@@ -653,7 +653,7 @@ m.get('Adam'); // 88
 
 **基本用法**
 
-```javascript
+```js
 var promise = new Promise(function(resolve, reject) {
   // ... some code
 
@@ -667,7 +667,7 @@ var promise = new Promise(function(resolve, reject) {
 
 - `Promise`实例生成以后，可以用`then`方法分别指定`resolved`状态和`rejected`状态的回调函数
 
-```javascript
+```js
 promise.then(function(value) {
   // success
 }, function(error) {
@@ -683,7 +683,7 @@ promise.then(function(value) {
 
 ### 2.7、Class
 
-```javascript
+```js
 {
   // 基本定义和生成实例
   class Parent{
@@ -788,7 +788,7 @@ promise.then(function(value) {
 ```
 ### 2.8、Module
 
-```javascript
+```js
 let A=123;
 let test=function(){
   console.log('test');

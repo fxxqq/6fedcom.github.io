@@ -21,13 +21,13 @@ date: 2017-10-22 15:35:43
 
 **安装相应的依赖包**
 
-```javascript
+```js
 npm install --save-dev mocha chai  istanbul
 ```
 
 - 安装完成之后，在`package.json`文件的`scripts`下，添加执行测试和测试覆盖率检查的命令
 
-```javascript
+```js
 {
   
   "scripts":{
@@ -39,7 +39,7 @@ npm install --save-dev mocha chai  istanbul
 ```
 - 注意，`window`下必须要这样才可以执行`cover`
 
-```javascript
+```js
 "cover": "istanbul cover C:\Users\Administrator\Desktop\test\node_modules\mocha\bin\_mocha --reporter test/mocha.js"
 ```
 
@@ -53,7 +53,7 @@ npm install --save-dev mocha chai  istanbul
 
 > `istanbul`相关的执行参数，可以在命令行下执行时传递参数来制定，也可以在`yaml`格式的`.istanbul.yml`文件中配置。简单贴出一些重要的配置项
 
-```javascript
+```js
 instrumentation:
   root: .   # 执行的根目录
   extensions:
@@ -85,7 +85,7 @@ check:
 > - 利用`chai`提供的`expect`断言，我们可以用`BDD`的方式，写出更加符合代码预期行为的测试用例.
 > - 通常，测试脚本与所要测试的源码脚本同名，但是后缀名为`.test.js`（表示测试）或者`.spec.js`（表示规格）。比如，`add.js`的测试脚本名字就是`add.test.js`
 
-```javascript
+```js
 const {should, expect, assert} = require('chai');
 
 describe('#math', () => {
@@ -134,13 +134,13 @@ describe('#math', () => {
 
 - 所有的测试用例（`it`块）都应该含有一句或多句的断言。它是编写测试用例的关键。断言功能由断言库来实现，`Mocha`本身不带断言库，所以必须先引入断言库
 
-```javascript
+```js
 var expect = require('chai').expect;
 ```
 
 - 断言库有很多种，`Mocha`并不限制使用哪一种。上面代码引入的断言库是`chai`，并且指定使用它的`expect`断言风格。`chai`包含了几种风格，如`should` `expect` `assert`。`expect`断言的优点是很接近自然语言.
 
-```javascript
+```js
 // 相等或不相等
 expect(4 + 5).to.be.equal(9);
 expect(4 + 5).to.be.not.equal(10);
@@ -186,7 +186,7 @@ expect('foobar').to.match(/^foo/);
 
 - 通常的`nodejs`项目`.travis.yml`配置如下
 
-```javascript
+```js
 language: node_js
 node_js:
   - "6"
@@ -213,7 +213,7 @@ script:
 - `--help`或`-h`参数，用来查看`Mocha`的所有命令行参数
 - `--reporter, -R` `--reporter`参数用来指定测试报告的格式，默认是`spec`格式
 
-```javascript
+```js
 $ mocha
 # 等同于
 $ mocha --reporter spec

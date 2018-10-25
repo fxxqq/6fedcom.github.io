@@ -1,8 +1,8 @@
 ---
-title: 好物快应用、H5端开发小结
+title: 韦博嗨英语微信端（H5开发）小结
 tags:
   - Javascript
-  - 快应用
+  - 微信开发
 categories: Front-End
 abbrlink: 7bec924e
 date: 2018-10-19 16:50:43
@@ -16,7 +16,7 @@ date: 2018-10-19 16:50:43
 
 > 前提条件：需要知道app的包名
 
-```javascript
+```js
 // 判断用户是否安装了app
 export const checkInstalledApp = (pkg_name) => {
   const pkg = require('@system.package')
@@ -36,7 +36,7 @@ export const checkInstalledApp = (pkg_name) => {
 
 **第二步：调起deepLink**
 
-```javascript
+```js
 let pkg = 'com.newsqq.fda' // 传入包名
 let deep_link = '' // 跳转到app的地址
 let params = {}
@@ -63,7 +63,7 @@ checkInstalledApp(pkg).then(hasInstalledApp=>{
 
 > 引入快应用[官方提供的代码](https://doc.quickapp.cn/tutorial/platform/url-jump-configuration.html),这里做了一下处理
 
-```javascript
+```js
 export const quickapp = (function(){
   !function(e) {
         "use strict";
@@ -158,7 +158,7 @@ export const quickapp = (function(){
 
 - 主要用到了这个库 https://github.com/hgoebl/mobile-detect.js
 
-```javascript
+```js
 // 检测手机型号
 export const checkPhone = ()=>{
   const MobileDetect = require('mobile-detect')
@@ -201,7 +201,7 @@ export const checkPhone = ()=>{
 
 > 以呼起`OPPO`手机下已经上架的快应用为例
 
-```javascript
+```js
 // H5页面中呼起快应用
 
 // page你所在的页面标志，goods_id是传递的参数
@@ -256,7 +256,7 @@ xx://'跳转页面'/'携带参数'
 
 > `Android`平台则各个`app`厂商差异很大，比如`Chrome`从25及以后就不再支持通过`js`触发（非用户点击），所以这里使用`iframe src`地址等来触发`scheme`。
 
-```javascript
+```js
 //在iframe 中打开APP
 var ifr = document.createElement('iframe');
 ifr.src = openUrl;
@@ -271,7 +271,7 @@ ifr.style.display = 'none';
 - 根据返回`true` `false`来判断是否安装。
 - `document.hidden`对大于`4.4` `webview`支持很好，为页面可见性`api`
 
-```javascript
+```js
 // 检测app是否安装 
 export const hasInstalledApp = (deepLink)=>{
   return new Promise((resolve,reject)=>{
@@ -303,7 +303,7 @@ export const hasInstalledApp = (deepLink)=>{
 
 > 使用方式
 
-```javascript
+```js
 // deep_link与h5链接跳转区分
 if(deepLink){
 	Toast.loading('正在跳转中...',0)
@@ -323,7 +323,7 @@ if(deepLink){
 
 > 主要是使用到`clipboard`简化
 
-```javascript
+```js
 import ClipboardJS from 'clipboard'
 
 class Test extends Component {
@@ -360,7 +360,7 @@ class Test extends Component {
 
 **第一步：封装一个loadMore组件**
 
-```javascript
+```js
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Spin } from 'antd';
@@ -433,7 +433,7 @@ export default LoadMore
 
 > 需要后台支持分页
 
-```javascript
+```js
 import React, {Component} from 'react'
 
 class Home extends Component {
@@ -507,7 +507,7 @@ class Home extends Component {
 
 **封装cache**
 
-```javascript
+```js
 import storage from 'good-storage'
 
 const SEARCH_KEY = '__search__'
@@ -574,7 +574,7 @@ export function loadSearch() {
 
 > 封装一个骨架屏组件
 
-```javascript
+```js
 import React,{PureComponent} from 'react'
 import PropTypes from 'prop-types';
 import { Spin } from 'antd';

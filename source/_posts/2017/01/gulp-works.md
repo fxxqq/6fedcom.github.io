@@ -21,7 +21,7 @@ date: 2017-01-21 17:40:43
 ### 二、 package.json
 ---
 
-```javascript
+```js
 {
   "name": "gulp-project",
   "scripts": {
@@ -56,7 +56,7 @@ date: 2017-01-21 17:40:43
 ### 三、 gulpfile.js
 ---
 
-```javascript
+```js
 //组件
 
 let gulp = require('gulp'),
@@ -79,7 +79,7 @@ let gulp = require('gulp'),
 	babel = require("gulp-babel"); //ES6 转es5
 ```
 
-```javascript
+```js
 // =========== 开发构建流程 [多文件输出] ==============
 
 //dev
@@ -142,7 +142,7 @@ gulp.task('dev', ['css:dev', 'js:dev', 'html:dev', 'img','copyFonts','lib'], () 
 ```
 
 
-```javascript
+```js
 // =========== 正式构建 build [单文件输出] ==============
 
 // sass解析
@@ -263,7 +263,7 @@ gulp.task('zip', function(){
 
 ```
 
-```javascript
+```js
 //正式构建
 
 gulp.task('build', ['clean','css', 'js', 'img', 'html','copyFonts','lib']);

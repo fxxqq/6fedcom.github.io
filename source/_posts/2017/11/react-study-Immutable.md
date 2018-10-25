@@ -16,7 +16,7 @@ date: 2017-11-20 20:10:24
 
 > 从问题说起：熟悉 `React` 组件生命周期的话都知道：调用 `setState` 方法总是会触发 `render` 方法从而进行 `vdom re-render` 相关逻辑，哪怕实际上你没有更改到 `Component.state `
 
-```javascript
+```js
 this.state = {count: 0}
 this.setState({count: 0});// 组件 state 并未被改变，但仍会触发 render 方法 
 ```
@@ -31,7 +31,7 @@ this.setState({count: 0});// 组件 state 并未被改变，但仍会触发 rend
 - deep clone
 - 当然你或许意识到了，这样非常的慢
 
-```javascript
+```js
 'use strict';  
 var cloneDeep = require('lodash.clonedeep');
 
@@ -60,7 +60,7 @@ console.log(data1.author.name);//demohi
 
 > 这时候 immutableJS 就派得上用场了
 
-```javascript
+```js
 var map1 = Immutable.fromJS({a:1, b:1, c:{b:{c:{d:{e:7}}}}});
 var map2 = Immutable.fromJS({a:1, b:1, c:{b:{c:{d:{e:7}}}}});
 Immutable.is(map1, map2);  // true
@@ -68,7 +68,7 @@ Immutable.is(map1, map2);  // true
 
 - 遍历对象不再用`for-in`，可以这样:
 
-```javascript
+```js
 Immutable.fromJS({a:1, b:2, c:3}).map(function(value, key) { /* do some thing */});
 ```
 
@@ -90,7 +90,7 @@ Immutable.fromJS({a:1, b:2, c:3}).map(function(value, key) { /* do some thing */
 
 **一个说明不可变的例子**
 
-```javascript
+```js
 // 原生对象
 let a1 = {
     b: 1,
@@ -151,7 +151,7 @@ console.log(a2.get('c') === b2.get('c')); //true
 
 > `Immutable.js` 使用了 `Structure Sharing` 会尽量复用内存，甚至以前使用的对象也可以再次被复用。没有被引用的对象会被垃圾回收
 
-```javascript
+```js
 import { Map} from 'immutable';
 let a = Map({
   select: 'users',
@@ -211,7 +211,7 @@ a.get('filter') === b.get('filter'); // true
 - `fromJS()` 是最最最常用的将原生`JS`数据转换为`ImmutableJS`数据的转换方法。使用方式类似于 `JSON.parse()`，接收两个参数：`json` 数据和 `reviver `函数
 - 在不传递`reviver`函数的情况下，默认将原生`JS`的`Array`转为`List`，`Object`转为`Map`
 
-```javascript
+```js
 // 常见
 const t1 = Immutable.fromJS({a: {b: [10, 20, 30]}, c: 40});
 console.log(t1);
@@ -234,7 +234,7 @@ console.log(t2);
 
 - 所以`is()`就是用来对两个`immutable`对象进行值比较的。使用方式类似于 `Object.is(obj1, obj2)`，接收两个参数
 
-```javascript
+```js
 const map1 = Immutable.Map({a:1, b:1, c:1});
 const map2 = Immutable.Map({a:1, b:1, c:1});
 
@@ -257,7 +257,7 @@ console.log(Object.is(0, -0) ,Immutable.is(-0, 0)); // false , true
 
 > `Map` 数据类型，对应原生 `Object` 数组。最最常用的 数据结构之一，循环时无序(`orderedMap`有序)，对象的 `key` 可以是任意值。具体看下面的例子
 
-```javascript
+```js
 console.log(Map().set(List.of(1), 'list-of-one').get(List.of(1)));
 console.log(Map().set(NaN, 'NaN').get(NaN));
 console.log(Map().set(undefined, 'undefined').get(undefined));
@@ -272,7 +272,7 @@ console.log(Map().set(null, 'null').get(null));
 
 > `List` 数据类型，对应原生 `Array `数组。和原生数组，最大区别不存在'空位'。`[, , , , ]`
 
-```javascript
+```js
 console.log(List([,,,,]).toJS());// [undefined, undefined, undefined, undefined]
 ```
 
@@ -290,7 +290,7 @@ console.log(List([,,,,]).toJS());// [undefined, undefined, undefined, undefined]
 
 **2、Map()**
 
-```javascript
+```js
 /*
  Map<K, V>(): Map<K, V>
  Map<K, V>(iter: Iterable.Keyed<K, V>): Map<K, V>
@@ -307,14 +307,14 @@ console.log(Map({key: "value"}).toJS()); // {key: "value"}
 
 > 同Key覆盖问题
 
-```javascript
+```js
 //最后的{key: value2} 覆盖了前面的 {key: value}
 console.log(Map([["key", "value"], ["key", "value2"], ["key1", "value1"]]).toJS());// {key: "value2", key1: "value1"}
 ```
 
 **3、List()**
 
-```javascript
+```js
 /*
  List<T>(): List<T>
  List<T>(iter: Iterable.Indexed<T>): List<T>
@@ -333,13 +333,13 @@ console.log(List([1,2,3,4,{a:123}]).toJS()); // [ 1, 2, 3, 4, {a: 123}]
 
 **Map.of()**
 
-```javascript
+```js
 console.log(Map.of('key1','value1','key2','value2','key3','value3').toJS()); // {key1: "value1", key2: "value2", key3: "value3"}
 ```
 
 **List.of()**
 
-```javascript
+```js
 console.log(List.of({x:1}, 2, [3], 4).toJS()); // [{x:1}, 2, [3], 4]
 ```
 
@@ -350,7 +350,7 @@ console.log(List.of({x:1}, 2, [3], 4).toJS()); // [{x:1}, 2, [3], 4]
 
 - 判断是否是一个`Map` , 对原生`Object`不生效
 
-```javascript
+```js
 console.log(Map.isMap({})); // false
 console.log(Map.isMap(Map({}))); // true
 ```
@@ -359,7 +359,7 @@ console.log(Map.isMap(Map({}))); // true
 
 > 判断是否是一个`List` , 对原生`Array`不生效
 
-```javascript
+```js
 console.log(List.isList([])); // false
 console.log(List.isList(List([]))); // true
 ```
@@ -370,7 +370,7 @@ console.log(List.isList(List([]))); // true
 
 **1、size**
 
-```javascript
+```js
 // list
 console.log(List([1,2,3,4]).size);// 4
 console.log(List.of(1, 2, 3, 4).size);// 4
@@ -382,7 +382,7 @@ console.log(Map.of({x:1}, 2, [3], 4).size);// 2
 
 **count()**
 
-```javascript
+```js
 // map
 console.log(Immutable.fromJS({key: "value2", key1: "value1"}).count());// 4
 // 可以定制条件，来确定大小
@@ -402,7 +402,7 @@ console.log(Immutable.fromJS([1, 2, 5, 6]).count((value, index, array) => {
 
 > `countBy()`和`count()`的区别就是它的返回值是一个对象。
 
-```javascript
+```js
 // Map
 console.log(Immutable.fromJS({key: 1, key1: 34}).countBy((value, key, obj) => {
     return value > 3;
@@ -418,7 +418,7 @@ console.log(Immutable.fromJS([1, 2, 5, 6]).countBy((value, index, array) => {
 
 **1、Set**
 
-```javascript
+```js
 // Map
 // 将 key 位置的元素替换为 value
 const $obj1 = Map({a: {a1: 34}, b: 2, c: 3, d: 444});
@@ -434,7 +434,7 @@ console.log($arr1.set(4, 0).toJS());  // [ 1, 2, 3, undefined, 0 ]  空位置为
 
 **2、setIn**
 
-```javascript
+```js
 // Map
 console.log(Immutable.fromJS([1, 2, 3, {a: 45, b: 64}]).setIn(['3', 'a'], 1000).toJS());//[1, 2, 3, {a: 1000, b: 64}]
 
@@ -446,7 +446,7 @@ console.log(Immutable.fromJS([1, 2, 3, {a: 45, b: 64}]).setIn(['3', 'a'], 1000).
 
 **1、插入元素**
 
-```javascript
+```js
 // insert(index: number, value: T)
 // 向 index 位置插入 value
 console.log(Immutable.fromJS([1, 2, 3]).insert(1, 1.5).toJS()); // [ 1, 1.5, 2, 3 ]
@@ -456,7 +456,7 @@ console.log(Immutable.fromJS([1, 2, 3]).insert(1, 1.5).toJS()); // [ 1, 1.5, 2, 
 
 - 默认值`undefined`
 
-```javascript
+```js
 console.log(List([]).setSize(2).toJS()); // [undefined, undefined]
 ```
 
@@ -464,7 +464,7 @@ console.log(List([]).setSize(2).toJS()); // [undefined, undefined]
 
 > `List`数据类型也拥有`pop`、`push`、`shift`、`unshift`这四种操作方法，和原生`Array`的四种方法使用方式一致，但唯一区别就是返回新的`List`，并且不改变原来的数组本身，而原生则是会改变元素本身
 
-```javascript
+```js
 // ImmutableJS：返回新的List，并且不改变元素本身
 const $test = List([1, 2, 3, 4]);
 console.log($test.pop().toJS(), $test.toJS()); // [1, 2, 3] [1, 2, 3, 4]
@@ -475,7 +475,7 @@ console.log(test.pop(), test); // 4 [1, 2, 3]
 
 **4、花样插入**
 
-```javascript
+```js
 // interpose
 // 插入xxx之间
 console.log(Immutable.fromJS([1, 2, 5, 6]).interpose(5555).toJS()); // [1, 5555, 2, 5555, 5, 5555, 6]
@@ -499,7 +499,7 @@ console.log(Immutable.fromJS([1, 2, 5, 6]).zipWith((a, b) => {
 
 **1、delete(key)**
 
-```javascript
+```js
 // List
 // delete(index: number)
 // 删除 index 位置的元素
@@ -517,7 +517,7 @@ console.log(Immutable.fromJS({a: {a1: 34}, b: 2, c: 3, d: 444}).delete('asdfasfd
 
 **3、清空元素 lear()**
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3]).clear().toJS());// []
 
@@ -537,7 +537,7 @@ console.log(Immutable.fromJS({a: {a1: 34}, b: 2, c: 3, d: 444}).clear().toJS());
 
 > update(key: K, notSetValue: V, updater: (value: V) => V): Map<K, V>
 
-```javascript
+```js
 // List
 const $arr1 = Immutable.fromJS([1, 2, 3]);
 console.log($arr1.update('2', (value)=> {
@@ -577,7 +577,7 @@ console.log($obj1.update('e', 0, (value)=> { // 默认值入手是number必须�
 
 - 使用方式：`get(key: number, notSetValue?: T)`
 
-```javascript
+```js
 // List
 const $test = Immutable.fromJS([1111111, 22222, {a: 888123}]);
 console.log($test.get(0)); // 1111111
@@ -606,7 +606,7 @@ console.log($test.getIn(['d', 'b1'], 'child no have value')); // child no have v
 
 **2、获取头、尾元素**
 
-```javascript
+```js
 // List
 const $arr1 = Immutable.fromJS([1, 2, 3]);
 console.log($arr1.first());// 1
@@ -624,7 +624,7 @@ console.log($obj1.last());// 444
 
 > `find()`、`findLast() `返回 `value`
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 56, {a: {b: 111}}]).find((value, index, array) => {
     return index === 3;
@@ -640,7 +640,7 @@ console.log(Immutable.fromJS({a: {a1: 222}, b: 2, c: 3, d: 444}).find((value, ke
 
 > `findKey()`、`findLastKey()` 返回 `key`
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3, {a: {b: 111}}]).findKey((value, index, array) => {
     return index === 3;
@@ -656,7 +656,7 @@ console.log(Immutable.fromJS({a: {a1: 222}, b: 2, c: 3, d: 444}).findKey((value,
 
 > `findEntry()`、`findLastEntry()` 返回 `key:value`
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3, {a: {b: 111}}]).findEntry((value, index, array) => {
     return index === 3;
@@ -672,7 +672,7 @@ console.log(Immutable.fromJS({a: {a1: 222}, b: 2, c: 3, d: 444}).findEntry((valu
 
 > `keyOf()`、`lastKeyOf()` 根据 `value` 返回` key`。
 
-```javascript
+```js
 / List
 console.log(Immutable.fromJS([1, 2, 3, {a: {b: 111}}]).keyOf(Immutable.fromJS({a: {b: 111}}))); // 3
 console.log(Immutable.fromJS([1, 2, 3, {a: {b: 111}}]).keyOf(2)); // 1
@@ -686,14 +686,14 @@ console.log(Immutable.fromJS({a: {a1: 222}, b: 2, c: 3, d: 444}).keyOf(2)); // b
 
 **1、indexOf() lastIndexOf()**
 
-```javascript
+```js
 // 找不到 返回 -1
 console.log(Immutable.fromJS([1, 2, 3, {a: {b: 111}}]).indexOf(Immutable.fromJS({a: {b: 111}}))); // 3
 ```
 
 **2、findIndex() findLastIndex()**
 
-```javascript
+```js
 console.log(Immutable.fromJS([1, 2, 3, {a: {b: 111}}]).findIndex((value, index, array) => {
     return value/3 === 1;
 })); // 2
@@ -705,7 +705,7 @@ console.log(Immutable.fromJS([1, 2, 3, {a: {b: 111}}]).findIndex((value, index, 
 
 **1、max()**
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 301, 88]).max()); // 301
 
@@ -725,7 +725,7 @@ console.log(Immutable.fromJS({a: 8888, b: 2, c: 3, d: 444}).max((valueA, valueB)
 
 **2、maxBy()**
 
-```javascript
+```js
 // List
 // 自定义比较的元素
 console.log(Immutable.fromJS([{a: 2}, {a: 1}, {a: 2301}, {a: 222}]).maxBy((value, index, array) => {
@@ -765,7 +765,7 @@ console.log(Immutable.fromJS({a: {a1: 222}, b: {a1: 11}, c: {a1: 33}, d: {a1: 54
 
 > 获取`ES6 Iterable` 迭代器
 
-```javascript
+```js
 // List
 const $test = List([11, 22, 33, 44]);
 
@@ -808,7 +808,7 @@ for (let i of entries) {
 
 > 和原生`Array slice()`用法一致
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3]).slice(0).toJS());// [1, 2, 3]
 
@@ -819,7 +819,7 @@ console.log(Immutable.fromJS({a: {a1: 34}, b: 2, c: 3, d: 444}).slice(1).toJS())
 
 **2、rest() butLast()**
 
-```javascript
+```js
 / List
 // rest() 返回删除第一个元素后的 List
 console.log(Immutable.fromJS([1, {a: 1}, 3, 4, 5, 6]).rest().rest().toJS()); // [{a: 1}, 3, 4, 5, 6]
@@ -835,7 +835,7 @@ console.log(Immutable.fromJS({a: {a1: 222}, b: 2, c: 3, d: 444}).butLast().toJS(
 
 **3、skip() skipLast() skipWhile() skipUntil()**
 
-```javascript
+```js
 // List
 
 // skip(number)
@@ -886,7 +886,7 @@ console.log(Immutable.fromJS({a: 5, b: 2, c: 3, d: 444}).skipWhile((value, key, 
 
 **4、take() takeLast() takeWhile() takeUntil()**
 
-```javascript
+```js
 // List
 // take(number)
 // 从头获取几个复合条件的元素
@@ -938,7 +938,7 @@ console.log(Immutable.fromJS({a: 5, b: 2, c: 3, d: 444}).takeUntil((value, key, 
 
 **1、map() filter() every() some() forEach() reduce() reduceRight()**
 
-```javascript
+```js
 // List
 //1. map()
 console.log(Immutable.fromJS([1, 2, 3, 4, 5]).map((value, index, array)=>{
@@ -1011,7 +1011,7 @@ console.log(Immutable.fromJS({a: 5, b: 2, c: 3, d: 444}).forEach((value, key, ob
 
 > 对`Map`元素进行处理，返回处理后的对象
 
-```javascript
+```js
 //mapKeys() 返回对象
 console.log(Immutable.fromJS({a: 5, b: 2, c: 3, d: 444}).mapKeys((key)=>{
     return key + 'hhh';
@@ -1029,7 +1029,7 @@ console.log(Immutable.fromJS({a: 5, b: 2, c: 3, d: 444}).mapEntries(([key, value
 
 **merge() mergeDeep() mergeWith() mergeDeepWith()**
 
-```javascript
+```js
 // List
 const $test = Immutable.fromJS([1, 2, 3, 7, {a: {b: 55, c: 66}}]);
 const $test1 = Immutable.fromJS([1, 2, 3, 6, {a: {b: 333, d: 67}}]);
@@ -1081,7 +1081,7 @@ console.log($test.mergeDeepWith((prev, next)=> {
 > 使用方式和原生`Array`的`join()`一样
 
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3, {a: 123, b: 321}]).join()); // 1,2,3,Map { "a": 123, "b": 321 }
 // Map
@@ -1090,7 +1090,7 @@ console.log(Immutable.fromJS({b: 2, a: {a1: 222, a3: 456}, c: 3, d: 444}).join()
 
 ### isEmpty() 判空
 
-```javascript
+```js
 // 判断空List
 console.log(Immutable.fromJS([]).isEmpty()); // true
 // 判断Map是否为空 比原生方便
@@ -1099,7 +1099,7 @@ console.log(Immutable.fromJS({}).isEmpty()); // true
 
 ### has() hasIn() 检查是否有某个key
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3, {a: 123, b: 321}]).has('0')); // true
 console.log(Immutable.fromJS([1, 2, 3, {a: 123, b: 321}]).hasIn([3, 'b'])); // true
@@ -1113,7 +1113,7 @@ console.log(Immutable.fromJS({b: 2, a: {a1: 222, a3: 456}, c: 3, d: 444}).hasIn(
 
 > `includes()`、`contains() `这俩等效
 
-```javascript
+```js
 // List
 // 对象是否包含某个元素，对Immutable元素使用Immutable.is 进行比较
 console.log(Immutable.fromJS([6, 5, 4, 3, 2, 1, 89]).includes('89'));// 数组没有字符89，所以返回 false
@@ -1129,7 +1129,7 @@ console.log(Immutable.fromJS({b: 2, a: {a1: 222, a3: 456}, c: 3, d: Immutable.fr
 
 ### isSubset() 子集判断
 
-```javascript
+```js
 // List
 // isSubset()
 console.log(Immutable.fromJS([6, 5, 1, [6, 5, 4]]).isSubset(Immutable.fromJS([[6, 5, 4], 6, 5, 4, 3, 2, 1, '89'])));// true
@@ -1146,7 +1146,7 @@ console.log(Immutable.fromJS({b: 2, a: {a1: 222, a3: 456}, c: 3, d: 5}).isSupers
 
 ### reverse() 反转
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3, 4, 5, 6]).reverse().toJS());
 // [6, 5, 4, 3, 2, 1]
@@ -1159,7 +1159,7 @@ console.log(Immutable.fromJS({b: 2, a: {a1: 222, a3: 456}, c: 3, d: 5}).reverse(
 
 > `sort()`和`sortBy()`
 
-```javascript
+```js
 // List
 // sort(comparator?: (valueA: V, valueB: V) => number): Iterable<K, V>
 console.log(Immutable.fromJS([6, 5, 4, 3, 2, 1]).sort().toJS());
@@ -1239,7 +1239,7 @@ console.log(Immutable.fromJS({b: {a: 2}, a: {a: 88}, c: {a: 3}, d: {a: 5}}).sort
 > 参数默认情况下，`false` 深度平铺，`true` 浅度平铺1层
 
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([1, 2, 3, 4, [1, 11, 111, 12344], {a: 1234, b: {bb: [777, 888]}}, 5, 6]).flatten().toJS());
 // [1, 2, 3, 4, 1, 11, 111, 12344, 1234, 777, 888, 5, 6]
@@ -1257,7 +1257,7 @@ console.log(Immutable.fromJS({b: 2, a: {a1: {a5: 333}, a3: [1,2,3]}, c: 3, d: 5}
 
 > 返回值是`OrderedMap`
 
-```javascript
+```js
 // List
 console.log(Immutable.fromJS([{v: 0, a: 111}, {v: 1, a: {b: [1, 2, 3]}}, {v: 1, a: 333}, {v: 0, a: {b: [1, 2, 3]}}, {v: 1, a: 333}]).groupBy((value) => {
     return value.get('a')
@@ -1273,13 +1273,13 @@ console.log(Immutable.fromJS({b: {a5: 333}, a: {a5: 333}, c: {a5: 334}, d: {a5: 
 
 ### flip() Map 特有翻转
 
-```javascript
+```js
 console.log(Immutable.fromJS({b: 'b1', a: 'a1', c: 'c1', d: 'd1'}).flip().toJS()); // {b1: "b", a1: "a", c1: "c", d1: "d"}
 ```
 
 ### 连接 concat()
 
-```javascript
+```js
 // List
 const $test1 = Immutable.fromJS([1, 2, 3, 4, 5, 6]);
 const $test2 = Immutable.fromJS([111, 222, 333, 444, 555, 666]);
@@ -1297,7 +1297,7 @@ console.log($test1.toJS(), $test2.toJS()); //{b: 2, a: {a1: {a5: 333}, c: 3, d: 
 
 **1、转换为原生类型**
 
-```javascript
+```js
 // List
 // 浅层
 // toArray
@@ -1323,7 +1323,7 @@ console.log(Immutable.fromJS({b: 2, a: [1, 2, 2]}).toObject());// {b: 2, a: List
 
 **2、转换为其他ImmutableJS数据类型**
 
-```javascript
+```js
 // toMap()
 // toOrderedMap()
 // toSet()
@@ -1341,7 +1341,7 @@ console.log(Immutable.fromJS({b: 2, a: [1, 2, 2]}).toObject());// {b: 2, a: List
 
 > 专门针对`immutable`的`PureRenderMixin`，用来装饰`React`组件
 
-```javascript
+```js
 import {React} from 'base';
 
 import pureRenderDecorator from '../../../widgets/libs/immutable-pure-render-decorator';
@@ -1377,7 +1377,7 @@ export default class PartA extends React.Component {
 
 > 对于使用`immutable.js`的项目，在应用公共组件的时候，由于公共组件的内部实现一定是原`生`JS`数据，所以我们只能传递原生`JS`数据到公共组件，但是如果转换成了原生`JS`数据，就又会出现"`React.addons.PureRenderMixin`提供的`shouldComponentUpdate()`是浅比较"问题，对此可以使用下面的高阶组件进行封装
 
-```javascript
+```js
 import {React} from 'base';
 // 通过Immutable.is 封装过的 shouldComponentUpdate
 import {shouldComponentUpdate} from '../immutable-pure-render-decorator';
@@ -1398,7 +1398,7 @@ export default ComposedComponent => {
 
 **3、Demo**
 
-```javascript
+```js
 import {React} from 'base';
 import { connect } from 'react-redux';
 import highComponent from '../../../../widgets/libs/utils/highComponent';

@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1152636-a16de8c027bf5091.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1152636-9ba41b1ba943f624.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1628444-3fa39b6aab6aefc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-24T03:46:01.660Z">
+<meta property="og:updated_time" content="2018-10-25T09:40:14.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo持续集成自动部署到github">
 <meta name="twitter:description" content="一、 新建新的分支">
@@ -265,7 +265,7 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/1152636-9ba41b1ba943f624.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
 <p>还需要在源代码的仓库里创建一个<code>.travis.yml</code>配置文件，放到源代码的根目录，如下图</p>
 <p>其中内容如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js: stable</span><br><span class="line"></span><br><span class="line"># S: Build Lifecycle</span><br><span class="line">install:</span><br><span class="line">  - npm install</span><br><span class="line"></span><br><span class="line">#before_script:</span><br><span class="line"> # - npm install -g gulp</span><br><span class="line"></span><br><span class="line">script:</span><br><span class="line">  - hexo g</span><br><span class="line"></span><br><span class="line">after_script:</span><br><span class="line">  - cd ./public</span><br><span class="line">  - git init</span><br><span class="line">  - git config user.name <span class="string">"lifengsofts"</span></span><br><span class="line">  - git config user.email <span class="string">"lifengsofts@gmail.com"</span></span><br><span class="line">  - git add .</span><br><span class="line">  - git commit -m <span class="string">"Update docs"</span></span><br><span class="line">  - git push --force --quiet <span class="string">"https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;"</span> master:master</span><br><span class="line"># E: Build LifeCycle</span><br><span class="line"></span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">    - blog-source</span><br><span class="line">env:</span><br><span class="line"> global:</span><br><span class="line">   - GH_REF: github.com/lifengsofts/lifengsofts.github.io.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js: stable</span><br><span class="line"></span><br><span class="line"># S: Build Lifecycle</span><br><span class="line">install:</span><br><span class="line">  - npm install</span><br><span class="line"></span><br><span class="line">#before_script:</span><br><span class="line"> # - npm install -g gulp</span><br><span class="line"></span><br><span class="line">script:</span><br><span class="line">  - hexo g</span><br><span class="line"></span><br><span class="line">after_script:</span><br><span class="line">  - cd ./public</span><br><span class="line">  - git init</span><br><span class="line">  - git config user.name <span class="string">"lifengsofts"</span></span><br><span class="line">  - git config user.email <span class="string">"lifengsofts@gmail.com"</span></span><br><span class="line">  - git add .</span><br><span class="line">  - git commit -m <span class="string">"Update docs"</span></span><br><span class="line">  - git push --force --quiet <span class="string">"https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;"</span> master:master</span><br><span class="line"># E: Build LifeCycle</span><br><span class="line"></span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">    - blog-source</span><br><span class="line">env:</span><br><span class="line"> global:</span><br><span class="line">   - GH_REF: github.com/lifengsofts/lifengsofts.github.io.git</span><br></pre></td></tr></table></figure>
 <p>其中给你需要更换的又<code>git config</code>后面的配置信息<br><code>GH_REF</code>的值更改为你的仓库地址</p>
 <p>到这一步我们配置已经完成了</p>
 <h3 id="三、本地操作"><a href="#三、本地操作" class="headerlink" title="三、本地操作"></a><strong>三、本地操作</strong></h3><hr>
@@ -298,7 +298,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T03:46:01.660Z" itemprop="dateUpdated">2018-10-24 11:46:01</time>
+    最后更新时间：<time datetime="2018-10-25T09:40:14.378Z" itemprop="dateUpdated">2018-10-25 17:40:14</time>
 </span><br>
 
 
@@ -568,8 +568,8 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script type="text/javascript" class="autoinsert" src="/js/jquery-1.2.6.min.min.js?v=1.7.2"></script>
-<script src="/js/snowfall.jquery.min.js?v=1.7.2"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
 
         $(document).snowfall('clear');

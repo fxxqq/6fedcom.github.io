@@ -133,7 +133,7 @@ poster="examp1.jpg" >您的浏览器不支持video</video>
 
 - 获取video对象
 
-  ```javascript
+  ```js
   Media = document.getElementById("media"); 
   ```
   
@@ -294,7 +294,7 @@ poster="examp1.jpg" >您的浏览器不支持video</video>
 
 - audio可通过new来创建。也可以通过用document来获取
 
-```javascript
+```js
 //通过new关键字来创建Audio对象
 var Music = new Audio("test.mp3");
 

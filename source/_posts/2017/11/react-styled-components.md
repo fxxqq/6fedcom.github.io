@@ -18,7 +18,7 @@ date: 2017-11-08 16:55:24
 
 - 我们要理清一件事情：`styled-components` 只是 `CSS` 层面的高度抽象。它只是解析定义在 `JavaScript `中的 `CSS`，然后生成对应 `CSS` 的 `JSX `元素
 
-```javascript
+```js
 import React from 'react';
 import styled from 'styled-components';
 import { render } from 'react-dom';
@@ -75,7 +75,7 @@ render(
 二、基于 props 定制主题
 ---
 
-```javascript
+```js
 const Button = styled.button`
   background: ${props => props.primary ? 'palevioletred' : 'white'};
   color: ${props => props.primary ? 'white' : 'palevioletred'};
@@ -94,7 +94,7 @@ render(
 );
 ```
 
-```javascript
+```js
 export const StyledSlider = styled(Slider)`
 	${props => {
 		const theme = props.theme.slider;
@@ -115,7 +115,7 @@ export const StyledSlider = styled(Slider)`
 
 ```
 
-```javascript
+```js
 export const SmallSelectWrapper = styled.div `
   
   // div下面的类样式
@@ -154,7 +154,7 @@ export const SmallSelectWrapper = styled.div `
 
 > 通常在 `css` 中一般会通过给 `class `传入多个 `name` 通过空格分隔的方式来复用 `class` 定义，类似 `class="button tomato"`。在 `styled-components `中利用了 `js` 的继承实现了这种样式的复用：
 
-```javascript
+```js
 const Button = styled.button`
   color: palevioletred;
   font-size: 1em;
@@ -177,7 +177,7 @@ const TomatoButton = Button.extend`
 
 > 在日常开发中总会出现覆盖组件内部样式的需求，你可能想在 `styled-components` 中使用 `className`，或者在使用第三方组件时。
 
-```javascript
+```js
 <Wrapper>
   <h4>Hello Word</h4>
   <div className="detail"></div>
@@ -189,7 +189,7 @@ const TomatoButton = Button.extend`
 
 > `styled-components` 同时支持为组件传入 `html` 元素的其他属性，比如为 `input` 元素指定一个 `type` 属性，我们可以使用 `attrs` 方法来完成
 
-```javascript
+```js
 const Password = styled.input.attrs({
   type: 'password',
 })`
@@ -202,7 +202,7 @@ const Password = styled.input.attrs({
 
 - 在实际开发中，这个方法还有一个有用处，用来引用第三方类库的 `css `样式：
 
-```javascript
+```js
 const Button = styled.button.attrs({
   className: 'small',
 })`
@@ -217,7 +217,7 @@ const Button = styled.button.attrs({
 ```
 - 编译后的 `html` 结构如下：
 
-```javascript
+```js
 <button class="sc-gPEVay small gYllyG">
   Styled Components
 </button>
@@ -230,7 +230,7 @@ const Button = styled.button.attrs({
 
 - `styled-components` 同样对 `css` 动画中的 `@keyframe` 做了很好的支持。
 
-```javascript
+```js
 import { keyframes } from 'styled-components';
 const fadeIn = keyframes`
   0% {
@@ -253,7 +253,7 @@ const FadeInButton = styled.button`
 
 - `styled-components` 的语法同样支持对一个 `React `组件进行扩展
 
-```javascript
+```js
 const StyledDiv = styled(Row)`
   position: relative;
   height: 100%;

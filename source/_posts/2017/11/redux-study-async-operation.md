@@ -15,7 +15,7 @@ date: 2017-11-19 10:17:25
 
 **普通的action对象**
 
-```javascript
+```js
 const action = {
 	type:'ADD_TODO',
 	name:'poetries'
@@ -26,7 +26,7 @@ dispatch(action)
 
 **封装action creator**
 
-```javascript
+```js
 function actionCreator(data){
     return {
     	type:'ADD_TODO',
@@ -39,7 +39,7 @@ dispatch(actionCreator('poetries'))
 
 **bindActionCreators合并**
 
-```javascript
+```js
 function a(name,id){
 	reurn {
 		type:'a',
@@ -77,7 +77,7 @@ actions.b('jing','id002')
 
 - A basic Flux Standard Action:
 
-```javascript
+```js
 {
   type: 'ADD_TODO',
   payload: {
@@ -88,7 +88,7 @@ actions.b('jing','id002')
 
 - An FSA that represents an error, analogous to a rejected Promise
 
-```javascript
+```js
 {
   type: 'ADD_TODO',
   payload: new Error(),
@@ -99,7 +99,7 @@ actions.b('jing','id002')
 
 - 可以采用如下一个简单的方式检验一个`Action`是否符合FSA标准
 
-```javascript
+```js
 // every有一个匹配不到返回false
 let isFSA = Object.keys(action).every((item)=>{
    return  ['payload','type','error','meta'].indexOf(item) >  -1
@@ -117,7 +117,7 @@ let isFSA = Object.keys(action).every((item)=>{
 
 > `redux-thunk`中间处理解析
 
-```javascript
+```js
 function thunkAction(data) {
     reutrn (dispatch)=>{
         setTimeout(function(){
@@ -134,7 +134,7 @@ function thunkAction(data) {
 
 > `redux-promise`中间处理这种`action`
 
-```javascript
+```js
 function promiseAction(name){
     return new Promise((resolve,reject) => {
         setTimeout((param)=>{
@@ -179,7 +179,7 @@ function promiseAction(name){
 
 > `redux-thunk` 的源码如下
 
-```javascript
+```js
 function createThunkMiddleware(extraArgument) {
   return ({ dispatch, getState }) => next => action => {
     if (typeof action === 'function') {
@@ -198,7 +198,7 @@ export default thunk;
 
 > 源码可知，`action creator` 需要返回一个函数给 `redux-thunk` 进行调用，示例如下
 
-```javascript
+```js
 export let addTodoWithThunk = (val) => async (dispatch, getState)=>{
     //请求之前的一些处理
 
@@ -215,7 +215,7 @@ export let addTodoWithThunk = (val) => async (dispatch, getState)=>{
 
 - 而它使用起来最大的问题，就是重复的模板代码太多
 
-```javascript
+```js
 //action types
 const GET_DATA = 'GET_DATA',
     GET_DATA_SUCCESS = 'GET_DATA_SUCCESS',
@@ -269,7 +269,7 @@ const reducer = (oldState, action) => {
   - 若`resolve`，触发一个此`action`的拷贝，但`payload`为`promise`的`value`，并设`status`属性为`"success"`
   - 若`reject`，触发一个此`action`的拷贝，但`payload`为`promise`的`reason`，并设`status`属性为`"error"`
   
-```javascript
+```js
 //action types
 const GET_DATA = 'GET_DATA';
 
@@ -307,7 +307,7 @@ function reducer(oldState, action) {
 
 > `redux-promise-middleware`相比`redux-promise`，采取了更为温和和渐进式的思路，保留了和`redux-thunk`类似的三个`action`
 
-```javascript
+```js
 //action types
 const GET_DATA = 'GET_DATA',
     GET_DATA_PENDING = 'GET_DATA_PENDING',
@@ -345,7 +345,7 @@ const reducer = function(oldState, action) {
 
 **action/index.js**
 
-```javascript
+```js
 import fetch from 'isomorphic-fetch'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
@@ -385,7 +385,7 @@ export function fetchPostsIfNeeded(subreddit) {
 
 **reducers/index.js**
 
-```javascript
+```js
 import { combineReducers } from 'redux'
 import {
   RECEIVE_POSTS
@@ -420,7 +420,7 @@ export default rootReducer
 
 **store/configureStore.js**
 
-```javascript
+```js
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
@@ -453,7 +453,7 @@ export default function configureStore(initialState) {
 
 **界面上的调用：在containers/App.js**
 
-```javascript
+```js
 //初始化渲染后触发
   componentDidMount() {
     const { dispatch} = this.props
@@ -466,7 +466,7 @@ export default function configureStore(initialState) {
 
 - 数据的获取是通过`provider`,将`store`里面的数据注入给组件。让顶级组件提供给他们的子孙组件调用。代码如下：
 
-```javascript
+```js
 import 'babel-core/polyfill'
 import React from 'react'
 import { render } from 'react-dom'

@@ -15,7 +15,7 @@ date: 2017-11-20 00:06:10
 
 **1、所有组件更改为从react-router-dom导入**
 
-```javascript
+```js
 //v2
 import {Router,Route,hashHistory} from 'react-router';
 
@@ -29,7 +29,7 @@ import {Route,BrowserRouter as Router, Switch} from 'react-router-dom';
 **2、将所有<Router>替换为<BrowserRouter>**
 
 
-```javascript
+```js
 //v2
  <Router history={hashHistory}>
   <Route path="/" component={PCIndex}></Route>
@@ -42,7 +42,7 @@ import {Route,BrowserRouter as Router, Switch} from 'react-router-dom';
 
 - 这里的代码不仅仅是将`Router`替换为`BrowserRouter`,而且还把所有的`Route`中用`Switch`包裹起来.
 
-```javascript
+```js
 //v4
 <BrowserRouter>
   <Switch>
@@ -57,7 +57,7 @@ import {Route,BrowserRouter as Router, Switch} from 'react-router-dom';
 
 > `<BroserRouter>`只能有一个子节点,所以官网建议的是使用`<Switch>`进行包裹
 
-```javascript
+```js
 // v3
 <Route path='/' component={App}>
  <IndexRoute component={Home} />
@@ -66,7 +66,7 @@ import {Route,BrowserRouter as Router, Switch} from 'react-router-dom';
 </Route>
 ```
 
-```javascript
+```js
 // v4
 const App = () => (
  <Switch>
@@ -87,7 +87,7 @@ const App = () => (
 
 > `react-router-dom`暴露出`react-router`中暴露的对象与方法，因此你只需要安装并引用`react-router-dom`即可
 
-```javascript
+```js
 npm install --save react-router-dom
 ```
 
@@ -106,7 +106,7 @@ npm install --save react-router-dom
 
 > 路由器组件无法接受两个及以上的子元素。基于这种限制的存在，创建一个`<App>`组件来渲染应用其余部分是一个有效的方法
 
-```javascript
+```js
 import { BrowserRouter } from 'react-router-dom'
 ReactDOM.render((
   <BrowserRouter>
@@ -120,7 +120,7 @@ ReactDOM.render((
 
 > 应用通过`<App>`组件定义。简化一下，我们将应用拆分成两个部分。`<Header>`组件包含网站的导航链接。`<Main>`组件则呈现其余内容
 
-```javascript
+```js
 const App = () => (
   <div>
     <Header />
@@ -139,7 +139,7 @@ const App = () => (
 > `<Route>`接受一个数为`string`类型的`path`，该值路由匹配的路径名的类型。例如：`<Route path='/roster'/>`会匹配以`/roster`开头的路径名。在当前`path`参数与当前`location`的路径相匹配时，路由就会开始渲染`React`元素。若不匹配，路由不会进行任何操作
 
 
-```javascript
+```js
 <Route path='/roster'/>
 // 当路径名为'/'时, path不匹配
 // 当路径名为'/roster'或'/roster/2'时, path匹配
@@ -150,7 +150,7 @@ const App = () => (
 
 - 注意：在匹配路由时，`React Router`只关注`location`的路径名。当`URL`如下时
 
-```javascript
+```js
 http://www.example.com/my-projects/one?extra=false
 ```
 
@@ -180,7 +180,7 @@ http://www.example.com/my-projects/one?extra=false
   
 为了在应用中能匹配路径，在创建`<Route>`元素时必须带有需要匹配的`path`作为参数
 
-```javascript
+```js
 <Switch>
   <Route exact path='/' component={Home}/>
   {/* both /roster and /roster/:number begin with /roster */}
@@ -197,7 +197,7 @@ http://www.example.com/my-projects/one?extra=false
 - `render` ： 一个返回`React element`的函数。当匹配成功后调用该函数。该过程与传入`component`参数类似，并且对于行级渲染与需要向元素传入额外参数的操作会更有用。
 - `children` ： 一个返回`React element`的函数。与上述两个参数不同，无论`route`是否匹配当前`location`，其都会被渲染
 
-```javascript
+```js
 <Route path='/page' component={Page} />
 const extraProps = { color: 'red' }
 <Route path='/page' render={(props) => (
@@ -218,7 +218,7 @@ const extraProps = { color: 'red' }
 
 > 现在我们清楚了根路由的结构，我们需要实际渲染我们的路由。对于这个应用，我们将会在`<Main>`组件中渲染`<Switch>`与`<Route>`，这一过程会将`route`匹配生成的`HTML`放在`<main>`节点中
 
-```javascript
+```js
 import { Switch, Route } from 'react-router-dom'
 const Main = () => (
   <main>
@@ -236,7 +236,7 @@ const Main = () => (
 **6、嵌套路由**
 
 
-```javascript
+```js
 // v3
 import React from "react";
 import { render } from "react-dom";
@@ -278,7 +278,7 @@ render(<App />, document.getElementById("root"));
   - `Layout` 和 `page `组件 是作为 `router` 的一部分
 
 
-```javascript
+```js
 // v4
 import React from "react";
 import { render } from "react-dom";
@@ -329,7 +329,7 @@ render(<App />, document.getElementById("root"));
 
 - 一个完整的嵌套路由的例子
 
-```javascript
+```js
 // import { Router, Route, Link, Switch } from ‘react-router‘;
 import {
   HashRouter,
@@ -400,7 +400,7 @@ ReactDOM.render(
 
 > 方式一
 
-```javascript
+```js
 const PrimaryLayout = props => {
   return (
     <div className="primary-layout">
@@ -429,7 +429,7 @@ const PrimaryLayout = props => {
 
 - 解决了第一种方式中的生命周期，重复渲染的问题
 
-```javascript
+```js
 const PrimaryLayout = props => {
   return (
     <div className="primary-layout">
@@ -452,7 +452,7 @@ const PrimaryLayout = props => {
 
 > 使用这种策略，子布局也开始承担起了渲染 `routes` 的责任，现在，`UserSubLayout` 长这样
 
-```javascript
+```js
 const UserSubLayout = () =>
   <div className="user-sub-layout">
     <aside>
@@ -470,7 +470,7 @@ const UserSubLayout = () =>
 - 但有一点值得注意的是，`routes` 需要识别它的完整路径才能匹配，为了减少我们的重复输入，我们可以使用 `props.match.path`来代替
 
 
-```javascript
+```js
 const UserSubLayout = props =>
   <div className="user-sub-layout">
     <aside>
@@ -495,13 +495,13 @@ const UserSubLayout = props =>
 
 - 如`'/roster/:number'`中`:number`这种写法意味着`/roster/`后的路径名将会被获取并存在`match.params.number`中。例如，路径名`'/roster/6'`会获取到一个对象
 
-```javascript
+```js
 { number: '6' } // 注获取的值是字符串类型的
 ```
 
 - `<Player>`组件可以使用`props.match.params`对象来确定需要被渲染的运动员的数据
 
-```javascript
+```js
 // 返回运动员对象的API
 import PlayerAPI from './PlayerAPI'
 const Player = (props) => {
@@ -521,7 +521,7 @@ const Player = (props) => {
 
 除了`<Player>`组件，我们的页面还包含`<FullRoster>`, `<Schedule>`以及 `<Home>`组件
 
-```javascript
+```js
 const FullRoster = () => (
   <div>
     <ul>
@@ -576,7 +576,7 @@ const PrimaryLayout = () =>
 
 > 如果你只想匹配一个 `route`，那么你也可以使用 `<Switch>` 来 `exclusive routing`
 
-```javascript
+```js
 const PrimaryLayout = () =>
   <div className="primary-layout">
     <PrimaryHeader />
@@ -607,7 +607,7 @@ const PrimaryLayout = () =>
 
 > 现在，我们应用需要在各个页面间切换。如果使用锚点元素（就是）实现，在每次点击时页面将被重新加载。`React Router`提供了`<Link>`组件用来避免这种状况的发生。当你点击`<Link>`时，`URL`会更新，组件会被重新渲染，但是页面不会重新加载
 
-```javascript
+```js
 import { Link } from 'react-router-dom'
 const Header = () => (
   <header>
@@ -642,7 +642,7 @@ const Header = () => (
 > 最开始，可能觉得这两者的区别并不明显，控制台经常出现相同的输出，比如，访问 /user
 
 
-```javascript
+```js
 const UserSubLayout = ({ match }) => {
   console.log(match.url)   // output: "/user"
   console.log(match.path)  // output: "/user"
@@ -670,7 +670,7 @@ const UserSubLayout = ({ match }) => {
 
 - 如果我们是构建 route 路径，那么肯定使用 match.path
 
-```javascript
+```js
 const UserComments = ({ match }) =>
   <div>
     UserId: {match.params.userId}
@@ -691,7 +691,7 @@ const UserProfilePage = ({ match }) =>
 
 > 然后，我们按下面方式来访问
 
-```javascript
+```js
 /user/5/comments
 /user/5/settings
 ```
@@ -700,7 +700,7 @@ const UserProfilePage = ({ match }) =>
 
 **3、避免 Match 冲突**
 
-```javascript
+```js
 const UserSubLayou = ({ match }) =>
   <div className="user-sub-layout">
     <aside>
@@ -725,7 +725,7 @@ const UserSubLayou = ({ match }) =>
 
 > 在应用程序中限制未登录的用户访问某些路由是非常常见的，还有对于授权和未授权的用户 UI 也可能大不一样，为了解决这样的需求，我们可以考虑为应用程序设置一个主入口
 
-```javascript
+```js
 class App extends React.Component {
   render() {
 return (
@@ -753,7 +753,7 @@ return (
 - `to（string/object）`：要跳转的路径或地址；
 - `replace（bool）`：为 `true` 时，点击链接后将使用新地址替换掉访问历史记录里面的原地址；为 `false` 时，点击链接后将在原有访问历史记录的基础上添加一个新的纪录。默认为` false`
 
-```javascript
+```js
 // Link组件示例
 
 // to为string
@@ -783,7 +783,7 @@ return (
 - `isActive（func）`：判断链接是否激活的额外逻辑的功能
 
 
-```javascript
+```js
 // 用法
 
 // activeClassName选中时样式为selected
@@ -824,7 +824,7 @@ const oddEvent = (match, location) => {
 
 - `<Switch>`的独特之处是独它仅仅渲染一个路由。相反地，每一个包含匹配地址(`location`)的`<Route>`都会被渲染
 
-```javascript
+```js
 <Switch>
   <Route exact path="/" component={Home}/>
   <Route path="/about" component={About}/>

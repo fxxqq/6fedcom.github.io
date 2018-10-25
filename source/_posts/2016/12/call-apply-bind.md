@@ -1,6 +1,6 @@
 ---
 title: JS 中的 call、apply、bind 方法
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 580a1014
 date: 2016-12-13 14:55:24

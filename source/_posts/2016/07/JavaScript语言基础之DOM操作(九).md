@@ -1,6 +1,6 @@
 ---
 title: JavaScript语言基础之DOM操作(九)
-tags: JavaScript
+tags: Javascript
 categories: Front-End
 abbrlink: 5bd7146a
 date: 2016-07-27 00:05:43
@@ -63,7 +63,7 @@ date: 2016-07-27 00:05:43
 
 - 4、`nextSibling` `previousSibling` `firstChild` `lastChild `这四个属性容易受到`空白文本`的影响 `建议不用`
 
-```javascript
+```js
 //============给Object原型加一个方法 消除文本节点对DOM操作的影响 例如：nextSibling` `previousSibling` `firstChild` `lastChild （受到换行 和文本节点影响）
 
 Object.prototype.next = function(){
@@ -115,7 +115,7 @@ console.log(div1.next().next().innerText);
 
 启示：在项目中，很多很多地方都需要一个方法但是系统没提供，这时可以通过原型扩展
 
-```javascript
+```js
 //var p = document.createElement('p');
 //p.innerHTML = "this is a p";
 //var child = document.getElementsByTagName('div');

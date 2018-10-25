@@ -50,14 +50,14 @@ date: 2017-11-19 10:10:24
 
 > `yeoman`前端脚手架工具
 
-```javascript
+```js
 cnpm i -g yeoman
 ```
 
 - http://yeoman.io/
 
 > https://github.com/react-webpack-generators/generator-react-webpack#readme
-```javascript
+```js
 # Make sure both is installed globally
 npm install -g yo
 npm install -g generator-react-webpack
@@ -69,7 +69,7 @@ mkdir my-new-project && cd my-new-project
 yo react-webpack
 ```
 
-```javascript
+```js
 # Start for development
 npm start # or
 npm run serve
@@ -99,7 +99,7 @@ npm run copy
 六、React脚手架搭建
 ---
 
-```javascript
+```js
 npm i create-react-app
 
 create-react-app your-app-name && cd your-app-name

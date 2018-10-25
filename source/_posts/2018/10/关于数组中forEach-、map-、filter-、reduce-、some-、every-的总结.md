@@ -3,7 +3,7 @@ title: 关于数组中forEach() 、map()、filter()、reduce()、some()、every(
 categories: 前端
 abbrlink: afd16d4c
 date: 2018-10-22 22:43:01
-tags:
+tags: Javascript
 ---
 
 ## 1、forEach()

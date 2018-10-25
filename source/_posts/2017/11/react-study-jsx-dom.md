@@ -37,7 +37,7 @@ date: 2017-11-19 10:11:24
 
 ![image.png](http://upload-images.jianshu.io/upload_images/1480597-8f3a88ee90738d7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-```javascript
+```js
 /*
     JSX（javaScriptXML）语法入门：
         1、不是一门语言，是一个语法或者说是语法糖
@@ -77,7 +77,7 @@ ReactDOM.render(<Demo />,document.getElementById('app'))
 - 在`JSX`语法中，添加注释需要写在 `{ }` 中
 - 可以使用多行注释与单行注释
 
-```javascript
+```js
 var HelloWorld = React.createClass({
     render:function(){
         // 现在这里是属于js的部分,不属于JSX语法的部分
@@ -103,7 +103,7 @@ ReactDOM.render(<HelloWorld/>,document.getElementById("app"))
 - 对象样式
 - 选择器样式（`CSS`样式）
 
-```javascript
+```js
 /*
 组件的样式:
     1、行内样式：写行内样式的时候需要使用两个{}  ==>{{}}
@@ -150,7 +150,7 @@ ReactDOM.render(<HelloWorld/>,document.getElementById("app"))
 - 直接在`{}`中调用函数
 - 使用比较运算符	`&&`   `||  `！`
 
-```javascript
+```js
 /*
 1、三元表达式		?	:
 2、使用变量，通过函数使用条件判断语句，返回一个字符串

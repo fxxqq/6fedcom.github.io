@@ -8,7 +8,7 @@ date: 2018-08-27 10:20:32
 
 ## 一、全局过滤器
 
-```javascript
+```js
 // 第一个参数表示：过滤器的名称
 // 第二个参数表示：函数，使用过滤器的时候，这个函数中的代码会被执行
 Vue.filter('filterName', function (value) {
@@ -18,7 +18,7 @@ Vue.filter('filterName', function (value) {
 
 **例子**
 
-```javascript
+```js
 Vue.filter('date', function (input, format = 'yyyy-MM-dd hh:mm:ss'）{
       var o = {
         "M+": input.getMonth() + 1, //月份 
@@ -73,7 +73,7 @@ Vue.filter('date', function (input, format = 'yyyy-MM-dd hh:mm:ss'）{
 
 > 在某一个vue实例的内创建的，只在当前实例中起作用
 
-```javascript
+```js
 new Vue({
   data:{
       

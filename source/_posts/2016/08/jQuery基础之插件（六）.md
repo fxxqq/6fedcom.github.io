@@ -43,7 +43,7 @@ date: 2016-08-07 22:10:08
 
 	- 自定义`jQuery`函数：
 
-```javascript
+```js
 (function($){
 		$.extend({
 			test: function(){
@@ -57,7 +57,7 @@ date: 2016-08-07 22:10:08
 
  形式1：
 	  
-```javascript
+```js
 (function($){
 			$.fn.extend({
 				say : function(){
@@ -69,7 +69,7 @@ date: 2016-08-07 22:10:08
 
 形式2：
 
-```javascript
+```js
 (function($){
 			$.fn.say = function(){
 					alert("hello plugin");

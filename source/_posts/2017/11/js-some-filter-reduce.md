@@ -15,7 +15,7 @@ date: 2017-11-07 18:55:24
 
 - `callback` 函数会被自动传入三个参数：数组元素，元素索引，原数组本身
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5];
 let other = list.map((d, i) => {
     return d * 2;
@@ -30,7 +30,7 @@ console.log(other);
 
 **语法**
 
-```javascript
+```js
 var new_array = arr.filter(callback[, thisArg])
 ```
 
@@ -43,7 +43,7 @@ var new_array = arr.filter(callback[, thisArg])
   - 用来测试数组的每个元素的函数。调用时使用参数 `(element, index, array)`。
   - 返回true表示保留该元素（通过测试），`false`则不保留
 
-```javascript
+```js
 function isBigEnough(value) {
   return value >= 10;
 }
@@ -59,7 +59,7 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 > 返回一个`boolean`，判断是否有元素符合`func`条件，如果有一个元素符合`func`条件，则循环会终止
 - `some() `方法测试数组中的某些元素是否通过由提供的函数实现的测试
 
-```javascript
+```js
 const isBiggerThan10 = (element, index, array) => {
   return element > 10;
 }
@@ -78,7 +78,7 @@ const isBiggerThan10 = (element, index, array) => {
 
 - `every` 方法为数组中的每个元素执行一次 `callback` 函数，直到它找到一个使 `callback` 返回 `false`（表示可转换为布尔值 `false` 的值）的元素。如果发现了一个这样的元素，`every` 方法将会立即返回 `false`。否则，`callback` 为每一个元素返回 `true`，`every` 就会返回 `true`
 
-```javascript
+```js
 function isBigEnough(element, index, array) {
   return (element >= 10);
 }
@@ -99,7 +99,7 @@ passed = [12, 54, 18, 130, 44].every(isBigEnough);
 - `previousValue`是最后被调用的回调函数的返回值，`initialValue`是开始时`previousValue`被初始化的值。`currentValue`
 - 是当前被遍历的元素值，`index`是当前元素在数组中的索引值。`array`是对调用`.reduce`数组的简单引用
 
-```javascript
+```js
 Array.prototype.sum = function () {
     return this.reduce(function (partial, value) {
         return partial + value
@@ -112,7 +112,7 @@ Array.prototype.sum = function () {
 
 > 可以使用`.reduce`作为对象的字符串生成器
 
-```javascript
+```js
 function concat (input) {
     return input.reduce(function (partial, value) {
         if (partial) {
@@ -141,7 +141,7 @@ concat([
 - 如果`a`和`b是等价的，则返回值等于零
 - 如果`a`在`b`后，则返回值大于零
 
-```javascript
+```js
 [9,80,3,10,5,6].sort()
 // <- [10, 3, 5, 6, 80, 9]
 
@@ -167,7 +167,7 @@ concat([
 
 
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5];
 list.forEach((d, i) => {
     this.push(d * 2);
@@ -181,7 +181,7 @@ console.log(other);
 
 > `for-in`循环实际是为循环”enumerable“对象而设计的，`for in`也可以循环数组，但是不推荐这样使用，`for–in`是用来循环带有字符串`key`的对象的方法
 
-```javascript
+```js
 var obj = {a:1, b:2, c:3};
 for (var prop in obj) {
   console.log("obj." + prop + " = " + obj[prop]);
@@ -209,7 +209,7 @@ for (var prop in obj) {
 
 > 这三个方法调用后生成的遍历器对象，所遍历的都是计算生成的数据结构
 
-```javascript
+```js
 // 遍历数组
 let list = [1, 2, 3, 4, 5];
 for (let e of list) {

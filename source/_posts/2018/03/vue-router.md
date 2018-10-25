@@ -35,7 +35,7 @@ date: 2018-08-28 15:30:32
 
 > 在你的文件夹下的 `src` 文件夹下的 `main.js` 文件内写入以下代码
 
-```javascript
+```js
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -63,7 +63,7 @@ Vue.use(VueRouter)
 </template>
 ```
 
-```javascript
+```js
 var routes = [
     {
         path:"/one",
@@ -101,14 +101,14 @@ new Vue({
 
 - 在`new Router`中指定`mode`为`history`即可去掉`#`，这样加载更加逼真符合预期
 
-```javascript
+```js
 new Router({
     mode: "history",
     routes: []
 })
 ```
 
-```javascript
+```js
 //router-link跳转标签 当a标签使用，to必须是一个绝对地址
 <router-link to="/goods/title"></router-link>
 
@@ -138,7 +138,7 @@ this.$router.push({path:""})
   - 路由嵌套路由
   
 
-```javascript
+```js
 new Router({
     mode: "history",
     routes: [
@@ -165,7 +165,7 @@ new Router({
 
 - 通过`push`名字就可以实现页面的跳转
 
-```javascript
+```js
 // 方式一
 this.$router.push("name") //name /cart
 
@@ -184,7 +184,7 @@ this.$router.go(1) //$router其实就是对history的封装
 
 - 如何拿到传递过来的参数
 
-```javascript
+```js
 this.$router.push("/cart?goodsId=123")
 ```
 ```html
@@ -207,7 +207,7 @@ this.$router.push("/cart?goodsId=123")
 
 
 
-```javascript
+```js
 new Router({
     mode: "history",
     routes: [
@@ -250,7 +250,7 @@ new Router({
 
 - 页面一进来就加载三个`router-view`。实现方法
 
-```javascript
+```js
 new Router({
     mode: "history",
     routes: [
@@ -283,7 +283,7 @@ new Router({
 <router-view name="b"></router-view>
 ```    
 
-```javascript
+```js
 var Foo = { template: '<div>foo</div>' }
 var Bar = { template: '<div>bar</div>' }
 var routes = [
@@ -304,7 +304,7 @@ var routes = [
 
 > 重定向(`Redirect`)就是通过各种方法将各种网络请求重新定个方向转到其它位置,用于网站调整或网页被移到一个新地址,它也是通过 `routes` 配置来完成，下面例子是从 `/a` 重定向到 `/b`
 
-```javascript
+```js
 var router = new VueRouter({
   routes: [
     { path: '/a', redirect: '/b' }
@@ -316,7 +316,7 @@ var router = new VueRouter({
 
 > `/a` 的别名是 `/b`，意味着，当用户访问` /b` 时，`URL` 会保持为 `/b`，但是路由匹配则为 `/a`，就像用户访问` /a` 一样。简单的说就是给 /a 起了一个外号叫做 `/b` ,但是本质上还是 `/a`
 
-```javascript
+```js
 var router = new VueRouter({
   routes: [
     { path: '/a', component: A, alias: '/b' }
@@ -348,7 +348,7 @@ var router = new VueRouter({
 > `query`通过`this.$route.query`来接收参数，`params`通过`this.$route.params`来接收参数
 
 
-```javascript
+```js
 // query通过this.$route.query接收参数
 created () {
     const id = this.$route.query.id;

@@ -22,7 +22,7 @@ date: 2018-08-13 00:01:20
 
 **登录获取用户信息**
 
-```javascript
+```js
 wx.login({
     success(res){
      console.log(res)
@@ -32,7 +32,7 @@ wx.login({
 })
 ```
 
-```javascript
+```js
 wx.getUserInfo({
    success(res){
      console.log(res)
@@ -46,7 +46,7 @@ wx.getUserInfo({
 
 **需要传输的信息有7个参数**
 
-```javascript
+```js
 appid  小程序唯一标识
 secret  小程序的 app secret
 js_code  //wx.login登录时获取的 code,用于后续获取session_key
@@ -63,7 +63,7 @@ iv 加密算法的初始向量
 - 可精简为以下三个参数. 
 - 其余的签名校验的参数可省略,而`appid`和`secret`可以直接写在服务器.
 
-```javascript
+```js
 js_code //  wx.login登录时获取的 code,用于后续获取session_key
 encryptedData  包括敏感数据在内的完整用户信息的加密数据
 iv 加密算法的初始向量
@@ -78,7 +78,7 @@ iv 加密算法的初始向量
 > 主要用到`checkSession`
 
 
-```javascript
+```js
 wx.checkSession({
     success: (res) => {
         console.log('warning wx.checkSession OK, but no viewerId', res);
@@ -122,7 +122,7 @@ wx.checkSession({
 三、完整登录代码示例
 ---
 
-```javascript
+```js
 const CONFIG = require('./config.js')
 App({
     globalData:{

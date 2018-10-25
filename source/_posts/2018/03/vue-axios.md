@@ -39,7 +39,7 @@ date: 2018-08-28 15:35:32
 ## 三、执行 GET 请求
 
 
-```javascript
+```js
 // 向具有指定ID的用户发出请求
 axios.get('/user?ID=12345')
 .then(function (res) {
@@ -67,7 +67,7 @@ axios.get('/user', {
 
 
 
-```javascript
+```js
 axios.post('/user', {
     userId:"123"
 },{
@@ -88,7 +88,7 @@ axios.post('/user', {
 
 > `get`请求是发送参数，在`params`中定义。而`POST`请求是发送`request body`,需要在`data`中定义
 
-```javascript
+```js
 // get 在params中定义
 axios({
     url:"pakage.json",
@@ -122,7 +122,7 @@ axios({
 ## 六、执行多个并发请求
 
 
-```javascript
+```js
 function getUserAcount(){
     // 返回一个promise对象
     return axios.get("/user/1234");
@@ -142,7 +142,7 @@ axios.all([getUserAccount(),getUserPerssions()]).then(axios.spread((acct, perms)
 ## 七、全局拦截
 
 
-```javascript
+```js
 new Vue({
     el:"app",
     data:{
@@ -179,7 +179,7 @@ new Vue({
 
 ### 8.1 axios 请求封装
 
-```javascript
+```js
 //  引入axios文件包
 import axios from 'axios'
 
@@ -252,7 +252,7 @@ export const deleteRequest = (url) => {
 
 ### 8.2 axios请求异常统一处理
 
-```javascript
+```js
 // 引入依赖包
 import axios from 'axios'
 import {Message} from 'element-ui'
@@ -354,7 +354,7 @@ axios.interceptors.response.use(data=> {
 
 > 在main.js中导入所有请求方法
 
-```javascript
+```js
 //  导入所有请求方法
 import {getRequest,postRequest,deleteRequest,putRequest} from './utils/api'
 ```
@@ -362,7 +362,7 @@ import {getRequest,postRequest,deleteRequest,putRequest} from './utils/api'
 
 > 将请求方法添加至 `Vue.prototype` 上
 
-```javascript
+```js
 //  向VUE的原型上添加请求方法
 Vue.prototype.getRequest = getRequest;
 Vue.prototype.postRequest = postRequest;
@@ -372,7 +372,7 @@ Vue.prototype.putRequest = putRequest;
 
 > 发送请求（请求方法的调用）
 
-```javascript
+```js
 //  发送网络请求
 this.postRequest('/login', {userName，password}).then(resp=> {
         ...
@@ -391,7 +391,7 @@ this.postRequest('/login', {userName，password}).then(resp=> {
 
 - 一般我会在项目的`src`目录中，新建一个`request`文件夹，然后在里面新建一个`http.js`和一个`api.js`文件。`http.js`文件用来封装我们的`axios`，`api.js`用来统一管理我们的接口
 
-```javascript
+```js
 // 在http.js中引入axios
 import axios from 'axios'; // 引入axios
 import QS from 'qs'; // 引入qs模块，用来序列化post类型的数据，后面会提到
@@ -403,7 +403,7 @@ import { Toast } from 'vant';
 
 > 我们的项目环境可能有开发环境、测试环境和生产环境。我们通过`node`的环境变量来匹配我们的默认的接口`url`前缀。`axios.defaults.baseURL`可以设置`axios`的默认请求地址就不多说了
 
-```javascript
+```js
 // 环境的切换
 if (process.env.NODE_ENV == 'development') { 
  axios.defaults.baseURL = 'https://www.baidu.com';} 
@@ -434,7 +434,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencode
 
 > 我们在发送请求前可以进行一个请求的拦截，为什么要拦截呢，我们拦截请求是用来做什么的呢？比如，有些请求是需要用户登录之后才能访问的，或者post请求的时候，我们需要序列化我们提交的数据。这时候，我们可以在请求被发送之前进行一个拦截，从而进行我们想要的操作
 
-```javascript
+```js
 // 先导入vuex,因为我们要使用到里面的状态对象
 // vuex的路径根据自己的路径去写
 import store from '@/store/index';
@@ -457,7 +457,7 @@ import store from '@/store/index';
 
 ### 9.5 响应的拦截
 
-```javascript
+```js
 // 响应拦截器
 axios.interceptors.response.use( 
  response => { 
@@ -545,7 +545,7 @@ axios.interceptors.response.use(
 
 - `get`方法：我们通过定义一个`get`函数，`get`函数有两个参数，第一个参数表示我们要请求的`url`地址，第二个参数是我们要携带的请求参数。`get`函数返回一个`promise`对象，当`axios`其请求成功时`resolve`服务器返回值，请求失败时`reject`错误值。最后通过`export`抛出`get`函数
 
-```javascript
+```js
 /**
  * get方法，对应get请求
  * @param {String} url [请求的url地址]
@@ -565,7 +565,7 @@ export function get(url, params){
 
 - `post`方法：原理同`get`基本一样，但是要注意的是，`post`方法必须要使用对提交从参数对象进行序列化的操作，所以这里我们通过`node`的`qs`模块来序列化我们的参数。这个很重要，如果没有序列化操作，后台是拿不到你提交的数据的
 
-```javascript
+```js
 /** 
  * post方法，对应post请求 
  * @param {String} url [请求的url地址] 
@@ -591,7 +591,7 @@ export function post(url, params) {
 
 > 首先我们在`api.js`中引入我们封装的`get`和`post`方法
 
-```javascript
+```js
 /** 
  * api接口统一管理
  */
@@ -607,7 +607,7 @@ export const apiAddress = param => post('api/v1/users',param)
 在我们的页面中可以这样调用我们的`api`接口
 
 
-```javascript
+```js
 import { apiAddress } from '@/request/api';// 导入我们的api接口
 export default {  
  name: 'Address', 
@@ -633,7 +633,7 @@ export default {
 
 ### 9.8 完整封装代码
 
-```javascript
+```js
 /**axios封装
  * 请求拦截、相应拦截、错误统一处理
  */

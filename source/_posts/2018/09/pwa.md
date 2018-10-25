@@ -63,7 +63,7 @@ date: 2018-09-04 18:00:43
 </head>
 ```
 
-```javascript
+```js
 // manifest.json
 
 {
@@ -179,7 +179,7 @@ date: 2018-09-04 18:00:43
 - 如果存放在网站的根路径下，则将会收到该网站的所有 `fetch `事件。
 - 如果希望改变它的作用域，可在第二个参数设置 `scope` 范围。示例中将其改为了根目录，即对整个站点生效。
 
-```javascript
+```js
 // service-worker.js
 
 var cacheName = 'helloWorld';     // 缓存的名称  
@@ -325,7 +325,7 @@ Clone the request—a request is a stream and can only be consumed once
 
 **步骤三 服务器发送消息给service worker**
 
-```javascript
+```js
 // app.js
 
 const webpush = require('web-push');                 
@@ -369,7 +369,7 @@ app.listen(3111, function () {
 > `service worker`监听push事件，将通知详情推送给用户
 
 
-```javascript
+```js
 // service-worker.js
 
 self.addEventListener('push', function (event) {

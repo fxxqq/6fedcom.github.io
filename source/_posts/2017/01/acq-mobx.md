@@ -55,7 +55,7 @@ date: 2018-08-31 16:25:24
 
 > `Observable` 值可以是JS基本数据类型、引用类型、普通对象、类实例、数组和映射。其修饰的state会暴露出来供观察者使用
 
-```javascript
+```js
 // Observable 值可以是JS基本数据类型、引用类型、普通对象、类实例、数组和映射
 @observable title = 'this is about page'
 @observable num = 0
@@ -91,7 +91,7 @@ date: 2018-08-31 16:25:24
 
 > 通过 `@computed + getter`函数来定义衍生值
 
-```javascript
+```js
 class Foo {
     @observable length = 2;
     @computed get squared() {
@@ -112,13 +112,13 @@ class Foo {
 
 - 通过引入 `mobx` 定义的严格模式，强制使用 `action` 来修改状态
 
-```javascript
+```js
 import {configure} from 'mobx';
 
 configure({ enforceActions: 'always' }) // 开启严格模式
 ```
 
-```javascript
+```js
 @action.bound add(){
     this.num ++
 }
@@ -145,7 +145,7 @@ configure({ enforceActions: 'always' }) // 开启严格模式
 
 - `flow()` 接收 `generator` 函数作为它唯一的输入
 
-```javascript
+```js
 import { configure } from 'mobx';
 
 // 不允许在动作外部修改状态
@@ -175,7 +175,7 @@ class Store {
 
 ## 三、计数器例子
 
-```javascript
+```js
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';//结合react
 import { observable, autorun,computed } from 'mobx';

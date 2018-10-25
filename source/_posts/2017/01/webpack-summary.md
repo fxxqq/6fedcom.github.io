@@ -251,7 +251,7 @@ npm init
 </html>
 ```
 
-```javascript
+```js
 // entry.js
 document.write('It works.')
 ```

@@ -107,7 +107,7 @@ date: 2016-09-24 10:33:00
 
 -  如何判断`js`中的类型呢，先举几个例子：
 
-```javascript
+```js
 var a = "iamstring.";
 var b = 222;
 var c= [1,2,3];
@@ -119,7 +119,7 @@ var f = function(){this.name="22";};
 ###### **最常见的判断方法**：`typeof`
 ---
 
-```javascript
+```js
 alert(typeof a)   ------------> string
 alert(typeof b)   ------------> number
 alert(typeof c)   ------------> object
@@ -130,7 +130,7 @@ alert(typeof f)   ------------> function
 
 - 其中`typeof`返回的类型都是字符串形式，需注意，例如：
 
-```javascript
+```js
 alert(typeof a == "string") -------------> true
 alert(typeof a == String) ---------------> false
 ```
@@ -140,7 +140,7 @@ alert(typeof a == String) ---------------> false
 ###### **判断已知对象类型的方法**：` instanceof`
 ---
 
-```javascript
+```js
 alert(c instanceof Array) ---------------> true
 alert(d instanceof Date) 
 alert(f instanceof Function) ------------> true
@@ -152,7 +152,7 @@ alert(f instanceof function) ------------> false
 ###### **根据对象的`constructor`判断**：` constructor`
 ---
 
-```javascript
+```js
 alert(c.constructor === Array) ----------> true
 alert(d.constructor === Date) -----------> true
 alert(e.constructor === Function) -------> true
@@ -162,7 +162,7 @@ alert(e.constructor === Function) -------> true
 
 - 例子：
 
-```javascript
+```js
       function A(){};
       function B(){};
       A.prototype = new B(); //A继承自B
@@ -173,14 +173,14 @@ alert(e.constructor === Function) -------> true
 
 - 而`instanceof`方法不会出现该问题，对象直接继承和间接继承的都会报`true`：
 
-```javascript
+```js
       alert(aobj instanceof B) ----------------> true;
       alert(aobj instanceof B) ----------------> true;
 ```
 
 - 言归正传，解决`construtor`的问题通常是让对象的`constructor`手动指向自己：
 
-```javascript
+```js
       aobj.constructor = A; //将自己的类赋值给对象的constructor属性
       alert(aobj.constructor === A) -----------> true;
       alert(aobj.constructor === B) -----------> false; //基类不会报true了;
@@ -189,7 +189,7 @@ alert(e.constructor === Function) -------> true
 ###### **通用但很繁琐的方法**： `prototype`
 ---
 
-```javascript
+```js
 alert(Object.prototype.toString.call(a) === ‘[object String]’) -------> true;
 alert(Object.prototype.toString.call(b) === ‘[object Number]’) -------> true;
 alert(Object.prototype.toString.call(c) === ‘[object Array]’) -------> true;
@@ -230,7 +230,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 
 - `toString()` 转换为字符串，在JavaScript中所有数据类型都可以转换为`string`类型
 
-```javascript
+```js
         var n1 = 12;
         var n2 = true;
         var a = [1, 2, 3];
@@ -245,7 +245,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 
 - `parseInt() `解析出一个`string`或者`number`类型的整数部分，如果没有可以转换的部分，则返回`NaN`（`not a number`）
 
- ```javascript
+ ```js
         var n1 = "12";
         var n2 = "23hello";
         var n3 = "hello";
@@ -255,7 +255,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
  ```
  - `parseFloat() `解析出一个`string`的浮点数部分，如果没有可以转换的部分，则返回`NaN`（`not a number`）
 
- ```javascript
+ ```js
         var n1 = "1.2.3";
         var n2 = "1.2hello"
         var n3 = "hello"
@@ -269,7 +269,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 
 - `Boolean(value)`- 把给定的值转换成`Boolean`型
 
-```javascript
+```js
         Boolean(123); //true
         Boolean(""); //false
         Boolean([]); //true
@@ -280,7 +280,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 
 - `Number(value)`-把给定的值转换成数字（可以是整数或浮点数）
 
-```javascript
+```js
         Number("123"); //123
         Number("123h"); //NaN
         Number(true); //1
@@ -293,7 +293,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 
 - `String(value)`- 把给定的值转换成字符串
 
- ```javascript
+ ```js
         String(123); //"123"
         String([1,2]); //"1,2"
         String(undefined) //"undefined"
@@ -315,7 +315,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 - `undefined` 表示一种未知状态，声明了但没有初始化的变量，变量的值时一个未知状态。访问不存在的属性或对象`window.xxx`）方法没有明确返回值时，返回值是一个`undefined.`当对未声明的变量应用`typeof`运算符时，显示为`undefined`。
 - `null`表示尚未存在的对象,`null`是一个有特殊意义的值。可以为变量赋值为`null`，此时变量的值为“已知状态”(不是`undefined`)，即`null`。（用来初始化变量，清除变量内容，释放内存）
 
-```javascript
+```js
  undefined==null   //结果为true,但含义不同。
  undefined===null //false,两者类型不一致，前者为“undefined”，后者为“object”
 ```
@@ -456,14 +456,14 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 
  - 使用常见的三元操作符
 
-```javascript
+```js
 if (foo) bar(); else baz(); ==> foo?bar():baz();
 if (!foo) bar(); else baz(); ==> foo?baz():bar();
 if (foo) return bar(); else return baz(); ==> return foo?bar():baz();
 ```
 - 使用`and(&&)`和`or(||)`运算符
 
-```javascript
+```js
 if (foo) bar(); ==> foo&&bar();
 if (!foo) bar(); ==> foo||bar();
 ```
@@ -556,7 +556,7 @@ if (!foo) bar(); ==> foo||bar();
 + 只要调用一次函数就会动态开辟一块内存 创建一个封闭的空间 在自己的封闭的空间的栈中定义`var `在执行
 + 函数执行完 里面的东西全部销毁
 
-```javascript
+```js
 //alert(x);//9:执行弹出x,结果x没定义,错误.
 alert(i);//9:执行弹出i,然而i之前已经定义,只不过没地址,因此是undefiend
 var i = 10;//1:var i;    10:把常量池中10的地址赋给栈中的i
@@ -572,7 +572,7 @@ function m(){//8:function m;
 }
 ```
 
-```javascript
+```js
 function m(){
     c = 50;//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c
     alert('哈哈哈');
@@ -585,7 +585,7 @@ var c = 20;//到这里一步 m()已经执行完了 函数已经销毁了  这里
 alert(c);//20
 
 ```
-```javascript
+```js
 function m(){
     c = 50;//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c
     alert('哈哈哈');
@@ -714,7 +714,7 @@ alert(c);//30
 - 执行构造函数的代码，为这个新对象添加属性
 - 返回新对象
 
-```javascript
+```js
 function Person(name, age) {
     this.name = name;
     this.age = age;
@@ -764,7 +764,7 @@ var p = createPerson(Person, 'wang', 35);
 ###### **传统的创建对象**
 ---
 
-```javascript
+```js
 
 var person = new Object();
 
@@ -786,7 +786,7 @@ person.sayName();
 ###### **工厂模式**
 ---
 
-```javascript
+```js
 
 function createPerson(name,age,job){
 
@@ -816,7 +816,7 @@ person1.sayName();
 ###### **构造函数**
 ---
 
-```javascript
+```js
 
 function Person(name,age,job){
 
@@ -843,7 +843,7 @@ person1.sayName();
 ###### **原型模式**
 ---
 
-```javascript
+```js
 
 function Person(){
 
@@ -875,7 +875,7 @@ person2.sayName();
 ###### **简单原型模式**
 ---
 
-```javascript
+```js
 
 function Person(){
 
@@ -906,7 +906,7 @@ person1.sayName();
 ###### **构造函数和原型模式**
 ---
 
-```javascript
+```js
 
 function Person(name,age,job){
 
@@ -938,7 +938,7 @@ person1.sayName();
 ###### **动态原型模式**
 ---
 
-```javascript
+```js
 
 function Person(name,age,job){
 
@@ -974,7 +974,7 @@ person1.sayName();
 ###### **稳妥构造函数**
 ---
 
-```javascript
+```js
 
 var Person = function(name,age,job){
 
@@ -1050,7 +1050,7 @@ person1.sayName();
 
 - 所有的构造器都是继承于`Object`构造器的，因此只要`Object`的原型里有的功能，所有的对象都有
 
-```javascript
+```js
 //多个对象的构造 以及 多个对象之间如何建立联系
 function Student(name,age,sex){
     this.name = name;
@@ -1131,7 +1131,7 @@ s.work(h);
 
 - 面向对象例子
 
-```javascript
+```js
 //小头爸爸牵着大头儿子的手去吃饭，吃完饭之后，
 
 //小头爸爸背着大头儿子回家，回家后儿子学习，老爸工作，工作学习完后
@@ -1435,7 +1435,7 @@ p3.scoop(p2);
 
 - **声明**
 
-```javascript
+```js
 var myDate = new Date(); //系统当前时间
 
 var myDate = new Date(yyyy, mm, dd, hh, mm, ss);
@@ -1451,7 +1451,7 @@ var myDate = new Date(epochMilliseconds);
 
 - **获取时间的某部份**
 
-```javascript
+```js
 var myDate = new Date();
 
 myDate.getYear(); //获取当前年份(2位)
@@ -1482,7 +1482,7 @@ myDate.toLocaleString( ); //获取日期与时间
 ```
 - **计算之前或未来的时间**
 
-```javascript
+```js
 var myDate = new Date();
 
 myDate.setDate(myDate.getDate() + 10); //当前时间加10天//类似的方法都基本相同,以set开头,具体参考第2点
@@ -1490,14 +1490,14 @@ myDate.setDate(myDate.getDate() + 10); //当前时间加10天//类似的方法�
 
 - **计算两个日期的偏移量**
 
-```javascript
+```js
 var i = daysBetween(beginDate,endDate); //返回天数
 
 var i = beginDate.getTimezoneOffset(endDate); //返回分钟数
 ```
 - **检查有效日期**
 
-```javascript
+```js
 //checkDate() 只允许”mm-dd-yyyy”或”mm/dd/yyyy”两种格式的日期
 if( checkDate(“2006-01-01”) ){ }
 
@@ -1514,7 +1514,7 @@ var r = /^(\d{2}|\d{4})[\/-]\d{1,2}[\/-]\d{1,2}$/;if( r.test( myString ) ){ }
 
 - **声明**
 
-```javascript
+```js
 var myString = new String(“Every good boy does fine.”);
 
 var myString = “Every good boy does fine.”;
@@ -1522,7 +1522,7 @@ var myString = “Every good boy does fine.”;
 
 - **字符串连接**
 
-```javascript
+```js
 var myString = “Every ” + “good boy ” + “does fine.”;
 
 var myString = “Every “; myString += “good boy does fine.”;
@@ -1530,7 +1530,7 @@ var myString = “Every “; myString += “good boy does fine.”;
 
 - **截取字符串**
 
-```javascript
+```js
 //截取第 6 位开始的字符
 
 var myString = “Every good boy does fine.”;
@@ -1558,7 +1558,7 @@ var section = myString.substr(6,4); //结果: “good”
 
 - **转换大小写**
 
-```javascript
+```js
 var myString = “Hello”;
 
 var lcString = myString.toLowerCase(); //结果: “hello”
@@ -1568,7 +1568,7 @@ var ucString = myString.toUpperCase(); //结果: “HELLO”
 
 - **字符串比较**
 
-```javascript
+```js
 var aString = “Hello!”;
 
 var bString = new String(“Hello!”);
@@ -1582,7 +1582,7 @@ if( aString === bString ){ } //结果: false (两个对象不同,尽管它们的
 
 - **检索字符串**
 
-```javascript
+```js
 var myString = “hello everybody.”;
 
 // 如果检索不到会返回-1,检索到的话返回在该串中的起始位置
@@ -1592,7 +1592,7 @@ if( myString.indexOf(“every”) > -1 ){ } //结果: true
 
 - **查找替换字符串**
 
-```javascript
+```js
 var myString = “I is your father.”;
 
 var result = myString.replace(“is”,”am”); //结果: “I am your father.”
@@ -1613,7 +1613,7 @@ var result = myString.replace(“is”,”am”); //结果: “I am your father.
 
 - **将字符转换成`Unicode`编码**
 
-```javascript
+```js
 var myString = “hello”;
 
 var code = myString.charCodeAt(3); //返回”l”的Unicode编码(整型)
@@ -1623,7 +1623,7 @@ var char = String.fromCharCode(66); //返回Unicode为66的字符
 
 - **将字符串转换成URL编码**
 
-```javascript
+```js
 var myString = “hello all”;
 
 var code = encodeURI(myString); //结果: “hello%20all”
@@ -1696,7 +1696,7 @@ var str = decodeURI(code); //结果: “hello all”
 
 - **声明**
 
-```javascript
+```js
 var i = 1;
 
 var i = new Number(1);
@@ -1704,7 +1704,7 @@ var i = new Number(1);
 
 - **字符串与数字间的转换**
 
-```javascript
+```js
 var i = 1;
 
 var str = i.toString(); //结果: “1”
@@ -1720,7 +1720,7 @@ i = parseFloat(str); //结果: 1.0
 
 - **判断是否为有效的数字**
 
-```javascript
+```js
 var i = 123; var str = “string”;
 
 if( typeof i == “number” ){ } //true
@@ -1736,7 +1736,7 @@ if( isNaN(i) ){ }
 
 - **数字型比较**
 
-```javascript
+```js
 //此知识与[字符串比较]相同
 
 - **小数转整数**
@@ -1752,7 +1752,7 @@ var i = Math.floor(f); //结果:1 (返回小于f的最大整数)
 
 - **格式化显示数字**
 
-```javascript
+```js
 var i = 3.14159;
 
 //格式化为两位小数的浮点数
@@ -1766,7 +1766,7 @@ var str = i.toPrecision(5); //结果: “3.1415”
 
 - **X进制数字的转换**
 
-```javascript
+```js
 
 var i = parseInt(“0x1f”,16);
 
@@ -1777,7 +1777,7 @@ var i = parseInt(“11010011”,2);
 
 - **随机数**
 
-```javascript
+```js
 //返回0-1之间的任意小数
 
 var rnd = Math.random();
@@ -1790,7 +1790,7 @@ var rnd = Math.floor(Math.random() * n)
 ##### 5.`Regex`
 ---
 
-```javascript
+```js
 //在这个最大的对象的原型上加一个extends方法 使得下面所有的原型 都有这个方法
  //这个原型的作用是通过迭代 复制传进来的构造器的所有的原型的方法
 
@@ -1858,7 +1858,7 @@ var rnd = Math.floor(Math.random() * n)
 
 - 简单封装一个对象案例
 
-```javascript
+```js
 String.prototype.isEmail = function(){
 
   email = this;
@@ -1876,7 +1876,7 @@ var email = "jingguanliuye@gmail.com";
 email.isEmail();
 ```
 
-```javascript
+```js
 //===============================日历练习(方法简洁 高效)======================================
 
 //var year = parseInt(prompt("请输入日历年份："));
@@ -2119,7 +2119,7 @@ new Date(2012,2).printCalendar();
 - 3、查找兄弟元素 `nextSibling` `previousSibling`
 - 4、`nextSibling` `previousSibling` `firstChild` `lastChild `这四个属性容易受到`空白文本`的影响 `建议不用`
 
-```javascript
+```js
 //============给Object原型加一个方法 消除文本节点对DOM操作的影响 例如：nextSibling` `previousSibling` `firstChild` `lastChild （受到换行 和文本节点影响）
 
 Object.prototype.next = function(){
@@ -2166,7 +2166,7 @@ console.log(div1.next().next().innerText);
 
 - **启示**：在项目中，很多很多地方都需要一个方法但是系统没提供，这时可以通过原型扩展
 
-```javascript
+```js
 //var p = document.createElement('p');
 //p.innerHTML = "this is a p";
 //var child = document.getElementsByTagName('div');

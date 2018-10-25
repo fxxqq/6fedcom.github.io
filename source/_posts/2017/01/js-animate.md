@@ -26,7 +26,7 @@ date: 2017-01-12 15:50:43
 
 - 用javascript直接获取行间样式很容易，但如果要获取非行间样式那我们只能借助函数了。我这里编写了一个名为getStyle的函数，专门处理取非行间的样式
 
-```javascript
+```js
 function getStyle(obj,attr){
 	return getComputedStyle(obj)[attr]?getComputedStyle(obj)[attr]:obj.currentStyle[attr];
 }
@@ -54,7 +54,7 @@ function getStyle(obj,attr){
 }
 ```
 
-```javascript
+```js
 var box = document.getElementById("box");
 var speed = 0; //步长
 var target = 600;
@@ -102,7 +102,7 @@ function getStyle(obj,attr){
 }
 ```
 
-```javascript
+```js
 var ball = document.getElementById("ball");
 
 ball.onmouseover = function(){
@@ -166,7 +166,7 @@ function getStyle(obj,attr){
 }
 ```
 
-```javascript
+```js
 var ball = document.getElementById("ball");
 ball.onmouseover = function(){
 	move(ball,{"width":300,"height":300,"opacity":0.3});
@@ -233,7 +233,7 @@ function getStyle(obj,attr){
   <div id="box2">分享到</div>
 </div>
 ```
-```javascript
+```js
 var box1 = document.getElementById("box1");
 var ball = document.getElementById("ball");
 
@@ -420,7 +420,7 @@ ul,li{
 }
 ```
 
-```javascript
+```js
 
 //速度版本
 (function(win){
@@ -562,7 +562,7 @@ getId("box5").onclick = function(){
 }
 ```
 
-```javascript
+```js
 
 /*t b c d
 t current time   :nTime-sTime
@@ -772,7 +772,7 @@ win.animateTime = move;
 
 ### 三、运动框架之时间速度版完整封装
 
-```javascript
+```js
 /*t b c d
 t current time   :nTime-sTime
 b begining time  :curr

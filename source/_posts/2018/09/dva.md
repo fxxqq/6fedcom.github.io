@@ -23,7 +23,7 @@ $ npm start
 
 > react项目的推荐目录结构（如果使用dva脚手架创建，则自动生成如下）
 
-```javascript
+```js
 |── /mock/             # 数据mock的接口文件  
 |── /src/              # 项目源码目录（我们开发的主要工作区域）   
 |   |── /components/   # 项目组件（用于路由组件内引用的可复用组件）   
@@ -56,7 +56,7 @@ npm i babel-plugin-import --save
 
 - 编辑 `.webpackrc`，使 `babel-plugin-import` 插件生效
 
-```javascript
+```js
 {
 +  "extraBabelPlugins": [
 +    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
@@ -89,7 +89,7 @@ dva = React-Router + Redux + Redux-saga
 
 在`opts`可以配置所有的`hooks`
 
-```javascript
+```js
 const app = dva({
      history,
      initialState,
@@ -113,7 +113,7 @@ const app = dva({
 - `effect` 执行错误或 `subscription` 通过` done` 主动抛错时触发，可用于管理全局出错状态
 - 注意：`subscription` 并没有加 `try...catch`，所以有错误时需通过第二个参数 `done` 主动抛错
 
-```javascript
+```js
 app.model({
   subscriptions: {
     setup({ dispatch }, done) {
@@ -129,7 +129,7 @@ app.model({
 
 - 例如我们要通过 `redux-logger` 打印日志
 
-```javascript
+```js
 import createLogger from 'redux-logger';
 const app = dva({
   onAction: createLogger(opts),
@@ -144,7 +144,7 @@ const app = dva({
 
 > 封装 `reducer` 执行，比如借助 `redux-undo` 实现 `redo/undo `
 
-```javascript
+```js
 import undoable from 'redux-undo';
 const app = dva({
   onReducer: reducer => {
@@ -171,7 +171,7 @@ const app = dva({
 > 指定额外的 `reducer`，比如 `redux-form` 需要指定额外的 `form reducer`
 
 
-```javascript
+```js
 import { reducer as formReducer } from 'redux-form'
 const app = dva({
   extraReducers: {
@@ -182,7 +182,7 @@ const app = dva({
 
 > 这里比较常用的是，`history`的配置，一般默认的是`hashHistory`，如果要配置 `history `为 `browserHistory`，可以这样
 
-```javascript
+```js
 import createHistory from 'history/createBrowserHistory';
 const app = dva({
   history: createHistory(),
@@ -198,7 +198,7 @@ const app = dva({
 
 这里最常见的就是`dva-loading`插件的配置
 
-```javascript
+```js
 import createLoading from 'dva-loading';
 ...
 app.use(createLoading(opts));
@@ -222,7 +222,7 @@ app.use(createLoading(opts));
 
 > 注册路由表，这一操作步骤在dva中也很重要
 
-```javascript
+```js
 // 注册路由
 app.router(require('./router'))
 
@@ -245,7 +245,7 @@ export default RouterConfig
 
 > 如果我们想解决组件动态加载问题，我们的路由文件也可以按照下面的写法来写
 
-```javascript
+```js
 import { Router, Switch, Route } from 'dva/router'
 import dynamic from 'dva/dynamic'
 
@@ -294,7 +294,7 @@ export default RouterConfig
 
 > 初始值，我们在 `dva()` 初始化的时候和在 modal 里面的 `state` 对其两处进行定义，其中 modal 中的优先级低于传给  `dva()` 的  `opts.initialState`
 
-```javascript
+```js
 // dva()初始化
 const app = dva({
   initialState: { count: 1 },
@@ -313,7 +313,7 @@ app.model({
 
 - `action` 的格式如下，它需要有一个 `type `，表示这个 `action` 要触发什么操作；`payload` 则表示这个 `action` 将要传递的数据
 
-```javascript
+```js
 {
   type: String,
   payload: data,
@@ -328,7 +328,7 @@ dispatch({ type: 'todos/add', payload: 'Learn Dva' });
 
 > 其实我们可以构建一个Action 创建函数，如下
 
-```javascript
+```js
 function addTodo(text) {
   return {
     type: ADD_TODO,
@@ -344,7 +344,7 @@ dispatch(addTodo())
 
 > `model` 是 `dva` 中最重要的概念，`Model` 非 `MVC` 中的 `M`，而是领域模型，用于把数据相关的逻辑聚合到一起，几乎所有的数据，逻辑都在这边进行处理分发
 
-```javascript
+```js
 import queryString from 'query-string'
 import * as todoService from '../services/todo'
 
@@ -431,7 +431,7 @@ export default {
 
 > 以`key/value` 格式定义 `reducer`，用于处理同步操作，唯一可以修改  `state` 的地方。由  `action` 触发。其实一个纯函数
 
-```javascript
+```js
 namespace: 'todo',
   state: {
     list: []
@@ -452,7 +452,7 @@ namespace: 'todo',
 
 其中它用到了`redux-saga`，里面有几个常用的函数。
 
-```javascript
+```js
 // effects 写法
 effects: {
     *addTodo({ payload: value }, { call, put, select }) {
@@ -510,7 +510,7 @@ effects: {
 
 - **注意**：如果要使用 `app.unmodel()`，`subscription` 必须返回 `unlisten` 方法，用于取消数据订阅
 
-```javascript
+```js
 // subscriptions 写法
 subscriptions: {
     setup({ dispatch, history }) {
@@ -530,7 +530,7 @@ subscriptions: {
 
 > `Router` 表示路由配置信息，项目中的 `router.js`
 
-```javascript
+```js
 export default function({ history }){
   return(
     <Router history={history}>
@@ -545,7 +545,7 @@ export default function({ history }){
 
 > `RouteComponent` 表示` Router` 里匹配路径的 `Component`，通常会绑定` model `的数据。如下:
 
-```javascript
+```js
 import { connect } from 'dva';
 
 function App() {
@@ -628,7 +628,7 @@ $ dva new myapp
 
 > 我们先修改`route/IndexPage.js`
 
-```javascript
+```js
 import React from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
@@ -687,7 +687,7 @@ export default connect()(IndexPage);
 
 - 首先我们在index.js中将`models/example.js`，即将model下一行的的注释打开
 
-```javascript
+```js
 import dva from 'dva';
 import './index.css';
 
@@ -709,7 +709,7 @@ app.start('#root');
 
 > 接下来我们进入 `models/example.js`，将`namespace` 名字改为 `count`，`state `对象加上 `record` 与 `current` 属性。如下
 
-```javascript
+```js
 export default {
   namespace: 'count',
   state: {
@@ -722,7 +722,7 @@ export default {
 
 > 接着我们来到 `routes/indexpage.js` 页面，通过的 `mapStateToProps `引入相关的 `state`
 
-```javascript
+```js
 import React from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
@@ -760,7 +760,7 @@ export default connect(mapStateToProps)(IndexPage);
 
 - 首先我们在 `models/example.js`，写相应的 `reducer`
 
-```javascript
+```js
 export default {
   ...
   reducers: {
@@ -780,7 +780,7 @@ export default {
 
 > 在页面的模板 `routes/IndexPage.js` 中 `+` 号点击的时候，`dispatch `一个 `action`
 
-```javascript
+```js
 import React from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
@@ -812,7 +812,7 @@ export default connect(mapStateToProps)(IndexPage);
 
 - 首先我们替换相应的 `models/example.js` 的 `effect`
 
-```javascript
+```js
 effects: {
     *add(action, { call, put }) {
       yield call(delay, 1000);
@@ -823,7 +823,7 @@ effects: {
 
 > 这里的 `delay`，是我这边写的一个延时的函数，我们在 `utils` 里面编写一个 `utils.js` ，一般请求接口的函数都会写在 `servers` 文件夹中
 
-```javascript
+```js
 export function delay(timeout) {
   return new Promise((resolve) => {
     setTimeout(resolve, timeout);
@@ -835,7 +835,7 @@ export function delay(timeout) {
 
 - 在 `models/example.js` 中作如下修改
 
-```javascript
+```js
 +import key from 'keymaster';
 ...
 app.model({
@@ -863,7 +863,7 @@ npm install keymaster --save
 
 > 抽离`Model`，根据设计页面需求，设计相应的`Model`
 
-```javascript
+```js
 // models/users.js
 // version1: 从数据维度抽取，更适用于无状态的数据
 // version2: 从业务状态抽取，将数据与组件的业务状态统一抽离成一个model
@@ -909,7 +909,7 @@ export default {
 
 > 具有监听数据行为的组件，职责是绑定相关联的 model 数据，包含子组件；传入的数据来源于model
 
-```javascript
+```js
 import React, { Component, PropTypes } from 'react';
 
 // dva 的 connect 方法可以将组件和数据关联在一起
@@ -937,7 +937,7 @@ export default connect(mapStateToProps)(MyComponent);
 
 > 展示通过 `props` 传递到组件内部数据；传入的数据来源于容器组件向展示组件的`props`
 
-```javascript
+```js
 import React, { Component, PropTypes } from 'react';
 
 // 组件本身
@@ -951,7 +951,7 @@ export default MyComponent;
 
 ### 4.2.3 设置路由
 
-```javascript
+```js
 // .src/router.js
 import React, { PropTypes } from 'react';
 import { Router, Route } from 'dva/router';
@@ -968,7 +968,7 @@ export default function({ history }) {
 
 **容器组件雏形**
 
-```javascript
+```js
 // .src/routes/Users.jsx
 import React, { PropTypes } from 'react';
 
@@ -987,7 +987,7 @@ export default Users;
 
 组件的定义方式
 
-```javascript
+```js
 // 方法一： es6 的写法，当组件设计react生命周期时，可采用这种写法
 // 具有生命周期的组件，可以在接收到传入数据变化时，自定义执行方法，有自己的行为模式
 // 比如在组件生成后调用xx请求(componentDidMount)、可以自己决定要不要更新渲染(shouldComponentUpdate)等
@@ -1000,7 +1000,7 @@ const App = (props) => ({});
 
 容器组件：
 
-```javascript
+```js
 // ./src/routes/Users.jsx
 import React, { Component, PropTypes } from 'react';
 
@@ -1058,7 +1058,7 @@ export default Users;
 
 展示组件UserList
 
-```javascript
+```js
 // ./src/components/Users/UserList.jsx
 import React, { Component, PropTypes } from 'react';
 
@@ -1133,7 +1133,7 @@ export default UserList;
 
 ### 4.3.1 第一步：实现reducer函数
 
-```javascript
+```js
 // models/users.js
 // 使用静态数据返回，把userList中的静态数据移到此处
 // querySuccess这个action的作用在于，修改了model的数据
@@ -1178,7 +1178,7 @@ export default {
 
 ### 4.3.2 第二步：关联Model中的数据源
 
-```javascript
+```js
 // routes/Users.jsx
 
 import React, { PropTypes } from 'react';
@@ -1232,7 +1232,7 @@ export default connect(mapStateToProps)(Users);
 
 ### 4.3.3 第三步：通过发起Action，在组件中获取Model中的数据
 
-```javascript
+```js
 // models/users.js
 // 在组件生成后发出action，示例：
 componentDidMount() {
@@ -1262,7 +1262,7 @@ subscriptions: {
 
 ### 4.3.4 第四步： 在index.js中添加models
 
-```javascript
+```js
 // model必须在此完成注册，才能全局有效
 // index.js
 app.model(require('./models/users.js'));
@@ -1274,7 +1274,7 @@ app.model(require('./models/users.js'));
 因为在真实场景中，数据都来自服务器，需要在发起异步请求获得返回值后再设置数据，更新`state`。
 因此我们往往在`Effects`中调用`reducer`
 
-```javascript
+```js
 export default {
   namespace: 'users',
   state： {}，
@@ -1318,7 +1318,7 @@ async function query(params) {
 
 > 用意在于分离(可复用的)ajax请求
 
-```javascript
+```js
 // services/users.js
 import request from '../utils/request';
 import qs from 'qs';
@@ -1336,7 +1336,7 @@ import {query} from '../services/users';
 
 ### 5.1 使用 redux
 
-```javascript
+```js
 // action.js
 
 export const REQUEST_TODO = 'REQUEST_TODO';
@@ -1361,7 +1361,7 @@ export const fetch = count => {
 }
 ```
 
-```javascript
+```js
 //reducer.js
 import { REQUEST_TODO, RESPONSE_TODO } from './actions';
 
@@ -1408,7 +1408,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(App)
 ```
 
-```javascript
+```js
 //index.js
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
@@ -1470,7 +1470,7 @@ export default {
 }
 ```
 
-```javascript
+```js
 //app.js
 
 import React from 'react'
@@ -1500,7 +1500,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(App)
 ```
 
-```javascript
+```js
 // index.js
 import dva from 'dva';
 import model from './model';
@@ -1525,7 +1525,7 @@ app.start();
 
 ## 6.1 示例代码
 
-```javascript
+```js
 // request.js
 import axios from 'axios';
 import NProgress from 'nprogress';
@@ -1655,7 +1655,7 @@ export default function request (opt) {
 
 我们在拦截响应时要分别对这两部分进行处理
 
-```javascript
+```js
 response = {
   status: 200,                // 网络请求状态。
   statusText: 'xxx',
@@ -1669,7 +1669,7 @@ response = {
 
 ## 6.3 依赖包分析
 
-```javascript
+```js
 import axios from 'axios';
 import NProgress from 'nprogress';
 import { notification, message } from 'antd';
@@ -1679,7 +1679,7 @@ import store from '../index';
 
 > `import store from '../index';`这是 `dva` 中导出的对象。即下面代码最终导出的 `app._store`，引入它是因为 `dispatch` 对象在里面，我们需要 dispatch 对象进行路由跳转
 
-```javascript
+```js
 // index.js
 import dva from 'dva';
 import { message } from 'antd';
@@ -1707,7 +1707,7 @@ export default app._store;
 
 ## 6.4 axios 全局配置
 
-```javascript
+```js
 // 设置全局参数，如响应超市时间，请求前缀等。
 axios.defaults.timeout = 5000
 axios.defaults.baseURL = '/api/v1';
@@ -1718,7 +1718,7 @@ axios.defaults.withCredentials = true;
 
 ## 6.5 加载 NProgress 过渡组件
 
-```javascript
+```js
 / 添加一个请求拦截器，用于设置请求过渡状态
 axios.interceptors.request.use((config) => {
   // 请求开始，蓝色过渡滚动条开始出现
@@ -1749,7 +1749,7 @@ axios.interceptors.response.use((response) => {
 
 ## 6.6 网络请求成功处理
 
-```javascript
+```js
 .then((response) => 
       // >>>>>>>>>>>>>> 请求成功 <<<<<<<<<<<<<<
       console.log(`【${opt.method} ${opt.url}】请求成功，响应数据：%o`, response);
@@ -1770,7 +1770,7 @@ axios.interceptors.response.use((response) => {
 
 ## 6.7 网络请求失败处理
 
-```javascript
+```js
 // 状态码错误信息
 const codeMessage = {
   200: '服务器成功返回请求的数据。',

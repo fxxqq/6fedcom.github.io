@@ -37,7 +37,7 @@
 <meta property="og:description" content="一、前言 nodejs是事件驱动、非阻塞I/O模型   阻塞：i/o时进程休眠等待完成后进行下一步 非阻塞：i/o时函数立即返回，进程不等待i/o返回   i/o完成后通知主程序，如何告诉呢？通过事件驱动  事件驱动  i/o等异步操作结束后通知 内部实现是观察者模式  CPU密集和I/O密集  CPU密集：压缩、解压、加密、解密 I/O密集：文件操作、网络操作、数据库  web常见场景(web是">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-64c380eb78d068a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-24T03:46:02.195Z">
+<meta property="og:updated_time" content="2018-10-25T09:40:13.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nodejs之简单入门（一）">
 <meta name="twitter:description" content="一、前言 nodejs是事件驱动、非阻塞I/O模型   阻塞：i/o时进程休眠等待完成后进行下一步 非阻塞：i/o时函数立即返回，进程不等待i/o返回   i/o完成后通知主程序，如何告诉呢？通过事件驱动  事件驱动  i/o等异步操作结束后通知 内部实现是观察者模式  CPU密集和I/O密集  CPU密集：压缩、解压、加密、解密 I/O密集：文件操作、网络操作、数据库  web常见场景(web是">
@@ -300,7 +300,7 @@
 <li><code>views</code>目录  用来存放<code>html</code>模板文件</li>
 <li><code>module</code>目录  自己写的一些模块</li>
 </ul>
-<h2 id="五、第一个node服务器"><a href="#五、第一个node服务器" class="headerlink" title="五、第一个node服务器"></a>五、第一个node服务器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//   安装好node就有的一个模块</span></span><br><span class="line"><span class="comment">//  用来创建http服务器的</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">`http`</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">request,response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//request 请求对象     浏览器 请求 服务器所有的内容保存在这个对象里</span></span><br><span class="line">    <span class="comment">//response 响应对象     服务器响应浏览器 所有的方法</span></span><br><span class="line">    response.writeHead(<span class="number">200</span> , &#123; <span class="string">'Content-Type'</span>:<span class="string">'text/html'</span> &#125; );</span><br><span class="line">    <span class="comment">//  .end() 结束响应 同时发送一个 Hello Word</span></span><br><span class="line">    response.end(<span class="string">'Hello Word'</span>)</span><br><span class="line">&#125;).listen(<span class="number">233</span>);</span><br><span class="line"><span class="comment">//.listen(); 监听端口 233  自定义的端口号</span></span><br><span class="line"><span class="comment">// 如果开启了node服务器  修改完之后的代码必须 重启才能生效</span></span><br></pre></td></tr></table></figure>
+<h2 id="五、第一个node服务器"><a href="#五、第一个node服务器" class="headerlink" title="五、第一个node服务器"></a>五、第一个node服务器</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//   安装好node就有的一个模块</span></span><br><span class="line"><span class="comment">//  用来创建http服务器的</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">`http`</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">request,response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//request 请求对象     浏览器 请求 服务器所有的内容保存在这个对象里</span></span><br><span class="line">    <span class="comment">//response 响应对象     服务器响应浏览器 所有的方法</span></span><br><span class="line">    response.writeHead(<span class="number">200</span> , &#123; <span class="string">'Content-Type'</span>:<span class="string">'text/html'</span> &#125; );</span><br><span class="line">    <span class="comment">//  .end() 结束响应 同时发送一个 Hello Word</span></span><br><span class="line">    response.end(<span class="string">'Hello Word'</span>)</span><br><span class="line">&#125;).listen(<span class="number">233</span>);</span><br><span class="line"><span class="comment">//.listen(); 监听端口 233  自定义的端口号</span></span><br><span class="line"><span class="comment">// 如果开启了node服务器  修改完之后的代码必须 重启才能生效</span></span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -309,7 +309,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T03:46:02.195Z" itemprop="dateUpdated">2018-10-24 11:46:02</time>
+    最后更新时间：<time datetime="2018-10-25T09:40:13.814Z" itemprop="dateUpdated">2018-10-25 17:40:13</time>
 </span><br>
 
 
@@ -579,8 +579,8 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script type="text/javascript" class="autoinsert" src="/js/jquery-1.2.6.min.min.js?v=1.7.2"></script>
-<script src="/js/snowfall.jquery.min.js?v=1.7.2"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
 
         $(document).snowfall('clear');

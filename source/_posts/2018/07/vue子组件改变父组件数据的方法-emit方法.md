@@ -11,7 +11,7 @@ date: 2018-07-18 16:45:09
 
 **方法**
 子组件代码
-```vue
+```html
 <template>
     <child @click="close"></child>
 </template>
@@ -24,7 +24,7 @@ methods: {
 </script>
 ```
 父组件
-```vue
+```html
 <template>
      <parent @close="toClose"  :msg="msg"></parent> //监听子组件触发的close事件,然后调用toClose方法
      <div>{{ msg }}</div>
@@ -44,7 +44,7 @@ methods: {
 ```
 
 **拓展：vue emit 有多个参数该如何写**
-```vue
+```js
 this.$emit('transferName', {name: this.name, dev: this.des})
 ```
 父组件
@@ -53,7 +53,7 @@ HTML代码
 <child @transferName="getNameAndDes"></child>
 ```
 JS代码
-```vue
+```js
 getNameAndDes(msg) {
      this.name = msg.name
      this.dev = msg.dev

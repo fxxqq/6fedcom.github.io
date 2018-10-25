@@ -34,7 +34,7 @@ date: 2016-07-27 11:40:43
 - `arguments`每个函数都有 因此只会在内部找自身的`argument` 无法引用到外部的`arguments`
 
 
-```javascript
+```js
 function t(a,b,c){//参数实际来AO的属性 有几个形参 就形成几个AO属性   arguments就代表这个函数的额参数
 	console.log(a);//1
 	console.log(b);//2
@@ -55,7 +55,7 @@ function t(a,b,c){//参数实际来AO的属性 有几个形参 就形成几个AO
 t(1,2,3,4,5);
 ```
 
-```javascript
+```js
 
 //利用 argument的特点完成其他语言的函数重载
 //求圆形面积 矩形面积 三角形面积
@@ -75,7 +75,7 @@ area(10,20,30);
 ```
 
 
-```javascript
+```js
 function  t(){
 	var age = 22;//age在链的AO上
 	alert(arguments[0]);//1
