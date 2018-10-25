@@ -21,24 +21,24 @@
     <link rel="canonical" href="ture/note/b2790fdc.html">
     
     
-    <title>跨域问题携带cookie加入withCredentials保错原因以及解决方案 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <title>跨域问题携带cookie加入withCredentials报错原因以及解决方案 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="cookie,跨域，ajax">
+    <meta name="keywords" content="cookie，跨域，ajax">
     <meta name="description" content="1.跨域允许解决方法：服务器发送允许客户端发送源的报文头header(‘Access-Control-Allow-Origin:’.$_SERVER[“HTTP_ORIGIN”]);2.客户端无法携带跨域cookie这个时候就可以在extjs中加入withCredentials1234567891011121314$.ajax(&amp;#123;    url: &apos;http://120.111.111.">
-<meta name="keywords" content="cookie,跨域，ajax">
+<meta name="keywords" content="cookie，跨域，ajax">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跨域问题携带cookie加入withCredentials保错原因以及解决方案">
+<meta property="og:title" content="跨域问题携带cookie加入withCredentials报错原因以及解决方案">
 <meta property="og:url" content="https://ru23.com/note/b2790fdc.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="1.跨域允许解决方法：服务器发送允许客户端发送源的报文头header(‘Access-Control-Allow-Origin:’.$_SERVER[“HTTP_ORIGIN”]);2.客户端无法携带跨域cookie这个时候就可以在extjs中加入withCredentials1234567891011121314$.ajax(&amp;#123;    url: &apos;http://120.111.111.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T09:40:26.060Z">
+<meta property="og:updated_time" content="2018-10-25T05:13:25.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跨域问题携带cookie加入withCredentials保错原因以及解决方案">
+<meta name="twitter:title" content="跨域问题携带cookie加入withCredentials报错原因以及解决方案">
 <meta name="twitter:description" content="1.跨域允许解决方法：服务器发送允许客户端发送源的报文头header(‘Access-Control-Allow-Origin:’.$_SERVER[“HTTP_ORIGIN”]);2.客户端无法携带跨域cookie这个时候就可以在extjs中加入withCredentials1234567891011121314$.ajax(&amp;#123;    url: &apos;http://120.111.111.">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
@@ -118,7 +118,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">跨域问题携带cookie加入withCredentials保错原因以及解决方案</div>
+        <div class="flex-col header-title ellipsis">跨域问题携带cookie加入withCredentials报错原因以及解决方案</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -140,7 +140,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">跨域问题携带cookie加入withCredentials保错原因以及解决方案</h1>
+        <h1 class="title">跨域问题携带cookie加入withCredentials报错原因以及解决方案</h1>
         <h5 class="subtitle">
             
                 <time datetime="2018-10-22T10:26:41.000Z" itemprop="datePublished" class="page-time">
@@ -163,11 +163,11 @@
 <div class="container body-wrap">
     
 
-<article id="post-2018-10-跨域问题携带cookie加入withCredentials保错原因以及解决方案"
+<article id="post-2018-10-跨域问题携带cookie加入withCredentials报错原因以及解决方案"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">跨域问题携带cookie加入withCredentials保错原因以及解决方案</h1>
+        <h1 class="post-card-title">跨域问题携带cookie加入withCredentials报错原因以及解决方案</h1>
         <div class="post-meta">
             <time class="post-time" title="2018-10-22 18:26:41" datetime="2018-10-22T10:26:41.000Z"  itemprop="datePublished">2018-10-22</time>
 
@@ -186,14 +186,12 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>1.跨域允许<br>解决方法：服务器发送允许客户端发送源的报文头<br>header(‘Access-Control-Allow-Origin:’.$_SERVER[“HTTP_ORIGIN”]);<br>2.客户端无法携带跨域cookie<br>这个时候就可以在extjs中加入withCredentials<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'http://120.111.111.123/setcookie.php'</span>,</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    params: &#123; </span><br><span class="line">        <span class="string">'text'</span>: <span class="string">'hello world'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    withCredentials: <span class="literal">true</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">transport</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;,</span><br><span class="line">    failure: <span class="function"><span class="keyword">function</span>(<span class="params">transport</span>)</span>&#123;</span><br><span class="line">        alert(<span class="string">"Error: "</span> - transport.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>3.因为加了withCredentials报文头，可是客户端不知道服务器允不允许报的错（耿直的客户端）<br>这个时候就在服务器发送Access-Control-Allow-Credentials<br>header(‘Access-Control-Allow-Credentials:true’);<br>4.由于客户端不知道服务端是否允许POST请求而报的错<br>这个时候要在服务器端加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">header(&apos;Access-Control-Allow-Methods:OPTIONS, GET, POST&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:x-requested-with&apos;);</span><br><span class="line">header(&apos;Access-Control-Max-Age:86400&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>以上汇总起来就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">header(&apos;Access-Control-Allow-Methods:OPTIONS, GET, POST&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:x-requested-with&apos;);</span><br><span class="line">header(&apos;Access-Control-Max-Age:86400&apos;);  </span><br><span class="line">header(&apos;Access-Control-Allow-Origin:&apos;.$_SERVER[&apos;HTTP_ORIGIN&apos;]);</span><br><span class="line">header(&apos;Access-Control-Allow-Credentials:true&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Methods:GET, POST, PUT, DELETE, OPTIONS&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:x-requested-with,content-type&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:Origin, No-Cache, X-Requested-With, If-Modified-Since,</span><br></pre></td></tr></table></figure></p>
+<p>以上汇总起来就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">header(&apos;Access-Control-Allow-Methods:OPTIONS, GET, POST&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:x-requested-with&apos;);</span><br><span class="line">header(&apos;Access-Control-Max-Age:86400&apos;);  </span><br><span class="line">header(&apos;Access-Control-Allow-Origin:&apos;.$_SERVER[&apos;HTTP_ORIGIN&apos;]);</span><br><span class="line">header(&apos;Access-Control-Allow-Credentials:true&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Methods:GET, POST, PUT, DELETE, OPTIONS&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:x-requested-with,content-type&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:Origin, No-Cache, X-Requested-With, If-Modified-Since,</span><br></pre></td></tr></table></figure>
 <p>1.跨域允许<br>不允许报错的跨域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Response to preflight request doesn&apos;t pass access control check: No &apos;Access-Control-Allow-Origin&apos; header is present on the requested resource. </span><br><span class="line">Origin &apos;null&apos; is therefore not allowed access.</span><br></pre></td></tr></table></figure></p>
 <p>报这个错就说明我们跨域了，不在允许的访问源，于是乎我在服务的setcookie.php加入<code>header(&#39;Access-Control-Allow-Origin:*&#39;)</code>;允许所有源<br>然后又报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XMLHttpRequest cannot load http://120.111.111.123/setcookie.php. Request header field X-Requested-With is not allowed by Access-Control-Allow-Headers in preflight response.</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">在跨域的时候，js不会直接发post请求，而是先发送一个option请求，看看服务器允许什么访问头（比如是不是允许post请求），验证成功后才会发送真正的请求</span><br></pre></td></tr></table></figure></p>
 <p>#用谷歌的开发者工具抓的option报文<br>OPTIONS /setcookie.php HTTP/1.1<br>Host: 120.111.111.123<br>Connection: keep-alive<br>Pragma: no-cache<br>Cache-Control: no-cache<br>Access-Control-Request-Method: POST<br>Origin: null<br>User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36<br>Access-Control-Request-Headers: x-requested-with<br>Accept: <em>/</em><br>Accept-Encoding: gzip, deflate, sdch<br>Accept-Language: zh-CN,zh;q=0.8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>#path /setcookie.php</p>
-<p>session_start();<br>header(‘Access-Control-Allow-Origin:*’); </p>
-<p>header(‘Access-Control-Allow-Methods:OPTIONS, GET, POST’); // 允许option，get，post请求<br>header(‘Access-Control-Allow-Headers:x-requested-with’); // 允许x-requested-with请求头<br>header(‘Access-Control-Max-Age:86400’); // 允许访问的有效期</p>
-<p>// 功能…<br>// …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">继续测试我们的新功能，成功的解决了跨域问题</span><br><span class="line">但是，cookie没有“设置成功”。而之所以没有“设置成功”，是因为cookie存在本地，但是每个cookie都有一个domain，当你本地的cookie中存在你当前访问的域时，才会被带过去，而我的index.html文件是本地访问的，即http://localhost/index.html，而cookie的域是要跨域的域名的，所以不行了。</span><br><span class="line">```js</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: &quot;POST&quot;,</span><br><span class="line">    url: &quot;跨域的url&quot;,</span><br><span class="line">    xhrFields: &#123;</span><br><span class="line">         withCredentials: true </span><br><span class="line">    &#125;, // 发送凭据</span><br><span class="line">    contentType: &quot;application/json; charset=utf-8&quot;,</span><br><span class="line">    data: JSON.stringify(data),</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function (message) &#123;</span><br><span class="line">       </span><br><span class="line">    &#125;,</span><br><span class="line">    error: function (message) &#123;</span><br><span class="line">        console.log(message)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>#path /setcookie.php<br>session_start();<br>header(‘Access-Control-Allow-Origin:*’);<br>header(‘Access-Control-Allow-Methods:OPTIONS, GET, POST’); // 允许option，get，post请求<br>header(‘Access-Control-Allow-Headers:x-requested-with’); // 允许x-requested-with请求头<br>header(‘Access-Control-Max-Age:86400’); // 允许访问的有效期<br>// 功能…<br>// …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">继续测试我们的新功能，成功的解决了跨域问题</span><br><span class="line">但是，cookie没有“设置成功”。而之所以没有“设置成功”，是因为cookie存在本地，但是每个cookie都有一个domain，当你本地的cookie中存在你当前访问的域时，才会被带过去，而我的index.html文件是本地访问的，即http://localhost/index.html，而cookie的域是要跨域的域名的，所以不行了。</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: &quot;POST&quot;,</span><br><span class="line">    url: &quot;跨域的url&quot;,</span><br><span class="line">    xhrFields: &#123;</span><br><span class="line">         withCredentials: true </span><br><span class="line">    &#125;, // 发送凭据</span><br><span class="line">    contentType: &quot;application/json; charset=utf-8&quot;,</span><br><span class="line">    data: JSON.stringify(data),</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function (message) &#123;</span><br><span class="line">       </span><br><span class="line">    &#125;,</span><br><span class="line">    error: function (message) &#123;</span><br><span class="line">        console.log(message)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>继续访问，报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Response to preflight request doesn&apos;t pass access control check: A wildcard &apos;*&apos; cannot be used in the &apos;Access-Control-Allow-Origin&apos; header when the credentials flag is true. </span><br><span class="line">Origin &apos;null&apos; is therefore not allowed access. </span><br><span class="line">The credentials mode of an XMLHttpRequest is controlled by the withCredentials attribute.</span><br></pre></td></tr></table></figure></p>
 <p>现在这个错误产生的原因就是<br>1.因为加入了withCredentials之后，Access-Control-Allow-Origin就不能用“*”了，既然不允许访问这个源，那我就让你发个报文头让你允许访问呗！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#path setcookie.php</span><br><span class="line">session_start();</span><br><span class="line">// 是否存在请求源</span><br><span class="line">if(isset($_SERVER[&quot;HTTP_ORIGIN&quot;])) &#123;</span><br><span class="line">    header(&apos;Access-Control-Allow-Origin:&apos;.$_SERVER[&quot;HTTP_ORIGIN&quot;]);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">header(&apos;Access-Control-Allow-Methods:OPTIONS, GET, POST&apos;);</span><br><span class="line">header(&apos;Access-Control-Allow-Headers:x-requested-with&apos;);</span><br><span class="line">header(&apos;Access-Control-Max-Age:86400&apos;);</span><br><span class="line"></span><br><span class="line">// 功能...</span><br><span class="line">// ...</span><br></pre></td></tr></table></figure>
@@ -212,7 +210,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T09:40:26.060Z" itemprop="dateUpdated">2018-10-24 17:40:26</time>
+    最后更新时间：<time datetime="2018-10-25T05:13:25.276Z" itemprop="dateUpdated">2018-10-25 13:13:25</time>
 </span><br>
 
 
@@ -234,7 +232,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cookie/">cookie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域，ajax/">跨域，ajax</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cookie，跨域，ajax/">cookie，跨域，ajax</a></li></ul>
 
 
             
@@ -244,7 +242,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials保错原因以及解决方案》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials报错原因以及解决方案》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -254,7 +252,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials保错原因以及解决方案》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials报错原因以及解决方案》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -264,7 +262,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《跨域问题携带cookie加入withCredentials保错原因以及解决方案》 — 前端迷 (front-end fan)&url=https://ru23.com/note/b2790fdc.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《跨域问题携带cookie加入withCredentials报错原因以及解决方案》 — 前端迷 (front-end fan)&url=https://ru23.com/note/b2790fdc.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -405,7 +403,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials保错原因以及解决方案》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials报错原因以及解决方案》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -415,7 +413,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials保错原因以及解决方案》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/b2790fdc.html&title=《跨域问题携带cookie加入withCredentials报错原因以及解决方案》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -425,7 +423,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《跨域问题携带cookie加入withCredentials保错原因以及解决方案》 — 前端迷 (front-end fan)&url=https://ru23.com/note/b2790fdc.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《跨域问题携带cookie加入withCredentials报错原因以及解决方案》 — 前端迷 (front-end fan)&url=https://ru23.com/note/b2790fdc.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
