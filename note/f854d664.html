@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="操作DOM">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T03:46:01.861Z">
+<meta property="og:updated_time" content="2018-10-25T09:40:14.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery操作DOM（三）">
 <meta name="twitter:description" content="操作DOM">
@@ -201,19 +201,19 @@
 <li>创建元素</li>
 </ul>
 <p>语法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(name);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(name);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br></pre></td></tr></table></figure>
 <p><code>$(html)</code>：根据传递的标记字符串，创建<code>DOM</code>对象</p>
 <ul>
 <li>创建文本</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">"DOM"</span>);</span><br><span class="line">div.appendChild(txt);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $div = = $(<span class="string">"&lt;div&gt;DOM&lt;/div&gt;"</span>);</span><br><span class="line">$(body).append($div);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">"DOM"</span>);</span><br><span class="line">div.appendChild(txt);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $div = = $(<span class="string">"&lt;div&gt;DOM&lt;/div&gt;"</span>);</span><br><span class="line">$(body).append($div);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>设置属性<ul>
 <li>语法：<code>setAttrbute(name,value)</code></li>
 </ul>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">"DOM"</span>);</span><br><span class="line">div.appendChild(txt);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line">div.setAttribute(<span class="string">"title"</span>,<span class="string">"盒子"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $div = = $(<span class="string">"&lt;div title='盒子'&gt;DOM&lt;/div&gt;"</span>);</span><br><span class="line">$(body).append($div);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">"DOM"</span>);</span><br><span class="line">div.appendChild(txt);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line">div.setAttribute(<span class="string">"title"</span>,<span class="string">"盒子"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $div = = $(<span class="string">"&lt;div title='盒子'&gt;DOM&lt;/div&gt;"</span>);</span><br><span class="line">$(body).append($div);</span><br></pre></td></tr></table></figure>
 <h3 id="插入内容"><a href="#插入内容" class="headerlink" title="插入内容"></a>插入内容</h3><ul>
 <li><p>内部插入</p>
 <ul>
@@ -277,7 +277,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-24T03:46:01.861Z" itemprop="dateUpdated">2018-10-24 11:46:01</time>
+    最后更新时间：<time datetime="2018-10-25T09:40:14.405Z" itemprop="dateUpdated">2018-10-25 17:40:14</time>
 </span><br>
 
 
