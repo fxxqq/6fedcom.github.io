@@ -2,7 +2,7 @@
 title: redux入门
 categories: 前端
 tags:
-  - react
+  - React
 abbrlink: c5bbc436
 date: 2018-09-28 19:43:17
 ---

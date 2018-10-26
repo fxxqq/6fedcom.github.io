@@ -2,7 +2,7 @@
 title: React之Immutable学习记录（十二）
 tags:
   - Immutable
-  - react
+  - React
 categories: Front-End
 abbrlink: 2a0f702d
 date: 2017-11-20 20:10:24

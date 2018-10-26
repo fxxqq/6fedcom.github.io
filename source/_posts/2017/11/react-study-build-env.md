@@ -2,7 +2,7 @@
 title: React之环境的搭建（一）
 tags:
   - Javascript
-  - react
+  - React
 categories: Front-End
 abbrlink: 9196d3a3
 date: 2017-11-19 10:10:24

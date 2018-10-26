@@ -2,7 +2,7 @@
 title: 浅谈styled-components
 tags:
   - JavaScript
-  - react
+  - React
 categories: Front-End
 abbrlink: 54b36672
 date: 2017-11-08 16:55:24

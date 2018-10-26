@@ -2,7 +2,7 @@
 title: 梳理Immutable常用API
 tags:
   - Immutable
-  - react
+  - React
 categories: Front-End
 abbrlink: 2bcb1a06
 date: 2018-02-04 16:10:24

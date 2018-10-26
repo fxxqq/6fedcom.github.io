@@ -1,6 +1,6 @@
 ---
 title: vue项目中的痛点（十四）
-tags: Vue
+tags: [Vue,Axios]
 categories: Front-End
 abbrlink: c560373d
 date: 2018-08-28 17:10:30

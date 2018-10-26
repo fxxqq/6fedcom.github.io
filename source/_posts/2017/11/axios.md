@@ -2,7 +2,7 @@
 title: Axios异步请求的那些事
 tags:
   - Axios
-  - react
+  - React
 categories: Front-End
 abbrlink: dee16b26
 date: 2017-11-08 18:55:24

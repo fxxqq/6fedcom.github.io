@@ -2,7 +2,7 @@
 title: React之React Router 4（十一）
 tags:
   - Router
-  - react
+  - React
 categories: Front-End
 abbrlink: c26fe21f
 date: 2017-11-20 00:06:10

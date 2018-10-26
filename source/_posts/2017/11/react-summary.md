@@ -2,7 +2,7 @@
 title: react知识点回顾
 tags:
   - JavaScript
-  - react
+  - React
 categories: Front-End
 abbrlink: eb2df852
 date: 2017-11-07 19:55:24

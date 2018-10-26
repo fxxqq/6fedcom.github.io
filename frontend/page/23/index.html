@@ -157,7 +157,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-2016-07-JavaScript之面向对象中的多态"
+            <article id="post-2016-07-JavaScript之IE-火狐兼容事件对象"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -175,7 +175,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/1fe7b385.html">JavaScript之面向对象中的多态</a>
+      <a class="post-title-link" href="/note/41b2f700.html">JavaScript之IE,火狐兼容事件对象</a>
     </h3>
   
 
@@ -185,11 +185,10 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-多态:同一个父类继承出来的子类各有各的形态
+        1234567document.getElementById('par').addEventListener ('click',function (ev)&#123;		ev = ev||window.event;// 在IE下ev为null window.event为真 || &amp;&amp;在php和js中不同  在js中 第一个真 就返回 否则返回第二个		alert(ev.screenX+ev.screenY)&#125;		);	document.getElementById('son').addEventListener ('click',function ()&#123;alert('son')&#125;);
     
 
-        <a href="/note/1fe7b385.html" class="post-more waves-effect waves-button">
+        <a href="/note/41b2f700.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -205,7 +204,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2016-07-JavaScript之面向对象中的封装"
+            <article id="post-2016-07-JavaScript之函数表达式-arguments详解"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -223,7 +222,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/bec5cc2b.html">JavaScript之面向对象中的封装</a>
+      <a class="post-title-link" href="/note/765dd0ea.html">JavaScript之函数表达式&amp;arguments详解</a>
     </h3>
   
 
@@ -234,12 +233,63 @@
 
     
         
-对象的属性外界是可读可写 如何来达到封装的额目的？
-
-答：可通过闭包+局部变量来完成
+This与arguments
     
 
-        <a href="/note/bec5cc2b.html" class="post-more waves-effect waves-button">
+        <a href="/note/765dd0ea.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2016-07-JavaScript之定时器"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-07-27 11:40:43" datetime="2016-07-27T03:40:43.000Z"  itemprop="datePublished">2016-07-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/e59c5ebc.html">JavaScript之定时器</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+window定时器
+
+setIntval(表达式,毫秒)
+clearIntval(定时器对象)
+setTimeout(表达式,毫秒)
+clearTimeout(定时器对象)
+    
+
+        <a href="/note/e59c5ebc.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -303,55 +353,6 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2016-07-parsetInt-parsetFloat与eval-isNaN用法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-07-27 00:50:43" datetime="2016-07-26T16:50:43.000Z"  itemprop="datePublished">2016-07-27</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/898d51f5.html">parsetInt-parsetFloat与eval-isNaN用法</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        parsetInt与parseFloat
-parsetInt   把字符串的前缀部分分析成整型数字 如果首字不是数字 分析出非数字 NaN
-对于parseInt如果碰到前缀有小数点的 舍弃小数点后面的部分
-    
-
-        <a href="/note/898d51f5.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-2016-07-JavaScript词法分析和作用域闭包"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -389,6 +390,55 @@ parsetInt   把字符串的前缀部分分析成整型数字 如果首字不是�
     
 
         <a href="/note/1f382076.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2016-07-parsetInt-parsetFloat与eval-isNaN用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-07-27 00:50:43" datetime="2016-07-26T16:50:43.000Z"  itemprop="datePublished">2016-07-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/898d51f5.html">parsetInt-parsetFloat与eval-isNaN用法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        parsetInt与parseFloat
+parsetInt   把字符串的前缀部分分析成整型数字 如果首字不是数字 分析出非数字 NaN
+对于parseInt如果碰到前缀有小数点的 舍弃小数点后面的部分
+    
+
+        <a href="/note/898d51f5.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -500,53 +550,6 @@ i..代表的是任意字符
     
 
         <a href="/note/d5559bcf.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2016-07-JavaScript语言基础之数组-七"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-07-27 00:05:43" datetime="2016-07-26T16:05:43.000Z"  itemprop="datePublished">2016-07-27</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/4d991e84.html">JavaScript语言基础之数组(七)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-    
-
-        <a href="/note/4d991e84.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>

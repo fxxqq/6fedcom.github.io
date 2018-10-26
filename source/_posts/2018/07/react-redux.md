@@ -2,7 +2,7 @@
 title: 实现一个迷你版的redux
 tags:
   - Javascript
-  - react
+  - React
 categories: Front-End
 abbrlink: b247df08
 date: 2018-07-23 09:20:24
