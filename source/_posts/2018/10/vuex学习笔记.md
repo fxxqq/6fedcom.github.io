@@ -1,7 +1,7 @@
 ---
 title: vuex学习笔记
 categories: 前端
-tags: 一、Vuex
+tags:  [Vuex]
 abbrlink: caef00ab
 date: 2018-10-17 17:25:59
 ---
