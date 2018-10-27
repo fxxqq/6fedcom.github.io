@@ -22,6 +22,7 @@ $.ajax({
     error: function() {}
 })
 ```
+
 它是对原生XHR的封装，还支持JSONP，非常方便；真的是用过的都说好。但是随着react，vue等前端框架的兴起，jquery早已不复当年之勇。很多情况下我们只需要使用ajax，但是却需要引入整个jquery，这非常的不合理，于是便有了fetch的解决方案。
 
 **优缺点**
@@ -83,8 +84,8 @@ fetch(url, {
     }).join('&')
 })
 ``` 
-由于fetch是比较底层的API，所以需要我们手动将参数拼接成'name=test'的格式，而jquery ajax已经封装好了。所以fetch并不是开箱即用的。
 
+由于fetch是比较底层的API，所以需要我们手动将参数拼接成'name=test'的格式，而jquery ajax已经封装好了。所以fetch并不是开箱即用的。
 另外，fetch还不支持超时控制。
 
 **优缺点：**

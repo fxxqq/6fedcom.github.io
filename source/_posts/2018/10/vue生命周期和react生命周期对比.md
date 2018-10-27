@@ -1,8 +1,11 @@
 ---
 title: vue生命周期和react生命周期对比
 categories: 前端
+tags:
+  - vue
+  - react
+abbrlink: 73225ea8
 date: 2018-10-27 17:29:11
-tags: [vue,react]
 ---
 
 react和vue的业务逻辑是差不多，vue在react上封装了更简洁的方法，使用起来更加的便捷，如：提供了便捷的指令（v-for,v-if,v-model），还提供了更多的属性（computed,watch），我还是比较喜欢用react的，更接近js原生，更容易于理解它。
