@@ -22,6 +22,7 @@ $.ajax({
     error: function() {}
 })
 ```
+
 它是对原生XHR的封装，还支持JSONP，非常方便；真的是用过的都说好。但是随着react，vue等前端框架的兴起，jquery早已不复当年之勇。很多情况下我们只需要使用ajax，但是却需要引入整个jquery，这非常的不合理，于是便有了fetch的解决方案。
 
 **优缺点**
@@ -52,6 +53,7 @@ fetch(url).then(response = > {
 }).then(data = > console.log(data)).
 catch (err = > console.log(err))
 ``` 
+
 看起来好像是方便点，then链就像之前熟悉的callback。
 
 在MDN上，讲到它跟jquery ajax的区别，这也是fetch很奇怪的地方：
@@ -59,6 +61,7 @@ catch (err = > console.log(err))
 当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 ok 属性设置为 false ）， 仅当网络故障时或请求被阻止时，才会标记为 reject。 默认情况下, fetch 不会从服务端发送或接收任何 cookies, 如果站点依赖于用户 session，则会导致未经认证的请求（要发送 cookies，必须设置 credentials 选项）.
 
 突然感觉这还不如jquery ajax好用呢？别急，再搭配上async/await将会让我们的异步代码更加优雅：
+
 ```js
 async function test() {
     let response = await fetch(url);
@@ -81,8 +84,8 @@ fetch(url, {
     }).join('&')
 })
 ``` 
-由于fetch是比较底层的API，所以需要我们手动将参数拼接成'name=test'的格式，而jquery ajax已经封装好了。所以fetch并不是开箱即用的。
 
+由于fetch是比较底层的API，所以需要我们手动将参数拼接成'name=test'的格式，而jquery ajax已经封装好了。所以fetch并不是开箱即用的。
 另外，fetch还不支持超时控制。
 
 **优缺点：**
