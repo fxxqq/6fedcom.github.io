@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/9f35addd.html">
+    
+    
+    <title>使用autohotkey修改方向键、回车和启动程序 | 前端迷 (front-end fan) | 188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="autohotkey官网 autohotkey官方文档 官方文档中文版 具体步骤 下载并安装autohotkey。  在你觉得合适的地方鼠标右键-新建-autohotkey script（脚本）；或者创建一个别的文件，再把后缀改成ahk也可以  一个新建的ahk文档里面会有这些东西 1234#NoEnv  ; Recommended for performance and compatibilit">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用autohotkey修改方向键、回车和启动程序">
+<meta property="og:url" content="https://ru23.com/note/9f35addd.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="autohotkey官网 autohotkey官方文档 官方文档中文版 具体步骤 下载并安装autohotkey。  在你觉得合适的地方鼠标右键-新建-autohotkey script（脚本）；或者创建一个别的文件，再把后缀改成ahk也可以  一个新建的ahk文档里面会有这些东西 1234#NoEnv  ; Recommended for performance and compatibilit">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-30T08:30:42.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用autohotkey修改方向键、回车和启动程序">
+<meta name="twitter:description" content="autohotkey官网 autohotkey官方文档 官方文档中文版 具体步骤 下载并安装autohotkey。  在你觉得合适的地方鼠标右键-新建-autohotkey script（脚本）；或者创建一个别的文件，再把后缀改成ahk也可以  一个新建的ahk文档里面会有这些东西 1234#NoEnv  ; Recommended for performance and compatibilit">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/"  >
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags"  >
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories"  >
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives"  >
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank"
+                         >
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">使用autohotkey修改方向键、回车和启动程序</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">使用autohotkey修改方向键、回车和启动程序</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-07T13:34:40.000Z" itemprop="datePublished" class="page-time">
+  2017-04-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#具体步骤"><span class="post-toc-text">具体步骤</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2017-04-使用autohotkey修改方向键、回车和启动程序"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">使用autohotkey修改方向键、回车和启动程序</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-04-07 21:34:40" datetime="2017-04-07T13:34:40.000Z"  itemprop="datePublished">2017-04-07</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="https://autohotkey.com/" target="_blank" rel="noopener">autohotkey官网</a></p>
+<p><a href="https://autohotkey.com/docs/AutoHotkey.htm" target="_blank" rel="noopener">autohotkey官方文档</a></p>
+<p><a href="http://ahkcn.sourceforge.net/docs/AutoHotkey.htm" target="_blank" rel="noopener">官方文档中文版</a></p>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ol>
+<li><p>下载并安装autohotkey。</p>
+</li>
+<li><p>在你觉得合适的地方鼠标右键-新建-autohotkey script（脚本）；或者创建一个别的文件，再把后缀改成ahk也可以</p>
+</li>
+<li><p>一个新建的ahk文档里面会有这些东西</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.</span><br><span class="line">; #Warn  ; Enable warnings to assist with detecting common errors.</span><br><span class="line">SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.</span><br><span class="line">SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.</span><br></pre></td></tr></table></figure>
+<p>不用管这些</p>
+</li>
+<li><p>在下面输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">!j::</span><br><span class="line">   Send, &#123;Down&#125;</span><br><span class="line">Return</span><br><span class="line"></span><br><span class="line">!l::</span><br><span class="line">   Send, &#123;Right&#125;</span><br><span class="line">Return</span><br><span class="line"></span><br><span class="line">!h::</span><br><span class="line">   Send, &#123;Left&#125;</span><br><span class="line">Return</span><br><span class="line"></span><br><span class="line">!k::</span><br><span class="line">   Send, &#123;Up&#125;</span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
+<p>这几句话是把↑改成了alt+k；↓为alt+j；←为alt+h；→为alt+l。如果想用ctrl代替alt，就把<code>!</code> 换成<code>^</code> 。其他的<code>+</code> 代表shift，<code>#</code> 代表windows键，更详细的看<a href="http://ahkcn.sourceforge.net/docs/Hotkeys.htm" target="_blank" rel="noopener">这个</a>。如果不需要其他功能了，直接保存并关闭，跳到第 步。</p>
+</li>
+<li><p><strong>加入修改回车的功能</strong>。键盘左侧的Capslock（锁定大小写）键使用频率相对还是不高的，而回车键的位置又有点坑，改之。直接复制这段这两行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$CapsLock::Enter</span><br><span class="line"></span><br><span class="line">LAlt &amp; Capslock::SetCapsLockState, % GetKeyState(&quot;CapsLock&quot;, &quot;T&quot;) ? &quot;Off&quot; : &quot;On&quot;</span><br></pre></td></tr></table></figure>
+<p>这样，左侧的Capslock键就成了回车，以后小量的大写字母用shift+字母，如果有大量的大写字母的输入，用<code>alt+Capslock</code> ，跟之前Capslock是一样的。</p>
+</li>
+<li><p>autohotkey也可以用快捷键启动软件，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!o::</span><br><span class="line">   Run, C:\Program Files\Everything\Everything.exe</span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
+<p>现在<code>alt+o</code>就是启动everything的快捷键了。同样的，如果想用ctrl代替alt，就把<code>!</code> 换成<code>^</code> 。其他的<code>+</code> 代表shift，<code>#</code> 代表windows键，更详细的看<a href="http://ahkcn.sourceforge.net/docs/Hotkeys.htm" target="_blank" rel="noopener">这个</a>。如果想启动其他的软件，就把上面的路径换成你想启动的那个软件的路径机就可以了。</p>
+</li>
+<li><p>保存，关闭</p>
+</li>
+<li><p>在编辑好的文件点击鼠标右键，选择编译脚本，也可能是Compile script，也可能是Compile脚本，都是一样的。编译之后就会生成一个<code>.exe</code>的文件，把这个文件放到开机启动文件夹中（C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp），每次开机就可以自动启动了。</p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/9f35addd.html&title=《使用autohotkey修改方向键、回车和启动程序》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/9f35addd.html&title=《使用autohotkey修改方向键、回车和启动程序》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/9f35addd.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用autohotkey修改方向键、回车和启动程序》 — 前端迷 (front-end fan)&url=https://ru23.com/note/9f35addd.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/9f35addd.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/67fe8f98.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ES6编码风格</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/751c501.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">一个关于回调函数的例子以及异步程序和非阻塞I/O的理解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/9f35addd.html&title=《使用autohotkey修改方向键、回车和启动程序》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/9f35addd.html&title=《使用autohotkey修改方向键、回车和启动程序》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/9f35addd.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用autohotkey修改方向键、回车和启动程序》 — 前端迷 (front-end fan)&url=https://ru23.com/note/9f35addd.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/9f35addd.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aS47CMBAFwNz/0hmJFRKT8NrtGC/KK0RQXGbR6o+PI17na71/fv/m/vv8DdMWLi5um3vers/NkiPdE6/ef/8bXFzc9dw89ORh6P7Yyd+Bi4u7PzehJKEwD5S4uLj7c8fQeQKEi4u7GzcvTqqpTLXVMq1Ww8XFbXDHGqZzPz/e38XFxZ00lcibm3nztLNwcXHXcJOyJB+WdMa0hSQJFxd3Ibda2IwFvrFCCBcXdyW3kFgUm56dlOhyF1xc3IXcsbZpEpjyEFkue3BxcZdw86ZGdctqCXS5Ly4u7hLu2EWK6jWLvLNRGKzi4uI+zB0rTvKQVC14cHFxd+B2LkvlrZNqS6U8BcLFxZ3EzccbYzemkvcUDoOLi7uc26mc8iFK/jQapeDi4j7AraYpYyGsP3DFxcVdyT2XrOqoBhcXdwfurOInL3WOeOHi4v6K2wlJY+VQnu5E+RQuLu5U7tztq4h8JFM+DC4ubptbHabmIa/6FBcXdzfuE5exvnRq4wIJFxd3Z+7c4Wty/eKfXXBxcTfm5qGnE+xwcXF/yx0rY5INOvRWrYaLi9vgVhum1eJn1mFwcXGXcP8AxJMlC9/Dh9MAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+
+        $(document).snowfall('clear');
+
+        $(document).snowfall({
+
+            image: "/img/huaban.png",
+
+            flakeCount:30,
+
+            minSize: 5,
+
+            maxSize: 22
+
+        });
+
+    </script>
+
+
+
+
+
+</body>
+</html>
