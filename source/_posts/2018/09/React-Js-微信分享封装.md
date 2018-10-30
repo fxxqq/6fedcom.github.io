@@ -1,6 +1,6 @@
 ---
 title: React Js 微信分享封装
-categories: 前端
+categories: Front-End
 issues: 110
 tags:
   - React

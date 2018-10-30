@@ -1,6 +1,6 @@
 ---
 title: 修改element ui 源码 npm run dist 报错以及解决方案
-categories: 前端
+categories: Front-End
 tags:
   - npm
   - elementUI

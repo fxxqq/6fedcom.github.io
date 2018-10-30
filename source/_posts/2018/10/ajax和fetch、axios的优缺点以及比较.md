@@ -1,8 +1,8 @@
 ---
 title: ajax和fetch、axios的优缺点以及比较
-categories: 前端
+categories: Front-End
 tags:
-  - Ajax
+  - ajax
   - Fetch
   - Axios
 abbrlink: 7fae67c6

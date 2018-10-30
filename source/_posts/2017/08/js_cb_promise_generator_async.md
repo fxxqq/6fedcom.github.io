@@ -1,7 +1,7 @@
 ---
 title: 浅谈JavaScript中的异步处理
 tags:
-  - JavaScript
+  - Javascript
   - 异步回调
 categories: Front-End
 abbrlink: fb0e9d3a

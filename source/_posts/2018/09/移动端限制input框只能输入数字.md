@@ -1,6 +1,6 @@
 ---
 title: 移动端限制input框只能输入数字
-categories: 前端
+categories: Front-End
 issues: 111
 tags:
   - html5

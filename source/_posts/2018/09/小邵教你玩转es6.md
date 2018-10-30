@@ -1,6 +1,6 @@
 ---
 title: ES6学习笔记
-categories: 好文分享
+categories: 前端分享
 tags:
   - 优质文章分享
 abbrlink: a5a8a12c

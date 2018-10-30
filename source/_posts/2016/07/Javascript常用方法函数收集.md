@@ -1,7 +1,7 @@
 ---
 title: Javascript常用方法函数收集
 tags:
-  - JavaScript
+  - Javascript
   - Snippet
 categories: Front-End
 abbrlink: 30fd5d95

@@ -1,6 +1,6 @@
 ---
 title: vue生命周期和react生命周期对比
-categories: 前端
+categories: Front-End
 tags:
   - vue
   - react

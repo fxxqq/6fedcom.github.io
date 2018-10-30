@@ -1,7 +1,7 @@
 ---
 title: web开发中跨域解决方案
 tags:
-  - JavaScript
+  - Javascript
   - 跨域
 categories: Front-End
 abbrlink: b28c200f

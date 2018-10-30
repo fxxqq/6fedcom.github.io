@@ -1,6 +1,6 @@
 ---
 title: vue数组中数据变化但是视图没有更新解决方案
-categories: 前端
+categories: Front-End
 tags:
   - vue
 abbrlink: d6f8e949

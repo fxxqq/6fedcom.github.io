@@ -1,7 +1,7 @@
 ---
 title: Redux之react结合redux实战篇（十）
 tags:
-  - JavaScript
+  - Redux
   - React
 categories: Front-End
 abbrlink: 32ffbfbb

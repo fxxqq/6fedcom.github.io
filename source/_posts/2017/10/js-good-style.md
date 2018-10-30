@@ -1,7 +1,7 @@
 ---
 title: 编写可维护的JavaScript
 tags:
-  - JavaScript
+  - Javascript
   - 读书笔记
 categories: Front-End
 abbrlink: '22690905'

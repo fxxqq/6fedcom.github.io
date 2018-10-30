@@ -1,7 +1,7 @@
 ---
 title: React之组件的生命周期以及属性状态（三）
 tags:
-  - JavaScript
+  - Javascript
   - React
 categories: Front-End
 abbrlink: b0cc8a93

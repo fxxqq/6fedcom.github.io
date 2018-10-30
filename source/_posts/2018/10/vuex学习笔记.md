@@ -1,6 +1,6 @@
 ---
 title: vuex学习笔记
-categories: 前端
+categories: Front-End
 tags:  [Vuex]
 abbrlink: caef00ab
 date: 2018-10-17 17:25:59

@@ -1,6 +1,6 @@
 ---
 title: '[react]-动态添加class'
-categories: 前端
+categories: Front-End
 tags:
   - React
 abbrlink: 76ba0f83

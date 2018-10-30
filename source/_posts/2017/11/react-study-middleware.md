@@ -1,7 +1,7 @@
 ---
 title: Redux之浅析中间件（八）
 tags:
-  - JavaScript
+  - Redux
   - React
 categories: Front-End
 abbrlink: f50d087a

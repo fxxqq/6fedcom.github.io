@@ -1,6 +1,6 @@
 ---
 title: vue子组件改变父组件数据的方法 emit方法
-categories: 前端
+categories: Front-End
 tags:
   - vue
 abbrlink: 4859b5d8

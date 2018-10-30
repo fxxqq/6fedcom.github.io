@@ -1,6 +1,6 @@
 ---
 title: 输入框input类型为number时，去掉上下箭头样式
-categories: 前端
+categories: Front-End
 tags:
   - html5
 abbrlink: 1c69a5f4

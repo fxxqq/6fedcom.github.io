@@ -1,6 +1,6 @@
 ---
 title: lazyload页面中间有滚动条，滑动鼠标无法触发图片预加载
-categories: 前端
+categories: Front-End
 tags:
   - jQuery
 abbrlink: 79c56a00

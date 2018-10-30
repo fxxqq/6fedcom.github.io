@@ -1,6 +1,6 @@
 ---
 title: emoji表情存储后台报错的问题
-categories: 前端
+categories: Front-End
 tags:
   - Javascript
 abbrlink: a79ce8b4

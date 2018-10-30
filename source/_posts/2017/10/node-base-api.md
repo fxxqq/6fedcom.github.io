@@ -1,7 +1,7 @@
 ---
 title: Nodejs之基础API（三）
 tags:
-  - JavaScript
+  - Javascript
   - Node
 categories: Back-end
 abbrlink: b424fccc

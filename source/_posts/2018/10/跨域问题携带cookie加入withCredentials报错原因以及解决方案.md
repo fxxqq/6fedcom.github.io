@@ -1,6 +1,6 @@
 ---
 title: 跨域问题携带cookie加入withCredentials报错原因以及解决方案
-categories: 前端
+categories: Front-End
 abbrlink: b2790fdc
 date: 2018-10-22 18:26:41
 tags: [cookie,跨域,ajax]

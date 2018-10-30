@@ -1,7 +1,7 @@
 ---
 title: JavaScript启示录阅读笔录
 tags:
-  - JavaScript
+  - Javascript
   - 读书笔记
 categories: Front-End
 abbrlink: a87a6818

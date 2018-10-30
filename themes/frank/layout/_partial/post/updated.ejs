@@ -1,5 +1,7 @@
 <% if(theme.show_last_updated){ %>
 <span class="post-time">
-    <%= __('post.last_updated') %><time datetime="<%- date_xml(post.updated) %>" itemprop="dateUpdated"><%- full_date(post.updated) %></time>
+    <div class="qrcode-container">
+        <img src="<%- url_for(theme.qrcode) %>">
+    </div><br>
 </span><br>
 <%} %>

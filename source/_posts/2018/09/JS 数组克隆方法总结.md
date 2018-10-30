@@ -1,6 +1,6 @@
 ---
 title: JS 数组克隆方法总结
-categories: 前端
+categories: Front-End
 issues: 112
 tags:
   - js代码片段

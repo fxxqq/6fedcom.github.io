@@ -1,7 +1,7 @@
 ---
 title: 高阶函数map reduce filter
 tags:
-  - JavaScript
+  - Javascript
   - 高阶函数
 categories: Front-End
 abbrlink: 6ef2cf5a

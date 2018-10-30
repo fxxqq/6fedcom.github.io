@@ -1,7 +1,7 @@
 ---
 title: OOP之类与对象
 tags:
-  - JavaScript
+  - Javascript
   - 面向对象
 categories: Front-End
 abbrlink: 7e6522d0

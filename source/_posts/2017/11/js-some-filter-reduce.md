@@ -1,7 +1,7 @@
 ---
 title: JavaScript原生数组及高阶函数
 tags:
-  - JavaScript
+  - Javascript
   - 高阶函数
 categories: Front-End
 abbrlink: ba91dc04

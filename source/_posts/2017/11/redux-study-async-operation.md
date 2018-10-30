@@ -1,7 +1,7 @@
 ---
 title: Redux之异步Action及操作（七）
 tags:
-  - JavaScript
+  - Javascript
   - React
 categories: Front-End
 abbrlink: 9e9b2557

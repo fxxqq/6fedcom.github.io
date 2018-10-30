@@ -1,7 +1,7 @@
 ---
 title: ECMAScript6回顾
 tags:
-  - JavaScript
+  - Javascript
   - ES6
 categories: Front-End
 abbrlink: 7efe3a88

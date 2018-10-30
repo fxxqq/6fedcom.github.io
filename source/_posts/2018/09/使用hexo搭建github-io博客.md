@@ -1,6 +1,6 @@
 ---
 title: 使用hexo搭建github.io博客
-categories: Hexo教程
+categories: Hexo
 issues: 113
 abbrlink: c16b4f29
 date: 2018-09-07 10:57:11

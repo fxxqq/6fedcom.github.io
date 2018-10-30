@@ -1,6 +1,6 @@
 ---
 title: 使用slice()简单封装实现将数组分割为几个等长度的子数组
-categories: 前端
+categories: Front-End
 tags:
   - Javascript
 abbrlink: d7aaf523

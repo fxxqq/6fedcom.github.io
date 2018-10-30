@@ -1,7 +1,7 @@
 ---
 title: javascript 下常用的字符串操作
 tags:
-  - JavaScript
+  - Javascript
   - Snippet
 categories: Front-End
 abbrlink: 93fe111f

@@ -1,7 +1,7 @@
 ---
 title: Mocha+Chai+Istanbul单元测试
 tags:
-  - JavaScript
+  - Javascript
   - 测试
 categories: Front-End
 abbrlink: fac8b8e7

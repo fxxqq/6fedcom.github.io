@@ -1,7 +1,7 @@
 ---
 title: Redux之action、store、reducer分析（六）
 tags:
-  - JavaScript
+  - Javascript
   - React
 categories: Front-End
 abbrlink: b007a017

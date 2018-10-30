@@ -1,6 +1,6 @@
 ---
 title: 组(Array)操作之splice() --删除、插入、替换
-categories: 前端
+categories: Front-End
 tags:
   - Javascript
 abbrlink: c9afb08d

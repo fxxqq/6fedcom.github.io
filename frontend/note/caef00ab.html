@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/47031776-3a224900-d1a3-11e8-8d97-a75b1f522555.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/47031803-4908fb80-d1a3-11e8-9237-a76a2eb199b4.png">
-<meta property="og:updated_time" content="2018-10-26T02:52:14.982Z">
+<meta property="og:updated_time" content="2018-10-29T07:53:49.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuex学习笔记">
 <meta name="twitter:description" content="组件是Vue最强大的功能之一，而组件实例的作用域是相互独立的，意味着不同组件之间的数据是无法相互使用。组件间如何传递数据就显得至关重要，这篇文章主要是介绍Vuex。尽量以通俗易懂的实例讲述这其中的差别，希望对小伙伴有些许帮助。  一、Vuex 是什么？Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式">
@@ -108,6 +108,14 @@
                     </a>
                 </li>
                 
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank"
+                         >
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
             </ul>
 
         </div>
@@ -151,7 +159,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
 
             
         </h5>
@@ -165,12 +173,13 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、Vuex-是什么？"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、Vuex 是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、什么是“状态管理模式”？"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、什么是“状态管理模式”？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、核心概念"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、核心概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-state"><span class="post-toc-number">3.0.0.1.</span> <span class="post-toc-text">1. state</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-getters"><span class="post-toc-number">3.0.0.2.</span> <span class="post-toc-text">2. getters</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-mutations"><span class="post-toc-number">3.0.0.3.</span> <span class="post-toc-text">3. mutations</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#5-Module"><span class="post-toc-number">3.0.0.4.</span> <span class="post-toc-text">5.Module</span></a></li></ol></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、Vuex-是什么？"><span class="post-toc-text">一、Vuex 是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、什么是“状态管理模式”？"><span class="post-toc-text">二、什么是“状态管理模式”？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、核心概念"><span class="post-toc-text">三、核心概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-state"><span class="post-toc-text">1. state</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-getters"><span class="post-toc-text">2. getters</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-mutations"><span class="post-toc-text">3. mutations</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#5-Module"><span class="post-toc-text">5.Module</span></a></li></ol></li></ol></li></ol></li></ol>
+    </nav>
+</aside>
+
 
 
 <article id="post-2018-10-vuex学习笔记"
@@ -182,7 +191,7 @@
             <time class="post-time" title="2018-10-17 17:25:59" datetime="2018-10-17T09:25:59.000Z"  itemprop="datePublished">2018-10-17</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
 
 
 
@@ -242,12 +251,14 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-26T02:52:14.982Z" itemprop="dateUpdated">2018-10-26 10:52:14</time>
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/caef00ab.html" target="_blank" rel="external">https://ru23.com/note/caef00ab.html</a>
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
         
     </div>
     
@@ -258,6 +269,12 @@
         </a>
     </footer>
 </blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
 
         
 
@@ -395,10 +412,10 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -415,7 +432,7 @@
         <p><span>
                 frank &copy;
                 
-                2014 -
+                2015 -
                 
                 2018</span>
             <span>

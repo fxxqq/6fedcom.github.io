@@ -1,6 +1,6 @@
 ---
 title: 合并数组的相同的key值，并且计算相同key值的个数
-categories: 前端
+categories: Front-End
 tags:
   - js代码片段
 issues: 108

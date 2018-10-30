@@ -1,7 +1,7 @@
 ---
 title: 前后端分离之数据Mock
 tags:
-  - JavaScript
+  - Javascript
   - Mock
 categories: Front-End
 abbrlink: 30ed4e0c

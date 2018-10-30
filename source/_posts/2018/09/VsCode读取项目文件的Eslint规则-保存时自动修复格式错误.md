@@ -1,6 +1,6 @@
 ---
 title: VsCode读取项目文件的Eslint规则 保存时自动修复格式错误
-categories: 前端
+categories: Front-End
 abbrlink: e7d1661f
 date: 2018-09-17 16:29:10
 tags:

@@ -1,7 +1,7 @@
 ---
 title: 正则回顾总结
 tags:
-  - JavaScript
+  - Javascript
   - 正则表达式
 categories: Front-End
 abbrlink: d4f8fa93

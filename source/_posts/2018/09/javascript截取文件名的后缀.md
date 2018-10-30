@@ -1,6 +1,6 @@
 ---
 title: Javascript截取文件名的后缀
-categories: 前端
+categories: Front-End
 issues: 112
 tags:
   - js代码片段

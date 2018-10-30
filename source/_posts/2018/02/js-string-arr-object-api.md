@@ -1,7 +1,7 @@
 ---
 title: JavaScript数组、字符串、对象常用方法
 tags:
-  - JavaScript
+  - Javascript
   - API
 categories: Front-End
 abbrlink: 1196ec8b

@@ -1,6 +1,6 @@
 ---
 title: vue路由传参的三种基本方式
-categories: 前端
+categories: Front-End
 tags:
   - vue
 abbrlink: 701e9ca3

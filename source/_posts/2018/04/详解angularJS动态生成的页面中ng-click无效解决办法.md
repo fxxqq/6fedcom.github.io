@@ -1,6 +1,6 @@
 ---
 title: 详解angularJS动态生成的页面中ng-click无效解决办法
-categories: 前端
+categories: Front-End
 tags:
   - angular
   - 踩过的坑
