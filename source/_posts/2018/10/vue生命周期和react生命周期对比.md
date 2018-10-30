@@ -12,8 +12,8 @@ react和vue的业务逻辑是差不多，vue在react上封装了更简洁的方�
 
 # vue的生命周期
 ### 一 如下图所示(很清晰)初始化、编译、更新、销毁
-
-![vue生命周期](./vue生命周期和react生命周期对比/vue-life-cycle.png)
+ 
+![vue生命周期](vue生命周期和react生命周期对比/vue-life-cycle.png)
 
 ### 二 vue生命周期的栗子
 
@@ -62,7 +62,7 @@ var myVue = new Vue({
 #  react生命周期
 
 ### React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁
-![React生命周期](./vue生命周期和react生命周期对比/react-life-cycle.png)
+![React生命周期](vue生命周期和react生命周期对比/react-life-cycle.png)
 
 
 •初始化
