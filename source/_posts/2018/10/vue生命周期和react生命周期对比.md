@@ -13,7 +13,7 @@ react和vue的业务逻辑是差不多，vue在react上封装了更简洁的方�
 # vue的生命周期
 ### 一 如下图所示(很清晰)初始化、编译、更新、销毁
  
-![vue生命周期](img/vue-life-cycle.png)
+![vue生命周期](/../../img/vue-life-cycle.png)
 
 ### 二 vue生命周期的栗子
 
