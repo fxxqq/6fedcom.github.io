@@ -29,3 +29,5 @@ hexo clean && hexo g && hexo d
 ```
 hexo new page "about"
 ```
+图片路径
+![React生命周期](/img/2018/10/react-life-cycle.png)
