@@ -1,5 +1,6 @@
 ---
 title: 用vultr建立网站
+abbrlink: fe724b4e
 date: 2017-04-20 21:34:40
 ---
 内容会运用到Linux、docker

@@ -1,5 +1,6 @@
 ---
 title: 练习用原生JavaScript编写与JavaScript数组方法slice功能一样的函数
+abbrlink: d9ac2aad
 date: 2017-06-28 21:01:40
 ---
 刚刚开始的时候感觉不太难，越写越发现之前忽略的可能性很多。

@@ -1,5 +1,6 @@
 ---
 title: 对angularJS一些概念的理解
+abbrlink: 22d9cd51
 date: 2017-02-22 21:34:40
 ---
 ## angularJS是以MVC为设计模式的JS框架

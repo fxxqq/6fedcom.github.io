@@ -1,5 +1,6 @@
 ---
 title: webpack入门操作
+abbrlink: 60e1e8cf
 date: 2017-05-01 21:34:40
 ---
 ## 起步

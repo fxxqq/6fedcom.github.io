@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/note/60e1e8cf.html">
+    
+    
+    <title>webpack入门操作 | 前端迷 (front-end fan) | 欢迎投稿、合作，交流QQ：188105274(微信，邮箱同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="起步在文件夹创建一个package.json 1npm init 安装webpack 12// 安装Webpacknpm install --save-dev webpack 新建一个webpack.config.js的文件并配置如下 1234567module.exports = &amp;#123;  entry:  __dirname + &amp;quot;/app/main.js&amp;quot;,//已多次">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack入门操作">
+<meta property="og:url" content="https://ru23.com/note/60e1e8cf.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="起步在文件夹创建一个package.json 1npm init 安装webpack 12// 安装Webpacknpm install --save-dev webpack 新建一个webpack.config.js的文件并配置如下 1234567module.exports = &amp;#123;  entry:  __dirname + &amp;quot;/app/main.js&amp;quot;,//已多次">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-30T14:33:56.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack入门操作">
+<meta name="twitter:description" content="起步在文件夹创建一个package.json 1npm init 安装webpack 12// 安装Webpacknpm install --save-dev webpack 新建一个webpack.config.js的文件并配置如下 1234567module.exports = &amp;#123;  entry:  __dirname + &amp;quot;/app/main.js&amp;quot;,//已多次">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <img src="/img/qrcode.png">
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">webpack入门操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">webpack入门操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-01T13:34:40.000Z" itemprop="datePublished" class="page-time">
+  2017-05-01
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起步"><span class="post-toc-number">1.</span> <span class="post-toc-text">起步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#加入一些基础功能"><span class="post-toc-number">2.</span> <span class="post-toc-text">加入一些基础功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#加入loader"><span class="post-toc-number">3.</span> <span class="post-toc-text">加入loader</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插件（plugin）"><span class="post-toc-number">4.</span> <span class="post-toc-text">插件（plugin）</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-webpack入门操作" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">webpack入门操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-01 21:34:40" datetime="2017-05-01T13:34:40.000Z" itemprop="datePublished">2017-05-01</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p><strong>在文件夹创建一个package.json</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p><strong>安装webpack</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 安装Webpack</span><br><span class="line">npm install --save-dev webpack</span><br></pre></td></tr></table></figure>
+<p><strong>新建一个webpack.config.js的文件并配置如下</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,//已多次提及的唯一入口文件</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/public&quot;,//打包后的文件存放的地方</span><br><span class="line">    filename: &quot;bundle.js&quot;//打包后输出文件的文件名</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>__dirname是当前文件夹所在的位置，也就是当前目录的绝对路径，它是一个变量，如果把这个目录放到其他的地方它会自动变化。</p>
+</blockquote>
+<h2 id="加入一些基础功能"><a href="#加入一些基础功能" class="headerlink" title="加入一些基础功能"></a>加入一些基础功能</h2><p><strong>在package.json里面加入如下配置。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;webpack-demo-practice&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;webpack-demo-practice&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;webpack&quot; //配置的地方就是这里啦，相当于把npm的start命令指向webpack命令</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;zhang&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;webpack&quot;: &quot;^1.12.9&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>package.json中的脚本部分已经默认在命令前添加了<code>node_modules/.bin</code>路径，所以无论是全局还是局部安装的Webpack，你都不需要写前面那指明详细的路径了。</p>
+<p><strong>在webpack.config.js文件中加入source maps</strong>，目的是找到代码的错误，方便我们改错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  devtool: &apos;eval-source-map&apos;,      //配置生成Source Maps，选择合适的选项</span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/public&quot;,</span><br><span class="line">    filename: &quot;bundle.js&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>eval-source-map只是source maps中的一个选项，它更适用于开发阶段，至于source maps有哪些选项，需要自己去查一下了。</p>
+<p><strong>用webpack构建本地服务器</strong>，目的是在没有后端的情况下也可以模拟后端来帮助前端调试</p>
+<p>先安装webpack-dev-server</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-dev-server</span><br></pre></td></tr></table></figure>
+<p>然后把配置加到webpack.config.js文件之中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  devtool: &apos;eval-source-map&apos;,</span><br><span class="line"></span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/public&quot;,</span><br><span class="line">    filename: &quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &quot;./public&quot;,//本地服务器所加载的页面所在的目录</span><br><span class="line">    colors: true,//终端中输出结果为彩色</span><br><span class="line">    historyApiFallback: true,//不跳转</span><br><span class="line">    inline: true//当改变代码是可以自动刷新页面</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="加入loader"><a href="#加入loader" class="headerlink" title="加入loader"></a>加入loader</h2><p>loader是webpack的加载器，它的功能有点<strong>类似于</strong>插件（plugin），他与webpack正牌的插件（plugin）是有区别的，loader主要用于加载资源，也可以说是转化资源，把各类语法转化在同一个文件之中。plugin的功能则更加丰富。</p>
+<p><strong>安装可以转换json的loader</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev json-loader</span><br></pre></td></tr></table></figure>
+<p>修改webpack.config.js文件，把json加载器放到module里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  devtool: &apos;eval-source-map&apos;,</span><br><span class="line"></span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/public&quot;,</span><br><span class="line">    filename: &quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  module: &#123;//在配置文件里添加JSON loader</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.json$/,    //正则表达式，用于匹配loader所处理文件的拓展名(必须)</span><br><span class="line">        loader: &quot;json&quot;      //loader的名称(必须)</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &quot;./public&quot;,</span><br><span class="line">    colors: true,</span><br><span class="line">    historyApiFallback: true,</span><br><span class="line">    inline: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>可以编译JavaScript的loader，babel</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react</span><br></pre></td></tr></table></figure>
+<p>在webpack.config.js中加入配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  devtool: &apos;eval-source-map&apos;,</span><br><span class="line"></span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/public&quot;,</span><br><span class="line">    filename: &quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.json$/,</span><br><span class="line">        loader: &quot;json&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        loader: &apos;babel&apos;,</span><br><span class="line">        query: &#123;</span><br><span class="line">          presets: [&apos;es2015&apos;,&apos;react&apos;]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &quot;./public&quot;,</span><br><span class="line">    colors: true,</span><br><span class="line">    historyApiFallback: true,</span><br><span class="line">    inline: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，由于babel的配置一般会比较多，所以webpack支持单独创建文件配置babel，webpack会自动调用，方法是创建一个<code>.babelrc</code>的文件，用于单独配置babel。</p>
+<p>单独配置babel的 情况下，webpack.config.js就要改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// webpack.config.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  devtool: &apos;eval-source-map&apos;,</span><br><span class="line"></span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/public&quot;,</span><br><span class="line">    filename: &quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.json$/,</span><br><span class="line">        loader: &quot;json&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        loader: &apos;babel&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &quot;./public&quot;,</span><br><span class="line">    colors: true,</span><br><span class="line">    historyApiFallback: true,</span><br><span class="line">    inline: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新文件.babelrc的内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//.babelrc</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;react&quot;, &quot;es2015&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>安装处理css的loader</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//安装</span><br><span class="line">npm install --save-dev style-loader css-loader</span><br></pre></td></tr></table></figure>
+<p>配置webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//使用</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  devtool: &apos;eval-source-map&apos;,</span><br><span class="line"></span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/build&quot;,</span><br><span class="line">    filename: &quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.json$/,</span><br><span class="line">        loader: &quot;json&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        loader: &apos;babel&apos;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/,</span><br><span class="line">        loader: &apos;style!css&apos;//添加的配置再这里</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &quot;./public&quot;,</span><br><span class="line">    colors: true,</span><br><span class="line">    historyApiFallback: true,</span><br><span class="line">    inline: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<code>!</code>可以理解成“和”，css文件同时使用这两个加载器处理</p>
+<p>css文件也需要放到入口文件里面，现在这个例子的入口文件是main.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//main.js</span><br><span class="line">import &apos;./main.css&apos;;//导入css文件</span><br></pre></td></tr></table></figure>
+<h2 id="插件（plugin）"><a href="#插件（plugin）" class="headerlink" title="插件（plugin）"></a>插件（plugin）</h2><p>插件需要使用npm安装</p>
+<p>安装之后同样在webpack.config.js里面配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//使用</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  devtool: &apos;eval-source-map&apos;,</span><br><span class="line"></span><br><span class="line">  entry:  __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/build&quot;,</span><br><span class="line">    filename: &quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.json$/,</span><br><span class="line">        loader: &quot;json&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        loader: &apos;babel&apos;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/,</span><br><span class="line">        loader: &apos;style!css&apos;//添加的配置再这里</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line">    new webpack.BannerPlugin(&quot;Copyright Flying Unicorns inc.&quot;)</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &quot;./public&quot;,</span><br><span class="line">    colors: true,</span><br><span class="line">    historyApiFallback: true,</span><br><span class="line">    inline: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-30T14:33:56.765Z" itemprop="dateUpdated">2018-10-30 22:33:56</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/note/60e1e8cf.html" target="_blank" rel="external">https://ru23.com/note/60e1e8cf.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/60e1e8cf.html&title=《webpack入门操作》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/60e1e8cf.html&title=《webpack入门操作》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/60e1e8cf.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《webpack入门操作》 — 前端迷 (front-end fan)&url=https://ru23.com/note/60e1e8cf.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/60e1e8cf.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/a404b8b6.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Nginx基础配置篇</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/616e90c2.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">npm网速慢用淘宝cnpm</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：188<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：52<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2014 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/60e1e8cf.html&title=《webpack入门操作》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/60e1e8cf.html&title=《webpack入门操作》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/60e1e8cf.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《webpack入门操作》 — 前端迷 (front-end fan)&url=https://ru23.com/note/60e1e8cf.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/60e1e8cf.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABz0lEQVR42u3aS27DMAwFwNz/0u42QGv7UbSYFBitisaWxhuCH71e8Tre1vt/krc6OywuXFzcNve4XNdb52/lv57thouLO89NwtD1wdfP5/vf2HBxcb+Sm3xAnqvg4uL+d+4ZK0+AqoUQLi7uZ7lJGdMpivK06bFaDRcXt8HtpCNP/b2lv4uLi7vEPYorOeap4PXH6bi4uCPctVHKWfGTN1WTHU5LIFxc3M3cvOBZu5CR4PJ9cHFxJ7nJsCQ/Jn+r/CQuLu4gtxOw8pSokzbh4uJOcvMQVr1m0SmWoskPLi7uZu7aRvkHXCc0rWteuLi4G7gdxFrgK6Qyv3fAxcUd4SZBZC06VgczeVGEi4s7w82vSSVBJy+HOsMYXFzc3dw80cnDVp4Ala9y4uLijnDztOPZAqlc9uDi4g5y842qTxaGInHhhIuLO8ldS01aI9Ji+xUXF3eGexRXcl2j2hhNUpzTyQ8uLu4GbjW4VBsZybilswMuLu4+bh68qkFtrc0a9W9wcXFHuNUW6r7W6uLFC1xc3C/g9i9vJYlO4Z4ILi7uF3Cr5U1n3Ux+cHFxt3GrxU/1I6tl1U0gw8XF3cztlCL50CUf1TzW38XFxV3h/gBIR3GwHnrYAAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+
+        $(document).snowfall('clear');
+
+        $(document).snowfall({
+
+            image: "/img/huaban.png",
+
+            flakeCount:30,
+
+            minSize: 5,
+
+            maxSize: 22
+
+        });
+
+    </script>
+
+
+
+
+
+</body>
+</html>

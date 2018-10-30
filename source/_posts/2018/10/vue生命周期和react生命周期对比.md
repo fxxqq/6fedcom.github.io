@@ -13,7 +13,7 @@ react和vue的业务逻辑是差不多，vue在react上封装了更简洁的方�
 # vue的生命周期
 ### 一 如下图所示(很清晰)初始化、编译、更新、销毁
  
-![vue生命周期](vue生命周期和react生命周期对比/vue-life-cycle.png)
+![vue生命周期](img/vue-life-cycle.png)
 
 ### 二 vue生命周期的栗子
 
@@ -62,10 +62,11 @@ var myVue = new Vue({
 #  react生命周期
 
 ### React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁
-![React生命周期](vue生命周期和react生命周期对比/react-life-cycle.png)
+![React生命周期](/img/react-life-cycle.png)
 
 
 •初始化
+
 1、`getDefaultProps()`
 设置默认的props，也可以用ufaultProps设置组件的默认属性.
 
@@ -82,6 +83,7 @@ react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都�
 组件渲染之后调用，只调用一次。
 
 •更新
+
 6、`componentWillReceiveProps(nextProps)`
 组件初始化时不调用，组件接受新的props时调用。
 
@@ -98,6 +100,7 @@ react性能优化非常重要的一环。组件接受新的state或者props时�
 组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点。
 
 •卸载
+
 11、`componentWillUnmount()`
 
 组件将要卸载时调用，一些事件监听和定时器需要在此时清除。

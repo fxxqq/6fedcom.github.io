@@ -1,5 +1,6 @@
 ---
 title: Hexo发布博客引用自带图片的方法
+abbrlink: 2bcee431
 date: 2017-05-19 22:41:01
 tags:
 ---

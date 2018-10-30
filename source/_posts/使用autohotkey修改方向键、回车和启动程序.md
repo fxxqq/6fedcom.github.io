@@ -1,5 +1,6 @@
 ---
 title: 使用autohotkey修改方向键、回车和启动程序
+abbrlink: 9f35addd
 date: 2017-04-07 21:34:40
 ---
 

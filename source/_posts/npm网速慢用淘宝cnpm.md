@@ -1,5 +1,6 @@
 ---
 title: npm网速慢用淘宝cnpm
+abbrlink: 616e90c2
 date: 2017-04-26 21:34:40
 ---
 npm网速慢

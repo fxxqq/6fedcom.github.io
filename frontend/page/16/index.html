@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -54,7 +54,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
+    <aside id="menu">
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
             <i class="icon icon-lg icon-close"></i>
@@ -77,28 +77,28 @@
             <ul class="nav">
                 
                 <li class="waves-block waves-effect">
-                    <a href="/"  >
+                    <a href="/">
                         <i class="icon icon-lg icon-home"></i>
                         主页
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/tags"  >
+                    <a href="/tags">
                         <i class="icon icon-lg icon-tags"></i>
                         标签
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/categories"  >
+                    <a href="/categories">
                         <i class="icon icon-lg icon-th-list"></i>
                         目录
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/archives"  >
+                    <a href="/archives">
                         <i class="icon icon-lg icon-archives"></i>
                         归档
                     </a>
@@ -157,11 +157,429 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-2017-05-nginx"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-三类闭包实例理解闭包为什么会占用内存" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-05-08 22:35:08" datetime="2017-05-08T14:35:08.000Z"  itemprop="datePublished">2017-05-08</time>
+        <time class="post-time" title="2017-06-25 22:16:54" datetime="2017-06-25T14:16:54.000Z" itemprop="datePublished">2017-06-25</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/eddfbbce.html">三类闭包实例理解闭包为什么会占用内存</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在试图弄清这个问题之前，先要理解栈内存、堆内存和预处理。
+占用内存，不会销毁的闭包实例例1：123456789var num = 12;function fn() &#123;    var num = 100;    return function () &#123;        console.log(num);    &#125;&#125;var f = fn();f();
+例1的...
+    
+
+        <a href="/note/eddfbbce.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-栈内存、堆内存和预处理" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-25 16:46:54" datetime="2017-06-25T08:46:54.000Z" itemprop="datePublished">2017-06-25</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/febcab37.html">栈内存、堆内存和预处理</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        浏览器是如何运行JavaScript代码的？
+看例1：
+123456var num = 12;function fn() &#123;    var num = 100;&#125;fn();num = 200;
+用图解释这一行代码是如何执行的。
+
+                
+                    
+                    
+             ...
+    
+
+        <a href="/note/febcab37.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-05-mobile-adaptation" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-23 21:35:08" datetime="2017-05-23T13:35:08.000Z" itemprop="datePublished">2017-05-23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/783ce8a9.html">移动端适配</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+物理像素:移动端设备的分辨率
+独立像素:css的像素  320  375 
+像素比 = 物理像素/独立像素
+
+1&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;&gt;
+
+width=...
+    
+
+        <a href="/note/783ce8a9.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-21 10:27:37" datetime="2017-05-21T02:27:37.000Z" itemprop="datePublished">2017-05-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/5987392c.html">webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在一个合适的文件夹下npm初始化
+1npm init
+安装webpack
+1cnpm install webpack --save-dev
+创建webpack.config.js文件，也可以鼠标右键创建（下同，省略）。
+1touch webpack.config.js
+建立一个app文件夹
+1mkdir app
+在app文件夹中建立一个main.js的文件和一个index.html文件
+12...
+    
+
+        <a href="/note/5987392c.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Hexo博客从一台电脑移动到其他电脑" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-20 16:18:46" datetime="2017-05-20T08:18:46.000Z" itemprop="datePublished">2017-05-20</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/c49c8a48.html">Hexo博客从一台电脑迁移到其他电脑</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        hexo官方给了一些迁移的方法，不过它上面介绍的方法都是把博客文章从hexo系统迁移到其他博客系统的方法。然而我们这里要讨论的是：
+当我们更换电脑的时候我们应该怎么办？
+所以默认你已经成功利用hexo和github发布博客，如果还没有，可以看一下教程
+具体的思路是：在生成的已经推到github上的hexo静态代码出建立一个分支，利用这个分支来管理自己hexo的源文件。
+如果能在刚刚配置hex...
+    
+
+        <a href="/note/c49c8a48.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Git修改最后一次提交的内容的具体步骤" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-20 09:50:54" datetime="2017-05-20T01:50:54.000Z" itemprop="datePublished">2017-05-20</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/344f746d.html">Git修改最后一次提交的内容的具体步骤</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        只是针对第一次提交
+如果发现最后一次的提交出现了错误，需要重新提交，就可以用git commit --amend。
+比如已经提交了README.md，但是发现还有创建一个新文件一块提交
+
+这是就要先把新文件放到暂存区，用git add test.html
+
+再使用命令git commit --amend，如果出现了一种编辑的模式
+
+直接输入:wq然后按回车，这里需要注意的是直接输入，直接输入...
+    
+
+        <a href="/note/344f746d.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Hexo发布博客引用自带图片的方法" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-19 22:41:01" datetime="2017-05-19T14:41:01.000Z" itemprop="datePublished">2017-05-19</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/2bcee431.html">Hexo发布博客引用自带图片的方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        有两种方法，第一种是不用插件的情况，第二种是使用一种hexo的插件。
+无论哪种方法都有一个共同的前提：修改_config.yml配置文件post_asset_folder项为true。
+创建博客是使用命令创建：
+1hexo new [layout] &lt;title&gt;
+其中的layout项可以省略，例如：
+1hexo new &quot;这是一个新的博客&quot;
+使用完命令之后，...
+    
+
+        <a href="/note/2bcee431.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-git的起步的操作流程" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-18 21:34:40" datetime="2017-05-18T13:34:40.000Z" itemprop="datePublished">2017-05-18</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/c7f37378.html">git的起步的操作流程</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        先初始化
+1git init
+加入一个README文件
+1git add README.md
+第一次提交
+1git commit -m &quot;first commit&quot;
+链接远程仓库（已经在远程创建了一个未初始化的仓库）
+1git remote add origin https://github.com/yourproject/-.git
+第一次push
+1git push ...
+    
+
+        <a href="/note/c7f37378.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-05-forever-pm2" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-09 22:50:08" datetime="2017-05-09T14:50:08.000Z" itemprop="datePublished">2017-05-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/d03e9032.html">forever and pm2部署nodejs项目</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、forever
+forever则可以在cmd或ssh连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启
+
+
+安装 npm install -g forever
+forever的帮助手册  forever --help
+使用forever启动项目 forever start app.js
+使用forever停止项目 forever stop app.js
+列出所有通过forever管...
+    
+
+        <a href="/note/d03e9032.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部署/">部署</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-05-nginx" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-08 22:35:08" datetime="2017-05-08T14:35:08.000Z" itemprop="datePublished">2017-05-08</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
@@ -209,529 +627,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-2017-04-es6-coding-style"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-04-14 14:24:08" datetime="2017-04-14T06:24:08.000Z"  itemprop="datePublished">2017-04-14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/67fe8f98.html">ES6编码风格</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、块级作用域
-1.1 let取代var
-
-ES6提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，因为两者语义相同，而且let没有副作用
-var命令存在变量提升效用，let命令没有这个问题
-建议不再使用var命令，而是使用let命令取代
-
-12345"use strict";if(true) &#123;console.log(x); // Referenc...
-    
-
-        <a href="/note/67fe8f98.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-03-closure-summary"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-03-22 14:24:08" datetime="2017-03-22T06:24:08.000Z"  itemprop="datePublished">2017-03-22</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/56cde313.html">浅谈闭包</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-闭包的形成跟变量的作用域以及变量的生存周期密切相关
-
-一、变量的作用域,是指变量的有效范围
-当在函数中声明一个变量的时候,如果该变量前面没有带上关键字 var,这个变量就会成为全局变量 ,这当然是一种很容易造成命名冲突的做法。另外一种情况是用 var 关键字在函数中声明变量,这时候的变量即是局部变量,只有在该函数内部才能访问到这个变量,在函数外面是访问不到的。
-
-例：变量的搜索是从内到外而...
-    
-
-        <a href="/note/56cde313.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-03-vue-summary-1"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-03-19 12:24:08" datetime="2017-03-19T04:24:08.000Z"  itemprop="datePublished">2017-03-19</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/7c9df6a.html">Vue学习总结(一)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、介绍
-                
-                    
-                    
-                
-                Paste_Image.png
-            
-
-Vue是一套构建用户界面的 渐进式框架。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。
-
-二、Vue实例构...
-    
-
-        <a href="/note/7c9df6a.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-03-front-end-interview-summary"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-03-12 22:24:08" datetime="2017-03-12T14:24:08.000Z"  itemprop="datePublished">2017-03-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/8fe9c4e1.html">前端面试题整理</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        目录$HTML， HTTP，web综合问题
-1、前端需要注意哪些SEO
-2、&lt;img&gt;的title和alt有什么区别
-3、HTTP的几种请求方法用途
-4、从浏览器地址栏输入url到显示页面的步骤
-5、如何进行网站性能优化
-6、HTTP状态码及其含义
-7、语义化的理解
-8、介绍一下你对浏览器内核的理解
-9、html5有哪些新特性、移除了那些元素？
-10、HTML5的离线储存怎么使用...
-    
-
-        <a href="/note/8fe9c4e1.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-02-ie-compatibility-summary"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-07 11:10:43" datetime="2017-02-07T03:10:43.000Z"  itemprop="datePublished">2017-02-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/12cd9bda.html">IE6下常见的兼容性问题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确
-1234567891011121314151617181920.box&#123;    width:400px;&#125;.left&#123;    width:200px;    height:210px;    background:red;    float:left&#125;.right&#123;    width:200px;    float:right;    overflow:hidden;&#125;.div&#123;    width:180px;    height:180px;    background:blue;    padding:25px;&#125;
-123456&lt;div class="box"&gt;	&lt;div class="left"&gt;&lt;/div&gt;	&lt;div class="right"&gt;		&lt;div class="div"&gt;&lt;/div&gt;	&lt;/div&gt;&lt;/div&gt;
-
-                
-                    
-                    
-                
-                
-            
-
-                
-                    
-                    
-                
-                
-            
-    
-
-        <a href="/note/12cd9bda.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csshack/">csshack</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-02-flex"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-06 19:20:43" datetime="2017-02-06T11:20:43.000Z"  itemprop="datePublished">2017-02-06</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/cc5b9b13.html">弹性布局总结</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-以下6个属性设置在容器上
-flex-direction
-flex-wrap
-flex-flow
-justify-content
-align-items
-align-content
-
-
-属性详解
-flex-direction: row | row-reverse | column | column-reverse;
-flex-wrap: nowrap | wrap | wrap-revers...
-    
-
-        <a href="/note/cc5b9b13.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/弹性布局/">弹性布局</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-02-es6-new-property"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-04 18:20:43" datetime="2017-02-04T10:20:43.000Z"  itemprop="datePublished">2017-02-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/de81bfb9.html">ES6新特性</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、作用域
-
-块级作用域
-块级变量let
-块级常量 const
-
-二、箭头函数
-
-sum = (a,b)=&gt; a + b
-nums.forEach(v=&gt; {console.log(v)})
-词法 this
-
-三、参数处理
-
-默认参数值
-剩余参数
-展开运算符
-
-四、模板字面量
-
-多行字符串
-字符串插值
-带标签的模板字面量
-原始字符串
-
-五、原有字面量加强
-
-更安全的二进制字面量(...
-    
-
-        <a href="/note/de81bfb9.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-01-gulp-works"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-21 17:40:43" datetime="2017-01-21T09:40:43.000Z"  itemprop="datePublished">2017-01-21</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Build/">Build</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/3e0bf339.html">基于gulp的工作流配置</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-配置一套基于gulp的工作流，满足日常的基本开发。
-
-    
-
-        <a href="/note/3e0bf339.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-01-webpack-summary"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-14 17:40:43" datetime="2017-01-14T09:40:43.000Z"  itemprop="datePublished">2017-01-14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Build/">Build</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/c6147aa3.html">webpack学习总结(二)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-声明 本教程整理于互联网
-
-
-webpack是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如CommonJs模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 ...
-    
-
-        <a href="/note/c6147aa3.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/15/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/17/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/15/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/17/">下一页</a>
     </div>
 </nav>
 
@@ -742,10 +643,10 @@ webpack是当下最热门的前端资源模块化管理和打包工具。它可�
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：188<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：52<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

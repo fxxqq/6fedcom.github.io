@@ -1,5 +1,6 @@
 ---
 title: 初学git的一些基础知识
+abbrlink: 8bf3ccc0
 date: 2017-02-22 21:34:40
 ---
 

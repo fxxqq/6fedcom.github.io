@@ -1,5 +1,6 @@
 ---
 title: webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码
+abbrlink: 5987392c
 date: 2017-05-21 10:27:37
 tags:
 ---
