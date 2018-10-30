@@ -54,6 +54,7 @@
 <body>
     <div id="loading" class="active"></div>
 
+
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
@@ -123,9 +124,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">目录: 工欲善其事必先利其器</div>
+        <div class="flex-col header-title ellipsis">
+            目录: 工欲善其事必先利其器
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -145,9 +148,10 @@
     </div>
 </header>
 <header class="content-header categories-header">
-
     <div class="container fade-scale">
-        <h1 class="title">目录: 工欲善其事必先利其器</h1>
+        <h1 class="title">
+            目录: 工欲善其事必先利其器
+        </h1>
         <h5 class="subtitle">
             
         </h5>
@@ -168,7 +172,7 @@
 
         
 
-            <a href="/categories/VCS/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">VCS</a>
+            <a href="/categories/Hexo/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">Hexo</a>
 
         
 
@@ -176,7 +180,7 @@
 
         
 
-            <a href="/categories/Hexo/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">Hexo</a>
+            <a href="/categories/VCS/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">VCS</a>
 
         
 
@@ -663,8 +667,13 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -699,22 +708,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 

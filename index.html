@@ -54,6 +54,7 @@
 <body>
     <div id="loading" class="active"></div>
 
+
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
@@ -123,9 +124,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">前端迷 (front-end fan)</div>
+        <div class="flex-col header-title ellipsis">
+            前端迷 (front-end fan)
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -145,12 +148,13 @@
     </div>
 </header>
 <header class="content-header index-header">
-
     <div class="container fade-scale">
-        <h1 class="title">前端迷 (front-end fan)</h1>
+        <h1 class="title">
+            前端迷 (front-end fan)
+        </h1>
         <h5 class="subtitle">
             
-                188105274(微信，邮箱同Q)
+            188105274(微信，邮箱同Q)
             
         </h5>
     </div>
@@ -183,7 +187,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/60aa5031.html">如何利用上下班地铁闲置时间提升自己的前端水平</a>
+      <a class="post-title-link" href="/note/60aa5031.html">如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)</a>
     </h3>
   
 
@@ -193,15 +197,15 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        你可以关注一下公众号，充实一下自己利用碎片化时间在看公众号号推荐的文章获取知识
+        你可以关注一下这些前端公众号，充实一下自己利用碎片化时间在看公众号推荐的文章获取知识
 自己的公众号
                 
                     
                     
                 
-                前端指南
+                前端迷
             
-
+前端迷是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资...
     
 
         <a href="/note/60aa5031.html" class="post-more waves-effect waves-button">
@@ -766,8 +770,13 @@ hybrid 即“混合”，即前端和客户端的混合开发
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -802,22 +811,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 

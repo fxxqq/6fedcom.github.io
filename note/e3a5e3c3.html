@@ -57,6 +57,7 @@
 <body>
     <div id="loading" class="active"></div>
 
+
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
@@ -126,9 +127,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">vue实例方法（十三)</div>
+        <div class="flex-col header-title ellipsis">
+            vue实例方法（十三)
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -148,12 +151,13 @@
     </div>
 </header>
 <header class="content-header post-header">
-
     <div class="container fade-scale">
-        <h1 class="title">vue实例方法（十三)</h1>
+        <h1 class="title">
+            vue实例方法（十三)
+        </h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-08-28T08:04:43.000Z" itemprop="datePublished" class="page-time">
+            <time datetime="2018-08-28T08:04:43.000Z" itemprop="datePublished" class="page-time">
   2018-08-28
 </time>
 
@@ -196,7 +200,7 @@
 
             
 <span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
@@ -522,8 +526,13 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -558,22 +567,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 

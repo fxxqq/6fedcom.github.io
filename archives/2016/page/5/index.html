@@ -54,6 +54,7 @@
 <body>
     <div id="loading" class="active"></div>
 
+
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
@@ -123,9 +124,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">归档</div>
+        <div class="flex-col header-title ellipsis">
+            归档
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -145,9 +148,10 @@
     </div>
 </header>
 <header class="content-header archives-header">
-
     <div class="container fade-scale">
-        <h1 class="title">归档</h1>
+        <h1 class="title">
+            归档
+        </h1>
         <h5 class="subtitle">
             
         </h5>
@@ -323,7 +327,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/99d7d7a9.html">jQuery与原生JS的DOM操作对比</a>
+      <a class="post-title-link" href="/note/cbc703ee.html">JavaScript中property和attribute的区别</a>
     </h3>
   
 
@@ -332,7 +336,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
 
     </div>
     
@@ -357,7 +361,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/cbc703ee.html">JavaScript中property和attribute的区别</a>
+      <a class="post-title-link" href="/note/99d7d7a9.html">jQuery与原生JS的DOM操作对比</a>
     </h3>
   
 
@@ -366,7 +370,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
 
     </div>
     
@@ -425,7 +429,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/3de25d52.html">JavaScript之捕捉模型与冒泡模型</a>
+      <a class="post-title-link" href="/note/1fe7b385.html">JavaScript之面向对象中的多态</a>
     </h3>
   
 
@@ -493,7 +497,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/82c24800.html">JavaScript与Unicode编码</a>
+      <a class="post-title-link" href="/note/41b2f700.html">JavaScript之IE,火狐兼容事件对象</a>
     </h3>
   
 
@@ -610,8 +614,13 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -646,22 +655,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 
