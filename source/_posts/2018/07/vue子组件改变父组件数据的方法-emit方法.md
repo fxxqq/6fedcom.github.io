@@ -2,7 +2,7 @@
 title: vue子组件改变父组件数据的方法 emit方法
 categories: Front-End
 tags:
-  - vue
+  - Vue
 abbrlink: 4859b5d8
 date: 2018-07-18 16:45:09
 ---

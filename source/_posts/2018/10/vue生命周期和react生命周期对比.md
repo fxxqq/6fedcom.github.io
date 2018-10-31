@@ -2,8 +2,8 @@
 title: vue生命周期和react生命周期对比
 categories: Front-End
 tags:
-  - vue
-  - react
+  - Vue
+  - React
 abbrlink: 73225ea8
 date: 2018-10-27 17:29:11
 ---

@@ -57,6 +57,7 @@
 <body>
     <div id="loading" class="active"></div>
 
+
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
@@ -126,9 +127,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Javascript截取文件名的后缀</div>
+        <div class="flex-col header-title ellipsis">
+            Javascript截取文件名的后缀
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -148,12 +151,13 @@
     </div>
 </header>
 <header class="content-header post-header">
-
     <div class="container fade-scale">
-        <h1 class="title">Javascript截取文件名的后缀</h1>
+        <h1 class="title">
+            Javascript截取文件名的后缀
+        </h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-09-06T11:22:37.000Z" itemprop="datePublished" class="page-time">
+            <time datetime="2018-09-06T11:22:37.000Z" itemprop="datePublished" class="page-time">
   2018-09-06
 </time>
 
@@ -188,7 +192,7 @@
 
             
 <span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
@@ -298,9 +302,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/c16b4f29.html" id="post-prev" class="post-nav-link">
+      <a href="/note/a5a8a12c.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">使用hexo搭建github.io博客</h4>
+        <h4 class="title">ES6学习笔记</h4>
       </a>
     </div>
   
@@ -455,8 +459,13 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -491,22 +500,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 
