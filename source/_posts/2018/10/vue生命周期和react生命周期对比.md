@@ -63,7 +63,7 @@ var myVue = new Vue({
 #  react生命周期
 
 ### React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁
-![React生命周期](/img/2018/10/react-life-cycle.png)
+![React生命周期](/img/2018/10/react-life-cycle.jpg)
 
 
 •初始化
