@@ -1,7 +1,7 @@
 ---
 title: JS常用的内置函数整理
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: fc5e7486
 date: 2016-12-13 14:50:24
 ---

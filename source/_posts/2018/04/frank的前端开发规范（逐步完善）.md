@@ -2,7 +2,7 @@
 title: frank的前端开发规范（逐步完善）
 tags:
   - 前端规范
-categories: Front-End
+categories: front-end
 issues: 12
 abbrlink: 91d30337
 date: 2018-04-19 19:49:01

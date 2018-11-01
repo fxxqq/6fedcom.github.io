@@ -1,7 +1,7 @@
 ---
-title: JavaScript及jQuery中的各种宽高属性图解
-tags: Javascript
-categories: Front-End
+title: JavaScript及jquery中的各种宽高属性图解
+tags: javascript
+categories: front-end
 abbrlink: ae4d3c59
 date: 2016-12-13 23:35:24
 ---
@@ -315,7 +315,7 @@ console.log(mydiv.scrollTop)
 
 **obj.style.width和obj.style.height**
 
-对于一个`DOM`元素，它的`style`属性返回的是一个对象，这个对象的任意一个属性是可读写的，`style.width`等于`css`属性中的宽度。`style.height`等于`css`属性中的高度
+对于一个`dom`元素，它的`style`属性返回的是一个对象，这个对象的任意一个属性是可读写的，`style.width`等于`css`属性中的宽度。`style.height`等于`css`属性中的高度
 
 #### 2.4 documentElement和body的关系
 ---
@@ -562,7 +562,7 @@ div.onscroll = divScroll;
 ![document相关的宽高](http://upload-images.jianshu.io/upload_images/1480597-b2343bbf8a94bf8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-## 第二部分 jQuery中的宽高属性
+## 第二部分 jquery中的宽高属性
 ---
 
 ### 一、jquery相关宽高介绍

@@ -1,7 +1,7 @@
 ---
 title: 简明 Vim 练级攻略
-tags: Vim
-categories: 工欲善其事必先利其器
+tags: vim
+categories: 前端工具
 abbrlink: 36face89
 date: 2016-03-21 09:42:03
 ---

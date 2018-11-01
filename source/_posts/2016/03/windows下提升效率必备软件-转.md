@@ -1,7 +1,7 @@
 ---
 title: 'windows下提升效率必备软件[转]'
-tags: Tools
-categories: 工欲善其事必先利其器
+tags: tools
+categories: 前端工具
 abbrlink: f9a8244c
 date: 2016-03-15 18:42:30
 ---
@@ -25,9 +25,9 @@ date: 2016-03-15 18:42:30
 
 ----------
 
- - [**Atom:**][5] 新一代编码写文神器；虽还在发展，却已惊艳。
- - **[Git for Windows :][6]** 打包好了，直接使用；Git 一族必备。
- - [**Nodejs:**][7] 可以辅助让Sublime编译Js；可以做Web开发，REST开发**，Web聊天室/爬虫，Web博客(Hexo)，Web论坛等等，可参见分享[十五个NodeJS应用场景][8]；还可以利用Nodejs的包管理器`Npm`
+ - [**atom:**][5] 新一代编码写文神器；虽还在发展，却已惊艳。
+ - **[git for Windows :][6]** 打包好了，直接使用；git 一族必备。
+ - [**nodejs:**][7] 可以辅助让Sublime编译Js；可以做Web开发，REST开发**，Web聊天室/爬虫，Web博客(hexo)，Web论坛等等，可参见分享[十五个nodeJS应用场景][8]；还可以利用nodejs的包管理器`Npm`
    安装`Gulp Webpack`等屌炸天工具～做大多你可以想到的东东；Web端必备。
  - [**GoodSync:**][9] 文件同步好帮手。可以同步 本地文件 P2P 云(Dropbox,Google,OnDrive,FTP/SFTP等等)，还可以同步应用程序
    以及各设备；强大且不失简洁。比如：SFTP同步，用过SublimeText的SFTP(最方便，却老弹框)，WinSCP(F5即可同步，设计却不人性化)，Gulp的SFTP(只是需要率先Watch)，Xftp4(老牌了，都是手动点来点去，额)。

@@ -1,7 +1,7 @@
 ---
 title: 基于鸟哥linux私房菜整理的常用基本命令
 tags: Linux
-categories: Back-end
+categories: back-end
 abbrlink: a6d76d30
 date: 2016-04-17 09:19:02
 ---

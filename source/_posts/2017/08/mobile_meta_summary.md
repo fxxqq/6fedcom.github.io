@@ -1,13 +1,13 @@
 ---
 title: 移动端meta标签一览
 tags: 移动端
-categories: Front-End
+categories: front-end
 abbrlink: a2eb1a7
 date: 2017-08-23 18:40:43
 ---
 
 ```html
-<!DOCTYPE html> <!-- 使用 HTML5 doctype，不区分大小写 -->
+<!DOCTYPE html> <!-- 使用 html5 doctype，不区分大小写 -->
 <html lang="zh-cmn-Hans"> <!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa -->
 <head>
     <!-- 声明文档使用的字符编码 -->
@@ -133,7 +133,7 @@ date: 2017-08-23 18:40:43
     <!-- 添加 favicon icon -->
     <!-- sns 社交标签 begin -->
     
-    <!-- 参考微博API -->
+    <!-- 参考微博api -->
     <meta property="og:type" content="类型" />
     
     <meta property="og:url" content="URL地址" />

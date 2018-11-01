@@ -1,7 +1,7 @@
 ---
 title: HTTP协议系列（二）
 tags: HTTP
-categories: Back-end
+categories: back-end
 abbrlink: 7d45851a
 date: 2018-02-26 23:20:43
 ---

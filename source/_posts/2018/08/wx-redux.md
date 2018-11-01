@@ -2,8 +2,8 @@
 title: 在小程序中集成redux/immutable/thunk第三方库
 tags:
   - 小程序
-  - Redux
-categories: Front-End
+  - redux
+categories: front-end
 abbrlink: '110e7213'
 date: 2018-08-11 13:30:43
 ---
@@ -79,11 +79,11 @@ remotedev --hostname=localhost --port=5678
 
 ```js
 const {createStore, compose} = require('./libs/redux.js');
-const devTools = require('./libs/remote-redux-devtools.js').default;
+const devtools = require('./libs/remote-redux-devtools.js').default;
 const reducer = require('./reducers/index.js')
 
 function configureStore() {
-  return createStore(reducer, compose(devTools({
+  return createStore(reducer, compose(devtools({
     hostname: 'localhost',
     port: 5678,
     secure: false

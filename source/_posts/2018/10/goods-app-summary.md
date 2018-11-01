@@ -1,9 +1,9 @@
 ---
 title: 韦博嗨英语微信端（H5开发）小结
 tags:
-  - Javascript
+  - javascript
   - 微信开发
-categories: Front-End
+categories: front-end
 abbrlink: 7bec924e
 date: 2018-10-19 16:50:43
 ---
@@ -182,9 +182,9 @@ export const checkPhone = ()=>{
   } else if (os == "AndroidOS") {//Android系统的处理
       os = md.os() + md.version("Android");
       var sss = device_type.split(";");
-      var i = sss.contains("Build/");
+      var i = sss.contains("前端自动化/");
       if (i > -1) {
-          model = sss[i].substring(0, sss[i].indexOf("Build/"));
+          model = sss[i].substring(0, sss[i].indexOf("前端自动化/"));
       }
   	let phoneModel = model.toLocaleLowerCase()
       //判断是否是oppo

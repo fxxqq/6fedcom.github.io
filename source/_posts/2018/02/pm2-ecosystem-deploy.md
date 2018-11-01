@@ -1,9 +1,9 @@
 ---
 title: pm2用法之ecosystem部署nodejs项目
 tags:
-  - Node
+  - node
   - 部署
-categories: Back-end
+categories: back-end
 abbrlink: dfae90e4
 date: 2018-02-22 17:12:08
 ---
@@ -23,7 +23,7 @@ date: 2018-02-22 17:12:08
 ```js
 {
     "apps": [
-        "name": "movie", //对应Nginx上的配置
+        "name": "movie", //对应nginx上的配置
         "script": "app.js", //入口文件
         "env": {
             "COMON_VARIABLE": "true"
@@ -34,7 +34,7 @@ date: 2018-02-22 17:12:08
     ],
     "deploy": {
         "production": {
-            "user": "poetries", //Nginx服务器上的username
+            "user": "poetries", //nginx服务器上的username
             "host": ["120.120.14.21"], // 服务器地址
             "port": "3922",
             "ref": "origin/master", //从指定的分支拉取代码
@@ -51,7 +51,7 @@ date: 2018-02-22 17:12:08
 }
 ```
 
-## 三、配置Nginx的server
+## 三、配置nginx的server
 
 > 在`nginx`安装目录下的`vhost`中新建一个`xx-3000.conf`的配置文件
 
@@ -69,7 +69,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
-        proxy_set_header X-Nginx-Proxy true;
+        proxy_set_header X-nginx-Proxy true;
         
         proxy_pass http://movie; // 对应上面的目录
         proxy_redirect off;

@@ -1,7 +1,7 @@
 ---
 title: 学会使用Sublime Text Snippets提高编码速度
 tags: sublime
-categories: 工欲善其事必先利其器
+categories: 前端工具
 abbrlink: e3137a15
 date: 2016-08-13 22:10:08
 ---
@@ -9,7 +9,7 @@ date: 2016-08-13 22:10:08
 
 我们在编写代码的时候，总会遇到一些需要反复使用的代码片段。这时候就需要反复的复制和黏贴，大大影响效率。我们利用`Sublime Text`的`snippet`功能，就能很好的解决这一问题。通俗的讲，就是把我们常用的代码分别保存起啦，然后通过插件的形式来反复调用。
 <!--more-->
-- 创建方法：`Tools` > `New Snippet`
+- 创建方法：`tools` > `New Snippet`
 
 
 这时你会看到如下示例代码：

@@ -1,7 +1,7 @@
 ---
 title: JavaScript之捕捉模型与冒泡模型
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 3de25d52
 date: 2016-07-27 11:40:43
 ---

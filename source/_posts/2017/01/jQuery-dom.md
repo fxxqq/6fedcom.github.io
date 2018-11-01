@@ -1,9 +1,9 @@
 ---
-title: jQuery之DOM操作小结
+title: jquery之dom操作小结
 tags:
-  - jQuery
-  - DOM
-categories: Front-End
+  - jquery
+  - dom
+categories: front-end
 abbrlink: def62515
 date: 2017-01-14 10:20:43
 ---
@@ -147,7 +147,7 @@ date: 2017-01-14 10:20:43
 
 - 语法 : `elem.empty()`
 
-#### 13 从DOM中删除所有匹配的元素
+#### 13 从dom中删除所有匹配的元素
 ---
 
 - 语法 : `elems.remove([条件])`

@@ -1,8 +1,8 @@
 ---
 title: js深度拷贝解决双向绑定问题(包含es6方法)
-categories: Front-End
+categories: front-end
 tags:
-  - Javascript
+  - javascript
 abbrlink: 284d188d
 date: 2018-10-26 15:44:21
 ---

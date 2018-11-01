@@ -1,9 +1,9 @@
 ---
 title: Redux之react结合redux实战篇（十）
 tags:
-  - Redux
-  - React
-categories: Front-End
+  - redux
+  - react
+categories: front-end
 abbrlink: 32ffbfbb
 date: 2017-11-19 18:40:24
 ---

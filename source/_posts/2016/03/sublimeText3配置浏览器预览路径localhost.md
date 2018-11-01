@@ -1,7 +1,7 @@
 ---
 title: sublimeText3配置浏览器预览路径localhost
 tags: sublime
-categories: 工欲善其事必先利其器
+categories: 前端工具
 abbrlink: fba80764
 date: 2016-03-29 08:45:35
 ---
@@ -9,7 +9,7 @@ date: 2016-03-29 08:45:35
 Sublime Text 2 Sublime Text 3 都可以使用:
 
 <!--more-->
-### 菜单 --> Tools --> New Pugin
+### 菜单 --> tools --> New Pugin
 
 清掉内容, 添加如下代码
 ```

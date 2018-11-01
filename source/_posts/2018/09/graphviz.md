@@ -1,7 +1,7 @@
 ---
 title: 学会使用Graphviz绘制流程图
-tags: Graphviz
-categories: Front-End
+tags: graphviz
+categories: 前端自动化
 abbrlink: 9e68349b
 date: 2018-09-17 11:20:08
 ---

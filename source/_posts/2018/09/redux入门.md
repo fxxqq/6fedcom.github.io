@@ -1,14 +1,14 @@
 ---
 title: redux入门
-categories: Front-End
+categories: front-end
 tags:
-  - React
-  - Redux
+  - react
+  - redux
 abbrlink: c5bbc436
 date: 2018-09-28 19:43:17
 ---
-Redux由Flux演变而来，提供几个简单的API来实现状态管理，所谓状态指的是应用数据，所以，Redux本质上是用来管理数据的。
-进一步，Redux配合支持数据绑定的视图库使用，就可以将应用状态和视图一一对应，开发者不需要再去关心DOM操作，只关心如何组织数据即可。
+Redux由Flux演变而来，提供几个简单的api来实现状态管理，所谓状态指的是应用数据，所以，Redux本质上是用来管理数据的。
+进一步，Redux配合支持数据绑定的视图库使用，就可以将应用状态和视图一一对应，开发者不需要再去关心dom操作，只关心如何组织数据即可。
 
 >由于Redux对于数据的管理拆分很细，一时间会有很多概念，并且Redux有自己丰富的生态，所以容易眼花缭乱。
 所以强烈建议从头开始一步一步的来，深入体验并理解Redux的思想，不要步子迈太大。
@@ -57,7 +57,7 @@ function todos(state = [], action) {
 // 创建store，并且给state一个初始值['HTML']
 let store = createStore(todos, [ 'HTML' ])
 
-// state.dispatch()，最常用的API
+// state.dispatch()，最常用的api
 // 修改state的唯一方式就是调用store.dispatch()方法
 // 显然，其中的描述性对象
 // {
@@ -70,19 +70,19 @@ store.dispatch({
   text: 'CSS'
 })
 
-// store.getState()，另一个常用的API
+// store.getState()，另一个常用的api
 // 用来获取state的值
 console.log(store.getState());  // [ 'HTML', 'CSS' ]
 ```
 
-### store的API们
-store的API很简单，这儿我按重要顺序列出所有的API，主要记住前两个。
+### store的api们
+store的api很简单，这儿我按重要顺序列出所有的api，主要记住前两个。
 ✦ dispatch(action)：触发action，再次声明，这是改变state的唯一方式，请默念两次
 ✦ getState()：获取当前的state
 ✦ subscribe(listener)：注册一个监听函数，state发生变化时触发
 ✦ replaceReducer(nextReducer)：替换reducer，用得较少
 
-总结一下，store提供了简单的API，用来管理应用内的数据，它限制了只能通过dispatch(action)来修改state，那么这个action是什么呢？
+总结一下，store提供了简单的api，用来管理应用内的数据，它限制了只能通过dispatch(action)来修改state，那么这个action是什么呢？
 
 ### action是什么鬼？
 前文提过，action就是一个描述性的普通对象，所以它非常简单！说白了，就是一坨数据，然后这坨数据有名字。
@@ -228,7 +228,7 @@ export function articlesReducer(articles = {
 reducer函数应该是纯函数，它要保证：只要传入参数相同，那么返回的新state就一定相同。
 所以永远不要再reducer中做如下操作：
 ✦ 修改传入的state参数
-✦ 执行有副作用的操作，比如API请求，路由跳转等
+✦ 执行有副作用的操作，比如api请求，路由跳转等
 ✦ 调用非纯函数，比如Math.random()或Date.now()
 
 而一旦state变得复杂、层级较多的时候，如何设计reducer就是一个比较复杂的话题了。
@@ -238,8 +238,8 @@ reducer函数应该是纯函数，它要保证：只要传入参数相同，那�
 
 ### 为啥要使用redux？
 早些时候，前端并没有这么复杂，几乎不怎么涉及数据管理。
-随着前端的发展，前端也开始引入MVC之类的架构，对数据、视图、逻辑进行拆分处理。为了保持数据和视图的同步，我们会频繁的操作DOM元素。简直是噩梦。
-而后KnockoutJS，angularJS等出现了，他们都支持数据绑定，终于让开发可以不在频繁的操作DOM，而是仅仅修改数据，然后自动同步到view。
+随着前端的发展，前端也开始引入MVC之类的架构，对数据、视图、逻辑进行拆分处理。为了保持数据和视图的同步，我们会频繁的操作dom元素。简直是噩梦。
+而后KnockoutJS，angularJS等出现了，他们都支持数据绑定，终于让开发可以不在频繁的操作dom，而是仅仅修改数据，然后自动同步到view。
 但这还不够彻底，数据仍然是分散的。我们会在controller中写很多操作数据、操作视图的代码，甚至存在冗余数据，想要修改、更新、同步的话，有很大的隐患。
 Redux的出现，提供了对数据的集中管理，让单向数据流成为了可能。
 另外，Redux还让前后端彻底分离变成了可能，这一点也有极大的意义。
@@ -258,10 +258,10 @@ Redux通过一些限制告诉你：数据只能保存在我这儿，别想太分
 
 服务器渲染让前后端彻底分离成为了可能
 上图也可以看出，Redux构建出一份单向数据流。这让服务端渲染变成了可能，而这个特性，让前后端彻底分离变成了可能，还不用担心SEO的问题。
-想当初，为了解决前后端分离的问题，大家费尽心思，奈何进展甚微，淘宝甚至提出中途岛midway项目，通过中间搭建由前端维护的Nodejs服务器来实现简单的渲染然后返回HTML，但其实这个Nodejs服务器一点都不简单，需要考虑太多东西，比如安全、性能、缓存等。
+想当初，为了解决前后端分离的问题，大家费尽心思，奈何进展甚微，淘宝甚至提出中途岛midway项目，通过中间搭建由前端维护的nodejs服务器来实现简单的渲染然后返回HTML，但其实这个nodejs服务器一点都不简单，需要考虑太多东西，比如安全、性能、缓存等。
 
 ### 总结
-Redux主要用于对数据进行集中管理，并且让整个应用的数据流变得清晰。让应用开发更流畅，数据管理更有效。有了Redux，开发者们慢慢的转化为面向数据编程，而不再是频繁的操作DOM，维护越来越复杂的controller逻辑。
+Redux主要用于对数据进行集中管理，并且让整个应用的数据流变得清晰。让应用开发更流畅，数据管理更有效。有了Redux，开发者们慢慢的转化为面向数据编程，而不再是频繁的操作dom，维护越来越复杂的controller逻辑。
 简单来说，Redux的东西不多，更重要的是理解它的思路：
 ✦ 将整个应用的state储存在唯一的store对象中。
 ✦ state只能通过触发action来修改，其中action就是一个描述性的普通对象。

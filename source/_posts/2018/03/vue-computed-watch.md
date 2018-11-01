@@ -1,7 +1,7 @@
 ---
 title: vue计算属性与数据监听（十）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: fdf99685
 date: 2018-08-28 14:10:42
 ---

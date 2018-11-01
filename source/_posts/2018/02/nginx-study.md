@@ -1,14 +1,14 @@
 ---
-title: Nginx学习篇
-tags: Nginx
-categories: Back-end
+title: nginx学习篇
+tags: nginx
+categories: back-end
 abbrlink: 34cba3a2
 date: 2018-02-25 15:12:08
 ---
 
-> `Nginx` 是一款面向性能设计的 `HTTP` 服务器，能反向代理 `HTTP`，`HTTPS` 和邮件相关(`SMTP`，`POP3`，`IMAP`)的协议链接。并且提供了负载均衡以及 `HTTP` 缓存。它的设计充分使用异步事件模型，削减上下文调度的开销，提高服务器并发能力。采用了模块化设计，提供了丰富模块的第三方模块。
+> `nginx` 是一款面向性能设计的 `HTTP` 服务器，能反向代理 `HTTP`，`HTTPS` 和邮件相关(`SMTP`，`POP3`，`IMAP`)的协议链接。并且提供了负载均衡以及 `HTTP` 缓存。它的设计充分使用异步事件模型，削减上下文调度的开销，提高服务器并发能力。采用了模块化设计，提供了丰富模块的第三方模块。
 
-- 所以关于 `Nginx，有这些标签：「异步」「事件」「模块化」「高性能」「高并发」「反向代理」「负载均衡」
+- 所以关于 `nginx，有这些标签：「异步」「事件」「模块化」「高性能」「高并发」「反向代理」「负载均衡」
 
 
 ## 一、安装
@@ -261,8 +261,8 @@ yum remove nginx
 
 | 参数 | 说明 |
 | ---- | ---- |
-| --prefix=`<path>` | Nginx安装路径。如果没有指定，默认为 /usr/local/nginx。 |
-| --sbin-path=`<path>` | Nginx可执行文件安装路径。只能安装时指定，如果没有指定，默认为`<prefix>`/sbin/nginx。 |
+| --prefix=`<path>` | nginx安装路径。如果没有指定，默认为 /usr/local/nginx。 |
+| --sbin-path=`<path>` | nginx可执行文件安装路径。只能安装时指定，如果没有指定，默认为`<prefix>`/sbin/nginx。 |
 | --conf-path=`<path>` | 在没有给定-c选项下默认的nginx.conf的路径。如果没有指定，默认为`<prefix>`/conf/nginx.conf。 |
 | --pid-path=`<path>` | 在nginx.conf中没有指定pid指令的情况下，默认的nginx.pid的路径。如果没有指定，默认为 `<prefix>`/logs/nginx.pid。 |
 | --lock-path=`<path>` | nginx.lock文件的路径。 |
@@ -464,7 +464,7 @@ server {
 
 ### 6.5 内置预定义变量
 
-- `Nginx`提供了许多预定义的变量，也可以通过使用`set`来设置变量。你可以在`if`中使用预定义变量，也可以将它们传递给代理服务器。以下是一些常见的预定义变量，[更多详见](http://nginx.org/en/docs/varindex.html)
+- `nginx`提供了许多预定义的变量，也可以通过使用`set`来设置变量。你可以在`if`中使用预定义变量，也可以将它们传递给代理服务器。以下是一些常见的预定义变量，[更多详见](http://nginx.org/en/docs/varindex.html)
 
 | 变量名称  |  值 |
 | ----  | ---- |
@@ -528,7 +528,7 @@ server {
 
 | 指令 | 说明 |
 | ---- | ---- |
-| `proxy_connect_timeout`  | `Nginx`从接受请求至连接到上游服务器的最长等待时间 |
+| `proxy_connect_timeout`  | `nginx`从接受请求至连接到上游服务器的最长等待时间 |
 | `proxy_send_timeout`  | 后端服务器数据回传时间(代理发送超时) |
 | `proxy_read_timeout`  | 连接成功后，后端服务器响应时间(代理接收超时) |
 | `proxy_cookie_domain` | 替代从上游服务器来的`Set-Cookie`头的`domain`属性 |
@@ -591,7 +591,7 @@ server {
 
 **IP哈希：** 
 
-- 通过`ip_hash`指令来激活，Nginx通过IPv4地址的前3个字节或者整个IPv6地址作为哈希键来实现，同一个IP地址总是能被映射到同一个上游服务器；  
+- 通过`ip_hash`指令来激活，nginx通过IPv4地址的前3个字节或者整个IPv6地址作为哈希键来实现，同一个IP地址总是能被映射到同一个上游服务器；  
 
 **最少连接数：** 
 
@@ -601,7 +601,7 @@ server {
 
 **简单配置** 
 
-> 这里我配置了2台服务器，当然实际上是一台，只是端口不一样而已，而8081的服务器是不存在的，也就是说访问不到，但是我们访问 `http://localhost` 的时候，也不会有问题，会默认跳转到`http://localhost:8080`具体是因为Nginx会自动判断服务器的状态，如果服务器处于不能访问（服务器挂了），就不会跳转到这台服务器，所以也避免了一台服务器挂了影响使用的情况，由于Nginx默认是RR策略，所以我们不需要其他更多的设置
+> 这里我配置了2台服务器，当然实际上是一台，只是端口不一样而已，而8081的服务器是不存在的，也就是说访问不到，但是我们访问 `http://localhost` 的时候，也不会有问题，会默认跳转到`http://localhost:8080`具体是因为nginx会自动判断服务器的状态，如果服务器处于不能访问（服务器挂了），就不会跳转到这台服务器，所以也避免了一台服务器挂了影响使用的情况，由于nginx默认是RR策略，所以我们不需要其他更多的设置
 
 ```nginx
 upstream test {
@@ -691,7 +691,7 @@ upstream backend {
 
 **keepalive指令：**
 
-- `Nginx`服务器将会为每一个`worker`进行保持同上游服务器的连接。
+- `nginx`服务器将会为每一个`worker`进行保持同上游服务器的连接。
 
 ### 6.8 屏蔽ip
 
@@ -762,7 +762,7 @@ location /old-site {
 
 ### 9.1 内容缓存
 
-- 允许浏览器基本上永久地缓存静态内容。 `Nginx`将为您设置`Expires`和`Cache-Control`头信息。
+- 允许浏览器基本上永久地缓存静态内容。 `nginx`将为您设置`Expires`和`Cache-Control`头信息。
 
 ```nginx
 location /static {
@@ -965,12 +965,12 @@ server {
     listen       3111;
     server_name  localhost;      # 这里指定域名
     root /home/www/server-statics;
-    # 匹配 api 路由的反向代理到API服务
+    # 匹配 api 路由的反向代理到api服务
     location ^~/api/ {
         rewrite ^/(.*)$ /$1 break;
         proxy_pass http://server-api;
     }
-    # 假设这里验证码也在API服务中
+    # 假设这里验证码也在api服务中
     location ^~/captcha {
         rewrite ^/(.*)$ /$1 break;
         proxy_pass http://server-api;
@@ -1029,7 +1029,7 @@ Email Address []:admin@your_domain.com
 # openssl genrsa -des3 -out nginx.key 2048
 创建签名请求的证书（CSR）：
 # openssl req -new -key nginx.key -out nginx.csr
-在加载SSL支持的Nginx并使用上述私钥时除去必须的口令：
+在加载SSL支持的nginx并使用上述私钥时除去必须的口令：
 # cp nginx.key nginx.key.org
 # openssl rsa -in nginx.key.org -out nginx.key
 最后标记证书使用上述私钥和CSR：
@@ -1252,12 +1252,12 @@ server {
 ## 十二、精品文章参考
 
 - [负载均衡原理的解析](https://my.oschina.net/u/3341316/blog/877206)
-- [Nginx泛域名解析，实现多个二级域名 ](http://blog.githuber.cn/posts/73)
+- [nginx泛域名解析，实现多个二级域名 ](http://blog.githuber.cn/posts/73)
 - [深入 NGINX: 我们如何设计性能和扩展](https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)
-- [Inside NGINX: How We Designed for Performance & Scale](https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)
-- [Nginx开发从入门到精通](http://tengine.taobao.org/book/index.html)
-- [Nginx的优化与防盗链](http://os.51cto.com/art/201703/535326.htm#topx)
-- [实战开发一个Nginx扩展 (Nginx Module)](https://segmentfault.com/a/1190000009769143)
-- [Nginx+Keepalived(双机热备)搭建高可用负载均衡环境(HA)](https://my.oschina.net/xshuai/blog/917097)
-- [Nginx 平滑升级](http://www.huxd.org/articles/2017/07/24/1500890692329.html)
-- [Nginx最新模块—ngx_http_mirror_module分析可以做版本发布前的预先验证，进行流量放大后的压测等等](https://mp.weixin.qq.com/s?__biz=MzIxNzg5ODE0OA==&mid=2247483708&idx=1&sn=90b0b1dccd9c337922a0588245277666&chksm=97f38cf7a08405e1928e0b46d923d630e529e7db8ac7ca2a91310a075986f8bcb2cee5b4953d#rd)
+- [Inside NGINX: How We designed for Performance & Scale](https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)
+- [nginx开发从入门到精通](http://tengine.taobao.org/book/index.html)
+- [nginx的优化与防盗链](http://os.51cto.com/art/201703/535326.htm#topx)
+- [实战开发一个nginx扩展 (nginx Module)](https://segmentfault.com/a/1190000009769143)
+- [nginx+Keepalived(双机热备)搭建高可用负载均衡环境(HA)](https://my.oschina.net/xshuai/blog/917097)
+- [nginx 平滑升级](http://www.huxd.org/articles/2017/07/24/1500890692329.html)
+- [nginx最新模块—ngx_http_mirror_module分析可以做版本发布前的预先验证，进行流量放大后的压测等等](https://mp.weixin.qq.com/s?__biz=MzIxNzg5ODE0OA==&mid=2247483708&idx=1&sn=90b0b1dccd9c337922a0588245277666&chksm=97f38cf7a08405e1928e0b46d923d630e529e7db8ac7ca2a91310a075986f8bcb2cee5b4953d#rd)

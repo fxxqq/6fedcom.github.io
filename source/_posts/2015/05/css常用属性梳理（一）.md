@@ -1,7 +1,7 @@
 ---
 title: css常用属性梳理（一）
-tags: CSS
-categories: Front-End
+tags: css
+categories: front-end
 abbrlink: 6282513e
 date: 2015-05-05 23:24:17
 ---

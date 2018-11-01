@@ -1,7 +1,7 @@
 ---
 title: vue生命周期（五）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: 3ab58e3e
 date: 2018-08-26 17:21:32
 ---
@@ -175,13 +175,13 @@ new Vue({
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-8b2cb230f2e5722f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-> 可以看到此时是给`vue`实例对象添加`$el`成员，并且替换掉挂在的`DOM`元素。因为在之前`console`中打印的结果可以看到`beforeMount`之前`el`上还是`undefined`
+> 可以看到此时是给`vue`实例对象添加`$el`成员，并且替换掉挂在的`dom`元素。因为在之前`console`中打印的结果可以看到`beforeMount`之前`el`上还是`undefined`
 
 ### 2.4 mounted
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-39733c55ff054c34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-> 在`mounted`之前h1中还是通过`{message}`进行占位的，因为此时还有挂在到页面上，还是JavaScript中的虚拟DOM形式存在的。在`mounted`之后可以看到h1中的内容发生了变化
+> 在`mounted`之前h1中还是通过`{message}`进行占位的，因为此时还有挂在到页面上，还是JavaScript中的虚拟dom形式存在的。在`mounted`之后可以看到h1中的内容发生了变化
 
 ### 2.5 beforeUpdate、updated
 

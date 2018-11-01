@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="数组更新检测变异方法Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新。这些方法如下：1234567push()pop()shift()unshift()splice()sort()reverse() 你打开控制台，然后用前面例子的 items 数组调用变异方法：example1.items.push({ message: ‘Baz’ }) 。 替换数组变异方法 (mutation m">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.365Z">
+<meta property="og:updated_time" content="2018-11-01T09:37:46.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue数组中数据变化但是视图没有更新解决方案">
 <meta name="twitter:description" content="数组更新检测变异方法Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新。这些方法如下：1234567push()pop()shift()unshift()splice()sort()reverse() 你打开控制台，然后用前面例子的 items 数组调用变异方法：example1.items.push({ message: ‘Baz’ }) 。 替换数组变异方法 (mutation m">
@@ -160,7 +160,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -192,7 +192,7 @@
             <time class="post-time" title="2018-07-11 16:41:15" datetime="2018-07-11T08:41:15.000Z"  itemprop="datePublished">2018-07-11</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -208,7 +208,7 @@
 <p>你打开控制台，然后用前面例子的 items 数组调用变异方法：<code>example1.items.push({ message: ‘Baz’ }) </code>。</p>
 <p><strong>替换数组</strong><br>变异方法 (mutation method)，顾名思义，会改变被这些方法调用的原始数组。相比之下，也有非变异 (non-mutating method) 方法，例如：filter(), concat() 和 slice() 。这些不会改变原始数组，但总是返回一个新数组。当使用非变异方法时，可以用新数组替换旧数组：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">example1.items = example1.items.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> item.message.match(<span class="regexp">/Foo/</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>你可能认为这将导致 Vue 丢弃现有 DOM 并重新渲染整个列表。幸运的是，事实并非如此。Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的、启发式的方法，所以用一个含有相同元素的数组去替换原来的数组是非常高效的操作。</p>
+<p>你可能认为这将导致 Vue 丢弃现有 dom 并重新渲染整个列表。幸运的是，事实并非如此。Vue 为了使得 dom 元素得到最大范围的重用而实现了一些智能的、启发式的方法，所以用一个含有相同元素的数组去替换原来的数组是非常高效的操作。</p>
 <p><strong>注意事项</strong><br>由于 JavaScript 的限制，Vue 不能检测以下变动的数组：</p>
 <p>当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue<br>当你修改数组的长度时，例如：vm.items.length = newLength<br>举个例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.items[<span class="number">1</span>] = <span class="string">'x'</span> <span class="comment">// 不是响应性的</span></span><br><span class="line">vm.items.length = <span class="number">2</span> <span class="comment">// 不是响应性的</span></span><br></pre></td></tr></table></figure></p>
 <p>为了解决第一类问题，以下两种方式都可以实现和 <code>vm.items[indexOfItem] = newValue</code> 相同的效果，同时也将触发状态更新：</p>
@@ -396,7 +396,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

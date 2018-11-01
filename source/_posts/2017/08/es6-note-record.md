@@ -1,9 +1,9 @@
 ---
 title: ES6笔记记录
 tags:
-  - Javascript
-  - ES6
-categories: Front-End
+  - javascript
+  - es6
+categories: front-end
 abbrlink: 957a3ac4
 date: 2017-08-20 14:33:00
 ---

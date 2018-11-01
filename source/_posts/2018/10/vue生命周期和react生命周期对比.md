@@ -1,9 +1,9 @@
 ---
 title: vue生命周期和react生命周期对比
-categories: Front-End
+categories: front-end
 tags:
-  - Vue
-  - React
+  - vue
+  - react
 abbrlink: 73225ea8
 date: 2018-10-27 17:29:11
 ---
@@ -27,14 +27,14 @@ var myVue = new Vue({
 	},
 	created: function() {
 		//在实例创建之后同步调用。此时实例已经结束解析选项，这意味着已建立：数据绑定，计算属性，方法，watcher/事件回调。
-		//但是还没有开始 DOM 编译，$el 还不存在,但是实例存在,即this.a存在,可打印出来 。
+		//但是还没有开始 dom 编译，$el 还不存在,但是实例存在,即this.a存在,可打印出来 。
 		console.log("建立");
 	},
 	beforeCompile: function() {
 		console.log("未开始编译");
 	},
 	compiled: function() {
-		//在编译结束后调用。此时所有的指令已生效，因而数据的变化将触发 DOM 更新。但是不担保 $el 已插入文档。
+		//在编译结束后调用。此时所有的指令已生效，因而数据的变化将触发 dom 更新。但是不担保 $el 已插入文档。
 		console.log("编译完成");
 	},
 	ready: function() {
@@ -42,18 +42,18 @@ var myVue = new Vue({
 		console.log("一切准备好了");
 	},
 	attached: function() { //myVue.$appendTo(".test2")暂时触发不了,不知道怎么解决
-		//在 vm.$el 插入 DOM 时调用。必须是由指令或实例方法（如 $appendTo()）插入，直接操作 vm.$el 不会 触发这个钩子。
-		console.log("插入DOM成功");
+		//在 vm.$el 插入 dom 时调用。必须是由指令或实例方法（如 $appendTo()）插入，直接操作 vm.$el 不会 触发这个钩子。
+		console.log("插入dom成功");
 	},
-	detached: function() { //触发事件 myVue.$destroy(true),其中参数true控制是否删除DOM节点或者myVue.$remove()
-		//在 vm.$el 从 DOM 中删除时调用。必须是由指令或实例方法删除，直接操作 vm.$el 不会 触发这个钩子。
-		console.log("删除DOM成功");
+	detached: function() { //触发事件 myVue.$destroy(true),其中参数true控制是否删除dom节点或者myVue.$remove()
+		//在 vm.$el 从 dom 中删除时调用。必须是由指令或实例方法删除，直接操作 vm.$el 不会 触发这个钩子。
+		console.log("删除dom成功");
 	},
 	beforeDestroy: function() { //触发方式,在console里面打myVue.$destroy();
 		//在开始销毁实例时调用。此时实例仍然有功能。
 		console.log("销毁前");
 	},
-	destroyed: function() { //触发方式,在console里面打myVue.$destroy();其中myVue.$destroy(true)是删除DOM节点,会触发detached函数,但是实例仍然存在
+	destroyed: function() { //触发方式,在console里面打myVue.$destroy();其中myVue.$destroy(true)是删除dom节点,会触发detached函数,但是实例仍然存在
 		//在实例被销毁之后调用。此时所有的绑定和实例的指令已经解绑，注意是解绑不是销毁,所有的子实例也已经被销毁。
 		console.log("已销毁");
 	}

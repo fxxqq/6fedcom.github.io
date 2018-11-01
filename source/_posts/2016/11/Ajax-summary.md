@@ -1,9 +1,9 @@
 ---
 title: Ajax总结篇
 tags:
-  - Javascript
+  - javascript
   - ajax
-categories: Front-End
+categories: front-end
 abbrlink: d4e64c45
 date: 2016-11-26 14:35:24
 ---
@@ -42,8 +42,8 @@ date: 2016-11-26 14:35:24
 
 - `AJAX` 包含以下五个部分：
 `ajax`并非一种新的技术，而是几种原有技术的结合体。它由下列技术组合而成。
-  -  使用`CSS`和`XHTML`来表示。
-  - 使用`DOM`模型来交互和动态显示。
+  -  使用`CSS`和`xhtml`来表示。
+  - 使用`dom`模型来交互和动态显示。
   - 数据互换和操作技术，使用`XML`与`XSLT`
   - 使用`XMLHttpRequest`来和服务器进行异步通信。
   - 使用`javascript`来绑定和调用。
@@ -56,7 +56,7 @@ date: 2016-11-26 14:35:24
 
 - 第一张图尤其说明了传统` Web` 应用程序的结构与采用了 `AJAX` 技术的 `Web`
 应用程序的结构上的差别
-- 主要的差别，其实不是 `JavaScript`，不是 `HTML/XHTML `和 `CSS`，而是采用
+- 主要的差别，其实不是 `JavaScript`，不是 `HTML/xhtml `和 `CSS`，而是采用
 了 `XMLHttpRequest` 来向服务器异步的请求 `XML` 数据
 
 
@@ -73,7 +73,7 @@ date: 2016-11-26 14:35:24
 ### 二、创建ajax的步骤
 ---
 
->`Ajax`的原理简单来说通过`XmlHttpRequest`对象来向服务器发异步请求，从服务器获得数据，然后用`javascript`来操作`DOM`而更新页面。这其中最关键的一步就是从服务器获得请求数据。原生创建`ajax`可分为以下四步
+>`Ajax`的原理简单来说通过`XmlHttpRequest`对象来向服务器发异步请求，从服务器获得数据，然后用`javascript`来操作`dom`而更新页面。这其中最关键的一步就是从服务器获得请求数据。原生创建`ajax`可分为以下四步
 
 #### 1、创建`XMLHttpRequest`对象
 ---
@@ -186,7 +186,7 @@ xhr.onreadystatechange = function(){
 - **从服务器传回的数据是json格式，这里做一个例子说明，如何利用**
 
   - 1、首先需要从`XMLHttpRequest`对象取回数据这是一个`JSON`串，把它转换为真正的`JavaScript`对象。使用`JSON.parse(xhr.responseText)`转化为`JSON`对象
-  - 2、遍历得到的数组，向`DOM`中添加新元素
+  - 2、遍历得到的数组，向`dom`中添加新元素
 
 ```js
 function example(responseText){
@@ -457,7 +457,7 @@ ajax({
 
 **下面的方法也可以实现**
 
-- 使用jQuery实现
+- 使用jquery实现
 
 ```js
 <script src="jquery-3.1.0.min.js"></script>
@@ -508,11 +508,11 @@ var script = document.createElement("script");
 			}
 ```
 
-### 三、 jQuery中的Ajax
+### 三、 jquery中的Ajax
 ---
 
 
-- jQuery中的`ajax`封装案例
+- jquery中的`ajax`封装案例
 
 ```js
 //ajax请求后台数据
@@ -574,7 +574,7 @@ function ajax(aJson){
 	}
 ```
 
-#### jQuery中的Ajax的一些方法
+#### jquery中的Ajax的一些方法
 ---
 
 `jquery`对`Ajax`操作进行了封装，在`jquery`中的`$.ajax()`方法属于最底层的方法，第`2`层是`load()`、`$.get()`、`$.post();`第`3`层是`$.getScript()`、`$.getJSON()`，第`2`层使用频率很高 
@@ -582,7 +582,7 @@ function ajax(aJson){
 ##### `load()`方法
 ---
 
-  - `load()`方法是`jquery`中最简单和常用的`ajax`方法，能载入远程`HTML`代码并插入`DOM`中 结构为：`load(url,[data],[callback])`
+  - `load()`方法是`jquery`中最简单和常用的`ajax`方法，能载入远程`HTML`代码并插入`dom`中 结构为：`load(url,[data],[callback])`
    - 使用`url`参数指定选择符可以加载页面内的某些元素 `load`方法中`url`语法：`url selector` 注意：`url`和选择器之间有一个空格
   - 传递方式
       - `load()`方法的传递方式根据参数`data`来自动指定，如果没有参数传递，则采用`GET`方式传递，反之，采用`POST`
@@ -629,7 +629,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
       - `GET`请求会将参数跟张乃URL后进行传递，而`POST`请求则是作为`Http`消息的实体内容发送给web服务器，在`ajax`请求中，这种区别对用户不可见
     - `GET`方式对传输数据有大小限制（通常不能大于`2KB`），而使用`POST`方式传递的数据量要比`GET`方式大得多（理论不受限制）
     - `GET`方式请求的数据会被浏览器缓存起来，因此其他人可以从浏览器的历史纪录中读取这些数据，如：账号、密码。在某种情况下，`GET`方式会带来严重的安全问题，而`POST`相对来说可以避免这些问题
-    - `GET`和`POST`方式传递的数据在服务端的获取也不相同。在`PHP`中，`GET`方式用`$_GET[]`获取；`POST`方式用`$_POST[]`获取;两种方式都可用`$_REQUEST[]`来获取 
+    - `GET`和`POST`方式传递的数据在服务端的获取也不相同。在`php`中，`GET`方式用`$_GET[]`获取；`POST`方式用`$_POST[]`获取;两种方式都可用`$_REQUEST[]`来获取 
 
 - **总结**
   - 使用`load()`、`$.get()`和`$.post()`方法完成了一些常规的`Ajax`程序，如果还需要复杂的`Ajax`程序，就需要用到`$.ajax()`方式
@@ -646,7 +646,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 |`url`|`String`|(默认为当前页地址)发送请求的地址|
 |`type`|`String`|请求方式（`POST`或`GET`）默认为`GET`|
 |`timeout`|`Number`|设置请求超时时间（毫秒）|
-|`dataType`|`String`|预期服务器返回的类型。可用的类型如下<br /><br /> **xml**:返回`XML`文档，可用`jquery`处理<br />**html**:返回纯文本的`HTML`信息，包含的`script`标签也会在插入`DOM`时执行<br />**script**：返回纯文本的`javascript`代码。不会自动缓存结果，除非设置`cache`参数。注意：在远程请求时，所有的`POST`请求都将转为`GET`请求<br />**json**:返回`JSON`数据<br />**jsonp**:`JSONP`格式，使用`jsonp`形式调用函数时，例如：`myurl?call back=?,jquery`将自动替换后一个`？`为正确的函数名，以执行回调函数<br />**text**:返回纯文本字符串|
+|`dataType`|`String`|预期服务器返回的类型。可用的类型如下<br /><br /> **xml**:返回`XML`文档，可用`jquery`处理<br />**html**:返回纯文本的`HTML`信息，包含的`script`标签也会在插入`dom`时执行<br />**script**：返回纯文本的`javascript`代码。不会自动缓存结果，除非设置`cache`参数。注意：在远程请求时，所有的`POST`请求都将转为`GET`请求<br />**json**:返回`JSON`数据<br />**jsonp**:`JSONP`格式，使用`jsonp`形式调用函数时，例如：`myurl?call back=?,jquery`将自动替换后一个`？`为正确的函数名，以执行回调函数<br />**text**:返回纯文本字符串|
 |`beforeSend`|`Function`|发送请求前可以修改`XMLHttpRequest`对象的函数，例如添加自定义`HTTP`头。在`beforeSend`中如果返回`false`可以取消本次`Ajax`请求。`XMLHttpRequest`对象是唯一的参数<br /> function(XMLHttpRequest){<br />          `this`;//调用本次`Ajax`请求时传递的`options`参数<br>}|
 |`complete`|`Function`|请求完成后的回调函数（请求成功或失败时都调用）<br /> 参数：`XMLHttpRequest`对象和一个描述成功请求类型的字符串<br />function(XMLHttpRequest,textStatus){<br>         `this`;//调用本次Ajax请求时传递的`options`参数<br>}|
 |`success`|`Function`|请求成功后调用的回调函数，有两个参数<br />(1)由服务器返回，并根据`dataTyppe`参数进行处理后的数据<br />(2)描述状态的字符串<br />`function`(data,textStatus){<br>         //`data`可能是`xmlDoc、``jsonObj`、`html`、`text`等<br>         `this`;//调用本次`Ajax`请求时传递的`options`参数<br />}|
@@ -654,4 +654,4 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 |`global`|`Boolean`|默认为`true`。表示是否触发全局`Ajax`事件，设置为`false`将不会触发。`AjaxStart`或`AjaxStop`可用于控制各种`Ajax`事件|
 
 - 参考
-  - 锋利的`jQuery`
+  - 锋利的`jquery`

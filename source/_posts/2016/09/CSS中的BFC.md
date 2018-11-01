@@ -1,7 +1,7 @@
 ---
 title: CSS中的BFC
-tags: CSS
-categories: Front-End
+tags: css
+categories: front-end
 abbrlink: 3c61eba
 date: 2016-09-07 18:20:08
 ---
@@ -20,9 +20,9 @@ date: 2016-09-07 18:20:08
     - `display` 为以下其中之一的值 `inline-blocks`，`table-cells`，`table-captions`
     - `overflow` 除了 `visible` 以外的值（`hidden`，`auto`，`scroll`）
  
- - 在 `CSS3` 中，`BFC` 叫做` Flow Root`，并增加了一些触发条件：
+ - 在 `css3` 中，`BFC` 叫做` Flow Root`，并增加了一些触发条件：
     - `display` 的 `table-caption` 值
-    - `position` 的 `fixed` 值，其实 `fixed` 是 `absolute` 的一个子类，因此在 `CSS2.1` 中使用这个值也会触发 `BFC` ，只是在` CSS3` 中更加明确了这一点
+    - `position` 的 `fixed` 值，其实 `fixed` 是 `absolute` 的一个子类，因此在 `CSS2.1` 中使用这个值也会触发 `BFC` ，只是在` css3` 中更加明确了这一点
 
 ---
 

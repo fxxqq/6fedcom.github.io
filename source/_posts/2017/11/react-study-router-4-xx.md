@@ -1,9 +1,8 @@
 ---
 title: React之React Router 4（十一）
 tags:
-  - Router
-  - React
-categories: Front-End
+  - react
+categories: front-end
 abbrlink: c26fe21f
 date: 2017-11-20 00:06:10
 ---
@@ -108,7 +107,7 @@ npm install --save react-router-dom
 
 ```js
 import { BrowserRouter } from 'react-router-dom'
-ReactDOM.render((
+Reactdom.render((
   <BrowserRouter>
     <App />
   </BrowserRouter>
@@ -312,7 +311,7 @@ const App = () =>
 render(<App />, document.getElementById("root"));
 ```
 
-> 首先，`V3` 中的 `router` 不在了，在 `V3` 中，我们是将整个庞大的` router` 直接丢给 `DOM`，而在 `V4` 中，除了 `BrowserRouter`， 我们丢给 `DOM` 的是我们的应用程序本身
+> 首先，`V3` 中的 `router` 不在了，在 `V3` 中，我们是将整个庞大的` router` 直接丢给 `dom`，而在 `V4` 中，除了 `BrowserRouter`， 我们丢给 `dom` 的是我们的应用程序本身
 
 - `V4 `中，我们不再使用 `{props.children}` 来嵌套组件了，替代的 `<Route>`，当 `route `匹配时，子组件会被渲染到 `<Route> `书写的地方
 
@@ -382,7 +381,7 @@ const Inbox = ({ match }) => (
   </div>
 ) 
 
-ReactDOM.render(
+Reactdom.render(
   (<HashRouter>
     <App>
         <Route exact path="/" component={Home} />
@@ -502,10 +501,10 @@ const UserSubLayout = props =>
 - `<Player>`组件可以使用`props.match.params`对象来确定需要被渲染的运动员的数据
 
 ```js
-// 返回运动员对象的API
-import PlayerAPI from './PlayerAPI'
+// 返回运动员对象的api
+import Playerapi from './Playerapi'
 const Player = (props) => {
-  const player = PlayerAPI.get(
+  const player = Playerapi.get(
     parseInt(props.match.params.number, 10)
   )
   if (!player) {
@@ -526,7 +525,7 @@ const FullRoster = () => (
   <div>
     <ul>
       {
-        PlayerAPI.all().map(p => (
+        Playerapi.all().map(p => (
           <li key={p.number}>
             <Link to={`/roster/${p.number}`}>{p.name}</Link>
           </li>

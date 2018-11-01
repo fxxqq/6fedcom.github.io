@@ -1,9 +1,9 @@
 ---
 title: React之组件的生命周期以及属性状态（三）
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: b0cc8a93
 date: 2017-11-19 10:12:24
 ---
@@ -26,8 +26,8 @@ date: 2017-11-19 10:12:24
 - `getDefaultProps`：设置初始的属性，只在第一次调用，实例之间共享引用
 - `getInitialState`：设置初始的状态
 - `componentWillMount`：组件将要加载，`render`之前最后一次修改状态的机会
-- `render`：只能访问`this.props`与`this.state`，只有一个顶层标签（组件），不允许修改状态和`DOM`输出
-- `componentDidMount`：成功`render`并渲染完成真实`DOM`之后出发，可以修改`DOM`，要操作`DOM`也必须在这个阶段完成
+- `render`：只能访问`this.props`与`this.state`，只有一个顶层标签（组件），不允许修改状态和`dom`输出
+- `componentDidMount`：成功`render`并渲染完成真实`dom`之后出发，可以修改`dom`，要操作`dom`也必须在这个阶段完成
 
 ```js
 var Demo = React.createClass({
@@ -66,7 +66,7 @@ var Demo = React.createClass({
         }
         return <div ref="box" style={styles}>{this.props.title}{this.state.sss}</div>
     },
-    // 第五步：组件加载完成，只有在这一个阶段，我们才可以操作DOM节点
+    // 第五步：组件加载完成，只有在这一个阶段，我们才可以操作dom节点
     componentDidMount:function(){
         // alert('componentDidMount')
         // 下面的this指向组件
@@ -89,7 +89,7 @@ var Demo = React.createClass({
         }
     }
 })
-ReactDOM.render(<Demo/>,document.getElementById("app"))
+Reactdom.render(<Demo/>,document.getElementById("app"))
 ```
 
 
@@ -99,8 +99,8 @@ ReactDOM.render(<Demo/>,document.getElementById("app"))
 - `componentWillReceiveProps`：父组件修改属性触发，可以修改新属性，修改状态
 - `shouldCompoenntUpdate`：组件是否更新，返回`false`会阻止`render`调用，`render`后面的函数都不会执行
 - `componentWillUpdate`：不能修改属性与状态，用于日志打印与数据获取
-- `reder`：只能访问`this.props与this.state`，只有一个顶层标签（组件），不允许修改状态和`DOM`输出
-- `componentDidUpdate`：可以修改`DOM`
+- `reder`：只能访问`this.props与this.state`，只有一个顶层标签（组件），不允许修改状态和`dom`输出
+- `componentDidUpdate`：可以修改`dom`
 
 ```js
 var HelloReact = React.createClass({
@@ -148,7 +148,7 @@ var Demo = React.createClass({
         )
     }
 })
-ReactDOM.render(<Demo/>,document.getElementById("app"))
+Reactdom.render(<Demo/>,document.getElementById("app"))
 ```
 
 
@@ -156,7 +156,7 @@ ReactDOM.render(<Demo/>,document.getElementById("app"))
 ---
 
 - `componentWillUnmount`：组件将要卸载
-- 在`ReactDOM`中提供一个方法`unmountComponentAtNode`(删除节点的名字)
+- 在`Reactdom`中提供一个方法`unmountComponentAtnode`(删除节点的名字)
 
 ```js
 var HelloReact = React.createClass({
@@ -196,7 +196,7 @@ var Demo = React.createClass({
     handleChange:function(e){
         // 利用input输入的内容来卸载组件
         if(e.target.value == '1234'){
-            ReactDOM.unmountComponentAtNode(document.getElementById("app"))
+            Reactdom.unmountComponentAtnode(document.getElementById("app"))
             // 写上这个return是为了不执行下面的语句，减少代码执行时间
             return ;
         }
@@ -217,7 +217,7 @@ var Demo = React.createClass({
         )
     }
 })
-ReactDOM.render(<Demo/>,document.getElementById("app"))
+Reactdom.render(<Demo/>,document.getElementById("app"))
 ```
 
 五、属性状态
@@ -235,7 +235,7 @@ var Demo = React.createClass({
         return <div>{this.props.title}</div>
     }
 })
-ReactDOM.render(<Demo title={"Demo"}/>,document.getElementById("app"))
+Reactdom.render(<Demo title={"Demo"}/>,document.getElementById("app"))
 ``` 
 
 ```js
@@ -256,7 +256,7 @@ var props = {
     title:'百度',
     href:'http://www.baidu.com'
 }
-ReactDOM.render(<Demo {...props}/>,document.getElementById("app"))
+Reactdom.render(<Demo {...props}/>,document.getElementById("app"))
 ```
 
 - `this.props.chilidren`
@@ -284,7 +284,7 @@ var List = React.createClass({
         </ul>)
     }
 })
-ReactDOM.render(
+Reactdom.render(
     <List>
         <h1><a href="">百度</a></h1>
         <a href="http://www.baidu.com">http://www.baidu.com</a>
@@ -307,7 +307,7 @@ var Demo = React.createClass({
         return <div>{this.props.title}</div>
     }
 })
-ReactDOM.render(<Demo title={'title'} />,document.getElementById("app"))
+Reactdom.render(<Demo title={'title'} />,document.getElementById("app"))
 ```
 
 **属性的两种用法**
@@ -364,7 +364,7 @@ var Demo = React.createClass({
         return (<div onClick={this.handleClick}>{this.state.onOff?'data1':'data2'}</div>)
     }
 })
-ReactDOM.render(<Demo />,document.getElementById("app"))
+Reactdom.render(<Demo />,document.getElementById("app"))
 ```
 
 ```js
@@ -395,7 +395,7 @@ var Demo = React.createClass({
         return (<div onClick={this.changTime()}>{this.props.name}{this.state.time}</div>)
     }
 })
-ReactDOM.render(<Demo name='北京时间'/>,document.getElementById("app"))
+Reactdom.render(<Demo name='北京时间'/>,document.getElementById("app"))
 ```
 
 

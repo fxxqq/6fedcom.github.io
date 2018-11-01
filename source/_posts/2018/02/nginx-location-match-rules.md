@@ -1,7 +1,7 @@
 ---
 title: nginx之location的匹配规则
-tags: Nginx
-categories: Back-end
+tags: nginx
+categories: back-end
 abbrlink: e5e3e139
 date: 2018-02-28 13:01:42
 ---
@@ -57,7 +57,7 @@ location / {
 - 访问 `http://localhost/a.gif`, `http://localhost/b.jpg` 将匹配规则 `D `和规则 `E`，但是规则 `D` 顺序优先，规则 `E `不起作用，而 `http://localhost/static/c.png `则优先匹配到规则 `C`
 - 访问 `http://localhost/a.PNG` 则匹配规则 `E`，而不会匹配规则 `D`，因为规则 `E` 不区分大小写
 
-> 访问 `http://localhost/category/id/1111` 则最终匹配到规则 `F`，因为以上规则都不匹配，这个时候应该是 `nginx` 转发请求给后端应用服务器，比如 `FastCGI（PHP`），`tomcat（jsp）`，`nginx` 作为反向代理服务器存在
+> 访问 `http://localhost/category/id/1111` 则最终匹配到规则 `F`，因为以上规则都不匹配，这个时候应该是 `nginx` 转发请求给后端应用服务器，比如 `FastCGI（php`），`tomcat（jsp）`，`nginx` 作为反向代理服务器存在
 
 ## 二、运用场景
 

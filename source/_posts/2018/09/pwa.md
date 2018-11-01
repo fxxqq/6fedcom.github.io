@@ -1,9 +1,8 @@
 ---
 title: 浅谈PWA(Progressive Web App)
 tags:
-  - Javascript
-  - PWA
-categories: Front-End
+  - javascript
+categories: front-end
 abbrlink: c8cbf86a
 date: 2018-09-04 18:00:43
 ---
@@ -21,7 +20,7 @@ date: 2018-09-04 18:00:43
 
 - `Web App Manifest`
 - `Service Worker`
-- `Cache API` 缓存
+- `Cache api` 缓存
 - `Push、Notification` 推送与通知
 - `Background Sync`后台同步
 - 响应式设计
@@ -103,7 +102,7 @@ date: 2018-09-04 18:00:43
 
 ### 2.2.1 什么是service worker
 
-> `Service Worker` 是 Chrome 团队提出和力推的一个 WEB API，用于给 web 应用提供高级的可持续的后台处理能力
+> `Service Worker` 是 Chrome 团队提出和力推的一个 WEB api，用于给 web 应用提供高级的可持续的后台处理能力
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-fabc2954c2bc98f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -115,7 +114,7 @@ date: 2018-09-04 18:00:43
 - 网站必须使用 `HTTPS`。除了使用本地开发环境调试时(如域名使用 `localhost`)
 - 运行于浏览器后台，可以控制打开的作用域范围下所有的页面请求
 - 单独的作用域范围，单独的运行环境和执行线程
-- 不能操作页面 `DOM`。但可以通过事件机制来处理
+- 不能操作页面 `dom`。但可以通过事件机制来处理
 - 事件驱动型服务线程
 
 > 为什么要求网站必须是`HTTPS`的，大概是因为`service worker`权限太大能拦截所有页面的请求，如果`http`的网站安装`service worker`很容易被攻击

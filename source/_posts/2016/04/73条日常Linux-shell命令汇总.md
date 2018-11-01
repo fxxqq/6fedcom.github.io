@@ -1,7 +1,7 @@
 ---
 title: 73条日常Linux shell命令汇总
 tags: Linux
-categories: Back-end
+categories: back-end
 abbrlink: b1c67ad
 date: 2016-04-17 09:32:41
 ---
@@ -98,7 +98,7 @@ date: 2016-04-17 09:32:41
 
 ####  访问Windows共享目录：
 
-    smbclient -U "DOMAIN\user" //dc.domain.com/share/test/dir
+    smbclient -U "domAIN\user" //dc.domain.com/share/test/dir
 
 ####  执行历史记录里的命令(这里是第100行):
 
@@ -167,23 +167,23 @@ date: 2016-04-17 09:32:41
 
     vim + some_file_name
 
-####  Git 克隆指定分支(master):
+####  git 克隆指定分支(master):
 
     git clone git@github.com:name/app.git -b master
 
-####  Git 切换到其它分支(develop):
+####  git 切换到其它分支(develop):
 
     git checkout develop
 
-####  Git 删除分支(myfeature):
+####  git 删除分支(myfeature):
 
     git branch -d myfeature
 
-####  Git 删除远程分支
+####  git 删除远程分支
 
     git push origin :branchName
 
-####  Git 将新分支推送到远程服务器：
+####  git 将新分支推送到远程服务器：
 
     git push -u origin mynewfeature
 

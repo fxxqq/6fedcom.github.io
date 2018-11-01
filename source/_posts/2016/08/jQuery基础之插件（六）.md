@@ -1,13 +1,13 @@
 ---
-title: jQuery基础之插件（六）
-tags: jQuery
-categories: Front-End
+title: jquery基础之插件（六）
+tags: jquery
+categories: front-end
 abbrlink: a062eb06
 date: 2016-08-07 22:10:08
 ---
 
 - 什么是插件
- 插件(`Plugin`)也称为`jQuery`的扩展。以``jQuery核心代码为基础编写的符合一定规范的应用程序。通过`js文件的方式引用。
+ 插件(`Plugin`)也称为`jquery`的扩展。以``jquery核心代码为基础编写的符合一定规范的应用程序。通过`js文件的方式引用。
 <!--more-->
 - 插件分为哪几类
   - UI类、表单及验证类、输入类、特效类、`Ajax`类、滑动类、图形图像类、导航类、综合工具类、动画类等等
@@ -30,18 +30,18 @@ date: 2016-08-07 22:10:08
 	- 命名：`jquery.插件名.js`
 	- 所有的新方法附加在`jquery.fn`对象上面，所有新功能附加在`jquery`上
 	- 所有的方法或插件必须用分号结尾，避免出问题
-	-  插件必须返回`jQuery`对象，便于链式连缀
-	-  避免插件内部使用`$`，如果要使用，请传递`jQuery`(`$`并不是总等于`jQuery`，另外其他`js`框架也可能使用`$`)
-	- 插件中的`this`应该指向`jQuery`对象
+	-  插件必须返回`jquery`对象，便于链式连缀
+	-  避免插件内部使用`$`，如果要使用，请传递`jquery`(`$`并不是总等于`jquery`，另外其他`js`框架也可能使用`$`)
+	- 插件中的`this`应该指向`jquery`对象
 	- 使用`this.each()`迭代元素
 
 - 自定义插件案例
     
-	- 为了方便用户创建插件，`jQuery`提供了 `jQuery.extend()` 和 `jQuery.fn.extend()`
-	- `jQuery.extend()`：创建工具函数或者是选择器
-	- `jQuery.fn.extend()`：创建`jQuery`对象命令  （`fn`相当于`prototype`的别名）
+	- 为了方便用户创建插件，`jquery`提供了 `jquery.extend()` 和 `jquery.fn.extend()`
+	- `jquery.extend()`：创建工具函数或者是选择器
+	- `jquery.fn.extend()`：创建`jquery`对象命令  （`fn`相当于`prototype`的别名）
 
-	- 自定义`jQuery`函数：
+	- 自定义`jquery`函数：
 
 ```js
 (function($){
@@ -50,10 +50,10 @@ date: 2016-08-07 22:10:08
 				alert("hello plugin");
 			}
 		})
-	})(jQuery);
+	})(jquery);
 ```
 
-- 自定义`jQuery`命令：
+- 自定义`jquery`命令：
 
  形式1：
 	  
@@ -64,7 +64,7 @@ date: 2016-08-07 22:10:08
 					alert("hello plugin");
 				}
 			})
-		})(jQuery);
+		})(jquery);
 ```
 
 形式2：
@@ -75,7 +75,7 @@ date: 2016-08-07 22:10:08
 					alert("hello plugin");
 			};
 			
-		})(jQuery);
+		})(jquery);
 ```
 
 

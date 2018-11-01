@@ -1,7 +1,7 @@
 ---
 title: vue项目中的痛点（十四）
-tags: [Vue,Axios]
-categories: Front-End
+tags: [Vue,axios]
+categories: front-end
 abbrlink: c560373d
 date: 2018-08-28 17:10:30
 ---
@@ -103,7 +103,7 @@ proxyTable: {
 - 例如请求接口：`/api/posts/1 ==>http://jsonplaceholder.typicode.com/posts/1`
 - 这个时候就可以在本地环境请求后台接口了
 
-## 三、axios的封装和API接口的统一管理
+## 三、axios的封装和api接口的统一管理
 
 - `axios`的封装，主要是用来帮我们进行请求的拦截和响应的拦截。
 - 在请求的拦截中我们可以携带`userToken`，`post`请求头、`qs`对`post`提交数据的序列化等- 在响应的拦截中，我们可以进行根据状态码来进行错误的统一处理等等。

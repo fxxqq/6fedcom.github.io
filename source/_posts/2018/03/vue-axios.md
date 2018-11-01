@@ -1,7 +1,7 @@
 ---
 title: vue-axios封装请求（十二）
-tags: [Vue,Axios]
-categories: Front-End
+tags: [Vue,axios]
+categories: front-end
 abbrlink: ed55b987
 date: 2018-08-28 15:35:32
 ---
@@ -13,7 +13,7 @@ date: 2018-08-28 15:35:32
 
 - 从浏览器中创建 `XMLHttpRequest`
 - 从 `node.js` 发出 `http` 请求
-- 支持` Promise API`
+- 支持` Promise api`
 - 拦截请求和响应
 - 转换请求和响应数据
 - 取消请求
@@ -383,7 +383,7 @@ this.postRequest('/login', {userName，password}).then(resp=> {
 
 ## 九、接口封装处理
 
-> `vue`中`Axios`的封装与`API`接口的管理详解
+> `vue`中`axios`的封装与`api`接口的管理详解
 
 ### 9.1 axios的封装
 

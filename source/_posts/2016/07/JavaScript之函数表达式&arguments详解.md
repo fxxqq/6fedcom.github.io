@@ -1,7 +1,7 @@
 ---
 title: JavaScript之函数表达式&arguments详解
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 765dd0ea
 date: 2016-07-27 11:40:43
 ---

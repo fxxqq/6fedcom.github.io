@@ -1,7 +1,7 @@
 ---
 title: JavaScript语言基础之数组(七)
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 4d991e84
 date: 2016-07-27 00:05:43
 ---

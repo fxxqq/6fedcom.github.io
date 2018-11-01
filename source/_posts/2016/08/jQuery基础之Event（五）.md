@@ -1,7 +1,7 @@
 ---
-title: jQuery基础之Event（五）
-tags: jQuery
-categories: Front-End
+title: jquery基础之Event（五）
+tags: jquery
+categories: front-end
 abbrlink: 246e66eb
 date: 2016-08-07 22:10:08
 ---

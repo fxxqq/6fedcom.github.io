@@ -1,7 +1,7 @@
 ---
-title: MVC、MVP、MVVM之间的关系
+title: MVC、MVP、mvvm之间的关系
 tags: MVC
-categories: Front-End
+categories: front-end
 abbrlink: cec34af5
 date: 2016-12-13 14:35:24
 ---
@@ -78,10 +78,10 @@ date: 2016-12-13 14:35:24
 - `View` 与` Model` 不发生联系，都通过 `Presenter` 传递。
 - `View` 非常薄，不部署任何业务逻辑，称为"被动视图"（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里
 
-## 三、MVVM
+## 三、mvvm
 ---
 
-- `MVVM` 模式将 `Presenter` 改名为 `ViewModel`，基本上与 `MVP` 模式完全一致
+- `mvvm` 模式将 `Presenter` 改名为 `ViewModel`，基本上与 `MVP` 模式完全一致
 - 唯一的区别是，它采用双向绑定（data-binding）：`View`的变动，自动反映在 `ViewModel`，反之亦然
 
 ![](http://image.beekka.com/blog/2015/bg2015020110.png)

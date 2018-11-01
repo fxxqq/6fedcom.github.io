@@ -1,7 +1,7 @@
 ---
 title: echart使用小结
-tags: Echart
-categories: Front-End
+tags: echart
+categories: front-end
 abbrlink: 84c8c02e
 date: 2018-01-12 10:05:43
 ---

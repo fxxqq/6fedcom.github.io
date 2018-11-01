@@ -1,7 +1,7 @@
 ---
 title: javascript笔记总结篇
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 5f0d48ef
 date: 2016-09-24 10:33:00
 ---
@@ -24,14 +24,14 @@ date: 2016-09-24 10:33:00
 #### 1、javascript介绍
 ---
 
-- `JavaScript`操作`DOM`的本质是=获取+触发+改变
+- `JavaScript`操作`dom`的本质是=获取+触发+改变
 
-- 目的：就是用来操作内存中的`DOM`节点
-  - 修改`DOM`节点的属性
-  - 过`javascript`语法组织逻辑代码操作DOM
-  - `BOM(window)`它包含了`DOM`
-  - `DOM(document)`
-  - `script`脚本推荐放在最下边好处：防止因网络问题，页面加载时间长，出现空白；即便网络问题，浏览器也把`DOM`加载渲染完成，等待从服务端下载完`js`脚本，出现效果
+- 目的：就是用来操作内存中的`dom`节点
+  - 修改`dom`节点的属性
+  - 过`javascript`语法组织逻辑代码操作dom
+  - `BOM(window)`它包含了`dom`
+  - `dom(document)`
+  - `script`脚本推荐放在最下边好处：防止因网络问题，页面加载时间长，出现空白；即便网络问题，浏览器也把`dom`加载渲染完成，等待从服务端下载完`js`脚本，出现效果
   - `css`不放在最下面原因通俗地讲：好比先穿好衣服在出去，浏览器先把`css`样式准备好，在加载结构层，使得页面有样子；如果放在下面，因为页面是从上往下加载，没有`css`，就剩下裸露的标签，很难看，使得用户体验不好
 
 #### 2、基于对象的内存管理
@@ -62,16 +62,16 @@ date: 2016-09-24 10:33:00
   + 不能使用关键字
   + 首字母不要大写，大写是有特殊含义的
 
-#### DOM在内存中的一些图示
+#### dom在内存中的一些图示
 ---
 
-![DOM Tree](http://upload-images.jianshu.io/upload_images/1480597-1a17ccd9b4577254.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dom Tree](http://upload-images.jianshu.io/upload_images/1480597-1a17ccd9b4577254.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![DOM内存图](http://upload-images.jianshu.io/upload_images/1480597-3a4d0eba77f1a163.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dom内存图](http://upload-images.jianshu.io/upload_images/1480597-3a4d0eba77f1a163.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![DOM内存图](http://upload-images.jianshu.io/upload_images/1480597-80fe8bcddfbca269.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dom内存图](http://upload-images.jianshu.io/upload_images/1480597-80fe8bcddfbca269.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![DOM内存图](http://upload-images.jianshu.io/upload_images/1480597-ce659f11e978cd3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dom内存图](http://upload-images.jianshu.io/upload_images/1480597-ce659f11e978cd3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
   
   
   ### 第二课时 
@@ -217,7 +217,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 ---
 
  - 变量
- - `DOM`对象
+ - `dom`对象
  - 常量
  - 自定义对象
 
@@ -394,7 +394,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
     - `==`和`!=`在比较之前首先让双方的值做隐士类型转换，`===`不转换
 
 - 逻辑运算符(`||`,`&&`,`!`)
-    - `||` 在js中和PHP中是不一样的 js中返回逻辑或的左边或右边的一个结果 PHP返回`||`或出来以后的结果即：`true` `false`
+    - `||` 在js中和php中是不一样的 js中返回逻辑或的左边或右边的一个结果 php返回`||`或出来以后的结果即：`true` `false`
     - 特殊性（注意）---一定要记住（这个特性和其他编程语言不一样）：在`js`里返回不是布尔值
     - `||` 短路运算 第一个条件为真 后面不执行
     - `&&`把表达式最后一个值返回（注意这里）
@@ -1004,7 +1004,7 @@ person1.sayName();
 ####  一些内存图示
 ---
 
-![](https://github.com/poetries/TZ-Front-End-Note/raw/master/JS-Basic-star/images/DOM7.png)
+![](https://github.com/poetries/TZ-Front-End-Note/raw/master/JS-Basic-star/images/dom7.png)
 
 ### 第八课时
 ---
@@ -1101,9 +1101,9 @@ s.work(h);
 #### **一些内存图示**
 ---
 
-![](https://github.com/poetries/TZ-Front-End-Note/raw/master/JS-Basic-star/images/DOM8.png)
+![](https://github.com/poetries/TZ-Front-End-Note/raw/master/JS-Basic-star/images/dom8.png)
 
-![](https://github.com/poetries/TZ-Front-End-Note/raw/master/JS-Basic-star/images/DOM9.png)
+![](https://github.com/poetries/TZ-Front-End-Note/raw/master/JS-Basic-star/images/dom9.png)
 
 
 ### 第九课时
@@ -1412,7 +1412,7 @@ p3.scoop(p2);
 #### **知识点：**
 ---
 
-#### API application program interface
+#### api application program interface
 ---
 
 - 第一：遇到问题
@@ -1420,7 +1420,7 @@ p3.scoop(p2);
 - 第三：记住有这个功能
 - 第四：查资料（百度）
 
-#### 常用API
+#### 常用api
 ---
 - 1.`String`
 - 2.`Array`
@@ -1506,7 +1506,7 @@ if( checkDate(“2006-01-01”) ){ }
 var r = /^(\d{2}|\d{4})[\/-]\d{1,2}[\/-]\d{1,2}$/;if( r.test( myString ) ){ }
 ```
 
-#####  字符串String型函数API
+#####  字符串String型函数api
 ---
 
 
@@ -1979,9 +1979,9 @@ new Date(2012,2).printCalendar();
      - 获得当前窗体的子页面（`iframe`）
 
 - f.`document`
-     -  `DOM`模型的核心对象
+     -  `dom`模型的核心对象
 
-#### 2.`DOM` 文档对象模型
+#### 2.`dom` 文档对象模型
 ---
 
 - **`document`**
@@ -2000,7 +2000,7 @@ new Date(2012,2).printCalendar();
         + `href`,`src`...(对应的元素)
         + `innerHTML`
         + `children`
-        + `parentNode`
+        + `parentnode`
      + **功能方法：**
          + `setAttribute/getAttribute`
          + `appendChild`
@@ -2025,8 +2025,8 @@ new Date(2012,2).printCalendar();
  - e.`frames`
             获得当前窗体的子页面（`iframe`）
  - f.`document`
-    - `DOM`模型的核心对象
-- 所有的`DOM`对象都是在堆内存创建的 都是有一个构造器生成的
+    - `dom`模型的核心对象
+- 所有的`dom`对象都是在堆内存创建的 都是有一个构造器生成的
 - 查看对象的构造器器方法：
   - step1：查看标签的对象以及构造器`var body = document.body;console.log(body.toString())`
   - step2：查看对象是否是这个构造器创建出来的 `console.log(body instanceof HTMLBodyElement)`
@@ -2034,7 +2034,7 @@ new Date(2012,2).printCalendar();
 #### **新知识点：**
 ---
 
-#### 1.DOM 文档对象模型
+#### 1.dom 文档对象模型
 ---
 
 ##### **document**
@@ -2044,8 +2044,8 @@ new Date(2012,2).printCalendar();
      - `getElementById`：通过传入的ID，返回标识了这个ID的唯一对象的内存地址
      - `getElementsByTagName`:通过传入的标签名字，返回所有该标签对象（`HTMLCollection`）
      - `getElementsByClassName`:通过类的名字，返回所有该类的元素对象（`HTMLCollection`）
-     - `createElement`:想要创建出来的元素能够绘制在页面中，那么它必须在DOM树中
-   - **总结** `document`对象是DOM原型的核心对象，它是内存DOM树的根，所以它提供了很多功能让我们快速的找到DOM树中的某些DOM节点（对象）
+     - `createElement`:想要创建出来的元素能够绘制在页面中，那么它必须在dom树中
+   - **总结** `document`对象是dom原型的核心对象，它是内存dom树的根，所以它提供了很多功能让我们快速的找到dom树中的某些dom节点（对象）
 
 ##### **`element`**
 ---
@@ -2063,25 +2063,25 @@ new Date(2012,2).printCalendar();
    - `href`,`src`...(对应的元素)
    - `innerHTML/innerText`  `innerText`返回文本信息
    - `children`://子元素集合
-   - `parentNode`//父元素
+   - `parentnode`//父元素
 
 - 总结：元素的功能属性直接可以通过元素对象`点`出来，除此意外的`自定义属性`，请通过`get/setAtribute`去操作
 
 
-#### **DOM 操作：**
+#### **dom 操作：**
 ---
 
 - 图片切换的相册效果
 - `tab`切换效果
 - 表单验证
-- 特效就是`DOM`操作的具体应用 `DOM`操作就是用`js`来写`HTML`代码
+- 特效就是`dom`操作的具体应用 `dom`操作就是用`js`来写`HTML`代码
 - 节点/元素/标签：
    - 三种常用的节点类型：
      - 元素节点
      - 属性节点
      - 文本节点
 
-#### **操作DOM对象：**
+#### **操作dom对象：**
 ---
 
 - 修改：--找到这个节点
@@ -2100,7 +2100,7 @@ new Date(2012,2).printCalendar();
 
 - 因此`document.getElemenstByName`只对表单中的元素发挥作用 后来部分浏览器把`Name`属性扩展到一般的元素 如：`div` 但是IE浏览器还是只能对表单使用`byName `因此处于兼容性 我们只能对表单使用` byName`
 
-#### `DOM`中查找节点的思路：（由大到小 个别情况 由子到父）
+#### `dom`中查找节点的思路：（由大到小 个别情况 由子到父）
 ---
 
 - 由大到小：（通过下面的来定位）
@@ -2110,21 +2110,21 @@ new Date(2012,2).printCalendar();
  - 3、`document.getElemenstByName`--根据`name`属性来查找节点（一般用在表单中）[返回的是数组]`document.getElemenstByName[i]`
 - 如果还没有查到自己想要的节点，还可以继续根据上面已经找到的节点再次定位来查找
 - 怎么继续定位？
-  - 答：`childNodes/child`
+  - 答：`childnodes/child`
 
 #### **继续查找：**
 
-- 1、查找子元素 `children[index]/childNodes`
-- 2、查找父元素 `node.parentNode` -->获取父元素
+- 1、查找子元素 `children[index]/childnodes`
+- 2、查找父元素 `node.parentnode` -->获取父元素
 - 3、查找兄弟元素 `nextSibling` `previousSibling`
 - 4、`nextSibling` `previousSibling` `firstChild` `lastChild `这四个属性容易受到`空白文本`的影响 `建议不用`
 
 ```js
-//============给Object原型加一个方法 消除文本节点对DOM操作的影响 例如：nextSibling` `previousSibling` `firstChild` `lastChild （受到换行 和文本节点影响）
+//============给Object原型加一个方法 消除文本节点对dom操作的影响 例如：nextSibling` `previousSibling` `firstChild` `lastChild （受到换行 和文本节点影响）
 
 Object.prototype.next = function(){
-  //NodeType == 3 text的代号
-  //NodeType == 1 tag的代号
+  //nodeType == 3 text的代号
+  //nodeType == 1 tag的代号
   if(this.nextSibling){//判断下一个兄弟节点是否存在
   switch(this.nextSibling.nodeType){
     case 1:
@@ -2149,12 +2149,12 @@ console.log(div1.next().next().innerText);
 
 - 要过滤空白文本节点，用`children`取他的文本节点
 
-#### **DOM与节点的关系：**
+#### **dom与节点的关系：**
 ---
 
  - **node:**
-    - `childNodes[]`
-    - `parentNode`
+    - `childnodes[]`
+    - `parentnode`
     - `firstChild`
     - `getElementsByTagName('元素标签')`
     - `lastchild`
@@ -2182,12 +2182,12 @@ child.innerHTML = 'pppppp';
 
 ```
 
-##### **DOM属性小结**
+##### **dom属性小结**
 ---
 
 - `Attributes`	存储节点的属性列表(只读)
 
-- `childNodes`	存储节点的子节点列表(只读)
+- `childnodes`	存储节点的子节点列表(只读)
 
 - `dataType`	返回此节点的数据类型
 
@@ -2199,7 +2199,7 @@ child.innerHTML = 'pppppp';
 
 - `firstChild`	返回当前节点的第一个子节点(只读)
 
-- `Implementation`	返回`XMLDOMImplementation`对象
+- `Implementation`	返回`XMLdomImplementation`对象
 
 - `lastChild`	返回当前节点最后一个子节点(只读)
 
@@ -2215,7 +2215,7 @@ child.innerHTML = 'pppppp';
 
 - `ownerDocument`	返回包含此节点的根文档(只读)
 
-- `parentNode	`返回父节点(只读)
+- `parentnode	`返回父节点(只读)
 
 - `Parsed`	返回此节点及其子节点是否已经被解析(只读)
 
@@ -2231,13 +2231,13 @@ child.innerHTML = 'pppppp';
 
 - `Xml`	返回节点及其后代的`XML`表示(只读)
 
-##### DOM方法小结
+##### dom方法小结
 ---
 
-  - `cloneNode`	返回当前节点的拷贝
+  - `clonenode`	返回当前节点的拷贝
   - `createAttribute`	创建新的属性
 
-- **节点操作`DOMDocument`属性和方法**
+- **节点操作`domDocument`属性和方法**
 
   - `createCDATASection`	创建包括给定数据的`CDATA`段
 
@@ -2249,15 +2249,15 @@ child.innerHTML = 'pppppp';
 
   - `createEntityReference`	创建`EntityReference`对象
 
-  - `createNode`	创建给定类型,名字和命名空间的节点
+  - `createnode`	创建给定类型,名字和命名空间的节点
 
   - `createPorcessingInstruction`	创建操作指令节点
 
-  - `createTextNode`	创建包括给定数据的文本节点
+  - `createTextnode`	创建包括给定数据的文本节点
 
   - `getElementsByTagName	`返回指定名字的元素集合
 
-  - `hasChildNodes`	返回当前节点是否有子节点
+  - `hasChildnodes`	返回当前节点是否有子节点
 
   - `insertBefore	`在指定节点前插入子节点
 
@@ -2271,13 +2271,13 @@ child.innerHTML = 'pppppp';
 
   - `Save	把`XML`文件存到指定节点
 
-  - `selectNodes`	对节点进行指定的匹配,并返回匹配节点列表
+  - `selectnodes`	对节点进行指定的匹配,并返回匹配节点列表
 
-  - `selectSingleNode`	对节点进行指定的匹配,并返回第一个匹配节点
+  - `selectSinglenode`	对节点进行指定的匹配,并返回第一个匹配节点
 
-  - `transformNode`	使用指定的样式表对节点及其后代进行转换
+  - `transformnode`	使用指定的样式表对节点及其后代进行转换
 
-  - `transformNodeToObject`	使用指定的样式表将节点及其后代转换为对象
+  - `transformnodeToObject`	使用指定的样式表将节点及其后代转换为对象
 
   - `document.documentElement	`返回文档的根节点
 
@@ -2289,13 +2289,13 @@ child.innerHTML = 'pppppp';
 
   - `event.srcElement`	返回激活事件的源节点
 
-  - `node.parentNode,node.parentElement`	返回父节点
+  - `node.parentnode,node.parentElement`	返回父节点
 
-  - `node.childNodes`	返回子节点集合（包含文本节点及标签节点）
+  - `node.childnodes`	返回子节点集合（包含文本节点及标签节点）
 
   - `node.children`	返回子标签节点集合
 
-  - `node.textNodes`	返回子文本节点集合
+  - `node.textnodes`	返回子文本节点集合
 
   - `node.firstChild	`返回第一个子节点
 
@@ -2305,9 +2305,9 @@ child.innerHTML = 'pppppp';
 
   - `node.previousSibling`	返回同属上一个节点
 
-  - `node.a(oNode)`	追加子节点：
+  - `node.a(onode)`	追加子节点：
 
-  - `node.applyElment(oNode,sWhere)`
+  - `node.applyElment(onode,sWhere)`
 
   - `sWhere`有两个值：`outside` / i`nside`	应用标签节点
  
@@ -2321,23 +2321,23 @@ child.innerHTML = 'pppppp';
 
   - `node.remove()`
   - `node.removeChild()`
-  - `node.removeNode()`
+  - `node.removenode()`
 
 - **删除节点**
 
   - `node.replaceChild()`
-  - `node.replaceNode()`
-  - `node.swapNode()`
+  - `node.replacenode()`
+  - `node.swapnode()`
 
 - **替换节点**
 
-  - `node.cloneNode(bAll)	`返回复制复制节点引用
+  - `node.clonenode(bAll)	`返回复制复制节点引用
   - `node.contains()`	是否有子节点
-  - `node.hasChildNodes()	`是否有子节点
+  - `node.hasChildnodes()	`是否有子节点
 
 
 - 扩展阅读
-  - [DOM编程之API总结篇](http://www.jianshu.com/p/1e638b7da640)
+  - [dom编程之api总结篇](http://www.jianshu.com/p/1e638b7da640)
 
 ### 第十五课时
 ---
@@ -2345,7 +2345,7 @@ child.innerHTML = 'pppppp';
 #### **上节回顾：**
 ---
 
-#### 1.DOM 文档对象模型
+#### 1.dom 文档对象模型
 ---
 
 ##### document
@@ -2353,8 +2353,8 @@ child.innerHTML = 'pppppp';
     - `getElementById`：通过传入的ID，返回标识了这个ID的唯一对象的内存地址
     - `getElementsByTagName`:通过传入的标签名字，返回所有该标签对象（`HTMLCollection`）
     - `getElementsByClassName`:通过类的名字，返回所有该类的元素对象（`HTMLCollection`）
-    - `createElement`:想要创建出来的元素能够绘制在页面中，那么它必须在DOM树中
-   - 总结： `document`对象是DOM原型的核心对象，它是内存DOM树的根，所以它提供了很多功能让我们快速的找到DOM树中的某些DOM节点（对象）
+    - `createElement`:想要创建出来的元素能够绘制在页面中，那么它必须在dom树中
+   - 总结： `document`对象是dom原型的核心对象，它是内存dom树的根，所以它提供了很多功能让我们快速的找到dom树中的某些dom节点（对象）
 - `element`
     - 功能方法：（自定义属性非常灵活好用）
       - `setAttribute/getAttribute` //getAttribute获取标签的属性 --用来操作标签的属性
@@ -2367,7 +2367,7 @@ child.innerHTML = 'pppppp';
       - `href`,`src`...(对应的元素)
       - `innerHTML/innerText`  innerText返回文本信息
       - `children`://子元素集合
-      - `parentNode`//父元素
+      - `parentnode`//父元素
    - 总结：元素的功能属性直接可以通过元素对象`点`出来，除此意外的`自定义属性`，请通过`get/setAtribute`去操作
 
 #### **新知识点：**
@@ -2431,7 +2431,7 @@ child.innerHTML = 'pppppp';
     - [JavaScript视频教程 | 智能社](http://www.zhinengshe.com/video.html)
 - 了解`web`开发知识体系
   - [Growth - 陪你成为顶尖开发者](https://github.com/phodal/growth)
-  - [GitHub上收集整理的前端资源](https://github.com/poetries/mywiki)
+  - [gitHub上收集整理的前端资源](https://github.com/poetries/mywiki)
 
 - 常用组件
   - [js常用组件整理](https://github.com/poetries/mywiki/blob/master/bookmark/%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6.md)
@@ -2444,7 +2444,7 @@ child.innerHTML = 'pppppp';
 ### 附录一份大神总结的关于js的导图
 ---
 
-![DOM基本操作](http://upload-images.jianshu.io/upload_images/1480597-3a584567c41f737d.gif?imageMogr2/auto-orient/strip)
+![dom基本操作](http://upload-images.jianshu.io/upload_images/1480597-3a584567c41f737d.gif?imageMogr2/auto-orient/strip)
 
 ![javascript函数基础](http://upload-images.jianshu.io/upload_images/1480597-7de04acbf81543fc.gif?imageMogr2/auto-orient/strip)
 

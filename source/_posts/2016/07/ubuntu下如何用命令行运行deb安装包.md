@@ -3,7 +3,7 @@ title: ubuntu下如何用命令行运行deb安装包
 tags:
   - Ubuntu
   - Linux
-categories: Back-end
+categories: back-end
 abbrlink: 3961640b
 date: 2016-07-07 02:55:20
 ---

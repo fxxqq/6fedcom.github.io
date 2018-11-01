@@ -3,7 +3,7 @@ title: eslint 常用配置
 tags:
   - 前端规范
   - eslint
-categories: Front-End
+categories: front-end
 abbrlink: f387695a
 date: 2018-01-27 22:41:24
 ---

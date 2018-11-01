@@ -1,9 +1,9 @@
 ---
-title: Nodejs之环境&调试（二）
+title: nodejs之环境&调试（二）
 tags:
-  - Javascript
-  - Node
-categories: Back-end
+  - javascript
+  - node
+categories: back-end
 abbrlink: 795a0309
 date: 2017-10-15 16:30:15
 ---
@@ -111,8 +111,8 @@ setImmediate(()=>{
 
 **方法一：使用inspect**
 
-- Option 1: Open `chrome://inspect` in a Chromium-based browser. Click the Configure button and ensure your target host and port are listed. Then select your Node.js app from the list
-- Option 2: `Install the Chrome `Extension NIM (Node Inspector Manager): https://chrome.google.com/webstore/detail/nim-node-inspector-manage/gnhhdgbaldcilmgcpfddgdbkhjohddkj
+- Option 1: Open `chrome://inspect` in a Chromium-based browser. Click the Configure button and ensure your target host and port are listed. Then select your node.js app from the list
+- Option 2: `Install the Chrome `Extension NIM (node Inspector Manager): https://chrome.google.com/webstore/detail/nim-node-inspector-manage/gnhhdgbaldcilmgcpfddgdbkhjohddkj
 
 
 **方法二：使用VS code**

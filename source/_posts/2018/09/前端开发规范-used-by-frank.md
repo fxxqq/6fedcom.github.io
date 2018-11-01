@@ -2,7 +2,8 @@
 title: 前端开发规范-used by frank
 tags:
   - 前端自动化
-categories: Front-End
+  - 前端规范
+categories: front-end
 abbrlink: bf4c76a0
 date: 2018-09-21 16:20:34
 ---

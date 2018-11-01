@@ -1,9 +1,9 @@
 ---
 title: JavaScript原生数组及高阶函数
 tags:
-  - Javascript
+  - javascript
   - 高阶函数
-categories: Front-End
+categories: front-end
 abbrlink: ba91dc04
 date: 2017-11-07 18:55:24
 ---
@@ -194,7 +194,7 @@ for (var prop in obj) {
 
 > `for of`为`ES6`提供，具有`iterator`接口，就可以用`for of`循环遍历它的成员
 
-- `for of`循环可以使用的范围包括数组、`Set`和`Map`结构、某些类似数组的对象（比如`arguments`对象、`DOM NodeList`对象）、后文的`Generator`对象，以及字符串
+- `for of`循环可以使用的范围包括数组、`Set`和`Map`结构、某些类似数组的对象（比如`arguments`对象、`dom nodeList`对象）、后文的`Generator`对象，以及字符串
 
 **entries**
 

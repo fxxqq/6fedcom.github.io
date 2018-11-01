@@ -1,7 +1,7 @@
 ---
 title: JavaScript之面向对象中的封装
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: bec5cc2b
 date: 2016-07-27 11:40:43
 ---

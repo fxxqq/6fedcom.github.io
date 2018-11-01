@@ -1,7 +1,7 @@
 ---
-title: HTML5+CSS3 最酷的 loading 效果收集
-tags: HTML5
-categories: Front-End
+title: html5+css3 最酷的 loading 效果收集
+tags: html5
+categories: front-end
 abbrlink: a5d30e83
 date: 2016-05-20 09:11:44
 ---
@@ -26,7 +26,7 @@ date: 2016-05-20 09:11:44
 [演示][5] [下载][6]
 
 
-### 03. Pure CSS3 loader
+### 03. Pure css3 loader
 ---
 
 ![此处输入图片的描述][7]
@@ -89,7 +89,7 @@ date: 2016-05-20 09:11:44
 
 [演示][29] [下载][30]
 
-### 11. CSS3 Loaders
+### 11. css3 Loaders
 ---
 
 ![此处输入图片的描述][31]
@@ -161,7 +161,7 @@ date: 2016-05-20 09:11:44
 [演示][56] [下载][57]
 
 
-### 20. Animated CSS3 Loading Bar
+### 20. Animated css3 Loading Bar
 ---
 
 ![此处输入图片的描述][58]

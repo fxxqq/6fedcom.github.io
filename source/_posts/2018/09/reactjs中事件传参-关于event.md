@@ -1,7 +1,7 @@
 ---
 title: reactjs中事件传参(关于event)
 tags:
-  - React
+  - react
 issues: 115
 abbrlink: 7205ee34
 date: 2018-09-10 15:06:44

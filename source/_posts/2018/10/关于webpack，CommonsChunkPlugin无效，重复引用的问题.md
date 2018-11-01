@@ -1,6 +1,6 @@
 ---
 title: 关于webpack，CommonsChunkPlugin无效，重复引用的问题
-categories: Front-End
+categories: front-end
 abbrlink: 9aead141
 date: 2018-10-29 15:49:29
 tags: [webpack]

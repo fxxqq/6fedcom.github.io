@@ -1,9 +1,8 @@
 ---
 title: Ant Design Pro总结篇
 tags:
-  - Dva
-  - Umi
-categories: Front-End
+  - dva
+categories: front-end
 abbrlink: ab0115f0
 date: 2018-09-17 00:10:23
 ---
@@ -17,7 +16,7 @@ date: 2018-09-17 00:10:23
 - 使用 `React/umi/dva/antd` 等前端前沿技术开发
 - 针对不同屏幕大小设计
 - 可配置的主题满足多样化的品牌诉求
-- `Mock` 数据实用的本地数据调试方案
+- `mock` 数据实用的本地数据调试方案
 
 ## 1.2 模板
 
@@ -471,7 +470,7 @@ export default ({ src, desc, style }) => (
 
 **使用**
 
-> 在要使用这个组件的地方，按照组件定义的 `API` 传入参数，直接使用就好，不过别忘了先引入
+> 在要使用这个组件的地方，按照组件定义的 `api` 传入参数，直接使用就好，不过别忘了先引入
 
 ```js
 import React from 'react';
@@ -741,7 +740,7 @@ const visitData = [
   }
 ];
 
-ReactDOM.render(
+Reactdom.render(
   <ChartCard
     title="支付笔数"
     action={
@@ -754,7 +753,7 @@ ReactDOM.render(
   >
     <MiniBar height={46} data={visitData} />
   </ChartCard>,
-  mountNode
+  mountnode
 );
 ```
 
@@ -859,9 +858,9 @@ export default IconFont;
 
 > 了解更多用法 https://pro.ant.design/docs/biz-icon-cn#%E4%BA%8C%E3%80%81%E5%BC%95%E5%85%A5
 
-# 十二、Mock 和联调
+# 十二、mock 和联调
 
-> Mock 数据是前端开发过程中必不可少的一环，是分离前后端开发的关键链路。通过预先跟服务器端约定好的接口，模拟请求数据甚至逻辑，能够让前端开发独立自主，不会被服务端的开发所阻塞
+> mock 数据是前端开发过程中必不可少的一环，是分离前后端开发的关键链路。通过预先跟服务器端约定好的接口，模拟请求数据甚至逻辑，能够让前端开发独立自主，不会被服务端的开发所阻塞
 
 - 在 `Ant Design Pro` 中，因为我们的底层框架是 `umi`，而它自带了代理请求功能，通过代理请求就能够轻松处理数据模拟的功能
 
@@ -877,7 +876,7 @@ export default {
   // GET POST 可省略
   '/api/users/1': { id: 1 },
 
-  // 支持自定义函数，API 参考 express@4
+  // 支持自定义函数，api 参考 express@4
   'POST /api/users/create': (req, res) => { res.end('OK'); },
 };
 ```

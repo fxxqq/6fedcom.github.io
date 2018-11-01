@@ -1,49 +1,49 @@
 ---
-title: jQuery笔记总结篇
+title: jquery笔记总结篇
 tags:
-  - Javascript
-  - jQuery
-categories: Front-End
+  - javascript
+  - jquery
+categories: front-end
 abbrlink: ed6083ef
 date: 2016-10-20 09:35:08
 ---
 
-> 原文链接 http://blog.poetries.top/2016/10/20/review-jQuery
+> 原文链接 http://blog.poetries.top/2016/10/20/review-jquery
 
 
-首先，来了解一下`jQuery`学习的整体思路
+首先，来了解一下`jquery`学习的整体思路
 
 
-![jQuery系统学习篇](http://7xq6al.com1.z0.glb.clouddn.com/jquery1.png)
+![jquery系统学习篇](http://7xq6al.com1.z0.glb.clouddn.com/jquery1.png)
 <!--more-->
 -  [XMind源文件提供参考下载](http://pan.baidu.com/s/1slq212l)
 
-#### 第一节 jQuery初步认知
+#### 第一节 jquery初步认知
 ---
 
-##### jQuery概述
+##### jquery概述
 ---
 
 - **`JQuery`概念**
 
     - `javascript`概念
-        - 基于`Js`语言的`API`和语法组织逻辑，通过内置`window`和`document`对象，来操作内存中的`DOM`元素
+        - 基于`Js`语言的`api`和语法组织逻辑，通过内置`window`和`document`对象，来操作内存中的`dom`元素
     - `JQuery`概念
         - 基于`javascript`的，同上，提高了代码的效率
 
-- **`jQuery`是什么:**
+- **`jquery`是什么:**
     - 是一个`javascript`代码仓库，我们称之为`javascript`框架。
-    - 是一个快速的简洁的`javascript`框架，可以简化查询`DOM`对象、处理事件、制作动画、处理`Ajax`交互过程。
+    - 是一个快速的简洁的`javascript`框架，可以简化查询`dom`对象、处理事件、制作动画、处理`Ajax`交互过程。
     -  **它可以帮我们做什么(有什么优势)**
      - 轻量级、体积小，使用灵巧(只需引入一个`js`文件)
      -  强大的选择器
-     - 出色的`DOM`操作的封装
+     - 出色的`dom`操作的封装
      - 出色的浏览器兼容性
      - 可靠的事件处理机制
      - 完善的`Ajax`
      - 链式操作、隐式迭代
      - 方便的选择页面元素(模仿`CSS`选择器更精确、灵活)
-     - 动态更改页面样式/页面内容(操作`DOM`，动态添加、移除样式)
+     - 动态更改页面样式/页面内容(操作`dom`，动态添加、移除样式)
      - 控制响应事件(动态添加响应事件)
      - 提供基本网页特效(提供已封装的网页特效方法)
      - 快速实现通信(`ajax`)
@@ -53,41 +53,41 @@ date: 2016-10-20 09:35:08
 - **如何引入`JQuery`包**
   - 引入本地的`JQuery`
   - 引入`Google`在线提供的库文件（稳定可靠高速）
-  - 使用`Google`提供的`API`导入 `<script type=“text/javascript” src=“jquery.js”></script>`
+  - 使用`Google`提供的`api`导入 `<script type=“text/javascript” src=“jquery.js”></script>`
 
   - 写第一个`JQUery`案例
-    - 解释:在`JQuery`库中，`$`是`JQuery`的别名，`$()`等效于就`jQuery()`
+    - 解释:在`JQuery`库中，`$`是`JQuery`的别名，`$()`等效于就`jquery()`
 
  ```js
 <script type=“text/javascript” src=“”></script>
 <script type=“text/javascript”>
 	$(function(){
-		alert(“jQuery 你好!”);
+		alert(“jquery 你好!”);
 	});
 </script>
 ```
 
   
 - **讲解`$(function(){})`;**
-  - `$`是`jQuery`别名。如`$()`也可`jQuery()`这样写,相当于页面初始化函数，当页面加载完毕，会执行`jQuery()`。
-  - 希望在做所有事情之前，`JQuery`操作`DOM`文档。必须确保在`DOM`载入完毕后开始执行，应该用`ready`事件做处理`HTML`文档的开始
+  - `$`是`jquery`别名。如`$()`也可`jquery()`这样写,相当于页面初始化函数，当页面加载完毕，会执行`jquery()`。
+  - 希望在做所有事情之前，`JQuery`操作`dom`文档。必须确保在`dom`载入完毕后开始执行，应该用`ready`事件做处理`HTML`文档的开始
   - `$(document).ready(function(){})`;
 	- 类似于`js`的`window.onload`事件函数，但是`ready`事件要先于`onload`事件执行
 	- `window.onload = function(){}`;
-  - 为方便开发，`jQuery`简化这样的方法，直接用`$()`表示
+  - 为方便开发，`jquery`简化这样的方法，直接用`$()`表示
 
   - `JQuery`的`ready`事件不等于`Js`的`load`：
-    - 执行时机不同：`load`需要等外部图片和视频等全部加载才执行。`ready`是`DOM`绘制完毕后执行，先与外部文件
+    - 执行时机不同：`load`需要等外部图片和视频等全部加载才执行。`ready`是`dom`绘制完毕后执行，先与外部文件
     - 用法不同：`load`只可写一次，`ready`可以多次
 - **`window.onload`与`$(document).ready()`对比**
 
 ||window.onload|$(document).ready()|
 |---|---|---|
-|执行时机|必须等网页中所有内容加载完后(图片)才执行|网页中的`DOM`结构绘制完后就执行,可能`DOM`元素相关的东西并没有加载完|
+|执行时机|必须等网页中所有内容加载完后(图片)才执行|网页中的`dom`结构绘制完后就执行,可能`dom`元素相关的东西并没有加载完|
 |编写个数|不能同时执行多个|能同时执行多个|
 |简化写法|无|`$(document).ready(function(){ //.. });`<br /><br />推荐写法：`$(function(){ });`|
 
-- **`jQuery`有哪些功能(`API`)**：
+- **`jquery`有哪些功能(`api`)**：
   - 选择器 
   - 过滤器 
   - 事件 
@@ -107,11 +107,11 @@ date: 2016-10-20 09:35:08
 
 - **`JQuery`是什么**
   - `javascript`用来干什么的：
-	- 操作`DOM`对象
+	- 操作`dom`对象
 	- 动态操作样式`css`
 	- 数据访问
 	- 控制响应事件等
-  - `jQuery`作用一样，只是更加快速简洁
+  - `jquery`作用一样，只是更加快速简洁
 - **如何引用`JQuery`**
 ```js
 <script type="text/javascript"></script>
@@ -119,16 +119,16 @@ date: 2016-10-20 09:35:08
 <script type=“text/javascript” src=“”></script>
 <script type=“text/javascript”>
 	$(function(){
-		alert(“jQuery 你好!”);
+		alert(“jquery 你好!”);
 	});
 </script>
 ```
 
 - **`$()讲解`**
-  - `$`在`JQuery`库中，`$`是`JQuery`的别名，`$()`等效于就`jQuery()`.
+  - `$`在`JQuery`库中，`$`是`JQuery`的别名，`$()`等效于就`jquery()`.
   - `$()`是`JQuery`方法,赞可看作是`JQuery`的选择器，与`css`选择器相似（可做对比）
-  - `var jQuery==$ =function(){}` `$()`本质就是一个函数也就是 `jQuery`的核心函数
-  - 只要是`jQuery`的对象都这样变量加上一个`符号$ `方便识别：`var $div = $("#")`
+  - `var jquery==$ =function(){}` `$()`本质就是一个函数也就是 `jquery`的核心函数
+  - 只要是`jquery`的对象都这样变量加上一个`符号$ `方便识别：`var $div = $("#")`
 
 ```js
 function　$(id){
@@ -148,9 +148,9 @@ alert(document.getElementById("id") == $("#aa").get(0));//返回true
 ```
 
 - **代理对象`$()`**
-  - `jQuery`中返回的是代理对象本身
-  - `jQuery`的核心原理是通过选择器找到对应的代理对象
-  - `jQuery`全都是通过方法操作
+  - `jquery`中返回的是代理对象本身
+  - `jquery`的核心原理是通过选择器找到对应的代理对象
+  - `jquery`全都是通过方法操作
   - 样式选择器`$(".className")`
     - `$(".aa").css("color","green");`
   - id选择器("")
@@ -165,7 +165,7 @@ alert(document.getElementById("id") == $("#aa").get(0));//返回true
 
 ```js
 $(传入的原生对象);
-//原生对象转化成jQuery对象
+//原生对象转化成jquery对象
 var nav = document.getElementById("nav");
 var $nav = $(nav);
 alert($nav.get(0) == nav);//true
@@ -190,9 +190,9 @@ alert($nav.get(0) == nav);//true
 - **总结： `$()` `jquery`核心方法的作用和使用场景**
 
     - 如果是一个字符串参数并且没有标签对（选择器）` $(ul.nav")`
-    - 如果是一个字符串参数并且有标签对（创建`html`标签）`$("<img>")` --最终加到`DOM`树中 `$xx.append("<img>")`;
-    - 如果是传入一个`element dom`对象，直接包装为`proxy`对象返回 `$(DOM对象)`
-    - 如果第一个参数是字符串，第二个是`element` `dom`对象的话，那么就是在`element`这个`dom`对象里面寻找选择器对应的元素并且代理 `$("li",$DOM对象)`
+    - 如果是一个字符串参数并且有标签对（创建`html`标签）`$("<img>")` --最终加到`dom`树中 `$xx.append("<img>")`;
+    - 如果是传入一个`element dom`对象，直接包装为`proxy`对象返回 `$(dom对象)`
+    - 如果第一个参数是字符串，第二个是`element` `dom`对象的话，那么就是在`element`这个`dom`对象里面寻找选择器对应的元素并且代理 `$("li",$dom对象)`
 
 
 - **代理模式以及代理内存结构**
@@ -228,8 +228,8 @@ alert($nav.get(0) == nav);//true
     - 属性（`[attr=value]`）
 
 
-- **层级选择器:通过`DOM`的嵌套关系匹配元素**
-    - `jQuery`层级选择器----包含选择器、子选择器、相邻选择器、兄弟选择器4种
+- **层级选择器:通过`dom`的嵌套关系匹配元素**
+    - `jquery`层级选择器----包含选择器、子选择器、相邻选择器、兄弟选择器4种
     - a.包含选择器：`$("a b")`在给定的祖先元素下匹配所有后代元素。(不受层级限制)
     - b.子选择器：`$("parent > child") `在给定的父元素下匹配所有子元素。
     - c.相邻选择器：`$("prev + next")` 匹配所有紧接在`prev`元素后的`next`元素。
@@ -339,12 +339,12 @@ alert($nav.get(0) == nav);//true
   - a. 多用`ID`选择器
   - b. 少直接使用`class`选择器
   - c. 多用父子关系，少用嵌套关系
-  - d. 缓存`jQuery`对象
+  - d. 缓存`jquery`对象
 
 - **使用过滤器**
-  - `jQuery`提供了`2`种选择文档元素的方式：选择器和过滤器
+  - `jquery`提供了`2`种选择文档元素的方式：选择器和过滤器
   - a. 类过虑器：根据元素的类属性来进行过滤操作。
-	- `hasClass(className)`：判断当前`jQuery`对象中的某个元素是否包含指定类名，包含返回`true`，不包含返回`false`
+	- `hasClass(className)`：判断当前`jquery`对象中的某个元素是否包含指定类名，包含返回`true`，不包含返回`false`
   - b. 下标过滤器：精确选出指定下标元素
 	- `eq(index)`：获取第`N`个元素。`index`是整数值，下标从`0`开始
   - c. 表达式过滤器 
@@ -371,46 +371,46 @@ alert($nav.get(0) == nav);//true
   - `css`(最好不用，一般我用来做测试)
   - `addClass` / `removeClass`
 
-- 操作原生`DOM`的时候用的方式：一次只能操作一个
+- 操作原生`dom`的时候用的方式：一次只能操作一个
 
   - 操作属性：`setAttribute` / `getAttribute`
   - 操作样式：`style.xx = value`
   - 操作类样式：`className=''`
-  - 获取`DOM`的子元素`children`属性
-  - `DOM`里面添加一个子元素`appendChild()`
+  - 获取`dom`的子元素`children`属性
+  - `dom`里面添加一个子元素`appendChild()`
 
-- 操作`jQuery`代理对象的时候：批量操作`DOM`对象(全都是通过方法操作)
+- 操作`jquery`代理对象的时候：批量操作`dom`对象(全都是通过方法操作)
 
 - 操作属性：`attr()`、`prop()` 
   - `attr`和`prop`区别：如果属性的值是布尔类型的值 用`prop`操作 反之`attr`
 
 - 操作样式：`css()`
 - 操作类样式：`addClass()` `removeClass()`
-- 操作`DOM`子元素：`children()`
+- 操作`dom`子元素：`children()`
 - 添加子元素：`append()`
 
-#### 第五节 jQuery中DOM操作
+#### 第五节 jquery中dom操作
 ---
 
-- `DOM`是一种与浏览器、平台|语言无关的接口，使用该接口可以轻松的访问 页面中的所有的标准组件
+- `dom`是一种与浏览器、平台|语言无关的接口，使用该接口可以轻松的访问 页面中的所有的标准组件
 
-- **`DOM`操作的分类**
-  - **`DOM Core`**
-     - `DOM core`并不专属于`JavaScript`，任何支持`DOM`的程序都可以使用
-     - `JavaScript` 中的`getElementByID()` `getElementsByTagName()` `getAttribute()` `setAttribute()`等方法都是`DOM Core`的组成部分
+- **`dom`操作的分类**
+  - **`dom Core`**
+     - `dom core`并不专属于`JavaScript`，任何支持`dom`的程序都可以使用
+     - `JavaScript` 中的`getElementByID()` `getElementsByTagName()` `getAttribute()` `setAttribute()`等方法都是`dom Core`的组成部分
 
-  - **`HTML-DOM`**
-    - `HTML -DOM`的出现比`DOM-Core`还要早，它提供一些更简明的标志来描述`HTML`元素的属性
-   - 比如：使用`HTML-DOM`来获取某元素的`src`属性的方法
+  - **`HTML-dom`**
+    - `HTML -dom`的出现比`dom-Core`还要早，它提供一些更简明的标志来描述`HTML`元素的属性
+   - 比如：使用`HTML-dom`来获取某元素的`src`属性的方法
       - `element.src`
 
-  - **`CSS-DOM`**
+  - **`CSS-dom`**
     - 针对`CSS`的操作。在`JavaScript`中，主要用于获取和设置`style`对象的各种属性，通过改变`style`对象的属性，使网页呈现不同的效果
 
 - **查找节点**
     - 查找属性节点 `attr()` 可以获取各属性的值
 - **创建节点**
-   - `$(html)`：根据传递的标记字符串，创建`DOM`对象
+   - `$(html)`：根据传递的标记字符串，创建`dom`对象
 - **插入节点**
 
 |方法|说明|
@@ -425,11 +425,11 @@ alert($nav.get(0) == nav);//true
 |`insertBefore()`|颠倒`before()`的操作|
 
 - **删除节点**
-  - jQuery提供了三种删除节点的方法 `remove()` `detach()` `empty()`
+  - jquery提供了三种删除节点的方法 `remove()` `detach()` `empty()`
   - **`remove()方法`**
     - 当某个节点用此方法删除后，该节点所包含的所有后代节点将同时被删除，用`remove()`方法删除后，还是可以继续使用删除后的引用
  - **`detach()`**
-    - 和`remove()`方法一样，也是从`DOM`中去掉所有匹配的元素，与`remove()`不同的是，所有绑定的事件、附加的数据等，都会被保留下来
+    - 和`remove()`方法一样，也是从`dom`中去掉所有匹配的元素，与`remove()`不同的是，所有绑定的事件、附加的数据等，都会被保留下来
  - **`empty()`**
     - `empty()`方法并不是删除节点，而是清空节点，它能清空元素中所有后代节点
 
@@ -438,7 +438,7 @@ alert($nav.get(0) == nav);//true
   - 在`clone()`方法中传递一个参数`true`，同时复制元素中所绑定的事件
 
 - **替换节点**
-  - `jQuery`提供相应的方法 `replaceWidth() `
+  - `jquery`提供相应的方法 `replaceWidth() `
 
 - **样式操作**
   - 获取样式和设置样式 `attr()`
@@ -473,12 +473,12 @@ alert($nav.get(0) == nav);//true
     - 获得集合中每个元素的祖先元素
 
 
-##### CSS DOM操作
+##### CSS dom操作
 ---
 
-- `CSS DOM`技术简单的来说就是读取和设置`style`对象的各种属性
+- `CSS dom`技术简单的来说就是读取和设置`style`对象的各种属性
 - 用`css()`方法获取元素的样式属性，可以同时设置多个样式属性
-- **`CSS DOM`中关于元素定位有几个常用的方法**
+- **`CSS dom`中关于元素定位有几个常用的方法**
   - **`offset()`**方法
     - 它的作用是获取元素在当前视窗的相对偏移其中返回的对象包含两个属性，即`top`和`left`，他只对可见元素有效 
  - **`position()`**方法
@@ -494,16 +494,16 @@ alert($nav.get(0) == nav);//true
 ![](http://7xq6al.com1.z0.glb.clouddn.com/jquery7.jpg)
 
 
-#### 第六节 jQuery动画
+#### 第六节 jquery动画
 ---
 
 ##### 回顾上节
 ---
 
-- 操作DOM
-   - a.什么是`DOM`：`Document Object Model`缩写，文档对象模型
+- 操作dom
+   - a.什么是`dom`：`Document Object Model`缩写，文档对象模型
    - b.理解页面的树形结构
-   - c.什么是节点：是DOM结构中最小单元，包括元素、属性、文本、文档等。
+   - c.什么是节点：是dom结构中最小单元，包括元素、属性、文本、文档等。
 	
 
 ###### 一、创建节点
@@ -517,17 +517,17 @@ var div = document.createElement("div");
 document.body.appendChild(div);
 ```
 
-- `$(html)`：根据传递的标记字符串，创建DOM对象
+- `$(html)`：根据传递的标记字符串，创建dom对象
 
 - 2.创建文本
 
 ```js
 var div = document.createElement("div");
-var txt = document.createTextNode("DOM");
+var txt = document.createTextnode("dom");
 div.appendChild(txt);
 document.body.appendChild(div);
 
-var $div = = $("<div>DOM</div>");
+var $div = = $("<div>dom</div>");
 $(body).append($div);
 ```		
 
@@ -536,12 +536,12 @@ $(body).append($div);
 
 ```js
 var div = document.createElement("div");
-var txt = document.createTextNode("DOM");
+var txt = document.createTextnode("dom");
 div.appendChild(txt);
 document.body.appendChild(div);
 div.setAttribute("title","盒子");
 
-var $div = = $("<div title='盒子'>DOM</div>");
+var $div = = $("<div title='盒子'>dom</div>");
 $(body).append($div);
 ```
 
@@ -566,7 +566,7 @@ $(body).append($div);
 ---
 
 - 移除
-	- `remove()`:从`DOM`中删除所有匹配元素
+	- `remove()`:从`dom`中删除所有匹配元素
 - 清空
 	- `empty()`:删除匹配的元素集合中所有子节点内容
 
@@ -684,7 +684,7 @@ $(body).append($div);
 |`animate()`|属于自定义动画，以上各种动画方法都是调用了`animate`方法。此外，用`animate`方法还能自定义其他的样式属性，例如：`left` `marginLeft ``scrollTop`等|
 
 
-#### 第七节 jQuery中的事件
+#### 第七节 jquery中的事件
 ---
 
 - **事件对象的属性**
@@ -695,7 +695,7 @@ $(body).append($div);
   - `keyCode`：只针对于`keypress`事件，获取键盘键数字 按下回车，`13 `
 
   - `event.pageX / event.pageY` 获取到光标相对于页面的`x`坐标和`y`坐标
-      -  如果没有`jQuery`，在IE浏览器中用`event.x` / `event.y`;在`Firefox`浏览器中用`event.pageX` / `event.pageY`。如果页面上有滚动条还要加上滚动条的宽度和高度
+      -  如果没有`jquery`，在IE浏览器中用`event.x` / `event.y`;在`Firefox`浏览器中用`event.pageX` / `event.pageY`。如果页面上有滚动条还要加上滚动条的宽度和高度
   
   - `event.clientX`：光标对于浏览器窗口的水平坐标  浏览器
   - `event.clientY`：光标对于浏览器窗口的垂直坐标
@@ -713,13 +713,13 @@ $(body).append($div);
     - 其中的某一父类没有相同事件时,继续向上查找
   - **停止事件冒泡**
       - 停止事件冒泡可以阻止事件中其他对象的事件处理函数被执行
-      - 在`jQuery`中提供了**`stopPropagation()`**方法
+      - 在`jquery`中提供了**`stopPropagation()`**方法
   - **阻止默认行为**
       - 网页中元素有自己的默认行为，例如：单击超链接后会跳转、单击提交后表单会提交，有时需要阻止元素的默认行为
-      - 在`jQuery`中提供了` preventDefault()`方法来阻止元素的默认行为
+      - 在`jquery`中提供了` preventDefault()`方法来阻止元素的默认行为
  - **事件捕获**
     - 事件捕获和冒泡是相反的过程，事件捕获是从最顶端往下开始触发
-    - 并非所有的浏览器都支持事件捕获，并且这个缺陷无法通过`JavaScript`来修复。`jQuery`不支持事件捕获，如需要用事件捕获，要用原生的`JavaScript`
+    - 并非所有的浏览器都支持事件捕获，并且这个缺陷无法通过`JavaScript`来修复。`jquery`不支持事件捕获，如需要用事件捕获，要用原生的`JavaScript`
 
 - **`bind()`;绑定**
   - 为匹配元素绑定处理方法
@@ -732,7 +732,7 @@ $(body).append($div);
 	
 |分类|方法名称|说明|
 |---|---|--|
-|页面载入|`ready(fn)`|当`DOM`载入就绪可以绑定一个要执行的函数|
+|页面载入|`ready(fn)`|当`dom`载入就绪可以绑定一个要执行的函数|
 |事件绑定|`blind(type,[data],fn)`|为每个匹配元素的特定事件绑定一个事件处理函数|
 |事件绑定|`unblind()`|解除绑定|
 |事件绑定|`on(events,[,selector[,]data],handler)`|在选择元素上绑定一个或者多个事件处理函数|
@@ -761,7 +761,7 @@ $(body).append($div);
 
 
 
-#### 第八节 jQuery与Ajax
+#### 第八节 jquery与Ajax
 ---
 
 - **Ajax**简介 :
@@ -901,7 +901,7 @@ function ajax(aJson){
 	};
 ```
 
-##### jQuery中的Ajax  [补充部分--来自锋利的jQuery]
+##### jquery中的Ajax  [补充部分--来自锋利的jquery]
 ---
 
 `jquery`对`Ajax`操作进行了封装，在`jquery`中的`$.ajax()`方法属于最底层的方法，第`2`层是`load()`、`$.get()`、`$.post();`第`3`层是`$.getScript()`、`$.getJSON()`，第`2`层使用频率很高 
@@ -909,7 +909,7 @@ function ajax(aJson){
 ###### `load()`方法
 ---
 
-  - `load()`方法是`jquery`中最简单和常用的`ajax`方法，能载入远程`HTML`代码并插入`DOM`中 结构为：`load(url,[data],[callback])`
+  - `load()`方法是`jquery`中最简单和常用的`ajax`方法，能载入远程`HTML`代码并插入`dom`中 结构为：`load(url,[data],[callback])`
    - 使用`url`参数指定选择符可以加载页面内的某些元素 `load`方法中`url`语法：`url selector` 注意：`url`和选择器之间有一个空格
   - 传递方式
       - `load()`方法的传递方式根据参数`data`来自动指定，如果没有参数传递，则采用`GET`方式传递，反之，采用`POST`
@@ -956,7 +956,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
       - `GET`请求会将参数跟张乃URL后进行传递，而`POST`请求则是作为`Http`消息的实体内容发送给web服务器，在`ajax`请求中，这种区别对用户不可见
     - `GET`方式对传输数据有大小限制（通常不能大于`2KB`），而使用`POST`方式传递的数据量要比`GET`方式大得多（理论不受限制）
     - `GET`方式请求的数据会被浏览器缓存起来，因此其他人可以从浏览器的历史纪录中读取这些数据，如：账号、密码。在某种情况下，`GET`方式会带来严重的安全问题，而`POST`相对来说可以避免这些问题
-    - `GET`和`POST`方式传递的数据在服务端的获取也不相同。在`PHP`中，`GET`方式用`$_GET[]`获取；`POST`方式用`$_POST[]`获取;两种方式都可用`$_REQUEST[]`来获取 
+    - `GET`和`POST`方式传递的数据在服务端的获取也不相同。在`php`中，`GET`方式用`$_GET[]`获取；`POST`方式用`$_POST[]`获取;两种方式都可用`$_REQUEST[]`来获取 
 
 - **总结**
   - 使用`load()`、`$.get()`和`$.post()`方法完成了一些常规的`Ajax`程序，如果还需要复杂的`Ajax`程序，就需要用到`$.ajax()`方式
@@ -973,7 +973,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 |`url`|`String`|(默认为当前页地址)发送请求的地址|
 |`type`|`String`|请求方式（`POST`或`GET`）默认为`GET`|
 |`timeout`|`Number`|设置请求超时时间（毫秒）|
-|`dataType`|`String`|预期服务器返回的类型。可用的类型如下<br /><br /> **xml**:返回`XML`文档，可用`jquery`处理<br />**html**:返回纯文本的`HTML`信息，包含的`script`标签也会在插入`DOM`时执行<br />**script**：返回纯文本的`javascript`代码。不会自动缓存结果，除非设置`cache`参数。注意：在远程请求时，所有的`POST`请求都将转为`GET`请求<br />**json**:返回`JSON`数据<br />**jsonp**:`JSONP`格式，使用`jsonp`形式调用函数时，例如：`myurl?call back=?,jquery`将自动替换后一个`？`为正确的函数名，以执行回调函数<br />**text**:返回纯文本字符串|
+|`dataType`|`String`|预期服务器返回的类型。可用的类型如下<br /><br /> **xml**:返回`XML`文档，可用`jquery`处理<br />**html**:返回纯文本的`HTML`信息，包含的`script`标签也会在插入`dom`时执行<br />**script**：返回纯文本的`javascript`代码。不会自动缓存结果，除非设置`cache`参数。注意：在远程请求时，所有的`POST`请求都将转为`GET`请求<br />**json**:返回`JSON`数据<br />**jsonp**:`JSONP`格式，使用`jsonp`形式调用函数时，例如：`myurl?call back=?,jquery`将自动替换后一个`？`为正确的函数名，以执行回调函数<br />**text**:返回纯文本字符串|
 |`beforeSend`|`Function`|发送请求前可以修改`XMLHttpRequest`对象的函数，例如添加自定义`HTTP`头。在`beforeSend`中如果返回`false`可以取消本次`Ajax`请求。`XMLHttpRequest`对象是唯一的参数<br /> function(XMLHttpRequest){<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`this`;//调用本次`Ajax`请求时传递的`options`参数<br>}|
 |`complete`|`Function`|请求完成后的回调函数（请求成功或失败时都调用）<br /> 参数：`XMLHttpRequest`对象和一个描述成功请求类型的字符串<br />function(XMLHttpRequest,textStatus){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`this`;//调用本次Ajax请求时传递的`options`参数<br>}|
 |`success`|`Function`|请求成功后调用的回调函数，有两个参数<br />(1)由服务器返回，并根据`dataTyppe`参数进行处理后的数据<br />(2)描述状态的字符串<br />`function`(data,textStatus){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//`data`可能是`xmlDoc、``jsonObj`、`html`、`text`等<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`this`;//调用本次`Ajax`请求时传递的`options`参数<br />}|
@@ -985,7 +985,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 ---
 
 - **什么是插件**
-  - 插件(`Plugin`)也称为`jQuery`的扩展。以`jQuery`核心代码为基础编写的符合一定规范的应用程序。通过`js`文件的方式引用。
+  - 插件(`Plugin`)也称为`jquery`的扩展。以`jquery`核心代码为基础编写的符合一定规范的应用程序。通过`js`文件的方式引用。
 
 - **插件分为哪几类**
   - `UI`类、表单及验证类、输入类、特效类、`Ajax`类、滑动类、图形图像类、导航类、综合工具类、动画类等等 
@@ -1008,17 +1008,17 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
   - 命名：`jquery.插件名.js`
   - 所有的新方法附加在`jquery.fn`对象上面，所有新功能附加在`jquery`上
   - 所有的方法或插件必须用分号结尾，避免出问题
-  - 插件必须返回jQuery对象，便于链式连缀
-  - 避免插件内部使用`$`，如果要使用，请传递`jQuery`(`$`并不是总等于`jQuery`，另外其他`js`框架也可能使用`$`)
-  - 插件中的`this`应该指向`jQuery`对象
+  - 插件必须返回jquery对象，便于链式连缀
+  - 避免插件内部使用`$`，如果要使用，请传递`jquery`(`$`并不是总等于`jquery`，另外其他`js`框架也可能使用`$`)
+  - 插件中的`this`应该指向`jquery`对象
   - 使用`this.each()`迭代元素
 
 - **自定义插件案例**
-  - 为了方便用户创建插件，`jQuery`提供了 `jQuery.extend()` 和 `jQuery.fn.extend()`
-  - `jQuery.extend()`：创建工具函数或者是选择器
-  - `jQuery.fn.extend()`：创建`jQuery`对象命令  （`fn`相当于`prototype`的别名）
+  - 为了方便用户创建插件，`jquery`提供了 `jquery.extend()` 和 `jquery.fn.extend()`
+  - `jquery.extend()`：创建工具函数或者是选择器
+  - `jquery.fn.extend()`：创建`jquery`对象命令  （`fn`相当于`prototype`的别名）
 
-- **`jQuery`官方提供的插件开发模板**
+- **`jquery`官方提供的插件开发模板**
 
 ```js
 ;(function($){
@@ -1034,10 +1034,10 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 
 		return this;
 	}
-})(jQuery);
+})(jquery);
 ```
 
-**自定义`jQuery`函数**：
+**自定义`jquery`函数**：
 
 ```js
 (function($){
@@ -1046,10 +1046,10 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 			alert("hello plugin");
 		}
 	})
-	})(jQuery);
+	})(jquery);
 ```
 
-**自定义`jQuery`命令**：
+**自定义`jquery`命令**：
 
 - 形式1：
 
@@ -1060,7 +1060,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
          alert("hello plugin");
     }
     })
-})(jQuery);
+})(jquery);
 ```
 
 - 形式2：
@@ -1071,13 +1071,13 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 		alert("hello plugin");
 	};
 	
-})(jQuery);
+})(jquery);
 ```
 
-#### 附录一 jQuery各个版本新增的一些常用的方法
+#### 附录一 jquery各个版本新增的一些常用的方法
 ---
 
-- `jQuery1.3`新增常用的方法
+- `jquery1.3`新增常用的方法
 
 |方法|说明|
 |---|---|
@@ -1085,18 +1085,18 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 |` die()`|从元素中删除先前用`live()`方法绑定的所有的事件|
 |` live()`|附加一个事件处理器到符合目前选择器的所有元素匹配|
 
-- `jQuery1.4`新增常用的方法
+- `jquery1.4`新增常用的方法
 
 |方法|说明|
 |---|---|
 |`.first()`|获取集合中第一个元素|
 |` last()`|获取集合中最后一个元素|
 |` has(selector)`|保留包含特定后代的元素，去掉那些不含有指定后代的元素|
-|`detach()`|从`DOM`中去掉所有匹配的元素。`detach()`和`remov()`一样，除了`detach()`保存了所有`jquery`数据和被移走的元素相关联。当需要移走一个元素，不久又将该元素插入`DOM`时，这种方法很有用|
+|`detach()`|从`dom`中去掉所有匹配的元素。`detach()`和`remov()`一样，除了`detach()`保存了所有`jquery`数据和被移走的元素相关联。当需要移走一个元素，不久又将该元素插入`dom`时，这种方法很有用|
 |` delegate()`|为所有选择器匹配的元素附加一个处理一个或多个事件|
 |` undelegate()`|为所有选择器匹配的元素删除一个处理一个或多个事件|
 
-- `jQuery1.6`新增常用的方法
+- `jquery1.6`新增常用的方法
 
 |方法|说明|
 |---|---|
@@ -1104,29 +1104,29 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
 |`removeProp(proptyName,value)`|为匹配的元素删除设置的属性|
 |` :focus`|选择当前获取焦点的元素|
 
-#### 附录二 jQuery性能优化
+#### 附录二 jquery性能优化
 ---
 - **性能优化**
-    - 使用最新版的jQuery类库
+    - 使用最新版的jquery类库
     - **使用合适的选择器**
         - `$(#id)`
-            - 使用`id`来定位`DOM`元素是最佳的方式，为了提高性能，建议从最近的`ID`元素开始往下搜索
+            - 使用`id`来定位`dom`元素是最佳的方式，为了提高性能，建议从最近的`ID`元素开始往下搜索
         -  `$("p")` , `$("div")` , `$("input")`
-            - 标签选择器性能也不错，它是性能优化的第二选择。因为`jQuery`将直接调用本地方法`document.getElementsByTagName()`来定位`DOM`元素
+            - 标签选择器性能也不错，它是性能优化的第二选择。因为`jquery`将直接调用本地方法`document.getElementsByTagName()`来定位`dom`元素
         - `$(".class")`
           - 建议有选择性的使用  
         - `$("[attribute=value]")`
-          - 对这个利用属性定位`DOM`元素，本地`JavaScript`并没有直接实现。这种方式性能并不是很理想。建议避免使用。
+          - 对这个利用属性定位`dom`元素，本地`JavaScript`并没有直接实现。这种方式性能并不是很理想。建议避免使用。
         - `$(":hidden")`
-          -  和上面利用属性定位`DOM`方式类似，建议尽量不要使用 
+          -  和上面利用属性定位`dom`方式类似，建议尽量不要使用 
         - **注意的地方**
            - 尽量使用`ID`选择器
            - 尽量给选择器指定上下文
  
   - **缓存对象**
-     - 如果你需要在其他函数中使用`jQuery`对象，你可以把他们缓存在全局环境中
-  - **数组方式使用`jQuery`对象**
-    - 使用`jQuery`选择器获取的结果是一个`jQuery`对象。在性能方面，建议使用`for`或`while`循环来处理，而不是`$.each()`
+     - 如果你需要在其他函数中使用`jquery`对象，你可以把他们缓存在全局环境中
+  - **数组方式使用`jquery`对象**
+    - 使用`jquery`选择器获取的结果是一个`jquery`对象。在性能方面，建议使用`for`或`while`循环来处理，而不是`$.each()`
  - **事件代理**
     - 每一个`JavaScript`事件（如：`click`、`mouseove`r）都会冒泡到父级节点。当我们需要给多个元素调用同个函数时这点很有用。比如，我们要为一个表单绑定这样的行为：点击td后，把背景颜色设置为红色
       - `$("#myTable td").click(function(){$(this).css("background","red");});`
@@ -1134,15 +1134,15 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
       - 代替这种多元素的事件监听方法是，你只需向他们的父节点绑定一次事件，然后通过`event.target`获取到点击的当前元素
         - `$("#myTable td").click(function({$(e.target).css("background","red")});`
         - `e.target`捕捉到触发的目标 
-     - 在`jQuery1.7`中提供了一个新的方法`on()`，来帮助你将整个事件监听封装到一个便利的方法中
+     - 在`jquery1.7`中提供了一个新的方法`on()`，来帮助你将整个事件监听封装到一个便利的方法中
         -  `$("#myTable td").on("click",'td',function(){$(this).css("background","red");});`
-  - **将你的代码转化成jQuery插件**
+  - **将你的代码转化成jquery插件**
     - 它能够使你的代码有更好的重用性，并且能够有效的帮助你组织代码
  - **使用join()方法来拼接字符串**
     - 也许你之前使用`+`来拼接字符串，现在可以改了。它确实有助于性能优化，尤其是长字符串处理的时候
   
- - **合理使用HTML5和Data属性**
-    - `HTML5`的`data`属性可以帮助我们插入数据，特别是后端的数据交换。`jQuery`的`Data()`方法有效利用`HTML5`的属性
+ - **合理使用html5和Data属性**
+    - `html5`的`data`属性可以帮助我们插入数据，特别是后端的数据交换。`jquery`的`Data()`方法有效利用`html5`的属性
       - 例如：`<div id="dl" data-role="page" data-list-value="43" data-options='{"name:""John"}'>`
       - 为了读取数据，你需要使用如下代码
         - `$("#dl').data("role';//page)`
@@ -1153,7 +1153,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
   - **压缩JavaScript代码**
     - 一方面使用`Gzip`；另一方面去除`JavaScript`文件里面的注释、空白 
 
-#### 附录三 常用的jQuery代码片段
+#### 附录三 常用的jquery代码片段
 ---
 
 - 禁用页面的右键菜单
@@ -1280,7 +1280,7 @@ $("div").click(function(){
 
 ```js
 $(document).ready(function(){
-    jQuery.fn.center = function(){
+    jquery.fn.center = function(){
         this.css("position","absolute");
         this.css("top",($(window).height() - this.lenght()) / 2 +$(window).scrollTop() + "px"); 
         this.css("left",($(window).height() - this.lenght()) / 2 +$(window).scrollLeft() + "px"); 
@@ -1297,7 +1297,7 @@ $(document).ready(function(){
 
 ```js
 $(document).ready(function(){
-    jQuery.fx.off = true;
+    jquery.fx.off = true;
 });
 
 ```
@@ -1382,7 +1382,7 @@ $("div").slideUp(300).delay(3000).fadeIn(400);
 
 ```js
  //为table里面的td元素绑定click事件，不管td是一直存在还是动态创建的
- //jQuery 1.4.2之前使用这种方式
+ //jquery 1.4.2之前使用这种方式
  $("table").each(function(){
     $("td",this).live("click",function(){
        $(this).toggleClass("hover"); 
@@ -1395,7 +1395,7 @@ $("table").delegate("td","click",function(){
     $(this).toggleClass("hover");
 });
 
-//jQuery1.7.1使用的方式
+//jquery1.7.1使用的方式
 $("table").on("click","td",function(){
     $(this).toggleClass("hover");
  })
@@ -1415,7 +1415,7 @@ $("table").on("click","td",function(){
       cache.push(cacheImage);
     }
   }
-jQuery.preLoadImages("image1.gif", "/path/to/image2.png");
+jquery.preLoadImages("image1.gif", "/path/to/image2.png");
 ```
 
 - 让页面中的每个元素都适合在移动设备上展示
@@ -1478,7 +1478,7 @@ $(document).ready(function(){
 <a href="#" class="top">Back To Top</a>
 ```
 
-- 使用jQuery打造手风琴式的折叠效果
+- 使用jquery打造手风琴式的折叠效果
 
 ```js
 var accordion = {
@@ -1506,7 +1506,7 @@ var accordion = {
 };
 ```
 
-- 使用jQuery和Ajax自动填充选择框
+- 使用jquery和Ajax自动填充选择框
 
 ```js
 $(function(){
@@ -1541,8 +1541,8 @@ $("img").error(function () {
 ```js
 $(document).ready(function() {
   $('form').submit(function() {
-    if(typeof jQuery.data(this, "disabledOnSubmit") == 'undefined') {
-      jQuery.data(this, "disabledOnSubmit", { submited: true });
+    if(typeof jquery.data(this, "disabledOnSubmit") == 'undefined') {
+      jquery.data(this, "disabledOnSubmit", { submited: true });
       $('input[type=submit], input[type=button]', this).each(function() {
         $(this).attr("disabled", "disabled");
       });
@@ -1607,20 +1607,20 @@ $(e.target).addClass('tclass').siblings('.tclass').removeClass('tclass');;
 
  });
 ```
-- 解决`jQuery`, `prototype`共存，`$`全局变量冲突问题
+- 解决`jquery`, `prototype`共存，`$`全局变量冲突问题
 
 ```js
 <script src="prototype.js"></script>
 <script src="http://blogbeta.blueidea.com/jquery.js"></script>
-<script type="text/javascript"> jQuery.noConflict();</script> 
+<script type="text/javascript"> jquery.noConflict();</script> 
 
 注意：一定要先引入prototype.js 再引入jquery.js，先后顺序不可错
 ```
 
--  jQuery 判断元素上是否绑定了事件
+-  jquery 判断元素上是否绑定了事件
 
 ```js
-//jQuery event封装支持判断元素上是否绑定了事件，此方法只适用于jQuery绑定的事件
+//jquery event封装支持判断元素上是否绑定了事件，此方法只适用于jquery绑定的事件
 var $events = $("#foo").data("events");
 if( $events && $events["click"] ){　　
     //your code
@@ -1658,9 +1658,9 @@ if ($('#keks').is(":empty")) {
 - 访问IFrame里的元素
 
 ```js
-var iFrameDOM = $("iframe#someID").contents();
+var iFramedom = $("iframe#someID").contents();
 //然后，就可以通过find方法来遍历获取iFrame中的元素了
-iFrameDOM.find(".message").slideUp();
+iFramedom.find(".message").slideUp();
 ```
 - 管理搜索框的值
     - 现在各大网站都有搜索框，而搜索框通常都有默认值，当输入框获取焦点时，默认值消失。而一旦输入框失去焦点，而输入框里又没有输入新的值，输入框里的值又会恢复成默认值，如果往输入框里输入了新值，则输入框的值为新输入的值。这种特效用`JQuery`
@@ -1690,13 +1690,13 @@ $("#content").load(url); }, 5000);
 
 ```js
 //方法一： 为JQuery重新命名为
- $jvar $j = jQuery.noConflict();$j('#id').... //
+ $jvar $j = jquery.noConflict();$j('#id').... //
 
 方法二： 推荐使用的方式
 
 (function($){ $(document).ready(function(){
      //这儿，你可以正常的使用JQuery语法 });
-})(jQuery);
+})(jquery);
 ```
 
 - 测试密码的强度
@@ -1744,26 +1744,26 @@ return true;
 - [微软CDN服务](http://www.asp.net/ajax/cdn)
 - [阿里云](https://bbs.aliyun.com/read/139395.html)
 - [百度开放云平台](http://developer.baidu.com/wiki/index.php?title=docs/cplat/libs)
-- [jQuery CDN](http://code.jquery.com/)
-- [jQuery cdn加速](http://www.jq22.com/cdn/)
+- [jquery CDN](http://code.jquery.com/)
+- [jquery cdn加速](http://www.jq22.com/cdn/)
 - [新浪CDN](http://lib.sinaapp.com/)
 
-#### 附录五 jQuery的一些资源
+#### 附录五 jquery的一些资源
 ---
 - 速查手册
-  - [jQuery API 中文文档--css88](http://www.css88.com/jqapi-1.9/)
-  - [jQuery-overapi](http://overapi.com/jquery)
-  - [在线桌面版API](http://www.sxt.cn/searchsxt/sxtapipro/index.html)
-  - [更多详情---一份实用的API参考手册集合](https://github.com/poetries/mywiki/blob/master/bookmark/%E5%AE%9E%E7%94%A8%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8CAPI.md)
-- `jQuery`插件
+  - [jquery api 中文文档--css88](http://www.css88.com/jqapi-1.9/)
+  - [jquery-overapi](http://overapi.com/jquery)
+  - [在线桌面版api](http://www.sxt.cn/searchsxt/sxtapipro/index.html)
+  - [更多详情---一份实用的api参考手册集合](https://github.com/poetries/mywiki/blob/master/bookmark/%E5%AE%9E%E7%94%A8%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8Capi.md)
+- `jquery`插件
  - 基础常用
    - [滚动固定在某个位置](http://caibaojian.com/scrollfix)
-   - [jQuery图片滚动插件全能版](http://caibaojian.com/power-slider)
-   - [jQuery Wookmark Load 瀑布流布局](http://code.ciaoca.com/jquery/wookmark/?utm_source=caibaojian.com)
-   - [jQuery Jcrop 图像裁剪](http://code.ciaoca.com/jquery/jcrop/?utm_source=caibaojian.com)
-   - [jQuery kxbdMarquee 无缝滚动](http://code.ciaoca.com/jquery/kxbdmarquee/?utm_source=caibaojian.com)
-   - [jQuery lightBox 灯箱效果](http://code.ciaoca.com/jquery/lightbox/?utm_source=caibaojian.com)
-   - [Lazy Load Plugin for jQuery](http://www.appelsiini.net/projects/lazyload?utm_source=caibaojian.com)
+   - [jquery图片滚动插件全能版](http://caibaojian.com/power-slider)
+   - [jquery Wookmark Load 瀑布流布局](http://code.ciaoca.com/jquery/wookmark/?utm_source=caibaojian.com)
+   - [jquery Jcrop 图像裁剪](http://code.ciaoca.com/jquery/jcrop/?utm_source=caibaojian.com)
+   - [jquery kxbdMarquee 无缝滚动](http://code.ciaoca.com/jquery/kxbdmarquee/?utm_source=caibaojian.com)
+   - [jquery lightBox 灯箱效果](http://code.ciaoca.com/jquery/lightbox/?utm_source=caibaojian.com)
+   - [Lazy Load Plugin for jquery](http://www.appelsiini.net/projects/lazyload?utm_source=caibaojian.com)
  - 更多插件-动效库整理
     - [插件动效库](https://github.com/poetries/mywiki/blob/master/bookmark/%E6%8F%92%E4%BB%B6%E5%BA%93.md)
    - [常用组件](https://github.com/poetries/mywiki/blob/master/bookmark/%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6.md)
@@ -1771,12 +1771,12 @@ return true;
 #### 扩展阅读
 ---
 
-- [jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)
+- [jquery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)
 
 #### 参考
 ---
 
-  - 锋利的`jQuery`
+  - 锋利的`jquery`
 
 ---
-- [本文md源文件](https://github.com/poetries/poetries.github.io/blob/dev/source/_posts/review-jQuery.md)
+- [本文md源文件](https://github.com/poetries/poetries.github.io/blob/dev/source/_posts/review-jquery.md)

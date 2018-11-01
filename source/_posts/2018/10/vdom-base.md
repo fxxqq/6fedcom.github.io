@@ -1,17 +1,17 @@
 ---
-title: 虚拟DOM（一）
+title: 虚拟dom（一）
 tags:
-  - Javascript
-  - 虚拟DOM
-categories: Front-End
+  - javascript
+  - dom
+categories: front-end
 abbrlink: 96d236e5
 date: 2018-10-20 22:12:12
 ---
 
 ## 一、什么是 vdom
 
-- 用 `JS` 模拟 `DOM` 结构
-- `DOM` 变化的对比，放在 `JS` 层来做
+- 用 `JS` 模拟 `dom` 结构
+- `dom` 变化的对比，放在 `JS` 层来做
 - 提高重绘性能
 
 
@@ -19,7 +19,7 @@ date: 2018-10-20 22:12:12
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-ecb5ff293ddc8aed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**用jQuery实现**
+**用jquery实现**
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-68270e52c16db126.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-f6538e3e5d70378a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -27,14 +27,14 @@ date: 2018-10-20 22:12:12
 
 **遇到的问题**
 
-- DOM 操作是“昂贵”的，js 运行效率高
-- 尽量减少 DOM 操作，而不是“推倒重来”
+- dom 操作是“昂贵”的，js 运行效率高
+- 尽量减少 dom 操作，而不是“推倒重来”
 - 项目越复杂，影响就越严重
 - vdom 即可解决这个问题
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-e6482808654c0d90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-## 三、vdom 的如何应用，核心 API 是什么
+## 三、vdom 的如何应用，核心 api 是什么
 
 **什么是 vdom**
 
@@ -56,7 +56,7 @@ date: 2018-10-20 22:12:12
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-ddd86c5acbcc2c1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-**重做jQuery的demo**
+**重做jquery的demo**
 
 - 使用 `data `生成 `vnode`
 - 第一次渲染，将 `vnode` 渲染到 `#container `中
@@ -66,7 +66,7 @@ date: 2018-10-20 22:12:12
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-66ffa5d864b85710.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**核心 API**
+**核心 api**
 
 - `h(‘<标签名>’, {…属性…}, […子元素…])`
 - ` h(‘<标签名>’, {…属性…}, ‘….’)`
@@ -77,8 +77,8 @@ date: 2018-10-20 22:12:12
 
 ### 4.1 vdom 为何使用 diff 算法
 
-- DOM 操作是“昂贵”的，因此尽量减少 DOM 操作
-- 找出本次 DOM 必须更新的节点来更新，其他的不更新
+- dom 操作是“昂贵”的，因此尽量减少 dom 操作
+- 找出本次 dom 必须更新的节点来更新，其他的不更新
 - 这个“找出”的过程，就需要 diff 算法
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-20f2d2d895fd2e52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

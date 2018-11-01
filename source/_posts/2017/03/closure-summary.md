@@ -1,9 +1,9 @@
 ---
 title: 浅谈闭包
 tags:
-  - Javascript
+  - javascript
   - 闭包
-categories: Front-End
+categories: front-end
 abbrlink: 56cde313
 date: 2017-03-22 14:24:08
 ---

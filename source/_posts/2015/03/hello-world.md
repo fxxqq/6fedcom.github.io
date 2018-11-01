@@ -1,12 +1,12 @@
 ---
-title: Hello Hexo Blog
-categories: Hexo教程
+title: Hello hexo Blog
+categories: hexo
 description: 本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：
 abbrlink: b479543d
 date: 2015-03-03 15:17:54
-tags:
+tags: [hexo]
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+Welcome to [hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [gitHub](https://github.com/hexojs/hexo/issues).
 
 ## Quick Start
 

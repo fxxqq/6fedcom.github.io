@@ -1,7 +1,7 @@
 ---
 title: JavaScript语言基础之数据类型(二)
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: fd8d9d1f
 date: 2016-07-26 21:46:43
 ---

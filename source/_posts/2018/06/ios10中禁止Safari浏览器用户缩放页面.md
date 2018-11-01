@@ -1,6 +1,6 @@
 ---
 title: ios10中禁止Safari浏览器用户缩放页面
-categories: Front-End
+categories: front-end
 tags:
   - 移动端
 abbrlink: a48a072

@@ -1,9 +1,9 @@
 ---
 title: es6在react中的应用
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: 57b0b360
 date: 2017-11-07 21:55:24
 ---

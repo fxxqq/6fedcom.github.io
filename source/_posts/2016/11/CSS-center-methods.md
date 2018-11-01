@@ -3,7 +3,7 @@ title: 居中解决方案荟萃
 tags:
   - CSS
   - 居中
-categories: Front-End
+categories: front-end
 abbrlink: df00e94a
 date: 2016-11-12 17:55:24
 ---

@@ -1,9 +1,9 @@
 ---
 title: ES6编码风格
 tags:
-  - Javascript
-  - ES6
-categories: Front-End
+  - javascript
+  - es6
+categories: front-end
 abbrlink: 67fe8f98
 date: 2017-04-14 14:24:08
 ---

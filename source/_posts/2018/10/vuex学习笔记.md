@@ -1,16 +1,16 @@
 ---
 title: vuex学习笔记
-categories: Front-End
-tags:  [Vuex]
+categories: front-end
+tags:  [vuex]
 abbrlink: caef00ab
 date: 2018-10-17 17:25:59
 ---
 
 
->组件是Vue最强大的功能之一，而组件实例的作用域是相互独立的，意味着不同组件之间的数据是无法相互使用。组件间如何传递数据就显得至关重要，这篇文章主要是介绍Vuex。尽量以通俗易懂的实例讲述这其中的差别，希望对小伙伴有些许帮助。
+>组件是Vue最强大的功能之一，而组件实例的作用域是相互独立的，意味着不同组件之间的数据是无法相互使用。组件间如何传递数据就显得至关重要，这篇文章主要是介绍vuex。尽量以通俗易懂的实例讲述这其中的差别，希望对小伙伴有些许帮助。
 
-### 一、Vuex 是什么？
-Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+### 一、vuex 是什么？
+vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
 
 ### 二、什么是“状态管理模式”？
 一个简单的 Vue 计数应用开始：
@@ -57,7 +57,7 @@ new Vue({
    console.log(this.$store.state.count)
 ```
 ###### 2. getters
-`getters`：Vuex 允许我们在 store 中定义“getter”（可以认为是 store 的计算属性）。就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。（getters从表面是获得的意思，可以把他看作在获取数据之前进行的一种再编辑,相当于对数据的一个过滤和加工。getters就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。）
+`getters`：vuex 允许我们在 store 中定义“getter”（可以认为是 store 的计算属性）。就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。（getters从表面是获得的意思，可以把他看作在获取数据之前进行的一种再编辑,相当于对数据的一个过滤和加工。getters就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。）
 
 定义getter：
 ```js
@@ -68,9 +68,9 @@ new Vue({
   }
 ```
 ###### 3. mutations
-`mutations`：更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。Vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
+`mutations`：更改 vuex 的 store 中的状态的唯一方法是提交 mutation。vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
 ```js
-const store = new Vuex.Store({
+const store = new vuex.Store({
   state: {
     count: 1
   },
@@ -100,7 +100,7 @@ this.$store.commit('add', 10)
 ######　4.Action
 `Action`：类似于 `mutation`，不同在于Action 提交的是 `mutation`，而不是直接变更状态；`Action` 可以包含任意异步操作。
 ```js
-const store = new Vuex.Store({
+const store = new vuex.Store({
   state: {
     count: 0
   },
@@ -134,7 +134,7 @@ this.$store.dispatch('incrementAsyncWithValue', 5)
 ###### 5.Module
 由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
 
-为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：
+为了解决以上问题，vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：
 ```js
 const moduleA = {
   state: { ... },
@@ -149,7 +149,7 @@ const moduleB = {
   actions: { ... }
 }
 
-const store = new Vuex.Store({
+const store = new vuex.Store({
   modules: {
     a: moduleA,
     b: moduleB
@@ -177,17 +177,17 @@ const moduleA = {
   }
 }
 ```
-Vuex计数器的例子：
+vuex计数器的例子：
 在src目录下创建一个store文件夹。
 
 store/store.js
 ```js
 import Vue from 'vue'
-import Vuex from 'vuex'
+import vuex from 'vuex'
 
-Vue.use(Vuex)
+Vue.use(vuex)
 
-const store = new Vuex.Store({
+const store = new vuex.Store({
   state: {
     count: 0,
     show: ''

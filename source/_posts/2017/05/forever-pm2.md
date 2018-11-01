@@ -1,9 +1,9 @@
 ---
 title: forever and pm2部署nodejs项目
 tags:
-  - Node
+  - node
   - 部署
-categories: Back-end
+categories: back-end
 abbrlink: d03e9032
 date: 2017-05-09 22:50:08
 ---
@@ -38,7 +38,7 @@ date: 2017-05-09 22:50:08
 {
   "apps": [
     {
-      "name": "ANodeBlog",
+      "name": "AnodeBlog",
       "script": "bin/www",
       "watch": "../",
       "log_date_format": "YYYY-MM-DD HH:mm Z"
@@ -55,7 +55,7 @@ date: 2017-05-09 22:50:08
 |Keep Alive	|✔|	✔|
 |Coffeescript|✔|	|
 |Log aggregation	||	✔|
-|API	|	|✔|
+|api	|	|✔|
 |Terminal monitoring	||	✔|
 |Clustering	||	✔|
 |JSON configuration| |		✔|

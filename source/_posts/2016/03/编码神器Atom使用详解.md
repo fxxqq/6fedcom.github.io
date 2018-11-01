@@ -1,41 +1,41 @@
 ---
-title: 编码神器Atom使用详解
-tags: Atom
-categories: 工欲善其事必先利其器
+title: 编码神器atom使用详解
+tags: atom
+categories: 前端工具
 abbrlink: '96063689'
 date: 2016-03-14 16:21:16
 ---
 
 
-[Atom][1] 是 `Github` 专门为程序员推出的一个跨平台文本编辑器。她很大程度上继承了SublimeText的美，而又不仅如此。而如今试用了 `Atom` 一个多月以来，我被迫见异思迁了，幸好我不是一个喜新厌旧的男人～在编码砌字时，很多时候一款编辑器的标签不够用的，所以现在两款兼而用之。
+[atom][1] 是 `github` 专门为程序员推出的一个跨平台文本编辑器。她很大程度上继承了SublimeText的美，而又不仅如此。而如今试用了 `atom` 一个多月以来，我被迫见异思迁了，幸好我不是一个喜新厌旧的男人～在编码砌字时，很多时候一款编辑器的标签不够用的，所以现在两款兼而用之。
 
-**Atom与SublimeText3对比**
+**atom与SublimeText3对比**
 <!--more-->
 
 ----------
 
- - Atom1.0之后，有比Sublime更美的UI，不输Sublime的插件包，比Sublime更加舒适的细节，比如：Atom下
+ - atom1.0之后，有比Sublime更美的UI，不输Sublime的插件包，比Sublime更加舒适的细节，比如：atom下
    `cmd-\`
  - 显示或隐藏目录树；（Sublime默认是 `Ctrl＋K+B` ）。
    更为简洁人性化的设置/插件安装等（当然SublimeText也不太复杂）。
- - Atom算是一款web app，源码都是 CoffeeScript 写的，连界面都可以用 CSS来自定义，扩展可以用JS开发，完全可以深度定制打造自己的IDE。Sublime基于Python，两者扩展性都非常强。
- - **Atom** 暂时还是免费的。而SublimeText，额，一直会弹那个框(使用网上注册码？)。
+ - atom算是一款web app，源码都是 CoffeeScript 写的，连界面都可以用 CSS来自定义，扩展可以用JS开发，完全可以深度定制打造自己的IDE。Sublime基于Python，两者扩展性都非常强。
+ - **atom** 暂时还是免费的。而SublimeText，额，一直会弹那个框(使用网上注册码？)。
  - 对 **Markdown**的支持更加完美(见下文)；这一点真心是赞的不要不要的。
- - 类Web App嘛，对各平台的支持更为有好；比如：在mac下打开xxx文件/文件夹，Atom：terminal下直接 atom **xxx**
+ - 类Web App嘛，对各平台的支持更为有好；比如：在mac下打开xxx文件/文件夹，atom：terminal下直接 atom **xxx**
    即可。而SublimeText会相对繁琐很多，比如为其添加系统别名，可参见[Mac必备软件渐集之ZSH－终极Shell][2]。windows下，安装了
-   Atom，就已经在鼠标右键列表了。
- - Atom,类Web的年轻一代编辑神器，在打开软件速度上稍逊SublimeText3。相比之下，对大文件响应处理上相比之下，还需很大提升。不过潜力还是挺足的。
- - Atom 有友好的中文社区[Atom China][3]。
+   atom，就已经在鼠标右键列表了。
+ - atom,类Web的年轻一代编辑神器，在打开软件速度上稍逊SublimeText3。相比之下，对大文件响应处理上相比之下，还需很大提升。不过潜力还是挺足的。
+ - atom 有友好的中文社区[atom China][3]。
 
-关于如何初步使用Atom，可以参见 [官方手册：Atom 基础使用。][4]
+关于如何初步使用atom，可以参见 [官方手册：atom 基础使用。][4]
  
 ![此处输入图片的描述][5]
 
-### Atom安装篇
+### atom安装篇
 
-**Atom软件本身安装**
+**atom软件本身安装**
 
- 1. 可以去Atom官网下载安装包，跟普通安装一致。
+ 1. 可以去atom官网下载安装包，跟普通安装一致。
  2. 可以在终端terminal中安装：
 
 
@@ -44,18 +44,18 @@ Mac OS
 > ~ brew install Caskroom/cask/atom
 
 Window OS
-可以用管理员身份打开Powershell，然后用 choco install 去安装 Atom.
+可以用管理员身份打开Powershell，然后用 choco install 去安装 atom.
 
 > choco install atom
 
 这一点具体可以参见文章： [Win下必备神器之Cmder][6]
 
-### Atom的插件安装
+### atom的插件安装
 
  1. `Command+Shift+P`呼出设置界面，点击 Install
     ，在调出的页面输入框中输入你想安装的插件名，搜索这个插件，然后再出现的插件选项中点击下载。
- 2. Atom编辑器还自带了一个叫做apm(Atom Package
-    Manager)的包管理工具，用过`npm`的同学应该对包管理工具不会陌生，我们可以通过apm查找Atom插件，安装和删除插件等操作。比如对emmet插件的操作。
+ 2. atom编辑器还自带了一个叫做apm(atom Package
+    Manager)的包管理工具，用过`npm`的同学应该对包管理工具不会陌生，我们可以通过apm查找atom插件，安装和删除插件等操作。比如对emmet插件的操作。
 
 > //查找
 ~ apm search emmet
@@ -64,7 +64,7 @@ Window OS
 //删除
 ~ apm remove emmet
 
-### Atom快捷键篇
+### atom快捷键篇
 
 **文件切换**
 
@@ -199,7 +199,7 @@ Window OS
 
 `ctrl-shift-L` 选择文本类型
 
-**使用Atom进行写作**
+**使用atom进行写作**
 
 `ctrl-shift-M` Markdown预览
 
@@ -225,7 +225,7 @@ Window OS
 
 **主题**
 
-[seti-ui][8]A dark colored UI theme for Atom with custom file icons. (+Seti Syntax)
+[seti-ui][8]A dark colored UI theme for atom with custom file icons. (+Seti Syntax)
 [atom-material-ui][9] 好看到爆
 [atom-material-syntax][10]
 
@@ -260,14 +260,14 @@ Window OS
 **Web前端**
 
 [autoclose-html][24] 闭合html标签
-[language-vue-component][25] Atom编写Vue高亮
+[language-vue-component][25] atom编写Vue高亮
 [vue-autocompile][26] Auto compiles vue in atom
 [language-vue][27] Syntax highlighting for vue component files
-其插件已相当丰满，可以在[这里][28]搜索查找。Packages make Atom do amazing things.
+其插件已相当丰满，可以在[这里][28]搜索查找。Packages make atom do amazing things.
 
 **舒爽书写作(Markdown)**
 
-Atom有自带MarkdownPreview,支持`Ctrl＋Shift＋M`实时预览。装上[markdown-writer][29]插件，根据其默认配置:Settings for Keymaps，完美；想必之下比`SublimeText`下的书写爽很多；也比简书，作业部落要更为强大。 比如对已经写下的文字加粗，选中 `Command＋B`即可；如果文字还没写，空格下 `Command＋B` 就会生成 **｜**，光标在第二个`*`之后，很是方便。 当然这快捷是可以更改的， `cmd + shift + p`输入setting呼出设置界面自行更改。 `markdown-writer`书写 Markdown 默认快捷键如下：
+atom有自带MarkdownPreview,支持`Ctrl＋Shift＋M`实时预览。装上[markdown-writer][29]插件，根据其默认配置:Settings for Keymaps，完美；想必之下比`SublimeText`下的书写爽很多；也比简书，作业部落要更为强大。 比如对已经写下的文字加粗，选中 `Command＋B`即可；如果文字还没写，空格下 `Command＋B` 就会生成 **｜**，光标在第二个`*`之后，很是方便。 当然这快捷是可以更改的， `cmd + shift + p`输入setting呼出设置界面自行更改。 `markdown-writer`书写 Markdown 默认快捷键如下：
 
 **快捷键操作**	     **作用效果**
 `“shift-cmd-K”`:	“markdown-writer : insert-link”
@@ -291,7 +291,7 @@ Atom有自带MarkdownPreview,支持`Ctrl＋Shift＋M`实时预览。装上[markd
 `“cmd-j cmd-d”`:	“markdown-writer : jump-between-reference-definition”
 `“cmd-j cmd-t”`:	“markdown-writer : jump-to-next-table-cell”
 
-**本文转载自：** [新编码神器Atom使用纪要][30]
+**本文转载自：** [新编码神器atom使用纪要][30]
 
   [1]: https://atom.io/
   [2]: http://www.jeffjade.com/2015/07/29/2015-07-29-mac-musthave-software/

@@ -1,7 +1,7 @@
 ---
 title: Vim快捷键分类
-tags: Vim
-categories: 工欲善其事必先利其器
+tags: vim
+categories: 前端工具
 abbrlink: 3512468a
 date: 2016-03-25 09:24:36
 ---

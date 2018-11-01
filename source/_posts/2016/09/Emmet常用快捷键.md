@@ -1,7 +1,7 @@
 ---
 title: Emmet常用快捷键
 tags: Emmet
-categories: 工欲善其事必先利其器
+categories: 前端工具
 abbrlink: '52877228'
 date: 2016-09-09 21:00:08
 ---

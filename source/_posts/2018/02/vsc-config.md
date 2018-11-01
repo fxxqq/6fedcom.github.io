@@ -1,7 +1,7 @@
 ---
-title: VS Code折腾记
-tags: VS Code
-categories: Tools
+title: vscode折腾记
+tags: vscode
+categories: tools
 abbrlink: dde95dab
 date: 2018-02-02 11:40:43
 ---
@@ -14,7 +14,7 @@ date: 2018-02-02 11:40:43
 - `Beautify css/sass/scss/less`
 - `Brackets Light` (主题)
 - `Complete JSDoc Tags` (js文档注释提示)
-- `Git History` (查看git提交记录)
+- `git History` (查看git提交记录)
 - `HTML CSS Support` (HTML中提示可用的class)
 - `npm Intellisense` (提示可以require的模块名称)
 - `One Dark Theme` (主题)
@@ -31,7 +31,7 @@ date: 2018-02-02 11:40:43
 - `JavaScript (ES6) Code Snippets` (代码片段插件)
 - `Project Manager` (项目管理器插件) 简单的项目管理器,可以在你的编辑器中快速切换项目
 - `Sync Settings` (设置同步插件)在电脑上移植你的插件和设置是轻而易举的事
-- `Git History` (`Git` 历史记录插件) 可视化的 `Git` 历史记录插件
+- `git History` (`git` 历史记录插件) 可视化的 `git` 历史记录插件
 - `Document This` (`JSDoc`注释插件)
 - `npm Intellisense` (npm 模块导入插件)
 - `Align` (代码对齐插件)
@@ -48,7 +48,7 @@ date: 2018-02-02 11:40:43
 - `colorize`会给颜色代码增加一个当前匹配代码颜色的背景
 - `vscode-fake`------生成各种假数据类型。（姓名，电话）
 - `vscode-CSS Peek`------`class`类定义跳转
-- `vscode-Git Lens`-----增强`vscode`的`git`管理工具
+- `vscode-git Lens`-----增强`vscode`的`git`管理工具
 - `vscode-Live Server`-----`http`服务器（相当于使用`nodejs`的`http-server` ）
 - `EditorConfig for VS Code EditorConfig` 插件
 - `Emoji` 在代码中输入`emoji`
@@ -73,7 +73,7 @@ date: 2018-02-02 11:40:43
     "window.menuBarVisibility": "default",
     "editor.minimap.enabled": true,
     "cssrem.rootFontSize": 75,
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "atom One Dark",
     "editor.fontSize": 16,
     "liveServer.settings.donotShowInfoMsg": true,
     "editor.cursorStyle": "block",
@@ -101,7 +101,7 @@ date: 2018-02-02 11:40:43
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
         "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
+        "suppressgitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
         "suppressUpdateNotice": false,

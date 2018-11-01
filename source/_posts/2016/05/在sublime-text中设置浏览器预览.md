@@ -1,7 +1,7 @@
 ---
 title: 在sublime-text中设置浏览器预览
 tags: sublime
-categories: 工欲善其事必先利其器
+categories: 前端工具
 abbrlink: f3739653
 date: 2016-05-28 14:24:49
 ---

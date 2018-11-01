@@ -1,9 +1,9 @@
 ---
 title: JavaScript启示录阅读笔录
 tags:
-  - Javascript
+  - javascript
   - 读书笔记
-categories: Front-End
+categories: front-end
 abbrlink: a87a6818
 date: 2017-10-24 10:30:13
 ---

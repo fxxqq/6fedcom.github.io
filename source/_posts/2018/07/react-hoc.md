@@ -1,9 +1,9 @@
 ---
 title: 浅析React高阶组件HOC
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: 76f030b4
 date: 2018-07-23 00:10:24
 ---

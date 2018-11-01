@@ -3,7 +3,7 @@ title: 移动设备分辨率预览
 tags:
   - 移动端
   - 适配
-categories: Front-End
+categories: front-end
 abbrlink: e7c5f8dd
 date: 2018-01-27 21:20:43
 ---

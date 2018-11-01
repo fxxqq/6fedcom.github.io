@@ -1,9 +1,9 @@
 ---
 title: OOP之面向对象
 tags:
-  - Javascript
+  - javascript
   - 面向对象
-categories: Front-End
+categories: front-end
 abbrlink: 6c17c77b
 date: 2016-12-13 14:55:24
 ---

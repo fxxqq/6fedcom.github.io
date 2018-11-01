@@ -2,8 +2,8 @@
 title: Redux之源码分析（九）
 tags:
   - JavaScript
-  - React
-categories: Front-End
+  - react
+categories: front-end
 abbrlink: d7a0e557
 date: 2017-11-19 17:35:24
 ---
@@ -13,7 +13,7 @@ date: 2017-11-19 17:35:24
 
 > https://github.com/reactjs/redux/blob/master/src/index.js
 
-- 暴露了几个核心`API`
+- 暴露了几个核心`api`
 
 ```js
 import createStore from './createStore';
@@ -359,7 +359,7 @@ export default function combineReducers(reducers) {
 
   try {
     // 对所有的子reducer 做一些合法性断言,如果没有出错再继续下面的处理
-    // 合法性断言的内容,见API注释
+    // 合法性断言的内容,见api注释
     assertReducerSanity(finalReducers);
   } catch (e) {
     sanityError = e;
@@ -598,8 +598,8 @@ function logger(store){
 ```js
 // 上面的store参数，其实就是这个对象
 // 其中，store 为内部的store，我们在外面 storeWithMiddleWare.dipatch的时候，内部实现是转成 store.dispatch
-// 此外，可以看到 middlewareAPI.dispatch 方法，是最终封装后的dispatch（千万注意，如果在中间件内部 调用 store.dispatch，可能导致死循环 ）
-var middlewareAPI = {
+// 此外，可以看到 middlewareapi.dispatch 方法，是最终封装后的dispatch（千万注意，如果在中间件内部 调用 store.dispatch，可能导致死循环 ）
+var middlewareapi = {
   getState: store.getState,
   // 最后面, dispatch 被覆盖, 变成包装后的 dispatch 方法
   dispatch: (action) => dispatch(action)
@@ -710,7 +710,7 @@ export default function applyMiddleware(...middlewares) {
     var dispatch = store.dispatch;
     var chain = [];
 
-    var middlewareAPI = {
+    var middlewareapi = {
       getState: store.getState,
       // 最后面, dispatch 被覆盖, 变成包装后的 dispatch 方法
       dispatch: (action) => dispatch(action)
@@ -742,7 +742,7 @@ export default function applyMiddleware(...middlewares) {
         }
       }
      */
-    chain = middlewares.map(middleware => middleware(middlewareAPI));
+    chain = middlewares.map(middleware => middleware(middlewareapi));
 
     // compose(...chain)(store.dispatch) 返回了一个function
     // 伪代码如下,

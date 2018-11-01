@@ -1,7 +1,7 @@
 ---
-title: Hexo持续集成自动部署到github
-tags: Hexo
-categories: Hexo
+title: hexo持续集成自动部署到github
+tags: hexo
+categories: hexo
 abbrlink: 8e459e48
 date: 2016-07-03 00:41:12
 ---
@@ -9,13 +9,13 @@ date: 2016-07-03 00:41:12
 ### **一、 新建新的分支**
 ---
 <!--more-->
-`master：`博客的静态文件，也就是hexo生成后的HTML文件，因为要使用Gitpage服务，所以他规定的网页文件必须是在master分支
+`master：`博客的静态文件，也就是hexo生成后的HTML文件，因为要使用gitpage服务，所以他规定的网页文件必须是在master分支
 
 
 建新的分支`：dev`：存放博客的源代码
 
 
-Git怎么推送本地分支到远程新分支上面去？
+git怎么推送本地分支到远程新分支上面去？
 
 `git push --force origin local_branch:remote_branch`
 
@@ -84,13 +84,13 @@ $ git branch -dr [remote/branch]
 ![此处输入图片的描述][1]
 
 
-然后点击设置按钮，在项目的设置中开启Build only if .travis.yml is present这一项.
+然后点击设置按钮，在项目的设置中开启前端自动化 only if .travis.yml is present这一项.
 
 ![此处输入图片的描述][2]
 
 到这一步， 我们已经开启了要构建的仓库
 
-- 在Travis CI配置Github的Access Token
+- 在Travis CI配置github的Access Token
 
  - 在github上生成Access Token
 
@@ -114,7 +114,7 @@ $ git branch -dr [remote/branch]
 language: node_js
 node_js: stable
 
-# S: Build Lifecycle
+# S: 前端自动化 Lifecycle
 install:
   - npm install
 
@@ -132,7 +132,7 @@ after_script:
   - git add .
   - git commit -m "Update docs"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-# E: Build LifeCycle
+# E: 前端自动化 LifeCycle
 
 branches:
   only:
@@ -179,8 +179,8 @@ push本地的代码至远程仓库之后，在https://travis-ci.org后台查看�
 **参考：**
 ---
 
-[使用Travis自动部署Hexo(3)][6]
-[使用Travis自动部署Hexo(1)][7]
+[使用Travis自动部署hexo(3)][6]
+[使用Travis自动部署hexo(1)][7]
 
 
   [1]: http://upload-images.jianshu.io/upload_images/1152636-241d2155adb0eb9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240

@@ -1,7 +1,7 @@
 ---
 title: 快应用入门小结篇
 tags: 快应用
-categories: Front-End
+categories: front-end
 abbrlink: 97c34044
 date: 2018-08-21 18:05:43
 ---
@@ -13,9 +13,9 @@ date: 2018-08-21 18:05:43
 
 # 一、环境搭建
 
-## 1.1 安装NodeJS
+## 1.1 安装nodeJS
 
-> 需安装`6.0`以上版本的`NodeJS`
+> 需安装`6.0`以上版本的`nodeJS`
 
 ## 1.2 安装hap-toolkit
 
@@ -409,7 +409,7 @@ npm run server
       <hint show="{{isHintShown}}">
           This is children of hint templete.
       </hint>   <!-- 使用外部模板 -->
-      <!-- if 和 show 的区别：if 为 false 分支的节点不会渲染进 DOM 树，而 show 为 false 的节点会渲染，只是 display: none; -->
+      <!-- if 和 show 的区别：if 为 false 分支的节点不会渲染进 dom 树，而 show 为 false 的节点会渲染，只是 display: none; -->
   </div>
 </template>
 
@@ -633,7 +633,7 @@ export default {
 |`$child`|	获取指定`id`的自定义组件的`ViewModel`用法：`this.$child('xxx')` 获取`id`为`xxx`的`div`组件`ViewModel`|
 |`$vm deprecated`	|请使用上面`this.$child('xxx')`替代|
 |`$rootElement deprecated`|	请使用上面`this.$element()`替代|
-|`$forceUpdate`	|更新`ViewModel`数据，可能会触发`DOM`操作，如：创建节点、更新节点、删除节点等；这些DOM操作不一定在数据更新时立即执行，而是在开发者的业务代码执行后触发；若开发者期望数据更新时立即执行相应的`DOM`操作，可使用：`this.$forceUpdate()`；一般不推荐使用|
+|`$forceUpdate`	|更新`ViewModel`数据，可能会触发`dom`操作，如：创建节点、更新节点、删除节点等；这些dom操作不一定在数据更新时立即执行，而是在开发者的业务代码执行后触发；若开发者期望数据更新时立即执行相应的`dom`操作，可使用：`this.$forceUpdate()`；一般不推荐使用|
 
 
 #### 2.7.3.3 事件方法
@@ -720,7 +720,7 @@ export default {
 **指令if与指令show**
 
 - `if`条件指令，是指`if/elif/else`这3个相关指令，用于控制是否增加或者删除组件；
-- `show`指令，是指是否显示组件，用于控制组件的显示状态，并不会从DOM结构中删除
+- `show`指令，是指是否显示组件，用于控制组件的显示状态，并不会从dom结构中删除
 
 ```html
 <template>
@@ -761,7 +761,7 @@ export default {
 ```
 
 - 当`if/elif`指令的值为`false`时，节点会从页面中移除，当`if/elif`指令值为`true`，组件会动态插入节点中；
-- 当`show`指令的值为`true`时，节点可见， - 当其值为`false`时，组件不可见，但节点仍会保留在页面DOM结构中
+- 当`show`指令的值为`true`时，节点可见， - 当其值为`false`时，组件不可见，但节点仍会保留在页面dom结构中
 
 **组件block**
 
@@ -957,7 +957,7 @@ onInit () {
 
 **onReady()**
 
-> 表示ViewModel的模板已经编译完成，可以开始获取DOM节点（如：this.$element(idxxx)
+> 表示ViewModel的模板已经编译完成，可以开始获取dom节点（如：this.$element(idxxx)
 
 ```js
 onReady () {
@@ -1007,9 +1007,9 @@ onDestroy () {
 
 **onBackPress()**
 
-> 当用户点击返回实体按键、左上角返回菜单、调用返回API时触发该事件
+> 当用户点击返回实体按键、左上角返回菜单、调用返回api时触发该事件
 
-- 如果事件响应方法最后返回true表示不返回，自己处理业务逻辑（完毕后开发者自行调用API返回）；否则：不返回数据，或者返回其它数据：表示遵循系统逻辑：返回到上一页
+- 如果事件响应方法最后返回true表示不返回，自己处理业务逻辑（完毕后开发者自行调用api返回）；否则：不返回数据，或者返回其它数据：表示遵循系统逻辑：返回到上一页
 
 ```js
 onBackPress () {
@@ -1020,7 +1020,7 @@ onBackPress () {
 }
 ```
 
-> 返回上一页的接口API：`router.back()`
+> 返回上一页的接口api：`router.back()`
 
 
 **onMenuPress()**
@@ -1401,8 +1401,8 @@ export default {
 ```html
 <template>
   <div class="tutorial-page">
-    <text id="elNode1" class="{{ elClassName + 1 }}" disabled="false" onclick="onClickHandler">组件节点1</text>
-    <text id="elNode2" class="class-static-1 {{ elClassName + 2 }}" onclick="onClickHandler2('参数1', argName)">组件节点2</text>
+    <text id="elnode1" class="{{ elClassName + 1 }}" disabled="false" onclick="onClickHandler">组件节点1</text>
+    <text id="elnode2" class="class-static-1 {{ elClassName + 2 }}" onclick="onClickHandler2('参数1', argName)">组件节点2</text>
   </div>
 </template>
 
@@ -1446,8 +1446,8 @@ export default {
 <template>
   <div class="tutorial-page">
     <text onclick="emitElement">触发组件节点的事件：click</text>
-    <text id="elNode1" class="{{ elClassName + 1 }}" disabled="false" onclick="onClickHandler">组件节点1</text>
-    <text id="elNode2" class="class-static-1 {{ elClassName + 2 }}" onclick="onClickHandler2('参数1', argName)">组件节点2</text>
+    <text id="elnode1" class="{{ elClassName + 1 }}" disabled="false" onclick="onClickHandler">组件节点1</text>
+    <text id="elnode2" class="class-static-1 {{ elClassName + 2 }}" onclick="onClickHandler2('参数1', argName)">组件节点2</text>
   </div>
 </template>
 
@@ -1477,7 +1477,7 @@ export default {
     },
     emitElement () {
       // 注意：通过此类方式的事件不会携带target属性，开发者可以通过detail参数实现
-      this.$emitElement('click', { params: '参数内容' }, 'elNode1')
+      this.$emitElement('click', { params: '参数内容' }, 'elnode1')
     }
   }
 </script>
@@ -1496,5 +1496,5 @@ export default {
 
 # 十四、快应用开发资源
 
-- [快应用API Demo 集合 QuickAPP](https://github.com/l455202325/APIDemo)
+- [快应用api Demo 集合 QuickAPP](https://github.com/l455202325/apiDemo)
 - [awesome-quick-app](https://github.com/yesvods/awesome-quick-app)

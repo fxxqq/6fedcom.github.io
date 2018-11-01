@@ -1,9 +1,9 @@
 ---
 title: JavaScript数组、字符串、对象常用方法
 tags:
-  - Javascript
-  - API
-categories: Front-End
+  - javascript
+  - api
+categories: front-end
 abbrlink: 1196ec8b
 date: 2018-02-23 15:10:12
 ---
@@ -330,7 +330,7 @@ for (var prop in obj) {
 
 > `for of`为`ES6`提供，具有`iterator`接口，就可以用`for of`循环遍历它的成员
 
-- `for of`循环可以使用的范围包括数组、`Set`和`Map`结构、某些类似数组的对象（比如`arguments`对象、`DOM NodeList`对象）、后文的`Generator`对象，以及字符串
+- `for of`循环可以使用的范围包括数组、`Set`和`Map`结构、某些类似数组的对象（比如`arguments`对象、`dom nodeList`对象）、后文的`Generator`对象，以及字符串
 
 #### 3.2.1 entries
 

@@ -1,9 +1,9 @@
 ---
 title: React之环境的搭建（一）
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: 9196d3a3
 date: 2017-11-19 10:10:24
 ---
@@ -17,7 +17,7 @@ date: 2017-11-19 10:10:24
 ---
 
 - 简单：学习简单，代码简单
-- 声明式（编程）：自动`DOM`操作
+- 声明式（编程）：自动`dom`操作
 
 > `React`的核心是组件，组件的设计目的是提升代码的复用率、降低测试难度和代码复杂度。
 
@@ -31,12 +31,12 @@ date: 2017-11-19 10:10:24
 > 如果是要直接在`HTML`上编辑，需要下载`react.js`与`react-dom.js`。如果要使用JSX语法，则需要使用转换`JSX`语法的插件。这里使用`brower.js`。在线地址：https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js
 
 - `react.js`：`react`的核心库
-- `react-dom.js`：提供操作`DOM`相关的功能
+- `react-dom.js`：提供操作`dom`相关的功能
 - `brower,js`：将使用的`JSX`语法转换成`JavaScript`语法
 
 > 注意：三者引用顺序必须是`react`、`react-dom`、`brower`
 
-四、React、ReactDOM中有什么
+四、React、Reactdom中有什么
 ---
 
 ![image.png](http://upload-images.jianshu.io/upload_images/1480597-57b13a4de85f4636.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

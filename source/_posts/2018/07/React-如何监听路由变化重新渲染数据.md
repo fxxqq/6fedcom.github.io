@@ -1,8 +1,8 @@
 ---
 title: React 如何监听路由变化重新渲染数据
-categories: Front-End
+categories: front-end
 tags:
-  - React
+  - react
 abbrlink: 85383de6
 date: 2018-07-17 16:46:55
 ---

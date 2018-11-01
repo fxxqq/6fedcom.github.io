@@ -1,7 +1,7 @@
 ---
 title: JavaScript之面向对象中的多态
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 1fe7b385
 date: 2016-07-27 11:40:43
 ---

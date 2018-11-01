@@ -1,7 +1,7 @@
 ---
 title: 小程序之登录
 tags: 小程序
-categories: Front-End
+categories: front-end
 abbrlink: b106285
 date: 2018-08-13 00:01:20
 ---
@@ -91,7 +91,7 @@ wx.checkSession({
             success: (res) => {
                 console.log('wx.login success:', res);
                 // 登录自有系统
-                API.login.wechat({
+                api.login.wechat({
                     js_code: res.code
                 }, d => {
                     console.log('private login response:', d);
@@ -158,7 +158,7 @@ App({
                         success: (res) => {
                             console.log('wx.login success:', res);
                             // 登录自有系统
-                            API.login.wechat({
+                            api.login.wechat({
                                 js_code: res.code
                             }, d => {
                                 console.log('private login response:', d);
@@ -220,7 +220,7 @@ App({
                             }
                         }
                     }
-                    API.profile.update(params, (d) => {
+                    api.profile.update(params, (d) => {
                         // 静默注册
                         if(d.code === 0) {
                             try {

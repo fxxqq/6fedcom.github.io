@@ -1,8 +1,10 @@
 ---
 title: get请求中特殊字符&的处理
-categories: Front-End
+categories: front-end
+tags:
+  - 踩过的坑
+abbrlink: 540b8f23
 date: 2018-11-01 11:39:23
-tags: [踩过的坑]
 ---
 
 当我们的请求的url为:

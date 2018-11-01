@@ -1,9 +1,9 @@
 ---
 title: Javascript常用方法函数收集
 tags:
-  - Javascript
+  - javascript
   - Snippet
-categories: Front-End
+categories: front-end
 abbrlink: 30fd5d95
 date: 2016-07-19 23:25:20
 ---
@@ -245,32 +245,32 @@ function appendscript(src, text, reload, charset) {
     var id = hash(src + text);
     if(!reload && in_array(id, evalscripts)) return;
     if(reload && $(id)) {
-        $(id).parentNode.removeChild($(id));
+        $(id).parentnode.removeChild($(id));
     }
  
     evalscripts.push(id);
-    var scriptNode = document.createElement("script");
-    scriptNode.type = "text/javascript";
-    scriptNode.id = id;
-    scriptNode.charset = charset ? charset : (BROWSER.firefox ? document.characterSet : document.charset);
+    var scriptnode = document.createElement("script");
+    scriptnode.type = "text/javascript";
+    scriptnode.id = id;
+    scriptnode.charset = charset ? charset : (BROWSER.firefox ? document.characterSet : document.charset);
     try {
         if(src) {
-            scriptNode.src = src;
-            scriptNode.onloadDone = false;
-            scriptNode.onload = function () {
-                scriptNode.onloadDone = true;
+            scriptnode.src = src;
+            scriptnode.onloadDone = false;
+            scriptnode.onload = function () {
+                scriptnode.onloadDone = true;
                 JSLOADED[src] = 1;
              };
-             scriptNode.onreadystatechange = function () {
-                 if((scriptNode.readyState == 'loaded' || scriptNode.readyState == 'complete') && !scriptNode.onloadDone) {
-                    scriptNode.onloadDone = true;
+             scriptnode.onreadystatechange = function () {
+                 if((scriptnode.readyState == 'loaded' || scriptnode.readyState == 'complete') && !scriptnode.onloadDone) {
+                    scriptnode.onloadDone = true;
                     JSLOADED[src] = 1;
                 }
              };
         } else if(text){
-            scriptNode.text = text;
+            scriptnode.text = text;
         }
-        document.getElementsByTagName('head')[0].appendChild(scriptNode);
+        document.getElementsByTagName('head')[0].appendChild(scriptnode);
     } catch(e) {}
 }
 ```
@@ -322,7 +322,7 @@ function delEvt(obj,evt,fn){
 ```js
 Element.prototype.on = Element.prototype.addEventListener;
  
-NodeList.prototype.on = function (event, fn) {、
+nodeList.prototype.on = function (event, fn) {、
     []['forEach'].call(this, function (el) {
         el.on(event, fn);
     });
@@ -343,7 +343,7 @@ Element.prototype.trigger = function (type, data) {
     return this;
 };
  
-NodeList.prototype.trigger = function (event) {
+nodeList.prototype.trigger = function (event) {
     []['forEach'].call(this, function (el) {
         el['trigger'](event);
     });
@@ -1205,7 +1205,7 @@ function isMouseOut(e, handler) {
     }
     var reltg = e.relatedTarget ? e.relatedTarget : e.type === 'mouseout' ? e.toElement : e.fromElement;
     while (reltg && reltg !== handler) {
-            reltg = reltg.parentNode;
+            reltg = reltg.parentnode;
     }
     return (reltg !== handler);
 }

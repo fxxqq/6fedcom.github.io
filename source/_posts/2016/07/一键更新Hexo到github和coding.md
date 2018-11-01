@@ -1,7 +1,7 @@
 ---
-title: 一键更新Hexo到github和coding
-tags: Hexo
-categories: Hexo
+title: 一键更新hexo到github和coding
+tags: hexo
+categories: hexo
 abbrlink: 11e7f6eb
 date: 2016-07-02 20:48:22
 ---
@@ -9,7 +9,7 @@ date: 2016-07-02 20:48:22
 ### **一、 _config.yml配置**
 <!--more-->
 想要同时部署到2个平台，就要修改博客根目录下面的`_config.yml`文件中的deploy如下
-根据Hexo官方文档需要修改成下面的形式
+根据hexo官方文档需要修改成下面的形式
 
 ```
 deploy:

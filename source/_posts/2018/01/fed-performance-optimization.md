@@ -1,7 +1,7 @@
 ---
 title: 图解前端性能优化
 tags: 性能优化
-categories: Front-End
+categories: front-end
 abbrlink: fa4a006c
 date: 2018-01-12 11:24:03
 ---

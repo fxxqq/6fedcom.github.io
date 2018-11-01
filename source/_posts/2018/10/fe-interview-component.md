@@ -3,7 +3,7 @@ title: 前端面试之组件化
 tags:
   - 面试
   - 组件化
-categories: Front-End
+categories: front-end
 abbrlink: 4cf9f504
 date: 2018-10-21 00:20:32
 ---
@@ -79,7 +79,7 @@ date: 2018-10-21 00:20:32
 
 ### 3.3 何时 patch
 
-- 初次渲染 - `ReactDOM.render(<App/>, container)`
+- 初次渲染 - `Reactdom.render(<App/>, container)`
 - 会触发 `patch(container, vnode)`
 - `re-render` - `setState`
 - 会触发 `patch(vnode, newVnode)`
@@ -130,8 +130,8 @@ date: 2018-10-21 00:20:32
 
 ### 5.1 两者的本质区别
 
-- vue - 本质是 MVVM 框架，由 MVC 发展而来
-- React - 本质是前端组件化框架，由后端组件化发展而来
+- vue - 本质是 mvvm 框架，由 MVC 发展而来
+- react - 本质是前端组件化框架，由后端组件化发展而来
 - 但这并不妨碍他们两者都能实现相同的功能
 
 ### 5.2 看模板和组件化的区别
@@ -154,7 +154,7 @@ date: 2018-10-21 00:20:32
 **组件化区别**
 
 - `React` 本身就是组件化，没有组件化就不是 `React`
-- `vue` 也支持组件化，不过是在 `MVVM` 上的扩展
+- `vue` 也支持组件化，不过是在 `mvvm` 上的扩展
 - 对于组件化，我更加倾向于 `React` ，做的彻底而清晰
 
 ### 5.3 两者共同点

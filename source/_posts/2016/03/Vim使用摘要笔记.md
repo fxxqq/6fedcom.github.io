@@ -1,7 +1,7 @@
 ---
 title: Vim使用摘要笔记
-tags: Vim
-categories: 工欲善其事必先利其器
+tags: vim
+categories: 前端工具
 abbrlink: 2f66c6f7
 date: 2016-03-19 09:04:38
 ---

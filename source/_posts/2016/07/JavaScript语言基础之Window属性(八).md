@@ -1,7 +1,7 @@
 ---
 title: JavaScript语言基础之Window属性(八)
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 8908f567
 date: 2016-07-27 00:05:43
 ---
@@ -41,9 +41,9 @@ date: 2016-07-27 00:05:43
           获得当前窗体的子页面（`iframe`）
 
      - f.`document`
-          `DOM`模型的核心对象
+          `dom`模型的核心对象
 
-- **`DOM` 文档对象模型**
+- **`dom` 文档对象模型**
 
   - document
 
@@ -52,9 +52,9 @@ date: 2016-07-27 00:05:43
        - `getElementById`：通过传入的ID，返回标识了这个ID的唯一对象的内存地址
        - `getElementsByTagName`:通过传入的标签名字，返回所有该标签对象（`HTMLCollection`）
        - `getElementsByClassName`:通过类的名字，返回所有该类的元素对象（`HTMLCollection`）
-       - `createElement`:想要创建出来的元素能够绘制在页面中，那么它必须在DOM树中
+       - `createElement`:想要创建出来的元素能够绘制在页面中，那么它必须在dom树中
 
-   - **总结：** `document`对象是DOM原型的核心对象，它是内存DOM树的根，所以它提供了很多功能让我们快速的找到DOM树中的某些DOM节点（对象）
+   - **总结：** `document`对象是dom原型的核心对象，它是内存dom树的根，所以它提供了很多功能让我们快速的找到dom树中的某些dom节点（对象）
 
    - `element`
 
@@ -71,7 +71,7 @@ date: 2016-07-27 00:05:43
          - `href`,`src`...(对应的元素)
          - `innerHTML/innerText`  innerText返回文本信息
          - `children`://子元素集合
-         - `parentNode`//父元素
+         - `parentnode`//父元素
 
 
    -  总结：元素的功能属性直接可以通过元素对象`点`出来，除此意外的`自定义属性`，请通过`get/setAtribute`去操作

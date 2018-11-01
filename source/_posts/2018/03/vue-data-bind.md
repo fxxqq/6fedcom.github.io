@@ -1,7 +1,7 @@
 ---
 title: vue中的数据绑定（二）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: d3019ce8
 date: 2018-08-26 14:01:32
 ---

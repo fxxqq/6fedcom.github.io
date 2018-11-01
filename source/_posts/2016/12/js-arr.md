@@ -1,9 +1,9 @@
 ---
 title: Javascript数组详解
 tags:
-  - Javascript
+  - javascript
   - 数组
-categories: Front-End
+categories: front-end
 abbrlink: 40b57898
 date: 2016-12-13 14:55:24
 ---
@@ -70,7 +70,7 @@ arr //2
 ---
 
 - 在`js`中，有些对象被叫做“类数组对象`”（array-like object）`，因为这些对象看起来很像数组，可以使用`length`属性，但是无法使用数组的方法。 
-- 典型的类数组对象是函数的`arguments`对象，以及大多数`DOM`元素集，还有字符串
+- 典型的类数组对象是函数的`arguments`对象，以及大多数`dom`元素集，还有字符串
 
 ```js
 // arguments对象
@@ -81,7 +81,7 @@ arrayLike.length // 2
 arrayLike instanceof Array // false
 Array.isArray(arrayLike)  // false
 
-// DOM元素集
+// dom元素集
 var elts = document.getElementsByTagName('p');
 elts.length  // 3
 eles instanceof Array  // false

@@ -1,5 +1,6 @@
 ---
 title: '错误码：events.js:183 throw er; // Unhandled ''error'' event—解决办法'
+categories: front-end
 tags:
   - npm
 issues: 109

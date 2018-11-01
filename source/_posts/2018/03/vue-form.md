@@ -1,7 +1,7 @@
 ---
 title: vue 表单控件与绑定（七）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: 79c90ec
 date: 2018-08-27 10:10:32
 ---

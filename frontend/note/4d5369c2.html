@@ -46,7 +46,7 @@
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/http-8.png">
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/http-9.png">
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/http-10.png">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.190Z">
+<meta property="og:updated_time" content="2018-11-01T09:40:04.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议系列（一）">
 <meta name="twitter:description" content="一 、基础概念1.1 Web 基础 HTTP（HyperText Transfer Protocol，超文本传输协议）。 WWW（World Wide Web）的三种技术：HTML、HTTP、URL。 RFC（Request for Comments，征求修正意见书），互联网的设计文档。  1.2 URL URI（Uniform Resource Indentifier`，统一资源标识符） URL">
@@ -171,7 +171,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
             
         </h5>
@@ -203,7 +203,7 @@
             <time class="post-time" title="2018-02-26 23:20:43" datetime="2018-02-26T15:20:43.000Z"  itemprop="datePublished">2018-02-26</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
 
 
@@ -876,13 +876,13 @@
 <h3 id="7-2-3-防范手段"><a href="#7-2-3-防范手段" class="headerlink" title="7.2.3 防范手段"></a>7.2.3 防范手段</h3><p><strong>过滤特殊字符</strong></p>
 <p>许多语言都提供了对 HTML 的过滤：</p>
 <ul>
-<li>PHP 的 <code>htmlentities()</code> 或是 <code>htmlspecialchars()</code>。</li>
+<li>php 的 <code>htmlentities()</code> 或是 <code>htmlspecialchars()</code>。</li>
 <li>Python 的 <code>cgi.escape()</code>。</li>
 <li>Java 的 <code>xssprotect</code> (Open Source Library)。</li>
-<li>Node.js 的 <code>node-validator</code>。</li>
+<li>node.js 的 <code>node-validator</code>。</li>
 </ul>
 <p><strong>指定 HTTP 的 Content-Type</strong></p>
-<p>通过这种方式，可以避免内容被当成 HTML 解析，比如 PHP 语言可以使用以下代码：</p>
+<p>通过这种方式，可以避免内容被当成 HTML 解析，比如 php 语言可以使用以下代码：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   header(<span class="string">'Content-Type: text/javascript; charset=utf-8'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="7-3-跨站点请求伪造"><a href="#7-3-跨站点请求伪造" class="headerlink" title="7.3 跨站点请求伪造"></a>7.3 跨站点请求伪造</h2><h3 id="7-3-1-概念"><a href="#7-3-1-概念" class="headerlink" title="7.3.1 概念"></a>7.3.1 概念</h3><blockquote>
 <p>跨站点请求伪造（Cross-site request forgery，CSRF），是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过的网站并执行一些操作（如发邮件，发消息，甚至财产操作如转账和购买商品）。由于浏览器曾经认证过，所以被访问的网站会认为是真正的用户操作而去执行。这利用了 Web 中用户身份验证的一个漏洞：简单的身份验证只能保证请求发自某个用户的浏览器，却不能保证请求本身是用户自愿发出的。</p>
@@ -928,7 +928,7 @@
 <h3 id="7-4-4-防范手段"><a href="#7-4-4-防范手段" class="headerlink" title="7.4.4 防范手段"></a>7.4.4 防范手段</h3><ul>
 <li>在设计应用程序时，完全使用参数化查询（Parameterized Query）来设计数据访问功能。</li>
 <li>在组合 SQL 字符串时，先针对所传入的参数作字符取代（将单引号字符取代为连续 2 个单引号字符）。</li>
-<li>如果使用 PHP 开发网页程序的话，亦可打开 PHP 的魔术引号（Magic quote）功能（自动将所有的网页传入参数，将单引号字符取代为连续 2 个单引号字符）。</li>
+<li>如果使用 php 开发网页程序的话，亦可打开 php 的魔术引号（Magic quote）功能（自动将所有的网页传入参数，将单引号字符取代为连续 2 个单引号字符）。</li>
 <li>其他，使用其他更安全的方式连接 SQL 数据库。例如已修正过 SQL 注入问题的数据库连接组件，例如 ASP.NET 的 SqlDataSource 对象或是 LINQ to SQL。</li>
 <li>使用 SQL 防注入系统。</li>
 </ul>
@@ -976,7 +976,7 @@
 <li>为了阐述 <code>POST</code> 和 <code>GET</code> 的另一个区别，需要先了解 <code>XMLHttpRequest</code>：</li>
 </ul>
 <blockquote>
-<p>XMLHttpRequest 是一个 API，它为客户端提供了在客户端和服务器之间传输数据的功能。它提供了一个通过 URL 来获取数据的简单方式，并且不会使整个页面刷新。这使得网页只更新一部分页面而不会打扰到用户。XMLHttpRequest 在 AJAX 中被大量使用。</p>
+<p>XMLHttpRequest 是一个 api，它为客户端提供了在客户端和服务器之间传输数据的功能。它提供了一个通过 URL 来获取数据的简单方式，并且不会使整个页面刷新。这使得网页只更新一部分页面而不会打扰到用户。XMLHttpRequest 在 AJAX 中被大量使用。</p>
 </blockquote>
 <ul>
 <li>在使用 <code>XMLHttpRequest</code> 的 <code>POST</code> 方法时，浏览器会先发送 <code>Header</code> 再发送 <code>Data</code>。但并不是所有浏览器会这么做，例如火狐就不会。</li>
@@ -1173,7 +1173,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

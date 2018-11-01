@@ -1,7 +1,7 @@
 ---
 title: Emmet：HTML/CSS代码快速编写神器
 tags: Emmet
-categories: Front-End
+categories: front-end
 abbrlink: fb68b5e4
 date: 2016-03-14 14:33:00
 ---
@@ -25,8 +25,8 @@ date: 2016-03-14 14:33:00
 
 ![此处输入图片的描述][2]
 
-- `html:5` 或!：用于`HTML5`文档类型
-- `html:xt`：用于XHTML过渡文档类型
+- `html:5` 或!：用于`html5`文档类型
+- `html:xt`：用于xhtml过渡文档类型
 - `html:4s`：用于HTML4严格文档类型
 
 
@@ -252,7 +252,7 @@ font-family:;
   - [Coda 1.6 and 2.x][22]
   - [Espresso][23]
   - [Chocolat （通过“Install Mixin”对话框添加)][24]
-  - [Komodo Edit/IDE][25] （通过Tools → Add-ons菜单添加)
+  - [Komodo Edit/IDE][25] （通过tools → Add-ons菜单添加)
   - [Notepad++][26]
   - [PSPad][27]
   - [textarea][28]
@@ -264,7 +264,7 @@ font-family:;
 ---
 
 - [emmet插件下载中心][31]
-- [GitHub主页][32]
+- [gitHub主页][32]
 - [emmet快捷键表][33]
 - [emmet文档][34]
 

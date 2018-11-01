@@ -1,9 +1,9 @@
 ---
 title: react知识点回顾
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: eb2df852
 date: 2017-11-07 19:55:24
 ---
@@ -299,7 +299,7 @@ const SimpleButton = props => <button>{props.text}</button>
 
 
 - `React`当中的组件是通过嵌套或组合的方式实现组件代码复用的
-- 通过`props`传值和组合使用组件几乎可以满足所有场景下的需求。这样也更符合组件化的理念，就好像使用互相嵌套的`DOM`元素一样使用`React`的组件，并不需要引入继承的概念
+- 通过`props`传值和组合使用组件几乎可以满足所有场景下的需求。这样也更符合组件化的理念，就好像使用互相嵌套的`dom`元素一样使用`React`的组件，并不需要引入继承的概念
 
 
 
@@ -388,7 +388,7 @@ Title.propTypes = {
 - 向下传递数据
 
 > - 在`React`中`state`也是我们进行数据交互的地方，又或者叫做`state management`状态管理。
-> - 一个应用需要进行数据交互，比如同服务器之间的交互，同用户输入进行交互。话反过来，从`API`获取数据，处理用户输入也就是我们需要用到`state`的时候
+> - 一个应用需要进行数据交互，比如同服务器之间的交互，同用户输入进行交互。话反过来，从`api`获取数据，处理用户输入也就是我们需要用到`state`的时候
 
 - 在新版本的`React`当中，我们通过类定义组件来声明一个有状态组件，之后在它的构造方法中初始化组件的`state`，我们可以先赋予它默认值。
 - 之后就可以在组件中通过`this.state`来访问它，既然是`state`那么肯定涉及到数据的改变，因此我们还需额外定义一个负责处理`state`变化的函数，这样的函数中一般都会包含`this.setState`这个方法
@@ -450,11 +450,11 @@ class Counter extends React.Component {
 
 > `React`为了方便我们更好地控制自己的应用，提供了许多预置的生命周期方法。这些固定的生命周期方法分别会在组件的挂载流程、更新流程、卸载流程中触发
 
-- `componentWillMount` 开始插入真实DOM
-- `componentDidMount` 插入真实`DOM`完成
+- `componentWillMount` 开始插入真实dom
+- `componentDidMount` 插入真实`dom`完成
 - `componentWillUpdate` 开始重新渲染
 - `componentDidUpdate` 重新渲染完成
-- `componentWillUnmount `已移出真实 `DOM`
+- `componentWillUnmount `已移出真实 `dom`
 - `componentWillReceiveProps` 已加载组件收到新的参数时调用
 - `shouldComponentUpdate `组件判断是否重新渲染时调用
 
@@ -468,15 +468,15 @@ class Counter extends React.Component {
 
 > 在此方法中可进行
 
-- 与其他 `JavaScript` 框架集成，如初始化 `jQuery` 插件；
+- 与其他 `JavaScript` 框架集成，如初始化 `jquery` 插件；
 - 使用 `setTimeout`/`setInterval` 设置定时器；
 - 通过 `Ajax`/`Fetch` 获取数据；
-- 绑定 `DOM` 事件
+- 绑定 `dom` 事件
 
 
 ### 6.3 总结
 
-- React组件渲染包含三个流程：挂载流程、更新流程、卸载流程
+- react组件渲染包含三个流程：挂载流程、更新流程、卸载流程
 - 各个生命周期函数会在特定的时刻触发并适用于不同的使用场景
 - 通过使用生命周期函数我们可以对应用进行更精准的控制
 - 如果你需要发起网络请求，将其安排在合适的生命周期函数中是值得推荐的做法
@@ -826,7 +826,7 @@ render() {
 <Link to="/repos" activeStyle={{color: 'red'}}>Repos</Link>
 ```
 
-- 在`Router`组件之外，导航到路由页面，可以使用浏览器的`History API`，像下面这样写
+- 在`Router`组件之外，导航到路由页面，可以使用浏览器的`History api`，像下面这样写
 
 ```js
 import { browserHistory } from 'react-router';
@@ -870,7 +870,7 @@ render(
 )
 ```
 
-> 如果设为`browserHistory`，浏览器的路由就不再通过`Hash`完成了，而显示正常的路径`example.com/some/path`，背后调用的是浏览器的`History API`
+> 如果设为`browserHistory`，浏览器的路由就不再通过`Hash`完成了，而显示正常的路径`example.com/some/path`，背后调用的是浏览器的`History api`
 
 ```js
 import { browserHistory } from 'react-router'
@@ -956,7 +956,7 @@ export default React.createClass({
 - `Web` 应用是一个状态机，视图与状态是一一对应的
 - 所有的状态，保存在一个对象里面
 
-### 9.2 基本概念和 API
+### 9.2 基本概念和 api
 
 **Store**
 
@@ -1115,7 +1115,7 @@ const store = createStore(reducer);
 - `Reducer` 函数最重要的特征是，它是一个纯函数。也就是说，只要是同样的输入，必定得到同样的输出
 - 纯函数是函数式编程的概念，必须遵守以下一些约束
   - 不得改写参数
-  - 不能调用系统 `I/O` 的`API`
+  - 不能调用系统 `I/O` 的`api`
   - 不能调用`Date.now()`或者`Math.random()`等不纯的方法，因为每次会得到不一样的结果
   
 > 由于 `Reducer` 是纯函数，就可以保证同样的`State`，必定得到同样的 `View`。但也正因为这一点，`Reducer` 函数里面不能改变 `State`，必须返回一个全新的对象，请参考下面的写法
@@ -1299,7 +1299,7 @@ const reducer = (state = 0, action) => {
 const store = createStore(reducer);
 
 const render = () => {
-  ReactDOM.render(
+  Reactdom.render(
     <Counter
       value={store.getState()}
       onIncrement={() => store.dispatch({type: 'INCREMENT'})}
@@ -1441,7 +1441,7 @@ class AsyncApp extends Component {
 ```js
 const fetchPosts = postTitle => (dispatch, getState) => {
   dispatch(requestPosts(postTitle));
-  return fetch(`/some/API/${postTitle}.json`)
+  return fetch(`/some/api/${postTitle}.json`)
     .then(response => response.json())
     .then(json => dispatch(receivePosts(postTitle, json)));
   };
@@ -1474,7 +1474,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
 
-// Note: this API requires redux@>=3.1.0
+// Note: this api requires redux@>=3.1.0
 const store = createStore(
   reducer,
   applyMiddleware(thunk)
@@ -1513,7 +1513,7 @@ const store = createStore(
 const fetchPosts = 
   (dispatch, postTitle) => new Promise(function (resolve, reject) {
      dispatch(requestPosts(postTitle));
-     return fetch(`/some/API/${postTitle}.json`)
+     return fetch(`/some/api/${postTitle}.json`)
        .then(response => {
          type: 'FETCH_POSTS',
          payload: response.json()
@@ -1534,7 +1534,7 @@ class AsyncApp extends Component {
     // 发出异步 Action
     dispatch(createAction(
       'FETCH_POSTS', 
-      fetch(`/some/API/${postTitle}.json`)
+      fetch(`/some/api/${postTitle}.json`)
         .then(response => response.json())
     ));
   }
@@ -1547,7 +1547,7 @@ class AsyncApp extends Component {
 ## 十一、react-redux
 
 > - 为了方便使用，`Redux` 的作者封装了一个 `React `专用的库 `React-Redux`
-> - 这个库是可以选用的。实际项目中，你应该权衡一下，是直接使用 `Redux`，还是使用 `React-Redux`。后者虽然提供了便利，但是需要掌握额外的 `API`，并且要遵守它的组件拆分规范
+> - 这个库是可以选用的。实际项目中，你应该权衡一下，是直接使用 `Redux`，还是使用 `React-Redux`。后者虽然提供了便利，但是需要掌握额外的 `api`，并且要遵守它的组件拆分规范
 
 ### 11.1 UI 组件
 
@@ -1558,7 +1558,7 @@ class AsyncApp extends Component {
 - 只负责 `UI` 的呈现，不带有任何业务逻辑
 - 没有状态（即不使用`this.state`这个变量）
 - 所有数据都由参数（`this.props`）提供
-- 不使用任何 `Redux` 的 `API`
+- 不使用任何 `Redux` 的 `api`
 
 ```js
 // 例子
@@ -1572,7 +1572,7 @@ const Title =
 
 - 负责管理数据和业务逻辑，不负责 `UI` 的呈现
 - 带有内部状态
-- 使用 `Redux` 的 `API`
+- 使用 `Redux` 的 `api`
 
 **`UI` 组件负责 `UI` 的呈现，容器组件负责管理数据和逻辑**
 
@@ -1597,7 +1597,7 @@ const VisibleTodoList = connect()(TodoList);
 - （1）输入逻辑：外部的数据（即`state`对象）如何转换为 `UI` 组件的参数
 - （2）输出逻辑：用户发出的动作如何变为 `Action` 对象，从 `UI` 组件传出去
 
-> 因此，`connect`方法的完整 `API` 如下
+> 因此，`connect`方法的完整 `api` 如下
 
 ```js
 import { connect } from 'react-redux'
@@ -1798,7 +1798,7 @@ function counter(state = { count: 0 }, action) {
 ```js
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
+import Reactdom from 'react-dom'
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 
@@ -1857,7 +1857,7 @@ const App = connect(
   mapDispatchToProps
 )(Counter)
 
-ReactDOM.render(
+Reactdom.render(
   <Provider store={store}>
     <App />
   </Provider>,

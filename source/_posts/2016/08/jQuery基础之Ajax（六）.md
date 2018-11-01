@@ -1,7 +1,7 @@
 ---
-title: jQuery基础之Ajax（六）
-tags: jQuery
-categories: Front-End
+title: jquery基础之Ajax（六）
+tags: jquery
+categories: front-end
 abbrlink: b5fbc47
 date: 2016-08-07 22:30:08
 ---

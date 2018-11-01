@@ -27,9 +27,9 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Javascript,微信开发">
+    <meta name="keywords" content="javascript,微信开发">
     <meta name="description" content="一、deepLink跳转1.1 快应用中呼起deepLink第一步：检测是安装了app  前提条件：需要知道app的包名  123456789101112131415// 判断用户是否安装了appexport const checkInstalledApp = (pkg_name) =&amp;gt; &amp;#123;  const pkg = require(&apos;@system.package&apos;)  retu">
-<meta name="keywords" content="Javascript,微信开发">
+<meta name="keywords" content="javascript,微信开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="韦博嗨英语微信端（H5开发）小结">
 <meta property="og:url" content="https://ru23.com/note/7bec924e.html">
@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-34867938a0263a19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-497efe18e83ceac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.442Z">
+<meta property="og:updated_time" content="2018-11-01T08:59:29.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="韦博嗨英语微信端（H5开发）小结">
 <meta name="twitter:description" content="一、deepLink跳转1.1 快应用中呼起deepLink第一步：检测是安装了app  前提条件：需要知道app的包名  123456789101112131415// 判断用户是否安装了appexport const checkInstalledApp = (pkg_name) =&amp;gt; &amp;#123;  const pkg = require(&apos;@system.package&apos;)  retu">
@@ -163,7 +163,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -195,7 +195,7 @@
             <time class="post-time" title="2018-10-19 16:50:43" datetime="2018-10-19T08:50:43.000Z"  itemprop="datePublished">2018-10-19</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -233,7 +233,7 @@
 <ul>
 <li>主要用到了这个库 <a href="https://github.com/hgoebl/mobile-detect.js" target="_blank" rel="noopener">https://github.com/hgoebl/mobile-detect.js</a></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 检测手机型号</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> checkPhone = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> MobileDetect = <span class="built_in">require</span>(<span class="string">'mobile-detect'</span>)</span><br><span class="line">  <span class="keyword">let</span> device_type = navigator.userAgent;<span class="comment">//获取userAgent信息</span></span><br><span class="line">  <span class="keyword">let</span> md = <span class="keyword">new</span> MobileDetect(device_type);<span class="comment">//初始化mobile-detect</span></span><br><span class="line">  <span class="keyword">let</span> os = md.os();<span class="comment">//获取系统</span></span><br><span class="line">  <span class="keyword">let</span> model = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//判断数组中是否包含某字符串</span></span><br><span class="line">  <span class="built_in">Array</span>.prototype.contains = <span class="function"><span class="keyword">function</span>(<span class="params">needle</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">this</span>[i].indexOf(needle) &gt; <span class="number">0</span>)</span><br><span class="line">              <span class="keyword">return</span> i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (os == <span class="string">"iOS"</span>) &#123;<span class="comment">//ios系统的处理</span></span><br><span class="line">      os = md.os() + md.version(<span class="string">"iPhone"</span>);</span><br><span class="line">      model = md.mobile();</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (os == <span class="string">"AndroidOS"</span>) &#123;<span class="comment">//Android系统的处理</span></span><br><span class="line">      os = md.os() + md.version(<span class="string">"Android"</span>);</span><br><span class="line">      <span class="keyword">var</span> sss = device_type.split(<span class="string">";"</span>);</span><br><span class="line">      <span class="keyword">var</span> i = sss.contains(<span class="string">"Build/"</span>);</span><br><span class="line">      <span class="keyword">if</span> (i &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">          model = sss[i].substring(<span class="number">0</span>, sss[i].indexOf(<span class="string">"Build/"</span>));</span><br><span class="line">      &#125;</span><br><span class="line">  	<span class="keyword">let</span> phoneModel = model.toLocaleLowerCase()</span><br><span class="line">      <span class="comment">//判断是否是oppo</span></span><br><span class="line">      <span class="keyword">if</span>(phoneModel.indexOf(<span class="string">'oppo'</span>)!==<span class="number">-1</span>)&#123;</span><br><span class="line">      	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 检测手机型号</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> checkPhone = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> MobileDetect = <span class="built_in">require</span>(<span class="string">'mobile-detect'</span>)</span><br><span class="line">  <span class="keyword">let</span> device_type = navigator.userAgent;<span class="comment">//获取userAgent信息</span></span><br><span class="line">  <span class="keyword">let</span> md = <span class="keyword">new</span> MobileDetect(device_type);<span class="comment">//初始化mobile-detect</span></span><br><span class="line">  <span class="keyword">let</span> os = md.os();<span class="comment">//获取系统</span></span><br><span class="line">  <span class="keyword">let</span> model = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//判断数组中是否包含某字符串</span></span><br><span class="line">  <span class="built_in">Array</span>.prototype.contains = <span class="function"><span class="keyword">function</span>(<span class="params">needle</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">this</span>[i].indexOf(needle) &gt; <span class="number">0</span>)</span><br><span class="line">              <span class="keyword">return</span> i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (os == <span class="string">"iOS"</span>) &#123;<span class="comment">//ios系统的处理</span></span><br><span class="line">      os = md.os() + md.version(<span class="string">"iPhone"</span>);</span><br><span class="line">      model = md.mobile();</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (os == <span class="string">"AndroidOS"</span>) &#123;<span class="comment">//Android系统的处理</span></span><br><span class="line">      os = md.os() + md.version(<span class="string">"Android"</span>);</span><br><span class="line">      <span class="keyword">var</span> sss = device_type.split(<span class="string">";"</span>);</span><br><span class="line">      <span class="keyword">var</span> i = sss.contains(<span class="string">"前端自动化/"</span>);</span><br><span class="line">      <span class="keyword">if</span> (i &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">          model = sss[i].substring(<span class="number">0</span>, sss[i].indexOf(<span class="string">"前端自动化/"</span>));</span><br><span class="line">      &#125;</span><br><span class="line">  	<span class="keyword">let</span> phoneModel = model.toLocaleLowerCase()</span><br><span class="line">      <span class="comment">//判断是否是oppo</span></span><br><span class="line">      <span class="keyword">if</span>(phoneModel.indexOf(<span class="string">'oppo'</span>)!==<span class="number">-1</span>)&#123;</span><br><span class="line">      	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>第二步：调起快应用</strong></p>
 <blockquote>
 <p>以呼起<code>OPPO</code>手机下已经上架的快应用为例</p>
@@ -360,7 +360,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li></ul>
 
 
             
@@ -420,7 +420,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/note/d841583b.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">jQuery的deferred对象详解</h4>
+        <h4 class="title">jquery的deferred对象详解</h4>
       </a>
     </div>
   
@@ -494,7 +494,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

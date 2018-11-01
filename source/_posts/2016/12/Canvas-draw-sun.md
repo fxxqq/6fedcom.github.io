@@ -1,9 +1,9 @@
 ---
-title: Canvas 绘制八大行星
+title: canvas 绘制八大行星
 tags:
-  - HTML5
-  - Canvas
-categories: Front-End
+  - html5
+  - canvas
+categories: front-end
 abbrlink: 17ec6504
 date: 2016-12-02 23:50:24
 ---

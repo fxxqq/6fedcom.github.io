@@ -1,7 +1,7 @@
 ---
 title: Vimium键盘流操作
-tags: Tools
-categories: 工欲善其事必先利其器
+tags: tools
+categories: 前端工具
 abbrlink: f1030007
 date: 2016-03-15 21:16:55
 ---

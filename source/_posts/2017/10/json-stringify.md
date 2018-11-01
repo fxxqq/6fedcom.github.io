@@ -1,7 +1,7 @@
 ---
 title: 浅析JSON.stringify
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 320f1b94
 date: 2017-10-21 14:40:43
 ---

@@ -2,8 +2,8 @@
 title: DIV+CSS系统学习笔记回顾
 tags:
   - CSS
-  - XHTML
-categories: Front-End
+  - xhtml
+categories: front-end
 abbrlink: 96b1bc20
 date: 2016-09-06 18:24:08
 ---
@@ -489,7 +489,7 @@ onmouseover=this.stop()  onmouseover=this.start()  scrollamout="1"(滚动速度)
 **HTML部分导图总结**
 
 ---
-- [HTML5标签集合](http://www.html5star.com/manual/html5label-meaning/)
+- [html5标签集合](http://www.html5star.com/manual/html5label-meaning/)
 
 ![](http://upload-images.jianshu.io/upload_images/1480597-1950ccf50810a92b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -592,7 +592,7 @@ onmouseover=this.stop()  onmouseover=this.start()  scrollamout="1"(滚动速度)
     
     - 兼容性的区别，因`@import``CSS2.1`才特有的，所以对于不兼容`CSS2.1`的浏览器来说，无效。
     
-    - 在样式控制上(比如动态改变网页的布局时,使用`javascript`操作`DOM`)的区别，此时`@import`就无能为力了。
+    - 在样式控制上(比如动态改变网页的布局时,使用`javascript`操作`dom`)的区别，此时`@import`就无能为力了。
 
 ---
 
@@ -1140,7 +1140,7 @@ document.write("您的页面目前支持："+sbox+"盒子模型");
 
 - `<embed>`属性
 
-    - 是`HTML5`中新增的标签,媒体嵌入插件标签，可以通过`<embed>`插入音频或视频
+    - 是`html5`中新增的标签,媒体嵌入插件标签，可以通过`<embed>`插入音频或视频
     
     - `<embed src=“media/music.mp3” />`
     
@@ -1730,8 +1730,8 @@ overflow:hidden;
 - [Emmet常用快捷键](http://blog.poetries.top/2016/09/09/Emmet%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/#more)
 - [Sublime专题](https://github.com/poetries/mywiki/blob/master/bookmark/sublime-text.md)
 - [Sublime常用插件总结](https://github.com/poetries/mywiki/blob/master/bookmark/Sublime%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E6%80%BB%E7%BB%93.md)
-- [Front-End -Develop -Tools](https://github.com/poetries/mywiki/blob/master/bookmark/Front-End%20-Develop%20-Tools.md)
-- [ToolsBox-自己整理的一份工具列表](https://github.com/poetries/mywiki/blob/master/bookmark/Tools.md)
+- [Front-End -Develop -tools](https://github.com/poetries/mywiki/blob/master/bookmark/Front-End%20-Develop%20-tools.md)
+- [toolsBox-自己整理的一份工具列表](https://github.com/poetries/mywiki/blob/master/bookmark/tools.md)
 
 #### 附录五 编码规范
 ---
@@ -1745,13 +1745,13 @@ overflow:hidden;
 #### 附录六 进阶学习
 ---
 
-- [DOM编程之API学习](http://www.jianshu.com/p/1e638b7da640)
+- [dom编程之api学习](http://www.jianshu.com/p/1e638b7da640)
 - [JavaScript基础学习](http://www.jianshu.com/p/1f2314552e23)
 
 #### 附录七 其他资源
 ---
 
-- [Github上前端学习资源汇总](https://github.com/poetries/mywiki)
+- [github上前端学习资源汇总](https://github.com/poetries/mywiki)
 - [WEB 前端开发学习笔记](https://github.com/poetries/mywiki/tree/master/front-end)
 - [前端开发工具箱](https://github.com/poetries/mywiki/wiki/%E6%94%B6%E9%9B%86%E5%A5%BD%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7)
 - [148个资源让你成为CSS专家](https://segmentfault.com/a/1190000006689923)
