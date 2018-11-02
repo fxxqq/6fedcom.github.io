@@ -27,16 +27,16 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Vue">
+    <meta name="keywords" content="vue">
     <meta name="description" content="一、方法传参1234567891011121314&amp;lt;div id=&quot;test&quot;&amp;gt;    &amp;lt;button @click=&quot;sayHi(&apos;你好&apos;)&quot;&amp;gt;说你好&amp;lt;/button&amp;gt; &amp;lt;!--这里使用@--&amp;gt;    &amp;lt;button @click=&quot;sayHi(&apos;我被点击了&apos;)&quot;&amp;gt;说我被点击了&amp;lt;/button&amp;gt; &amp;lt;!--这里使用@--">
-<meta name="keywords" content="Vue">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue事件（六）">
 <meta property="og:url" content="https://ru23.com/note/dd238463.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="一、方法传参1234567891011121314&amp;lt;div id=&quot;test&quot;&amp;gt;    &amp;lt;button @click=&quot;sayHi(&apos;你好&apos;)&quot;&amp;gt;说你好&amp;lt;/button&amp;gt; &amp;lt;!--这里使用@--&amp;gt;    &amp;lt;button @click=&quot;sayHi(&apos;我被点击了&apos;)&quot;&amp;gt;说我被点击了&amp;lt;/button&amp;gt; &amp;lt;!--这里使用@--">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.262Z">
+<meta property="og:updated_time" content="2018-11-01T09:37:46.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue事件（六）">
 <meta name="twitter:description" content="一、方法传参1234567891011121314&amp;lt;div id=&quot;test&quot;&amp;gt;    &amp;lt;button @click=&quot;sayHi(&apos;你好&apos;)&quot;&amp;gt;说你好&amp;lt;/button&amp;gt; &amp;lt;!--这里使用@--&amp;gt;    &amp;lt;button @click=&quot;sayHi(&apos;我被点击了&apos;)&quot;&amp;gt;说我被点击了&amp;lt;/button&amp;gt; &amp;lt;!--这里使用@--">
@@ -160,7 +160,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -177,7 +177,7 @@
 <aside class="post-widget">
     <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
         <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、方法传参"><span class="post-toc-text">一、方法传参</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、vue访问原生-DOM-事件"><span class="post-toc-text">二、vue访问原生 DOM 事件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、事件修饰符"><span class="post-toc-text">三、事件修饰符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、键值修饰符"><span class="post-toc-text">四、键值修饰符</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、方法传参"><span class="post-toc-text">一、方法传参</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、vue访问原生-dom-事件"><span class="post-toc-text">二、vue访问原生 dom 事件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、事件修饰符"><span class="post-toc-text">三、事件修饰符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、键值修饰符"><span class="post-toc-text">四、键值修饰符</span></a></li></ol>
     </nav>
 </aside>
 
@@ -192,7 +192,7 @@
             <time class="post-time" title="2018-08-27 00:10:32" datetime="2018-08-26T16:10:32.000Z"  itemprop="datePublished">2018-08-27</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -205,7 +205,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="一、方法传参"><a href="#一、方法传参" class="headerlink" title="一、方法传参"></a>一、方法传参</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"sayHi('你好')"</span>&gt;</span>说你好<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="comment">&lt;!--这里使用@--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"sayHi('我被点击了')"</span>&gt;</span>说我被点击了<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="comment">&lt;!--这里使用@--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        el: <span class="string">'#test'</span>,</span></span><br><span class="line"><span class="javascript">        methods: &#123;      <span class="comment">//这里使用methods</span></span></span><br><span class="line"><span class="javascript">            sayHi: <span class="function"><span class="keyword">function</span> (<span class="params">message</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">                alert(message)</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="二、vue访问原生-DOM-事件"><a href="#二、vue访问原生-DOM-事件" class="headerlink" title="二、vue访问原生 DOM 事件"></a>二、vue访问原生 DOM 事件</h2><blockquote>
+<h2 id="二、vue访问原生-dom-事件"><a href="#二、vue访问原生-dom-事件" class="headerlink" title="二、vue访问原生 dom 事件"></a>二、vue访问原生 dom 事件</h2><blockquote>
 <p>用<code>$event</code>获取</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changeColor('你好',$event)"</span>&gt;</span>点击我<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="comment">&lt;!--这里使用@--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 100px;width: 100px;background-color: red;"</span> @<span class="attr">mouseover</span>=<span class="string">"over('鼠标从我上面滑过',$event)"</span>&gt;</span></span><br><span class="line">    鼠标从我上面滑过试试</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">           </span><br><span class="line">            </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        el: <span class="string">'#test'</span>,</span></span><br><span class="line"><span class="javascript">        methods: &#123;      <span class="comment">//这里使用methods</span></span></span><br><span class="line"><span class="javascript">            changeColor: <span class="function"><span class="keyword">function</span> (<span class="params">message, event</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                alert(message+event);    <span class="comment">//弹出我被点击了,事件是[object MouseEvent]</span></span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="javascript">            over :<span class="function"><span class="keyword">function</span> (<span class="params">message, event</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                alert(message+event);   <span class="comment">//弹出鼠标从我上面滑过,事件是[object MouseEvent]</span></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -283,7 +283,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
 
             
@@ -417,7 +417,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

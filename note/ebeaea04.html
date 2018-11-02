@@ -27,19 +27,19 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Javascript,事件">
-    <meta name="description" content="事件绑定  要想让 JavaScript对用户的操作作出响应，首先要对 DOM 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称">
-<meta name="keywords" content="Javascript,事件">
+    <meta name="keywords" content="javascript,事件">
+    <meta name="description" content="事件绑定  要想让 JavaScript对用户的操作作出响应，首先要对 dom 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称">
+<meta name="keywords" content="javascript,事件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 中的事件绑定、事件监听、事件委托">
 <meta property="og:url" content="https://ru23.com/note/ebeaea04.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="事件绑定  要想让 JavaScript对用户的操作作出响应，首先要对 DOM 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称">
+<meta property="og:description" content="事件绑定  要想让 JavaScript对用户的操作作出响应，首先要对 dom 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.137Z">
+<meta property="og:updated_time" content="2018-11-01T09:40:04.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 中的事件绑定、事件监听、事件委托">
-<meta name="twitter:description" content="事件绑定  要想让 JavaScript对用户的操作作出响应，首先要对 DOM 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称">
+<meta name="twitter:description" content="事件绑定  要想让 JavaScript对用户的操作作出响应，首先要对 dom 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
@@ -160,7 +160,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -177,7 +177,7 @@
 <aside class="post-widget">
     <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
         <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件绑定"><span class="post-toc-text">事件绑定</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在DOM中直接绑定事件"><span class="post-toc-text">在DOM中直接绑定事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在JavaScript代码中绑定事件"><span class="post-toc-text">在JavaScript代码中绑定事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用事件监听绑定事件"><span class="post-toc-text">使用事件监听绑定事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件监听的优点"><span class="post-toc-text">事件监听的优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件委托"><span class="post-toc-text">事件委托</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#事件委托优点"><span class="post-toc-text">事件委托优点</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件绑定"><span class="post-toc-text">事件绑定</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在dom中直接绑定事件"><span class="post-toc-text">在dom中直接绑定事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在JavaScript代码中绑定事件"><span class="post-toc-text">在JavaScript代码中绑定事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用事件监听绑定事件"><span class="post-toc-text">使用事件监听绑定事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件监听的优点"><span class="post-toc-text">事件监听的优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件委托"><span class="post-toc-text">事件委托</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#事件委托优点"><span class="post-toc-text">事件委托优点</span></a></li></ol></li></ol></li></ol>
     </nav>
 </aside>
 
@@ -192,7 +192,7 @@
             <time class="post-time" title="2016-12-13 14:55:24" datetime="2016-12-13T06:55:24.000Z"  itemprop="datePublished">2016-12-13</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -206,19 +206,19 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><hr>
 <ul>
-<li>要想让 <code>JavaScript</code>对用户的操作作出响应，首先要对 <code>DOM</code> 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称</li>
+<li>要想让 <code>JavaScript</code>对用户的操作作出响应，首先要对 <code>dom</code> 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称</li>
 </ul>
 <a id="more"></a>
 <ul>
 <li><p>在<code>JavaScript</code>中，有三种常用的绑定事件的方法</p>
 <ul>
-<li>在<code>DOM</code>元素中直接绑定；</li>
+<li>在<code>dom</code>元素中直接绑定；</li>
 <li>在<code>JavaScript</code>代码中绑定；</li>
 <li>绑定事件监听函数</li>
 </ul>
 </li>
 </ul>
-<h4 id="在DOM中直接绑定事件"><a href="#在DOM中直接绑定事件" class="headerlink" title="在DOM中直接绑定事件"></a>在<code>DOM</code>中直接绑定事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;click me&quot; onclick=&quot;hello()&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">function hello()&#123;</span><br><span class="line">  alert(&quot;hello world!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在dom中直接绑定事件"><a href="#在dom中直接绑定事件" class="headerlink" title="在dom中直接绑定事件"></a>在<code>dom</code>中直接绑定事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;click me&quot; onclick=&quot;hello()&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">function hello()&#123;</span><br><span class="line">  alert(&quot;hello world!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="在JavaScript代码中绑定事件"><a href="#在JavaScript代码中绑定事件" class="headerlink" title="在JavaScript代码中绑定事件"></a>在<code>JavaScript</code>代码中绑定事件</h4><ul>
 <li>在<code>JavaScript</code>代码中（即script标签内）绑定事件可以使<code>JavaScript</code>代码与<code>HTML</code>标签分离，文档结构清晰，便于管理和开发</li>
 </ul>
@@ -233,7 +233,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(event, function, useCapture)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>event</code> : （必需）事件名，支持所有<code>DOM</code>事件。</li>
+<li><code>event</code> : （必需）事件名，支持所有<code>dom</code>事件。</li>
 <li><code>function</code>：（必需）指定要事件触发时执行的函数。</li>
 <li><p><code>useCapture</code>：（可选）指定事件是否在捕获或冒泡阶段执行。<code>true</code>，捕获。<code>false</code>，冒泡。默认<code>false</code></p>
 </li>
@@ -280,17 +280,17 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">  &lt;li id=&quot;item1&quot; &gt;item1&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item2&quot; &gt;item2&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item3&quot; &gt;item3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">var item1 = document.getElementById(&quot;item1&quot;);</span><br><span class="line">var item2 = document.getElementById(&quot;item2&quot;);</span><br><span class="line">var item3 = document.getElementById(&quot;item3&quot;);</span><br><span class="line"></span><br><span class="line">document.addEventListener(&quot;click&quot;,function(event)&#123;</span><br><span class="line">  var target = event.target;</span><br><span class="line">  if(target == item1)&#123;</span><br><span class="line">    alert(&quot;hello item1&quot;);</span><br><span class="line">  &#125;else if(target == item2)&#123;</span><br><span class="line">    alert(&quot;hello item2&quot;);</span><br><span class="line">  &#125;else if(target == item3)&#123;</span><br><span class="line">    alert(&quot;hello item3&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>动态的添加DOM元素，不需要因为元素的改动而修改事件绑定</li>
+<li>动态的添加dom元素，不需要因为元素的改动而修改事件绑定</li>
 <li>传统写法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">  &lt;li id=&quot;item1&quot; &gt;item1&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item2&quot; &gt;item2&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item3&quot; &gt;item3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">var list = document.getElementById(&quot;list&quot;);</span><br><span class="line"></span><br><span class="line">var item = list.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">for(var i=0;i&lt;item.length;i++)&#123;</span><br><span class="line">  (function(i)&#123;</span><br><span class="line">    item[i].onclick = function()&#123;</span><br><span class="line">      alert(item[i].innerHTML);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var node=document.createElement(&quot;li&quot;);</span><br><span class="line">var textnode=document.createTextNode(&quot;item4&quot;);</span><br><span class="line">node.appendChild(textnode);</span><br><span class="line">list.appendChild(node);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">  &lt;li id=&quot;item1&quot; &gt;item1&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item2&quot; &gt;item2&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item3&quot; &gt;item3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">var list = document.getElementById(&quot;list&quot;);</span><br><span class="line"></span><br><span class="line">var item = list.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">for(var i=0;i&lt;item.length;i++)&#123;</span><br><span class="line">  (function(i)&#123;</span><br><span class="line">    item[i].onclick = function()&#123;</span><br><span class="line">      alert(item[i].innerHTML);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var node=document.createElement(&quot;li&quot;);</span><br><span class="line">var textnode=document.createTextnode(&quot;item4&quot;);</span><br><span class="line">node.appendChild(textnode);</span><br><span class="line">list.appendChild(node);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>点击item1到item3都有事件响应，但是点击item4时，没有事件响应。说明传统的事件绑定无法对动态添加的元素而动态的添加事件。</li>
 <li>事件委托</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">  &lt;li id=&quot;item1&quot; &gt;item1&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item2&quot; &gt;item2&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item3&quot; &gt;item3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">var list = document.getElementById(&quot;list&quot;);</span><br><span class="line"></span><br><span class="line">document.addEventListener(&quot;click&quot;,function(event)&#123;</span><br><span class="line">  var target = event.target;</span><br><span class="line">  if(target.nodeName == &quot;LI&quot;)&#123;</span><br><span class="line">    alert(target.innerHTML);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">var node=document.createElement(&quot;li&quot;);</span><br><span class="line">var textnode=document.createTextNode(&quot;item4&quot;);</span><br><span class="line">node.appendChild(textnode);</span><br><span class="line">list.appendChild(node);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">  &lt;li id=&quot;item1&quot; &gt;item1&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item2&quot; &gt;item2&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;item3&quot; &gt;item3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">var list = document.getElementById(&quot;list&quot;);</span><br><span class="line"></span><br><span class="line">document.addEventListener(&quot;click&quot;,function(event)&#123;</span><br><span class="line">  var target = event.target;</span><br><span class="line">  if(target.nodeName == &quot;LI&quot;)&#123;</span><br><span class="line">    alert(target.innerHTML);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">var node=document.createElement(&quot;li&quot;);</span><br><span class="line">var textnode=document.createTextnode(&quot;item4&quot;);</span><br><span class="line">node.appendChild(textnode);</span><br><span class="line">list.appendChild(node);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>当点击item4时，item4有事件响应。说明事件委托可以为新添加的DOM元素动态的添加事件</li>
+<li>当点击item4时，item4有事件响应。说明事件委托可以为新添加的dom元素动态的添加事件</li>
 </ul>
 
         </div>
@@ -330,7 +330,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件/">事件</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件/">事件</a></li></ul>
 
 
             
@@ -352,7 +352,7 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/ebeaea04.html&title=《JS 中的事件绑定、事件监听、事件委托》 — 前端迷 (front-end fan)&source=事件绑定
 
-要想让 JavaScript对用户的操作作出响应，首先要对 DOM 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作..." data-title=" QQ">
+要想让 JavaScript对用户的操作作出响应，首先要对 dom 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -390,9 +390,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/ae4d3c59.html" id="post-prev" class="post-nav-link">
+      <a href="/note/580a1014.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript及jQuery中的各种宽高属性图解</h4>
+        <h4 class="title">JS 中的 call、apply、bind 方法</h4>
       </a>
     </div>
   
@@ -466,7 +466,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -515,7 +515,7 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/ebeaea04.html&title=《JS 中的事件绑定、事件监听、事件委托》 — 前端迷 (front-end fan)&source=事件绑定
 
-要想让 JavaScript对用户的操作作出响应，首先要对 DOM 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作..." data-title=" QQ">
+要想让 JavaScript对用户的操作作出响应，首先要对 dom 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

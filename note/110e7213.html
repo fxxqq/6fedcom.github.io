@@ -27,16 +27,16 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Redux,小程序">
+    <meta name="keywords" content="redux,小程序">
     <meta name="description" content="一、前言 小程序给我们暴露了两个参数require和module，require用来在模块中加载其他模块，module用来将模块中的方法暴露出去  1module.exports = function()&amp;#123;&amp;#125;  所以只要需要让第三方库的代码使用这种形式的export就可以了  二、构建Redux的微信小程序包 打一个Redux包，让它可以兼容微信小城的加载方式  1234567">
-<meta name="keywords" content="Redux,小程序">
+<meta name="keywords" content="redux,小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在小程序中集成redux&#x2F;immutable&#x2F;thunk第三方库">
 <meta property="og:url" content="https://ru23.com/note/110e7213.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="一、前言 小程序给我们暴露了两个参数require和module，require用来在模块中加载其他模块，module用来将模块中的方法暴露出去  1module.exports = function()&amp;#123;&amp;#125;  所以只要需要让第三方库的代码使用这种形式的export就可以了  二、构建Redux的微信小程序包 打一个Redux包，让它可以兼容微信小城的加载方式  1234567">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.420Z">
+<meta property="og:updated_time" content="2018-11-01T08:56:04.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在小程序中集成redux&#x2F;immutable&#x2F;thunk第三方库">
 <meta name="twitter:description" content="一、前言 小程序给我们暴露了两个参数require和module，require用来在模块中加载其他模块，module用来将模块中的方法暴露出去  1module.exports = function()&amp;#123;&amp;#125;  所以只要需要让第三方库的代码使用这种形式的export就可以了  二、构建Redux的微信小程序包 打一个Redux包，让它可以兼容微信小城的加载方式  1234567">
@@ -160,7 +160,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -192,7 +192,7 @@
             <time class="post-time" title="2018-08-11 13:30:43" datetime="2018-08-11T05:30:43.000Z"  itemprop="datePublished">2018-08-11</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -244,7 +244,7 @@
 <blockquote>
 <p>在<code>store</code>下集成<code>devtool</code></p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;createStore, compose&#125; = <span class="built_in">require</span>(<span class="string">'./libs/redux.js'</span>);</span><br><span class="line"><span class="keyword">const</span> devTools = <span class="built_in">require</span>(<span class="string">'./libs/remote-redux-devtools.js'</span>).default;</span><br><span class="line"><span class="keyword">const</span> reducer = <span class="built_in">require</span>(<span class="string">'./reducers/index.js'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">configureStore</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createStore(reducer, compose(devTools(&#123;</span><br><span class="line">    hostname: <span class="string">'localhost'</span>,</span><br><span class="line">    port: <span class="number">5678</span>,</span><br><span class="line">    secure: <span class="literal">false</span></span><br><span class="line">  &#125;)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = configureStore;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;createStore, compose&#125; = <span class="built_in">require</span>(<span class="string">'./libs/redux.js'</span>);</span><br><span class="line"><span class="keyword">const</span> devtools = <span class="built_in">require</span>(<span class="string">'./libs/remote-redux-devtools.js'</span>).default;</span><br><span class="line"><span class="keyword">const</span> reducer = <span class="built_in">require</span>(<span class="string">'./reducers/index.js'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">configureStore</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createStore(reducer, compose(devtools(&#123;</span><br><span class="line">    hostname: <span class="string">'localhost'</span>,</span><br><span class="line">    port: <span class="number">5678</span>,</span><br><span class="line">    secure: <span class="literal">false</span></span><br><span class="line">  &#125;)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = configureStore;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>把<code>devtool</code>使用<code>redux</code>的<code>compose</code>加到<code>store</code>中去。<code>hostname</code>和<code>port</code>是指定为之前启动<code>remotedev-server</code>启动时候指定的参数。保存之后重启一下小程序，如果没有报错的话就OK了</p>
 </blockquote>
@@ -304,7 +304,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
 
 
             
@@ -438,7 +438,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

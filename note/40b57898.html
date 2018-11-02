@@ -27,9 +27,9 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Javascript,数组">
+    <meta name="keywords" content="javascript,数组">
     <meta name="description" content="数组的定义  数组是按序号排列的一组值，每个值的位置都有编号（从0开始）。数组本质上是一种特殊的对象。它的键名是按（0，1，2...）排列的一组数字">
-<meta name="keywords" content="Javascript,数组">
+<meta name="keywords" content="javascript,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript数组详解">
 <meta property="og:url" content="https://ru23.com/note/40b57898.html">
@@ -37,7 +37,7 @@
 <meta property="og:description" content="数组的定义  数组是按序号排列的一组值，每个值的位置都有编号（从0开始）。数组本质上是一种特殊的对象。它的键名是按（0，1，2...）排列的一组数字">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://segmentfault.com/img/bVzkqq">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.135Z">
+<meta property="og:updated_time" content="2018-11-01T09:37:46.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript数组详解">
 <meta name="twitter:description" content="数组的定义  数组是按序号排列的一组值，每个值的位置都有编号（从0开始）。数组本质上是一种特殊的对象。它的键名是按（0，1，2...）排列的一组数字">
@@ -162,7 +162,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -194,7 +194,7 @@
             <time class="post-time" title="2016-12-13 14:55:24" datetime="2016-12-13T06:55:24.000Z"  itemprop="datePublished">2016-12-13</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -237,9 +237,9 @@
 <h4 id="类数组对象"><a href="#类数组对象" class="headerlink" title="类数组对象"></a>类数组对象</h4><hr>
 <ul>
 <li>在<code>js</code>中，有些对象被叫做“类数组对象<code>”（array-like object）</code>，因为这些对象看起来很像数组，可以使用<code>length</code>属性，但是无法使用数组的方法。 </li>
-<li>典型的类数组对象是函数的<code>arguments</code>对象，以及大多数<code>DOM</code>元素集，还有字符串</li>
+<li>典型的类数组对象是函数的<code>arguments</code>对象，以及大多数<code>dom</code>元素集，还有字符串</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arguments对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">args</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> <span class="built_in">arguments</span>; &#125;</span><br><span class="line"><span class="keyword">var</span> arraylike = args(<span class="string">'a'</span>,<span class="string">'b'</span>)</span><br><span class="line">arrayLike[<span class="number">0</span>]  <span class="comment">// 'a'</span></span><br><span class="line">arrayLike.length <span class="comment">// 2</span></span><br><span class="line">arrayLike <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(arrayLike)  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// DOM元素集</span></span><br><span class="line"><span class="keyword">var</span> elts = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>);</span><br><span class="line">elts.length  <span class="comment">// 3</span></span><br><span class="line">eles <span class="keyword">instanceof</span> <span class="built_in">Array</span>  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串</span></span><br><span class="line"><span class="string">'abc'</span>[<span class="number">1</span>]  <span class="comment">// 'b'</span></span><br><span class="line"><span class="string">'abc'</span>.length  <span class="comment">// 3</span></span><br><span class="line"><span class="string">'abc'</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arguments对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">args</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> <span class="built_in">arguments</span>; &#125;</span><br><span class="line"><span class="keyword">var</span> arraylike = args(<span class="string">'a'</span>,<span class="string">'b'</span>)</span><br><span class="line">arrayLike[<span class="number">0</span>]  <span class="comment">// 'a'</span></span><br><span class="line">arrayLike.length <span class="comment">// 2</span></span><br><span class="line">arrayLike <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(arrayLike)  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// dom元素集</span></span><br><span class="line"><span class="keyword">var</span> elts = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>);</span><br><span class="line">elts.length  <span class="comment">// 3</span></span><br><span class="line">eles <span class="keyword">instanceof</span> <span class="built_in">Array</span>  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串</span></span><br><span class="line"><span class="string">'abc'</span>[<span class="number">1</span>]  <span class="comment">// 'b'</span></span><br><span class="line"><span class="string">'abc'</span>.length  <span class="comment">// 3</span></span><br><span class="line"><span class="string">'abc'</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 <h4 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h4><hr>
 <h5 id="for…in-循环"><a href="#for…in-循环" class="headerlink" title="for…in 循环"></a>for…in 循环</h5><hr>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">a.other = <span class="string">'other'</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1, 2, 3, other</span></span><br></pre></td></tr></table></figure>
@@ -320,7 +320,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
 
 
             
@@ -380,18 +380,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/4cc35512.html" id="post-prev" class="post-nav-link">
+      <a href="/note/7e6522d0.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">arguments详解</h4>
+        <h4 class="title">OOP之类与对象</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/note/b61cd12f.html" id="post-next" class="post-nav-link">
+      <a href="/note/4cc35512.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">JS继承的几种方法总结</h4>
+        <h4 class="title">arguments详解</h4>
       </a>
     </div>
   
@@ -456,7 +456,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

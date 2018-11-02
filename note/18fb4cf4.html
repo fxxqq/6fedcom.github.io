@@ -28,19 +28,19 @@
     
     
     <meta name="keywords" content="部署,Travis CI">
-    <meta name="description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
+    <meta name="description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
 <meta name="keywords" content="部署,Travis CI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="持续集成 Travis CI">
 <meta property="og:url" content="https://ru23.com/note/18fb4cf4.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
+<meta property="og:description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017121903.png">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.235Z">
+<meta property="og:updated_time" content="2018-11-01T09:40:04.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="持续集成 Travis CI">
-<meta name="twitter:description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
+<meta name="twitter:description" content="来源于互联网  一、什么是持续集成？ Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。 持续集成的好处在于">
 <meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017121903.png">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
@@ -162,7 +162,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
             
         </h5>
@@ -179,7 +179,7 @@
 <aside class="post-widget">
     <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
         <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、什么是持续集成？"><span class="post-toc-text">一、什么是持续集成？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、-travis-yml"><span class="post-toc-text">二、.travis.yml</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三、运行流程"><span class="post-toc-text">三、运行流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-1-install-阶段"><span class="post-toc-text">3.1 install 阶段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-2、script-字段"><span class="post-toc-text">3.2、script 字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-3-实例：Node-项目"><span class="post-toc-text">3.3 实例：Node 项目</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-4-部署"><span class="post-toc-text">3.4 部署</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-5-钩子方法"><span class="post-toc-text">3.5 钩子方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-6-运行状态"><span class="post-toc-text">3.6 运行状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四、使用技巧"><span class="post-toc-text">四、使用技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1-环境变量"><span class="post-toc-text">4.1 环境变量</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-加密信息"><span class="post-toc-text">4.2 加密信息</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、什么是持续集成？"><span class="post-toc-text">一、什么是持续集成？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、-travis-yml"><span class="post-toc-text">二、.travis.yml</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三、运行流程"><span class="post-toc-text">三、运行流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-1-install-阶段"><span class="post-toc-text">3.1 install 阶段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-2、script-字段"><span class="post-toc-text">3.2、script 字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-3-实例：node-项目"><span class="post-toc-text">3.3 实例：node 项目</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-4-部署"><span class="post-toc-text">3.4 部署</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-5-钩子方法"><span class="post-toc-text">3.5 钩子方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-6-运行状态"><span class="post-toc-text">3.6 运行状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四、使用技巧"><span class="post-toc-text">四、使用技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1-环境变量"><span class="post-toc-text">4.1 环境变量</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-加密信息"><span class="post-toc-text">4.2 加密信息</span></a></li></ol></li></ol>
     </nav>
 </aside>
 
@@ -194,7 +194,7 @@
             <time class="post-time" title="2018-02-23 12:12:08" datetime="2018-02-23T04:12:08.000Z"  itemprop="datePublished">2018-02-23</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
 
 
@@ -210,12 +210,12 @@
 <p>来源于互联网</p>
 </blockquote>
 <h4 id="一、什么是持续集成？"><a href="#一、什么是持续集成？" class="headerlink" title="一、什么是持续集成？"></a>一、什么是持续集成？</h4><ul>
-<li><code>Travis CI</code> 提供的是持续集成服务（<code>Continuous Integration</code>，简称 <code>CI</code>）。它绑定 <code>Github</code> 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。</li>
+<li><code>Travis CI</code> 提供的是持续集成服务（<code>Continuous Integration</code>，简称 <code>CI</code>）。它绑定 <code>github</code> 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。</li>
 <li>持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。</li>
 <li>持续集成的好处在于，每次代码的小幅变更，就能看到运行结果，从而不断累积小的变更，而不是在开发周期结束时，一下子合并一大块代码</li>
 </ul>
 <h4 id="二、-travis-yml"><a href="#二、-travis-yml" class="headerlink" title="二、.travis.yml"></a>二、.travis.yml</h4><blockquote>
-<p>Travis 要求项目的根目录下面，必须有一个<code>.travis.yml</code>文件。这是配置文件，指定了 <code>Travis</code> 的行为。该文件必须保存在 <code>Github</code> 仓库里面，一旦代码仓库有新的 <code>Commit</code>，<code>Travis</code>就会去找这个文件，执行里面的命令</p>
+<p>Travis 要求项目的根目录下面，必须有一个<code>.travis.yml</code>文件。这是配置文件，指定了 <code>Travis</code> 的行为。该文件必须保存在 <code>github</code> 仓库里面，一旦代码仓库有新的 <code>Commit</code>，<code>Travis</code>就会去找这个文件，执行里面的命令</p>
 </blockquote>
 <ul>
 <li>这个文件采用 <code>YAML</code> 格式。下面是一个最简单的 <code>Python</code> 项目的<code>.travis.yml</code>文件</li>
@@ -259,13 +259,13 @@
 <p><strong>注意</strong>，<code>script</code>与<code>install</code>不一样，如果<code>command1</code>失败，<code>command2</code>会继续执行。但是，整个构建阶段的状态是失败。如果<code>command2</code>只有在<code>command1</code>成功后才能执行，就要写成下面这样。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">script: command1 &amp;&amp; command2</span><br></pre></td></tr></table></figure>
-<h5 id="3-3-实例：Node-项目"><a href="#3-3-实例：Node-项目" class="headerlink" title="3.3 实例：Node 项目"></a>3.3 实例：Node 项目</h5><ul>
-<li><code>Node</code> 项目的环境需要写成下面这样</li>
+<h5 id="3-3-实例：node-项目"><a href="#3-3-实例：node-项目" class="headerlink" title="3.3 实例：node 项目"></a>3.3 实例：node 项目</h5><ul>
+<li><code>node</code> 项目的环境需要写成下面这样</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">  - <span class="string">"8"</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>上面代码中，<code>node_js</code>字段用来指定 <code>Node</code> 版本。</li>
-<li><code>Node</code> 项目的<code>install</code>和<code>script</code>阶段都有默认脚本，可以省略<ul>
+<li>上面代码中，<code>node_js</code>字段用来指定 <code>node</code> 版本。</li>
+<li><code>node</code> 项目的<code>install</code>和<code>script</code>阶段都有默认脚本，可以省略<ul>
 <li><code>install</code>默认值：<code>npm install</code></li>
 <li><code>script</code>默认值：<code>npm test</code></li>
 </ul>
@@ -275,7 +275,7 @@
 <li><code>script</code>阶段结束以后，还可以设置<a href="https://docs.travis-ci.com/user/notifications/" target="_blank" rel="noopener">通知步骤（notification）</a>和<a href="https://docs.travis-ci.com/user/deployment/" target="_blank" rel="noopener">部署步骤</a>（deployment），它们不是必须的</li>
 </ul>
 <blockquote>
-<p>部署的脚本可以在<code>script</code>阶段执行，也可以使用 <code>Travis</code> 为几十种常见服务提供的快捷部署功能。比如，要部署到 <code>Github Pages</code>，可以写成下面这样</p>
+<p>部署的脚本可以在<code>script</code>阶段执行，也可以使用 <code>Travis</code> 为几十种常见服务提供的快捷部署功能。比如，要部署到 <code>github Pages</code>，可以写成下面这样</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  provider: pages</span><br><span class="line">  skip_cleanup: <span class="literal">true</span></span><br><span class="line">  github_token: <span class="variable">$GITHUB_TOKEN</span> <span class="comment"># Set in travis-ci.org dashboard</span></span><br><span class="line">  on:</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
 <ul>
@@ -512,7 +512,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

@@ -37,7 +37,7 @@
 <meta property="og:description" content="创建插件：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img1.tuicool.com/ENvyIz.png!web">
-<meta property="og:updated_time" content="2018-10-30T08:30:41.789Z">
+<meta property="og:updated_time" content="2018-11-01T10:34:11.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime Text添加插入带当前时间作者详细说明">
 <meta name="twitter:description" content="创建插件：">
@@ -162,7 +162,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工欲善其事必先利其器/">工欲善其事必先利其器</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端工具/">前端工具</a></li></ul>
 
             
         </h5>
@@ -194,7 +194,7 @@
             <time class="post-time" title="2016-03-03 16:40:12" datetime="2016-03-03T08:40:12.000Z"  itemprop="datePublished">2016-03-03</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工欲善其事必先利其器/">工欲善其事必先利其器</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端工具/">前端工具</a></li></ul>
 
 
 
@@ -207,7 +207,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="创建插件："><a href="#创建插件：" class="headerlink" title="创建插件："></a>创建插件：</h3><a id="more"></a>
-<p>Tools → New Plugin:</p>
+<p>tools → New Plugin:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import datetime</span><br><span class="line">import sublime_plugin</span><br><span class="line">class AddInfoCommand(sublime_plugin.TextCommand):</span><br><span class="line">  def run(self, edit):</span><br><span class="line">    self.view.run_command(&quot;insert_snippet&quot;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;contents&quot;: &quot;/**&quot;&quot;\n&quot;</span><br><span class="line">        &quot; * @Author:	  name&quot;&quot;\n&quot;</span><br><span class="line">        &quot; * @DateTime:	&quot;  &quot;%s&quot;  %datetime.datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;) +&quot;\n&quot;</span><br><span class="line">        &quot; * @Description: Description&quot;&quot;\n&quot;</span><br><span class="line">        &quot; */&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 <p>保存为Sublime Text 2\Packages\User\ addInfo.py</p>
 <h3 id="创建快捷键："><a href="#创建快捷键：" class="headerlink" title="创建快捷键："></a>创建快捷键：</h3><p>Preference → Key Bindings - User:</p>
@@ -391,7 +391,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

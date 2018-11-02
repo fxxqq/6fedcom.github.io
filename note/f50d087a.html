@@ -27,9 +27,9 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="React,Redux">
+    <meta name="keywords" content="react,redux">
     <meta name="description" content="一、前言 在redux里，middleware是发送action和action到达reducer之间的第三方扩展，也就是中间层。也可以这样说，middleware是架在action和store之间的一座桥梁 在redux里，action仅仅是携带了数据的普通js对象   Reducer 拆分可以使组件获取其最小属性(state)，而不需要整个Store。中间件则可以在Action Creator">
-<meta name="keywords" content="React,Redux">
+<meta name="keywords" content="react,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redux之浅析中间件（八）">
 <meta property="og:url" content="https://ru23.com/note/f50d087a.html">
@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ce57255f3fd73efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-195f2150c8aebccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.847Z">
+<meta property="og:updated_time" content="2018-11-01T09:36:40.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redux之浅析中间件（八）">
 <meta name="twitter:description" content="一、前言 在redux里，middleware是发送action和action到达reducer之间的第三方扩展，也就是中间层。也可以这样说，middleware是架在action和store之间的一座桥梁 在redux里，action仅仅是携带了数据的普通js对象   Reducer 拆分可以使组件获取其最小属性(state)，而不需要整个Store。中间件则可以在Action Creator">
@@ -163,7 +163,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -195,7 +195,7 @@
             <time class="post-time" title="2017-11-19 16:30:26" datetime="2017-11-19T08:30:26.000Z"  itemprop="datePublished">2017-11-19</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -212,12 +212,12 @@
 <li>在<code>redux</code>里，<code>action</code>仅仅是携带了数据的普通<code>js</code>对象</li>
 </ul>
 <blockquote>
-<p><code>Reducer</code> 拆分可以使组件获取其最小属性(<code>state</code>)，而不需要整个<code>Store</code>。中间件则可以在<code>Action Creator</code> 返回最终可供 <code>dispatch</code> 调用的 <code>action</code> 之前处理各种事情，如异步<code>API</code>调用、日志记录等，是扩展 <code>Redux</code> 功能的一种推荐方式</p>
+<p><code>Reducer</code> 拆分可以使组件获取其最小属性(<code>state</code>)，而不需要整个<code>Store</code>。中间件则可以在<code>Action Creator</code> 返回最终可供 <code>dispatch</code> 调用的 <code>action</code> 之前处理各种事情，如异步<code>api</code>调用、日志记录等，是扩展 <code>Redux</code> 功能的一种推荐方式</p>
 </blockquote>
 <ul>
 <li><code>Redux</code> 提供了 <code>applyMiddleware(...middlewares)</code> 来将中间件应用到 <code>createStore</code>。<code>applyMiddleware</code> 会返回一个函数，该函数接收原来的 <code>creatStore</code> 作为参数，返回一个应用了 <code>middlewares</code> 的增强后的 <code>creatStore</code></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params">...middlewares</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">createStore</span>) =&gt;</span> (reducer, preloadedState, enhancer) =&gt; &#123;</span><br><span class="line">    <span class="comment">//接收createStore参数</span></span><br><span class="line">    <span class="keyword">var</span> store = createStore(reducer, preloadedState, enhancer)</span><br><span class="line">    <span class="keyword">var</span> dispatch = store.dispatch</span><br><span class="line">    <span class="keyword">var</span> chain = []</span><br><span class="line"></span><br><span class="line">    <span class="comment">//传递给中间件的参数</span></span><br><span class="line">    <span class="keyword">var</span> middlewareAPI = &#123;</span><br><span class="line">      getState: store.getState,</span><br><span class="line">      dispatch: <span class="function">(<span class="params">action</span>) =&gt;</span> dispatch(action)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//注册中间件调用链</span></span><br><span class="line">    chain = middlewares.map(<span class="function"><span class="params">middleware</span> =&gt;</span> middleware(middlewareAPI))</span><br><span class="line">    dispatch = compose(...chain)(store.dispatch)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回经middlewares增强后的createStore</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      ...store,</span><br><span class="line">      dispatch</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params">...middlewares</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">createStore</span>) =&gt;</span> (reducer, preloadedState, enhancer) =&gt; &#123;</span><br><span class="line">    <span class="comment">//接收createStore参数</span></span><br><span class="line">    <span class="keyword">var</span> store = createStore(reducer, preloadedState, enhancer)</span><br><span class="line">    <span class="keyword">var</span> dispatch = store.dispatch</span><br><span class="line">    <span class="keyword">var</span> chain = []</span><br><span class="line"></span><br><span class="line">    <span class="comment">//传递给中间件的参数</span></span><br><span class="line">    <span class="keyword">var</span> middlewareapi = &#123;</span><br><span class="line">      getState: store.getState,</span><br><span class="line">      dispatch: <span class="function">(<span class="params">action</span>) =&gt;</span> dispatch(action)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//注册中间件调用链</span></span><br><span class="line">    chain = middlewares.map(<span class="function"><span class="params">middleware</span> =&gt;</span> middleware(middlewareapi))</span><br><span class="line">    dispatch = compose(...chain)(store.dispatch)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回经middlewares增强后的createStore</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      ...store,</span><br><span class="line">      dispatch</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>未应用中间价之前，创建 <code>store</code> 的方式如下</p>
 </blockquote>
@@ -330,7 +330,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li></ul>
 
 
             
@@ -464,7 +464,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

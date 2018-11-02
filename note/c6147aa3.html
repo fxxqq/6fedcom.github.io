@@ -37,7 +37,7 @@
 <meta property="og:description" content="声明 本教程整理于互联网   webpack是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如CommonJs模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LES">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-476c485bbf2af2f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.590Z">
+<meta property="og:updated_time" content="2018-11-01T09:40:04.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack学习总结(二)">
 <meta name="twitter:description" content="声明 本教程整理于互联网   webpack是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如CommonJs模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LES">
@@ -162,7 +162,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Build/">Build</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
 
             
         </h5>
@@ -194,7 +194,7 @@
             <time class="post-time" title="2017-01-14 17:40:43" datetime="2017-01-14T09:40:43.000Z"  itemprop="datePublished">2017-01-14</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Build/">Build</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
 
 
 
@@ -234,7 +234,7 @@
 </ul>
 <h3 id="1-1-CommonJS"><a href="#1-1-CommonJS" class="headerlink" title="1.1 CommonJS"></a>1.1 CommonJS</h3><hr>
 <ul>
-<li>服务器端的 <code>Node.js</code>遵循 <code>CommonJS</code>规范，该规范的核心思想是允许模块通过<code>require</code>方法来同步加载所要依赖的其他模块，然后通过 <code>exports</code> 或 <code>module.exports</code> 来导出需要暴露的接口</li>
+<li>服务器端的 <code>node.js</code>遵循 <code>CommonJS</code>规范，该规范的核心思想是允许模块通过<code>require</code>方法来同步加载所要依赖的其他模块，然后通过 <code>exports</code> 或 <code>module.exports</code> 来导出需要暴露的接口</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;module&quot;);</span><br><span class="line">require(&quot;../file.js&quot;);</span><br><span class="line">exports.doStuff = function() &#123;&#125;;</span><br><span class="line">module.exports = someValue;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -252,7 +252,7 @@
 </li>
 <li><p>实现</p>
 <ul>
-<li>服务器端的 <code>Node.js</code></li>
+<li>服务器端的 <code>node.js</code></li>
 <li><code>Browserify</code>，浏览器端的 <code>CommonJS</code> 实现，可以使用 <code>NPM</code>的模块，但是编译打包后的文件体积可能很大</li>
 <li><code>modules-webmake</code>，类似<code>Browserify</code>，还不如 <code>Browserify</code> 灵活</li>
 <li><code>wreq</code>，<code>Browserify</code>的前身</li>
@@ -286,13 +286,13 @@
 </ul>
 <h3 id="1-3-CMD"><a href="#1-3-CMD" class="headerlink" title="1.3 CMD"></a>1.3 CMD</h3><hr>
 <ul>
-<li><code>Common Module Definition</code> 规范和 <code>AMD</code>很相似，尽量保持简单，并与 <code>CommonJS</code> 和<code>Node.js</code> 的 <code>Modules</code>规范保持了很大的兼容性</li>
+<li><code>Common Module Definition</code> 规范和 <code>AMD</code>很相似，尽量保持简单，并与 <code>CommonJS</code> 和<code>node.js</code> 的 <code>Modules</code>规范保持了很大的兼容性</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(function(require, exports, module) &#123;</span><br><span class="line">var $ = require(&apos;jquery&apos;);</span><br><span class="line">var Spinning = require(&apos;./spinning&apos;);</span><br><span class="line">exports.doSomething = ...</span><br><span class="line">module.exports = ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>优点：<ul>
 <li>依赖就近，延迟执行</li>
-<li>可以很容易在 <code>Node.js</code> 中运行</li>
+<li>可以很容易在 <code>node.js</code> 中运行</li>
 </ul>
 </li>
 <li>缺点：<ul>
@@ -318,7 +318,7 @@
 </li>
 <li>缺点：<ul>
 <li>原生浏览器端还没有实现该标准</li>
-<li>全新的命令字，新版的 <code>Node.js</code>才支持</li>
+<li>全新的命令字，新版的 <code>node.js</code>才支持</li>
 </ul>
 </li>
 <li>实现：<ul>
@@ -673,7 +673,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ webpack --display-error-details</span><br><span class="line">Hash: a40fbc6d852c51fceadb</span><br><span class="line">Version: webpack 1.12.2</span><br><span class="line">Time: 586ms</span><br><span class="line">Asset Size Chunks Chunk Names</span><br><span class="line">bundle.js 12.1 kB 0 [emitted] main</span><br><span class="line">[0] ./entry.js 153 bytes &#123;0&#125; [built] [1 error]</span><br><span class="line">[5] ./module.js 43 bytes &#123;0&#125; [built]</span><br><span class="line">+ 4 hidden modules</span><br><span class="line">ERROR in ./entry.js</span><br><span class="line">Module not found: Error: Cannot resolve &apos;file&apos; or &apos;directory&apos; ./badpathmodule in /Users/zhaoda/data/projects/webpack-handbook/examples</span><br><span class="line">resolve file</span><br><span class="line">/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule doesn&apos;t exist</span><br><span class="line">/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.webpack.js doesn&apos;t exist</span><br><span class="line">/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.js doesn&apos;t exist</span><br><span class="line">/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.web.js doesn&apos;t exist</span><br><span class="line">/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.json doesn&apos;t exist</span><br><span class="line">resolve directory</span><br><span class="line">/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule doesn&apos;t exist (directory default file)</span><br><span class="line">/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule/package.json doesn&apos;t exist (directory description file)</span><br><span class="line">[/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule]</span><br><span class="line">[/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.webpack.js]</span><br><span class="line">[/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.js]</span><br><span class="line">[/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.web.js]</span><br><span class="line">[/Users/zhaoda/data/projects/webpack-handbook/examples/badpathmodule.json]</span><br><span class="line">@ ./entry.js 3:0-26</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>Webpack</code>的配置提供了 <code>resolve</code> 和<code>resolveLoader</code> 参数来设置模块解析的处理细节， <code>resolve</code>用来配置应用层的模块（要被打包的模块）解析， <code>resolveLoader</code>用来配置<code>loader</code>模块的解析</li>
-<li>当引入通过 <code>npm</code> 安装的 <code>node.js</code> 模块时，可能出现找不到依赖的错误。<code>Node.js</code>模块的依赖解析算法很简单，是通过查看模块的每一层父目录中的 <code>node_modules</code> 文件夹来查询依赖的。当出现 <code>Node.js</code>模块依赖查找失败的时候，可以尝试设置 <code>resolve.fallback</code>和<code>resolveLoader.fallback</code> 来解决问题</li>
+<li>当引入通过 <code>npm</code> 安装的 <code>node.js</code> 模块时，可能出现找不到依赖的错误。<code>node.js</code>模块的依赖解析算法很简单，是通过查看模块的每一层父目录中的 <code>node_modules</code> 文件夹来查询依赖的。当出现 <code>node.js</code>模块依赖查找失败的时候，可以尝试设置 <code>resolve.fallback</code>和<code>resolveLoader.fallback</code> 来解决问题</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">resolve: &#123; fallback: path.join(__dirname, &quot;node_modules&quot;) &#125;,</span><br><span class="line">resolveLoader: &#123; fallback: path.join(__dirname, &quot;node_modules&quot;) &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -828,7 +828,7 @@
     <div class="waves-block waves-effect next">
       <a href="/note/753b84db.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">原生JS与jQuery操作DOM对比</h4>
+        <h4 class="title">原生JS与jquery操作dom对比</h4>
       </a>
     </div>
   
@@ -893,7 +893,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 

@@ -27,16 +27,16 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Vue">
+    <meta name="keywords" content="vue">
     <meta name="description" content="了解vuex核心概念请移步 https://vuex.vuejs.org/zh/  一、初始vuex1.1 vuex是什么  vuex 就是把需要共享的变量全部存储在一个对象里面，然后将这个对象放在顶层组件中供其他组件使用 父子组件通信时，我们通常会采用 props + emit 这种方式。但当通信双方不是父子组件甚至压根不存在相关联系，或者一个状态需要共享给多个组件时，就会非常麻烦，数据也会相">
-<meta name="keywords" content="Vue">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue状态管理之vuex（十六）">
 <meta property="og:url" content="https://ru23.com/note/a8440b25.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="了解vuex核心概念请移步 https://vuex.vuejs.org/zh/  一、初始vuex1.1 vuex是什么  vuex 就是把需要共享的变量全部存储在一个对象里面，然后将这个对象放在顶层组件中供其他组件使用 父子组件通信时，我们通常会采用 props + emit 这种方式。但当通信双方不是父子组件甚至压根不存在相关联系，或者一个状态需要共享给多个组件时，就会非常麻烦，数据也会相">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.383Z">
+<meta property="og:updated_time" content="2018-11-01T09:39:01.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue状态管理之vuex（十六）">
 <meta name="twitter:description" content="了解vuex核心概念请移步 https://vuex.vuejs.org/zh/  一、初始vuex1.1 vuex是什么  vuex 就是把需要共享的变量全部存储在一个对象里面，然后将这个对象放在顶层组件中供其他组件使用 父子组件通信时，我们通常会采用 props + emit 这种方式。但当通信双方不是父子组件甚至压根不存在相关联系，或者一个状态需要共享给多个组件时，就会非常麻烦，数据也会相">
@@ -160,7 +160,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -192,7 +192,7 @@
             <time class="post-time" title="2018-08-29 11:30:32" datetime="2018-08-29T03:30:32.000Z"  itemprop="datePublished">2018-08-29</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
@@ -215,7 +215,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="1-2-vuex中有什么"><a href="#1-2-vuex中有什么" class="headerlink" title="1.2 vuex中有什么"></a>1.2 vuex中有什么</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        name: <span class="string">'weish'</span>,</span><br><span class="line">        age: <span class="number">22</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123;</span><br><span class="line">        personInfo(state) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">`My name is <span class="subst">$&#123;state.name&#125;</span>, I am <span class="subst">$&#123;state.age&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        SET_AGE(state, age) &#123;</span><br><span class="line">            commit(age, age);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions: &#123;</span><br><span class="line">        nameAsyn(&#123;commit&#125;) &#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                commit(<span class="string">'SET_AGE'</span>, <span class="number">18</span>);</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    modules: &#123;</span><br><span class="line">        a: modulesA</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-vuex中有什么"><a href="#1-2-vuex中有什么" class="headerlink" title="1.2 vuex中有什么"></a>1.2 vuex中有什么</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        name: <span class="string">'weish'</span>,</span><br><span class="line">        age: <span class="number">22</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123;</span><br><span class="line">        personInfo(state) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">`My name is <span class="subst">$&#123;state.name&#125;</span>, I am <span class="subst">$&#123;state.age&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        SET_AGE(state, age) &#123;</span><br><span class="line">            commit(age, age);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions: &#123;</span><br><span class="line">        nameAsyn(&#123;commit&#125;) &#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                commit(<span class="string">'SET_AGE'</span>, <span class="number">18</span>);</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    modules: &#123;</span><br><span class="line">        a: modulesA</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>个就是最基本也是完整的<code>vuex</code>代码；<code>vuex</code> 包含有五个基本的对象</p>
 </blockquote>
@@ -381,7 +381,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
 
             
@@ -515,7 +515,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
