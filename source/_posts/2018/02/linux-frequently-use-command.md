@@ -1,7 +1,7 @@
 ---
 title: 日常频繁使用的Linux命令
 tags: Linux
-categories: Back-end
+categories: back-end
 abbrlink: fcca662b
 date: 2018-02-25 09:32:41
 ---
@@ -213,7 +213,7 @@ find [PATH] [option] [action]
 
 **7.1 下载源管理**
 
-- `yum list | grep nginx` 查看是否有`Nginx`源
+- `yum list | grep nginx` 查看是否有`nginx`源
 
 **7.2 防火墙相关**
 

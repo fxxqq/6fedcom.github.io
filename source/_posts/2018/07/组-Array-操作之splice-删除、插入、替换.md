@@ -1,8 +1,8 @@
 ---
 title: 组(Array)操作之splice() --删除、插入、替换
-categories: Front-End
+categories: front-end
 tags:
-  - Javascript
+  - javascript
 abbrlink: c9afb08d
 date: 2018-07-19 17:23:41
 ---

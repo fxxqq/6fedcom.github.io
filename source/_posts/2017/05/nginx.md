@@ -1,14 +1,14 @@
 ---
-title: Nginx基础配置篇
-tags: Nginx
-categories: Back-end
+title: nginx基础配置篇
+tags: nginx
+categories: back-end
 abbrlink: a404b8b6
 date: 2017-05-08 22:35:08
 ---
 
-### Nginx的启动、停止与重启
+### nginx的启动、停止与重启
 
-- 建立软连接`Nginx`到`/usr/bin`目录下 `ln -s /usr/sbin/nginx /usr/bin`
+- 建立软连接`nginx`到`/usr/bin`目录下 `ln -s /usr/sbin/nginx /usr/bin`
 
 #### 启动
 
@@ -58,7 +58,7 @@ date: 2017-05-08 22:35:08
 
 ![](http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185023385-456612180.png)
 
-**重启Nginx服务**
+**重启nginx服务**
 
 - 方法一：进入`nginx`可执行目录`sbin`下，输入命令`./nginx -s reload `即可
 
@@ -68,18 +68,18 @@ date: 2017-05-08 22:35:08
 ![](http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185838167-234856506.png)
 
 
-### Nginx基础配置
+### nginx基础配置
 
-- 在`Nginx`目录下的`vhost或conf.d`目录下新建一个配置文件（如`poetries-80.conf`）
+- 在`nginx`目录下的`vhost或conf.d`目录下新建一个配置文件（如`poetries-80.conf`）
 - 把server的内容配置进去
-- 在`Nginx.conf`中的`http`下`include`配置文件
+- 在`nginx.conf`中的`http`下`include`配置文件
 - 检测配置文件是否出错 `切换到/etc/nginx下 nginx -t`
 - 重新加载配置文件 `nginx -c /usr/local/etc/nginx/nginx.conf`
-- 在重启`Nginx`  `nginx -s reload`
+- 在重启`nginx`  `nginx -s reload`
 
 ```js
-user  root;  //Nginx需要有有一个用户
-worker_processes  2; // Nginx进程数 最大1024
+user  root;  //nginx需要有有一个用户
+worker_processes  2; // nginx进程数 最大1024
 pid        conf/nginx.pid; 
 worker_rlimit_nofile 2048;
 events {
@@ -131,7 +131,7 @@ nginx: [error] invalid PID number “” in “/usr/local/var/run/nginx/nginx.pi
 - 解决办法：`nginx -c /usr/local/etc/nginx/nginx.conf`
 - `nginx -s reload`
 
-**权限问题导致Nginx 403 Forbidden错误的解决方法**
+**权限问题导致nginx 403 Forbidden错误的解决方法**
 
 - 在`nginx.conf`头部加入一行 `user  root;`
 - 重启`nginx`再访问，就可以正常访问了

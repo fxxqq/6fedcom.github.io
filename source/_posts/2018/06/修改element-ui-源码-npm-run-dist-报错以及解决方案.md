@@ -1,9 +1,9 @@
 ---
 title: 修改element ui 源码 npm run dist 报错以及解决方案
-categories: Front-End
+categories: front-end
 tags:
   - npm
-  - elementUI
+  - elementui
   - vue
 abbrlink: 47bf543f
 date: 2018-06-25 16:36:54

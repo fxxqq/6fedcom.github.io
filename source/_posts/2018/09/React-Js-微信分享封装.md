@@ -1,9 +1,9 @@
 ---
 title: React Js 微信分享封装
-categories: Front-End
+categories: front-end
 issues: 110
 tags:
-  - React
+  - react
 description: 本篇文章给大家分享的内容是代码详解React Js 微信分享封装，有着一定的参考价值，有需要的朋友可以参考一下 话不多说，直接上源代码：
 abbrlink: 73d22f41
 date: 2018-09-03 15:17:54
@@ -17,7 +17,7 @@ date: 2018-09-03 15:17:54
 ### 分享功能
 ```jsx
 import Fetch from './FetchIt';
-import API_URL from './url';
+import api_URL from './url';
 import Share from './Share';
 
 let wxUtils = {};
@@ -50,7 +50,7 @@ function share2wx(config, shareInfo) {
 function getConfig(shareInfo) {
     let href = window.location.href.split('#')[0];
     const url = encodeURIComponent(href /*window.location.href*/);
-    Fetch.get(`${API_URL.mobile.signature_path}?url=${url}`).then(data => {
+    Fetch.get(`${api_URL.mobile.signature_path}?url=${url}`).then(data => {
         share2wx(data, shareInfo);
     });
 }
@@ -126,7 +126,7 @@ function onBridgeReady(disable = true) {
 
 wxUtils.disabledToolbar = function (disable = true) {
     document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        // 通过下面这个API隐藏底部导航栏
+        // 通过下面这个api隐藏底部导航栏
         WeixinJSBridge.call(disable ? 'hideToolbar' : 'showToolbar');
     });
 };

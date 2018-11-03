@@ -1,7 +1,7 @@
 ---
 title: webpack4定制前端开发环境
 tags: webpack
-categories: Build
+categories: 前端自动化
 abbrlink: 97542e7b
 date: 2018-09-04 15:10:12
 ---
@@ -445,7 +445,7 @@ module.exports = {
 
 # 三、webpack如何解析代码模块路径
 
-> webpack 中有一个很关键的模块 `enhanced-resolve` 就是处理依赖模块路径的解析的，这个模块可以说是 Node.js 那一套模块路径解析的增强版本，有很多可以自定义的解析配置
+> webpack 中有一个很关键的模块 `enhanced-resolve` 就是处理依赖模块路径的解析的，这个模块可以说是 node.js 那一套模块路径解析的增强版本，有很多可以自定义的解析配置
 
 - 在 webpack 配置中，和模块路径解析相关的配置都在 `resolve `字段下
 
@@ -750,7 +750,7 @@ module.exports = {
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(true), // const PRODUCTION = true
       VERSION: JSON.stringify('5fa3b9'), // const VERSION = '5fa3b9'
-      BROWSER_SUPPORTS_HTML5: true, // const BROWSER_SUPPORTS_HTML5 = 'true'
+      BROWSER_SUPPORTS_html5: true, // const BROWSER_SUPPORTS_html5 = 'true'
       TWO: '1+1', // const TWO = 1 + 1,
       CONSTANTS: {
         APP_VERSION: JSON.stringify('1.1.2') // const CONSTANTS = { APP_VERSION: '1.1.2' }
@@ -765,7 +765,7 @@ module.exports = {
 ```js
 console.log("Running App version " + VERSION);
 
-if(!BROWSER_SUPPORTS_HTML5) require("html5shiv");
+if(!BROWSER_SUPPORTS_html5) require("html5shiv");
 ```
 
 > 上面配置的注释已经简单说明了这些配置的效果，这里再简述一下整个配置规则。
@@ -866,14 +866,14 @@ webpack-dev-server --mode development
 
 > 在 webpack 的配置中，可以通过 `devServer` 字段来配置 `webpack-dev-server`，如端口设置、启动 `gzip` 压缩等，这里简单讲解几个常用的配置
 
-- `public `字段用于指定静态服务的域名，默认是 `http://localhost:8080/` ，当你使用 `Nginx` 来做反向代理时，应该就需要使用该配置来指定 `Nginx` 配置使用的服务域名
+- `public `字段用于指定静态服务的域名，默认是 `http://localhost:8080/` ，当你使用 `nginx` 来做反向代理时，应该就需要使用该配置来指定 `nginx` 配置使用的服务域名
 - `port` 字段用于指定静态服务的端口，如上，默认是 `8080`，通常情况下都不需要改动
 - `publicPath` 字段用于指定构建好的静态文件在浏览器中用什么路径去访问，默认是 `/`，例如，对于一个构建好的文件 `bundle.js`，完整的访问路径是 `http://localhost:8080/bundle.js`，如果你配置了 `publicPath: 'assets/'`，那么上述 `bundle.js` 的完整访问路径就是 `http://localhost:8080/assets/bundle.js`。可以使用整个 `URL` 来作为 `publicPath `的值，如 `publicPath: 'http://localhost:8080/assets/'`。如果你使用了 `HMR`，那么要设置 `publicPath` 就必须使用完整的 `URL`
 
 
 > 建议将 `devServer.publicPath` 和 `output.publicPath` 的值保持一致
 
-- `proxy `用于配置 `webpack-dev-server `将特定 `URL` 的请求代理到另外一台服务器上。当你有单独的后端开发服务器用于请求 API 时，这个配置相当有用。例如
+- `proxy `用于配置 `webpack-dev-server `将特定 `URL` 的请求代理到另外一台服务器上。当你有单独的后端开发服务器用于请求 api 时，这个配置相当有用。例如
 
 ```js
 proxy: {
@@ -927,7 +927,7 @@ module.exports = (env, argv) => ({
 
 - 以上是 `webpack 4.x` 的做法，由于有了 `mode` 参数，区分环境变得简单了。不过在当前业界，估计还是使用 `webpack 3.x` 版本的居多，所以这里也简单介绍一下 `3.x` 如何区分环境
 
-> `webpack` 的运行时环境是` Node.js`，我们可以通过 `Node.js `提供的机制给要运行的 `webpack` 程序传递环境变量，来控制不同环境下的构建行为。例如，我们在 `npm` 中的 `scripts` 字段添加一个用于生产环境的构建命令...
+> `webpack` 的运行时环境是` node.js`，我们可以通过 `node.js `提供的机制给要运行的 `webpack` 程序传递环境变量，来控制不同环境下的构建行为。例如，我们在 `npm` 中的 `scripts` 字段添加一个用于生产环境的构建命令...
 
 ```js
 {
@@ -1038,7 +1038,7 @@ module.exports = {
     // ...
   },
   module: {
-    // 这里是一个简单的例子，后面介绍 API 时会用到
+    // 这里是一个简单的例子，后面介绍 api 时会用到
     rules: [
       {
         test: /\.js$/, 
@@ -1053,7 +1053,7 @@ module.exports = {
 }...
 ```
 
-> 然后 `webpack.development.js` 需要添加 `loader` 或 `plugin`，就可以使用 `webpack-merge `的 `API`，例如
+> 然后 `webpack.development.js` 需要添加 `loader` 或 `plugin`，就可以使用 `webpack-merge `的 `api`，例如
 
 ```js
 const { smart } = require('webpack-merge')
@@ -1063,7 +1063,7 @@ const base = require('./webpack.base.js')
 module.exports = smart(base, {
   module: {
     rules: [
-      // 用 smart API，当这里的匹配规则相同且 use 值都是数组时，smart 会识别后处理
+      // 用 smart api，当这里的匹配规则相同且 use 值都是数组时，smart 会识别后处理
       // 和上述 base 配置合并后，这里会是 { test: /\.js$/, use: ['babel', 'coffee'] }
       // 如果这里 use 的值用的是字符串或者对象的话，那么会替换掉原本的规则 use 的值
       {
@@ -1082,7 +1082,7 @@ module.exports = smart(base, {
 })...
 ```
 
-> 可见 `webpack-merge` 提供的 `smart` 方法，可以帮助我们更加轻松地处理 `loader` 配置的合并。`webpack-merge` 还有其他 `API` 可以用于自定义合并行为 https://github.com/survivejs/webpack-merge
+> 可见 `webpack-merge` 提供的 `smart` 方法，可以帮助我们更加轻松地处理 `loader` 配置的合并。`webpack-merge` 还有其他 `api` 可以用于自定义合并行为 https://github.com/survivejs/webpack-merge
 
 
 ## 7.5 完整代码
@@ -1245,10 +1245,10 @@ module.exports = {
 }...
 ```
 
-## 8.2 module.hot 常见的 API
+## 8.2 module.hot 常见的 api
 
 
-> 前面 `HMR `实现部分已经讲解了实现 HMR 接口的重要性，下面来看看常见的 `module.hot` `API` 有哪些，以及如何使用
+> 前面 `HMR `实现部分已经讲解了实现 HMR 接口的重要性，下面来看看常见的 `module.hot` `api` 有哪些，以及如何使用
 
 - `module.hot.accept` 方法指定在应用特定代码模块更新时执行相应的 `callback`，第一个参数可以是字符串或者数组，如
 
@@ -1480,7 +1480,7 @@ module.exports = {
 <script src="entry.bundle.js" charset="utf-8"></script>
 ```
 
-> 如果你使用了 `html-webpack-plugin`，那么对应需要的 JS 文件都会在 HTML 文件中正确引用，不用担心。如果没有使用，那么你需要从 `stats` 的 `entrypoints` 属性来获取入口应该引用哪些 JS 文件，可以参考 Node API 了解如何从 stats 中获取信息...
+> 如果你使用了 `html-webpack-plugin`，那么对应需要的 JS 文件都会在 HTML 文件中正确引用，不用担心。如果没有使用，那么你需要从 `stats` 的 `entrypoints` 属性来获取入口应该引用哪些 JS 文件，可以参考 node api 了解如何从 stats 中获取信息...
 
 **显式配置共享类库可以这么操作**
 

@@ -1,9 +1,9 @@
 ---
 title: web开发中跨域解决方案
 tags:
-  - Javascript
+  - javascript
   - 跨域
-categories: Front-End
+categories: front-end
 abbrlink: b28c200f
 date: 2017-09-17 11:40:43
 ---
@@ -45,7 +45,7 @@ ifr.onload = function(){
 ifr.style.display = 'none';
 document.body.appendChild(ifr);
 ```
-- 上述代码所在的`URL`是`http://a.com/foo`，它对`http://b.a.com/bar`的`DOM`访问要求后者将 `document.domain`往上设置一级
+- 上述代码所在的`URL`是`http://a.com/foo`，它对`http://b.a.com/bar`的`dom`访问要求后者将 `document.domain`往上设置一级
 
 ```js
 // URL http://b.a.com/bar
@@ -55,19 +55,19 @@ document.domain = 'a.com'
 - `document.domain`只能从子域设置到主域，往下设置以及往其他域名设置都是不允许的， 在`Chrome`中给出的错误是这样的
 
 ```js
-Uncaught DOMException: Failed to set the 'domain' property on 'Document': 'baidu.com' is not a suffix of 'b.a.com'
+Uncaught domException: Failed to set the 'domain' property on 'Document': 'baidu.com' is not a suffix of 'b.a.com'
 ```
 
 ## 二、有src的标签
 ---
 
 - 原理：所有具有`src`属性的`HTML`标签都是可以跨域的，包括`<img>`, `<script>`
-- 限制：需要创建一个`DOM`对象，只能用于`GET`方法
+- 限制：需要创建一个`dom`对象，只能用于`GET`方法
  
 > - 在`document.body`中`append`一个具有`src`属性的`HTML`标签， `src`属性值指向的`URL`会以`GET`方法被访问，该访问是可以跨域的 
 > - 其实样式表的`<link>`标签也是可以跨域的，只要是有`src`或`href`的`HTML`标签都有跨域的能力
 
-- 不同的`HTML`标签发送`HTTP`请求的时机不同，例如`<img>`在更改`src`属性时就会发送请求，而`script`, `iframe`, `link[rel=stylesheet]`只有在添加到`DOM`树之后才会发送`HTTP`请求：
+- 不同的`HTML`标签发送`HTTP`请求的时机不同，例如`<img>`在更改`src`属性时就会发送请求，而`script`, `iframe`, `link[rel=stylesheet]`只有在添加到`dom`树之后才会发送`HTTP`请求：
 
 ```js
 var img = new Image();
@@ -81,7 +81,7 @@ $('body').append(ifr);                  // 发送HTTP请求
 ---
 
 - 原理：`<script>`是可以跨域的，而且在跨域脚本中可以直接回调当前脚本的函数
-- 限制：需要创建一个`DOM`对象并且添加到`DOM`树，只能用于`GET`方法
+- 限制：需要创建一个`dom`对象并且添加到`dom`树，只能用于`GET`方法
 
 > `JSONP`利用的是`<script>`可以跨域的特性，跨域`URL`返回的脚本不仅包含数据，还包含一个回调
 
@@ -105,14 +105,14 @@ var script = $('<script>', {src: 'http://b.a.com/bar'});
 $('body').append(script);
 ```
 
-- 其实`jQuery`已经封装了`JSONP`的使用，我们可以这样来
+- 其实`jquery`已经封装了`JSONP`的使用，我们可以这样来
 
 ```js
 $.getJSON( "http://b.a.com/bar?callback=callback", function( data ){
     // 处理跨域请求得到的数据
 });
 ```
-> `$.getJSON`与`$.get`的区别是前者会把`responseText`转换为`JSON`，而且当`URL`具有`callback`参数时， `jQuery`将会把它解释为一个`JSONP`请求，创建一个`<script>`标签来完成该请求
+> `$.getJSON`与`$.get`的区别是前者会把`responseText`转换为`JSON`，而且当`URL`具有`callback`参数时， `jquery`将会把它解释为一个`JSONP`请求，创建一个`<script>`标签来完成该请求
 
 ## 四、navigation 对象
 ---
@@ -147,9 +147,9 @@ navigation.getData = function(){
 ---
 
 - 原理：服务器设置`Access-Control-Allow-OriginHTTP`响应头之后，浏览器将会允许跨域请求
-- 限制：浏览器需要支持`HTML5`，可以支持`POST`，`PUT`等方法
+- 限制：浏览器需要支持`html5`，可以支持`POST`，`PUT`等方法
 
-> 前面提到的跨域手段都是某种意义上的`Hack`， `HTML5`标准中提出的跨域资源共享（`Cross Origin Resource Share`，`CORS`）才是正道。 它支持其他的`HTTP`方法如`PUT`, `POST`等，可以从本质上解决跨域问题。
+> 前面提到的跨域手段都是某种意义上的`Hack`， `html5`标准中提出的跨域资源共享（`Cross Origin Resource Share`，`CORS`）才是正道。 它支持其他的`HTTP`方法如`PUT`, `POST`等，可以从本质上解决跨域问题。
 
 - 例如，从`http://a.com`要访问`http://b.com`的数据，通常情况下`Chrome`会因跨域请求而报错
 
@@ -166,10 +166,10 @@ Access-Control-Allow-Origin: http://a.com   # 只允许所有域名访问
 ## 六、window.postMessage
 ---
 
-- 原理：`HTML5`允许窗口之间发送消息
-- 限制：浏览器需要支持`HTML5`，获取窗口句柄后才能相互通信
+- 原理：`html5`允许窗口之间发送消息
+- 限制：浏览器需要支持`html5`，获取窗口句柄后才能相互通信
 
-> 这是一个安全的跨域通信方法，`postMessage(message,targetOrigin)`也是`HTML5`引入的特性。 可以给任何一个`window`发送消息，不论是否同源。第二个参数可以是*但如果你设置了一个`URL`但不相符，那么该事件不会被分发。看一个普通的使用方式吧
+> 这是一个安全的跨域通信方法，`postMessage(message,targetOrigin)`也是`html5`引入的特性。 可以给任何一个`window`发送消息，不论是否同源。第二个参数可以是*但如果你设置了一个`URL`但不相符，那么该事件不会被分发。看一个普通的使用方式吧
 
 ```js
 // URL: http://a.com/foo
@@ -186,6 +186,6 @@ window.addEventListener('message',function(event) {
 ## 七、访问控制安全的讨论
 ---
 
-- 在`HTML5`之前，`JSONP`已经成为跨域的事实标准了，`jQuery`都给出了支持。 值得注意的是它只是`Hack`，并没有产生额外的安全问题。 因为`JSONP`要成功获取数据，需要跨域资源所在服务器的配合，比如资源所在服务器需要自愿地回调一个合适的函数，所以服务器仍然有能力控制资源的跨域访问
-- 跨域的正道还是要使用`HTML5`提供的CORS头字段以及`window.postMessage`， 可以支持`POST`, `PUT`等`HTTP`方法，从机制上解决跨域问题。 值得注意的是`Access-Control-Allow-Origin`头字段是资源所在服务器设置的， 访问控制的责任仍然是在提供资源的服务器一方，这和`JSONP`是一样的
+- 在`html5`之前，`JSONP`已经成为跨域的事实标准了，`jquery`都给出了支持。 值得注意的是它只是`Hack`，并没有产生额外的安全问题。 因为`JSONP`要成功获取数据，需要跨域资源所在服务器的配合，比如资源所在服务器需要自愿地回调一个合适的函数，所以服务器仍然有能力控制资源的跨域访问
+- 跨域的正道还是要使用`html5`提供的CORS头字段以及`window.postMessage`， 可以支持`POST`, `PUT`等`HTTP`方法，从机制上解决跨域问题。 值得注意的是`Access-Control-Allow-Origin`头字段是资源所在服务器设置的， 访问控制的责任仍然是在提供资源的服务器一方，这和`JSONP`是一样的
  

@@ -1,6 +1,6 @@
 ---
 title: vue数组中数据变化但是视图没有更新解决方案
-categories: Front-End
+categories: front-end
 tags:
   - vue
 abbrlink: d6f8e949
@@ -31,7 +31,7 @@ example1.items = example1.items.filter(function (item) {
   return item.message.match(/Foo/)
 })
 ```
-你可能认为这将导致 Vue 丢弃现有 DOM 并重新渲染整个列表。幸运的是，事实并非如此。Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的、启发式的方法，所以用一个含有相同元素的数组去替换原来的数组是非常高效的操作。
+你可能认为这将导致 Vue 丢弃现有 dom 并重新渲染整个列表。幸运的是，事实并非如此。Vue 为了使得 dom 元素得到最大范围的重用而实现了一些智能的、启发式的方法，所以用一个含有相同元素的数组去替换原来的数组是非常高效的操作。
 
 **注意事项**
 由于 JavaScript 的限制，Vue 不能检测以下变动的数组：

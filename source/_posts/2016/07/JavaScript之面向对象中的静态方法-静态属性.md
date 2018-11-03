@@ -1,7 +1,7 @@
 ---
 title: JavaScript之面向对象中的静态方法-静态属性
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: ad8e4831
 date: 2016-07-27 11:40:43
 ---

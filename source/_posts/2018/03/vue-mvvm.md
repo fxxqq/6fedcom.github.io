@@ -1,7 +1,7 @@
 ---
 title: 实现数据的双向绑定mvvm-剖析Vue的原理
-tags: MVVM
-categories: Front-End
+tags: mvvm
+categories: front-end
 abbrlink: bfaf4cce
 date: 2018-02-25 17:12:32
 ---
@@ -20,7 +20,7 @@ date: 2018-02-25 17:12:32
 <script src="compile.js"></script>
 <script src="mvvm.js"></script>
 <script>
-var vm = new MVVM({
+var vm = new mvvm({
     el: '#mvvm-app',
     data: {
         word: 'Hello World!'
@@ -53,7 +53,7 @@ var vm = new MVVM({
 
 > `angular.js` 是通过脏值检测的方式比对数据是否有变更，来决定是否更新视图，最简单的方式就是通过 `setInterval()` 定时轮询检测数据变动，当然Google不会这么low，angular只有在指定的事件触发时进入脏值检测，大致如下：
 
-- `DOM`事件，譬如用户输入文本，点击按钮等。( `ng-click` ) 
+- `dom`事件，譬如用户输入文本，点击按钮等。( `ng-click` ) 
 - `XHR`响应事件 ( `$http` ) 
 - 浏览器`Location`变更事件 ( `$location` ) 
 - `Timer`事件( `$timeout` , `$interval` ) 
@@ -191,7 +191,7 @@ Watcher.prototype = {
 
 ```js
 function Compile(el) {
-    this.$el = this.isElementNode(el) ? el : document.querySelector(el);
+    this.$el = this.isElementnode(el) ? el : document.querySelector(el);
     if (this.$el) {
         this.$fragment = this.node2Fragment(this.$el);
         this.init();
@@ -217,18 +217,18 @@ Compile.prototype = {
 Compile.prototype = {
 	// ... 省略
 	compileElement: function(el) {
-        var childNodes = el.childNodes, me = this;
-        [].slice.call(childNodes).forEach(function(node) {
+        var childnodes = el.childnodes, me = this;
+        [].slice.call(childnodes).forEach(function(node) {
             var text = node.textContent;
             var reg = /\{\{(.*)\}\}/;	// 表达式文本
             // 按元素节点方式编译
-            if (me.isElementNode(node)) {
+            if (me.isElementnode(node)) {
                 me.compile(node);
-            } else if (me.isTextNode(node) && reg.test(text)) {
+            } else if (me.isTextnode(node) && reg.test(text)) {
                 me.compileText(node, RegExp.$1);
             }
             // 遍历编译子节点
-            if (node.childNodes && node.childNodes.length) {
+            if (node.childnodes && node.childnodes.length) {
                 me.compileElement(node);
             }
         });
@@ -349,16 +349,16 @@ Dep.prototype = {
 - 实例化`Watcher`的时候，调用`get()`方法，通过`Dep.target = watcherInstance`标记订阅者是当前`watcher`实例，强行触发属性定义的`getter`方法，`getter`方法执行的时候，就会在属性的订阅器`dep`添加当前`watcher`实例，从而在属性值有变化的时候，`watcherInstance`就能收到更新通知。
 - 基本上`vue`中数据绑定相关比较核心的几个模块也是这几个，猛戳[这里](https://github.com/vuejs/vue) , 在`src` 目录可找到`vue`源码。
 
-> 最后来讲讲`MVVM`入口文件的相关逻辑和实现吧，相对就比较简单了
+> 最后来讲讲`mvvm`入口文件的相关逻辑和实现吧，相对就比较简单了
 
-## 三、实现MVVM
+## 三、实现mvvm
 
-> `MVVM`作为数据绑定的入口，整合`Observer`、`Compile`和`Watcher`三者，通过`Observer`来监听自己的`model`数据变化，通过`Compile`来解析编译模板指令，最终利用`Watcher`搭起`Observer`和`Compile`之间的通信桥梁，达到数据变化 -> 视图更新；视图交互变化(`input`) -> 数据`model`变更的双向绑定效果。
+> `mvvm`作为数据绑定的入口，整合`Observer`、`Compile`和`Watcher`三者，通过`Observer`来监听自己的`model`数据变化，通过`Compile`来解析编译模板指令，最终利用`Watcher`搭起`Observer`和`Compile`之间的通信桥梁，达到数据变化 -> 视图更新；视图交互变化(`input`) -> 数据`model`变更的双向绑定效果。
 
-- 一个简单的`MVVM`构造器是这样子：
+- 一个简单的`mvvm`构造器是这样子：
 
 ```js
-function MVVM(options) {
+function mvvm(options) {
     this.$options = options;
     var data = this._data = this.$options.data;
     observe(data, this);
@@ -366,13 +366,13 @@ function MVVM(options) {
 }
 ```
 
-- 但是这里有个问题，从代码中可看出监听的数据对象是`options.data`，每次需要更新视图，则必须通过`var vm = new MVVM({data:{name: 'kindeng'}}); vm._data.name = 'dmq'; `这样的方式来改变数据。
+- 但是这里有个问题，从代码中可看出监听的数据对象是`options.data`，每次需要更新视图，则必须通过`var vm = new mvvm({data:{name: 'kindeng'}}); vm._data.name = 'dmq'; `这样的方式来改变数据。
 - 显然不符合我们一开始的期望，我们所期望的调用方式应该是这样的：
-`var vm = new MVVM({data: {name: 'kindeng'}}); vm.name = 'dmq';`
-- 所以这里需要给`MVVM`实例添加一个属性代理的方法，使访问`vm`的属性代理为访问`vm._data`的属性，改造后的代码如下：
+`var vm = new mvvm({data: {name: 'kindeng'}}); vm.name = 'dmq';`
+- 所以这里需要给`mvvm`实例添加一个属性代理的方法，使访问`vm`的属性代理为访问`vm._data`的属性，改造后的代码如下：
 
 ```js
-function MVVM(options) {
+function mvvm(options) {
     this.$options = options;
     var data = this._data = this.$options.data, me = this;
     // 属性代理，实现 vm.xxx -> vm._data.xxx
@@ -383,7 +383,7 @@ function MVVM(options) {
     this.$compile = new Compile(options.el || document.body, this)
 }
 
-MVVM.prototype = {
+mvvm.prototype = {
 	_proxy: function(key) {
 		var me = this;
         Object.defineProperty(me, key, {

@@ -1,7 +1,7 @@
 ---
 title: Sublime Text资源整理篇
 tags: sublime
-categories: 工欲善其事必先利其器
+categories: 前端工具
 abbrlink: ae4ebfd1
 date: 2016-03-15 09:40:30
 ---

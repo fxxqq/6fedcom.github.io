@@ -1,7 +1,7 @@
 ---
 title: bootstrap笔记总结
 tags: bootstrap
-categories: Front-End
+categories: front-end
 abbrlink: 2e40f178
 date: 2016-11-19 16:55:24
 ---
@@ -264,7 +264,7 @@ date: 2016-11-19 16:55:24
 </div>
 ```
 - 输入框、文本域
-   - 原生的` HTML5 `的` input `类型的支持
+   - 原生的` html5 `的` input `类型的支持
    - 包括：
       - `text`
       - `password`
@@ -492,7 +492,7 @@ date: 2016-11-19 16:55:24
 	 <ul class="dropdown-menu">
 		<li><a href="">Html</a></li>
 		<li><a href="">Javascript</a></li>
-		<li><a href="">jQuery</a></li>
+		<li><a href="">jquery</a></li>
 		<li><a href="">html5+css3</a></li>
 	 </ul>
   </div>
@@ -660,7 +660,7 @@ date: 2016-11-19 16:55:24
 	 <ul class="dropdown-menu">
 		 <li><a href="">html</a></li>
 		 <li><a href="">javascript</a></li>
-		 <li><a href="">jQuery</a></li>
+		 <li><a href="">jquery</a></li>
 	 </ul>
  </div>
 ```
@@ -674,7 +674,7 @@ date: 2016-11-19 16:55:24
 	 <ul class="dropdown-menu">
 		 <li><a href="">html</a></li>
 		 <li><a href="">javascript</a></li>
-		 <li><a href="">jQuery</a></li>
+		 <li><a href="">jquery</a></li>
 	 </ul>
  </div>
 ```
@@ -687,7 +687,7 @@ date: 2016-11-19 16:55:24
 	 <ul class="dropdown-menu">
 		 <li><a href="">html</a></li>
 		 <li><a href="">javascript</a></li>
-		 <li><a href="">jQuery</a></li>
+		 <li><a href="">jquery</a></li>
 	 </ul>
  </div>
 ```
@@ -700,7 +700,7 @@ date: 2016-11-19 16:55:24
 	 <ul class="dropdown-menu">
 		 <li><a href="">html</a></li>
 		 <li><a href="">javascript</a></li>
-		 <li><a href="">jQuery</a></li>
+		 <li><a href="">jquery</a></li>
 	 </ul>
  </div>
 ```
@@ -1495,9 +1495,9 @@ date: 2016-11-19 16:55:24
 ```html
    //基本用法
    <ul class="nav nav-tabs">
-        <li class="active"><a href="#html5" data-toggle="tab">HTML5</a></li>
+        <li class="active"><a href="#html5" data-toggle="tab">html5</a></li>
         <li><a href="#bootstrap" data-toggle="tab">Bootstrap</a></li>
-        <li><a href="#jquery" data-toggle="tab">jQuery</a></li>
+        <li><a href="#jquery" data-toggle="tab">jquery</a></li>
         <li><a href="#extjs" data-toggle="tab">ExtJS</a></li>
    </ul>
    <div class="tab-content" style="padding: 10px;">
@@ -1546,7 +1546,7 @@ date: 2016-11-19 16:55:24
 
 ```html
    //基本实例
-   <a href="#" data-toggle="tooltip" title="超文本标识符">HTML5</a>
+   <a href="#" data-toggle="tooltip" title="超文本标识符">html5</a>
 ```
 
 - `JavaScript` 初始化 ` $('#section').tooltip();`
@@ -1577,7 +1577,7 @@ date: 2016-11-19 16:55:24
 	data-selector="a[rel=tooltip]"
 	data-trigger="click"
 	data-delay="500"
-	data-template="<b>123</b>" >HTML5
+	data-template="<b>123</b>" >html5
 </a>
 ```
 
@@ -1698,8 +1698,8 @@ $('#selector a').tooltip({
    });
 ```
 
-- 滚动监听还有一个更新容器 `DOM` 的方法
-   - `refresh`  更新容器 `DOM` 的方法
+- 滚动监听还有一个更新容器 `dom` 的方法
+   - `refresh`  更新容器 `dom` 的方法
    
 ```js
    function removeSec(e) {
@@ -1827,7 +1827,7 @@ $('#selector a').tooltip({
    <div class="modal fade" id="myModal">
 ```
 
-- 所有的插件，都是基于 `JavaScript`/`jQuery` 的。
+- 所有的插件，都是基于 `JavaScript`/`jquery` 的。
 - 四个要素：用法、参数、方法和事件。
 
 - **用法**
@@ -1846,7 +1846,7 @@ $('#selector a').tooltip({
    - `remote`   `url` 路径 空值   如果值不是以`#`号开头，则表示一个 `url` 地址，加载 `url` 内容到 `modal-content` 容器里，并只加载一 次。
    - 如果是`#`号，就是取代 `data-target` 的方法。
    - 在 `JavaScript` 直接设置
-   - 通过 `jQuery` 方式声明
+   - 通过 `jquery` 方式声明
 
 ```js
    $('#myModal').modal({

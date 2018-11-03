@@ -1,9 +1,9 @@
 ---
 title: 业务中处理数据结构常用的JS方法
 tags:
-  - Javascript
-  - API
-categories: Front-End
+  - javascript
+  - api
+categories: front-end
 abbrlink: e40c7b5c
 date: 2018-08-12 19:11:43
 ---

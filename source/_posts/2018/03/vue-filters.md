@@ -1,7 +1,7 @@
 ---
 title: vue过滤器（八）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: c243ab9b
 date: 2018-08-27 10:20:32
 ---

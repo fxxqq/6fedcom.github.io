@@ -1,6 +1,6 @@
 ---
 title: flex水平垂直居中
-categories: Front-End
+categories: front-end
 tags:
   - CSS
 abbrlink: 7db1780c

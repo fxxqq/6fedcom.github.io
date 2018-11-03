@@ -1,9 +1,9 @@
 ---
-title: 原生JS与jQuery操作DOM对比
+title: 原生JS与jquery操作dom对比
 tags:
-  - Javascript
-  - DOM
-categories: Front-End
+  - javascript
+  - dom
+categories: front-end
 abbrlink: 753b84db
 date: 2017-01-14 11:30:43
 ---
@@ -18,7 +18,7 @@ date: 2017-01-14 11:30:43
 document.createElement("p");
 ```
 
-#### 1.2 `jQuery`创建元素节点
+#### 1.2 `jquery`创建元素节点
 ---
 <!--more-->
 
@@ -33,18 +33,18 @@ $('<p></p>');`
 ---
 
 ```js
-`document.createTextNode("Text Content");
+`document.createTextnode("Text Content");
 ```
 
 - 通常创建文本节点和创建元素节点配合使用，比如：
 
 ```js
-var textEl = document.createTextNode("Hello World.");
+var textEl = document.createTextnode("Hello World.");
 var pEl = document.createElement("p");
 pEl.appendChild(textEl);
 ```
 
-#### 2.2 `jQuery`创建并添加文本节点：
+#### 2.2 `jquery`创建并添加文本节点：
 ---
 
 ```js
@@ -58,14 +58,14 @@ var $p = $('<p>Hello World.</p>');
 ---
 
 ```js
-var newEl = pEl.cloneNode(true);  `
+var newEl = pEl.clonenode(true);  `
 ```
 - `true`和`false`的区别：
    - `true` ：克隆整个`'<p>Hello World.</p>'`节点
    - `false`：只克隆`'<p></p>'` ，不克隆文本`Hello World.'`
 
 
-#### 3.2 `jQuery`复制节点
+#### 3.2 `jquery`复制节点
 ---
 
 ```js
@@ -81,16 +81,16 @@ $newEl = $('#pEl').clone(true);
 ---
 
 ```js
-El.appendChild(newNode);
+El.appendChild(newnode);
 ```
 
 - 原生JS在节点的已有子节点之前插入一个新的子节点：
 
 ```js
-El.insertBefore(newNode, targetNode);
+El.insertBefore(newnode, targetnode);
 ```
 
-#### 4.2 在jQuery中，插入节点的方法比原生JS多的多
+#### 4.2 在jquery中，插入节点的方法比原生JS多的多
 ---
 
 - 在匹配元素子节点列表结尾添加内容
@@ -147,10 +147,10 @@ $('<p>Hello World.</p>').insertAfter('#El');
 ---
 
 ```js
-El.parentNode.removeChild(El);
+El.parentnode.removeChild(El);
 ```
 
-#### 5.2 jQuery删除节点
+#### 5.2 jquery删除节点
 ---
 
 ```js
@@ -164,12 +164,12 @@ $('#El').remove();
 ---
 
 ```js
-El.repalceChild(newNode, oldNode);
+El.repalceChild(newnode, oldnode);
 ```
 
-- 注意：`oldNode`必须是`parentEl`真实存在的一个子节点
+- 注意：`oldnode`必须是`parentEl`真实存在的一个子节点
 
-#### 6.2 jQuery替换节点
+#### 6.2 jquery替换节点
 ---
 
 ```js
@@ -190,7 +190,7 @@ checkboxEl.checked;
 ```
 
 
-#### 7.2 jQuery设置属性/获取属性:
+#### 7.2 jquery设置属性/获取属性:
 ---
 
 ```js

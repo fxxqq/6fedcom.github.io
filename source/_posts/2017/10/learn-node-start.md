@@ -1,9 +1,9 @@
 ---
-title: Nodejs之简单入门（一）
+title: nodejs之简单入门（一）
 tags:
-  - Javascript
-  - Node
-categories: Back-end
+  - javascript
+  - node
+categories: back-end
 abbrlink: 93337fcf
 date: 2017-10-15 11:40:43
 ---
@@ -50,14 +50,14 @@ date: 2017-10-15 11:40:43
 - 线程：进程内一个独立的，可调度的执行单元
 - 多线程：启动一个进程，在一个进程内启动多个线程，这样多个线程可以执行多个任务
 
-**Nodejs的单线程**
+**nodejs的单线程**
 
 - 单线程只是针对主进程，I/O操作系统底层多线程调度
 - 单线程并不是单进程
 
-**Nodejs原理**
+**nodejs原理**
 
-- Node是单线程的，只开一个进程，一个进程也只开一个线程。一个CPU上只开一个进程，一个进程里面只有一个线程
+- node是单线程的，只开一个进程，一个进程也只开一个线程。一个CPU上只开一个进程，一个进程里面只有一个线程
 
 **nodejs高性能的前提**
 

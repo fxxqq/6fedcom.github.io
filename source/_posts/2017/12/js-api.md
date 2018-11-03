@@ -1,9 +1,9 @@
 ---
-title: JavaScript常用API合集
+title: JavaScript常用api合集
 tags:
-  - Javascript
-  - API
-categories: Front-End
+  - javascript
+  - api
+categories: front-end
 abbrlink: c5d4add4
 date: 2017-12-24 11:10:43
 ---
@@ -17,47 +17,47 @@ date: 2017-12-24 11:10:43
 
 
 ```js
-Node.nodeName   //返回节点名称，只读
-Node.nodeType   //返回节点类型的常数值，只读
-Node.nodeValue  //返回Text或Comment节点的文本值，只读
-Node.textContent  //返回当前节点和它的所有后代节点的文本内容，可读写
-Node.baseURI    //返回当前网页的绝对路径
+node.nodeName   //返回节点名称，只读
+node.nodeType   //返回节点类型的常数值，只读
+node.nodeValue  //返回Text或Comment节点的文本值，只读
+node.textContent  //返回当前节点和它的所有后代节点的文本内容，可读写
+node.baseURI    //返回当前网页的绝对路径
 
-Node.ownerDocument  //返回当前节点所在的顶层文档对象，即document
-Node.nextSibling  //返回紧跟在当前节点后面的第一个兄弟节点
-Node.previousSibling  //返回当前节点前面的、距离最近的一个兄弟节点
-Node.parentNode   //返回当前节点的父节点
-Node.parentElement  //返回当前节点的父Element节点
-Node.childNodes   //返回当前节点的所有子节点
-Node.firstChild  //返回当前节点的第一个子节点
-Node.lastChild   //返回当前节点的最后一个子节点
+node.ownerDocument  //返回当前节点所在的顶层文档对象，即document
+node.nextSibling  //返回紧跟在当前节点后面的第一个兄弟节点
+node.previousSibling  //返回当前节点前面的、距离最近的一个兄弟节点
+node.parentnode   //返回当前节点的父节点
+node.parentElement  //返回当前节点的父Element节点
+node.childnodes   //返回当前节点的所有子节点
+node.firstChild  //返回当前节点的第一个子节点
+node.lastChild   //返回当前节点的最后一个子节点
 
-//parentNode接口
-Node.children  //返回指定节点的所有Element子节点
-Node.firstElementChild  //返回当前节点的第一个Element子节点
-Node.lastElementChild   //返回当前节点的最后一个Element子节点
-Node.childElementCount  //返回当前节点所有Element子节点的数目。
+//parentnode接口
+node.children  //返回指定节点的所有Element子节点
+node.firstElementChild  //返回当前节点的第一个Element子节点
+node.lastElementChild   //返回当前节点的最后一个Element子节点
+node.childElementCount  //返回当前节点所有Element子节点的数目。
 ```
 
 **1.2 操作**
 
 ```js
-Node.appendChild(node)   //向节点添加最后一个子节点
-Node.hasChildNodes()   //返回布尔值，表示当前节点是否有子节点
-Node.cloneNode(true);  // 默认为false(克隆节点), true(克隆节点及其属性，以及后代)
-Node.insertBefore(newNode,oldNode)  // 在指定子节点之前插入新的子节点
-Node.removeChild(node)   //删除节点，在要删除节点的父节点上操作
-Node.replaceChild(newChild,oldChild)  //替换节点
-Node.contains(node)  //返回一个布尔值，表示参数节点是否为当前节点的后代节点。
-Node.compareDocumentPosition(node)   //返回一个7个比特位的二进制值，表示参数节点和当前节点的关系
-Node.isEqualNode(noe)  //返回布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。
-Node.normalize()   //用于清理当前节点内部的所有Text节点。它会去除空的文本节点，并且将毗邻的文本节点合并成一个。
+node.appendChild(node)   //向节点添加最后一个子节点
+node.hasChildnodes()   //返回布尔值，表示当前节点是否有子节点
+node.clonenode(true);  // 默认为false(克隆节点), true(克隆节点及其属性，以及后代)
+node.insertBefore(newnode,oldnode)  // 在指定子节点之前插入新的子节点
+node.removeChild(node)   //删除节点，在要删除节点的父节点上操作
+node.replaceChild(newChild,oldChild)  //替换节点
+node.contains(node)  //返回一个布尔值，表示参数节点是否为当前节点的后代节点。
+node.compareDocumentPosition(node)   //返回一个7个比特位的二进制值，表示参数节点和当前节点的关系
+node.isEqualnode(noe)  //返回布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。
+node.normalize()   //用于清理当前节点内部的所有Text节点。它会去除空的文本节点，并且将毗邻的文本节点合并成一个。
 
-//ChildNode接口
-Node.remove()  //用于删除当前节点
-Node.before()  //
-Node.after()
-Node.replaceWith()
+//Childnode接口
+node.remove()  //用于删除当前节点
+node.before()  //
+node.after()
+node.replaceWith()
 ```
 
 **1.3 Document节点**
@@ -124,7 +124,7 @@ document.elementFromPoint(x,y)  //返回位于页面指定位置最上层的Elem
 
 ```js
 document.createElement(tagName)   //用来生成HTML元素节点。
-document.createTextNode(text)   //用来生成文本节点
+document.createTextnode(text)   //用来生成文本节点
 document.createAttribute(name)  //生成一个新的属性对象节点，并返回它。
 document.createDocumentFragment()  //生成一个DocumentFragment对象
 ```
@@ -142,8 +142,8 @@ document.dispatchEvent(event)  //触发事件
 
 ```
 document.hasFocus()   //返回一个布尔值，表示当前文档之中是否有元素被激活或获得焦点。
-document.adoptNode(externalNode)  //将某个节点，从其原来所在的文档移除，插入当前文档，并返回插入后的新节点。
-document.importNode(externalNode, deep)   //从外部文档拷贝指定节点，插入当前文档。
+document.adoptnode(externalnode)  //将某个节点，从其原来所在的文档移除，插入当前文档，并返回插入后的新节点。
+document.importnode(externalnode, deep)   //从外部文档拷贝指定节点，插入当前文档。
 ```
 
 **1.4 Element节点**
@@ -268,14 +268,14 @@ ul.addEventListener('click', function(event) {
 ```js
 Element.scrollIntoView()   //滚动当前元素，进入浏览器的可见区域
 
-//解析HTML字符串，然后将生成的节点插入DOM树的指定位置。
+//解析HTML字符串，然后将生成的节点插入dom树的指定位置。
 Element.insertAdjacentHTML(where, htmlString); 
 Element.insertAdjacentHTML('beforeBegin', htmlString); // 在该元素前插入  
 Element.insertAdjacentHTML('afterBegin', htmlString); // 在该元素第一个子元素前插入 
 Element.insertAdjacentHTML('beforeEnd', htmlString); // 在该元素最后一个子元素后面插入 
 Element.insertAdjacentHTML('afterEnd', htmlString); // 在该元素后插入
 
-Element.remove()  //用于将当前元素节点从DOM中移除
+Element.remove()  //用于将当前元素节点从dom中移除
 Element.focus()   //用于将当前页面的焦点，转移到指定元素上
 ```
 
@@ -549,7 +549,7 @@ console.error()  //输出信息时，在最前面加一个红色的叉，表示�
 console.table()  //可以将复合类型的数据转为表格显示。
 console.count()  //用于计数，输出它被调用了多少次。
 console.dir()    //用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。
-console.dirxml()  //用于以目录树的形式，显示DOM节点。
+console.dirxml()  //用于以目录树的形式，显示dom节点。
 console.assert()  //接受两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。
 
 //这两个方法用于计时，可以算出一个操作所花费的准确时间。

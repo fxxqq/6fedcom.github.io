@@ -1,9 +1,9 @@
 ---
 title: Dva实践总结
 tags:
-  - Dva
-  - React
-categories: Front-End
+  - dva
+  - react
+categories: front-end
 abbrlink: ac41d549
 date: 2018-09-05 16:00:43
 ---
@@ -72,14 +72,14 @@ npm i babel-plugin-import --save
 dva = React-Router + Redux + Redux-saga
 ```
 
-- 仅有 5 个` API`，仅有5个主要的`api`
+- 仅有 5 个` api`，仅有5个主要的`api`
 - 支持 `HMR`，支持模块的热更新
 - 支持 `SSR (ServerSideRender)`，支持服务器端渲染
 - 支持 `Mobile/ReactNative`，支持移动手机端的代码编写
 - 支持`TypeScript`
 - 支持路由和 `Model` 的动态加载
 
-## 2.2 Dva的五个API
+## 2.2 Dva的五个api
 
 ![](https://upload-images.jianshu.io/upload_images/1505342-9ecf9d7d1f0452f9.png)
 
@@ -1849,4 +1849,4 @@ const codeMessage = {
 - [dva 升级2.0版本遇到的问题小结](https://www.jianshu.com/p/649e97ff4354)
 - [dva 中进行页面复用实践总结](https://www.jianshu.com/p/e0a220906301)
 - [Dva知识地图](https://dvajs.com/knowledgemap/#javascript-%E8%AF%AD%E8%A8%80)
-- [dva-API文档](https://dvajs.com/api/)
+- [dva-api文档](https://dvajs.com/api/)

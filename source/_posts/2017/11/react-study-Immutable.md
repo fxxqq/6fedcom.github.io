@@ -2,8 +2,8 @@
 title: React之Immutable学习记录（十二）
 tags:
   - Immutable
-  - React
-categories: Front-End
+  - react
+categories: front-end
 abbrlink: 2a0f702d
 date: 2017-11-20 20:10:24
 ---
@@ -180,7 +180,7 @@ a.get('filter') === b.get('filter'); // true
 
 **Immutable 缺点**
 
-- 需要学习新的 API
+- 需要学习新的 api
 - 增加了资源文件大小
 - 容易与原生对象混淆
 
@@ -203,7 +203,7 @@ a.get('filter') === b.get('filter'); // true
 > 上面那么多常用的也就是 `List`和`Map`
 
 
-## 五、几个重要的API
+## 五、几个重要的api
 
 
 **1、fromJS()**
@@ -277,7 +277,7 @@ console.log(List([,,,,]).toJS());// [undefined, undefined, undefined, undefined]
 ```
 
 
-## 六、API
+## 六、api
 
 > 我们主要介绍`Map `和 `List`
 
@@ -1430,7 +1430,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(highComponent(Dialog
 ```
 
 
-## 八、思维导图总结API
+## 八、思维导图总结api
 
 
 - https://www.processon.com/view/link/5a12c0ede4b0d53d979b33da

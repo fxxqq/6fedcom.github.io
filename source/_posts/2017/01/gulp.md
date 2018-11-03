@@ -1,7 +1,7 @@
 ---
 title: gulp学习总结篇
 tags: gulp
-categories: Build
+categories: 前端自动化
 abbrlink: 51b4c428
 date: 2017-01-13 18:20:43
 ---
@@ -89,12 +89,12 @@ function demo(n){alert("--------\r\n"+n+"\r\n--------")}demo("Hi");
 4. 编译`CoffeeScript`
 5. `markdown `转换为 `html`
 
-## 二、安装 Node 和 gulp
+## 二、安装 node 和 gulp
 ---
 
 `gulp` 是基于 `node` 实现的，那么我们就需要先安装 node。
 
-> Node 是一个基于Chrome JavaScript V8引擎建立的一个平台，可以利用它实现 Web服务，做类似PHP的事。
+> node 是一个基于Chrome JavaScript V8引擎建立的一个平台，可以利用它实现 Web服务，做类似php的事。
 
 打开 https://nodejs.org/ 点击绿色的 **INSTALL** 按钮下载安装 node。
 
@@ -262,7 +262,7 @@ gulp.task('script', function() {
 - `gulp.dest(path)` - 输出文件
 - `gulp.pipe()` - 管道，你可以暂时将 pipe 理解为将操作加入执行队列
 
-参考：[gulp API文档](http://www.gulpjs.com.cn/docs/api/)
+参考：[gulp api文档](http://www.gulpjs.com.cn/docs/api/)
 
 ---------
 

@@ -1,12 +1,12 @@
 ---
-title: jQuery动画基础（四）
-tags: jQuery
-categories: Front-End
+title: jquery动画基础（四）
+tags: jquery
+categories: front-end
 abbrlink: 5f9d254
 date: 2016-08-07 21:10:08
 ---
 
-**介绍`jQuery`动画**
+**介绍`jquery`动画**
 - `JavaScript`语言本身不支持动画设计，必须通过改变`CSS来实现动画效果。
 <!--more-->
 ### 显隐

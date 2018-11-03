@@ -1,25 +1,25 @@
 ---
-title: JavaScript-DOM事件
-tags: Javascript
-categories: Front-End
+title: JavaScript-dom事件
+tags: javascript
+categories: front-end
 abbrlink: 329b1ea8
 date: 2016-07-27 11:40:43
 ---
 
-- DOM 事件就是指 当页面上发生某一件事的时候激发某一个函数 相当监听/触发设备
+- dom 事件就是指 当页面上发生某一件事的时候激发某一个函数 相当监听/触发设备
  <!--more-->
 **比如：**
 - 元素被单击时 `onclick`
 - 元素失去焦点时	`onblur`
 - 表单被提交时，用`onsubmit`
 
-- **DOM事件如何声明？**
+- **dom事件如何声明？**
 
   - 直接在元素标签中声明 `<input type='button' onclick="">`
   - 以事件属性附上一个函数变量：例如` inputobj.onclick = 一个函数;`
  
   
-- **主要的DOM事件：（可以归为3类）**
+- **主要的dom事件：（可以归为3类）**
  ---
 
   - 页面上的变化引起的 比如 失去焦点 关闭页面

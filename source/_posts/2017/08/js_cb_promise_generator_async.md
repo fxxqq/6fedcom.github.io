@@ -1,9 +1,9 @@
 ---
 title: 浅谈JavaScript中的异步处理
 tags:
-  - Javascript
+  - javascript
   - 异步回调
-categories: Front-End
+categories: front-end
 abbrlink: fb0e9d3a
 date: 2017-08-27 11:40:43
 ---
@@ -63,11 +63,11 @@ getData('/page/1?param=123', (res1) => {
 
 > 我们假定，存在一个"信号中心"，某个任务执行完成，就向信号中心"发布"（`publish`）一个信号，其他任务可以向信号中心"订阅"（`subscribe`）这个信号，从而知道什么时候自己可以开始执行。这就叫做"发布/订阅模式"（publish-subscribe pattern），又称"观察者模式"（observer pattern）
 
-- 这个模式有多种实现，下面采用的是Ben Alman的[Tiny Pub/Sub](https://gist.github.com/661855)，这是`jQuery`的一个插件
-- 首先，`f2`向"信号中心"`jQuery`订阅"`done`"信号
+- 这个模式有多种实现，下面采用的是Ben Alman的[Tiny Pub/Sub](https://gist.github.com/661855)，这是`jquery`的一个插件
+- 首先，`f2`向"信号中心"`jquery`订阅"`done`"信号
 
 ```js
-jQuery.subscribe("done", f2);
+jquery.subscribe("done", f2);
 ```
 - f1进行如下改写
 
@@ -75,14 +75,14 @@ jQuery.subscribe("done", f2);
 function f1(){
 　　　　setTimeout(function () {
 　　　　　　// f1的任务代码
-　　　　　　jQuery.publish("done");
+　　　　　　jquery.publish("done");
 　　　　}, 1000);
 }
 ```
-- `jQuery.publish("done")`的意思是，`f1`执行完成后，向"信号中心`"jQuery`发布`"done"`信号，从而引发f2的执行。 此外，f2完成执行后，也可以取消订阅（`unsubscribe`）
+- `jquery.publish("done")`的意思是，`f1`执行完成后，向"信号中心`"jquery`发布`"done"`信号，从而引发f2的执行。 此外，f2完成执行后，也可以取消订阅（`unsubscribe`）
 
 ```js
-jQuery.unsubscribe("done", f2);
+jquery.unsubscribe("done", f2);
 ```
 
 - 这种方法的性质与"事件监听"类似，但是明显优于后者。因为我们可以通过查看"消息中心"，了解存在多少信号、每个信号有多少订阅者，从而监控程序的运行。
@@ -91,7 +91,7 @@ jQuery.unsubscribe("done", f2);
 ---
 
 > - `Promise` 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大
-> - 所谓`Promise`，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，`Promise` 是一个对象，从它可以获取异步操作的消息。`Promise` 提供统一的 `API`，各种异步操作都可以用同样的方法进行处理
+> - 所谓`Promise`，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，`Promise` 是一个对象，从它可以获取异步操作的消息。`Promise` 提供统一的 `api`，各种异步操作都可以用同样的方法进行处理
 
 - 简单说，它的思想是，每一个异步任务返回一个`Promise`对象，该对象有一个`then`方法，允许指定回调函数。
 - 现在我们使用 `Promise` 重新实现上面的案例，首先，我们要把异步请求数据的方法封装成 `Promise`

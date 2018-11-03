@@ -1,9 +1,9 @@
 ---
 title: ECMAScript6回顾
 tags:
-  - Javascript
-  - ES6
-categories: Front-End
+  - javascript
+  - es6
+categories: front-end
 abbrlink: 7efe3a88
 date: 2017-10-21 20:20:43
 ---
@@ -173,12 +173,12 @@ var arr1 = [].slice.call(arrayLike); // ['a', 'b', 'c']
 let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 ```
 
-- 实际应用中，常见的类似数组的对象是`DOM`操作返回的`NodeList`集合，以及函数内部的`arguments`对象。`Array.from`都可以将它们转为真正的数组。
+- 实际应用中，常见的类似数组的对象是`dom`操作返回的`nodeList`集合，以及函数内部的`arguments`对象。`Array.from`都可以将它们转为真正的数组。
 
 > `querySelectorAll`方法返回的是一个类似数组的对象，可以将这个对象转为真正的数组，再使用`forEach`方法
 
 ```js
-// NodeList对象
+// nodeList对象
 let ps = document.querySelectorAll('p');
 Array.from(ps).forEach(function (p) {
   console.log(p);
@@ -554,7 +554,7 @@ let obj={
 ```
 ### 2.3、Reflect
 
-> `Reflect`对象与`Proxy`对象一样，也是` ES6` 为了操作对象而提供的新 `API`
+> `Reflect`对象与`Proxy`对象一样，也是` ES6` 为了操作对象而提供的新 `api`
 
 ```js
 let obj={

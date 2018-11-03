@@ -1,9 +1,9 @@
 ---
 title: Redux之浅析中间件（八）
 tags:
-  - Redux
-  - React
-categories: Front-End
+  - redux
+  - react
+categories: front-end
 abbrlink: f50d087a
 date: 2017-11-19 16:30:26
 ---
@@ -15,7 +15,7 @@ date: 2017-11-19 16:30:26
 - 在`redux`里，`action`仅仅是携带了数据的普通`js`对象
 
 
-> `Reducer` 拆分可以使组件获取其最小属性(`state`)，而不需要整个`Store`。中间件则可以在` Action Creator` 返回最终可供 `dispatch` 调用的 `action` 之前处理各种事情，如异步`API`调用、日志记录等，是扩展 `Redux` 功能的一种推荐方式
+> `Reducer` 拆分可以使组件获取其最小属性(`state`)，而不需要整个`Store`。中间件则可以在` Action Creator` 返回最终可供 `dispatch` 调用的 `action` 之前处理各种事情，如异步`api`调用、日志记录等，是扩展 `Redux` 功能的一种推荐方式
 
 - `Redux` 提供了 `applyMiddleware(...middlewares)` 来将中间件应用到 `createStore`。`applyMiddleware` 会返回一个函数，该函数接收原来的 `creatStore` 作为参数，返回一个应用了 `middlewares` 的增强后的 `creatStore`
 
@@ -28,13 +28,13 @@ export default function applyMiddleware(...middlewares) {
     var chain = []
 
     //传递给中间件的参数
-    var middlewareAPI = {
+    var middlewareapi = {
       getState: store.getState,
       dispatch: (action) => dispatch(action)
     }
 
     //注册中间件调用链
-    chain = middlewares.map(middleware => middleware(middlewareAPI))
+    chain = middlewares.map(middleware => middleware(middlewareapi))
     dispatch = compose(...chain)(store.dispatch)
 
     //返回经middlewares增强后的createStore

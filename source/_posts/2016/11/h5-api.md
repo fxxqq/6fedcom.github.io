@@ -1,22 +1,22 @@
 ---
-title: HTML5之API总结
+title: html5之api总结
 tags:
-  - HTML5
-  - API
-categories: Front-End
+  - html5
+  - api
+categories: front-end
 abbrlink: 6cc0c2d4
 date: 2016-11-26 14:35:24
 ---
 
-### 一、Canvas API
+### 一、canvas api
 ---
 
-`canvas API`是`H5`标准中最复杂的部分， 它提供几种属性和方法，可以在`canvas`元素上创建图形应用
+`canvas api`是`H5`标准中最复杂的部分， 它提供几种属性和方法，可以在`canvas`元素上创建图形应用
 
 #### 方法
 ---
 <!--more-->
-以下方法专门用于调用canvas API
+以下方法专门用于调用canvas api
 
 - `getContext(context)`创建可绘制图形的画布上下文，接受两个值，`2d`和`3d`
 
@@ -73,7 +73,7 @@ date: 2016-11-26 14:35:24
 
 #### 属性
 ---
-`canvas API`专用属性列表
+`canvas api`专用属性列表
 
 - `rect( x, y, width, height ) `  绘制矩形
 - `fillRect( x, y, width, height ) ` 绘制被填充的矩形
@@ -189,7 +189,7 @@ date: 2016-11-26 14:35:24
     - 视频编码：ACC、MP3、Vorbis
 
 
-- `HTML5`能在完全脱离插件的情况下播放音视频,但是不是所有格式都支持。
+- `html5`能在完全脱离插件的情况下播放音视频,但是不是所有格式都支持。
 - 支持的视频格式：
     - `Ogg=`带有`Theora`视频编码`+Vorbis`音频编码的`Ogg`文件
     - `MEPG4=`带有H.264视频编码`+AAC`音频编码的`MPEG4`文件
@@ -232,7 +232,7 @@ date: 2016-11-26 14:35:24
 |Poster|	Imgurl	|加载等待的画面图片|
 |Autobuffer|	Autobuffer	|设置为浏览器缓冲方式，不设置autoply才有效|
 
-- `Video`的`API`方法
+- `Video`的`api`方法
 
 |方法|	属性|	事件|
 |---|---|---|
@@ -284,7 +284,7 @@ date: 2016-11-26 14:35:24
       - 配置参数：`frequency` 更新的频率
       - 关闭更新请求  :  `clearWatch`
 
-  - 百度地图`API`
+  - 百度地图`api`
   
 ```js
 <script src="http://api.map.baidu.com/api?v=2.0&ak=qZfInp9MaT9Qa0PoNy4Rmx3Y9W9ZXMfw"></script>
@@ -305,7 +305,7 @@ date: 2016-11-26 14:35:24
     - 客户端完成，不会请求服务器处理
     - `sessionStorage`数据是不共享、 `localStorage`共享
     
-- `Storage API`
+- `Storage api`
     - `setItem()`:
         - 设置数据，(`key`,`value`)类型，类型都是字符串
         - 可以用获取属性的形式操作
@@ -327,7 +327,7 @@ date: 2016-11-26 14:35:24
     - 注：`session`同窗口才可以,例子：`iframe`操作
     
 	
-###  四、HTML5拖拽
+###  四、html5拖拽
 ---
 
 - 图片自带拖拽功能

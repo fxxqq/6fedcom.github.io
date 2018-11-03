@@ -1,9 +1,9 @@
 ---
 title: 弹性布局总结
 tags:
-  - 弹性布局
-  - HTML5
-categories: Front-End
+  - flex
+  - html5
+categories: front-end
 abbrlink: cc5b9b13
 date: 2017-02-06 19:20:43
 ---

@@ -1,7 +1,7 @@
 ---
 title: 小程序入门总结篇
 tags: 小程序
-categories: Front-End
+categories: front-end
 abbrlink: cb152701
 date: 2018-08-09 16:20:20
 ---
@@ -377,9 +377,9 @@ Page({
 ### 5.1 哪些情况会触发页面跳转
 
 - 小程序启动，初始化第一个页面
-- 打开新页面，调用 API `wx.navigateTo` 或使用`<navigator />`组件
-- 页面重定向，调用 API `wx.redirectTo` 或使用`<navigator />`组件
-- 页面返回，调用 API `wx.navigateBack`或用户按左上角返回按钮
+- 打开新页面，调用 api `wx.navigateTo` 或使用`<navigator />`组件
+- 页面重定向，调用 api `wx.redirectTo` 或使用`<navigator />`组件
+- 页面返回，调用 api `wx.navigateBack`或用户按左上角返回按钮
 - `tarbar`切换
 
 ### 5.2 如何跳转页面

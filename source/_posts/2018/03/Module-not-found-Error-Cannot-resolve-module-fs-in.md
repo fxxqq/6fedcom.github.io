@@ -1,6 +1,6 @@
 ---
 title: 'Module not found: Error: Cannot resolve module ''fs'' in'
-categories: Front-End
+categories: front-end
 tags:
   - npm
 abbrlink: 9782d4af

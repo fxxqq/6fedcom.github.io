@@ -1,41 +1,41 @@
 ---
-title: jQuery概述（一）
-tags: jQuery
-categories: Front-End
+title: jquery概述（一）
+tags: jquery
+categories: front-end
 abbrlink: 11a06214
 date: 2016-08-07 19:35:08
 ---
 
 
-- `jQuery`是什么:
+- `jquery`是什么:
 	- 是一个`javascript`代码仓库，我们称之为`javascript`框架。
-	- 是一个快速的简洁的`javascript`框架，可以简化查询`DOM`对象、处理事件、制作动画、处理`Ajax`交互过程。
+	- 是一个快速的简洁的`javascript`框架，可以简化查询`dom`对象、处理事件、制作动画、处理`Ajax`交互过程。
 	<!--more-->
-- `jQuery`可以帮我们做什么(有什么优势)、
+- `jquery`可以帮我们做什么(有什么优势)、
 	- 体积小，使用灵巧(只需引入一个`js`文件)
 	- 方便的选择页面元素(模仿`CSS`选择器更精确、灵活)
-	- 动态更改页面样式/页面内容(操作`DOM`，动态添加、移除样式)
+	- 动态更改页面样式/页面内容(操作`dom`，动态添加、移除样式)
 	- 控制响应事件(动态添加响应事件)
 	- 提供基本网页特效(提供已封装的网页特效方法)
 	- 快速实现通信(`ajax`)
 	- 易扩展、插件丰富
 
 - `javascript`用来干什么的：
-	- 操作`DOM`对象
+	- 操作`dom`对象
 	- 动态操作样式`css`
 	- 数据访问
 	- 控制响应事件等
 
 - 讲解`$(function(){})`
-	- `$`是`jQuery`别名。如`$()`也可`jQuery()`这样写,相当于页面初始化函数，当页面加载完毕，会执行`jQuery()`。
-	- 希望在做所有事情之前，`JQuery`操作`DOM`文档。必须确保在`DOM`载入完毕后开始执行，应该用`ready`事件做处理`HTML`文档的开始。
+	- `$`是`jquery`别名。如`$()`也可`jquery()`这样写,相当于页面初始化函数，当页面加载完毕，会执行`jquery()`。
+	- 希望在做所有事情之前，`JQuery`操作`dom`文档。必须确保在`dom`载入完毕后开始执行，应该用`ready`事件做处理`HTML`文档的开始。
 	- `$(document).ready(function(){})`
         - 类似于`js`的`window.onload`事件函数，但是`ready`事件要先于`onload`事件执行。
         - `window.onload = function(){}`
-        - 为方便开发，`jQuery`简化这样的方法，直接用`$()`表示
+        - 为方便开发，`jquery`简化这样的方法，直接用`$()`表示
 
 	- `JQuery`的`ready`事件不等于`Js`的`load` ：
-		- 执行时机不同：`load`需要等外部图片和视频等全部加载才执行。`ready`是`DOM`绘制完毕后执行，先与外部文件。
+		- 执行时机不同：`load`需要等外部图片和视频等全部加载才执行。`ready`是`dom`绘制完毕后执行，先与外部文件。
 		- 用法不同：`load`只可写一次，`ready`可以多次。
 
 - `$()`和`document`是相等的吗
@@ -55,7 +55,7 @@ date: 2016-08-07 19:35:08
   - 标签选择器 `$("p").css("color","#cc3366")`
   - 组选择器 `$("#b ul li").size();`
 
-- `jQuery`有哪些功能(`API`)：
+- `jquery`有哪些功能(`api`)：
 	- a.选择器 
 	- b.过滤器 
 	- c.事件 
@@ -73,12 +73,12 @@ date: 2016-08-07 19:35:08
 
 ### 附录：
 
-- 简易jQuery内存图
+- 简易jquery内存图
 
-![](https://raw.githubusercontent.com/poetries/TZ-Front-End-Note/master/jQuery-star/images/1.png)
+![](https://raw.githubusercontent.com/poetries/TZ-Front-End-Note/master/jquery-star/images/1.png)
 
 ---
 
-- jQuery学习大纲
+- jquery学习大纲
 
-![](https://raw.githubusercontent.com/poetries/TZ-Front-End-Note/master/jQuery-star/images/jQuery%20%E7%B3%BB%E7%BB%9F%E6%95%99%E5%AD%A6%E8%AF%BE%E7%A8%8B.png)
+![](https://raw.githubusercontent.com/poetries/TZ-Front-End-Note/master/jquery-star/images/jquery%20%E7%B3%BB%E7%BB%9F%E6%95%99%E5%AD%A6%E8%AF%BE%E7%A8%8B.png)

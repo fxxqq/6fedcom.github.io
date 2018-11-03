@@ -1,7 +1,7 @@
 ---
 title: HTTP协议系列（一）
 tags: HTTP
-categories: Back-end
+categories: back-end
 abbrlink: 4d5369c2
 date: 2018-02-26 23:20:43
 ---
@@ -536,14 +536,14 @@ Content-Length: 1024
 
 许多语言都提供了对 HTML 的过滤：
 
-- PHP 的 `htmlentities()` 或是 `htmlspecialchars()`。
+- php 的 `htmlentities()` 或是 `htmlspecialchars()`。
 - Python 的 `cgi.escape()`。
 - Java 的 `xssprotect` (Open Source Library)。
-- Node.js 的 `node-validator`。
+- node.js 的 `node-validator`。
 
 **指定 HTTP 的 Content-Type**
 
-通过这种方式，可以避免内容被当成 HTML 解析，比如 PHP 语言可以使用以下代码：
+通过这种方式，可以避免内容被当成 HTML 解析，比如 php 语言可以使用以下代码：
 
 ```php
 <?php
@@ -632,7 +632,7 @@ strSQL = "SELECT * FROM users;"
 
 - 在设计应用程序时，完全使用参数化查询（Parameterized Query）来设计数据访问功能。
 - 在组合 SQL 字符串时，先针对所传入的参数作字符取代（将单引号字符取代为连续 2 个单引号字符）。
-- 如果使用 PHP 开发网页程序的话，亦可打开 PHP 的魔术引号（Magic quote）功能（自动将所有的网页传入参数，将单引号字符取代为连续 2 个单引号字符）。
+- 如果使用 php 开发网页程序的话，亦可打开 php 的魔术引号（Magic quote）功能（自动将所有的网页传入参数，将单引号字符取代为连续 2 个单引号字符）。
 - 其他，使用其他更安全的方式连接 SQL 数据库。例如已修正过 SQL 注入问题的数据库连接组件，例如 ASP.NET 的 SqlDataSource 对象或是 LINQ to SQL。
 - 使用 SQL 防注入系统。
 
@@ -709,7 +709,7 @@ DELETE /idX/delete HTTP/1.1   -> Returns 404
 
 - 为了阐述 `POST` 和 `GET` 的另一个区别，需要先了解 `XMLHttpRequest`：
 
-> XMLHttpRequest 是一个 API，它为客户端提供了在客户端和服务器之间传输数据的功能。它提供了一个通过 URL 来获取数据的简单方式，并且不会使整个页面刷新。这使得网页只更新一部分页面而不会打扰到用户。XMLHttpRequest 在 AJAX 中被大量使用。
+> XMLHttpRequest 是一个 api，它为客户端提供了在客户端和服务器之间传输数据的功能。它提供了一个通过 URL 来获取数据的简单方式，并且不会使整个页面刷新。这使得网页只更新一部分页面而不会打扰到用户。XMLHttpRequest 在 AJAX 中被大量使用。
 
 - 在使用 `XMLHttpRequest` 的 `POST` 方法时，浏览器会先发送 `Header` 再发送 `Data`。但并不是所有浏览器会这么做，例如火狐就不会。
 

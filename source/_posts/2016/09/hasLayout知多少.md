@@ -1,7 +1,7 @@
 ---
 title: hasLayout知多少
-tags: CSS
-categories: Front-End
+tags: css
+categories: front-end
 abbrlink: 7c93cb07
 date: 2016-09-07 19:20:08
 ---

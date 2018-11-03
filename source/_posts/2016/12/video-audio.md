@@ -1,9 +1,9 @@
 ---
-title: HTML5中的视频音频使用详解
+title: html5中的视频音频使用详解
 tags:
-  - HTML5
+  - html5
   - video
-categories: Front-End
+categories: front-end
 abbrlink: 1c7bdfba
 date: 2016-12-30 14:35:24
 ---
@@ -19,7 +19,7 @@ date: 2016-12-30 14:35:24
 	- 视频的组成部分：画面、音频、编码格式
 	- 视频编码：`H.264`、`Theora`、`VP8(google开源)`
 	<!--more-->
-- `HTML5`支持的视频格式：
+- `html5`支持的视频格式：
 	- `Ogg`
 	   - 带有`Theora`视频编码+`Vorbis`音频编码的`Ogg`文件
 	    - 支持的浏览器:`F`、`C`、`O`
@@ -73,7 +73,7 @@ poster="examp1.jpg" >您的浏览器不支持video</video>
 |**poster**| imgurl   | 设置播放器初始默认显示图片   |
 |**autobuffer**| autobuffer   | 设置为浏览器缓冲方式，不设置autoply才有效   |
 
-- API 属性
+- api 属性
 
 |属性|描述|
 |---|---|
@@ -102,20 +102,20 @@ poster="examp1.jpg" >您的浏览器不支持video</video>
 |videoTracks|	返回表示可用视频轨道的 VideoTrackList 对象|
 |volume	|设置或返回音频/视频的音量|
 
- - 常用API属性
+ - 常用api属性
  
 	- `duration`：返回当前音频/视频的长度（以秒计） 
 	- `paused`：设置或返回音频/视频是否暂停 
 	- `currentTime`：设置或返回音频/视频中的当前播放位置（以秒计）
 	- `ended`：返回音频/视频的播放是否已结束
   
- ### 1.4 Video  API
+ ### 1.4 Video  api
  ---
  
  #### 1.4.1 Video 方法
  ---
 
-|API |事件说明|
+|api |事件说明|
 |---|---|
 |**play**  | video.play();    播放视频 |
 |**pause**  | video.pause();  暂停播放视频 |
@@ -267,7 +267,7 @@ poster="examp1.jpg" >您的浏览器不支持video</video>
 
 	- 音频编码：`ACC`、`MP3`、`Vorbis`
 
-- HTML5支持的音频格式：
+- html5支持的音频格式：
 
   - `Ogg` 免费	支持的浏览器:`C`、`F`、`O`
   - `MP3` 收费	支持的浏览器: `I`、`C`、`S`
@@ -329,7 +329,7 @@ var Music = document.getElementById("audio");
 |**pause()** |暂停出于播放状态的音频、视频文件|
 |**canPlayType(obj)** |测试是否支持给定的Mini类型的文件|
 
-### 2.5 audio标签API中的常用事件
+### 2.5 audio标签api中的常用事件
 ---
 
 - 首先绑定事件的话可以通过js中的addEventListener方法来绑定事件

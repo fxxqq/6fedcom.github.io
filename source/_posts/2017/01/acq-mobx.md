@@ -1,9 +1,9 @@
 ---
 title: 初识MobX
 tags:
-  - Javascript
+  - javascript
   - MobX
-categories: Front-End
+categories: front-end
 abbrlink: a5647f53
 date: 2018-08-31 16:25:24
 ---
@@ -46,7 +46,7 @@ date: 2018-08-31 16:25:24
 
 
 
-## 二、核心API
+## 二、核心api
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-25b582583cf82dc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -83,7 +83,7 @@ date: 2018-08-31 16:25:24
 ### 2.3 @computed
 
 - 计算值(`computed values`)是可以根据现有的状态或其它计算值衍生出的值
-- 用于获取由基础 `state `衍生出来的值。如果基础值没有变，获取衍生值时就会走缓存，这样就不会引起虚拟 DOM 的重新渲染
+- 用于获取由基础 `state `衍生出来的值。如果基础值没有变，获取衍生值时就会走缓存，这样就不会引起虚拟 dom 的重新渲染
 
 > - `getter`：获得计算得到的新`state`并返回。
 > - `setter`： 不能用来直接改变计算属性的值，但是它们可以用来作“逆向”衍生。
@@ -135,7 +135,7 @@ configure({ enforceActions: 'always' }) // 开启严格模式
 
 ### 2.6 reactions
 
-> `Reactions `和计算值很像，但它不是产生一个新的值，而是会产生一些副作用，比如打印到控制台、网络请求、递增地更新 `React `组件树以修补`DOM`、等等。 简而言之，`reactions` 在 响应式编程和命令式编程之间建立沟通的桥梁
+> `Reactions `和计算值很像，但它不是产生一个新的值，而是会产生一些副作用，比如打印到控制台、网络请求、递增地更新 `React `组件树以修补`dom`、等等。 简而言之，`reactions` 在 响应式编程和命令式编程之间建立沟通的桥梁
 
 
 
@@ -160,7 +160,7 @@ class Store {
         this.githubProjects = [];
         this.state = "pending";
         try {
-            const projects = yield fetchGithubProjectsSomehow(); // 用 yield 代替 await
+            const projects = yield fetchgithubProjectsSomehow(); // 用 yield 代替 await
             const filteredProjects = somePreprocessing(projects);
 
             // 异步代码自动会被 `action` 包装
@@ -215,7 +215,7 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+Reactdom.render(<App />, document.getElementById('root'));
 
 ```
 

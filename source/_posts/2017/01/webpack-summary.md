@@ -1,7 +1,7 @@
 ---
 title: webpack学习总结(二)
 tags: webpack
-categories: Build
+categories: 前端自动化
 abbrlink: c6147aa3
 date: 2017-01-14 17:40:43
 ---
@@ -36,7 +36,7 @@ date: 2017-01-14 17:40:43
 ### 1.1 CommonJS
 ---
 
-- 服务器端的 `Node.js `遵循 `CommonJS`规范，该规范的核心思想是允许模块通过` require `方法来同步加载所要依赖的其他模块，然后通过 `exports` 或 `module.exports` 来导出需要暴露的接口
+- 服务器端的 `node.js `遵循 `CommonJS`规范，该规范的核心思想是允许模块通过` require `方法来同步加载所要依赖的其他模块，然后通过 `exports` 或 `module.exports` 来导出需要暴露的接口
 
 ```
 require("module");
@@ -54,7 +54,7 @@ module.exports = someValue;
   - 不能非阻塞的并行加载多个模块
 
 - 实现
- - 服务器端的 `Node.js`
+ - 服务器端的 `node.js`
  - `Browserify`，浏览器端的 `CommonJS` 实现，可以使用 `NPM `的模块，但是编译打包后的文件体积可能很大
  - `modules-webmake`，类似`Browserify`，还不如 `Browserify` 灵活
  - `wreq`，`Browserify `的前身
@@ -85,7 +85,7 @@ return someExportedValue;
 ### 1.3 CMD
 ---
 
-- `Common Module Definition` 规范和 `AMD `很相似，尽量保持简单，并与 `CommonJS` 和`Node.js` 的 `Modules `规范保持了很大的兼容性
+- `Common Module Definition` 规范和 `AMD `很相似，尽量保持简单，并与 `CommonJS` 和`node.js` 的 `Modules `规范保持了很大的兼容性
 
 ```
 define(function(require, exports, module) {
@@ -98,7 +98,7 @@ module.exports = ...
 
 - 优点：
   - 依赖就近，延迟执行
-  - 可以很容易在 `Node.js` 中运行
+  - 可以很容易在 `node.js` 中运行
 - 缺点：
   - 依赖 `SPM` 打包，模块的加载逻辑偏重
 - 实现：
@@ -121,7 +121,7 @@ module "localModule" {}
   - 面向未来的 `EcmaScript`标准
 - 缺点：
   - 原生浏览器端还没有实现该标准
-  - 全新的命令字，新版的 `Node.js`才支持
+  - 全新的命令字，新版的 `node.js`才支持
 - 实现：
   - `Babel`
 
@@ -770,7 +770,7 @@ resolve directory
 ```
 
 - `Webpack `的配置提供了 `resolve` 和` resolveLoader` 参数来设置模块解析的处理细节， `resolve `用来配置应用层的模块（要被打包的模块）解析， `resolveLoader`用来配置`loader `模块的解析
-- 当引入通过 `npm` 安装的 `node.js` 模块时，可能出现找不到依赖的错误。`Node.js `模块的依赖解析算法很简单，是通过查看模块的每一层父目录中的 `node_modules` 文件夹来查询依赖的。当出现 `Node.js `模块依赖查找失败的时候，可以尝试设置 `resolve.fallback `和`resolveLoader.fallback` 来解决问题
+- 当引入通过 `npm` 安装的 `node.js` 模块时，可能出现找不到依赖的错误。`node.js `模块的依赖解析算法很简单，是通过查看模块的每一层父目录中的 `node_modules` 文件夹来查询依赖的。当出现 `node.js `模块依赖查找失败的时候，可以尝试设置 `resolve.fallback `和`resolveLoader.fallback` 来解决问题
 
 ```
 module.exports = {

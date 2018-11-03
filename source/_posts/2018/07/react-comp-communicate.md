@@ -2,8 +2,8 @@
 title: React之组件通信方式
 tags:
   - 组件通信
-  - React
-categories: Front-End
+  - react
+categories: front-end
 abbrlink: 6d683f02
 date: 2018-07-29 23:20:24
 ---
@@ -234,7 +234,7 @@ export default class App extends Component {
 **使用自定义事件机制**
 
 - 在`componentDidMount`事件中,如果组件挂载完成,再订阅事件;在组件卸载的时候,在`componentWillUnmount`事件中取消事件的订阅;
-- 以常用的发布/订阅模式举例,借用`Node.js Events`模块的浏览器版实现
+- 以常用的发布/订阅模式举例,借用`node.js Events`模块的浏览器版实现
 
 > 下面例子中的组件关系: List1和List2没有任何嵌套关系,App是他们的父组件
 

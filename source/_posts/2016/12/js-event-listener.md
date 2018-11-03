@@ -1,9 +1,9 @@
 ---
 title: JS 中的事件绑定、事件监听、事件委托
 tags:
-  - Javascript
+  - javascript
   - 事件
-categories: Front-End
+categories: front-end
 abbrlink: ebeaea04
 date: 2016-12-13 14:55:24
 ---
@@ -11,17 +11,17 @@ date: 2016-12-13 14:55:24
 ### 事件绑定
 ---
 
-- 要想让 `JavaScript `对用户的操作作出响应，首先要对 `DOM` 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称
+- 要想让 `JavaScript `对用户的操作作出响应，首先要对 `dom` 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称
 
 <!--more-->
 
 - 在`JavaScript`中，有三种常用的绑定事件的方法
 
-  - 在`DOM`元素中直接绑定；
+  - 在`dom`元素中直接绑定；
   - 在`JavaScript`代码中绑定；
   - 绑定事件监听函数
   
-#### 在`DOM`中直接绑定事件
+#### 在`dom`中直接绑定事件
 
 ```
 <input type="button" value="click me" onclick="hello()">
@@ -60,7 +60,7 @@ document.getElementById("btn").onclick = function(){
 element.addEventListener(event, function, useCapture)
 ```
 
-- `event` : （必需）事件名，支持所有`DOM`事件。
+- `event` : （必需）事件名，支持所有`dom`事件。
 - `function`：（必需）指定要事件触发时执行的函数。
 - `useCapture`：（可选）指定事件是否在捕获或冒泡阶段执行。`true`，捕获。`false`，冒泡。默认`false`
 
@@ -259,7 +259,7 @@ document.addEventListener("click",function(event){
 </script>
 ```
 
-- 动态的添加DOM元素，不需要因为元素的改动而修改事件绑定
+- 动态的添加dom元素，不需要因为元素的改动而修改事件绑定
 - 传统写法
 
 ```
@@ -282,7 +282,7 @@ for(var i=0;i<item.length;i++){
 }
 
 var node=document.createElement("li");
-var textnode=document.createTextNode("item4");
+var textnode=document.createTextnode("item4");
 node.appendChild(textnode);
 list.appendChild(node);
 
@@ -310,11 +310,11 @@ document.addEventListener("click",function(event){
 })
 
 var node=document.createElement("li");
-var textnode=document.createTextNode("item4");
+var textnode=document.createTextnode("item4");
 node.appendChild(textnode);
 list.appendChild(node);
 
 </script>
 ```
 
-- 当点击item4时，item4有事件响应。说明事件委托可以为新添加的DOM元素动态的添加事件
+- 当点击item4时，item4有事件响应。说明事件委托可以为新添加的dom元素动态的添加事件

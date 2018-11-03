@@ -2,8 +2,8 @@
 title: Taro开发小程序体验
 tags:
   - 小程序
-  - Taro
-categories: Front-End
+  - taro
+categories: front-end
 abbrlink: '70e88573'
 date: 2018-09-03 19:30:43
 ---
@@ -20,7 +20,7 @@ date: 2018-09-03 19:30:43
 - 支持使用 `ES7/ES8` 甚至更加新的 `ES` 规范，一切都可自行配置
 - 支持使用 `CSS` 预编译器，例如 `Sass` 等
 - 支持使用 `Redux` 进行状态管理
-- 小程序 `API` 优化，异步 `API Promise` 化等
+- 小程序 `api` 优化，异步 `api Promise` 化等
 
 
 ### 1.2 快速开始
@@ -160,7 +160,7 @@ class App extends Component {
 
 ## 三、路由
 
-> 我们只需要在入口文件的 `config `配置中指定好 `pages`，然后就可以在代码中通过` Taro` 提供的 API 来跳转到目的页面，例如
+> 我们只需要在入口文件的 `config `配置中指定好 `pages`，然后就可以在代码中通过` Taro` 提供的 api 来跳转到目的页面，例如
 
 
 ```js

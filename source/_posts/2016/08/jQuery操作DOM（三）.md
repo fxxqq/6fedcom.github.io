@@ -1,16 +1,16 @@
 ---
-title: jQuery操作DOM（三）
-tags: jQuery
-categories: Front-End
+title: jquery操作dom（三）
+tags: jquery
+categories: front-end
 abbrlink: f854d664
 date: 2016-08-07 21:10:08
 ---
 
-### 操作DOM
+### 操作dom
 <!--more-->
-- 什么是`DOM`：`Document Object Model`缩写，文档对象模型
+- 什么是`dom`：`Document Object Model`缩写，文档对象模型
 - 理解页面的树形结构
-- 什么是节点：是`DOM`结构中最小单元，包括元素、属性、文本、文档等。
+- 什么是节点：是`dom`结构中最小单元，包括元素、属性、文本、文档等。
 	
 
 ### 创建节点
@@ -25,17 +25,17 @@ document.createElement(name);
 var div = document.createElement("div");
 document.body.appendChild(div);
 ```
-`$(html)`：根据传递的标记字符串，创建`DOM`对象
+`$(html)`：根据传递的标记字符串，创建`dom`对象
 
 - 创建文本
 		
 ```js
 var div = document.createElement("div");
-var txt = document.createTextNode("DOM");
+var txt = document.createTextnode("dom");
 div.appendChild(txt);
 document.body.appendChild(div);
 
-var $div = = $("<div>DOM</div>");
+var $div = = $("<div>dom</div>");
 $(body).append($div);
 ```
 		
@@ -44,12 +44,12 @@ $(body).append($div);
 		
 ```js
 var div = document.createElement("div");
-var txt = document.createTextNode("DOM");
+var txt = document.createTextnode("dom");
 div.appendChild(txt);
 document.body.appendChild(div);
 div.setAttribute("title","盒子");
 
-var $div = = $("<div title='盒子'>DOM</div>");
+var $div = = $("<div title='盒子'>dom</div>");
 $(body).append($div);
 ```
 		
@@ -78,7 +78,7 @@ $(body).append($div);
 ### 删除内容
 
 - 移除
-	- `remove():`从`DOM`中删除所有匹配元素
+	- `remove():`从`dom`中删除所有匹配元素
 
 - 清空
 	- `empty()`:删除匹配的元素集合中所有子节点内容

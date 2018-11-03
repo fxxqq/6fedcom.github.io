@@ -1,8 +1,8 @@
 ---
 title: 【ElementUI】日期选择器时间选择范围限制插入、替换
-categories: Front-End
+categories: front-end
 tags:
-  - elementUI
+  - elementui
 abbrlink: 5e4f4766
 date: 2018-05-14 17:27:47
 ---

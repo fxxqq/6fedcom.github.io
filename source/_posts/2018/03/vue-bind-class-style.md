@@ -1,7 +1,7 @@
 ---
 title: vue之class与style绑定（三）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: c1cea378
 date: 2018-08-26 14:02:32
 ---

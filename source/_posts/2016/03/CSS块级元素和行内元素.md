@@ -1,7 +1,7 @@
 ---
 title: CSS块级元素和行内元素
-tags: CSS
-categories: Front-End
+tags: css
+categories: front-end
 abbrlink: 7aeb0108
 date: 2016-03-16 16:24:08
 ---

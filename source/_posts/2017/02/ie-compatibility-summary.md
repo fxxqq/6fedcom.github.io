@@ -3,7 +3,7 @@ title: IE6下常见的兼容性问题
 tags:
   - CSS
   - csshack
-categories: Front-End
+categories: front-end
 abbrlink: 12cd9bda
 date: 2017-02-07 11:10:43
 ---

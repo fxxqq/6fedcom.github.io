@@ -1,7 +1,7 @@
 ---
 title: JavaScript对象
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 17d9136e
 date: 2016-07-27 11:40:43
 ---

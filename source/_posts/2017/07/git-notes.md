@@ -1,7 +1,7 @@
 ---
-title: Git笔记总结篇
-tags: Git
-categories: Front-End
+title: git笔记总结篇
+tags: git
+categories: front-end
 abbrlink: 6c7ee97f
 date: 2017-07-29 21:30:24
 ---
@@ -11,11 +11,11 @@ date: 2017-07-29 21:30:24
 ### 安装
 ---
 
-- 在 Windows 上安装 Git 同样轻松，有个叫做 msysGit 的项目提供了安装包：
+- 在 Windows 上安装 git 同样轻松，有个叫做 msysgit 的项目提供了安装包：
 ```
 http://msysgit.github.io/
 ```
-- 完成安装之后，就可以使用命令行的 git 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 Git 项目管理工具。
+- 完成安装之后，就可以使用命令行的 git 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 git 项目管理工具。
 
 ### 配置
 ---
@@ -24,7 +24,7 @@ http://msysgit.github.io/
 - 首先是配置帐号信息
 
 ```
-git config -e [--global] # 编辑Git配置文件
+git config -e [--global] # 编辑git配置文件
 git config --global user.name yanhaijing
 git config --global user.email yanhaijing@yeah.net
 git config --list #查看配置的信息

@@ -1,9 +1,9 @@
 ---
-title: React之JSX语法及非DOM操作属性（二）
+title: React之JSX语法及非dom操作属性（二）
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: 22a8b6f6
 date: 2017-11-19 10:11:24
 ---
@@ -13,7 +13,7 @@ date: 2017-11-19 10:11:24
 
 - 一个语法或者说是语法糖
 - 基于`ECMAScript`一种新的特性
-- 一种定义带属性（`DOM`节点）树结构（`DOM`结构）的语法
+- 一种定义带属性（`dom`节点）树结构（`dom`结构）的语法
 
 **JSX不是**
 
@@ -28,7 +28,7 @@ date: 2017-11-19 10:11:24
 - 类`XML`语法，易于接受
 - 增强`JS`语义，在`js`中编辑`HTML`
 - 结构清晰
-- 抽象程度高（核心）：避免手`动DOM`操作，跨平台
+- 抽象程度高（核心）：避免手`动dom`操作，跨平台
 - 代码模块化
 
 
@@ -68,7 +68,7 @@ var Demo = React.createClass({
     }
 })
 // console.log(Demo)
-ReactDOM.render(<Demo />,document.getElementById('app'))
+Reactdom.render(<Demo />,document.getElementById('app'))
 ```
 
 四、JSX的注释
@@ -93,7 +93,7 @@ var HelloWorld = React.createClass({
         )
     }
 })
-ReactDOM.render(<HelloWorld/>,document.getElementById("app"))
+Reactdom.render(<HelloWorld/>,document.getElementById("app"))
 ```
 
 五、JSX中使用样式
@@ -110,10 +110,10 @@ ReactDOM.render(<HelloWorld/>,document.getElementById("app"))
     2、对象样式：在return前面定义一个样式对象，注意样式的写法，与HTML的不同点
     3、CSS样式
 
-注意事项，在HTML5中与在React中的样式的书写区别：
-    1、HTML5中以;结束
+注意事项，在html5中与在React中的样式的书写区别：
+    1、html5中以;结束
         在React中以,结束
-    2、在HTML5中属性与值都不需要加上引号
+    2、在html5中属性与值都不需要加上引号
         在React中，属于javascript对象，key中不能存在 - ,
         需要使用驼峰命名，如果是value值，需要加上引号
     3、在HTML中，设置带数字的值，宽度，高度==，需要带上单位
@@ -139,7 +139,7 @@ render:function(){
     )
 }
 })
-ReactDOM.render(<HelloWorld/>,document.getElementById("app"))
+Reactdom.render(<HelloWorld/>,document.getElementById("app"))
 ```
 
 六、条件判断的四种写法
@@ -174,10 +174,10 @@ var Demo = React.createClass({
         return <div className={this.state.onOff?"box2":"box1"} onClick={this.handleClick}>我是一个盒子</div>
     }
 })
-ReactDOM.render(<Demo/>,document.body)
+Reactdom.render(<Demo/>,document.body)
 ```
 
-七、非DOM（元素）属性
+七、非dom（元素）属性
 ---
 
 - `dangerouslySetInnerHTML`：在`JSX`中直接插入`HTML`代码，动态的添加`HTML`内容，由用户添加。需要使用属性，`__html`

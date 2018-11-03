@@ -1,7 +1,7 @@
 ---
 title: arguments详解
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 4cc35512
 date: 2016-12-13 14:55:24
 ---

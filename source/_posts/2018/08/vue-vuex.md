@@ -1,7 +1,7 @@
 ---
 title: vue状态管理之vuex（十六）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: a8440b25
 date: 2018-08-29 11:30:32
 ---
@@ -20,7 +20,7 @@ date: 2018-08-29 11:30:32
 ### 1.2 vuex中有什么
 
 ```js
-const store = new Vuex.Store({
+const store = new vuex.Store({
     state: {
         name: 'weish',
         age: 22

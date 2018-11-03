@@ -2,8 +2,8 @@
 title: 移动端布局适配方案
 tags:
   - 移动端
-  - HTML5
-categories: Front-End
+  - html5
+categories: front-end
 abbrlink: c48be4b9
 date: 2017-11-05 15:35:08
 ---

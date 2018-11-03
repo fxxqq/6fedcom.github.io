@@ -1,9 +1,9 @@
 ---
 title: 浅析redux-saga中间件及用法
 tags:
-  - Redux
+  - redux
   - 中间件
-categories: Front-End
+categories: front-end
 abbrlink: 54c6f1e
 date: 2018-08-29 19:20:20
 ---
@@ -112,7 +112,7 @@ export default ()=>(dispatch)=>{
 > 基本用法
 
 - 使用`createSagaMiddleware`方法创建`saga` 的`Middleware`，然后在创建的`redux`的`store`时，使用`applyMiddleware`函数将创建的`saga Middleware`实例绑定到`store`上，最后可以调用`saga Middleware`的`run`函数来执行某个或者某些`Middleware`。
-- 在`saga`的`Middleware`中，可以使用`takeEvery`或者`takeLatest`等`API`来监听某个`action`，当某个`action`触发后，`saga`可以使用`call`发起异步操作，操作完成后使用`put`函数触发`action`，同步更新`state`，从而完成整个`State`的更新。
+- 在`saga`的`Middleware`中，可以使用`takeEvery`或者`takeLatest`等`api`来监听某个`action`，当某个`action`触发后，`saga`可以使用`call`发起异步操作，操作完成后使用`put`函数触发`action`，同步更新`state`，从而完成整个`State`的更新。
 
 
 ## 三、redux-saga使用案例
@@ -152,7 +152,7 @@ sagaMiddleware.run(helloSaga);
 
 ### 4.1 声明式的Effect
 
-> 在`redux-saga`中提供了一系列的`api`，比如`take`、`put`、`all`、`select`等`API`，在`redux-saga`中将这一系列的`api`都定义为Effect。这些`Effect`执行后，当函数`resolve`时返回一个描述对象，然后`redux-saga`中间件根据这个描述对象恢复执行`generator`中的函数
+> 在`redux-saga`中提供了一系列的`api`，比如`take`、`put`、`all`、`select`等`api`，在`redux-saga`中将这一系列的`api`都定义为Effect。这些`Effect`执行后，当函数`resolve`时返回一个描述对象，然后`redux-saga`中间件根据这个描述对象恢复执行`generator`中的函数
 
 **redux-thunk的大体过程**
 
@@ -173,7 +173,7 @@ sagaMiddleware.run(helloSaga);
 
 ### 4.2 Effect提供的具体方法
 
-> 下面来介绍几个`Effect`中常用的几个方法，从低阶的API，比如`take`，`call(apply)`，`fork`，`put`，`select`等，以及高阶`API`，比如`takeEvery`和`takeLatest`等
+> 下面来介绍几个`Effect`中常用的几个方法，从低阶的api，比如`take`，`call(apply)`，`fork`，`put`，`select`等，以及高阶`api`，比如`takeEvery`和`takeLatest`等
 
 ```
 import {take,call,put,select,fork,takeEvery,takeLatest} from 'redux-saga/effects'
@@ -481,7 +481,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 
 const configureStore = preloadedState => {
-	// 安装 Redux-DevTools Chrome 插件后可用 composeEnhancers()
+	// 安装 Redux-Devtools Chrome 插件后可用 composeEnhancers()
 	const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 	const store = createStore(

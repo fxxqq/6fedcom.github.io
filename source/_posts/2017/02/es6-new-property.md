@@ -1,9 +1,9 @@
 ---
 title: ES6新特性
 tags:
-  - Javascript
-  - ES6
-categories: Front-End
+  - javascript
+  - es6
+categories: front-end
 abbrlink: de81bfb9
 date: 2017-02-04 18:20:43
 ---
@@ -101,7 +101,7 @@ date: 2017-02-04 18:20:43
 - `WeakMap`类型
 - `TypedArray`类型
 
-#### 十四、原有内置对象`API`增强
+#### 十四、原有内置对象`api`增强
 ---
 
 - `Object.assign`

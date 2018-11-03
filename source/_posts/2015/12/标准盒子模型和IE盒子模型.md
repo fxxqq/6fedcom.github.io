@@ -1,7 +1,7 @@
 ---
 title: 标准盒子模型和IE盒子模型
-tags: CSS
-categories: Front-End
+tags: css
+categories: front-end
 abbrlink: '85343e48'
 date: 2015-12-05 18:50:32
 ---

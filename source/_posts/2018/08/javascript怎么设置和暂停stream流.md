@@ -1,8 +1,8 @@
 ---
 title: Javascript怎么设置和暂停stream流
-categories: Front-End
+categories: front-end
 tags:
-  - Javascript
+  - javascript
 abbrlink: 84de6d80
 date: 2018-08-16 16:43:46
 ---

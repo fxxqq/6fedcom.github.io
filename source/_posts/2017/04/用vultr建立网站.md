@@ -35,7 +35,7 @@ ssh-keygen
 cat ~/.ssh/id_rsa.pub
 ~~~
 
-把生成的公钥放到GitHub上面
+把生成的公钥放到gitHub上面
 
 接着回来搭建基本的开发环境
 
@@ -81,7 +81,7 @@ docker run -itd -v /root/.ssh/:/root/.ssh --name node --net=host node:6.8 bash
 docker exec -it node bash
 ~~~
 
-从GitHub克隆过来自己写好的网页应用
+从gitHub克隆过来自己写好的网页应用
 
 ~~~
 git clone git@github.com:zhuanyongxigua/notepad-online.git

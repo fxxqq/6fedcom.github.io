@@ -1,19 +1,19 @@
 ---
 title: JavaScript中property和attribute的区别
 tags:
-  - Javascript
-categories: Front-End
+  - javascript
+categories: front-end
 abbrlink: cbc703ee
 date: 2016-07-27 13:50:20
 ---
 
 - **1. 定义**
 
-   -  `property`（元素属性）：`DOM` 节点是一个对象，因此，可以添加自定义的属性以及方法。`property` 的值可以是任何的数据类型，对大小写敏感。自定义的` property `不会出现在 `html` 中，只存在 `JavaSctipt` 中。
+   -  `property`（元素属性）：`dom` 节点是一个对象，因此，可以添加自定义的属性以及方法。`property` 的值可以是任何的数据类型，对大小写敏感。自定义的` property `不会出现在 `html` 中，只存在 `JavaSctipt` 中。
   -  `attribute`（标签属性）：`attribute` 只能是字符串，大小写不敏感，出现在 `innerHTML` 中，通过类数组` attributes `可以罗列所有的 `attribute`。
 - **2. 相同之处**
 <!--more-->
-  - 标准 `DOM` 的 `properties`（元素属性）与` attributes`（标签属性）是同步的。公认的 `attributes`（标签属性）会添加到` DOM `对象 `property`（元素属性）上，如 `id、style、className、disabled、checked `等。这时候直接操作 `property  (el. checked)` 或者使用 `el.getAttribute() / el.setAttribute() `效果一致。但是参数不一定相同，如：`el.className 与 el.getAttribute('class')`
+  - 标准 `dom` 的 `properties`（元素属性）与` attributes`（标签属性）是同步的。公认的 `attributes`（标签属性）会添加到` dom `对象 `property`（元素属性）上，如 `id、style、className、disabled、checked `等。这时候直接操作 `property  (el. checked)` 或者使用 `el.getAttribute() / el.setAttribute() `效果一致。但是参数不一定相同，如：`el.className 与 el.getAttribute('class')`
 
 - **3. 不同之处**
 
@@ -75,8 +75,8 @@ alert( document.body.getAttribute('ABba') ) // 1
 
 - **5. 优先选择 property**
 
- - 在实际应用中，98% 的 DOM 操作都是使用 properties。
+ - 在实际应用中，98% 的 dom 操作都是使用 properties。
 
  - 总结：只有两种情形需要使用` attributes ：`
-   - 1) 自定义的 `HTML attributes`，因为它并不同步到` DOM property`
+   - 1) 自定义的 `HTML attributes`，因为它并不同步到` dom property`
    - 2) 访问内置的` HTML attributes`（设置的初始值），这些 `attribute `不能从` property` 同步过来。例如` input `标签的 value 值

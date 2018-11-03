@@ -3,6 +3,7 @@ title: ES6学习笔记
 categories: 前端分享
 tags:
   - 优质文章分享
+  - es6
 abbrlink: a5a8a12c
 date: 2018-09-07 10:57:11
 ---

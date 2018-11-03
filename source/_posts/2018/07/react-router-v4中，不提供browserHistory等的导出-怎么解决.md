@@ -1,8 +1,8 @@
 ---
 title: react-router v4中，不提供browserHistory等的导出~~怎么解决
-categories: Front-End
+categories: front-end
 tags:
-  - React
+  - react
 abbrlink: 45e7735c
 date: 2018-07-17 16:48:04
 ---

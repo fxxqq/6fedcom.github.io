@@ -1,7 +1,7 @@
 ---
 title: vue路由（十一）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: 35f2d11f
 date: 2018-08-28 15:30:32
 ---

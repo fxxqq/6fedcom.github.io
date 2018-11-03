@@ -1,9 +1,9 @@
 ---
 title: 正则回顾总结
 tags:
-  - Javascript
+  - javascript
   - 正则表达式
-categories: Front-End
+categories: front-end
 abbrlink: d4f8fa93
 date: 2018-04-10 10:09:43
 ---

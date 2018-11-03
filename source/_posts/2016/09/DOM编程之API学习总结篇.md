@@ -1,25 +1,25 @@
 ---
-title: DOM编程之API学习总结篇
+title: dom编程之api学习总结篇
 tags:
-  - Javascript
-  - DOM
-categories: Front-End
+  - javascript
+  - dom
+categories: front-end
 abbrlink: 4ac22b9d
 date: 2016-09-22 17:10:43
 ---
 
 
-> 原文 [链接](http://blog.poetries.top/2016/09/22/DOM%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AF%87/)
+> 原文 [链接](http://blog.poetries.top/2016/09/22/dom%E7%BC%96%E7%A8%8B%E4%B9%8Bapi%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AF%87/)
 
 
 ### 一、基本类型介绍
 ---
 
-#### 1.1 Node类型
+#### 1.1 node类型
 ---
 
-- `DOM1`级定义了一个`Node`接口，该接口由`DOM`中所有节点类型实现。这个`Node`接口在`JS`中是作为`Node`类型实现的。在`IE9`以下版本无法访问到这个类型，`JS`中所有节点都继承自`Node`类型，都共享着相同的基本属性和方法
-- `Node`有一个属性`nodeType`表示`Node`的类型，它是一个整数，其数值分别表示相应的`Node`类型
+- `dom1`级定义了一个`node`接口，该接口由`dom`中所有节点类型实现。这个`node`接口在`JS`中是作为`node`类型实现的。在`IE9`以下版本无法访问到这个类型，`JS`中所有节点都继承自`node`类型，都共享着相同的基本属性和方法
+- `node`有一个属性`nodeType`表示`node`的类型，它是一个整数，其数值分别表示相应的`node`类型
 
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/d1.png)
@@ -27,15 +27,15 @@ date: 2016-09-22 17:10:43
 <!--more-->
 ![](http://7xq6al.com1.z0.glb.clouddn.com/d2.png)
 
-- 假设我们要判断一个`Node`是不是元素，我们可以这样判断
+- 假设我们要判断一个`node`是不是元素，我们可以这样判断
 
 ```js
-if(someNode.nodeType == 1){
-console.log("Node is a element");
+if(somenode.nodeType == 1){
+console.log("node is a element");
 }
 ```
 
--  这些`Node`类型中，我们最常用的就是`element`，`text`，`attribute`，`comment`，`document`，`document_fragment`这几种类型
+-  这些`node`类型中，我们最常用的就是`element`，`text`，`attribute`，`comment`，`document`，`document_fragment`这几种类型
 
 ##### 1.2 Element类型
 ---
@@ -49,7 +49,7 @@ console.log("Node is a element");
     - `nodeType`为`1`
     - `nodeName`为元素标签名，`tagName`也是返回标签名
     - `nodeValue`为`null`
-    - `parentNode`可能是`Document`或`Element`
+    - `parentnode`可能是`Document`或`Element`
     - 子节点可能是 `Element`，`Text`，`Comment`，`Processing_Instruction`，`CDATASection` 或 `EntityReference`
 
 ##### 1.3 Text类型
@@ -61,7 +61,7 @@ console.log("Node is a element");
     - `nodeType`为`3`
     - `nodeName`为`#text`
     - `nodeValue`为文本内容
-    - `parentNode`是一个`Element`
+    - `parentnode`是一个`Element`
     - 没有子节点
 
 ##### 1.4 Attr类型
@@ -73,7 +73,7 @@ console.log("Node is a element");
     - `nodeType`值为2
     - `nodeName`是特性的名称
     - `nodeValue`是特性的值
-    - `parentNode`为`null`
+    - `parentnode`为`null`
 
 ##### 1.5 Comment类型
 ---
@@ -82,7 +82,7 @@ console.log("Node is a element");
   - `nodeType`为8
   - `nodeName`为`#comment`
   - `nodeValue`为注释的内容
-  - `parentNode`可能是`Document`或`Element`
+  - `parentnode`可能是`Document`或`Element`
   - 没有子节点
 
 ##### 1.6 Document
@@ -95,7 +95,7 @@ console.log("Node is a element");
   - `nodeType`为`9`
   - `nodeName`为`#document`
   - `nodeValue`为 `null`
-  - `parentNode`为 `null`
+  - `parentnode`为 `null`
   - 子节点可能是一个`DocumentType`或`Element`
 
 ##### 1.7 DocumentFragment类型
@@ -104,25 +104,25 @@ console.log("Node is a element");
   - `nodeType`为`11`
   - `nodeName`为`#document-fragment`
   - `nodeValue`为`null`
-  - `parentNode`为`null`
+  - `parentnode`为`null`
 
-- 我们简单地介绍了几种常见的`Node`类型，要记住，`HTML`中的节点并不只是包括元素节点，它还包括文本节点，注释节点等等。在这里我们只是简单地说明了几种常见的节点.
+- 我们简单地介绍了几种常见的`node`类型，要记住，`HTML`中的节点并不只是包括元素节点，它还包括文本节点，注释节点等等。在这里我们只是简单地说明了几种常见的节点.
 
-### 二、 DOM提供的几个属性
+### 二、 dom提供的几个属性
 ---
-#### 2.1 childNodes属性
+#### 2.1 childnodes属性
 ---
-- 在一棵节点树上，`childNodes`属性可以用来获取任何一个元素的所有子节点，它是一个包含这个元素全部子元素的数组
+- 在一棵节点树上，`childnodes`属性可以用来获取任何一个元素的所有子节点，它是一个包含这个元素全部子元素的数组
 
 ```js
-element.childNodes
+element.childnodes
 ```
 
 #### 2.2 nodeType属性
 ---
 
 - 节点之间的关系构成了节点层次，`html` 页面的可以画出一个以`html`标签为根节点的树形结构
-`DOM` 会把文档看作是一棵树，同时定义了很多方法来操作这棵数中的每一个元素（节点）
+`dom` 会把文档看作是一棵树，同时定义了很多方法来操作这棵数中的每一个元素（节点）
 
 ```html
 <html lang="en">
@@ -156,14 +156,14 @@ description.firstChild.nodeValue = text;
 ---
 
 - `nodeValue`属性
-    - 如果想改变一个文本节点的值，那就使用`DOM`提供的`nodeValue`,它用来得到一个节点的值 `node.nodeValue` 
+    - 如果想改变一个文本节点的值，那就使用`dom`提供的`nodeValue`,它用来得到一个节点的值 `node.nodeValue` 
     - 需要注意：`nodeValue`属性获取对象的值时，得到的并不是包含在这个段落里的文本
     - nodeValue属性不仅可以用来检测节点的值，还可以设置节点的值
 
 
 #### 2.4 firstChild和lastChild属性
 ---
-- 数组元素`childNodes[0]`有个更直观的同义词。无论如何，只要访问`childNodes`数组的第一个元素，都可以把它写成`firstChild`
+- 数组元素`childnodes[0]`有个更直观的同义词。无论如何，只要访问`childnodes`数组的第一个元素，都可以把它写成`firstChild`
 
 ```js
 node.firstChild
@@ -171,19 +171,19 @@ node.firstChild
 与下面等价
 
 ```js
-node.childNodes[0]
+node.childnodes[0]
 ```
 
-- `DOM`还提供了一个与之对应的`lastChild`属性
+- `dom`还提供了一个与之对应的`lastChild`属性
 
 ```js
 node.lastChild
 ```
 
- ### 三、节点创建型API
+ ### 三、节点创建型api
  ---
  
- - 在这里，我将常用的`DOM`操作`api`进行分类，首先要介绍的是创建型的`api`。这一类型的`api`，简而言之就是用来创建节点的
+ - 在这里，我将常用的`dom`操作`api`进行分类，首先要介绍的是创建型的`api`。这一类型的`api`，简而言之就是用来创建节点的
  
 #### 3.1 createElement
 ---
@@ -197,28 +197,28 @@ var div = document.createElement("div");
 
 - 使用`createElement`要注意：通过`createElement`创建的元素并不属于`html`文档，它只是创建出来，并未添加到`html`文档中，要调用`appendChild`或`insertBefore`等方法将其添加到`HTML`文档树中
 
-#### 3.2 createTextNode
+#### 3.2 createTextnode
 ---
 
-- `createTextNode`用来创建一个文本节点，用法如下
+- `createTextnode`用来创建一个文本节点，用法如下
 
 ```js
 
-var textNode = document.createTextNode("一个TextNode");
+var textnode = document.createTextnode("一个Textnode");
 ```
-- `createTextNode`接收一个参数，这个参数就是文本节点中的文本，和`createElement`一样，创建后的文本节点也只是独立的一个节点，同样需要`appendChild`将其添加到`HTML`文档树中
+- `createTextnode`接收一个参数，这个参数就是文本节点中的文本，和`createElement`一样，创建后的文本节点也只是独立的一个节点，同样需要`appendChild`将其添加到`HTML`文档树中
 
-#### 3.3 cloneNode
+#### 3.3 clonenode
 
-- `cloneNode`是用来返回调用方法的节点的一个副本，它接收一个`bool`参数，用来表示是否复制子元素，使用如下：
+- `clonenode`是用来返回调用方法的节点的一个副本，它接收一个`bool`参数，用来表示是否复制子元素，使用如下：
 
 ```js
 var parent = document.getElementById("parentElement"); 
-var parent2 = parent.cloneNode(true);// 传入true
+var parent2 = parent.clonenode(true);// 传入true
 parent2.id = "parent2";
 ```
 
-- 这段代码通过`cloneNode`复制了一份`parent`元素，其中`cloneNode`的参数为`true`，表示`parent`的子节点也被复制，如果传入`false`，则表示只复制了`parent`节点
+- 这段代码通过`clonenode`复制了一份`parent`元素，其中`clonenode`的参数为`true`，表示`parent`的子节点也被复制，如果传入`false`，则表示只复制了`parent`节点
 
 ```html
 <div id="parent">
@@ -232,7 +232,7 @@ parent2.id = "parent2";
 
 var parent = document.getElementById("parent");
 document.getElementById("btnCopy").onclick = function(){
-	var parent2 = parent.cloneNode(true);
+	var parent2 = parent.clonenode(true);
 	parent2.id = "parent2";
 	document.body.appendChild(parent2);
 }
@@ -241,7 +241,7 @@ document.getElementById("btnCopy").onclick = function(){
 - 这段代码很简单，主要是绑定`button`事件，事件内容是复制了一个`parent`，修改其`id`，然后添加到文档中
 
 - **这里有几点要注意：**
-     - 和`createElement`一样，`cloneNode`创建的节点只是游离有`html`文档外的节点，要调用`appendChild`方法才能添加到文档树中
+     - 和`createElement`一样，`clonenode`创建的节点只是游离有`html`文档外的节点，要调用`appendChild`方法才能添加到文档树中
      - 如果复制的元素有`id`，则其副本同样会包含该`id`，由于`id`具有唯一性，所以在复制节点后必须要修改其id
      - 调用接收的`bool`参数最好传入，如果不传入该参数，不同浏览器对其默认值的处理可能不同
 
@@ -299,16 +299,16 @@ document.getElementById("btnAdd").onclick = function(){
 ```
 - 优化后的代码主要是创建了一个`fragment`，每次生成的`li`节点先添加到`fragment`，最后一次性添加到`list`
 
-#### 3.5 创建型API总结
+#### 3.5 创建型api总结
 ---
 
-- 创建型`api`主要包括`createElement`，`createTextNode`，`cloneNode`和`createDocumentFragment`四个方法，需要注意下面几点：
+- 创建型`api`主要包括`createElement`，`createTextnode`，`clonenode`和`createDocumentFragment`四个方法，需要注意下面几点：
     
     - 它们创建的节点只是一个孤立的节点，要通过`appendChild`添加到文档中
-    - `cloneNode`要注意如果被复制的节点是否包含子节点以及事件绑定等问题
+    - `clonenode`要注意如果被复制的节点是否包含子节点以及事件绑定等问题
     - 使用`createDocumentFragment`来解决添加大量节点时的性能问题
 
-### 四、页面修改型API
+### 四、页面修改型api
 ---
 
 - 前面我们提到创建型`api`，它们只是创建节点，并没有真正修改到页面内容，而是要调用`appendChild`来将其添加到文档树中。我在这里将这类会修改到页面内容归为一类。
@@ -355,12 +355,12 @@ document.getElementById("btnMove").onclick = function(){
 
 ```js
 
-parentNode.insertBefore(newNode,refNode);
+parentnode.insertBefore(newnode,refnode);
 ```
 
-- `parentNode`表示新节点被添加后的父节点
-- `newNode`表示要添加的节点
-- `refNode`表示参照节点，新节点会添加到这个节点之前
+- `parentnode`表示新节点被添加后的父节点
+- `newnode`表示要添加的节点
+- `refnode`表示参照节点，新节点会添加到这个节点之前
 
 ```html
 <div id="parent">
@@ -369,14 +369,14 @@ parentNode.insertBefore(newNode,refNode);
         子元素
     </div>
 </div>
-<input type="button" id="insertNode" value="插入节点" />
+<input type="button" id="insertnode" value="插入节点" />
 
 var parent = document.getElementById("parent");
 var child = document.getElementById("child");
-document.getElementById("insertNode").onclick = function(){
-	var newNode = document.createElement("div");
-	newNode.textContent = "新节点"
-	parent.insertBefore(newNode,child);
+document.getElementById("insertnode").onclick = function(){
+	var newnode = document.createElement("div");
+	newnode.textContent = "新节点"
+	parent.insertBefore(newnode,child);
 }
 ```
 
@@ -384,8 +384,8 @@ document.getElementById("insertNode").onclick = function(){
 - 和`appendChild`一样，如果插入的节点是页面上的节点，则会移动该节点到指定位置，并且保留其绑定的事件。
 
 - **关于第二个参数参照节点还有几个注意的地方：**
-  - `refNode`是必传的，如果不传该参数会报错
-  - 如果`refNode`是`undefined`或`null`，则`insertBefore`会将节点添加到子元素的末尾
+  - `refnode`是必传的，如果不传该参数会报错
+  - 如果`refnode`是`undefined`或`null`，则`insertBefore`会将节点添加到子元素的末尾
  
 #### 4.3 removeChild
 ---
@@ -403,8 +403,8 @@ var deletedChild = parent.removeChild(node);
 - **注意**：如果被删除的节点不是其子节点，则程序将会报错。我们可以通过下面的方式来确保可以删除：
 
 ```js
-if(node.parentNode){
-    node.parentNode.removeChild(node);
+if(node.parentnode){
+    node.parentnode.removeChild(node);
 }
 ```
 
@@ -423,17 +423,17 @@ parent.replaceChild(newChild,oldChild);
 - `newChild`是替换的节点，可以是新的节点，也可以是页面上的节点，如果是页面上的节点，则其将被转移到新的位置
 - `oldChild`是被替换的节点
 
-#### 4.5 页面修改型API总结
+#### 4.5 页面修改型api总结
 ---
 
 - 页面修改型api主要是这四个接口，**要注意几个特点**：
      - 不管是新增还是替换节点，如果新增或替换的节点是原本存在页面上的，则其原来位置的节点将被移除，也就是说同一个节点不能存在于页面的多个位置
      - 节点本身绑定的事件会不会消失，会一直保留着
 
-### 五、节点查询型API
+### 五、节点查询型api
 ---
 
-- 节点查询型`API`也是非常常用的
+- 节点查询型`api`也是非常常用的
 
 #### 5.1 document.getElementById
 ---
@@ -480,17 +480,17 @@ document.getElementById("btnShowCount").onclick = function(){
 #### 5.3 document.getElementsByName
 ---
 
-- `getElementsByName`主要是通过指定的`name`属性来获取元素，它返回一个即时的`NodeList`对象。一般用于获取表单元素的·name·属性
+- `getElementsByName`主要是通过指定的`name`属性来获取元素，它返回一个即时的`nodeList`对象。一般用于获取表单元素的·name·属性
 
 - **使用这个接口主要要注意几点：**
-  - 返回对象是一个即时的`NodeList`，它是随时变化的
+  - 返回对象是一个即时的`nodeList`，它是随时变化的
   - 在`HTML`元素中，并不是所有元素都有`name`属性，比如`div`是没有`name`属性的，但是如果强制设置`div的`name`属性，它也是可以被查找到的
   - 在`IE`中，如果`id`设置成某个值，然后传入`getElementsByName`的参数值和`id`值一样，则这个元素是会被找到的，所以最好不好设置同样的值给`id`和`name`
   
 #### 5.4 document.getElementsByClassName
 ---
 
-- 这个`API`是根据元素的`class`返回一个即时的`HTMLCollection`，用法如下
+- 这个`api`是根据元素的`class`返回一个即时的`HTMLCollection`，用法如下
 
 ```js
 var elements = document.getElementsByClassName(names);
@@ -554,7 +554,7 @@ document.getElementById("btnShow").addEventListener("click",function(){
 ```
 - 这段代码通过`querySelectorAll`，使用`id`选择器和`class`选择器选择了两个元素，并依次输出其内容。要注意两点：
   - `querySelectorAll`也是通过深度优先搜索，搜索的元素顺序和选择器的顺序无关
-  - 返回的是一个非即时的`NodeList`，也就是说结果不会随着文档树的变化而变化
+  - 返回的是一个非即时的`nodeList`，也就是说结果不会随着文档树的变化而变化
 
 - **兼容性问题**：`querySelector`和`querySelectorAll`在`ie8`以下的浏览器不支持
 
@@ -562,20 +562,20 @@ document.getElementById("btnShow").addEventListener("click",function(){
     - `document.getElementById`返回一个对象
     - `document.getElementsByName`和`document.getElementsByClasName`返回一个对象数组
 
-### 六、节点关系型API
+### 六、节点关系型api
 ---
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/d8.png)
 
 - 在`html`文档中的每个节点之间的关系都可以看成是家谱关系，包含父子关系，兄弟关系等等
 
-#### 6.1 父关系型API
+#### 6.1 父关系型api
 ---
 
-- `parentNode`：每个节点都有一个`parentNode`属性，它表示元素的父节点。`Element`的父节点可能是`Element`，`Document`或`DocumentFragment`
-- `parentElement`：返回元素的父元素节点，与`parentNode`的区别在于，其父节点必须是一个`Element`，如果不是，则返回`null`
+- `parentnode`：每个节点都有一个`parentnode`属性，它表示元素的父节点。`Element`的父节点可能是`Element`，`Document`或`DocumentFragment`
+- `parentElement`：返回元素的父元素节点，与`parentnode`的区别在于，其父节点必须是一个`Element`，如果不是，则返回`null`
 
-#### 6.2 兄弟关系型API
+#### 6.2 兄弟关系型api
 ---
 
 - `previousSibling`：节点的前一个节点，如果该节点是第一个节点，则为`null`。注意有可能拿到的节点是文本节点或注释节点，与预期的不符，要进行处理一下
@@ -604,11 +604,11 @@ document.getElementById("btnShow").addEventListener("click",function(){
 - `nextSibling`：节点的后一个节点，如果该节点是最后一个节点，则为`null`。注意有可能拿到的节点是文本节点，与预期的不符，要进行处理一下
 - `nextElementSibling`：返回后一个元素节点，后一个节点必须是`Element`，注意`IE9`以下浏览器不支持
 
-#### 6.3 子关系型API
+#### 6.3 子关系型api
 ---
 
-- `childNodes`：
-    - 返回一个即时的`NodeList`，表示元素的子节点列表，子节点可能会包含文本节点，注释节点等。`childNodes `子节点列表集合（只读属性 有兼容性问题 ）
+- `childnodes`：
+    - 返回一个即时的`nodeList`，表示元素的子节点列表，子节点可能会包含文本节点，注释节点等。`childnodes `子节点列表集合（只读属性 有兼容性问题 ）
 
 ```html
 <ul id="ul1">
@@ -619,23 +619,23 @@ document.getElementById("btnShow").addEventListener("click",function(){
 </ul>
 <script>
     var oUl = document.getElementById('ul1');
-    console.log(oUl.childNodes);
+    console.log(oUl.childnodes);
 </script>
 ```
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/d10.png)
 
-- 从截图中可以看出 这段代码中`ul`的子节点有`9`个，这说明使用`childNodes`获取的节点包括了文本节点和元素节点
+- 从截图中可以看出 这段代码中`ul`的子节点有`9`个，这说明使用`childnodes`获取的节点包括了文本节点和元素节点
 
-- `childNodes` 在低版本的`ie` 浏览器下获取的节点只包括元素节点，这就导致了兼容性问题
+- `childnodes` 在低版本的`ie` 浏览器下获取的节点只包括元素节点，这就导致了兼容性问题
 - 如何解决兼容性？？
   - 根据子节点的`nodeType`属性值判断
 
 ```js
-for (var i=0; i<oUl.childNodes.length; i++) {
+for (var i=0; i<oUl.childnodes.length; i++) {
 
-     if ( oUl.childNodes[i].nodeType == 1 ) {
-        oUl.childNodes[i].style.background = 'red';
+     if ( oUl.childnodes[i].nodeType == 1 ) {
+        oUl.childnodes[i].style.background = 'red';
      }
 
  }
@@ -653,12 +653,12 @@ for (var i = 0; i<oUl.children.length; i++){
 ```
 
 
-- `firstNode`：第一个子节点
-- `lastNode`：最后一个子节点
+- `firstnode`：第一个子节点
+- `lastnode`：最后一个子节点
 
 - `firstChild` （firstElementChild） `lastChild `(lastElementChild) 第一个子节点 最后一个子节点
 
-- `firstChild` 、`lastChild` 和`childNodes`同样的存在兼容性问题，在低版本`ie`浏览器中只能获取到元素节点
+- `firstChild` 、`lastChild` 和`childnodes`同样的存在兼容性问题，在低版本`ie`浏览器中只能获取到元素节点
 
 - `firstElementChild `、 `lastElementChild` 获取第一个元素子节点，最后一个元素子节点 推荐使用
 
@@ -674,7 +674,7 @@ oUl.lastElementChild.style.background = 'red';
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/d11.png)
 
-- `hasChildNodes`方法：可以用来判断是否包含子节点
+- `hasChildnodes`方法：可以用来判断是否包含子节点
 
 
 ### 七、元素属性型
@@ -702,10 +702,10 @@ element.setAttribute("id","test");
 element.id = "test";
 ```
 
-- **非DOM的解决方案**
+- **非dom的解决方案**
 
     - 其实不用`setAttribute`也可以改变元素的属性
-    - `setAttribute`方法是第一级`DOM`的组成部分，它可以设计任何元素节点的任意属性。在第1级`DOM`出现之前，你可以通过另外一种办法设置大部分元素的属性
+    - `setAttribute`方法是第一级`dom`的组成部分，它可以设计任何元素节点的任意属性。在第1级`dom`出现之前，你可以通过另外一种办法设置大部分元素的属性
 
 ```js
 element.value = "the new value";
@@ -754,9 +754,9 @@ for(var i=0;i<para.lenght;i++){
 
 ---
 - 参考
-  - `JavaScript DOM`编程艺术
-  - [常用DOM操作](http://www.jianshu.com/p/e1391dc17361)
+  - `JavaScript dom`编程艺术
+  - [常用dom操作](http://www.jianshu.com/p/e1391dc17361)
 
 ---
 
-- [本文mardown原文件](https://github.com/poetries/poetries.github.io/blob/dev/source/_posts/DOM%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AF%87.md)
+- [本文mardown原文件](https://github.com/poetries/poetries.github.io/blob/dev/source/_posts/dom%E7%BC%96%E7%A8%8B%E4%B9%8Bapi%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AF%87.md)

@@ -1,7 +1,7 @@
 ---
 title: 基于gulp的工作流配置
 tags: gulp
-categories: Build
+categories: 前端自动化
 abbrlink: 3e0bf339
 date: 2017-01-21 17:40:43
 ---

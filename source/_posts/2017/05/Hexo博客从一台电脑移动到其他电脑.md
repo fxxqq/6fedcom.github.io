@@ -1,5 +1,5 @@
 ---
-title: Hexo博客从一台电脑迁移到其他电脑
+title: hexo博客从一台电脑迁移到其他电脑
 abbrlink: c49c8a48
 date: 2017-05-20 16:18:46
 tags:

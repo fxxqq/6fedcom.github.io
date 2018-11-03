@@ -1,7 +1,7 @@
 ---
 title: Immutable之回顾
 tags: [Immutable]
-categories: Front-End
+categories: front-end
 abbrlink: 6c95af34
 date: 2018-08-13 20:00:24
 ---

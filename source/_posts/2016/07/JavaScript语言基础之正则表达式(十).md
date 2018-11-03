@@ -1,7 +1,7 @@
 ---
 title: JavaScript语言基础之正则表达式(十)
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: d5559bcf
 date: 2016-07-27 00:09:43
 ---

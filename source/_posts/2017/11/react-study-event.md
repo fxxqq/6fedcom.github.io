@@ -1,9 +1,9 @@
 ---
 title: React之事件（四）
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: 7d76909e
 date: 2017-11-19 10:13:32
 ---
@@ -58,7 +58,7 @@ var Demo = React.createClass({
         return <div onClick={this.handleClick}>Hello World</div>
     }
 })
-ReactDOM.render(<Demo/>,document.getElementById('app'))
+Reactdom.render(<Demo/>,document.getElementById('app'))
 ```
 
 ```js
@@ -93,7 +93,7 @@ var Demo = React.createClass({
         return <div onWheel={this.handleWheel} style={this.state}>这是一个案例，鼠标滚动实现背景颜色的变化</div>
     }
 })
-ReactDOM.render(<Demo/>,document.getElementById('app'))
+Reactdom.render(<Demo/>,document.getElementById('app'))
 ```
 三、事件对象
 ---

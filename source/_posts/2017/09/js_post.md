@@ -1,9 +1,9 @@
 ---
 title: iframe+表单跨域提交POST请求
 tags:
-  - Javascript
+  - javascript
   - 跨域
-categories: Front-End
+categories: front-end
 abbrlink: 2d05014a
 date: 2017-09-04 09:30:43
 ---

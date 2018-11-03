@@ -1,7 +1,7 @@
 ---
 title: bootstrap常用类小结
 tags: bootstrap
-categories: Front-End
+categories: front-end
 abbrlink: 10fd8090
 date: 2017-11-04 22:55:24
 ---

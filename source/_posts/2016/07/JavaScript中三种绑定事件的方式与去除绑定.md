@@ -1,7 +1,7 @@
 ---
 title: JavaScript中三种绑定事件的方式与去除绑定
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: e23a0171
 date: 2016-07-27 11:40:43
 ---
@@ -98,15 +98,15 @@ window.onload = function(){
 }
 ```
 
- 下面这种写法没有问题 但是给DOM树额外增加了两个变量
+ 下面这种写法没有问题 但是给dom树额外增加了两个变量
 ```js
 
 window.onload = function(){
 		var d = document.getElementById('school');
-		d.fn1 = function (){//fn1是d的属性 最终this此时指向DOM对象
+		d.fn1 = function (){//fn1是d的属性 最终this此时指向dom对象
 			this.style.background = 'blue';
 		}
-		d.fn2 = function (){//this此时指向DOM对象
+		d.fn2 = function (){//this此时指向dom对象
 			this.style.background = 'red';
 		}
 		

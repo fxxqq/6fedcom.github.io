@@ -1,14 +1,14 @@
 ---
 title: Sublime Text添加插入带当前时间作者详细说明
 tags: sublime
-categories: 工欲善其事必先利其器
+categories: 前端工具
 abbrlink: 9b02e30a
 date: 2016-03-03 16:40:12
 ---
 
 ### 创建插件：
 <!--more-->
-Tools → New Plugin:
+tools → New Plugin:
 
 ```
 import datetime

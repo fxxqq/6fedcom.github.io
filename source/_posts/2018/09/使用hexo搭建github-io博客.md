@@ -1,10 +1,10 @@
 ---
 title: 使用hexo搭建github.io博客
-categories: Hexo
+categories: hexo
 issues: 113
 abbrlink: c16b4f29
 date: 2018-09-07 10:57:11
-tags:
+tags: hexo
 ---
 
 ### Introduction
@@ -107,7 +107,7 @@ hexo new "移动端限制input框只能输入数字"
 ---
 title: title #文章標題
 date: 2016-06-01 23:47:44 #文章生成時間
-categories: "Hexo教程" #文章分類目錄 可以省略
+categories: "hexo教程" #文章分類目錄 可以省略
 tags: #文章标签 可以省略
      - 标签1
      - 标签2

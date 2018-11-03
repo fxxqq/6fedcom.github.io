@@ -1,8 +1,8 @@
 ---
 title: github访问慢解决办法
-categories: Front-End
+categories: front-end
 tags:
-  - Github
+  - github
 abbrlink: a35b8659
 date: 2018-06-11 18:13:12
 ---
@@ -42,9 +42,9 @@ date: 2018-06-11 18:13:12
 151.101.88.249 github.global.ssl.fastly.net
 ```
 
-**修改的Github对应的完整hosts为：**
+**修改的github对应的完整hosts为：**
 ```
-# Github
+# github
 151.101.44.249 github.global.ssl.fastly.net 
 192.30.253.113 github.com 
 103.245.222.133 assets-cdn.github.com 

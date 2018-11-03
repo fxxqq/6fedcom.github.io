@@ -1,9 +1,9 @@
 ---
-title: JavaScript&&PHP常用函数对比
+title: JavaScript&&php常用函数对比
 tags:
-  - Javascript
-  - PHP
-categories: Front-End
+  - javascript
+  - php
+categories: front-end
 abbrlink: d09b98b1
 date: 2016-11-12 16:08:24
 ---

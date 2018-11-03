@@ -1,9 +1,9 @@
 ---
 title: React之context
 tags:
-  - Javascript
-  - React
-categories: Front-End
+  - javascript
+  - react
+categories: front-end
 abbrlink: '904e3313'
 date: 2018-07-23 09:50:12
 ---

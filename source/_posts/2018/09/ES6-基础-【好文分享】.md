@@ -39,7 +39,7 @@ iterator, generator
 Map，Set 和 WeakMap，WeakSet
 Proxies
 Symbols
-Math，Number，String，Object 的新API
+Math，Number，String，Object 的新api
 #### [透彻掌握Promise的使用，读这篇就够了](https://www.jianshu.com/p/fe5f173276bd)
 ##### url：https://www.jianshu.com/p/fe5f173276bd
 ##### 知识点：

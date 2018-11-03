@@ -3,7 +3,7 @@ title: 配置sublime的LiveReload与webstorm的插件实现实时预览
 tags:
   - sublime
   - webstorm
-categories: 工欲善其事必先利其器
+categories: 前端工具
 abbrlink: d20d7c40
 date: 2016-08-13 18:20:43
 ---

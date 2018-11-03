@@ -1,7 +1,7 @@
 ---
 title: vue实例方法（十三)
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: e3a5e3c3
 date: 2018-08-28 16:04:43
 ---
@@ -19,10 +19,10 @@ date: 2018-08-28 16:04:43
 - `$children`:用来访问当前组件实例的直接子组件实例
 - `$refs`:用来访问`v-ref`指令的子组件
 
-**DOM访问**
+**dom访问**
 
 - `$el`：用来挂载当前组件实例的`dom`元素
-- `$els`：用来访问`$el`元素中使用了`v-el`指令的`DOM`元素
+- `$els`：用来访问`$el`元素中使用了`v-el`指令的`dom`元素
 
 ```html
 <div id="app2">
@@ -45,13 +45,13 @@ date: 2018-08-28 16:04:43
 - `$data`：用来访问组件实例观察的数据对象
 - `$options`：用来访问组件实例化时的初始化选项对象
 
-**DOM方法的使用**
+**dom方法的使用**
 
-- `$appendTo(elementOrSelector, callback)`：将`el`所指的`DOM`元素插入目标元素
-- `$before(elementOrSelector, callback)`：将`el`所指的`DOM`元素或片段插入目标元素之前
-- `$after(elementOrSelector, callback)`：将`el`所指的`DOM`元素或片段插入目标元素之后
-- `$remove(callback)`：将`el`所指的`DOM`元素或片段从`DOM`中删除
-- `$nextTick(callback)`：用来在下一次`DOM`更新循环后执行指定的回调函数
+- `$appendTo(elementOrSelector, callback)`：将`el`所指的`dom`元素插入目标元素
+- `$before(elementOrSelector, callback)`：将`el`所指的`dom`元素或片段插入目标元素之前
+- `$after(elementOrSelector, callback)`：将`el`所指的`dom`元素或片段插入目标元素之后
+- `$remove(callback)`：将`el`所指的`dom`元素或片段从`dom`中删除
+- `$nextTick(callback)`：用来在下一次`dom`更新循环后执行指定的回调函数
 
 **event方法的使用**
 
@@ -125,7 +125,7 @@ vm.$watch('a', function (newVal, oldVal) {
 
 ### 2.2 vm.$nextTick
 
-> 将回调延迟到下次 `DOM` 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。它跟全局方法 `Vue.nextTick` 一样，不同的是回调的 `this` 自动绑定到调用它的实例上
+> 将回调延迟到下次 `dom` 更新循环之后执行。在修改数据之后立即使用它，然后等待 dom 更新。它跟全局方法 `Vue.nextTick` 一样，不同的是回调的 `this` 自动绑定到调用它的实例上
 
 
 ```html
@@ -160,10 +160,10 @@ vm.$watch('a', function (newVal, oldVal) {
 
 ```
 
-> 放在`Vue.nextTick()`回调函数中的执行的应该是会对`DOM`进行操作的 `js`代码
+> 放在`Vue.nextTick()`回调函数中的执行的应该是会对`dom`进行操作的 `js`代码
 
 **什么时候需要用的Vue.nextTick()**
 
-- 你在`Vue`生命周期的`created()`钩子函数进行的`DOM`操作一定要放在`Vue.nextTick()`的回调函数中。原因是什么呢，原因是在`created()`钩子函数执行的时候`DOM` 其实并未进行任何渲染，而此时进行`DOM`操作无异于徒劳，所以此处一定要将`DOM`操作的js代码放进`Vue.nextTick()`的回调函数中。与之对应的就是`mounted`钩子函数，因为该钩子函数执行时所有的`DOM`挂载和渲染都已完成，此时在该钩子函数中进行任何`DOM`操作都不会有问题 。
-- 在数据变化后要执行的某个操作，而这个操作需要使用随数据改变而改变的`DOM`结构的时候，这个操作都应该放进`Vue.nextTick()`的回调函数中
-- 为了在数据变化之后等待 `Vue` 完成更新 `DOM` ，可以在数据变化之后立即使用 `Vue.nextTick(callback)` 。这样回调函数在 `DOM` 更新完成后就会调用
+- 你在`Vue`生命周期的`created()`钩子函数进行的`dom`操作一定要放在`Vue.nextTick()`的回调函数中。原因是什么呢，原因是在`created()`钩子函数执行的时候`dom` 其实并未进行任何渲染，而此时进行`dom`操作无异于徒劳，所以此处一定要将`dom`操作的js代码放进`Vue.nextTick()`的回调函数中。与之对应的就是`mounted`钩子函数，因为该钩子函数执行时所有的`dom`挂载和渲染都已完成，此时在该钩子函数中进行任何`dom`操作都不会有问题 。
+- 在数据变化后要执行的某个操作，而这个操作需要使用随数据改变而改变的`dom`结构的时候，这个操作都应该放进`Vue.nextTick()`的回调函数中
+- 为了在数据变化之后等待 `Vue` 完成更新 `dom` ，可以在数据变化之后立即使用 `Vue.nextTick(callback)` 。这样回调函数在 `dom` 更新完成后就会调用

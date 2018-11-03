@@ -1,10 +1,10 @@
 ---
 title: ajax和fetch、axios的优缺点以及比较
-categories: Front-End
+categories: front-end
 tags:
   - ajax
-  - Fetch
-  - Axios
+  - fetch
+  - axios
 abbrlink: 7fae67c6
 date: 2018-10-26 09:18:54
 ---
@@ -26,13 +26,13 @@ $.ajax({
 它是对原生XHR的封装，还支持JSONP，非常方便；真的是用过的都说好。但是随着react，vue等前端框架的兴起，jquery早已不复当年之勇。很多情况下我们只需要使用ajax，但是却需要引入整个jquery，这非常的不合理，于是便有了fetch的解决方案。
 
 **优缺点**
-- 本身是针对MVC的编程,不符合现在前端MVVM的浪潮
+- 本身是针对MVC的编程,不符合现在前端mvvm的浪潮
 - 基于原生的XHR开发，XHR本身的架构不清晰，已经有了fetch的替代方案
 - JQuery整个项目太大，单纯使用ajax却要引入整个JQuery非常的不合理（采取个性化打包的方案又不能享受CDN服务）
 
 ## fetch 
 
-`fetch`号称是ajax的替代品，它的API是基于Promise设计的，旧版本的浏览器不支持`Promise`，需要使用`polyfill es6-promise`
+`fetch`号称是ajax的替代品，它的api是基于Promise设计的，旧版本的浏览器不支持`Promise`，需要使用`polyfill es6-promise`
 
 举个例子：
 ```js
@@ -70,9 +70,9 @@ async function test() {
 }
 ```
  
-看起来是不是像同步代码一样？简直完美！好吧，其实并不完美，async/await是ES7的API，目前还在试验阶段，还需要我们使用babel进行转译成ES5代码。
+看起来是不是像同步代码一样？简直完美！好吧，其实并不完美，async/await是ES7的api，目前还在试验阶段，还需要我们使用babel进行转译成ES5代码。
 
-还要提一下的是，fetch是比较底层的API，很多情况下都需要我们再次封装。 比如：
+还要提一下的是，fetch是比较底层的api，很多情况下都需要我们再次封装。 比如：
 ```js
 // jquery ajax
 $.post(url, {name: 'test'})
@@ -85,13 +85,13 @@ fetch(url, {
 })
 ``` 
 
-由于fetch是比较底层的API，所以需要我们手动将参数拼接成'name=test'的格式，而jquery ajax已经封装好了。所以fetch并不是开箱即用的。
+由于fetch是比较底层的api，所以需要我们手动将参数拼接成'name=test'的格式，而jquery ajax已经封装好了。所以fetch并不是开箱即用的。
 另外，fetch还不支持超时控制。
 
 **优缺点：**
 - 符合关注分离，没有将输入、输出和用事件来跟踪的状态混杂在一个对象里
 - 更好更方便的写法
-- 更加底层，提供的API丰富（request, response）
+- 更加底层，提供的api丰富（request, response）
 - 脱离了XHR，是ES规范里新的实现方式
 - 1）fetchtch只对网络请求报错，对400，500都当做成功的请求，需要封装去处理
 - 2）fetch默认不会带cookie，需要添加配置项
@@ -104,7 +104,7 @@ axios是尤雨溪大神推荐使用的，它也是对原生XHR的封装。它有
 
 可以在node.js中使用
 提供了并发请求的接口
-支持Promise API
+支持Promise api
 简单使用
 
 ```js
@@ -141,7 +141,7 @@ axios体积比较小，也没有上面fetch的各种问题，我认为是当前�
 **优缺点：**
 
 从 node.js 创建 http 请求
-支持 Promise API
+支持 Promise api
 客户端支持防止CSRF
 提供了一些并发请求的接口（重要，方便了很多的操作）
 
@@ -152,7 +152,7 @@ axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，它�
 
 从浏览器中创建 XMLHttpRequest
 从 node.js 发出 http 请求
-支持 Promise API
+支持 Promise api
 拦截请求和响应
 转换请求和响应数据
 取消请求

@@ -1,7 +1,7 @@
 ---
 title: vue事件（六）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: dd238463
 date: 2018-08-27 00:10:32
 ---
@@ -26,7 +26,7 @@ date: 2018-08-27 00:10:32
 
 ```
 
-## 二、vue访问原生 DOM 事件
+## 二、vue访问原生 dom 事件
 
 > 用`$event`获取
 

@@ -1,9 +1,8 @@
 ---
 title: 使用umi改进dva项目开发
 tags:
-  - Dva
-  - Umi
-categories: Front-End
+  - dva
+categories: front-end
 abbrlink: c9093d3b
 date: 2018-09-07 20:10:23
 ---
@@ -703,7 +702,7 @@ export default { c: 'local' };
 }
 ```
 
-# 六、Mock 数据
+# 六、mock 数据
 
 **使用 umi 的 mock 功能**
 
@@ -717,16 +716,16 @@ export default {
   // GET POST 可省略
   '/api/users/1': { id: 1 },
 
-  // 支持自定义函数，API 参考 express@4
+  // 支持自定义函数，api 参考 express@4
   'POST /api/users/create': (req, res) => { res.end('OK'); },
 };
 ```
 
 > 当客户端（浏览器）发送请求，如：`GET /api/users`，那么本地启动的 `umi dev` 会跟此配置文件匹配请求路径以及方法，如果匹配到了，就会将请求通过配置处理
 
-**引入 Mock.js**
+**引入 mock.js**
 
-> `Mock.js` 是常用的辅助生成模拟数据的第三方库，当然你可以用你喜欢的任意库来结合 roadhog 构建数据模拟功能
+> `mock.js` 是常用的辅助生成模拟数据的第三方库，当然你可以用你喜欢的任意库来结合 roadhog 构建数据模拟功能
 
 ```js
 import mockjs from 'mockjs';

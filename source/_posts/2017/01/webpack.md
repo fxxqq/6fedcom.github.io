@@ -1,7 +1,7 @@
 ---
 title: webpack学习总结(一)
 tags: webpack
-categories: Build
+categories: 前端自动化
 abbrlink: 6925e1c1
 date: 2017-01-13 18:40:43
 ---
@@ -245,7 +245,7 @@ webpack -w
 ### 五、暴露全局变量
 ---
 
-> 有些模块依赖全局变量 `windows.jQuery` 才能使用，可以通过 [expose-loader](https://github.com/webpack/expose-loader) 暴露全局变量
+> 有些模块依赖全局变量 `windows.jquery` 才能使用，可以通过 [expose-loader](https://github.com/webpack/expose-loader) 暴露全局变量
 
 ```shell
 npm install jquery --save

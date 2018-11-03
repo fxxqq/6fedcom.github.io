@@ -1,9 +1,9 @@
 ---
 title: JavaScript运动框架之速度时间版本
 tags:
-  - Javascript
+  - javascript
   - 运动框架
-categories: Front-End
+categories: front-end
 abbrlink: 258fc88c
 date: 2017-01-12 15:50:43
 ---
@@ -480,7 +480,7 @@ function getId(id){
 ---
 
 - 速度的运动 通过速度来控制元素的 位移 / 折叠 / 淡入淡出
-- 时间的运动 通过时间来控制元素的 位移 / 折叠 / 淡入淡出(jQuery)
+- 时间的运动 通过时间来控制元素的 位移 / 折叠 / 淡入淡出(jquery)
 - 时间的运动 基于一些数学公式 匀速运动 在路程的每一个点 速度都一样
 
 

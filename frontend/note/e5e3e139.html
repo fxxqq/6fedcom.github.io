@@ -21,22 +21,22 @@
     <link rel="canonical" href="ture/note/e5e3e139.html">
     
     
-    <title>nginx之location的匹配规则 | 前端迷 (front-end fan) | 188105274(微信，邮箱同Q)</title>
+    <title>nginx之location的匹配规则 | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Nginx">
+    <meta name="keywords" content="nginx">
     <meta name="description" content="一、语法规则1location [=|~|~*|^~] /uri/ &amp;#123; … &amp;#125;    符号 含义     = 开头表示精确匹配   ^~ 开头表示 uri 以某个常规字符串开头，理解为匹配 url 路径即可。nginx 不对 url 做编码，因此请求为/static/20%/aa，可以被规则^~ /static/ /aa匹配到（注意是空格）   ~ 开头表示区分大小写的正则匹配">
-<meta name="keywords" content="Nginx">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx之location的匹配规则">
 <meta property="og:url" content="https://ru23.com/note/e5e3e139.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="一、语法规则1location [=|~|~*|^~] /uri/ &amp;#123; … &amp;#125;    符号 含义     = 开头表示精确匹配   ^~ 开头表示 uri 以某个常规字符串开头，理解为匹配 url 路径即可。nginx 不对 url 做编码，因此请求为/static/20%/aa，可以被规则^~ /static/ /aa匹配到（注意是空格）   ~ 开头表示区分大小写的正则匹配">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.198Z">
+<meta property="og:updated_time" content="2018-11-01T08:58:30.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx之location的匹配规则">
 <meta name="twitter:description" content="一、语法规则1location [=|~|~*|^~] /uri/ &amp;#123; … &amp;#125;    符号 含义     = 开头表示精确匹配   ^~ 开头表示 uri 以某个常规字符串开头，理解为匹配 url 路径即可。nginx 不对 url 做编码，因此请求为/static/20%/aa，可以被规则^~ /static/ /aa匹配到（注意是空格）   ~ 开头表示区分大小写的正则匹配">
@@ -54,6 +54,7 @@
 
 <body>
     <div id="loading" class="active"></div>
+
 
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
@@ -124,9 +125,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">nginx之location的匹配规则</div>
+        <div class="flex-col header-title ellipsis">
+            nginx之location的匹配规则
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -146,17 +149,18 @@
     </div>
 </header>
 <header class="content-header post-header">
-
     <div class="container fade-scale">
-        <h1 class="title">nginx之location的匹配规则</h1>
+        <h1 class="title">
+            nginx之location的匹配规则
+        </h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-02-28T05:01:42.000Z" itemprop="datePublished" class="page-time">
+            <time datetime="2018-02-28T05:01:42.000Z" itemprop="datePublished" class="page-time">
   2018-02-28
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
             
         </h5>
@@ -188,13 +192,13 @@
             <time class="post-time" title="2018-02-28 13:01:42" datetime="2018-02-28T05:01:42.000Z"  itemprop="datePublished">2018-02-28</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Back-end/">Back-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
 
 
             
 <span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
@@ -253,7 +257,7 @@
 <li>访问 <code>http://localhost/a.PNG</code> 则匹配规则 <code>E</code>，而不会匹配规则 <code>D</code>，因为规则 <code>E</code> 不区分大小写</li>
 </ul>
 <blockquote>
-<p>访问 <code>http://localhost/category/id/1111</code> 则最终匹配到规则 <code>F</code>，因为以上规则都不匹配，这个时候应该是 <code>nginx</code> 转发请求给后端应用服务器，比如 <code>FastCGI（PHP</code>），<code>tomcat（jsp）</code>，<code>nginx</code> 作为反向代理服务器存在</p>
+<p>访问 <code>http://localhost/category/id/1111</code> 则最终匹配到规则 <code>F</code>，因为以上规则都不匹配，这个时候应该是 <code>nginx</code> 转发请求给后端应用服务器，比如 <code>FastCGI（php</code>），<code>tomcat（jsp）</code>，<code>nginx</code> 作为反向代理服务器存在</p>
 </blockquote>
 <h2 id="二、运用场景"><a href="#二、运用场景" class="headerlink" title="二、运用场景"></a>二、运用场景</h2><blockquote>
 <p>实际使用中，至少有三个匹配规则定义，如下</p>
@@ -297,7 +301,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 
 
             
@@ -431,7 +435,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -512,8 +516,13 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -548,22 +557,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 

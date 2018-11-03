@@ -164,7 +164,7 @@ $ git log
 $ git commit --amend
 ```
 
-git commit --amend命令用来修复最近一次commit. 可以让你合并你缓存区的修改和上一次commit, 而不是提交一个新的快照. 还可以用来编辑上一次的commit描述.记住amend不是修改最近一次commit, 而是整个替换掉他. 对于Git来说是一个新的commit. 如果文件没有变，那就可以用它来修改上一次的描述。
+git commit --amend命令用来修复最近一次commit. 可以让你合并你缓存区的修改和上一次commit, 而不是提交一个新的快照. 还可以用来编辑上一次的commit描述.记住amend不是修改最近一次commit, 而是整个替换掉他. 对于git来说是一个新的commit. 如果文件没有变，那就可以用它来修改上一次的描述。
 
 #### 取消已缓存
 

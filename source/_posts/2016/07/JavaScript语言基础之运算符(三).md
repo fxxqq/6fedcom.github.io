@@ -1,7 +1,7 @@
 ---
 title: JavaScript语言基础之运算符(三)
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: 477e687b
 date: 2016-07-26 22:46:43
 ---
@@ -26,7 +26,7 @@ date: 2016-07-26 22:46:43
 
 - 逻辑运算符(`||`,`&&`,`!`)
 
-    - `||` 在js中和PHP中是不一样的 js中返回逻辑或的左边或右边的一个结果 PHP返回`||`或出来以后的结果即：`true` `false`
+    - `||` 在js中和php中是不一样的 js中返回逻辑或的左边或右边的一个结果 php返回`||`或出来以后的结果即：`true` `false`
     - 特殊性（注意）---一定要记住（这个特性和其他编程语言不一样）：在js里返回不是布尔值
     - `||` 短路运算 第一个条件为真 后面不执行
     - '&&'把表达式最后一个值返回（注意这里）

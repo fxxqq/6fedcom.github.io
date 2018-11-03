@@ -21,15 +21,15 @@
     <link rel="canonical" href="ture/note/54c6f1e.html">
     
     
-    <title>浅析redux-saga中间件及用法 | 前端迷 (front-end fan) | 188105274(微信，邮箱同Q)</title>
+    <title>浅析redux-saga中间件及用法 | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Redux,中间件">
+    <meta name="keywords" content="redux,中间件">
     <meta name="description" content="一、redux-thunk1.1 redux的副作用处理 redux中的数据流大致是  1UI—————&amp;gt;action（plain）—————&amp;gt;reducer——————&amp;gt;state——————&amp;gt;UI">
-<meta name="keywords" content="Redux,中间件">
+<meta name="keywords" content="redux,中间件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅析redux-saga中间件及用法">
 <meta property="og:url" content="https://ru23.com/note/54c6f1e.html">
@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-d55fad60b5d7d797.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-c71a6ade70f5f2fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-377d80bb1517bae2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.381Z">
+<meta property="og:updated_time" content="2018-11-01T09:36:40.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析redux-saga中间件及用法">
 <meta name="twitter:description" content="一、redux-thunk1.1 redux的副作用处理 redux中的数据流大致是  1UI—————&amp;gt;action（plain）—————&amp;gt;reducer——————&amp;gt;state——————&amp;gt;UI">
@@ -63,6 +63,7 @@
 
 <body>
     <div id="loading" class="active"></div>
+
 
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
@@ -133,9 +134,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">浅析redux-saga中间件及用法</div>
+        <div class="flex-col header-title ellipsis">
+            浅析redux-saga中间件及用法
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -155,17 +158,18 @@
     </div>
 </header>
 <header class="content-header post-header">
-
     <div class="container fade-scale">
-        <h1 class="title">浅析redux-saga中间件及用法</h1>
+        <h1 class="title">
+            浅析redux-saga中间件及用法
+        </h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-08-29T11:20:20.000Z" itemprop="datePublished" class="page-time">
+            <time datetime="2018-08-29T11:20:20.000Z" itemprop="datePublished" class="page-time">
   2018-08-29
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -197,13 +201,13 @@
             <time class="post-time" title="2018-08-29 19:20:20" datetime="2018-08-29T11:20:20.000Z"  itemprop="datePublished">2018-08-29</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
             
 <span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
@@ -286,7 +290,7 @@
 </blockquote>
 <ul>
 <li>使用<code>createSagaMiddleware</code>方法创建<code>saga</code> 的<code>Middleware</code>，然后在创建的<code>redux</code>的<code>store</code>时，使用<code>applyMiddleware</code>函数将创建的<code>saga Middleware</code>实例绑定到<code>store</code>上，最后可以调用<code>saga Middleware</code>的<code>run</code>函数来执行某个或者某些<code>Middleware</code>。</li>
-<li>在<code>saga</code>的<code>Middleware</code>中，可以使用<code>takeEvery</code>或者<code>takeLatest</code>等<code>API</code>来监听某个<code>action</code>，当某个<code>action</code>触发后，<code>saga</code>可以使用<code>call</code>发起异步操作，操作完成后使用<code>put</code>函数触发<code>action</code>，同步更新<code>state</code>，从而完成整个<code>State</code>的更新。</li>
+<li>在<code>saga</code>的<code>Middleware</code>中，可以使用<code>takeEvery</code>或者<code>takeLatest</code>等<code>api</code>来监听某个<code>action</code>，当某个<code>action</code>触发后，<code>saga</code>可以使用<code>call</code>发起异步操作，操作完成后使用<code>put</code>函数触发<code>action</code>，同步更新<code>state</code>，从而完成整个<code>State</code>的更新。</li>
 </ul>
 <h2 id="三、redux-saga使用案例"><a href="#三、redux-saga使用案例" class="headerlink" title="三、redux-saga使用案例"></a>三、redux-saga使用案例</h2><ul>
 <li><code>redux-saga</code>是控制执行的<code>generator</code>，在<code>redux-saga</code>中<code>action</code>是原始的<code>js</code>对象，把所有的异步副作用操作放在了<code>saga</code>函数里面。这样既统一了<code>action</code>的形式，又使得异步操作集中可以被集中处理</li>
@@ -303,7 +307,7 @@
 <p>和调用<code>redux</code>的其他中间件一样，如果想使用<code>redux-saga</code>中间件，那么只要在<code>applyMiddleware</code>中调用一个<code>createSagaMiddleware</code>的实例。唯一不同的是需要调用<code>run</code>方法使得<code>generator</code>可以开始执行</p>
 </blockquote>
 <h2 id="四、redux-saga使用细节"><a href="#四、redux-saga使用细节" class="headerlink" title="四、redux-saga使用细节"></a>四、redux-saga使用细节</h2><h3 id="4-1-声明式的Effect"><a href="#4-1-声明式的Effect" class="headerlink" title="4.1 声明式的Effect"></a>4.1 声明式的Effect</h3><blockquote>
-<p>在<code>redux-saga</code>中提供了一系列的<code>api</code>，比如<code>take</code>、<code>put</code>、<code>all</code>、<code>select</code>等<code>API</code>，在<code>redux-saga</code>中将这一系列的<code>api</code>都定义为Effect。这些<code>Effect</code>执行后，当函数<code>resolve</code>时返回一个描述对象，然后<code>redux-saga</code>中间件根据这个描述对象恢复执行<code>generator</code>中的函数</p>
+<p>在<code>redux-saga</code>中提供了一系列的<code>api</code>，比如<code>take</code>、<code>put</code>、<code>all</code>、<code>select</code>等<code>api</code>，在<code>redux-saga</code>中将这一系列的<code>api</code>都定义为Effect。这些<code>Effect</code>执行后，当函数<code>resolve</code>时返回一个描述对象，然后<code>redux-saga</code>中间件根据这个描述对象恢复执行<code>generator</code>中的函数</p>
 </blockquote>
 <p><strong>redux-thunk的大体过程</strong></p>
 <blockquote>
@@ -328,7 +332,7 @@
 <p>对比<code>redux-thunk</code>我们发现，<code>redux-saga</code>中监听到了原始<code>js</code>对象<code>action</code>，并不会马上执行副作用操作，会先通过<code>Effect</code>方法将其转化成一个描述对象，然后再将描述对象，作为标识，再恢复执行副作用函数</p>
 </blockquote>
 <h3 id="4-2-Effect提供的具体方法"><a href="#4-2-Effect提供的具体方法" class="headerlink" title="4.2 Effect提供的具体方法"></a>4.2 Effect提供的具体方法</h3><blockquote>
-<p>下面来介绍几个<code>Effect</code>中常用的几个方法，从低阶的API，比如<code>take</code>，<code>call(apply)</code>，<code>fork</code>，<code>put</code>，<code>select</code>等，以及高阶<code>API</code>，比如<code>takeEvery</code>和<code>takeLatest</code>等</p>
+<p>下面来介绍几个<code>Effect</code>中常用的几个方法，从低阶的api，比如<code>take</code>，<code>call(apply)</code>，<code>fork</code>，<code>put</code>，<code>select</code>等，以及高阶<code>api</code>，比如<code>takeEvery</code>和<code>takeLatest</code>等</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;take,call,put,select,fork,takeEvery,takeLatest&#125; from &apos;redux-saga/effects&apos;</span><br></pre></td></tr></table></figure>
 <h4 id="4-2-1-take"><a href="#4-2-1-take" class="headerlink" title="4.2.1 take"></a>4.2.1 take</h4><blockquote>
@@ -488,7 +492,7 @@
 <h2 id="六、案例分析二"><a href="#六、案例分析二" class="headerlink" title="六、案例分析二"></a>六、案例分析二</h2><h3 id="6-1-配置saga信息"><a href="#6-1-配置saga信息" class="headerlink" title="6.1 配置saga信息"></a>6.1 配置saga信息</h3><blockquote>
 <p><code>src/store/configureStore.js</code></p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware, compose &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="comment">// import &#123;createLogger &#125; from 'redux-logger'</span></span><br><span class="line"><span class="keyword">import</span> createHistory <span class="keyword">from</span> <span class="string">'history/createBrowserHistory'</span></span><br><span class="line"><span class="keyword">import</span> createSagaMiddleware <span class="keyword">from</span> <span class="string">'redux-saga'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; routerMiddleware &#125; <span class="keyword">from</span> <span class="string">'react-router-redux'</span></span><br><span class="line"><span class="keyword">import</span> rootSaga <span class="keyword">from</span> <span class="string">'../sagas'</span></span><br><span class="line"><span class="keyword">import</span> rootReducer <span class="keyword">from</span> <span class="string">'../reducers/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> history = createHistory()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> middleware = routerMiddleware(history)</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建saga middleware</span></span><br><span class="line"><span class="keyword">const</span> sagaMiddleware = createSagaMiddleware();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> configureStore = <span class="function"><span class="params">preloadedState</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="comment">// 安装 Redux-DevTools Chrome 插件后可用 composeEnhancers()</span></span><br><span class="line">	<span class="keyword">const</span> composeEnhancers = <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> store = createStore(</span><br><span class="line">		rootReducer,</span><br><span class="line">		preloadedState,</span><br><span class="line">		composeEnhancers(</span><br><span class="line">			applyMiddleware(sagaMiddleware,middleware)</span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">	sagaMiddleware.run(rootSaga);</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">module</span>.hot) &#123;</span><br><span class="line">		<span class="comment">// Enable Webpack hot module replacement for reducers</span></span><br><span class="line">		<span class="built_in">module</span>.hot.accept(<span class="string">'../reducers'</span>, () =&gt; &#123;</span><br><span class="line">			<span class="keyword">const</span> nextRootReducer = <span class="built_in">require</span>(<span class="string">'../reducers'</span>).default</span><br><span class="line">			store.replaceReducer(nextRootReducer)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> store</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> configureStore</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware, compose &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="comment">// import &#123;createLogger &#125; from 'redux-logger'</span></span><br><span class="line"><span class="keyword">import</span> createHistory <span class="keyword">from</span> <span class="string">'history/createBrowserHistory'</span></span><br><span class="line"><span class="keyword">import</span> createSagaMiddleware <span class="keyword">from</span> <span class="string">'redux-saga'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; routerMiddleware &#125; <span class="keyword">from</span> <span class="string">'react-router-redux'</span></span><br><span class="line"><span class="keyword">import</span> rootSaga <span class="keyword">from</span> <span class="string">'../sagas'</span></span><br><span class="line"><span class="keyword">import</span> rootReducer <span class="keyword">from</span> <span class="string">'../reducers/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> history = createHistory()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> middleware = routerMiddleware(history)</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建saga middleware</span></span><br><span class="line"><span class="keyword">const</span> sagaMiddleware = createSagaMiddleware();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> configureStore = <span class="function"><span class="params">preloadedState</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="comment">// 安装 Redux-Devtools Chrome 插件后可用 composeEnhancers()</span></span><br><span class="line">	<span class="keyword">const</span> composeEnhancers = <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> store = createStore(</span><br><span class="line">		rootReducer,</span><br><span class="line">		preloadedState,</span><br><span class="line">		composeEnhancers(</span><br><span class="line">			applyMiddleware(sagaMiddleware,middleware)</span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">	sagaMiddleware.run(rootSaga);</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">module</span>.hot) &#123;</span><br><span class="line">		<span class="comment">// Enable Webpack hot module replacement for reducers</span></span><br><span class="line">		<span class="built_in">module</span>.hot.accept(<span class="string">'../reducers'</span>, () =&gt; &#123;</span><br><span class="line">			<span class="keyword">const</span> nextRootReducer = <span class="built_in">require</span>(<span class="string">'../reducers'</span>).default</span><br><span class="line">			store.replaceReducer(nextRootReducer)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> store</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> configureStore</span><br></pre></td></tr></table></figure>
 <h3 id="6-2-配置reduce"><a href="#6-2-配置reduce" class="headerlink" title="6.2 配置reduce"></a>6.2 配置reduce</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/reducers/index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;combineReducers&#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> &#123;routerReducer <span class="keyword">as</span> routing&#125; <span class="keyword">from</span> <span class="string">'react-router-redux'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rootReducer = combineReducers(&#123;</span><br><span class="line">      routing,</span><br><span class="line">      poetry 				: <span class="built_in">require</span>(<span class="string">'./poetry'</span>).default</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> rootReducer</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/reducers/poetry.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> ActionTypes <span class="keyword">from</span> <span class="string">'../actions'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = &#123;</span><br><span class="line">	fetching:<span class="literal">false</span>,</span><br><span class="line">	error:<span class="literal">false</span>,</span><br><span class="line">	errMsg:<span class="string">''</span>,</span><br><span class="line">	data:[]</span><br><span class="line">&#125;,action) =&gt; &#123;</span><br><span class="line">	<span class="keyword">if</span>(action.type === ActionTypes.FETCH_POETRY_REQUEST)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;...state,<span class="attr">fetching</span>:<span class="literal">true</span>,<span class="attr">errMsg</span>:<span class="string">''</span>&#125;)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(action.type === ActionTypes.FETCH_POETRY_SUCCESS)&#123;</span><br><span class="line">		<span class="keyword">const</span> data = action.payload.data</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;...state,<span class="attr">fetching</span>:<span class="literal">false</span>,data,<span class="attr">errMsg</span>:<span class="string">''</span>&#125;)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(action.type === ActionTypes.FETCH_POETRY_FAILURE)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;...state,<span class="attr">fetching</span>:<span class="literal">false</span>,<span class="attr">error</span>:<span class="literal">true</span>,<span class="attr">errMsg</span>:action.payload.errMsg&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> state</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="6-3-处理action"><a href="#6-3-处理action" class="headerlink" title="6.3 处理action"></a>6.3 处理action</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/action/index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createAction &#125; <span class="keyword">from</span> <span class="string">'redux-actions'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> COMMON_FETCHING = <span class="string">'COMMON_FETCHING'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> COMMON_OVER = <span class="string">'COMMON_OVER'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> MSG_SHOW = <span class="string">'MSG_SHOW'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> MSG_INIT = <span class="string">'MSG_INIT'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> POP_LOGIN = <span class="string">'POP_LOGIN'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> initMsg = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;<span class="attr">type</span> : MSG_INIT&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相比用thunk多了一步 多了个action 来触发saga woker</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> FETCH_POETRY_REQUEST = <span class="string">'FETCH_POETRY_REQUEST'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> FETCH_POETRY_SUCCESS = <span class="string">'FETCH_POETRY_SUCCESS'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> FETCH_POETRY_FAILURE = <span class="string">'FETCH_POETRY_FAILURE'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchPoetryRequest = createAction(FETCH_POETRY_REQUEST)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchPoetrySuccess = createAction(FETCH_POETRY_SUCCESS)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchPoetryFauilure= createAction(FETCH_POETRY_FAILURE)</span><br></pre></td></tr></table></figure>
@@ -544,7 +548,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中间件/">中间件</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中间件/">中间件</a></li></ul>
 
 
             
@@ -678,7 +682,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -759,8 +763,13 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -795,22 +804,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 

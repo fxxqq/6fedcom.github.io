@@ -1,9 +1,9 @@
 ---
-title: 前端面试之MVVM浅析
+title: 前端面试之mvvm浅析
 tags:
   - 面试
-  - MVVM
-categories: Front-End
+  - mvvm
+categories: front-end
 abbrlink: 872b0859
 date: 2018-10-21 00:10:02
 ---
@@ -12,7 +12,7 @@ date: 2018-10-21 00:10:02
 
 ## 一、说一下使用 jquery 和使用框架的区别
 
-### 1.1  jQuery 实现 todo-list
+### 1.1  jquery 实现 todo-list
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-a6e157c329007a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -22,12 +22,12 @@ date: 2018-10-21 00:10:02
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-49817bcd534d8b6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-### 1.3 jQuery 和框架的区别
+### 1.3 jquery 和框架的区别
 
 - 数据和视图的分离，解耦（开放封闭原则）
-- 以数据驱动视图，只关心数据变化，DOM 操作被封装
+- 以数据驱动视图，只关心数据变化，dom 操作被封装
 
-## 二、说一下对 MVVM 的理解
+## 二、说一下对 mvvm 的理解
 
 ### 2.1 MVC
 
@@ -39,7 +39,7 @@ date: 2018-10-21 00:10:02
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-ae4d1af8796ca210.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-### 2.2 MVVM
+### 2.2 mvvm
 
 - `Model` - 模型、数据
 - `View` - 视图、模板（视图和模型是分离的）
@@ -51,7 +51,7 @@ date: 2018-10-21 00:10:02
 
 ### 2.3 关于 ViewModel
 
-- `MVVM` 不算是一种创新
+- `mvvm` 不算是一种创新
 - 但其中的 `ViewModel` 确实一种创新
 - 真正结合前端场景应用的创建
 
@@ -59,7 +59,7 @@ date: 2018-10-21 00:10:02
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-41caaec1c3c29299.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### 2.4 MVVM 框架的三大要素
+### 2.4 mvvm 框架的三大要素
 
 - 响应式：`vue `如何监听到 `data` 的每个属性变化？
 - 模板引擎：`vue` 的模板如何被解析，指令如何处理？
@@ -165,7 +165,7 @@ date: 2018-10-21 00:10:02
 - 执行 `render` 函数，会访问到 `vm.list vm.title`
 - 会被响应式的 `get` 方法监听到
 - 执行 `updateComponent` ，会走到 `vdom` 的 `patch` 方法
-- `patch` 将 `vnode `渲染成 `DOM` ，初次渲染完成
+- `patch` 将 `vnode `渲染成 `dom` ，初次渲染完成
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-5aafaf7b6286bfb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

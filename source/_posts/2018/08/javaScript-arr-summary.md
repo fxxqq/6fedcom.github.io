@@ -1,7 +1,7 @@
 ---
 title: JavaScript数组方法总结篇
-tags: Javascript
-categories: Front-End
+tags: javascript
+categories: front-end
 abbrlink: cd524e3e
 date: 2018-08-18 18:40:43
 ---
@@ -340,7 +340,7 @@ prices.toLocaleString(); // "￥7,500,8,123,12"
 
 prices.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' }); // "￥7,500,8,123,12"
 
-//MDN上的举例中说是 "￥7,￥500,￥8,123,￥12"，在浏览器和Node中验证了返回的都是 "￥7,500,8,123,12" 啊！
+//MDN上的举例中说是 "￥7,￥500,￥8,123,￥12"，在浏览器和node中验证了返回的都是 "￥7,500,8,123,12" 啊！
 
 // 以下的这个例子要跟上面的toString对照看
 

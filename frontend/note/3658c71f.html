@@ -21,25 +21,25 @@
     <link rel="canonical" href="ture/note/3658c71f.html">
     
     
-    <title>初识vue与环境搭建（一） | 前端迷 (front-end fan) | 188105274(微信，邮箱同Q)</title>
+    <title>初识vue与环境搭建（一） | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="Vue">
-    <meta name="description" content="一、初识 Vue框架是一个MVVM框架，Module和view是双向绑定的。vue没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。 因此在我们js编程中，不会去操作DOM、class，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。 MVVM框架的特点是没有控制器，通过view和module来进行交互，实际上底层已经帮我们">
-<meta name="keywords" content="Vue">
+    <meta name="keywords" content="vue">
+    <meta name="description" content="一、初识 Vue框架是一个mvvm框架，Module和view是双向绑定的。vue没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。 因此在我们js编程中，不会去操作dom、class，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。 mvvm框架的特点是没有控制器，通过view和module来进行交互，实际上底层已经帮我们">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初识vue与环境搭建（一）">
 <meta property="og:url" content="https://ru23.com/note/3658c71f.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="一、初识 Vue框架是一个MVVM框架，Module和view是双向绑定的。vue没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。 因此在我们js编程中，不会去操作DOM、class，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。 MVVM框架的特点是没有控制器，通过view和module来进行交互，实际上底层已经帮我们">
+<meta property="og:description" content="一、初识 Vue框架是一个mvvm框架，Module和view是双向绑定的。vue没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。 因此在我们js编程中，不会去操作dom、class，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。 mvvm框架的特点是没有控制器，通过view和module来进行交互，实际上底层已经帮我们">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T08:30:42.302Z">
+<meta property="og:updated_time" content="2018-11-01T09:37:46.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识vue与环境搭建（一）">
-<meta name="twitter:description" content="一、初识 Vue框架是一个MVVM框架，Module和view是双向绑定的。vue没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。 因此在我们js编程中，不会去操作DOM、class，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。 MVVM框架的特点是没有控制器，通过view和module来进行交互，实际上底层已经帮我们">
+<meta name="twitter:description" content="一、初识 Vue框架是一个mvvm框架，Module和view是双向绑定的。vue没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。 因此在我们js编程中，不会去操作dom、class，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。 mvvm框架的特点是没有控制器，通过view和module来进行交互，实际上底层已经帮我们">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
@@ -54,6 +54,7 @@
 
 <body>
     <div id="loading" class="active"></div>
+
 
     <aside id="menu"  >
     <div class="inner flex-row-vertical">
@@ -124,9 +125,11 @@
         <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">初识vue与环境搭建（一）</div>
+        <div class="flex-col header-title ellipsis">
+            初识vue与环境搭建（一）
+        </div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -146,17 +149,18 @@
     </div>
 </header>
 <header class="content-header post-header">
-
     <div class="container fade-scale">
-        <h1 class="title">初识vue与环境搭建（一）</h1>
+        <h1 class="title">
+            初识vue与环境搭建（一）
+        </h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-08-26T05:12:32.000Z" itemprop="datePublished" class="page-time">
+            <time datetime="2018-08-26T05:12:32.000Z" itemprop="datePublished" class="page-time">
   2018-08-26
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
             
         </h5>
@@ -188,22 +192,22 @@
             <time class="post-time" title="2018-08-26 13:12:32" datetime="2018-08-26T05:12:32.000Z"  itemprop="datePublished">2018-08-26</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Front-End/">Front-End</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
 
 
 
             
 <span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="一、初识"><a href="#一、初识" class="headerlink" title="一、初识"></a>一、初识</h2><ul>
-<li><code>Vue</code>框架是一个<code>MVVM</code>框架，<code>Module</code>和<code>view</code>是双向绑定的。<code>vue</code>没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。</li>
-<li>因此在我们js编程中，不会去操作<code>DOM</code>、<code>class</code>，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。</li>
-<li><code>MVVM</code>框架的特点是没有控制器，通过<code>view</code>和<code>module</code>来进行交互，实际上底层已经帮我们封装了</li>
+<li><code>Vue</code>框架是一个<code>mvvm</code>框架，<code>Module</code>和<code>view</code>是双向绑定的。<code>vue</code>没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。</li>
+<li>因此在我们js编程中，不会去操作<code>dom</code>、<code>class</code>，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。</li>
+<li><code>mvvm</code>框架的特点是没有控制器，通过<code>view</code>和<code>module</code>来进行交互，实际上底层已经帮我们封装了</li>
 </ul>
 <h3 id="1-1概况"><a href="#1-1概况" class="headerlink" title="1.1概况"></a>1.1概况</h3><ul>
 <li><code>Vue</code>本身不是一个框架</li>
@@ -298,7 +302,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
 
             
@@ -432,7 +436,7 @@
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：74<span id="busuanzi_value_site_pv"></span>
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -513,8 +517,13 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
 
+    
 
 </script>
 
@@ -549,22 +558,16 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
 
-        $(document).snowfall('clear');
-
-        $(document).snowfall({
-
-            image: "/img/huaban.png",
-
-            flakeCount:30,
-
-            minSize: 5,
-
-            maxSize: 22
-
-        });
-
-    </script>
+</script>
 
 
 

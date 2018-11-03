@@ -1,9 +1,9 @@
 ---
-title: Canvas 绘制动画时钟
+title: canvas 绘制动画时钟
 tags:
-  - HTML5
-  - Canvas
-categories: Front-End
+  - html5
+  - canvas
+categories: front-end
 abbrlink: 1e283ca4
 date: 2016-12-02 19:35:24
 ---

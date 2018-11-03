@@ -1,7 +1,7 @@
 ---
 title: 小程序之自定义组件
 tags: 小程序
-categories: Front-End
+categories: front-end
 abbrlink: 356b2ea3
 date: 2018-08-12 23:43:20
 ---

@@ -1,9 +1,9 @@
 ---
-title: 前后端分离之数据Mock
+title: 前后端分离之数据mock
 tags:
-  - Javascript
-  - Mock
-categories: Front-End
+  - javascript
+  - mock
+categories: front-end
 abbrlink: 30ed4e0c
 date: 2017-10-23 19:50:24
 ---
@@ -17,10 +17,10 @@ date: 2017-10-23 19:50:24
 
 ### 1.1 Web应用前后端分离
 
-- 后台向前台提供`API`接口,只负责数据的提供和计算，而完全不处理展现 
+- 后台向前台提供`api`接口,只负责数据的提供和计算，而完全不处理展现 
 - 前台通过`Http(Ajax)`请求获取数据,　在浏览器端动态构建界面显示数据
 
-### 1.2 利用Node+express提供模拟数据
+### 1.2 利用node+express提供模拟数据
 - 优点：可以在浏览器端访问 
 - 缺点：如果是打包发布就无法访问模拟数据, 只能是测试时使用
 
@@ -49,23 +49,23 @@ app.use('/api', apiRouter)
 
 ### 1.3 利用mockjs提供模拟数据
 
-> Mockjs: 用来拦截ajax请求, 生成随机数据返回
+> mockjs: 用来拦截ajax请求, 生成随机数据返回
 
 - 优点：不可以在浏览器端访问 
 - 缺点：打包发布运行模拟接口也是可以用的
 
 ```js
-import Mock from 'mockjs'  
+import mock from 'mockjs'  
 import apiData from './data.json'
 
-Mock.mock('/api2/seller', {code:0, data:apiData.seller})
-Mock.mock('/api2/goods', {code:0, data:apiData.goods})
-Mock.mock('/api2/ratings', {code:0, data:apiData.ratings})
+mock.mock('/api2/seller', {code:0, data:apiData.seller})
+mock.mock('/api2/goods', {code:0, data:apiData.goods})
+mock.mock('/api2/ratings', {code:0, data:apiData.ratings})
 ```
 
 ### 1.4 使用postman工具测试接口
 
-- `postman`是用来测试`API`接口的`chrome`插件 
+- `postman`是用来测试`api`接口的`chrome`插件 
 - `postman`也是一个活接口文档
 
 ### 1.5 ajax请求mock数据接口
@@ -149,19 +149,19 @@ function mockapi(req, res, opts) {
 }
 ```
 
-## 三、Mock.js使用详解
+## 三、mock.js使用详解
 
 
-### 3.1 Mock.js实现的功能
+### 3.1 mock.js实现的功能
 
 - 让前端攻城师独立于后端进行开发
 - 通过随机数据，模拟各种场景
 - 不需要修改既有代码，就可以拦截 `Ajax` 请求，返回模拟的响应数据
 - 支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。
 
-### 3.2 Mock安装
+### 3.2 mock安装
 
-#### 3.2.1 Node下使用
+#### 3.2.1 node下使用
 
 ```js
 # 安装
@@ -169,9 +169,9 @@ npm install mockjs
 ```
 
 ```js
-// 使用 Mock
-var Mock = require('mockjs')
-var data = Mock.mock({
+// 使用 mock
+var mock = require('mockjs')
+var data = mock.mock({
     // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
     'list|1-10': [{
         // 属性 id 是一个自增数，起始值为 1，每次增 1
@@ -185,16 +185,16 @@ console.log(JSON.stringify(data, null, 4))
 #### 3.2.2 RequireJS (AMD)
 
 ```js
-// 配置 Mock 路径
+// 配置 mock 路径
 require.config({
     paths: {
         mock: 'http://mockjs.com/dist/mock'
     }
 })
-// 加载 Mock
-require(['mock'], function(Mock){
-    // 使用 Mock
-    var data = Mock.mock({
+// 加载 mock
+require(['mock'], function(mock){
+    // 使用 mock
+    var data = mock.mock({
         'list|1-10': [{
             'id|+1': 1
         }]
@@ -209,7 +209,7 @@ require(['mock'], function(Mock){
 
 ### 3.3 使用语法
 
-- `Mock.js` 的语法规范包括两部分
+- `mock.js` 的语法规范包括两部分
   - 数据模板定义规范
   - 数据占位符定义规范
   
@@ -256,7 +256,7 @@ require(['mock'], function(Mock){
     - 生成一个浮点数，整数部分大于等于` min`、小于等于 `max`，小数部分保留 `dmin` 到 `dmax` 位
     
 ```js
-Mock.mock({
+mock.mock({
     'number1|1-100.1-10': 1,
     'number2|123.1-10': 1,
     'number3|123.3': 1,
@@ -302,7 +302,7 @@ Mock.mock({
     - 根据正则表达式 `regexp` 反向生成可以匹配它的字符串。用于生成自定义格式的字符串
     
 ```js
-Mock.mock({
+mock.mock({
     'regexp1': /[a-z][A-Z][0-9]/,
     'regexp2': /\w\W\s\S\d\D/,
     'regexp3': /\d{5,10}/
@@ -327,14 +327,14 @@ Mock.mock({
 ```
 
 - 用 `@`来标识其后的字符串是 占位符
-- 占位符 引用的是 `Mock.Random` 中的方法
-- 通过 `Mock.Random.extend()` 来扩展自定义占位符
+- 占位符 引用的是 `mock.Random` 中的方法
+- 通过 `mock.Random.extend()` 来扩展自定义占位符
 - 占位符 也可以引用 数据模板 中的属性
 - 占位符 会优先引用 数据模板 中的属性
 - 占位符 支持 相对路径 和 绝对路径
 
 ```js
-Mock.mock({
+mock.mock({
     name: {
         first: '@FIRST',
         middle: '@FIRST',
@@ -353,19 +353,19 @@ Mock.mock({
 }
 ```
 
-### 3.4 Mock.mock()
+### 3.4 mock.mock()
 
-#### 3.4.1 Mock.mock( template )
+#### 3.4.1 mock.mock( template )
 
 - 根据数据模板生成模拟数据
 
 ```html
-<!-- （必选）加载 Mock -->
+<!-- （必选）加载 mock -->
 <script src="http://mockjs.com/dist/mock.js"></script>
 ```
 
 ```js
-// Mock.mock( template )
+// mock.mock( template )
 var template = {
     'title': 'Syntax Demo',
 
@@ -396,14 +396,14 @@ var template = {
     },
 
     'array1|1': ['AMD', 'CMD', 'KMD', 'UMD'],
-    'array2|1-10': ['Mock.js'],
-    'array3|3': ['Mock.js'],
+    'array2|1-10': ['mock.js'],
+    'array3|3': ['mock.js'],
 
     'function': function() {
         return this.title
     }
 }
-var data = Mock.mock(template)
+var data = mock.mock(template)
 
 $('<pre>').text(JSON.stringify(data, null, 4))
     .appendTo('body')
@@ -433,12 +433,12 @@ $('<pre>').text(JSON.stringify(data, null, 4))
     },
     "array1": "KMD",
     "array2": [
-        "Mock.js"
+        "mock.js"
     ],
     "array3": [
-        "Mock.js",
-        "Mock.js",
-        "Mock.js"
+        "mock.js",
+        "mock.js",
+        "mock.js"
     ],
     "function": "Syntax Demo"
 }
@@ -446,17 +446,17 @@ $('<pre>').text(JSON.stringify(data, null, 4))
 
 
 
-#### 3.4.2 Mock.mock( rurl, template )
+#### 3.4.2 mock.mock( rurl, template )
 
 - 记录数据模板。当拦截到匹配 `rurl` 的 `Ajax` 请求时，将根据数据模板 `template `生成模拟数据，并作为响应数据返回
 
 ```html
-<!-- （必选）加载 Mock -->
+<!-- （必选）加载 mock -->
 <script src="http://mockjs.com/dist/mock.js"></script>
 ```
 ```js
-// Mock.mock(rurl, template)
-Mock.mock(/\.json/, {
+// mock.mock(rurl, template)
+mock.mock(/\.json/, {
     'list|1-10': [{
         'id|+1': 1,
         'email': '@EMAIL'
@@ -494,13 +494,13 @@ $.ajax({
 }
 ```
 
-#### 3.4.3 Mock.mock( rurl, function( options ) )
+#### 3.4.3 mock.mock( rurl, function( options ) )
 
 - 记录用于生成响应数据的函数。当拦截到匹配 `rurl` 的 `Ajax` 请求时，函数 `function(options) `将被执行，并把执行结果作为响应数据返回
 
 ```js
-// Mock.mock(rurl, function(options))
-Mock.mock(/\.json/, function(options) {
+// mock.mock(rurl, function(options))
+mock.mock(/\.json/, function(options) {
     return options
 })
 $.ajax({
@@ -556,36 +556,36 @@ $.ajax({
 }
 ```
 
-#### 3.4.4 Mock.setup()
+#### 3.4.4 mock.setup()
 
-- `Mock.setup( settings )`
+- `mock.setup( settings )`
   - 配置拦截 `Ajax` 请求时的行为。支持的配置项有：`timeout`
   
 > 指定被拦截的 `Ajax` 请求的响应时间，单位是毫秒。值可以是正整数，例如 `400`，表示 `400` 毫秒 后才会返回响应内容；也可以是横杠 `'-'` 风格的字符串，例如 `'200-600'`，表示响应时间介于 `200` 和 `600` 毫秒之间。默认值是`'10-100'`
 
 ```js
-Mock.setup({
+mock.setup({
     timeout: 400
 })
-Mock.setup({
+mock.setup({
     timeout: '200-600'
 })
 ```
 
-- 目前，接口 `Mock.setup( settings ) `仅用于配置 `Ajax` 请求
+- 目前，接口 `mock.setup( settings ) `仅用于配置 `Ajax` 请求
 
-#### 3.4.5 Mock.Random
+#### 3.4.5 mock.Random
 
-- `Mock.Random` 是一个工具类，用于生成各种随机数据
-- `Mock.Random `的方法在数据模板中称为『占位符』，书写格式为 `@`占位符(参数 [, 参数]) 
+- `mock.Random` 是一个工具类，用于生成各种随机数据
+- `mock.Random `的方法在数据模板中称为『占位符』，书写格式为 `@`占位符(参数 [, 参数]) 
 
 ```js
-var Random = Mock.Random
+var Random = mock.Random
 Random.email()
 // => "n.clark@miller.io"
-Mock.mock('@email')
+mock.mock('@email')
 // => "y.lee@lewis.org"
-Mock.mock( { email: '@email' } )
+mock.mock( { email: '@email' } )
 // => { email: "v.lewis@hall.gov" }
 ```
 
@@ -617,10 +617,10 @@ cnpm install json-server mockjs --save
 - 在项目根目录新建 `mock `文件夹，新建 `mock/db.js` 作为 `mock` 数据源，`mock/server.js `作为 `mock` 服务，`mock/routes.js `重写路由表
 
 ```js
-var Mock = require('mockjs');
+var mock = require('mockjs');
 
 module.exports = {
-  getComment: Mock.mock({
+  getComment: mock.mock({
     "error": 0,
     "message": "success",
     "result|40": [{
@@ -629,7 +629,7 @@ module.exports = {
       "date": "@datetime"
     }]
   }),
-  addComment: Mock.mock({
+  addComment: mock.mock({
     "error": 0,
     "message": "success",
     "result": []

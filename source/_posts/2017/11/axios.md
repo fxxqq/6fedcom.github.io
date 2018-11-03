@@ -1,9 +1,9 @@
 ---
-title: Axios异步请求的那些事
+title: axios异步请求的那些事
 tags:
-  - Axios
-  - React
-categories: Front-End
+  - axios
+  - react
+categories: front-end
 abbrlink: dee16b26
 date: 2017-11-08 18:55:24
 ---
@@ -15,7 +15,7 @@ date: 2017-11-08 18:55:24
 
 - 从浏览器中创建 `XMLHttpRequest`
 - 从 `node.js` 发出 `http` 请求
-- 支持` Promise API`
+- 支持` Promise api`
 - 拦截请求和响应
 - 转换请求和响应数据
 - 取消请求

@@ -2,8 +2,8 @@
 title: 前端面试之hybrid
 tags:
   - 面试
-  - Hybird
-categories: Front-End
+  - hybrid
+categories: front-end
 abbrlink: b3429210
 date: 2018-10-21 01:13:10
 ---

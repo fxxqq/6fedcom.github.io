@@ -1,7 +1,7 @@
 ---
 title: Vue学习总结(一)
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: 7c9df6a
 date: 2017-03-19 12:24:08
 ---
@@ -29,7 +29,7 @@ var vm = new Vue({
 // 选项
 })
 ```
-- 在实例化 `Vue` 时，需要传入一个选项对象，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。全部的选项可以在 `API` 文档中查看
+- 在实例化 `Vue` 时，需要传入一个选项对象，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。全部的选项可以在 `api` 文档中查看
 
 **属性与方法**
 
@@ -92,9 +92,9 @@ console.log('a is: ' + this.a)
 
 ## 三、模板语法
 
-- `Vue.js` 使用了基于 `HTML` 的模版语法，允许开发者声明式地将 `DOM` 绑定至底层 `Vue` 实例的数据。所有`Vue.js` 的模板都是合法的 `HTML` ，所以能被遵循规范的浏览器和 `HTML` 解析器解析。
+- `Vue.js` 使用了基于 `HTML` 的模版语法，允许开发者声明式地将 `dom` 绑定至底层 `Vue` 实例的数据。所有`Vue.js` 的模板都是合法的 `HTML` ，所以能被遵循规范的浏览器和 `HTML` 解析器解析。
 
-- 在底层的实现上， `Vue `将模板编译成虚拟` DOM` 渲染函数。结合响应系统，在应用状态改变时， `Vue` 能够智能地计算出重新渲染组件的最小代价并应用到 `DOM` 操作上。
+- 在底层的实现上， `Vue `将模板编译成虚拟` dom` 渲染函数。结合响应系统，在应用状态改变时， `Vue` 能够智能地计算出重新渲染组件的最小代价并应用到 `dom` 操作上。
 
 ### 插值
 
@@ -152,7 +152,7 @@ console.log('a is: ' + this.a)
 **指令**
 
 - 指令（`Directives`）是带有` v- `前缀的特殊属性。指令属性的值预期是单一 `JavaScript `表达式（除了`v-for` ，之后再讨论）
-- 指令的职责就是当其表达式的值改变时相应地将某些行为应用到 DOM 上
+- 指令的职责就是当其表达式的值改变时相应地将某些行为应用到 dom 上
 
 ```html
 <p v-if="seen">Now you see me</p>
@@ -169,7 +169,7 @@ console.log('a is: ' + this.a)
 ```
 - 在这里 `href `是参数，告知` v-bind` 指令将该元素的 `href` 属性与表达式 `url `的值绑定
 
-- 另一个例子是 `v-on` 指令，它用于监听 `DOM` 事件：
+- 另一个例子是 `v-on` 指令，它用于监听 `dom` 事件：
 
 ```html
 <a v-on:click="doSomething">
@@ -455,7 +455,7 @@ data: { styleObject: { color: 'red', fontSize: '13px' }}
 ```html
 <h1 v-show="ok">Hello!</h1>
 ```
-- 不同的是有 `v-show` 的元素会始终渲染并保持在 `DOM` 中。 `v-show `是简单的切换元素的 `CSS` 属性`display`
+- 不同的是有 `v-show` 的元素会始终渲染并保持在 `dom` 中。 `v-show `是简单的切换元素的 `CSS` 属性`display`
 
 - 注意 `v-show` 不支持 `<template>` 语法
 
@@ -559,7 +559,7 @@ v-bind:item="item" v-bind:index="index">
 
 **监听事件**
 
-- 可以用 `v-on` 指令监听 `DOM` 事件来触发一些 `JavaScript` 代码
+- 可以用 `v-on` 指令监听 `dom` 事件来触发一些 `JavaScript` 代码
 
 ```html
 <div id="example-1"> 
@@ -598,7 +598,7 @@ methods: {
 	}
 }})
 ```
-- 有时也需要在内联语句处理器中访问原生 `DOM` 事件。可以用特殊变量 `$event `把它传入方法
+- 有时也需要在内联语句处理器中访问原生 `dom` 事件。可以用特殊变量 `$event `把它传入方法
 
 ```html
 <button 
@@ -617,7 +617,7 @@ warn: function (message, event) {
 ```
 **事件修饰符**
 
-- 在事件处理程序中调用` event.preventDefault() `或`event.stopPropagation() `是非常常见的需求。尽管我们可以在` methods` 中轻松实现这点，但更好的方式是：`methods` 只有纯粹的数据逻辑，而不是去处理` DOM` 事件细节
+- 在事件处理程序中调用` event.preventDefault() `或`event.stopPropagation() `是非常常见的需求。尽管我们可以在` methods` 中轻松实现这点，但更好的方式是：`methods` 只有纯粹的数据逻辑，而不是去处理` dom` 事件细节
 - 为了解决这个问题， `Vue.js` 为 `v-on `提供了 事件修饰符。通过由点(`.`)表示的指令后缀来调用修饰符
 - `.stop`
 - `.prevent`
@@ -679,7 +679,7 @@ warn: function (message, event) {
 
 - 实际上，使用 `v-on `有几个好处
   - 扫一眼` HTML` 模板便能轻松定位在 `JavaScript `代码里对应的方法
-  - 因为你无须在 `JavaScript`里手动绑定事件，你的 `ViewModel `代码可以是非常纯粹的逻辑，和 `DOM` 完全解耦，更易于测试。
+  - 因为你无须在 `JavaScript`里手动绑定事件，你的 `ViewModel `代码可以是非常纯粹的逻辑，和 `dom` 完全解耦，更易于测试。
   - 当一个 `ViewModel `被销毁时，所有的事件处理器都会自动被删除。你无须担心如何自己清理它们。
 
 ## 九、表单控制绑定
@@ -801,7 +801,7 @@ template: '<span>{{ message}}</span>
 
 ## 十一、附录
 
-### 附录一 MVC、MVP、MVVM模式对比
+### 附录一 MVC、MVP、mvvm模式对比
 
 #### MVC
 ---
@@ -872,10 +872,10 @@ template: '<span>{{ message}}</span>
 - `View` 与` Model` 不发生联系，都通过 `Presenter` 传递。
 - `View` 非常薄，不部署任何业务逻辑，称为"被动视图"（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里
 
-#### MVVM
+#### mvvm
 ---
 
-- `MVVM` 模式将 `Presenter` 改名为 `ViewModel`，基本上与 `MVP` 模式完全一致
+- `mvvm` 模式将 `Presenter` 改名为 `ViewModel`，基本上与 `MVP` 模式完全一致
 - 唯一的区别是，它采用双向绑定（data-binding）：`View`的变动，自动反映在 `ViewModel`，反之亦然
 
 ![](http://image.beekka.com/blog/2015/bg2015020110.png)
@@ -885,7 +885,7 @@ template: '<span>{{ message}}</span>
 #### React
 
 - `React` 和 `Vue` 有许多相似之处，它们都有
-    - 使用 `Virtual DOM`
+    - 使用 `Virtual dom`
     - 提供了响应式（Reactive）和组件化（Composable）的视图组件。
     - 将注意力集中保持在核心库，伴随于此，有配套的路由和负责处理全局状态管理的库
 
@@ -894,7 +894,7 @@ template: '<span>{{ message}}</span>
 - `Vue` 的一些语法和 `Angular `的很相似（例如 `v-if vs ng-if`）。因为` Angular `是 `Vue `早期开发的灵感来源。然而，Angular 中存在的许多问题，在 Vue 中已经得到解决
 
 **复杂性**
- - 在 `API` 与设计两方面上` Vue.js `都比 `Angular 1` 简单得多，因此你可以快速地掌握它的全部特性并投入开发。
+ - 在 `api` 与设计两方面上` Vue.js `都比 `Angular 1` 简单得多，因此你可以快速地掌握它的全部特性并投入开发。
 
 **灵活性和模块化**
 
@@ -906,7 +906,7 @@ template: '<span>{{ message}}</span>
 
 **指令与组件**
 
-- 在 `Vue` 中指令和组件分得更清晰。指令只封装 `DOM` 操作，而组件代表一个自给自足的独立单元 —— 有自己的视图和数据逻辑。在 `Angular` 中两者有不少相混的地方
+- 在 `Vue` 中指令和组件分得更清晰。指令只封装 `dom` 操作，而组件代表一个自给自足的独立单元 —— 有自己的视图和数据逻辑。在 `Angular` 中两者有不少相混的地方
 
 **性能**
 

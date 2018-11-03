@@ -1,7 +1,7 @@
 ---
 title: 学会使用box-sizingCSS布局
-tags: CSS
-categories: Front-End
+tags: css
+categories: front-end
 abbrlink: b485e090
 date: 2016-09-04 17:20:08
 ---

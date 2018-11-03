@@ -1,7 +1,7 @@
 ---
-title: Hexo+GitHub搭建免费博客
-tags: Hexo
-categories: Hexo
+title: hexo+gitHub搭建免费博客
+tags: hexo
+categories: hexo
 abbrlink: c01af22e
 date: 2016-03-14 19:33:57
 ---
@@ -24,9 +24,9 @@ date: 2016-03-14 19:33:57
 2、也需要一定的学习能力和钻研精神；
 3、懂一些网页基础知识
 
-本博客是利用 Hexo +Github搭建,主题是 [Next][1] ,感觉不错,不需要什么上面所说的知识,也能搭建成功,方便也美观
+本博客是利用 hexo +github搭建,主题是 [Next][1] ,感觉不错,不需要什么上面所说的知识,也能搭建成功,方便也美观
 
-**为什么选择GitHub Pages？**
+**为什么选择gitHub Pages？**
 ---
 
 很多人用wordpress，你为什么要用github pages来搭建？
@@ -40,27 +40,27 @@ date: 2016-03-14 19:33:57
 
 **搭建需要懂得github基本操作**
 
-**不会GitHub的参考如下文章：**
+**不会gitHub的参考如下文章：**
 
- - [使用Github Pages建独立博客][2]
- - [GitHub的简单使用][3]
+ - [使用github Pages建独立博客][2]
+ - [gitHub的简单使用][3]
  - [史上最全github使用方法：github入门到精通][4]
  - [github搭建动态网站][5]
 
 
-### 第二部分 Hexo+GitHub搭建博客
+### 第二部分 hexo+gitHub搭建博客
 ---
 
 **环境准备**
 
- - [安装Node][6]
-到Node.js官网下载相应平台的最新版本，一路安装即可
+ - [安装node][6]
+到node.js官网下载相应平台的最新版本，一路安装即可
 
- - [安装Git][7]
+ - [安装git][7]
 
- - GitHub
+ - gitHub
 
-  - 首先注册一个『GitHub』帐号，已有的默认默认请忽略
+  - 首先注册一个『gitHub』帐号，已有的默认默认请忽略
   - 建立与你用户名对应的仓库，仓库名必须为『your_user_name.github.com』
   - 添加SSH公钥到『Account settings -> SSH Keys -> Add SSH Key』
  
@@ -76,7 +76,7 @@ date: 2016-03-14 19:33:57
 
 - **安装**
 
-Node和Git都安装好后，可执行如下命令安装hexo：
+node和git都安装好后，可执行如下命令安装hexo：
 
 `npm install -g hexo`
 
@@ -160,7 +160,7 @@ photos:
 - **主题安装**
 ---
 
-hexo的主题列表[Hexo Themes][9]。
+hexo的主题列表[hexo Themes][9]。
 比较喜欢[pacman][10]，[modernist][11]、next。Pacman最为优秀，简洁大方小清新，同时移动版本支持的也很好
 
 
@@ -208,7 +208,7 @@ git clone https://github.com/heroicyang/hexo-theme-modernist.git themes/modernis
 
 - [为NexT主题添加文章阅读量统计功能][12]
 - [为hexo添加多说评论][13]
-- [教你用swiftype为Hexo添加站内搜索][14]
+- [教你用swiftype为hexo添加站内搜索][14]
 
 
 - **图床**
@@ -219,7 +219,7 @@ git clone https://github.com/heroicyang/hexo-theme-modernist.git themes/modernis
 
  - **域名**
 
-- 将独立域名与GitHub Pages的空间绑定
+- 将独立域名与gitHub Pages的空间绑定
 - 方法一：在站点source目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如wuxiaolong.me
 - 方法二：在Repository的根目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如wuxiaolong.us
 
@@ -256,7 +256,7 @@ git clone https://github.com/heroicyang/hexo-theme-modernist.git themes/modernis
 └── package.json
 ```
 
-- .deploy：执行hexo deploy命令部署到GitHub上的内容目录
+- .deploy：执行hexo deploy命令部署到gitHub上的内容目录
 - public：执行hexo generate命令，输出的静态网页内容目录
 - scaffolds：layout模板文件目录，其中的md文件可以添加编辑
 - scripts：扩展脚本目录，这里可以自定义一些javascript脚本
@@ -290,7 +290,7 @@ git clone https://github.com/heroicyang/hexo-theme-modernist.git themes/modernis
 |   ├── fancybox       #fancybox效果源码
 |   └── js             #javascript源代码
 ├── _config.yml        #主题配置文件
-└── README.md          #用GitHub的都知道
+└── README.md          #用gitHub的都知道
 ```
 
 - **插件**
@@ -304,7 +304,7 @@ git clone https://github.com/heroicyang/hexo-theme-modernist.git themes/modernis
 
 
 - **迁移**
-hexo支持从其他类型站点迁移，如通用RSS，Jekyll，Octopress，WordPress等。请参考官方文档[Hexo Migration][18]。
+hexo支持从其他类型站点迁移，如通用RSS，Jekyll，Octopress，WordPress等。请参考官方文档[hexo Migration][18]。
 
 
 - **更新**
@@ -315,21 +315,21 @@ hexo支持从其他类型站点迁移，如通用RSS，Jekyll，Octopress，Word
 - **换机器写博客**
 ---
 
-保留好自己的博客源码。换机器写博客，就只能使用各种网盘的同步功能，或者你把你的站点源文件提交到某代码托管服务器。另外，貌似这篇很牛逼，[Hexo 服务器端布署及 Dropbox 同步][19]。
+保留好自己的博客源码。换机器写博客，就只能使用各种网盘的同步功能，或者你把你的站点源文件提交到某代码托管服务器。另外，貌似这篇很牛逼，[hexo 服务器端布署及 Dropbox 同步][19]。
 
-办法是这样的，先在一个目录下做好`Node+Git+Hexo`的绿色环境，写个`hexos.bat`可以一键启动hexo工作台，把整个目录用`Dropbox同步`，这样随便在办公室或家的任何笔记本台式机都可以写博客，也不用处理什么文件拷贝备份的事情
+办法是这样的，先在一个目录下做好`node+git+hexo`的绿色环境，写个`hexos.bat`可以一键启动hexo工作台，把整个目录用`Dropbox同步`，这样随便在办公室或家的任何笔记本台式机都可以写博客，也不用处理什么文件拷贝备份的事情
 
 
 
 ### 问题详解
 ---
- - [hexo 部署至Git遇到的坑][20]
- - [Hexo常见问题解决方案][21]
+ - [hexo 部署至git遇到的坑][20]
+ - [hexo常见问题解决方案][21]
 
 ## 总结
 ---
 
- - 对于一个不懂什么服务器,什么前端的人来说,Hexo+Github给搭建个人博客带来了很大的便利.
+ - 对于一个不懂什么服务器,什么前端的人来说,hexo+github给搭建个人博客带来了很大的便利.
  - 搭建博客不是心血来潮,也并不是一帆风顺的,所以需要耐心,折腾得起才行.
  - 很多教程已经过时,多看官方文档.
  - 搭建博客并不是必须,写笔记文章找个平台也是可以的.
@@ -339,13 +339,13 @@ hexo支持从其他类型站点迁移，如通用RSS，Jekyll，Octopress，Word
 ** 参考：**
 ---
 
- - [Hexo官网][22]
- - [Hexo + GitHub 博客搭建之旅][23]
- - [配置 - Hexo 中文版 - 极客学院Wiki][24]
+ - [hexo官网][22]
+ - [hexo + gitHub 博客搭建之旅][23]
+ - [配置 - hexo 中文版 - 极客学院Wiki][24]
  - [零基础免费搭建个人博客-hexo+github][25]
  - [5 分钟快速安装Next主题][26]
  - [Themes · hexojs/hexo Wiki][27]
- - [Hexo 主题开发指南](https://gold.xitu.io/entry/576d662b0a2b580058f9c5d5)
+ - [hexo 主题开发指南](https://gold.xitu.io/entry/576d662b0a2b580058f9c5d5)
 
  
 

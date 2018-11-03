@@ -1,13 +1,13 @@
 ---
-title: Git常用命令备忘记录
-tags: GitHub
-categories: VCS
+title: git常用命令备忘记录
+tags: github
+categories:  前端自动化
 abbrlink: a0d4697b
 date: 2016-03-15 11:16:12
 ---
 
 
-#### Git配置
+#### git配置
 ---
 <!--more-->
 ```
@@ -25,7 +25,7 @@ git config -l  # 列举所有配置
 
 
 
-#### Git常用命令:查看、添加、提交、删除、找回，重置修改文件**
+#### git常用命令:查看、添加、提交、删除、找回，重置修改文件**
 ---
 
 ```
@@ -85,7 +85,7 @@ git log --stat      # 查看提交统计信息
 **tig**
 ---
 
-**Git 本地分支管理查看、切换、创建和删除分支**
+**git 本地分支管理查看、切换、创建和删除分支**
 
 ```
 git br -r           # 查看远程分支
@@ -116,7 +116,7 @@ git rebase master <branch>       # 将master rebase到branch，相当于：
 git co <branch> && git rebase master && git co master && git merge <branch>
 ```
 
-**Git补丁管理(方便在多台机器上开发同步时用)**
+**git补丁管理(方便在多台机器上开发同步时用)**
 ---
 
 ```
@@ -126,7 +126,7 @@ git apply --check ../sync.patch  # 测试补丁能否成功
 
 ```
 
-#### Git暂存管理
+#### git暂存管理
 ---
 
 ```
@@ -137,7 +137,7 @@ git stash drop                   # 删除暂存区
 ```
 
 
-#### Git远程分支管理
+#### git远程分支管理
 ---
 
 ```
@@ -156,7 +156,7 @@ git push origin <local_branch>:<remote_branch>  # 创建远程分支
 git push origin :<remote_branch>  #先删除本地分支(git br -d <branch>)，然后再push删除远程分支
 ```
 
-#### Git远程仓库管理
+#### git远程仓库管理
 ---
 
 ```

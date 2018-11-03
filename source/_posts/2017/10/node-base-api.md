@@ -1,9 +1,9 @@
 ---
-title: Nodejs之基础API（三）
+title: nodejs之基础api（三）
 tags:
-  - Javascript
-  - Node
-categories: Back-end
+  - javascript
+  - node
+categories: back-end
 abbrlink: b424fccc
 date: 2017-10-15 20:50:35
 ---
@@ -106,7 +106,7 @@ sep  \
 posix sep  /
 win32 sep  \
 PATH C:\Python27\;C:\Python27\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\
-System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\b
+System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\git\b
 in;C:\Program Files\nodejs;;e:\Program Files\VS Code\bin;C:\Users\Administrator\
 AppData\Roaming\npm;.;;.;;.;
 delimiter  ;
@@ -134,7 +134,7 @@ Buffer
 > - buffer用来处理二进制数据流的
 > - 类似于整数数组，大小固定
 
-> Buffer 类在 Node.js 中是一个全局变量，因此无需使用 require('buffer').Buffer
+> Buffer 类在 node.js 中是一个全局变量，因此无需使用 require('buffer').Buffer
 
 
 ```js
@@ -250,7 +250,7 @@ event
 ---
 
 
-> 大多数 Node.js 核心 API 都采用惯用的异步事件驱动架构，其中某些类型的对象（触发器）会周期性地触发命名事件来调用函数对象（监听器）
+> 大多数 node.js 核心 api 都采用惯用的异步事件驱动架构，其中某些类型的对象（触发器）会周期性地触发命名事件来调用函数对象（监听器）
 
 - `eventEmitter.on()` 方法用于注册监听器，`eventEmitter.emit()` 方法用于触发事件
 - 这和在浏览器上不同，在浏览器上靠的是用户做的一些UI的操作触发，如`click\hover`
@@ -301,7 +301,7 @@ class CustomEvent extends EventEmitter {}
 
 const ce = new CustomEvent();
 
-// once只响应一次事件 如jQuery中的once()
+// once只响应一次事件 如jquery中的once()
 ce.once("test",()=> {
 	console.log("test event once");
 })
@@ -520,7 +520,7 @@ ws.on("finish", () => {
 ---
 
 ```js
-// 异步回调 Node.js v8.0.0版本增加了util.promisify函数
+// 异步回调 node.js v8.0.0版本增加了util.promisify函数
 
 const fs = require("fs");
 const promisify = require("util").promisify;

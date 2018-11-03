@@ -2,8 +2,8 @@
 title: 移动端适配
 tags:
   - 移动端
-  - HTML5
-categories: Front-End
+  - html5
+categories: front-end
 abbrlink: 783ce8a9
 date: 2017-05-23 21:35:08
 ---

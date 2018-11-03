@@ -1,9 +1,9 @@
 ---
 title: 编写可维护的JavaScript
 tags:
-  - Javascript
+  - javascript
   - 读书笔记
-categories: Front-End
+categories: front-end
 abbrlink: '22690905'
 date: 2017-10-24 10:10:43
 ---
@@ -39,7 +39,7 @@ addEventListener(element,"click",function(e){
 ```js
 var myApp = {
     handleClick: function(e){
-     // 假设事件支持 DOMlevel2
+     // 假设事件支持 domlevel2
      
      e.preventDefault();
      e.stopPropagation();
@@ -171,15 +171,15 @@ if ("count" in object){
 ```
 
 - 如果只是想检查实例对象的某个属性是否存在，则使用`hasOwnProperty()`方法。所有继承`Object`的对象都有这个方法，如果实例存在则返回`true`。
-- 需要注意的是在`IE8`以及更早的版本中，`DOM`对象并非继承`Object`，因此也不包含这个方法
+- 需要注意的是在`IE8`以及更早的版本中，`dom`对象并非继承`Object`，因此也不包含这个方法
 
 ```js
-//对于所有非DOM对象来说，这是好的做法
+//对于所有非dom对象来说，这是好的做法
 if(object.hasOwnProperty("related")) {
 
 }
 
-// 如果你不确定是否为DOM对象 则需要这样写
+// 如果你不确定是否为dom对象 则需要这样写
 
 if("hasOwnProperty" in object && object.hasOwnProperty("related")) {
 

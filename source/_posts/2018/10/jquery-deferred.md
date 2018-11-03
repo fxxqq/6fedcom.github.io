@@ -1,9 +1,8 @@
 ---
-title: jQuery的deferred对象详解
+title: jquery的deferred对象详解
 tags:
-  - Deferred
-  - jQuery
-categories: Front-End
+  - jquery
+categories: front-end
 abbrlink: d841583b
 date: 2018-10-20 21:50:43
 ---
@@ -18,16 +17,16 @@ date: 2018-10-20 21:50:43
 
 - 通常的做法是，为它们指定回调函数（callback）。即事先规定，一旦它们运行结束，应该调用哪些函数。
 
-- 但是，在回调函数方面，`jQuery`的功能非常弱。为了改变这一点，jQuery开发团队就设计了`deferred`对象。
+- 但是，在回调函数方面，`jquery`的功能非常弱。为了改变这一点，jquery开发团队就设计了`deferred`对象。
 
-- 简单说，`deferred`对象就是`jQuery`的回调函数解决方案。在英语中，`defer`的意思是"延迟"，所以`deferred`对象的含义就是"延迟"到未来某个点再执行。
+- 简单说，`deferred`对象就是`jquery`的回调函数解决方案。在英语中，`defer`的意思是"延迟"，所以`deferred`对象的含义就是"延迟"到未来某个点再执行。
 
 - 它解决了如何处理耗时操作的问题，对那些操作提供了更好的控制，以及统一的编程接口。它的主要功能，可以归结为四点
 
 二、ajax操作的链式写法
 ---
 
-> 首先，回顾一下jQuery的ajax操作的传统写法：
+> 首先，回顾一下jquery的ajax操作的传统写法：
 
 ```js
 $.ajax({
@@ -47,7 +46,7 @@ $.ajax({
 
 - 在上面的代码中，`$.ajax()`接受一个对象参数，这个对象包含两个方法：`success`方法指定操作成功后的回调函数，`error`方法指定操作失败后的回调函数。
 
-- `$.ajax()`操作完成后，如果使用的是低于`1.5.0`版本的`jQuery`，返回的是`XHR`对象，你没法进行链式操作；如果高于`1.5.0`版本，返回的是`deferre`d对象，可以进行链式操作。
+- `$.ajax()`操作完成后，如果使用的是低于`1.5.0`版本的`jquery`，返回的是`XHR`对象，你没法进行链式操作；如果高于`1.5.0`版本，返回的是`deferre`d对象，可以进行链式操作。
 
 - 现在，新的写法是这样的：
 
@@ -171,7 +170,7 @@ $.when(wait(dtd))
 六、deferred.resolve()方法和deferred.reject()方法
 ---
 
-> jQuery规定，deferred对象有三种执行状态----未完成，已完成和已失败。如果执行状态是"已完成"（resolved）,deferred对象立刻调用done()方法指定的回调函数；如果执行状态是"已失败"，调用fail()方法指定的回调函数；如果执行状态是"未完成"，则继续等待，或者调用progress()方法指定的回调函数（jQuery1.7版本添加）
+> jquery规定，deferred对象有三种执行状态----未完成，已完成和已失败。如果执行状态是"已完成"（resolved）,deferred对象立刻调用done()方法指定的回调函数；如果执行状态是"已失败"，调用fail()方法指定的回调函数；如果执行状态是"未完成"，则继续等待，或者调用progress()方法指定的回调函数（jquery1.7版本添加）
 
 ```js
 var dtd = $.Deferred(); // 新建一个Deferred对象

@@ -1,9 +1,9 @@
 ---
 title: OOP之原型与原型链
 tags:
-  - Javascript
+  - javascript
   - 原型链
-categories: Front-End
+categories: front-end
 abbrlink: e36aeed5
 date: 2016-12-13 14:55:24
 ---

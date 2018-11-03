@@ -1,9 +1,9 @@
 ---
-title: Canvas 绘制粒子动画背景
+title: canvas 绘制粒子动画背景
 tags:
-  - HTML5
-  - Canvas
-categories: Front-End
+  - html5
+  - canvas
+categories: front-end
 abbrlink: fc137cfa
 date: 2016-12-02 20:30:24
 ---

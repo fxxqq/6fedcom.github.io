@@ -1,9 +1,9 @@
 ---
 title: JavaScript作用域分析总结
 tags:
-  - Javascript
+  - javascript
   - 作用域
-categories: Front-End
+categories: front-end
 abbrlink: c4e8b3f5
 date: 2017-01-10 12:50:43
 ---

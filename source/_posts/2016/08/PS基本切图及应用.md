@@ -1,7 +1,7 @@
 ---
 title: PS基本切图及应用
 tags: PS
-categories: Designed
+categories: designed
 abbrlink: 374c3d40
 date: 2016-08-08 15:30:43
 ---

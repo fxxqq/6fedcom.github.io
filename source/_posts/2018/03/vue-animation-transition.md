@@ -1,7 +1,7 @@
 ---
 title: vue过渡与动画（十五）
-tags: Vue
-categories: Front-End
+tags: vue
+categories: front-end
 abbrlink: 880e7c61
 date: 2018-08-28 20:10:32
 ---
@@ -29,7 +29,7 @@ date: 2018-08-28 20:10:32
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-d2cb3498acd43afd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-> 控制元素的滑入与滑出，例如：`DOM`结构，要在`transition`组件上添加`name`属性，并在`css`中使用`name`的属性值替代以上`v-`状态种的`v`作为类名
+> 控制元素的滑入与滑出，例如：`dom`结构，要在`transition`组件上添加`name`属性，并在`css`中使用`name`的属性值替代以上`v-`状态种的`v`作为类名
 
 ```html
 <transition name="slide">

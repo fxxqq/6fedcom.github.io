@@ -1,7 +1,7 @@
 ---
-title: Hexo主题功能优化
-tags: Hexo
-categories: Hexo
+title: hexo主题功能优化
+tags: hexo
+categories: hexo
 abbrlink: 6de5ed45
 date: 2016-07-07 02:08:41
 ---
@@ -17,7 +17,7 @@ markdown语法是完全兼容html代码的，直接把html代码扔进去就oook
 
 - **添加豆瓣音乐**
 
-复制下面代码到你的博文任意位置，然后Hexo s预览。
+复制下面代码到你的博文任意位置，然后hexo s预览。
 
 加入豆瓣音乐 歌曲是随机播放，游客可切歌，不能定制播哪首歌，而且不能按钮停止，只能音量调到0，无语，有利有弊的吧。
 
