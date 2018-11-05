@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -27,9 +27,9 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="es6,优质文章分享">
+    <meta name="keywords" content="优质文章分享,es6">
     <meta name="description" content="前言：大家好，我叫邵威儒，大家都喜欢喊我小邵，学的金融专业却凭借兴趣爱好入了程序猿的坑，从大学买的第一本vb和自学vb，我就与编程结下不解之缘，随后自学易语言写游戏辅助、交易软件，至今进入了前端领域，看到不少朋友都写文章分享，自己也弄一个玩玩，以下文章纯属个人理解，便于记录学习，肯定有理解错误或理解不到位的地方，意在站在前辈的肩膀，分享个人对技术的通俗理解，共同成长！  后续我会陆陆续续更新Jav">
-<meta name="keywords" content="es6,优质文章分享">
+<meta name="keywords" content="优质文章分享,es6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6学习笔记">
 <meta property="og:url" content="https://ru23.com/note/a5a8a12c.html">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/23/165667ee2ec6da30?w=590&h=504&f=png&s=39703">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/24/1656b6202ef1d745?w=1128&h=1602&f=png&s=538332">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/29/16583897f9a176f8">
-<meta property="og:updated_time" content="2018-11-01T08:04:10.523Z">
+<meta property="og:updated_time" content="2018-11-03T12:58:39.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记">
 <meta name="twitter:description" content="前言：大家好，我叫邵威儒，大家都喜欢喊我小邵，学的金融专业却凭借兴趣爱好入了程序猿的坑，从大学买的第一本vb和自学vb，我就与编程结下不解之缘，随后自学易语言写游戏辅助、交易软件，至今进入了前端领域，看到不少朋友都写文章分享，自己也弄一个玩玩，以下文章纯属个人理解，便于记录学习，肯定有理解错误或理解不到位的地方，意在站在前辈的肩膀，分享个人对技术的通俗理解，共同成长！  后续我会陆陆续续更新Jav">
@@ -61,7 +61,7 @@
     <div id="loading" class="active"></div>
 
 
-    <aside id="menu"  >
+    <aside id="menu">
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
             <i class="icon icon-lg icon-close"></i>
@@ -84,36 +84,35 @@
             <ul class="nav">
                 
                 <li class="waves-block waves-effect">
-                    <a href="/"  >
+                    <a href="/">
                         <i class="icon icon-lg icon-home"></i>
                         主页
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/tags"  >
+                    <a href="/tags">
                         <i class="icon icon-lg icon-tags"></i>
                         标签
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/categories"  >
+                    <a href="/categories">
                         <i class="icon icon-lg icon-th-list"></i>
                         目录
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/archives"  >
+                    <a href="/archives">
                         <i class="icon icon-lg icon-archives"></i>
                         归档
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank"
-                         >
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
                         <i class="icon icon-lg icon-link"></i>
                         2折云主机
                     </a>
@@ -182,19 +181,18 @@
 <aside class="post-widget">
     <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
         <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#var、let、const"><span class="post-toc-text">var、let、const</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解构赋值"><span class="post-toc-text">解构赋值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组的解构赋值"><span class="post-toc-text">数组的解构赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象的解构赋值"><span class="post-toc-text">对象的解构赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展运算符"><span class="post-toc-text">扩展运算符</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-defineProperty"><span class="post-toc-text">Object.defineProperty</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#那么我们实现数据双向绑定呢？"><span class="post-toc-text">那么我们实现数据双向绑定呢？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Proxy"><span class="post-toc-text">Proxy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Symbol"><span class="post-toc-text">Symbol</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Array"><span class="post-toc-text">Array</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Array-from"><span class="post-toc-text">Array.from</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#reduce"><span class="post-toc-text">reduce</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#map映射"><span class="post-toc-text">map映射</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#find"><span class="post-toc-text">find</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#every"><span class="post-toc-text">every</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#some"><span class="post-toc-text">some</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#filter"><span class="post-toc-text">filter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#includes"><span class="post-toc-text">includes</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Set"><span class="post-toc-text">Set</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Map"><span class="post-toc-text">Map</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Class类"><span class="post-toc-text">Class类</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#decorator-装饰器"><span class="post-toc-text">decorator 装饰器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看"><span class="post-toc-text">es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看~</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#var、let、const"><span class="post-toc-text">var、let、const</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解构赋值"><span class="post-toc-text">解构赋值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组的解构赋值"><span class="post-toc-text">数组的解构赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象的解构赋值"><span class="post-toc-text">对象的解构赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展运算符"><span class="post-toc-text">扩展运算符</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-defineProperty"><span class="post-toc-text">Object.defineProperty</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#那么我们实现数据双向绑定呢？"><span class="post-toc-text">那么我们实现数据双向绑定呢？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Proxy"><span class="post-toc-text">Proxy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Symbol"><span class="post-toc-text">Symbol</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Array"><span class="post-toc-text">Array</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Array-from"><span class="post-toc-text">Array.from</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#reduce"><span class="post-toc-text">reduce</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#map映射"><span class="post-toc-text">map映射</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#find"><span class="post-toc-text">find</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#every"><span class="post-toc-text">every</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#some"><span class="post-toc-text">some</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#filter"><span class="post-toc-text">filter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#includes"><span class="post-toc-text">includes</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Set"><span class="post-toc-text">Set</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Map"><span class="post-toc-text">Map</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Class类"><span class="post-toc-text">Class类</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#decorator-装饰器"><span class="post-toc-text">decorator 装饰器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看"><span class="post-toc-text">es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看~</span></a></li></ol></li>
     </nav>
 </aside>
 
 
 
-<article id="post-2018-09-小邵教你玩转es6"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-2018-09-小邵教你玩转es6" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">ES6学习笔记</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-09-07 10:57:11" datetime="2018-09-07T02:57:11.000Z"  itemprop="datePublished">2018-09-07</time>
+            <time class="post-time" title="2018-09-07 10:57:11" datetime="2018-09-07T02:57:11.000Z" itemprop="datePublished">2018-09-07</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端分享/">前端分享</a></li></ul>
@@ -202,7 +200,7 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -459,18 +457,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/500f0fbd.html" id="post-prev" class="post-nav-link">
+      <a href="/note/c16b4f29.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">nodeJS连接MySQL时遇到的问题 Error Connection lost The server closed the connection.</h4>
+        <h4 class="title">使用hexo搭建github.io博客</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/note/c16b4f29.html" id="post-next" class="post-nav-link">
+      <a href="/note/3d134670.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">使用hexo搭建github.io博客</h4>
+        <h4 class="title">Javascript截取文件名的后缀</h4>
       </a>
     </div>
   
@@ -531,10 +529,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="2.1 获取库在学习这些下面的命令之前，首先要清楚你的代码的三种状态，已修改、已暂存、以提交。以及他们对应的三个区域：工作目录、暂存区、库。 其实在除这三个区域之外还有一个区域，这个区域是在你的git系统之外的区域，暂且叫它非跟踪区，所以我们上面说的三个区域就可以统称为跟踪区了。 下面这个链接是一个git的操作教学。  库从哪来？两个来源，一个是你的电脑，一个是别人的电脑不管在哪，他们现在都在非跟">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T08:51:04.523Z">
+<meta property="og:updated_time" content="2018-11-03T12:58:39.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从三个区域理解git命令（基础篇）">
 <meta name="twitter:description" content="2.1 获取库在学习这些下面的命令之前，首先要清楚你的代码的三种状态，已修改、已暂存、以提交。以及他们对应的三个区域：工作目录、暂存区、库。 其实在除这三个区域之外还有一个区域，这个区域是在你的git系统之外的区域，暂且叫它非跟踪区，所以我们上面说的三个区域就可以统称为跟踪区了。 下面这个链接是一个git的操作教学。  库从哪来？两个来源，一个是你的电脑，一个是别人的电脑不管在哪，他们现在都在非跟">
@@ -56,7 +56,7 @@
     <div id="loading" class="active"></div>
 
 
-    <aside id="menu"  >
+    <aside id="menu">
     <div class="inner flex-row-vertical">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
             <i class="icon icon-lg icon-close"></i>
@@ -79,36 +79,35 @@
             <ul class="nav">
                 
                 <li class="waves-block waves-effect">
-                    <a href="/"  >
+                    <a href="/">
                         <i class="icon icon-lg icon-home"></i>
                         主页
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/tags"  >
+                    <a href="/tags">
                         <i class="icon icon-lg icon-tags"></i>
                         标签
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/categories"  >
+                    <a href="/categories">
                         <i class="icon icon-lg icon-th-list"></i>
                         目录
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="/archives"  >
+                    <a href="/archives">
                         <i class="icon icon-lg icon-archives"></i>
                         归档
                     </a>
                 </li>
                 
                 <li class="waves-block waves-effect">
-                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank"
-                         >
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
                         <i class="icon icon-lg icon-link"></i>
                         2折云主机
                     </a>
@@ -175,25 +174,24 @@
 <aside class="post-widget">
     <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
         <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-1-获取库"><span class="post-toc-text">2.1 获取库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#库从哪来？"><span class="post-toc-text">库从哪来？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#两个来源，一个是你的电脑，一个是别人的电脑"><span class="post-toc-text">两个来源，一个是你的电脑，一个是别人的电脑</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开始编程"><span class="post-toc-text">开始编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跟踪新文件（新增文件加入git管理范围）"><span class="post-toc-text">跟踪新文件（新增文件加入git管理范围）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检查你文件的状态"><span class="post-toc-text">检查你文件的状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看文件具体做了哪些修改"><span class="post-toc-text">查看文件具体做了哪些修改</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#忽略文件"><span class="post-toc-text">忽略文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提交更改"><span class="post-toc-text">提交更改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如果觉得麻烦，可以跳过暂存区"><span class="post-toc-text">如果觉得麻烦，可以跳过暂存区</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看提交历史"><span class="post-toc-text">查看提交历史</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#撤销"><span class="post-toc-text">撤销</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改已提交"><span class="post-toc-text">修改已提交</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#取消已缓存"><span class="post-toc-text">取消已缓存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#撤销已更改"><span class="post-toc-text">撤销已更改</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#别名"><span class="post-toc-text">别名</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-1-获取库"><span class="post-toc-text">2.1 获取库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#库从哪来？"><span class="post-toc-text">库从哪来？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#两个来源，一个是你的电脑，一个是别人的电脑"><span class="post-toc-text">两个来源，一个是你的电脑，一个是别人的电脑</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开始编程"><span class="post-toc-text">开始编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跟踪新文件（新增文件加入git管理范围）"><span class="post-toc-text">跟踪新文件（新增文件加入git管理范围）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检查你文件的状态"><span class="post-toc-text">检查你文件的状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看文件具体做了哪些修改"><span class="post-toc-text">查看文件具体做了哪些修改</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#忽略文件"><span class="post-toc-text">忽略文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提交更改"><span class="post-toc-text">提交更改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如果觉得麻烦，可以跳过暂存区"><span class="post-toc-text">如果觉得麻烦，可以跳过暂存区</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看提交历史"><span class="post-toc-text">查看提交历史</span></a></li></ol></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#撤销"><span class="post-toc-text">撤销</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改已提交"><span class="post-toc-text">修改已提交</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#取消已缓存"><span class="post-toc-text">取消已缓存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#撤销已更改"><span class="post-toc-text">撤销已更改</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#别名"><span class="post-toc-text">别名</span></a></li>
     </nav>
 </aside>
 
 
 
-<article id="post-2017-03-从三个区域理解git命令（基础篇）"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-2017-03-从三个区域理解git命令（基础篇）" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">从三个区域理解git命令（基础篇）</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-03-20 21:34:40" datetime="2017-03-20T13:34:40.000Z"  itemprop="datePublished">2017-03-20</time>
+            <time class="post-time" title="2017-03-20 21:34:40" datetime="2017-03-20T13:34:40.000Z" itemprop="datePublished">2017-03-20</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -423,10 +421,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：18<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：7<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
