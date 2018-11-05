@@ -18,7 +18,9 @@
             </div>
         </div>
         <div class="scroll-wrap flex-col">
-            <img src="<%- url_for(theme.qrcode) %>">
+            <a target="_blank" class="ad_left" href="<%- url_for(theme.ad_left.url) %>">
+                <img src="<%- url_for(theme.ad_left.img) %>" alt="<%- url_for(theme.ad_left.alt) %>">
+            </a>
             <ul class="nav">
                 <%
           var menuItem, isActive = function(item) {
@@ -36,9 +38,18 @@
                     </a>
                 </li>
                 <% } %>
+
+                <li class="ad-qrcode">
+                    <img src="<%- url_for(theme.adleft) %>">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
             </ul>
 
         </div>
     </div>
 </aside>
-
