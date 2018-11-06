@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/posts/eddfbbce.html">
+    
+    
+    <title>三类闭包实例理解闭包为什么会占用内存 | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="在试图弄清这个问题之前，先要理解栈内存、堆内存和预处理。 占用内存，不会销毁的闭包实例例1：123456789var num = 12;function fn() &amp;#123;    var num = 100;    return function () &amp;#123;        console.log(num);    &amp;#125;&amp;#125;var f = fn();f(); 例1的图示">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三类闭包实例理解闭包为什么会占用内存">
+<meta property="og:url" content="https://ru23.com/posts/eddfbbce.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="在试图弄清这个问题之前，先要理解栈内存、堆内存和预处理。 占用内存，不会销毁的闭包实例例1：123456789var num = 12;function fn() &amp;#123;    var num = 100;    return function () &amp;#123;        console.log(num);    &amp;#125;&amp;#125;var f = fn();f(); 例1的图示">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fgxrucbxedj30uf0el40j.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fgxs049ilwj30pt0eu0u7.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fgxt61ar16j30ms0aymya.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fgxsu3f7vtj30uv0djq4j.jpg">
+<meta property="og:updated_time" content="2018-11-01T09:37:46.339Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="三类闭包实例理解闭包为什么会占用内存">
+<meta name="twitter:description" content="在试图弄清这个问题之前，先要理解栈内存、堆内存和预处理。 占用内存，不会销毁的闭包实例例1：123456789var num = 12;function fn() &amp;#123;    var num = 100;    return function () &amp;#123;        console.log(num);    &amp;#125;&amp;#125;var f = fn();f(); 例1的图示">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fgxrucbxedj30uf0el40j.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            三类闭包实例理解闭包为什么会占用内存
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            三类闭包实例理解闭包为什么会占用内存
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2017-06-25T14:16:54.000Z" itemprop="datePublished" class="page-time">
+  2017-06-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#占用内存，不会销毁的闭包实例"><span class="post-toc-text">占用内存，不会销毁的闭包实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例1："><span class="post-toc-text">例1：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例2"><span class="post-toc-text">例2</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不占用内存，立即销毁的实例"><span class="post-toc-text">不占用内存，立即销毁的实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例3："><span class="post-toc-text">例3：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#暂时占用内存，延时销毁的闭包实例"><span class="post-toc-text">暂时占用内存，延时销毁的闭包实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例4："><span class="post-toc-text">例4：</span></a></li></ol></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2017-06-三类闭包实例理解闭包为什么会占用内存" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">三类闭包实例理解闭包为什么会占用内存</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-25 22:16:54" datetime="2017-06-25T14:16:54.000Z" itemprop="datePublished">2017-06-25</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>在试图弄清这个问题之前，先要理解<a href="https://zhuanyongxigua.github.io/2017/06/25/%E6%A0%88%E5%86%85%E5%AD%98%E3%80%81%E5%A0%86%E5%86%85%E5%AD%98%E5%92%8C%E9%A2%84%E5%A4%84%E7%90%86/" target="_blank" rel="noopener">栈内存、堆内存和预处理</a>。</p>
+<h2 id="占用内存，不会销毁的闭包实例"><a href="#占用内存，不会销毁的闭包实例" class="headerlink" title="占用内存，不会销毁的闭包实例"></a>占用内存，不会销毁的闭包实例</h2><h3 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var num = 12;</span><br><span class="line">function fn() &#123;</span><br><span class="line">    var num = 100;</span><br><span class="line">    return function () &#123;</span><br><span class="line">        console.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+<p>例1的图示</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://ws2.sinaimg.cn/large/006tNc79ly1fgxrucbxedj30uf0el40j.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>未被占用的堆内存才会被销毁</strong></p>
+<p>所以，正如图中椭圆形关键点中说明的那样，堆内存xxxfff111被返回给了全局变量f，而全局变量只有在窗口关闭的时候才会销毁，<strong>因此堆内存xxxfff111将一直被占用而不会销毁</strong>，定义它的局部作用域A也不会被销毁。</p>
+<h3 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var oDiv = document.getElementById(&quot;div1&quot;);</span><br><span class="line">~function() &#123;</span><br><span class="line">    oDiv.onclick = function() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+<p>这段代码的特点是：私有作用域给dom元素的事件绑定一个方法。</p>
+<p>例2的图示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://ws4.sinaimg.cn/large/006tNc79ly1fgxs049ilwj30pt0eu0u7.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>正如图中椭圆形关键点所说，标签对象的属性里面会自带一个onclick的属性，未被赋值时其值为null。那么，在自执行函数执行的时候，其创建的作用域所占用的堆内存xxxfff111同样也会被全局的堆内存xxxfff000占用（这里要注意，是堆内存占用堆内存），所以堆内存xxxfff111和栈内存A都不会被销毁。</p>
+<h2 id="不占用内存，立即销毁的实例"><a href="#不占用内存，立即销毁的实例" class="headerlink" title="不占用内存，立即销毁的实例"></a>不占用内存，立即销毁的实例</h2><p>只需要将例1稍作修改。</p>
+<h3 id="例3："><a href="#例3：" class="headerlink" title="例3："></a>例3：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">    var num = 100;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        console.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn();	//主要修改在这里</span><br></pre></td></tr></table></figure>
+<p>例3的图示</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://ws2.sinaimg.cn/large/006tNc79ly1fgxt61ar16j30ms0aymya.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>由于在函数fn中，xxxfff111是被return的，所以栈内存A的预解释不会处理xxxfff111，它只在fn函数执行的时候才会生成，而函数fn的栈内存A每次被执行之后都会被销毁。</p>
+<h2 id="暂时占用内存，延时销毁的闭包实例"><a href="#暂时占用内存，延时销毁的闭包实例" class="headerlink" title="暂时占用内存，延时销毁的闭包实例"></a>暂时占用内存，延时销毁的闭包实例</h2><p>将例3稍作修改，就变成了延时销毁的闭包实例。</p>
+<h3 id="例4："><a href="#例4：" class="headerlink" title="例4："></a>例4：</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">    var num = 100;</span><br><span class="line">    return function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn()();	//这里到底发生了什么？其实是执行了一次fn之后，把返回的子函数有执行了一次，所以在子函数执行的时候，栈内存fn()是不能销毁的，但是子函数执行完毕后因为没有被占用，所以最终还是要被销毁的，所以最终fn()还是会被销毁的。</span><br></pre></td></tr></table></figure>
+<p>例4的图示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://ws4.sinaimg.cn/large/006tNc79gy1fgxsu3f7vtj30uv0djq4j.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>正如途中椭圆形关键点处所说，<code>fn()()</code>的意思是在执行完<code>fn()</code>之后再把返回的值函数执行一遍。因此在子函数执行的时候，堆内存xxxfff111被占用了，相应的栈内存A也将保留。</p>
+<p>可堆内存xxxfff111中保存的子函数在执行完成之后还是会被销毁，接着堆内存xxxfff111就作为未被占用的堆内存而被销毁，最终栈内存A也会被销毁。</p>
+<p>所以，栈内存在执行完之后会被保留一段时间，这段时间等于其子函数执行的时间。</p>
+<p>参考资料：</p>
+<p>JavaScript高级程序设计(第三版)。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/eddfbbce.html&title=《三类闭包实例理解闭包为什么会占用内存》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/eddfbbce.html&title=《三类闭包实例理解闭包为什么会占用内存》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/eddfbbce.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《三类闭包实例理解闭包为什么会占用内存》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/eddfbbce.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/eddfbbce.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/d9ac2aad.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">练习用原生JavaScript编写与JavaScript数组方法slice功能一样的函数</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/febcab37.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">栈内存、堆内存和预处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/eddfbbce.html&title=《三类闭包实例理解闭包为什么会占用内存》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/eddfbbce.html&title=《三类闭包实例理解闭包为什么会占用内存》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/eddfbbce.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《三类闭包实例理解闭包为什么会占用内存》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/eddfbbce.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/eddfbbce.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aQWrEMAwF0Ln/pafQXWljvqxYTenzagjE87IR0rdfr3i9P9f3J1fPr95av3vbwsXFbXPfy7XHXe+TPL/8JFxc3EHuunjt/U2VmxRQXFzcp3GTpueqzK2JuLi4f5e7HlrWw0xOx8XFfQ43b03yyCMZkA7Oari4uA1uNTA98ftgvouLi1vkvovrrjZob+Hi4s5w88ijf7B61ziEi4t7mntv6Nn5gKgg4uLiPoabBxlJo7NXCr90ZLi4uIe51ePPEyNNeejCxcU9zF0Xmr0GKEk78x1+SHFwcXFHuDMHomvo+vkvnN/i4v5jbv9qxV2XrgoxCi4u7mHu3kbVsKP/L5cdGS4u7gFuNfjIS1vespQjVFxc3MPcvZA0/6T1gFS+/oWLizvC7TQxnSik2vrg4uJOcvOXoygzuHq1F7jg4uLOc6vBRAfd+khcXNxB7t59rtZdsL0SiYuLO8KtFpR8osoHqnx/XFzcSW5SgKoBR75n+RgGFxd3kFvNWfMnecBazndxcXEfwL3rCLZz2QsXF/fJ3Op1q34pxMXFnefmg0p+LJofyRQOb3BxcUe4dwWmVW6nkcLFxT3G/QBZErR7FfjolQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

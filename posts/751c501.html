@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/posts/751c501.html">
+    
+    
+    <title>一个关于回调函数的例子以及异步程序和非阻塞I/O的理解 | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="JavaScript有一个明显的特征：第一类函数（first-class functions）（wiki） 。 与第一类函数有关的名词还有第一类对象和第一类公民（头等公民）（wiki） ，在JavaScript中，函数是第一类对象或者说是第一类公民，简单理解，就是权限很大，可调用的资源多。这是因为这样，它才可以被当做参数或变量来使用。 对于异步程序和非阻塞I/O，记得在知乎上看到过一个非常好的举例">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个关于回调函数的例子以及异步程序和非阻塞I&#x2F;O的理解">
+<meta property="og:url" content="https://ru23.com/posts/751c501.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="JavaScript有一个明显的特征：第一类函数（first-class functions）（wiki） 。 与第一类函数有关的名词还有第一类对象和第一类公民（头等公民）（wiki） ，在JavaScript中，函数是第一类对象或者说是第一类公民，简单理解，就是权限很大，可调用的资源多。这是因为这样，它才可以被当做参数或变量来使用。 对于异步程序和非阻塞I/O，记得在知乎上看到过一个非常好的举例">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-30T08:30:42.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个关于回调函数的例子以及异步程序和非阻塞I&#x2F;O的理解">
+<meta name="twitter:description" content="JavaScript有一个明显的特征：第一类函数（first-class functions）（wiki） 。 与第一类函数有关的名词还有第一类对象和第一类公民（头等公民）（wiki） ，在JavaScript中，函数是第一类对象或者说是第一类公民，简单理解，就是权限很大，可调用的资源多。这是因为这样，它才可以被当做参数或变量来使用。 对于异步程序和非阻塞I/O，记得在知乎上看到过一个非常好的举例">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            一个关于回调函数的例子以及异步程序和非阻塞I/O的理解
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            一个关于回调函数的例子以及异步程序和非阻塞I/O的理解
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2017-03-25T13:34:40.000Z" itemprop="datePublished" class="page-time">
+  2017-03-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-2017-03-一个关于闭包、回调函数和异步程序的例子" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一个关于回调函数的例子以及异步程序和非阻塞I/O的理解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-25 21:34:40" datetime="2017-03-25T13:34:40.000Z" itemprop="datePublished">2017-03-25</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>JavaScript有一个明显的特征：第一类函数（first-class functions）<a href="https://en.wikipedia.org/wiki/First-class_function" target="_blank" rel="noopener">（wiki）</a> 。</p>
+<p>与第一类函数有关的名词还有第一类对象和第一类公民（头等公民）<a href="https://en.wikipedia.org/wiki/First-class_citizen" target="_blank" rel="noopener">（wiki）</a> ，在JavaScript中，函数是第一类对象或者说是第一类公民，简单理解，就是权限很大，可调用的资源多。这是因为这样，它才可以被当做参数或变量来使用。</p>
+<p>对于异步程序和非阻塞I/O，记得在知乎上看到过一个非常好的举例：你给图书馆打电话查书，图书馆的管理员会有两种反应，第一种：“麻烦等一下，不用挂电话，我查一下”；第二种：“知道了，等我查到了我给您回电话”。这里面的区别，一个在你，一个在电话线路。第一种情况下，你不能去干别的，只能老老实实的在电话前面等着，而且，别人在这段时间里没法给你打电话了。第二种情况就无所谓了，你可以去high，去耍，去上厕所，其他的朋友给你打电话你也接的到。第一种情况就是同步的、阻塞的，第二种就是异步的、非阻塞的。</p>
+<p>下面是一个nodejs的例子，创建一个rectangle-2.js的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">module.exports = function(x,y,callback) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    if (x &lt; 0 || y &lt; 0) &#123;</span><br><span class="line">        throw new Error(&quot;Rectangle dimensions should be greater than zero: l = &quot;</span><br><span class="line">                            + x + &quot;, and b = &quot; + y);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">         callback(null, &#123;</span><br><span class="line">            perimeter: function () &#123;</span><br><span class="line">        		   return (2*(x+y));</span><br><span class="line">			&#125;,</span><br><span class="line">            area:function () &#123;</span><br><span class="line">        		    return (x*y);</span><br><span class="line">			&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  catch (error) &#123;</span><br><span class="line">        callback(error,null);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在创建一个<em>solve-2.js</em>的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var rect = require(&apos;./rectangle-2&apos;);</span><br><span class="line"></span><br><span class="line">function solveRect(l,b) &#123;</span><br><span class="line">    console.log(&quot;Solving for rectangle with l = &quot;</span><br><span class="line">                + l + &quot; and b = &quot; + b);</span><br><span class="line">    rect(l,b, function(err,rectangle) &#123;</span><br><span class="line">        if (err) &#123;</span><br><span class="line">	    console.log(err);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">	    console.log(&quot;The area of a rectangle of dimensions length = &quot;</span><br><span class="line">                 + l + &quot; and breadth = &quot; + b + &quot; is &quot; + rectangle.area());</span><br><span class="line">            console.log(&quot;The perimeter of a rectangle of dimensions length = &quot;</span><br><span class="line">                 + l + &quot; and breadth = &quot; + b + &quot; is &quot; + rectangle.perimeter());</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">solveRect(2,4);</span><br><span class="line">solveRect(3,5);</span><br><span class="line">solveRect(-3,5);</span><br></pre></td></tr></table></figure>
+<p>程序是这样运行的，用node命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node solve-2</span><br></pre></td></tr></table></figure>
+<ol>
+<li>运行solve-2.js，rectangle-2.js文件被引用，并赋值给变量rect。</li>
+<li>在最后几行，函数solveRect被调用三次，分别赋值(2,4)、(3,5)和(-3,5)，</li>
+<li>在函数solveRect运行到调用rect时，也相当于是一个赋值的过程，l赋值给rectangle-2.js文件中函数的x，b赋值给y，rect的第三个参数，也就是那个匿名方程，赋值给了callback。到这里solve-2.js就运行完了，可以该干嘛干嘛了。</li>
+<li>目光放到rectangle-2.js，程序运行，先在try里面判断，确定符合要求之后，就运行callback函数，也就是第三步中赋值给callback的那个函数，求得结果。</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/751c501.html&title=《一个关于回调函数的例子以及异步程序和非阻塞I/O的理解》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/751c501.html&title=《一个关于回调函数的例子以及异步程序和非阻塞I/O的理解》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/751c501.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一个关于回调函数的例子以及异步程序和非阻塞I/O的理解》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/751c501.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/751c501.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/9f35addd.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">使用autohotkey修改方向键、回车和启动程序</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/56cde313.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">浅谈闭包</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/751c501.html&title=《一个关于回调函数的例子以及异步程序和非阻塞I/O的理解》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/751c501.html&title=《一个关于回调函数的例子以及异步程序和非阻塞I/O的理解》 — 前端迷 (front-end fan)&source=前端开发爱好者frank的工作笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/751c501.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一个关于回调函数的例子以及异步程序和非阻塞I/O的理解》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/751c501.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/751c501.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3asbLDIAwEwPz/T+e1r8E+SYa4WKpMwpC1Cw06+Hzi8V2M1Zx8tc+OgYuLO+Z+L0cyp7rC/29yAy4u7nnuqmJcf87n5/QbGy4u7ou5vTI0eQW4uLhv5uYNTI+Oi4v7Hm7SulyzkgfuNVe4uLjnuXlKue/zlnwXFxe3xe1Fn9cbnevN0CSExcXFPcPNC0ov8ug1PDctFi4u7mZuXqqui1ResPIt1PK94uLiHuEmMWj18kS+xSkENLi4uMe5u2PTvCAuCyguLu5PuXkz82yDdFNAcXFxj3Ori/aamYebH1xc3A3c0QWpeNPTO2iJ8l1cXNxt3F702Qs78isdNy8RFxd3GzcvT71oo/c6Rs0PLi7umJvEGTmrF7MmRa2QvuDi4j7KrVImxa564aPZq+Hi4o65vaWrK+Tc5WPj4uIe5yYRRk6pNkjRHFxc3M3cb3H0IpJ5ocTFxT3JzUevMFUvaeX/i4uLu5tbPTrt/ZoXsuhiFi4u7hFufrxRPUadNz/LfBcXF/c13LzVmR+9FFITXFzcn3IncyYpBy4u7nluHpI+VaqqDRUuLu5JbrmUDJabX8XAxcXdzP0DZ/0p+KYgJsMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

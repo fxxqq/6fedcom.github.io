@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/posts/cec34af5.html">
+    
+    
+    <title>MVC、MVP、mvvm之间的关系 | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="MVC">
+    <meta name="description" content="一、MVC 什么是MVC  MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器） 一个事件的处理大概是这样 用户和应用产生交互 控制器的事件处理器被触发 控制器从模型中请求数据，并将其交给视图 视图将数据呈现给用户">
+<meta name="keywords" content="MVC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC、MVP、mvvm之间的关系">
+<meta property="og:url" content="https://ru23.com/posts/cec34af5.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、MVC 什么是MVC  MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器） 一个事件的处理大概是这样 用户和应用产生交互 控制器的事件处理器被触发 控制器从模型中请求数据，并将其交给视图 视图将数据呈现给用户">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020106.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020107.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
+<meta property="og:updated_time" content="2018-11-01T08:56:32.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVC、MVP、mvvm之间的关系">
+<meta name="twitter:description" content="一、MVC 什么是MVC  MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器） 一个事件的处理大概是这样 用户和应用产生交互 控制器的事件处理器被触发 控制器从模型中请求数据，并将其交给视图 视图将数据呈现给用户">
+<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            MVC、MVP、mvvm之间的关系
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            MVC、MVP、mvvm之间的关系
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2016-12-13T06:35:24.000Z" itemprop="datePublished" class="page-time">
+  2016-12-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、MVC"><span class="post-toc-text">一、MVC</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是MVC"><span class="post-toc-text">什么是MVC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模型（数据保存）"><span class="post-toc-text">模型（数据保存）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#视图（用户界面）"><span class="post-toc-text">视图（用户界面）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#控制器（业务逻辑）"><span class="post-toc-text">控制器（业务逻辑）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结一下："><span class="post-toc-text">总结一下：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#互动模式"><span class="post-toc-text">互动模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、MVP"><span class="post-toc-text">二、MVP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、mvvm"><span class="post-toc-text">三、mvvm</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2016-12-mvc-mvp-mvvm" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MVC、MVP、mvvm之间的关系</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-12-13 14:35:24" datetime="2016-12-13T06:35:24.000Z" itemprop="datePublished">2016-12-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h2><hr>
+<h3 id="什么是MVC"><a href="#什么是MVC" class="headerlink" title="什么是MVC"></a>什么是MVC</h3><hr>
+<ul>
+<li>MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器）</li>
+<li>一个事件的处理大概是这样<ul>
+<li>用户和应用产生交互</li>
+<li>控制器的事件处理器被触发</li>
+<li>控制器从模型中请求数据，并将其交给视图</li>
+<li>视图将数据呈现给用户</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="模型（数据保存）"><a href="#模型（数据保存）" class="headerlink" title="模型（数据保存）"></a>模型（数据保存）</h3><hr>
+<ul>
+<li>模型用来存放用户的所有数据对象。比如有一个user模型，用来存放用户列表、他们的属性以及所有和模型有关的逻辑</li>
+<li>模型不必知晓视图和控制器的细节，模型只需包含数据以及直接和这些数据相关的逻辑</li>
+</ul>
+<h3 id="视图（用户界面）"><a href="#视图（用户界面）" class="headerlink" title="视图（用户界面）"></a>视图（用户界面）</h3><hr>
+<ul>
+<li>视图是呈现给用户的，用户与之产生交互。在JavaScript应用中，视图大都是由HTML、css、JavaScript模板组成的</li>
+</ul>
+<h3 id="控制器（业务逻辑）"><a href="#控制器（业务逻辑）" class="headerlink" title="控制器（业务逻辑）"></a>控制器（业务逻辑）</h3><hr>
+<ul>
+<li>控制器是模型和视图之间的纽带。控制器从视图获得事件和输入，对它们进行进行处理，并相应的更新视图。</li>
+<li>当页面加载时，控制器会给视图添加事件监听，比如监听表单提交或按钮点击。然后当用户和你的应用产生交互时，控制器中的事件触发器就开始工作了</li>
+</ul>
+<h3 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h3><hr>
+<ul>
+<li><code>Controller</code> 监听 <code>Model</code> 变化，<code>Model</code> 一变，<code>Controller</code> 就会去更新<code>View</code>。</li>
+<li><p><code>Controller</code> 监听用户交互，用户点了提交或修改按钮，Controller 就要去更新 Model</p>
+</li>
+<li><p><code>View</code> 传送指令到 <code>Controller</code></p>
+</li>
+<li><code>Controller</code> 完成业务逻辑后，要求 <code>Model</code> 改变状态</li>
+<li><code>Model</code> 将新的数据发送到 <code>View</code>，用户得到反馈</li>
+</ul>
+<p>各部分之间的通信方式</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="互动模式"><a href="#互动模式" class="headerlink" title="互动模式"></a>互动模式</h2><hr>
+<ul>
+<li>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://image.beekka.com/blog/2015/bg2015020106.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>另一种是直接通过controller接受指令</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://image.beekka.com/blog/2015/bg2015020107.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="二、MVP"><a href="#二、MVP" class="headerlink" title="二、MVP"></a>二、MVP</h2><hr>
+<ul>
+<li><code>MVP</code> 模式将 <code>Controller 改名为</code>Presenter`，同时改变了通信方向</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>各部分之间的通信，都是双向的。</li>
+<li><code>View</code> 与<code>Model</code> 不发生联系，都通过 <code>Presenter</code> 传递。</li>
+<li><code>View</code> 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里</li>
+</ul>
+<h2 id="三、mvvm"><a href="#三、mvvm" class="headerlink" title="三、mvvm"></a>三、mvvm</h2><hr>
+<ul>
+<li><code>mvvm</code> 模式将 <code>Presenter</code> 改名为 <code>ViewModel</code>，基本上与 <code>MVP</code> 模式完全一致</li>
+<li>唯一的区别是，它采用双向绑定（data-binding）：<code>View</code>的变动，自动反映在 <code>ViewModel</code>，反之亦然</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVC/">MVC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/cec34af5.html&title=《MVC、MVP、mvvm之间的关系》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/cec34af5.html&title=《MVC、MVP、mvvm之间的关系》 — 前端迷 (front-end fan)&source=一、MVC
+什么是MVC
+
+MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器）
+一个事件的处理大概是这样
+用户和应..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/cec34af5.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MVC、MVP、mvvm之间的关系》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/cec34af5.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/cec34af5.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/fc5e7486.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS常用的内置函数整理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/17ec6504.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">canvas 绘制八大行星</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/cec34af5.html&title=《MVC、MVP、mvvm之间的关系》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/cec34af5.html&title=《MVC、MVP、mvvm之间的关系》 — 前端迷 (front-end fan)&source=一、MVC
+什么是MVC
+
+MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器）
+一个事件的处理大概是这样
+用户和应..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/cec34af5.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MVC、MVP、mvvm之间的关系》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/cec34af5.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/cec34af5.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzElEQVR42u3aQW7DMAwEwPz/0y7QWw9ylqSlpMD4ZMSIM8phIZJ6veLr+r1W9/dPV29bPX3gwsXFHXOv2yvhJm9bPc0NuLi457lJeK1ecQVXwr034OLifif3flvT+wQXF/e/cyfFTE7HxcX9Hm5va5J0LapR+FithouLO+DOG6bz+6P9XVxc3MFUImmFJBE2+cU/b8PFxT3Cvf/hpBTJy5inyiFcXNzd3F4xkwdWvoCo0MLFxT3CzSMpibDqODZfXhRquLi427j7iplJ8VPYl+Hi4o65vXFFcrSi9603wYeLi3uQmw8+821K7zBHIWtxcXG3caODUK1xbD56GQ1fcXFxN3B7rczq02orZLn1wcXFPcKtbix6bdC8sRL9Ebi4uJu51XFpUhRVxzMFAy4u7hFuMt6YlEyTaFvGHC4u7mZu9ahEbzH5wt40Z3FxcQ9yJ23TauE0ar/i4uIe5PYOVyVhlAdltBhcXNwj3PnWJB+rPDukwcXF3c3thVd1vFotpZYBh4uLe5Bb7bNW2yW9MmnZ38XFxf0abi9PkvstQYaLi3ucm4xACmOSIC5xcXHPc3uFymQ0W91C4eLinuRWG6ZJGTNvr+Di4n6I+wOKwOce83yJfwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

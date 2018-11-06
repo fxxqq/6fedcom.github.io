@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/posts/b61cd12f.html">
+    
+    
+    <title>JS继承的几种方法总结 | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="javascript,继承">
+    <meta name="description" content="由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念 所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？ 这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（">
+<meta name="keywords" content="javascript,继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS继承的几种方法总结">
+<meta property="og:url" content="https://ru23.com/posts/b61cd12f.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念 所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？ 这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-01T08:08:55.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS继承的几种方法总结">
+<meta name="twitter:description" content="由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念 所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？ 这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            JS继承的几种方法总结
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            JS继承的几种方法总结
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2016-12-13T06:55:24.000Z" itemprop="datePublished" class="page-time">
+  2016-12-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、继承第一种方式：对象冒充"><span class="post-toc-text">1、继承第一种方式：对象冒充</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、继承第二种方式：call-方法方式"><span class="post-toc-text">2、继承第二种方式：call()方法方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、继承的第三种方式：apply-方法方式"><span class="post-toc-text">3、继承的第三种方式：apply()方法方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、继承的第四种方式：原型链方式，即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承"><span class="post-toc-text">4、继承的第四种方式：原型链方式，即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、继承的第五种方式：混合方式-混合了call或者apply方式、原型链方式"><span class="post-toc-text">5、继承的第五种方式：混合方式, 混合了call或者apply方式、原型链方式</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2016-12-js-inherit" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS继承的几种方法总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-12-13 14:55:24" datetime="2016-12-13T06:55:24.000Z" itemprop="datePublished">2016-12-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念</li>
+<li>所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？</li>
+<li>这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（prototype）的一个拷贝 （实际上不是拷贝而是链接，只不过这种链接是不可见，新实例化的对象内部有一个看不见的<strong>Proto</strong>指针，指向原型对象）。</li>
+</ul>
+<a id="more"></a>
+<h3 id="1、继承第一种方式：对象冒充"><a href="#1、继承第一种方式：对象冒充" class="headerlink" title="1、继承第一种方式：对象冒充"></a>1、继承第一种方式：对象冒充</h3><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">blogfunction Parent(username)&#123;</span><br><span class="line">    this.username = username;</span><br><span class="line">    this.hello = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      console.log(<span class="string">'hello '</span> + this.username);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">Parent.prototype.sayMorning = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'good morning '</span> + this.username);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">function</span> Child(username,password)&#123;</span><br><span class="line">    //通过以下3行实现将Parent的属性和方法追加到Child中，从而实现继承</span><br><span class="line">    //第一步：this.method是作为一个临时的属性，并且指向Parent所指向的对象，</span><br><span class="line">    //第二步：执行this.method方法，即执行Parent所指向的对象函数</span><br><span class="line">    //第三步：销毁this.method属性，即此时Child就已经拥有了Parent的所有属性和方法</span><br><span class="line">    this.method = Parent;</span><br><span class="line">    this.method(username);//最关键的一行</span><br><span class="line">    delete this.method;</span><br><span class="line"></span><br><span class="line">     this.password = password;</span><br><span class="line">    this.world = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      console.log(this.password);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var parent = new Parent(<span class="string">"zhangsan"</span>);</span><br><span class="line">  var child = new Child(<span class="string">"lisi"</span>,<span class="string">"123456"</span>);</span><br><span class="line">  parent.hello();</span><br><span class="line">  parent.sayMorning();</span><br><span class="line">  child.hello();</span><br><span class="line">  child.world();</span><br></pre></td></tr></table></figure>
+<h3 id="2、继承第二种方式：call-方法方式"><a href="#2、继承第二种方式：call-方法方式" class="headerlink" title="2、继承第二种方式：call()方法方式"></a>2、继承第二种方式：call()方法方式</h3><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Parent(username)&#123;</span><br><span class="line">    this.username = username;</span><br><span class="line">    this.hello = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      console.log(this.username);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.sayMorning = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		console.log(<span class="string">'good morning '</span> + this.username);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> Child(username,password)&#123;</span><br><span class="line">    Parent.call(this,username);</span><br><span class="line"></span><br><span class="line">    this.password = password;</span><br><span class="line">    this.world = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      console.log(this.password);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  var parent = new Parent(<span class="string">"zhangsan"</span>);</span><br><span class="line">  var child = new Child(<span class="string">"lisi"</span>,<span class="string">"123456"</span>);</span><br><span class="line">  parent.hello();</span><br><span class="line">  parent.sayMorning();</span><br><span class="line">  child.hello();</span><br><span class="line">  child.world();</span><br><span class="line">// child.sayMorning();  通过prototype 添加的方法和属性，不能用来继承</span><br></pre></td></tr></table></figure>
+<h3 id="3、继承的第三种方式：apply-方法方式"><a href="#3、继承的第三种方式：apply-方法方式" class="headerlink" title="3、继承的第三种方式：apply()方法方式"></a>3、继承的第三种方式：apply()方法方式</h3><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Parent(username)&#123;</span><br><span class="line">    this.username = username;</span><br><span class="line">    this.hello = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      console.log(this.username);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">	Parent.prototype.sayMorning = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		console.log(<span class="string">'good morning '</span> + this.username);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> Child(username,password)&#123;</span><br><span class="line">    Parent.apply(this,new Array(username));</span><br><span class="line"></span><br><span class="line">    this.password = password;</span><br><span class="line">    this.world = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      console.log(this.password);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">var parent = new Parent(<span class="string">"zhangsan"</span>);</span><br><span class="line">  var child = new Child(<span class="string">"lisi"</span>,<span class="string">"123456"</span>);</span><br><span class="line">  parent.hello();</span><br><span class="line">  parent.sayMorning();</span><br><span class="line">  child.hello();</span><br><span class="line">  child.world();</span><br><span class="line">// child.sayMorning(); 通过prototype 添加的方法和属性，不能用来继承</span><br></pre></td></tr></table></figure>
+<h3 id="4、继承的第四种方式：原型链方式，即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承"><a href="#4、继承的第四种方式：原型链方式，即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承" class="headerlink" title="4、继承的第四种方式：原型链方式，即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承"></a>4、继承的第四种方式：原型链方式，即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承</h3><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  Person.prototype.hello = <span class="string">"hello"</span>;</span><br><span class="line">  Person.prototype.sayHello = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this.hello);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">Child</span></span>()&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  Child.prototype = new Person();//这行的作用是：将Parent中将所有通过prototype追加的属性和方法都追加到Child，从而实现了继承</span><br><span class="line">  Child.prototype.world = <span class="string">"world"</span>;</span><br><span class="line">  Child.prototype.sayWorld = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this.world);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var c = new Child();</span><br><span class="line">  c.sayHello();</span><br><span class="line">  c.sayWorld();</span><br><span class="line">通过prototype 添加的方法和属性，不能用来继承</span><br></pre></td></tr></table></figure>
+<h3 id="5、继承的第五种方式：混合方式-混合了call或者apply方式、原型链方式"><a href="#5、继承的第五种方式：混合方式-混合了call或者apply方式、原型链方式" class="headerlink" title="5、继承的第五种方式：混合方式, 混合了call或者apply方式、原型链方式"></a>5、继承的第五种方式：混合方式, 混合了call或者apply方式、原型链方式</h3><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Parent(hello)&#123;</span><br><span class="line">    this.hello = hello;</span><br><span class="line">  &#125;</span><br><span class="line">  Parent.prototype.sayHello = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this.hello);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> Child(hello,world)&#123;</span><br><span class="line">    Parent.call(this,hello);//将父类的属性继承过来</span><br><span class="line">    this.world = world;//新增一些属性</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Child.prototype = new Parent();//将父类的方法继承过来</span><br><span class="line"></span><br><span class="line">  Child.prototype.sayWorld = <span class="function"><span class="title">function</span></span>()&#123;//新增一些方法</span><br><span class="line">    console.log(this.world);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var c = new Child(<span class="string">"zhangsan"</span>,<span class="string">"lisi"</span>);</span><br><span class="line">  c.sayHello();</span><br><span class="line">  c.sayWorld();</span><br><span class="line">可以继承通过prototype 添加的方法和属性</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/继承/">继承</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/b61cd12f.html&title=《JS继承的几种方法总结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/b61cd12f.html&title=《JS继承的几种方法总结》 — 前端迷 (front-end fan)&source=
+由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念
+所以，要想实现继承，可以用js的原型prototype机制或者用appl..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/b61cd12f.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS继承的几种方法总结》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/b61cd12f.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/b61cd12f.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/580a1014.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS 中的 call、apply、bind 方法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/ebeaea04.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS 中的事件绑定、事件监听、事件委托</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/b61cd12f.html&title=《JS继承的几种方法总结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/b61cd12f.html&title=《JS继承的几种方法总结》 — 前端迷 (front-end fan)&source=
+由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念
+所以，要想实现继承，可以用js的原型prototype机制或者用appl..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/b61cd12f.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS继承的几种方法总结》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/b61cd12f.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/b61cd12f.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aOY7DMBAEQP//09p0E1E9w8MyUIwMyyZLCTHX5xOv62b9fzr+fLfbZ8fCxcWd5l7DNT5gfPB4h7undwZcXNzz3OSwu63HuyUvnxhwcXF/kZuAesEQLi7u+7m98Ghmf1xc3G9x5wsfSbEjSa6W5Wq4uLgT3LxKue/zlvouLi5ui3sVV57Y9JKoh9NxcXGPcPMLpRe+jMupzXNxcXE3c6vXSq+ckb/qQ6sGFxf3OLd6uSS/rzZWo4gMFxd3Mzc5PhnJSnaY+QYXF/ckt5qo9MKdVVcbLi7uGW4+WtErgC5OfnBxcY9we6NU802XJFQq3Lu4uLhLuTODF+Nf5pRe6IOLi7uPm49N5GMWeZo0lavh4uJu4+bE3ijGfHvm4b+4uLjbuHkF5aG+Mh30RKMbuLi4B7nJkFbeZM1HvpJCLS4u7hu41RZL75v8+it3eHBxcSe4V3Gt+m8vYMLFxT3DzVevuNlrpUw1WXFxcRdx80GK/AV6wxzl5AcXF3czd74bk79kta2Ci4v7fm7vafUqLFdNcHFxv8qtpjTzJY8F9y4uLm6LmyQ/eYpSTajyVAoXF/cMt3yVxCMa1ebN4vouLi5uh/sHeAcp+MFY2VQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

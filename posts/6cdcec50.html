@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="ture/posts/6cdcec50.html">
+    
+    
+    <title>Tortoisesvn的基使用方法 | 前端迷 (front-end fan) | 前端开发爱好者frank的工作笔记,欢迎一切技术交流（不局限于前端），188105274(wechat，email同Q)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="svn">
+    <meta name="description" content="签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：">
+<meta name="keywords" content="svn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tortoisesvn的基使用方法">
+<meta property="og:url" content="https://ru23.com/posts/6cdcec50.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_13927803776NBs.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780401u5bf.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_13927804137Lrz.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780423j7W7.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_139278051015SO.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780878aoOo.png">
+<meta property="og:updated_time" content="2018-11-01T09:00:41.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tortoisesvn的基使用方法">
+<meta name="twitter:description" content="签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：">
+<meta name="twitter:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_13927803776NBs.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            Tortoisesvn的基使用方法
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            Tortoisesvn的基使用方法
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2016-07-08T07:25:20.000Z" itemprop="datePublished" class="page-time">
+  2016-07-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#签出源代码到本机"><span class="post-toc-text">签出源代码到本机</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#提交修改过的文件到svn服务器"><span class="post-toc-text">提交修改过的文件到svn服务器</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2016-07-TortoiseSVN的基本安装及使用方法" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Tortoisesvn的基使用方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-08 15:25:20" datetime="2016-07-08T07:25:20.000Z" itemprop="datePublished">2016-07-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="签出源代码到本机"><a href="#签出源代码到本机" class="headerlink" title="签出源代码到本机"></a>签出源代码到本机</h4><p>在本机创建文件夹<code>StartKit</code>，右键点击<code>Checkout</code>，弹出如下图的窗体：<br><a id="more"></a><br><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_13927803776NBs.png" alt="enter description here"></p>
+<p>文本框中输入<code>svn server</code>中的代码库的地址，其他默认，点击OK按钮,就开始签出源代码了</p>
+<p>上图中的<code>Checkout Depth</code>，有4个选项，分别是迁出全部、只签出下一级子目录和文件、只签出文件、只签出空项目，默认的是第一项。上面的例子中，我们也可以使用web的方式访问代码库，在浏览器中输入<code>http://zt.net.henu.edu.cn/svn/StartKit/</code><br>这时候也会弹出对话框，要求输入用户名和密码，通过验证后即可浏览代码库中的内容。</p>
+<p>到此，源代码已经成功签出到刚才新建的StartKit目录中</p>
+<p>打开StartKit目录，可以看到如下图的文件夹结构：</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780401u5bf.png" alt="enter description here"></p>
+<p>一旦你对文件或文件夹做了任何修改，那么文件或文件夹的显示图片机会发生变化</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_13927804137Lrz.png" alt="enter description here"></p>
+<ul>
+<li><strong>不同状态所对应的图片</strong></li>
+</ul>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780423j7W7.png" alt="enter description here"></p>
+<hr>
+<h4 id="提交修改过的文件到svn服务器"><a href="#提交修改过的文件到svn服务器" class="headerlink" title="提交修改过的文件到svn服务器"></a>提交修改过的文件到svn服务器</h4><p>注意：提交源代码到服务器时，一定确保本机的代码是最新版本，否则可能提交失败，或者造成版本冲突</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_139278051015SO.png" alt="enter description here"></p>
+<ul>
+<li>添加新文件到svn服务器</li>
+</ul>
+<p>点击<code>Tortoisesvn=&gt;&gt;Add</code>；再<code>svn Commit</code>这个文件一次，才可以将其真正提交到svn服务器上的代码库中</p>
+<p>更新本机代码与svn服务器上最新的版本一致</p>
+<p>只要在需要更新的文件夹上点击右键或在该文件下的空白处点击右键，点击<code>svn Update</code>，就可以</p>
+<p>注意：更新操作可能会因为版本冲突而失败，这是可以使用合并【<code>Merge</code>】或其他方法解决；也可能因为锁定【<code>Get Lock</code>】而失败，这是需要先解锁【<code>Release Lock</code>】。</p>
+<ul>
+<li><strong>重命名文件或文件夹，并将修改提交到svn服务器</strong></li>
+</ul>
+<p>要在需要重命名的文件或文件夹上点击右键，点击<code>Tortisesvn=&gt;&gt;Rename</code>…，在弹出的窗体中输入新名称，点击OK按钮，就可以了。此方法也不是直接重命名，而是将该文件或文件夹的名称标记为重命名后名称，也需要我们使用<code>svn Commit</code>提交到svn服务器后才真正重命名</p>
+<ul>
+<li><strong>删除文件或文件夹，并将修改提交到svn服务器</strong></li>
+</ul>
+<p>最简单就是，你直接删除文件或文件夹，然后使用<code>svn Commit</code>提交更新到svn服务器。另外一种方法是在你要删除的文件或文件夹上点击右键<code>=&gt;&gt;Tortoisesvn=&gt;&gt;Delete</code>删除,此方法也不是直接删除，而是将该文件或文件夹的状态置为删除，也需要我们使用svn Commit提交到svn服务器后才真正删除。</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780878aoOo.png" alt="enter description here"></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/6cdcec50.html&title=《Tortoisesvn的基使用方法》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/6cdcec50.html&title=《Tortoisesvn的基使用方法》 — 前端迷 (front-end fan)&source=签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/6cdcec50.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tortoisesvn的基使用方法》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/6cdcec50.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/6cdcec50.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/88163820.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">梳理常用的正则表达式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/3961640b.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ubuntu下如何用命令行运行deb安装包</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/posts/6cdcec50.html&title=《Tortoisesvn的基使用方法》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/posts/6cdcec50.html&title=《Tortoisesvn的基使用方法》 — 前端迷 (front-end fan)&source=签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/posts/6cdcec50.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tortoisesvn的基使用方法》 — 前端迷 (front-end fan)&url=https://ru23.com/posts/6cdcec50.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/posts/6cdcec50.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABv0lEQVR42u3aQY7CMAwFUO5/6c52pKHl225CNXpZIaDJCwsr/uH1isfxayTf/Pu6N1tz4OLijrnH5bhe4HrJ6xnOPj0z4OLi7ufmJem6VJ29k9M/2HBxcR/MnRc+XFzc/8TNN9Cj4+LiPoebLJlz8zRjYa+Gi4s74OYp5brXS/JdXFzcFvcojl7R6TVRb2bGxcXdws0LSh565i1Qb11cXNw93EnMMYk8Jq0ULi7uOm5y+Jj8laq6jehEhouLu5ibHCZ6rVFyPJpsDBcXdx03eaxXpCbt0+lTuLi4G7nJMr2St6T5wcXFXcxNHqgeSnoBSvIpLi7uHm41GO21NJPL1zfNDy4u7mJufqRIjix5XDKJVHBxcXdyJ5coKy5ZPyS7uLi4W7jV641JqFotmlGWg4uLu4x7VzyahCPJUanc/ODi4i7gVktYD10tf5Xd4OLiTrlHcUxmyLca/a64uLjLuNU2Jok/qpcxeaHExcXdyU0KUD51768Vo0tWXFzcZdze9cYk7MivVXBxcZ/PzYOVUTBaTU1wcXG/yi0cR25NOXBxcfdzk+ZnHm30to2Li7ufWy4lNx2G7m2ZcHFxb+L+APAyUsHyBngfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>
