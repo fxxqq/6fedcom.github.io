@@ -15,12 +15,16 @@ timezone: Asia/Shanghai
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://ru23.com/
 root: /
-permalink: note/:abbrlink.html
-permalink_defaults:
+permalink: posts/:abbrlink.html
+# permalink_defaults:
 # abbrlink config
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
   rep: hex    # 进制：dec(default) and hex
+  # Security
+##
+encrypt:
+    enable: true
 # Directory
 source_dir: source
 public_dir: frontend
@@ -99,21 +103,24 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
-
-# Security
-##
-encrypt:
-    enable: true
     
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: frank
 
+baidu_url_submit:
+  count: 10 # 提交最新的链接数
+  host: ru23.com # 在百度站长平台中注册的域名,虽然官方推荐要带有 www, 但可以不带.
+  token: mCi9bGbza3HmRDJx # 你的秘钥,每个人都不一样,获取方法在下面
+  path: baidu_urls.txt # 文本文档的地址,新链接会保存在此文本文档里
+
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:ru23/ru23.github.io.git,master
+  - type: git
+    repo: git@github.com:ru23/ru23.github.io.git,master
+  - type: baidu_url_submitter
 
  
