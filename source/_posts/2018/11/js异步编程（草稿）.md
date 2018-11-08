@@ -1,5 +1,5 @@
 ---
-title: 11月份前端要消化的知识点
+title: js异步编程（草稿）
 categories: front-end
 password: 580ae11
 abbrlink: 580ae11

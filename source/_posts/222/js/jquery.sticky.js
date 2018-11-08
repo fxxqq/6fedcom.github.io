@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 // Sticky Plugin v1.0.3 for jQuery
 // =============
 // Author: Anthony Garand

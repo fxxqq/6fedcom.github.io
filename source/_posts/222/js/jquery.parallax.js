@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 /*
 Plugin: jQuery Parallax
 Version 1.1.3
