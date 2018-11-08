@@ -22,6 +22,20 @@
 
 <% if (theme.visit_counter) { %>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script>
 <!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
