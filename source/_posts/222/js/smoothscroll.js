@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 /**
  * SmoothScroll
  * This helper script created by DWUser.com.  Copyright 2013 DWUser.com.  
