@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/7dab39f7.html">
+    
+    
+    <title>梳理常见的CSS属性（二） | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="css">
+    <meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="梳理常见的CSS属性（二）">
+<meta property="og:url" content="https://ru23.com/note/7dab39f7.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93.png">
+<meta property="og:updated_time" content="2018-11-01T08:08:29.896Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="梳理常见的CSS属性（二）">
+<meta name="twitter:image" content="http://7xq6al.com1.z0.glb.clouddn.com/css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            梳理常见的CSS属性（二）
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            梳理常见的CSS属性（二）
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2015-05-25T15:56:31.000Z" itemprop="datePublished" class="page-time">
+  2015-05-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#附录"><span class="post-toc-text">附录</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2015-05-梳理常见的CSS属性（二）" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">梳理常见的CSS属性（二）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-05-25 23:56:31" datetime="2015-05-25T15:56:31.000Z" itemprop="datePublished">2015-05-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>一、CSS 文字属性</strong></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">语 言</td>
+<td style="text-align:left">功  能</td>
+</tr>
+<tr>
+<td style="text-align:left">color : #999999;</td>
+<td style="text-align:left">文字颜色</td>
+</tr>
+<tr>
+<td style="text-align:left">font-family:宋体,sans-serif;</td>
+<td style="text-align:left">文字字体</td>
+</tr>
+<tr>
+<td style="text-align:left">font-size:9pt;</td>
+<td style="text-align:left">文字大小</td>
+</tr>
+<tr>
+<td style="text-align:left">font-style:itelic;</td>
+<td style="text-align:left">文字斜体</td>
+</tr>
+<tr>
+<td style="text-align:left">font-variant:small-caps;</td>
+<td style="text-align:left">小字体</td>
+</tr>
+<tr>
+<td style="text-align:left">letter-spacing:1pt;</td>
+<td style="text-align:left">字间距离</td>
+</tr>
+<tr>
+<td style="text-align:left">line-height : 200%;</td>
+<td style="text-align:left">设置行高</td>
+</tr>
+<tr>
+<td style="text-align:left">font-weight:bold;</td>
+<td style="text-align:left">文字粗体</td>
+</tr>
+<tr>
+<td style="text-align:left">vertical-align:sub;</td>
+<td style="text-align:left">下标字</td>
+</tr>
+<tr>
+<td style="text-align:left">vertical-align:super;</td>
+<td style="text-align:left">上标字</td>
+</tr>
+<tr>
+<td style="text-align:left">text-decoration:line-through;</td>
+<td style="text-align:left">加删除线</td>
+</tr>
+<tr>
+<td style="text-align:left">text-decoration:overline;</td>
+<td style="text-align:left">加顶线</td>
+</tr>
+<tr>
+<td style="text-align:left">text-decoration:underline;</td>
+<td style="text-align:left">加下画线</td>
+</tr>
+<tr>
+<td style="text-align:left">text-decoration:none;</td>
+<td style="text-align:left">删除链接下画线</td>
+</tr>
+<tr>
+<td style="text-align:left">text-transform:capitalize;</td>
+<td style="text-align:left">首字大写</td>
+</tr>
+<tr>
+<td style="text-align:left">text-transform:uppercase;</td>
+<td style="text-align:left">英文大写</td>
+</tr>
+<tr>
+<td style="text-align:left">text-transform:lowercase;</td>
+<td style="text-align:left">英文小写</td>
+</tr>
+<tr>
+<td style="text-align:left">text-align:right;</td>
+<td style="text-align:left">文字右对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">text-align:left;</td>
+<td style="text-align:left">文字左对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">text-align:center;</td>
+<td style="text-align:left">文字居中对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">text-align:justify;</td>
+<td style="text-align:left">文字两端对齐</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>vertical-align属性</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">vertical-align:top;</td>
+<td style="text-align:left">垂直向上对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">vertical-align:bottom;</td>
+<td style="text-align:left">垂直向下对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">vertical-align:middle;</td>
+<td style="text-align:left">垂直居中对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">vertical-align:text-top;</td>
+<td style="text-align:left">文字垂直向上对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">vertical-align:text-bottom;</td>
+<td style="text-align:left">文字垂直向下对齐</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>二、CSS 项目符号</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:none;</td>
+<td style="text-align:left">不编号</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:decimal;</td>
+<td style="text-align:left">阿拉伯数字</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:lower-roman;</td>
+<td style="text-align:left">小写罗马数字</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:upper-roman;</td>
+<td style="text-align:left">大写罗马数字</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:lower-alpha;</td>
+<td style="text-align:left">小写英文字母</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:upper-alpha;</td>
+<td style="text-align:left">大写英文字母</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:disc;</td>
+<td style="text-align:left">实心圆形符号</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:circle;</td>
+<td style="text-align:left">空心圆形符号</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-type:square;</td>
+<td style="text-align:left">实心方形符号</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-image:url(/dot.gif)</td>
+<td style="text-align:left">图片式符号</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-position:outside;</td>
+<td style="text-align:left">凸排</td>
+</tr>
+<tr>
+<td style="text-align:left">list-style-position:inside;</td>
+<td style="text-align:left">缩进</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>三、CSS 背景样式</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">background-color:#F5E2EC;</td>
+<td style="text-align:left">背景颜色</td>
+</tr>
+<tr>
+<td style="text-align:left">background:transparent;</td>
+<td style="text-align:left">透视背景</td>
+</tr>
+<tr>
+<td style="text-align:left">background-image:url(image/bg.gif);</td>
+<td style="text-align:left">背景图片</td>
+</tr>
+<tr>
+<td style="text-align:left">background-attachment:fixed;</td>
+<td style="text-align:left">浮水印固定背景</td>
+</tr>
+<tr>
+<td style="text-align:left">background-repeat:repeat;</td>
+<td style="text-align:left">重复排列-网页默认</td>
+</tr>
+<tr>
+<td style="text-align:left">background-repeat:no-repeat;</td>
+<td style="text-align:left">不重复排列</td>
+</tr>
+<tr>
+<td style="text-align:left">background-repeat:repeat-x;</td>
+<td style="text-align:left">在 X 轴重复排列</td>
+</tr>
+<tr>
+<td style="text-align:left">background-repeat:repeat-y;</td>
+<td style="text-align:left">在 Y 轴重复排列</td>
+</tr>
+<tr>
+<td style="text-align:left">background-position:90% 90%;</td>
+<td style="text-align:left">背景图片 X 与 Y 轴的位置</td>
+</tr>
+<tr>
+<td style="text-align:left">background-position:top;</td>
+<td style="text-align:left">向上对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">background-position:buttom;</td>
+<td style="text-align:left">向下对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">background-position:left;</td>
+<td style="text-align:left">向左对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">background-position:right;</td>
+<td style="text-align:left">向右对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">background-position:center;</td>
+<td style="text-align:left">居中对齐</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>四、CSS 链接属性</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">a  所有超链接</td>
+</tr>
+<tr>
+<td style="text-align:left">a:link</td>
+<td style="text-align:left">超链接文字格式</td>
+</tr>
+<tr>
+<td style="text-align:left">a:visited</td>
+<td style="text-align:left">浏览过的链接文字格式</td>
+</tr>
+<tr>
+<td style="text-align:left">a:active</td>
+<td style="text-align:left">按下链接的格式</td>
+</tr>
+<tr>
+<td style="text-align:left">a:hover</td>
+<td style="text-align:left">鼠标转到链接</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:crosshair</td>
+<td style="text-align:left">十字体</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:s-resize</td>
+<td style="text-align:left">箭头朝下</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:help</td>
+<td style="text-align:left">加一问号</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:w-resize</td>
+<td style="text-align:left">箭头朝左</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:n-resize</td>
+<td style="text-align:left">箭头朝上</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:ne-resize</td>
+<td style="text-align:left">箭头朝右上</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:nw-resize</td>
+<td style="text-align:left">箭头朝左上</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:text</td>
+<td style="text-align:left">文字 I 型</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:se-resize</td>
+<td style="text-align:left">箭头斜右下</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:sw-resize</td>
+<td style="text-align:left">箭头斜左下</td>
+</tr>
+<tr>
+<td style="text-align:left">cursor:wait</td>
+<td style="text-align:left">漏斗</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>五、CSS 边框属性</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">border-top:1px solid #6699cc;</td>
+<td style="text-align:left">上框线</td>
+</tr>
+<tr>
+<td style="text-align:left">border-bottom:1px solid #6699cc;</td>
+<td style="text-align:left">下框线</td>
+</tr>
+<tr>
+<td style="text-align:left">border-left:1px solid #6699cc;</td>
+<td style="text-align:left">左框线</td>
+</tr>
+<tr>
+<td style="text-align:left">border-right:1px solid #6699cc;</td>
+<td style="text-align:left">右框线</td>
+</tr>
+<tr>
+<td style="text-align:left">solid</td>
+<td style="text-align:left">实线框 2+6010</td>
+</tr>
+<tr>
+<td style="text-align:left">47dotted</td>
+<td style="text-align:left">虚线框</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">双线框</td>
+</tr>
+<tr>
+<td style="text-align:left">groove</td>
+<td style="text-align:left">立体内凸框</td>
+</tr>
+<tr>
+<td style="text-align:left">ridge</td>
+<td style="text-align:left">立体浮雕框</td>
+</tr>
+<tr>
+<td style="text-align:left">inset</td>
+<td style="text-align:left">凹框</td>
+</tr>
+<tr>
+<td style="text-align:left">outset</td>
+<td style="text-align:left">凸框</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>六、CSS 表单</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;input type=&quot;text&quot; name=&quot;T1&quot; size=&quot;15&quot;&gt;</code></td>
+<td style="text-align:left">文本域</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;input type=&quot;submit&quot; value=&quot;submit&quot; name =&quot;B1&quot;&gt;</code></td>
+<td style="text-align:left">按钮</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;input type=&quot;checkbox&quot; name=&quot;C1&quot;&gt;</code></td>
+<td style="text-align:left">复选框</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;input type=&quot;radio&quot; value=&quot;V1&quot; checked name=&quot;R1&quot;&gt;</code></td>
+<td style="text-align:left">单选按钮</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;select size=&quot;1&quot; name=&quot;D1&quot;&gt;&lt;option&gt;选项1&lt;/option&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;option&gt;选项 2&lt;/option&gt;&lt;/select&gt;</code></td>
+<td style="text-align:left">列表菜单</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;textarea rows=&quot;1&quot; name=&quot;1&quot;  cols=&quot;15&quot;&gt;</code></td>
+<td style="text-align:left">多行文本域</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>七、CSS 边界样式</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">margin-top:10px;</td>
+<td style="text-align:left">上边界</td>
+</tr>
+<tr>
+<td style="text-align:left">margin-right:10px;</td>
+<td style="text-align:left">右边界值</td>
+</tr>
+<tr>
+<td style="text-align:left">margin-bottom:10px;</td>
+<td style="text-align:left">下边界值</td>
+</tr>
+<tr>
+<td style="text-align:left">margin-left:10px;</td>
+<td style="text-align:left">左边界值</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>八、CSS 边框空白</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">padding-top:10px;</td>
+<td style="text-align:left">上边框留空白</td>
+</tr>
+<tr>
+<td style="text-align:left">padding-right:10px;</td>
+<td style="text-align:left">右边框留空白</td>
+</tr>
+<tr>
+<td style="text-align:left">padding-bottom:10px;</td>
+<td style="text-align:left">下边框留空白</td>
+</tr>
+<tr>
+<td style="text-align:left">padding-left:10px;</td>
+<td style="text-align:left">左边框留空白</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93.png" alt="css常用属性思维导图总结" title="">
+                </div>
+                <div class="image-caption">css常用属性思维导图总结</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/7dab39f7.html&title=《梳理常见的CSS属性（二）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/7dab39f7.html&title=《梳理常见的CSS属性（二）》 — 前端迷 (front-end fan)&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/7dab39f7.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《梳理常见的CSS属性（二）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/7dab39f7.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/7dab39f7.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/7f75edbf.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端开发的一些实践规范</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/6282513e.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">css常用属性梳理（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/7dab39f7.html&title=《梳理常见的CSS属性（二）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/7dab39f7.html&title=《梳理常见的CSS属性（二）》 — 前端迷 (front-end fan)&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/7dab39f7.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《梳理常见的CSS属性（二）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/7dab39f7.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/7dab39f7.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzklEQVR42u3aQXLCMBAEQP7/aeeaQ4RnJEtQqdaJsgE3HKZWu3q94nUN1uju6LOjKw8vXFzcZe71diWg9if9vpIbcHFxz3NHjx+9J3n8+9h6//3D67i4uF/JTWIujy1cXNz/wc03MO12CBcX99u4eQw920zZuFfDxcVd4OYP3vd6S38XFxd3inuV6325096tn46Li3uEmwfKymgkKXeK7RMuLu5Bbhsxz26cioEuLi7ucW7eAM0bGTmlKHFwcXG3cdtDEnkYtckTbZlwcXGPcJ8amuaDk/YQRlGX4eLibuPOFSXt0Y2lzQ8uLu5mbhs6K6PZJKpuggwXF/cgN0mJlUMVbdgNDbi4uMe5cy2PlQZKvfnBxcU9wk1utCOTpGBqQ63o0ODi4j7ETeIjb5rkwZSXPjfnyHBxcTdz8yJjHZeMZP54Jy4u7oe4SVEyVwY9sNHCxcXdzL3Kle+l8uArfhguLu4Rbhsu7YHOdpPTfgMuLu4+7kp4tYHVNlhvhii4uLibuSvHI/IjFHPD2pv+Li4u7pdxkxiabIy2XRNcXNyPcpP2St21zYW4uLgHuXPxlJQy7TGOmz8LFxf3CLeNkpVhajuOXerv4uLiznB/AOsGmnmDehhHAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/d09b98b1.html">
+    
+    
+    <title>JavaScript&amp;&amp;php常用函数对比 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="javascript,php">
+    <meta name="description" content="字符函数     JavaScript php     获取字符串长度 字符串.length strlen( 字符串 );   截取字符串 字符串.substr( 起始位 [,长度] ); substr( 字符串, 起始位 [,长度] );   字符串定位（子字符串 在字符串 中出现的位置） 字符串.indexOf( 子字符串  );字符串.lastIndexOf( 子字符串 ); strpos(">
+<meta name="keywords" content="javascript,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript&amp;&amp;php常用函数对比">
+<meta property="og:url" content="https://ru23.com/note/d09b98b1.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="字符函数     JavaScript php     获取字符串长度 字符串.length strlen( 字符串 );   截取字符串 字符串.substr( 起始位 [,长度] ); substr( 字符串, 起始位 [,长度] );   字符串定位（子字符串 在字符串 中出现的位置） 字符串.indexOf( 子字符串  );字符串.lastIndexOf( 子字符串 ); strpos(">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-01T08:56:53.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript&amp;&amp;php常用函数对比">
+<meta name="twitter:description" content="字符函数     JavaScript php     获取字符串长度 字符串.length strlen( 字符串 );   截取字符串 字符串.substr( 起始位 [,长度] ); substr( 字符串, 起始位 [,长度] );   字符串定位（子字符串 在字符串 中出现的位置） 字符串.indexOf( 子字符串  );字符串.lastIndexOf( 子字符串 ); strpos(">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            JavaScript&amp;&amp;php常用函数对比
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            JavaScript&amp;&amp;php常用函数对比
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2016-11-12T08:08:24.000Z" itemprop="datePublished" class="page-time">
+  2016-11-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符函数"><span class="post-toc-text">字符函数</span></a></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组函数"><span class="post-toc-text">数组函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间函数"><span class="post-toc-text">时间函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数学函数"><span class="post-toc-text">数学函数</span></a>
+    </li></nav>
+</aside>
+
+
+
+<article id="post-2016-12-compare-js-php-func" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript&&php常用函数对比</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-11-12 16:08:24" datetime="2016-11-12T08:08:24.000Z" itemprop="datePublished">2016-11-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h4><hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>JavaScript</th>
+<th>php</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>获取字符串长度</td>
+<td><code>字符串.length</code></td>
+<td><code>strlen( 字符串 )</code>;</td>
+</tr>
+<tr>
+<td>截取字符串</td>
+<td><code>字符串.substr( 起始位 [,长度] )</code>;</td>
+<td>substr( 字符串, 起始位 [,长度] );</td>
+</tr>
+<tr>
+<td>字符串定位（子字符串 在字符串 中出现的位置）</td>
+<td>字符串.indexOf( 子字符串  );<br>字符串.lastIndexOf( 子字符串 );</td>
+<td>strpos( 字符串, 子字符串 );<br>strrpos( 字符串, 子字符串 );</td>
+</tr>
+<tr>
+<td>拆分为数组</td>
+<td>字符串.split( 分割符 );</td>
+<td>explode( 分隔符, 字符串 );</td>
+</tr>
+<tr>
+<td>转化为大写</td>
+<td>字符串.toLowerCase();</td>
+<td>strtoupper( 字符串 );</td>
+</tr>
+<tr>
+<td>转化为小写</td>
+<td>字符串.toUpperCase();</td>
+<td>strtolower( 字符串 );</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="数组函数"><a href="#数组函数" class="headerlink" title="数组函数"></a>数组函数</h3><hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>JavaScript</th>
+<th>php</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>获取数组长度</td>
+<td>数组.length;</td>
+<td>count( 数组 ) 或  sizeof( 数组 );</td>
+</tr>
+<tr>
+<td>连接为字符串</td>
+<td>数组.join( 连接符 );</td>
+<td>implode( 连接符, 数组 );</td>
+</tr>
+<tr>
+<td>头部压入</td>
+<td>数组.unshift( 元素1, 元素2… );</td>
+<td>array_unshift( 数组, 元素1, 元素2… );</td>
+</tr>
+<tr>
+<td>头部弹出</td>
+<td>数组.shift();</td>
+<td>array_shift( 数组 );</td>
+</tr>
+<tr>
+<td>尾部压入</td>
+<td>数组.push( 元素1, 元素2… ) ;</td>
+<td>array_push( 数组 , 元素1, 元素2… );</td>
+</tr>
+<tr>
+<td>尾部弹出</td>
+<td>数组.pop();</td>
+<td>array_pop( 数组 );</td>
+</tr>
+</tbody>
+</table>
+<h3 id="时间函数"><a href="#时间函数" class="headerlink" title="时间函数"></a>时间函数</h3><hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>JavaScript  月日时分秒均无前导零</th>
+<th>php  以下月日时分秒均含前导零</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>获取年份</td>
+<td>new Date().getFullYear();</td>
+<td>date( ‘Y’ );</td>
+</tr>
+<tr>
+<td>获取月份</td>
+<td>new Date().getMonth(); //0~11</td>
+<td>date( ‘m’ );  //01~12</td>
+</tr>
+<tr>
+<td>获取几号</td>
+<td>new Date().getDate();</td>
+<td>date( ‘d’ );</td>
+</tr>
+<tr>
+<td>获取星期</td>
+<td>new Date().getDay();  //0~6</td>
+<td>date( ‘N’ );  //1~7</td>
+</tr>
+<tr>
+<td>获取小时</td>
+<td>new Date().getHours();</td>
+<td>date( ‘H’ );</td>
+</tr>
+<tr>
+<td>获取分钟</td>
+<td>new Date().getMinutes();</td>
+<td>date( ‘i’ );</td>
+</tr>
+<tr>
+<td>获取秒</td>
+<td>new Date().getSeconds();</td>
+<td>date( ‘s’ );</td>
+</tr>
+<tr>
+<td>获取时间戳</td>
+<td>new Date().getTime()/1000;</td>
+<td>time();</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>JavaScript</th>
+<th>php</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>舍一取整</td>
+<td>Math.floor( 变量 ) ;</td>
+<td>floor( 变量 );</td>
+</tr>
+<tr>
+<td>进一取整</td>
+<td>Math.ceil( 变量 ) ;</td>
+<td>ceil( 变量 );</td>
+</tr>
+<tr>
+<td>随机数</td>
+<td>Math.random(); //0~1</td>
+<td>mt_rand( 起始, 终止 );</td>
+</tr>
+<tr>
+<td>幂运算</td>
+<td>Math.pow( 底数, 指数 );</td>
+<td>pow( 底数, 指数 );</td>
+</tr>
+<tr>
+<td>开平方</td>
+<td>Math.sqrt( 变量 );</td>
+<td>sqrt( 变量 );</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/d09b98b1.html&title=《JavaScript&&php常用函数对比》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/d09b98b1.html&title=《JavaScript&&php常用函数对比》 — 前端迷 (front-end fan)&source=字符函数
+
+
+
+
+JavaScript
+php
+
+
+
+
+获取字符串长度
+字符串.length
+strlen( 字符串 );
+
+
+截取字符串
+字符串.sub..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/d09b98b1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript&&php常用函数对比》 — 前端迷 (front-end fan)&url=https://ru23.com/note/d09b98b1.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/d09b98b1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/df00e94a.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">居中解决方案荟萃</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/9db8c984.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JavaScript常用的代码片段</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/d09b98b1.html&title=《JavaScript&&php常用函数对比》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/d09b98b1.html&title=《JavaScript&&php常用函数对比》 — 前端迷 (front-end fan)&source=字符函数
+
+
+
+
+JavaScript
+php
+
+
+
+
+获取字符串长度
+字符串.length
+strlen( 字符串 );
+
+
+截取字符串
+字符串.sub..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/d09b98b1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript&&php常用函数对比》 — 前端迷 (front-end fan)&url=https://ru23.com/note/d09b98b1.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/d09b98b1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aSW7DMAwF0Nz/0u4BWiuf1BCneFoFgSE/eUFw0OsVr+tm3T3z+/+7PV87Fi4u7jT3Gq67Z/IdxnvmBlxc3PPccaAZP5NQZvbHxcV9PrcayMaHxMXF/a/cvE7BxcX9Lm5eqCStkIS1vVbDxcWd4OYhad/vLf1dXFzcFndto3NcGlWD1x9vx8XFPcLNA0o+aEkGrnn6gouL+zRu9cpF8mSeQjWHrLi4uNPc3jWL5DW9L1fIyHBxcbdx802rRU41rclLJlxc3N3c+QtV1eP1Wiq4uLjnudX2x8zVjQXFDy4u7hHum/ARH6yauFTLIVxc3DPcJOjklFXB7s3HwsXF3czNi58kYCWpzDh4LavVcHFxJ7jJi/Mt1g5Zo8IJFxd3GzcvY3rjlsJNkCSA4uLiHuRWr1PMt06qnwYXF/c8t9ocqY5h8rUsC8PFxW1xr+LqFTMz6Q4uLu55bjW45IfJ26zVdAcXF/cMN29w5EPZKqUQ4HBxcQ9ye9cjeq3SavFz28XBxcV9DLfaFmk2RqtdE1xc3I9ye4XQfJcDFxf3PDdPWVYVQklKhIuL+yluNZTMD1BXtVxxcXE3cH8A5a3iMYBacRkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

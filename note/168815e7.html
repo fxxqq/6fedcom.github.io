@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/168815e7.html">
+    
+    
+    <title>Ubuntu下安裝 Zsh 及 Oh-my-zsh | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Linux,Ubuntu">
+    <meta name="description" content="不管是在服务器还是本机上打开终端，默认都会运行名叫 Bash 的 shell，它是目前最为流行的 shell，几乎每个基于UNIX的系统都支持。但是也存在其他的 Bash 替代方案，能帮助开发者更方便快捷地使用终端。 其中之一就是Z shell，也被称为Zsh。Oh-My-Zsh的安装非常简单，只需在命令行输入以下命令并重启即可">
+<meta name="keywords" content="Linux,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下安裝 Zsh 及 Oh-my-zsh">
+<meta property="og:url" content="https://ru23.com/note/168815e7.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="不管是在服务器还是本机上打开终端，默认都会运行名叫 Bash 的 shell，它是目前最为流行的 shell，几乎每个基于UNIX的系统都支持。但是也存在其他的 Bash 替代方案，能帮助开发者更方便快捷地使用终端。 其中之一就是Z shell，也被称为Zsh。Oh-My-Zsh的安装非常简单，只需在命令行输入以下命令并重启即可">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png">
+<meta property="og:updated_time" content="2018-11-01T08:58:29.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下安裝 Zsh 及 Oh-my-zsh">
+<meta name="twitter:description" content="不管是在服务器还是本机上打开终端，默认都会运行名叫 Bash 的 shell，它是目前最为流行的 shell，几乎每个基于UNIX的系统都支持。但是也存在其他的 Bash 替代方案，能帮助开发者更方便快捷地使用终端。 其中之一就是Z shell，也被称为Zsh。Oh-My-Zsh的安装非常简单，只需在命令行输入以下命令并重启即可">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            Ubuntu下安裝 Zsh 及 Oh-my-zsh
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            Ubuntu下安裝 Zsh 及 Oh-my-zsh
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2016-06-26T07:35:19.000Z" itemprop="datePublished" class="page-time">
+  2016-06-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、在-Ubuntu-Linux-中安裝-Zsh-及-Oh-my-zsh"><span class="post-toc-text">一、在 Ubuntu Linux 中安裝 Zsh 及 Oh-my-zsh</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、接下来配置适合自己Zsh"><span class="post-toc-text">二、接下来配置适合自己Zsh</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2016-06-Ubuntu下安裝-Zsh-及-Oh-my-zsh" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu下安裝 Zsh 及 Oh-my-zsh</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-06-26 15:35:19" datetime="2016-06-26T07:35:19.000Z" itemprop="datePublished">2016-06-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>不管是在服务器还是本机上打开终端，默认都会运行名叫 Bash 的 shell，它是目前最为流行的 shell，几乎每个基于UNIX的系统都支持。但是也存在其他的 Bash 替代方案，能帮助开发者更方便快捷地使用终端。</p>
+<p>其中之一就是Z shell，也被称为Zsh。Oh-My-Zsh的安装非常简单，只需在命令行输入以下命令并重启即可<br> <a id="more"></a>  </p>
+<h3 id="一、在-Ubuntu-Linux-中安裝-Zsh-及-Oh-my-zsh"><a href="#一、在-Ubuntu-Linux-中安裝-Zsh-及-Oh-my-zsh" class="headerlink" title="一、在 Ubuntu Linux 中安裝 Zsh 及 Oh-my-zsh"></a>一、在 Ubuntu Linux 中安裝 Zsh 及 Oh-my-zsh</h3><ul>
+<li>安裝 zsh 套件</li>
+</ul>
+<p><code>$ apt-get install zsh</code></p>
+<ul>
+<li><p>安装git</p>
+<p><code>$ apt-get install git</code></p>
+</li>
+<li><p>安装完以上两步，执行下面的代码</p>
+</li>
+</ul>
+<p><code>curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</code></p>
+<ul>
+<li>把zsh设置成默认-替换bash<br><code>chsh -s /bin/zsh</code></li>
+</ul>
+<hr>
+<h3 id="二、接下来配置适合自己Zsh"><a href="#二、接下来配置适合自己Zsh" class="headerlink" title="二、接下来配置适合自己Zsh"></a>二、接下来配置适合自己Zsh</h3><ul>
+<li><p>主题修改，我比较喜欢前面是$符号，所以选择了steeef这款主题</p>
+<pre><code> $ vim ~/.zshrc
+ 配置文件里找到：（输入`/`即可搜素ZSH_THEME）
+ `ZSH_THEME=&quot;robbyrussell&quot;`
+修改为：
+</code></pre><p>   <code>ZSH_THEME=&quot;steeef&quot;</code></p>
+</li>
+<li><p>常用命令</p>
+<ul>
+<li><p>查看zsh下有哪些主题<br><code>$ ls ~/.oh-my-zsh/themes</code></p>
+</li>
+<li><p>查看zsh下有哪些插件<br><code>ls ~/.oh-my-zsh/plugins</code></p>
+</li>
+<li><p>编辑 ~/.zshrc 启用 插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"> -  下載 zsh-syntax-highlighting plugin</span><br><span class="line"> `$ cd ~/.oh-my-zsh/custom/plugins  `</span><br><span class="line"> `$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git `</span><br><span class="line"> </span><br><span class="line"> - 新增自定 zsh 设定，把 alias 和 PATH 的设定放在这里</span><br><span class="line">``` </span><br><span class="line"> $ cat ~/.oh-my-zsh/custom/xxx.zsh  </span><br><span class="line">    alias df=&apos;df -h&apos;  </span><br><span class="line">    alias h=&apos;htop&apos;  </span><br><span class="line">    PATH=$PATH:/opt/app/bin/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes" target="_blank" rel="noopener">这里是官方提供的各种主题</a></p>
+</li>
+<li><p>配置的效果图</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/168815e7.html&title=《Ubuntu下安裝 Zsh 及 Oh-my-zsh》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/168815e7.html&title=《Ubuntu下安裝 Zsh 及 Oh-my-zsh》 — 前端迷 (front-end fan)&source=不管是在服务器还是本机上打开终端，默认都会运行名叫 Bash 的 shell，它是目前最为流行的 shell，几乎每个基于UNIX的系统都支持。但是也存在..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/168815e7.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下安裝 Zsh 及 Oh-my-zsh》 — 前端迷 (front-end fan)&url=https://ru23.com/note/168815e7.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/168815e7.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/11e7f6eb.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">一键更新hexo到github和coding</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/f3739653.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">在sublime-text中设置浏览器预览</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/168815e7.html&title=《Ubuntu下安裝 Zsh 及 Oh-my-zsh》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/168815e7.html&title=《Ubuntu下安裝 Zsh 及 Oh-my-zsh》 — 前端迷 (front-end fan)&source=不管是在服务器还是本机上打开终端，默认都会运行名叫 Bash 的 shell，它是目前最为流行的 shell，几乎每个基于UNIX的系统都支持。但是也存在..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/168815e7.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下安裝 Zsh 及 Oh-my-zsh》 — 前端迷 (front-end fan)&url=https://ru23.com/note/168815e7.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/168815e7.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByUlEQVR42u3aS4rDMBAFwNz/0hmY1cBg5T0pUhworYwdxyUvmv748YjX83eNr/5dV1evzrx54eLiLnOfw/WfmxxfXR3///g3uLi457nj4JVsYxxz2q1ensfFxb0ZNzl+EYaCbeDi4n4XNyljEu6H4y4uLm7MzYuTpCGStDy212q4uLgL3LZhuuN4Y38XFxe35D7LNS5gxqnJc3nh4uKe4SYjkHyYOpfQtI0SXFzc89y25dEGvrlCCBcX9zx3rshpw1CeEhVbxcXF3cBdKW/aZGilHIoyLFxc3A3cvHRpH9mWQJevDBcX9yA3n1zMfUiRh8gXz8LFxT3CzVl5YEoC1tLwFRcXdzP3Xa3PuR5M23bBxcU9w23/rm1z5K3S4hXg4uJu5rafWYzPtyEpeQW4uLjnue1tbbMj33DeVMXFxd3NXR9+JP2Kdqu4uLh34D7Klac49ZhkfBcuLu5Bbts2nRu7zqU7k6MUXFzcBW4bUOaaHesfbdSbwcXFXebmwSsPf+sbw8XFvQN3Lni1Q5SVViwuLu49uW3GNDeIfbE9XFzcr+W2qVISHHFxcc9z8zKmTVNW6Eu1Gi4u7gJ3rmE6l8TkAREXF/dD3B/M5SULHqvH9wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/10fd8090.html">
+    
+    
+    <title>bootstrap常用类小结 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="bootstrap">
+    <meta name="description" content="网格选项row :行 col-*-*: 列  第一个*可以为xs[超小]/sm[小型]/md[中型]/lg[大型] 第二个*必须为12以内的[列数]  col-*-offset-* :列偏移  第一个*和上面一样,第二个*范围是1到11,表示把该列的左外边距(margin)增加*列  col-*-*-*:列排序  第一个*和上面一样 第二个*可以为push[向右]/pull[向左] 第三个*范围是">
+<meta name="keywords" content="bootstrap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrap常用类小结">
+<meta property="og:url" content="https://ru23.com/note/10fd8090.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="网格选项row :行 col-*-*: 列  第一个*可以为xs[超小]/sm[小型]/md[中型]/lg[大型] 第二个*必须为12以内的[列数]  col-*-offset-* :列偏移  第一个*和上面一样,第二个*范围是1到11,表示把该列的左外边距(margin)增加*列  col-*-*-*:列排序  第一个*和上面一样 第二个*可以为push[向右]/pull[向左] 第三个*范围是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20160530130233175">
+<meta property="og:updated_time" content="2018-11-01T08:08:32.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bootstrap常用类小结">
+<meta name="twitter:description" content="网格选项row :行 col-*-*: 列  第一个*可以为xs[超小]/sm[小型]/md[中型]/lg[大型] 第二个*必须为12以内的[列数]  col-*-offset-* :列偏移  第一个*和上面一样,第二个*范围是1到11,表示把该列的左外边距(margin)增加*列  col-*-*-*:列排序  第一个*和上面一样 第二个*可以为push[向右]/pull[向左] 第三个*范围是">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160530130233175">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            bootstrap常用类小结
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            bootstrap常用类小结
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2017-11-04T14:55:24.000Z" itemprop="datePublished" class="page-time">
+  2017-11-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网格选项"><span class="post-toc-text">网格选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#排版"><span class="post-toc-text">排版</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表格"><span class="post-toc-text">表格</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表单"><span class="post-toc-text">表单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#按钮"><span class="post-toc-text">按钮</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片"><span class="post-toc-text">图片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#辅助类"><span class="post-toc-text">辅助类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字体图标"><span class="post-toc-text">字体图标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下拉菜单"><span class="post-toc-text">下拉菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#按钮组"><span class="post-toc-text">按钮组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入框组"><span class="post-toc-text">输入框组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导航元素"><span class="post-toc-text">导航元素</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2017-11-bootstrap-summary" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">bootstrap常用类小结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-04 22:55:24" datetime="2017-11-04T14:55:24.000Z" itemprop="datePublished">2017-11-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="网格选项"><a href="#网格选项" class="headerlink" title="网格选项"></a>网格选项</h2><p><strong><code>row</code></strong> :行</p>
+<p><strong><code>col-*-*</code>: 列</strong></p>
+<ul>
+<li>第一个<code>*</code>可以为<code>xs[超小]</code>/<code>sm[小型]</code>/<code>md[中型]</code>/<code>lg[大型]</code></li>
+<li>第二个<code>*</code>必须为<code>12</code>以内的[列数]</li>
+</ul>
+<p><strong><code>col-*-offset-*</code> :列偏移</strong></p>
+<ul>
+<li>第一个<code>*</code>和上面一样,第二个<code>*</code>范围是<code>1</code>到<code>11</code>,表示把该列的左外边距(<code>margin</code>)增加<code>*</code>列</li>
+</ul>
+<p><strong><code>col-*-*-*</code>:列排序</strong></p>
+<ul>
+<li>第一个<code>*</code>和上面一样</li>
+<li>第二个<code>*</code>可以为<code>push</code>[向右]/<code>pull</code>[向左]</li>
+<li>第三个<code>*</code>范围是<code>1</code>到<code>11</code>[列数]</li>
+</ul>
+<h2 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h2><ul>
+<li><code>small</code>:内联子标题</li>
+<li><code>lead</code>:引导主体副本</li>
+</ul>
+<p><strong><code>text-*</code>:文本样式</strong></p>
+<ul>
+<li><p><code>*</code>号可以为<br><code>left[左对齐]</code>/<code>center[居中对齐]</code>/<code>right[右对齐]</code>/<code>muted[减弱文本]</code><br>/<code>primary</code>/<code>success</code>/<code>info</code>/<code>warning</code>/<code>danger</code><br>/<code>justify</code>[自动换行]/<code>nowrap</code>[不换行]<br>/<code>lowercase</code>[小写]/<code>uppercase</code>[大写]/<code>capitalize</code>[首字母大写]</p>
+</li>
+<li><p><code>list-inline</code>:列表置于同一行</p>
+</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ul>
+<li><strong>table</strong>:基本样式(只有横向分隔线)</li>
+<li><p><code>table-*</code>:表格样式</p>
+<ul>
+<li><code>*</code>可以为<code>striped[添加条纹]</code>/<code>bordered[添加边框]</code>/<code>hover[启用悬停]</code>/<code>condensed[更加紧凑]</code></li>
+</ul>
+</li>
+<li><p><strong>tr/th/td 有</strong> </p>
+<ul>
+<li><code>active</code>/<code>success</code>/<code>info</code>/<code>warning</code>/<code>danger</code>来改变背景颜色</li>
+</ul>
+</li>
+<li><p><strong>将任意的table放在table-responsive内,实现响应式表格</strong></p>
+</li>
+</ul>
+<blockquote>
+<p><code>bootstrap</code>里<code>active</code>/<code>success</code>/<code>info</code>/<code>warning</code>/<code>danger</code>对应的背景颜色</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20160530130233175" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p><strong>创建基本表单(垂直表单)的步骤</strong></p>
+<ul>
+<li>向父 <code>&lt;form&gt;</code> 元素添加 <code>role=&quot;form&quot;</code></li>
+<li>把标签和控件放在一个带有<code>.form-group</code> 的 <code>&lt;div&gt;</code> 中。这是获取最佳间距所必需的</li>
+<li>向所有的文本元素 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 添加<code>.form-control</code></li>
+</ul>
+<p><strong>创建水平表单的步骤</strong></p>
+<ul>
+<li>向父 <code>&lt;form&gt;</code> 元素添加  <code>.form-horizontal</code></li>
+<li>把标签和控件放在一个带有 <code>.form-group</code> 的 <code>&lt;div&gt;</code> 中</li>
+<li>向标签添加 <code>.control-label</code></li>
+</ul>
+<p><strong>常见的表单控件主要是</strong></p>
+<blockquote>
+<ul>
+<li><code>input</code>、<code>textarea</code>、<code>checkbox</code>、<code>radio</code> 和 <code>select</code></li>
+<li><code>input</code>: 声明<code>type</code>有<code>text</code>、<code>password</code>、<code>datetime</code>、<code>datetime-local</code>、<code>date</code>、<code>month</code>、<code>time</code>、<code>week</code>、 <code>number</code>、<code>email</code>、<code>url</code>、<code>search</code>、<code>tel</code> 和 <code>color</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>对父元素添加验证状态<code>has-*:</code>验证样式(<code>*</code>可以为<code>warning</code>/<code>error</code>/<code>success</code>)</li>
+</ul>
+<h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><ul>
+<li><p><strong>btn:基本样式</strong></p>
+</li>
+<li><p><strong><code>btn-*</code></strong>:其他样式</p>
+<ul>
+<li><code>*</code>可以为<code>default</code>/<code>primary</code>/<code>success</code>/<code>info</code>/<code>warning</code>/<code>danger</code><br>/<code>link</code>[让按钮看起来像个链接]/<code>lg</code>/<code>sm</code>/<code>xs</code>/<code>block</code>[块级按钮,拉伸至父元素100%的宽度]/<code>active</code>/<code>disabled</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><ul>
+<li><code>img-*</code>:图片样式(<code>*</code>可以为<code>rounded[圆角6px]</code><br>/<code>circle[圆形]</code><br>/<code>thumbnail</code>[添加内边距和一个灰色的边框]/<code>responsive</code>)</li>
+</ul>
+<h2 id="辅助类"><a href="#辅助类" class="headerlink" title="辅助类"></a>辅助类</h2><blockquote>
+<p><code>Bootstrap</code>里的一些辅助类,除了上面的<code>active</code>/<code>success</code>/<code>info</code>/<code>warning</code>/<code>danger</code> 还有 </p>
+</blockquote>
+<ul>
+<li><code>pull-left</code>/<code>right</code> 元素浮动到左边/右边 </li>
+<li><code>center-block</code> 设置元素为 <code>display:block</code> 并居中显示 </li>
+<li><code>clearfix</code> 清除浮动 </li>
+<li><p><code>show</code>/<code>hidden</code> 强制显示/隐藏</p>
+</li>
+<li><p><code>close</code> 显示关闭按钮 </p>
+</li>
+<li><code>caret</code> 显示下拉式功能 </li>
+<li><code>divider</code> 分隔线</li>
+</ul>
+<h2 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h2><blockquote>
+<p>在 <code>fonts</code> 文件夹内可以找到字体图标，它包含了下列这些文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">glyphicons-halflings-regular.eot</span><br><span class="line">glyphicons-halflings-regular.svg</span><br><span class="line">glyphicons-halflings-regular.ttf</span><br><span class="line">glyphicons-halflings-regular.woff</span><br></pre></td></tr></table></figure>
+<ul>
+<li>图标参考：<a href="http://www.runoob.com/bootstrap/bootstrap-glyphicons.html" target="_blank" rel="noopener">http://www.runoob.com/bootstrap/bootstrap-glyphicons.html</a></li>
+</ul>
+<h2 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h2><ul>
+<li><p><code>dropdown</code>:下拉菜单</p>
+</li>
+<li><p><code>dropdown-menu</code>: 下拉菜单</p>
+</li>
+<li><p><code>dropdown-header</code>:下拉菜单区域标题</p>
+</li>
+</ul>
+<h2 id="按钮组"><a href="#按钮组" class="headerlink" title="按钮组"></a>按钮组</h2><ul>
+<li><p><code>btn-group</code>:里面放置一系列<code>btn</code></p>
+</li>
+<li><p><code>btn-toolbar</code>:里面放置几组<code>btn-group</code></p>
+</li>
+<li><p><code>btn-group-*</code>:调整按钮组的样式(<code>*</code>可以为<code>xs</code>/<code>sm</code>/<code>lg</code>/<code>vertical</code>)</p>
+</li>
+<li><p><code>.btn-group</code> 容器添加 <code>.dropup</code>实现按钮上拉菜单</p>
+</li>
+</ul>
+<h2 id="输入框组"><a href="#输入框组" class="headerlink" title="输入框组"></a>输入框组</h2><p><strong>向 .form-control 添加前缀或后缀元素的步骤</strong></p>
+<ul>
+<li>把前缀或后缀元素放在一个带有 <code>.input-group</code> 的 <code>&lt;div&gt;</code>中</li>
+<li>接着，在相同的 <code>&lt;div&gt;</code> 内，在 <code>class</code> 为 <code>.input-group-addon</code> 的 <code>&lt;span&gt;</code> 内放置额外的内容</li>
+<li>把该 <code>&lt;span&gt;</code> 放置在 <code>&lt;input&gt;</code> 元素的前面或者后面</li>
+</ul>
+<h2 id="导航元素"><a href="#导航元素" class="headerlink" title="导航元素"></a>导航元素</h2><ul>
+<li><code>nav nav-tabs</code> :标签式的导航菜单 </li>
+<li><code>nav nav-pills</code>: 胶囊式的导航菜单 </li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/10fd8090.html&title=《bootstrap常用类小结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/10fd8090.html&title=《bootstrap常用类小结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/10fd8090.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bootstrap常用类小结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/10fd8090.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/10fd8090.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/c48be4b9.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">移动端布局适配方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/d422e493.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用Fiddler做抓包分析</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/10fd8090.html&title=《bootstrap常用类小结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/10fd8090.html&title=《bootstrap常用类小结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/10fd8090.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bootstrap常用类小结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/10fd8090.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/10fd8090.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aSW7DMBAEQP//0841QGypm1ucoHgSDMkq6jCYhY9HvJ7f1s/fk3uSO5ctXFzcae7zciX3JOvd9nIDLi7uee67iLHqOgmC1wZcXNzP5+bBLkmYcHFx/xO3rVNwcXH/FjcvWpJ2ScLaXqvh4uJOcPMu5b7rLf1dXFzcIe580zNJSsaC14u34+LiHuHmASVBJ+VNm77g4uKe5+atz/mzEG0K9fa74uLibubOFz9jLZLrseuC5gguLu4Ed+Yvxo5Q5COTF0/h4uIe4Y4drZhJdNpR602thouLu5nbvjLZwJbiBxcXdzO3HZC0ldNYCnXTMMXFxd3MzYuQlnj9Sz58vfmUuLi4G7h567NNU9oAF30sXFzcI9y2/GiPVeWbaZuwuLi4u7ntK8faKHkRddOoxcXFPchtj1MkQSdnFQkWLi7uQW47RMmTnke5bp7CxcXdzH2WK6+l2iMd0cZwcXGPcNvg0r5g/ojG4GZwcXGnuW3wSgqV9tll58hwcXGXcmfGGwl6ZlhbdHFwcXF/iZuPScb+YbBrgouL+5HcZZXWtRAXF/cgtz1I0RZC+Rjm5mPh4uIe4bahZDA1iT/Nsv4uLi7uCPcL+N7iMdVCLLwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

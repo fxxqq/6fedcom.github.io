@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/7c193027.html">
+    
+    
+    <title>头条秋招面试题 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简答题1.css3特性中的transform：translateZ(0)有什么作用答案：gpu加速,提高浏览器渲染的性能  2.列举三种禁止浏览器缓存的头字段，并写出响应的设置值Expires：告诉浏览器把回送的资源缓存多长时间 -1或0则是不缓存简要：添加Expires头能有效的利用浏览器的缓存能力来改善页面的性能，能在后续的页面中有效避免很多不必要的Http请求，WEB服务器使用Expires">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="头条秋招面试题">
+<meta property="og:url" content="https://ru23.com/note/7c193027.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="简答题1.css3特性中的transform：translateZ(0)有什么作用答案：gpu加速,提高浏览器渲染的性能  2.列举三种禁止浏览器缓存的头字段，并写出响应的设置值Expires：告诉浏览器把回送的资源缓存多长时间 -1或0则是不缓存简要：添加Expires头能有效的利用浏览器的缓存能力来改善页面的性能，能在后续的页面中有效避免很多不必要的Http请求，WEB服务器使用Expires">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ru23.com/img/2018/11/reg.jpg">
+<meta property="og:image" content="https://ru23.com/img/2018/11/isarray1.png">
+<meta property="og:image" content="https://ru23.com/img/2018/11/unique.png">
+<meta property="og:image" content="https://ru23.com/img/2018/11/domtree.png">
+<meta property="og:image" content="https://ru23.com/img/2018/11/shendubianli.png">
+<meta property="og:image" content="https://ru23.com/img/2018/11/guangdubianli.png">
+<meta property="og:updated_time" content="2018-11-08T02:55:39.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="头条秋招面试题">
+<meta name="twitter:description" content="简答题1.css3特性中的transform：translateZ(0)有什么作用答案：gpu加速,提高浏览器渲染的性能  2.列举三种禁止浏览器缓存的头字段，并写出响应的设置值Expires：告诉浏览器把回送的资源缓存多长时间 -1或0则是不缓存简要：添加Expires头能有效的利用浏览器的缓存能力来改善页面的性能，能在后续的页面中有效避免很多不必要的Http请求，WEB服务器使用Expires">
+<meta name="twitter:image" content="https://ru23.com/img/2018/11/reg.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                    
+                </li>
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            头条秋招面试题
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            头条秋招面试题
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2018-11-06T09:01:07.000Z" itemprop="datePublished" class="page-time">
+  2018-11-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简答题"><span class="post-toc-text">简答题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-css3特性中的transform：translateZ-0-有什么作用"><span class="post-toc-text">1.css3特性中的transform：translateZ(0)有什么作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-列举三种禁止浏览器缓存的头字段，并写出响应的设置值"><span class="post-toc-text">2.列举三种禁止浏览器缓存的头字段，并写出响应的设置值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-精确获取页面元素位置的方式有哪些"><span class="post-toc-text">3.精确获取页面元素位置的方式有哪些</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-正则从2018-10-07T11-48-47-Asia-zh-cn-提取出来结果-2018-10-07-11-48-47"><span class="post-toc-text">4.正则从2018-10-07T11:48:47 Asia/zh-cn 提取出来结果[2018,10,07,11,48,47]</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-如何判断object是数组类型？"><span class="post-toc-text">5.如何判断object是数组类型？</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编程题"><span class="post-toc-text">编程题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-已知数据结构users，请实现语法支持user-unique能够按照name字段去重，并输出结构为：-“a”-”b”"><span class="post-toc-text">1.已知数据结构users，请实现语法支持user.unique能够按照name字段去重，并输出结构为：[“a”,”b”]</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-已知如下对象，请基于es6的proxy方法设计一个属性拦截读取操作的例子，要求实现去访问目标对象example中不存在的属性时，抛出错误：Property-“-property-”-does-not-exist"><span class="post-toc-text">2.已知如下对象，请基于es6的proxy方法设计一个属性拦截读取操作的例子，要求实现去访问目标对象example中不存在的属性时，抛出错误：Property “$(property)” does not exist</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-给出如下虚拟dom的数据结构，如何实现简单的虚拟dom，渲染到目标dom树"><span class="post-toc-text">3.给出如下虚拟dom的数据结构，如何实现简单的虚拟dom，渲染到目标dom树</span></a></li></ol></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2018-11-头条秋招面试题" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">头条秋招面试题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-06 17:01:07" datetime="2018-11-06T09:01:07.000Z" itemprop="datePublished">2018-11-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h3><h4 id="1-css3特性中的transform：translateZ-0-有什么作用"><a href="#1-css3特性中的transform：translateZ-0-有什么作用" class="headerlink" title="1.css3特性中的transform：translateZ(0)有什么作用"></a>1.css3特性中的transform：translateZ(0)有什么作用</h4><p><strong>答案：</strong><br>gpu加速,提高浏览器渲染的性能</p>
+<hr>
+<h4 id="2-列举三种禁止浏览器缓存的头字段，并写出响应的设置值"><a href="#2-列举三种禁止浏览器缓存的头字段，并写出响应的设置值" class="headerlink" title="2.列举三种禁止浏览器缓存的头字段，并写出响应的设置值"></a>2.列举三种禁止浏览器缓存的头字段，并写出响应的设置值</h4><p>Expires：告诉浏览器把回送的资源缓存多长时间 -1或0则是不缓存<br><strong>简要：添加Expires头能有效的利用浏览器的缓存能力来改善页面的性能，能在后续的页面中有效避免很多不必要的Http请求，WEB服务器使用Expires头来告诉Web客户端它可以使用一个组件的当前副本，直到指定的时间为止。</strong><br>例如：Expires：Thu，15 Apr  2010  20：00：00  GMT;  他告诉浏览器缓存有效性持续到2010年4月15日为止，在这个时间之内相同的请求使用缓存，这个时间之外使用http请求。</p>
+<p>Cache-Control：no-cache<br>Cathe-Control：max-age=315360000</p>
+<p>Expires有一个非常大的缺陷，它使用一个固定的时间，要求服务器与客户端的时钟保持严格的同步，并且这一天到来后，服务器还得重新设定新的时间。<br>HTTP1.1引入了Cathe-Control，它使用max-age指定组件被缓存多久，从请求开始在max-age时间内浏览器使用缓存，之外的使用请求，这样就可以消除Expires的限制，<br>如果对浏览器兼容性要求很高的话，可以两个都使用。</p>
+<p>Pragma：no-cache</p>
+<hr>
+<h4 id="3-精确获取页面元素位置的方式有哪些"><a href="#3-精确获取页面元素位置的方式有哪些" class="headerlink" title="3.精确获取页面元素位置的方式有哪些"></a>3.精确获取页面元素位置的方式有哪些</h4><p>那就是使用getBoundingClientRect()方法。它返回一个对象，其中包含了left、right、top、bottom四个属性，分别对应了该元素的左上角和右下角相对于浏览器窗口（viewport）左上角的距离。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> X= <span class="keyword">this</span>.getBoundingClientRect().left;</span><br><span class="line"><span class="keyword">var</span> Y =<span class="keyword">this</span>.getBoundingClientRect().top;</span><br><span class="line"><span class="comment">//再加上滚动距离，就可以得到绝对位置</span></span><br><span class="line"><span class="keyword">var</span> X= <span class="keyword">this</span>.getBoundingClientRect().left+<span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line"><span class="keyword">var</span> Y =<span class="keyword">this</span>.getBoundingClientRect().top+<span class="built_in">document</span>.documentElement.scrollTop;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="4-正则从2018-10-07T11-48-47-Asia-zh-cn-提取出来结果-2018-10-07-11-48-47"><a href="#4-正则从2018-10-07T11-48-47-Asia-zh-cn-提取出来结果-2018-10-07-11-48-47" class="headerlink" title="4.正则从2018-10-07T11:48:47 Asia/zh-cn 提取出来结果[2018,10,07,11,48,47]"></a>4.正则从2018-10-07T11:48:47 Asia/zh-cn 提取出来结果[2018,10,07,11,48,47]</h4><p><strong>思路：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"2018-10-07T11:48:47 Asia/zh-cn"</span>;</span><br><span class="line"><span class="comment">// step1 正则截取空格以后的字符串 ;</span></span><br><span class="line">str = str.match(<span class="regexp">/(\S*) /</span>)[<span class="number">1</span>]</span><br><span class="line"><span class="comment">// step2 正则replace掉符号-和T </span></span><br><span class="line">str = str.replace(<span class="regexp">/-|\T|\:/g</span>, <span class="string">","</span>)</span><br><span class="line">str =str.split(<span class="string">","</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/2018/11/reg.jpg" alt="正则替换" title="">
+                </div>
+                <div class="image-caption">正则替换</div>
+            </figure>
+<p><strong>拓展：</strong><br>1、js截取两个字符串之间的内容：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"aaabbbcccdddeeefff"</span>;</span><br><span class="line">str = str.match(<span class="regexp">/aaa(\S*)fff/</span>)[<span class="number">1</span>];</span><br><span class="line">alert(str);<span class="comment">//结果bbbcccdddeee</span></span><br></pre></td></tr></table></figure></p>
+<p>2、js截取某个字符串前面的内容：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"aaabbbcccdddeeefff"</span>;</span><br><span class="line">tr = str.match(<span class="regexp">/(\S*)fff/</span>)[<span class="number">1</span>];</span><br><span class="line">alert(str);<span class="comment">//结果aaabbbcccddd</span></span><br></pre></td></tr></table></figure></p>
+<p>3、js截取某个字符串后面的内容：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"aaabbbcccdddeeefff"</span>;</span><br><span class="line">str = str.match(<span class="regexp">/aaa(\S*)/</span>)[<span class="number">1</span>];</span><br><span class="line">alert(str);<span class="comment">//结果bbbcccdddeeefff</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="5-如何判断object是数组类型？"><a href="#5-如何判断object是数组类型？" class="headerlink" title="5.如何判断object是数组类型？"></a>5.如何判断object是数组类型？</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="keyword">typeof</span> <span class="number">1</span>);                <span class="comment">// 返回字符串"number" </span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="string">"1"</span>);              <span class="comment">// 返回字符串"string" </span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="literal">true</span>);             <span class="comment">// 返回字符串"boolean" </span></span><br><span class="line">alert(<span class="keyword">typeof</span> &#123;&#125;);               <span class="comment">// 返回字符串"object" </span></span><br><span class="line">alert(<span class="keyword">typeof</span> []);               <span class="comment">// 返回字符串"object " </span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);     <span class="comment">// 返回字符串"function" </span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="literal">null</span>);             <span class="comment">// 返回字符串"object" </span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="literal">undefined</span>);        <span class="comment">// 返回字符串"undefined"</span></span><br></pre></td></tr></table></figure>
+<p>其中，typeof {}和typeof []的结果都是object，那么问题来了，我怎么通过typeof去判断一个对象是不是数组类型呢？</p>
+<p>对象是对象，数组也是对象，js中万物皆对象，很显然，通过简单的typeof运算符是不能够达到目的，我们得换个方法。</p>
+<p>1、从原型入手，Array.prototype.isPrototypeOf(obj);</p>
+<p>利用isPrototypeOf()方法，判定Array是不是在obj的原型链中，如果是，则返回true,否则false。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/2018/11/isarray1.png" alt="判断object是数组类型" title="">
+                </div>
+                <div class="image-caption">判断object是数组类型</div>
+            </figure>
+<p>2.Array.isArray()方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(&#123;<span class="attr">foo</span>: <span class="number">123</span>&#125;); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="string">'foobar'</span>);   <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">undefined</span>);  <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h3><hr>
+<h5 id="1-已知数据结构users，请实现语法支持user-unique能够按照name字段去重，并输出结构为：-“a”-”b”"><a href="#1-已知数据结构users，请实现语法支持user-unique能够按照name字段去重，并输出结构为：-“a”-”b”" class="headerlink" title="1.已知数据结构users，请实现语法支持user.unique能够按照name字段去重，并输出结构为：[“a”,”b”]"></a>1.已知数据结构users，请实现语法支持user.unique能够按照name字段去重，并输出结构为：[“a”,”b”]</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> users=[&#123;</span><br><span class="line">   id:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">"a"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">   id:<span class="number">2</span>,<span class="attr">name</span>:<span class="string">"a"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">   id:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">"b"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">   id:<span class="number">4</span>,<span class="attr">name</span>:<span class="string">"v"</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res;</span><br><span class="line">    <span class="keyword">this</span>.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>[item.id - <span class="number">1</span>] = item.name</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// ES6里新添加了两个很好用的东西，set和Array.from</span></span><br><span class="line">    <span class="comment">// set是一种新的数据结构，它可以接收一个数组或者是类数组对象，自动去重其中的重复项目。</span></span><br><span class="line">    res=<span class="keyword">new</span> <span class="built_in">Set</span>(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"new Set对象"</span>,res)</span><br><span class="line">    <span class="comment">// 但是这里大家可以看到，set返回的是一个对象，但是我们想要的是数组啊。</span></span><br><span class="line">    <span class="comment">// 这回，就该轮到Array.from出场了，它的作用，就是可以把类数组对象、可迭代对象转化为数组。</span></span><br><span class="line">    res=<span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(<span class="keyword">this</span>));</span><br><span class="line">    <span class="keyword">return</span>  res<span class="comment">//es6 数组去重</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(users.unique());</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/2018/11/unique.png" alt="去重" title="">
+                </div>
+                <div class="image-caption">去重</div>
+            </figure>
+<hr>
+<h5 id="2-已知如下对象，请基于es6的proxy方法设计一个属性拦截读取操作的例子，要求实现去访问目标对象example中不存在的属性时，抛出错误：Property-“-property-”-does-not-exist"><a href="#2-已知如下对象，请基于es6的proxy方法设计一个属性拦截读取操作的例子，要求实现去访问目标对象example中不存在的属性时，抛出错误：Property-“-property-”-does-not-exist" class="headerlink" title="2.已知如下对象，请基于es6的proxy方法设计一个属性拦截读取操作的例子，要求实现去访问目标对象example中不存在的属性时，抛出错误：Property “$(property)” does not exist"></a>2.已知如下对象，请基于es6的proxy方法设计一个属性拦截读取操作的例子，要求实现去访问目标对象example中不存在的属性时，抛出错误：Property “$(property)” does not exist</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> man=&#123;</span><br><span class="line">    name:<span class="string">'jscoder'</span>,</span><br><span class="line">    age:<span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//补全代码</span></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(...)</span><br><span class="line">proxy.name <span class="comment">//"jscoder"</span></span><br><span class="line">proxy.age <span class="comment">//22</span></span><br><span class="line">proxy.location <span class="comment">//Property "$(property)" does not exist</span></span><br></pre></td></tr></table></figure>
+<p><strong>考点</strong><br>es6 javascript的Proxy 实例的方法 ,<code>get()</code> get方法用于拦截某个属性的读取操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> man = &#123;</span><br><span class="line">	name:<span class="string">'jscoder'</span>,</span><br><span class="line">    age:<span class="number">22</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(man, &#123;</span><br><span class="line">	get: <span class="function"><span class="keyword">function</span>(<span class="params">target, property</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(property <span class="keyword">in</span> target) &#123;</span><br><span class="line">			<span class="keyword">return</span> target[property];</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(<span class="string">`Property <span class="subst">$&#123;property&#125;</span> does not exist.`</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(proxy.name)</span><br><span class="line"><span class="built_in">console</span>.log(proxy.age)</span><br><span class="line"><span class="built_in">console</span>.log(proxy.location)</span><br></pre></td></tr></table></figure>
+<p>Proxy 实例的方法的其他方法参考这个链接，很详细<br><a href="https://blog.csdn.net/qq_30100043/article/details/53443017" target="_blank" rel="noopener">https://blog.csdn.net/qq_30100043/article/details/53443017</a></p>
+<hr>
+<h5 id="3-给出如下虚拟dom的数据结构，如何实现简单的虚拟dom，渲染到目标dom树"><a href="#3-给出如下虚拟dom的数据结构，如何实现简单的虚拟dom，渲染到目标dom树" class="headerlink" title="3.给出如下虚拟dom的数据结构，如何实现简单的虚拟dom，渲染到目标dom树"></a>3.给出如下虚拟dom的数据结构，如何实现简单的虚拟dom，渲染到目标dom树</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//样例数据</span></span><br><span class="line"><span class="keyword">let</span> demoNode = (&#123;</span><br><span class="line">    tagName: <span class="string">'ul'</span>,</span><br><span class="line">    props: &#123;<span class="string">'class'</span>: <span class="string">'list'</span>&#125;,</span><br><span class="line">    children: [</span><br><span class="line">        (&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'douyin'</span>]&#125;),</span><br><span class="line">        (&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'toutiao'</span>]&#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>//构建一个render函数，将demoNode对象渲染为以下dom<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>douyin<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>toutiao<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>看到虚拟DOM，是不是感觉很玄乎，但是剥开它华丽的外衣，也就那样:</p>
+<ol>
+<li>通过JavaScript来构建虚拟的DOM树结构，并将其呈现到页面中；</li>
+<li>当数据改变，引起DOM树结构发生改变，从而生成一颗新的虚拟DOM树，将其与之前的DOM对比，将变化部分应用到真实的DOM树中，即页面中。<br>通过上面的介绍，下面，我们就来实现一个简单的虚拟DOM，并将其与真实的DOM关联。</li>
+</ol>
+<p><strong>构建虚拟DOM</strong></p>
+<p>虚拟DOM，其实就是用JavaScript对象来构建DOM树，如上ul组件模版，其树形结构如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/2018/11/domtree.png" alt="DOM树" title="">
+                </div>
+                <div class="image-caption">DOM树</div>
+            </figure><br>通过JavaScript，我们可以很容易构建它，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elem = Element(&#123;</span><br><span class="line">    tagName: <span class="string">'ul'</span>,</span><br><span class="line">    props: &#123;<span class="string">'class'</span>: <span class="string">'list'</span>&#125;,</span><br><span class="line">    children: [</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item1'</span>]&#125;),</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item2'</span>]&#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>note：Element为一个构造函数，返回一个Element对象。为了更清晰的呈现虚拟DOM结构，我们省略了new，而在Element中实现。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* @Params:</span></span><br><span class="line"><span class="comment">*     tagName(string)(requered)</span></span><br><span class="line"><span class="comment">*     props(object)(optional)</span></span><br><span class="line"><span class="comment">*     children(array)(optional)</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Element</span>(<span class="params">&#123;tagName, props, children&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!(<span class="keyword">this</span> <span class="keyword">instanceof</span> Element))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Element(&#123;tagName, props, children&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.tagName = tagName;</span><br><span class="line">    <span class="keyword">this</span>.props = props || &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.children = children || [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好了，通过Element我们可以任意地构建虚拟DOM树了。但是有个问题，虚拟的终归是虚拟的，我们得将其呈现到页面中，不然，没卵用。。</p>
+<p>怎么呈现呢？</p>
+<p>从上面得知，这是一颗树嘛，那我们就通过遍历，逐个节点地创建真实DOM节点:</p>
+<p>　　1. createElement;</p>
+<p>　　2. createTextNode.</p>
+<p>怎么遍历呢？</p>
+<p>因为这是一颗树嘛，对于树形结构无外乎两种遍历：</p>
+<p>　　1. 深度优先遍历(DFS)</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/2018/11/shendubianli.png" alt="深度优先遍历" title="">
+                </div>
+                <div class="image-caption">深度优先遍历</div>
+            </figure>
+<p>　　2. 广度优先遍历(BFS)</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/2018/11/guangdubianli.png" alt="广度优先遍历" title="">
+                </div>
+                <div class="image-caption">广度优先遍历</div>
+            </figure>
+<p>针对实际情况，我们得采用DFS，为什么呢？</p>
+<p>因为我们得将子节点append到父节点中</p>
+<p>好了，那我们采用DFS，就来实现一个render函数吧，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Element.prototype.render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> el = <span class="built_in">document</span>.createElement(<span class="keyword">this</span>.tagName),</span><br><span class="line">        props = <span class="keyword">this</span>.props,</span><br><span class="line">        propName,</span><br><span class="line">        propValue;</span><br><span class="line">    <span class="keyword">for</span>(propName <span class="keyword">in</span> props)&#123;</span><br><span class="line">        propValue = props[propName];</span><br><span class="line">        el.setAttribute(propName, propValue);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.children.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">child</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> childEl = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span>(child <span class="keyword">instanceof</span> Element)&#123;</span><br><span class="line">            childEl = child.render();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            childEl = <span class="built_in">document</span>.createTextNode(child);</span><br><span class="line">        &#125;</span><br><span class="line">        el.appendChild(childEl);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> el;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>此时，我们就可以轻松地将虚拟DOM呈现到指定真实DOM中啦。假设，我们将上诉ul虚拟DOM呈现到页面body中，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elem = Element(&#123;</span><br><span class="line">    tagName: <span class="string">'ul'</span>,</span><br><span class="line">    props: &#123;<span class="string">'class'</span>: <span class="string">'list'</span>&#125;,</span><br><span class="line">    children: [</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item1'</span>]&#125;),</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item2'</span>]&#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'body'</span>).appendChild(elem.render());</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/7c193027.html&title=《头条秋招面试题》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/7c193027.html&title=《头条秋招面试题》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/7c193027.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《头条秋招面试题》 — 前端迷 (front-end fan)&url=https://ru23.com/note/7c193027.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/7c193027.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/580ae11.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">11月份前端要消化的知识点</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/a3acb1c1.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Node Sass could not find a binding for W64-bit and Node.js 6.x</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/7c193027.html&title=《头条秋招面试题》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/7c193027.html&title=《头条秋招面试题》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/7c193027.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《头条秋招面试题》 — 前端迷 (front-end fan)&url=https://ru23.com/note/7c193027.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/7c193027.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByUlEQVR42u3aQY7CMBAEQP7/6ay0V5bQ7cEJK5VPKIRQzmFkT/vxiMfxO5J7nu98vv7qzo8NXFzcMfc4Hc/cc1YOPb/+ckq4uLgXcs+LV/7HCff88xsbLi7ul3HbIpWXQlxc3P/LzRdDCQgXF/f7uS0iX77k3A/v1XBxcQfctmG64/PG/i4uLm7JPcoxj16OwcDFxb2Gmy9HksZHWwrXGiW4uLi7uWthSVt6kolFIQ0uLu4l3LaQ5Y9Oopc2tsHFxb2GuxZmtEey5huhUfaCi4s77jDkf78WhLQbnj+6OLi4uJu5bRlqQe1yJ2q14OLi3sqdXEnaIovhKy4u7mZu+9B8uZOXrWLpg4uLexM3X4KsRS/nzZE3k8HFxb2Je16Y1hY6yUuJghZcXNxLuGuBSl6wJhFL1DDFxcXdwK1jzvgIV1GY8leAi4t7ITfZkEyCkyImOf8VLi7uhdy1ctY2NfI2SmTHxcXdxm0LSt74yDdCa9/i4uLu5ibFK5lfe5ArP+CFi4t7F7fts7YhSjvtKErBxcX9Am7OmryIN0/GxcX9Su5ag3VyBRcX9y5uu1Fpj1CstVdGezVcXNwBt22YzqvKZGK4uLibuT8QnEP6go5WoAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>
