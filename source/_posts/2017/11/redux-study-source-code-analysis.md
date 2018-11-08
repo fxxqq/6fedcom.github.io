@@ -1,7 +1,7 @@
 ---
 title: Redux之源码分析（九）
 tags:
-  - JavaScript
+  - javaScript
   - react
 categories: front-end
 abbrlink: d7a0e557
