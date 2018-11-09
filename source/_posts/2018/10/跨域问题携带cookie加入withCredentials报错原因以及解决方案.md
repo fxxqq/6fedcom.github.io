@@ -4,6 +4,7 @@ categories: front-end
 abbrlink: b2790fdc
 date: 2018-10-22 18:26:41
 tags: [cookie,跨域,ajax]
+top: 6
 ---
  
 1.跨域允许

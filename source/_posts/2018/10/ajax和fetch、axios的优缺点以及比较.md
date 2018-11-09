@@ -7,6 +7,7 @@ tags:
   - axios
 abbrlink: 7fae67c6
 date: 2018-10-26 09:18:54
+top: 4
 ---
 
 前端是个发展迅速的领域，前端请求自然也发展迅速，从原生的XHR到jquery ajax，再到现在的axios和fetch。
