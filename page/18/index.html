@@ -178,10 +178,10 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-2017-10-js-read-note" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-09-js-post" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-24 10:30:13" datetime="2017-10-24T02:30:13.000Z" itemprop="datePublished">2017-10-24</time>
+        <time class="post-time" title="2017-09-04 09:30:43" datetime="2017-09-04T01:30:43.000Z" itemprop="datePublished">2017-09-04</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -195,7 +195,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/a87a6818.html">JavaScript启示录阅读笔录</a>
+      <a class="post-title-link" href="/note/2d05014a.html">iframe+表单跨域提交POST请求</a>
     </h3>
   
 
@@ -205,18 +205,20 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        第一章 JavaScript对象1.1 创建对象
-1234567891011//创建copy对象var copy = new Object();//为对象的各种属性赋值copy.living = true;copy.age = 33;copy.gender = 'male';// logs Object &#123;living = true, age = 33, gender = 'mal...
+        虚拟表单的形式提交post请求
+现需要把数据源解析提交到表单，创建一个隐藏的表单、隐藏的iframe,表单的target指向iframe的name
+
+1var str = &apos;hfrom_handle=206438&amp;dnid=&amp;dgroup_items__x_countz_=1&amp;dgroup_items=1&amp;dgroup_items_group=dl%...
     
 
-        <a href="/note/a87a6818.html" class="post-more waves-effect waves-button">
+        <a href="/note/2d05014a.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域/">跨域</a></li></ul>
 
     </div>
     
@@ -225,10 +227,10 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-10-js-good-style" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-08-js-cb-promise-generator-async" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-24 10:10:43" datetime="2017-10-24T02:10:43.000Z" itemprop="datePublished">2017-10-24</time>
+        <time class="post-time" title="2017-08-27 11:40:43" datetime="2017-08-27T03:40:43.000Z" itemprop="datePublished">2017-08-27</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -242,7 +244,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/22690905.html">编写可维护的JavaScript</a>
+      <a class="post-title-link" href="/note/fb0e9d3a.html">浅谈JavaScript中的异步处理</a>
     </h3>
   
 
@@ -252,21 +254,30 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、事件处理
-1.1 规则1：隔离应用层
-好的写法，拆分应用逻辑
+        
+整理于互联网
 
-1234567891011121314var myApp = &#123;    handleClick: function(e)&#123;      this.showPopup(e);      &#125;,    showPopup: function(e)&#123;        var popup = doc...
+
+
+在JavaScript的世界中，所有代码都是单线程执行的
+由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现
+异步操作会在将来的某个时间点触发一个函数调用
+
+
+
+主流的异步处理方案主要有：回调函数(CallBack)、Promise、Generator函数、async/await。
+
+一、回调函数(Call...
     
 
-        <a href="/note/22690905.html" class="post-more waves-effect waves-button">
+        <a href="/note/fb0e9d3a.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步回调/">异步回调</a></li></ul>
 
     </div>
     
@@ -275,10 +286,10 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-10-js-mock" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-08-mobile-meta-summary" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-23 19:50:24" datetime="2017-10-23T11:50:24.000Z" itemprop="datePublished">2017-10-23</time>
+        <time class="post-time" title="2017-08-23 18:40:43" datetime="2017-08-23T10:40:43.000Z" itemprop="datePublished">2017-08-23</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -292,7 +303,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/30ed4e0c.html">前后端分离之数据mock</a>
+      <a class="post-title-link" href="/note/a2eb1a7.html">移动端meta标签一览</a>
     </h3>
   
 
@@ -302,29 +313,17 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-文章内容整理于互联网，方便学习
-
-一、学前预热
-为了做到前后端并行开发，数据mock就成为环境搭建的重要一环
-
-1.1 Web应用前后端分离
-后台向前台提供api接口,只负责数据的提供和计算，而完全不处理展现 
-前台通过Http(Ajax)请求获取数据,　在浏览器端动态构建界面显示数据
-
-1.2 利用node+express提供模拟数据
-优点：可以在浏览器端访问 
-缺点：如果是打包发布就无...
+        12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110...
     
 
-        <a href="/note/30ed4e0c.html" class="post-more waves-effect waves-button">
+        <a href="/note/a2eb1a7.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mock/">mock</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
 
     </div>
     
@@ -333,10 +332,10 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-10-restful-api" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-08-es6-note-record" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-23 16:35:24" datetime="2017-10-23T08:35:24.000Z" itemprop="datePublished">2017-10-23</time>
+        <time class="post-time" title="2017-08-20 14:33:00" datetime="2017-08-20T06:33:00.000Z" itemprop="datePublished">2017-08-20</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -350,7 +349,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/5d687d0f.html">初探RESTful api</a>
+      <a class="post-title-link" href="/note/957a3ac4.html">ES6笔记记录</a>
     </h3>
   
 
@@ -360,134 +359,22 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、RESTful api 简介
+        
                 
                     
                     
                 
-                image.png
+                
             
 
                 
                     
                     
-     ...
+                
+             ...
     
 
-        <a href="/note/5d687d0f.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RESTful-api/">RESTful api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-10-unit-test-mocha-chai" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-10-22 15:35:43" datetime="2017-10-22T07:35:43.000Z" itemprop="datePublished">2017-10-22</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/fac8b8e7.html">Mocha+Chai+Istanbul单元测试</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、简介
-Istanbul是JavaScript程序的代码覆盖率工具
-Mocha是一种测试框架，也就是运行测试的工具。用descibe和it方法，来定义test suit，为不同的测试分组。
-mocha本身并不提供assert断言，所以要提供更加有表现力的断言，可以搭配chai使用，当然也可以使用nodejs提供的assert模块
-
-二、配置测试环境安装相应的依赖包
-1npm install...
-    
-
-        <a href="/note/fac8b8e7.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-10-es6-review" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-10-21 20:20:43" datetime="2017-10-21T12:20:43.000Z" itemprop="datePublished">2017-10-21</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/7efe3a88.html">ECMAScript6回顾</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-
-整理于互联网，整理最常用的部分，完善中….
-参考资料: http://es6.ruanyifeng.com
-
-
-第一部分：扩展1.1、let和const
-const声明一个只读的常量。一旦声明，常量的值就不能改变
-let不允许在相同作用域内，重复声明同一个变量
-for循环的计数器，就很合适使用let命令
-不存在变量提升
-会创建块级作用域
-
-1.2、变量的解构赋值数组解构赋值应用场景
-
-变...
-    
-
-        <a href="/note/7efe3a88.html" class="post-more waves-effect waves-button">
+        <a href="/note/957a3ac4.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -503,10 +390,10 @@ for循环的计数器，就很合适使用let命令
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-10-json-stringify" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-07-git-notes" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-21 14:40:43" datetime="2017-10-21T06:40:43.000Z" itemprop="datePublished">2017-10-21</time>
+        <time class="post-time" title="2017-07-29 21:30:24" datetime="2017-07-29T13:30:24.000Z" itemprop="datePublished">2017-07-29</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -520,7 +407,7 @@ for循环的计数器，就很合适使用let命令
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/320f1b94.html">浅析JSON.stringify</a>
+      <a class="post-title-link" href="/note/6c7ee97f.html">git笔记总结篇</a>
     </h3>
   
 
@@ -530,24 +417,32 @@ for循环的计数器，就很合适使用let命令
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、JSON.stringify参数详解
-stringify方法顾名思义，就是把JSON序列化，其语法如下
+        
+声明：资料来源互联网
 
-1JSON.stringify(value [, replacer] [, space])
+安装
 
-value：是必选字段。就是你输入的对象、如数组等
-replacer：这个是可选的。它又分为2种方式，一种是数组，第二种是方法【过滤函数，或者key的过滤数组（只有在数组中的会展示）】
-情况...
+在 Windows 上安装 git 同样轻松，有个叫做 msysgit 的项目提供了安装包：
+1http://msysgit.github.io/
+
+完成安装之后，就可以使用命令行的 git 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 git 项目管理工具。
+
+
+配置
+
+首先是配置帐号信息
+
+12345git config -e [--gl...
     
 
-        <a href="/note/320f1b94.html" class="post-more waves-effect waves-button">
+        <a href="/note/6c7ee97f.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </div>
     
@@ -556,10 +451,193 @@ replacer：这个是可选的。它又分为2种方式，一种是数组，第�
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-10-js-inherit-methods" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-03-vs-keyboard-shortcuts" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-18 19:46:43" datetime="2017-10-18T11:46:43.000Z" itemprop="datePublished">2017-10-18</time>
+        <time class="post-time" title="2017-07-23 19:40:03" datetime="2017-07-23T11:40:03.000Z" itemprop="datePublished">2017-07-23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端工具/">前端工具</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/cc661528.html">Visual Studio Code 常用快捷键</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        主命令框
+F1 或 Ctrl+Shift+P: 打开命令面板。在打开的输入框内，可以输入任何命令
+
+按一下 Backspace会进入到 Ctrl+P模式在 
+Ctrl+P 下输入 &gt; 可以进入 Ctrl+Shift+P 模式
+
+
+在 Ctrl+P 窗口下还可以
+
+直接输入文件名，跳转到文件
+? 列出当前可执行的动作
+! 显示 Errors或 Warnings，也可以 Ctrl+Shif...
+    
+
+        <a href="/note/cc661528.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2016-06-练习用原生JavaScript编写与JavaScript数组方法slice功能一样的函数" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-28 21:01:40" datetime="2017-06-28T13:01:40.000Z" itemprop="datePublished">2017-06-28</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/d9ac2aad.html">练习用原生JavaScript编写与JavaScript数组方法slice功能一样的函数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        刚刚开始的时候感觉不太难，越写越发现之前忽略的可能性很多。
+当只有一个变量的时候，把代码写出来不是特别困难。可当有两个变量的时候，情况就复杂了很多。我在刚开始写的时候就在想如何把冗余的代码裁减掉，结果就是大脑宕机。最后老老实实的在纸上，用最笨的方法把所有的可能性都列出来，再去想如何把类似的代码拿出来就变得很容易了。
+所以，如果觉得大脑硬件不够用了，那就用最笨的办法先去把事情做了，然后再去优化...
+    
+
+        <a href="/note/d9ac2aad.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-06-三类闭包实例理解闭包为什么会占用内存" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-25 22:16:54" datetime="2017-06-25T14:16:54.000Z" itemprop="datePublished">2017-06-25</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/eddfbbce.html">三类闭包实例理解闭包为什么会占用内存</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在试图弄清这个问题之前，先要理解栈内存、堆内存和预处理。
+占用内存，不会销毁的闭包实例例1：123456789var num = 12;function fn() &#123;    var num = 100;    return function () &#123;        console.log(num);    &#125;&#125;var f = fn();f();
+例1的...
+    
+
+        <a href="/note/eddfbbce.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-06-栈内存、堆内存和预处理" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-25 16:46:54" datetime="2017-06-25T08:46:54.000Z" itemprop="datePublished">2017-06-25</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/febcab37.html">栈内存、堆内存和预处理</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        浏览器是如何运行JavaScript代码的？
+看例1：
+123456var num = 12;function fn() &#123;    var num = 100;&#125;fn();num = 200;
+用图解释这一行代码是如何执行的。
+
+                
+                    
+                    
+             ...
+    
+
+        <a href="/note/febcab37.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-05-mobile-adaptation" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-23 21:35:08" datetime="2017-05-23T13:35:08.000Z" itemprop="datePublished">2017-05-23</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -573,7 +651,7 @@ replacer：这个是可选的。它又分为2种方式，一种是数组，第�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/6d4a6414.html">JavaScript继承的几种方式</a>
+      <a class="post-title-link" href="/note/783ce8a9.html">移动端适配</a>
     </h3>
   
 
@@ -584,144 +662,23 @@ replacer：这个是可选的。它又分为2种方式，一种是数组，第�
 
     
         
-JavaScript继承本质和原型链有关
+物理像素:移动端设备的分辨率
+独立像素:css的像素  320  375 
+像素比 = 物理像素/独立像素
 
+1&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;&gt;
 
-原型、实例、构造函数、原型链之间的关系
-
-
-                
-                    
-                    
-                
-                原型、实例、构造函数、原型链之间的关系
-            
-一、借助构造函数实现继承
-缺点：实例无法访问父类原型...
+width=...
     
 
-        <a href="/note/6d4a6414.html" class="post-more waves-effect waves-button">
+        <a href="/note/783ce8a9.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/继承/">继承</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-10-node-base-api" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-10-15 20:50:35" datetime="2017-10-15T12:50:35.000Z" itemprop="datePublished">2017-10-15</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/b424fccc.html">nodejs之基础api（三）</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Path
-提供了一些工具函数，用于处理文件与目录的路径
-
-basename、dirname与extname
-
-返回一个 path的最后一部分
-返回一个 path 的目录名
-返回 path 的扩展名
-
-1234567const &#123;basename,dirname,extname&#125; = require("path");const filePath = "/usr/local/...
-    
-
-        <a href="/note/b424fccc.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-10-node-env-debug" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-10-15 16:30:15" datetime="2017-10-15T08:30:15.000Z" itemprop="datePublished">2017-10-15</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/795a0309.html">nodejs之环境&amp;调试（二）</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、环境commonJS
-
-nodejs模块管理规范
-每一个文件是一个模块，有自己的作用域
-在模块内部module变量代表模块本身
-module.exports属性代表模块对外接口
-
-
-
-exports与module.exports
-
-exports = module.exports exports是module.exports的快捷方式，不能修改exports的指向
-
-12345// 这种...
-    
-
-        <a href="/note/795a0309.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
 
     </div>
     
@@ -734,7 +691,7 @@ exports = module.exports exports是module.exports的快捷方式，不能修改e
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/17/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/19/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/17/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/19/">下一页</a>
     </div>
 </nav>
 

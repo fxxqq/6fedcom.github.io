@@ -178,10 +178,10 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-react-study-build-env" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-10-es6-review" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-19 10:10:24" datetime="2017-11-19T02:10:24.000Z" itemprop="datePublished">2017-11-19</time>
+        <time class="post-time" title="2017-10-21 20:20:43" datetime="2017-10-21T12:20:43.000Z" itemprop="datePublished">2017-10-21</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -195,7 +195,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/9196d3a3.html">React之环境的搭建（一）</a>
+      <a class="post-title-link" href="/note/7efe3a88.html">ECMAScript6回顾</a>
     </h3>
   
 
@@ -205,26 +205,32 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、什么是react
-react是由Facebook开发的一个JavaScript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题
+        
 
-二、react的特点
-简单：学习简单，代码简单
-声明式（编程）：自动dom操作
+整理于互联网，整理最常用的部分，完善中….
+参考资料: http://es6.ruanyifeng.com
 
 
-React的核心是组件，组件的设计目的是提升代码的复用率、降低测试难度和代码复杂度。
-...
+第一部分：扩展1.1、let和const
+const声明一个只读的常量。一旦声明，常量的值就不能改变
+let不允许在相同作用域内，重复声明同一个变量
+for循环的计数器，就很合适使用let命令
+不存在变量提升
+会创建块级作用域
+
+1.2、变量的解构赋值数组解构赋值应用场景
+
+变...
     
 
-        <a href="/note/9196d3a3.html" class="post-more waves-effect waves-button">
+        <a href="/note/7efe3a88.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </div>
     
@@ -233,10 +239,10 @@ React的核心是组件，组件的设计目的是提升代码的复用率、降
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-axios" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-10-json-stringify" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-08 18:55:24" datetime="2017-11-08T10:55:24.000Z" itemprop="datePublished">2017-11-08</time>
+        <time class="post-time" title="2017-10-21 14:40:43" datetime="2017-10-21T06:40:43.000Z" itemprop="datePublished">2017-10-21</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -250,7 +256,7 @@ React的核心是组件，组件的设计目的是提升代码的复用率、降
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/dee16b26.html">axios异步请求的那些事</a>
+      <a class="post-title-link" href="/note/320f1b94.html">浅析JSON.stringify</a>
     </h3>
   
 
@@ -260,31 +266,24 @@ React的核心是组件，组件的设计目的是提升代码的复用率、降
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、axios 简介
-axios 是一个基于Promise用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征：
+        一、JSON.stringify参数详解
+stringify方法顾名思义，就是把JSON序列化，其语法如下
 
+1JSON.stringify(value [, replacer] [, space])
 
-从浏览器中创建 XMLHttpRequest
-从 node.js 发出 http 请求
-支持Promise api
-拦截请求和响应
-转换请求和响应数据
-取消请求
-自动转换JSON数据
-客户端支持防止CSRF/XSRF
-
-二、axios基础
-axios.requ...
+value：是必选字段。就是你输入的对象、如数组等
+replacer：这个是可选的。它又分为2种方式，一种是数组，第二种是方法【过滤函数，或者key的过滤数组（只有在数组中的会展示）】
+情况...
     
 
-        <a href="/note/dee16b26.html" class="post-more waves-effect waves-button">
+        <a href="/note/320f1b94.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </div>
     
@@ -293,10 +292,10 @@ axios.requ...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-react-styled-components" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-10-js-inherit-methods" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-08 16:55:24" datetime="2017-11-08T08:55:24.000Z" itemprop="datePublished">2017-11-08</time>
+        <time class="post-time" title="2017-10-18 19:46:43" datetime="2017-10-18T11:46:43.000Z" itemprop="datePublished">2017-10-18</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -310,7 +309,7 @@ axios.requ...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/54b36672.html">浅谈styled-components</a>
+      <a class="post-title-link" href="/note/6d4a6414.html">JavaScript继承的几种方式</a>
     </h3>
   
 
@@ -320,23 +319,31 @@ axios.requ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、简介
-styled components一种全新的控制样式的编程方式，它能解决CSS全局作用域的问题，而且移除了样式和组件间的映射关系
+        
+JavaScript继承本质和原型链有关
 
 
-我们要理清一件事情：styled-components 只是 CSS 层面的高度抽象。它只是解析定义在 JavaScript中的 CSS，然后生成对应 CSS 的 JSX元素
+原型、实例、构造函数、原型链之间的关系
 
-123456789101112131415161718192021222...
+
+                
+                    
+                    
+                
+                原型、实例、构造函数、原型链之间的关系
+            
+一、借助构造函数实现继承
+缺点：实例无法访问父类原型...
     
 
-        <a href="/note/54b36672.html" class="post-more waves-effect waves-button">
+        <a href="/note/6d4a6414.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/继承/">继承</a></li></ul>
 
     </div>
     
@@ -345,13 +352,13 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-es-in-react" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-10-node-base-api" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-07 21:55:24" datetime="2017-11-07T13:55:24.000Z" itemprop="datePublished">2017-11-07</time>
+        <time class="post-time" title="2017-10-15 20:50:35" datetime="2017-10-15T12:50:35.000Z" itemprop="datePublished">2017-10-15</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
 
 
@@ -362,7 +369,7 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/57b0b360.html">es6在react中的应用</a>
+      <a class="post-title-link" href="/note/b424fccc.html">nodejs之基础api（三）</a>
     </h3>
   
 
@@ -372,17 +379,26 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、数组遍历显示1234567891011121314151617import React,&#123;Component&#125; from 'react';class RepeatArray extends Component&#123;  constructor() &#123;    super();  &#125;  render()&#123;    const names =...
+        Path
+提供了一些工具函数，用于处理文件与目录的路径
+
+basename、dirname与extname
+
+返回一个 path的最后一部分
+返回一个 path 的目录名
+返回 path 的扩展名
+
+1234567const &#123;basename,dirname,extname&#125; = require("path");const filePath = "/usr/local/...
     
 
-        <a href="/note/57b0b360.html" class="post-more waves-effect waves-button">
+        <a href="/note/b424fccc.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
 
     </div>
     
@@ -391,13 +407,13 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-react-summary" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-10-node-env-debug" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-07 19:55:24" datetime="2017-11-07T11:55:24.000Z" itemprop="datePublished">2017-11-07</time>
+        <time class="post-time" title="2017-10-15 16:30:15" datetime="2017-10-15T08:30:15.000Z" itemprop="datePublished">2017-10-15</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
 
 
 
@@ -408,7 +424,7 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/eb2df852.html">react知识点回顾</a>
+      <a class="post-title-link" href="/note/795a0309.html">nodejs之环境&amp;调试（二）</a>
     </h3>
   
 
@@ -418,27 +434,30 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-来源于互联网
+        一、环境commonJS
 
-一、npm的配置
-切换淘宝镜像源
+nodejs模块管理规范
+每一个文件是一个模块，有自己的作用域
+在模块内部module变量代表模块本身
+module.exports属性代表模块对外接口
 
-12345npm config set registry https://registry.npm.taobao.orgnpm config get registrynpm install -g cnpm --registry=https://registry.npm.taobao.org
 
-使用npm安装react
 
-1cnpm ins...
+exports与module.exports
+
+exports = module.exports exports是module.exports的快捷方式，不能修改exports的指向
+
+12345// 这种...
     
 
-        <a href="/note/eb2df852.html" class="post-more waves-effect waves-button">
+        <a href="/note/795a0309.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
 
     </div>
     
@@ -447,10 +466,76 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-js-some-filter-reduce" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-10-learn-node-start" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-07 18:55:24" datetime="2017-11-07T10:55:24.000Z" itemprop="datePublished">2017-11-07</time>
+        <time class="post-time" title="2017-10-15 11:40:43" datetime="2017-10-15T03:40:43.000Z" itemprop="datePublished">2017-10-15</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/93337fcf.html">nodejs之简单入门（一）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、前言
+nodejs是事件驱动、非阻塞I/O模型
+
+
+阻塞：i/o时进程休眠等待完成后进行下一步
+非阻塞：i/o时函数立即返回，进程不等待i/o返回
+
+
+i/o完成后通知主程序，如何告诉呢？通过事件驱动
+
+事件驱动
+
+i/o等异步操作结束后通知
+内部实现是观察者模式
+
+CPU密集和I/O密集
+
+CPU密集：压缩、解压、加密、解密
+I/O密集：文件操作、网络操作、数据库
+
+web常见场景(w...
+    
+
+        <a href="/note/93337fcf.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-10-map-reduce-filter" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-17 17:33:00" datetime="2017-09-17T09:33:00.000Z" itemprop="datePublished">2017-09-17</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -464,7 +549,7 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/ba91dc04.html">JavaScript原生数组及高阶函数</a>
+      <a class="post-title-link" href="/note/6ef2cf5a.html">高阶函数map reduce filter</a>
     </h3>
   
 
@@ -474,16 +559,17 @@ styled components一种全新的控制样式的编程方式，它能解决CSS全
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、map
-map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
+        
+整理于互联网
 
+map
 
-callback 函数会被自动传入三个参数：数组元素，元素索引，原数组本身
+由于map()方法定义在JavaScript的Array中，我们调用Array的map()方法，传入我们自己的函数，就得到了一个新的Array作为结果
 
-123456let list = [1, 2, 3, 4, 5];let other = list.map((d, i) =&gt; &#123;    return d * 2;&#125;);consol...
+123456function pow(x) &#123;    return x * x;&#125;var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];arr.map(pow); // ...
     
 
-        <a href="/note/ba91dc04.html" class="post-more waves-effect waves-button">
+        <a href="/note/6ef2cf5a.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -499,10 +585,10 @@ callback 函数会被自动传入三个参数：数组元素，元素索引，�
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-mobile-layout" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-09-set-map" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-05 15:35:08" datetime="2017-11-05T07:35:08.000Z" itemprop="datePublished">2017-11-05</time>
+        <time class="post-time" title="2017-09-17 14:33:00" datetime="2017-09-17T06:33:00.000Z" itemprop="datePublished">2017-09-17</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -516,7 +602,7 @@ callback 函数会被自动传入三个参数：数组元素，元素索引，�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/c48be4b9.html">移动端布局适配方案</a>
+      <a class="post-title-link" href="/note/d9bfddfa.html">Set与Map</a>
     </h3>
   
 
@@ -526,29 +612,23 @@ callback 函数会被自动传入三个参数：数组元素，元素索引，�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、为什么要做适配
-为了适应各种移动端设备，完美呈现应有的布局效果  
-各个移动端设备，分辨率大小不一致，网页想铺满整个屏幕，并在各种分辨下等比缩放
+        Map
+Map是一组键值对的结构，具有极快的查找速度
+用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：
 
-二、适配方案
-固定高度，宽度百分比适配-布局非常均匀，适合百分比布局    
-固定宽度，改变缩放比例适配-什么情况都可以
-Rem适配
-像素比适配
+12var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);m.get('Michael'); // 95
 
-三、单位
-em根据元素自身的字体大小计算,元素自身 16px 1em=16px
-Rem  R ...
+初始...
     
 
-        <a href="/note/c48be4b9.html" class="post-more waves-effect waves-button">
+        <a href="/note/d9bfddfa.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </div>
     
@@ -557,10 +637,10 @@ Rem  R ...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-bootstrap-summary" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-09-cross-domain" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-04 22:55:24" datetime="2017-11-04T14:55:24.000Z" itemprop="datePublished">2017-11-04</time>
+        <time class="post-time" title="2017-09-17 11:40:43" datetime="2017-09-17T03:40:43.000Z" itemprop="datePublished">2017-09-17</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -574,7 +654,7 @@ Rem  R ...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/10fd8090.html">bootstrap常用类小结</a>
+      <a class="post-title-link" href="/note/b28c200f.html">web开发中跨域解决方案</a>
     </h3>
   
 
@@ -584,31 +664,39 @@ Rem  R ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        网格选项row :行
-col-*-*: 列
+        什么是跨域？
 
-第一个*可以为xs[超小]/sm[小型]/md[中型]/lg[大型]
-第二个*必须为12以内的[列数]
+概念如下：只要协议、域名、端口有任何一个不同，都被当作是不同的域
 
-col-*-offset-* :列偏移
+下面是具体的跨域情况详解
 
-第一个*和上面一样,第二个*范围是1到11,表示把该列的左外边距(margin)增加*列
 
-col-*-*-*:列排序
 
-第一个*和上面一样
-第二个*可以为push[向右]/pull[向左]
-第三个*...
+URL
+说明
+是否允许通信
+
+
+
+
+http://www.a.com/a.js、http://www.a.com/b.js
+同一域名下
+允许
+
+
+http://www.a.com/lab/a.js、http://www.a.com/script/b.js
+同一域名下不同文件夹
+...
     
 
-        <a href="/note/10fd8090.html" class="post-more waves-effect waves-button">
+        <a href="/note/b28c200f.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域/">跨域</a></li></ul>
 
     </div>
     
@@ -617,60 +705,10 @@ col-*-*-*:列排序
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-11-fiddler" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-09-js-calc-str-byte" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-04 14:09:43" datetime="2017-11-04T06:09:43.000Z" itemprop="datePublished">2017-11-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tools/">tools</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/d422e493.html">使用Fiddler做抓包分析</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、Fiddler简介
-Fiddler是位于客户端和服务器端的HTTP代理，也是目前最常用的http抓包工具之一 。 它能够记录客户端和服务器之间的所有 HTTP请求，可以针对特定的HTTP请求，分析请求数据、设置断点、调试web应用、修改请求的数据，甚至可以修改服务器返回的数据，功能非常强大，是web调试的利器
-
-
-客户端的所有请求都要先经过Fiddler，然后转发到相应的服务器，反之，服...
-    
-
-        <a href="/note/d422e493.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fiddler/">Fiddler</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-10-jq-naotu" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-10-28 08:20:43" datetime="2017-10-28T00:20:43.000Z" itemprop="datePublished">2017-10-28</time>
+        <time class="post-time" title="2017-09-12 19:40:43" datetime="2017-09-12T11:40:43.000Z" itemprop="datePublished">2017-09-12</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -684,7 +722,7 @@ Fiddler是位于客户端和服务器端的HTTP代理，也是目前最常用的
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/f4c59ce6.html">jquery之思维导图</a>
+      <a class="post-title-link" href="/note/79d4a191.html">JS计算字符串所占字节数</a>
     </h3>
   
 
@@ -694,29 +732,17 @@ Fiddler是位于客户端和服务器端的HTTP代理，也是目前最常用的
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-                
-                    
-                    
-                
-                一、认识JQ
-            
-
-                
-                    
-                    
-                
-       ...
+        123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** * 计算字符串所占的内存字节数，默认使用UTF-8的编码方式计算，也可制定为UTF-16 * UTF-8 是一种可变长度的 Unicode 编码格式，使用一至四个字节为每个字符编码 *  ...
     
 
-        <a href="/note/f4c59ce6.html" class="post-more waves-effect waves-button">
+        <a href="/note/79d4a191.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </div>
     
@@ -729,7 +755,7 @@ Fiddler是位于客户端和服务器端的HTTP代理，也是目前最常用的
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/16/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/18/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/16/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/18/">下一页</a>
     </div>
 </nav>
 

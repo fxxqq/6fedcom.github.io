@@ -178,248 +178,10 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-2017-05-forever-pm2" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-02-ie-compatibility-summary" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-05-09 22:50:08" datetime="2017-05-09T14:50:08.000Z" itemprop="datePublished">2017-05-09</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/d03e9032.html">forever and pm2部署nodejs项目</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、forever
-forever则可以在cmd或ssh连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启
-
-
-安装 npm install -g forever
-forever的帮助手册  forever --help
-使用forever启动项目 forever start app.js
-使用forever停止项目 forever stop app.js
-列出所有通过forever管...
-    
-
-        <a href="/note/d03e9032.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部署/">部署</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-05-nginx" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-05-08 22:35:08" datetime="2017-05-08T14:35:08.000Z" itemprop="datePublished">2017-05-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/back-end/">back-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/a404b8b6.html">nginx基础配置篇</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        nginx的启动、停止与重启
-建立软连接nginx到/usr/bin目录下 ln -s /usr/sbin/nginx /usr/bin
-
-启动
-启动代码格式：nginx安装目录地址 -c nginx配置文件地址
-
-1[root@LinuxServer sbin]# /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf...
-    
-
-        <a href="/note/a404b8b6.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-05-webpack入门操作" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-05-01 21:34:40" datetime="2017-05-01T13:34:40.000Z" itemprop="datePublished">2017-05-01</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/60e1e8cf.html">webpack入门操作</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        起步在文件夹创建一个package.json
-1npm init
-安装webpack
-12// 安装Webpacknpm install --save-dev webpack
-新建一个webpack.config.js的文件并配置如下
-1234567module.exports = &#123;  entry:  __dirname + &quot;/app/main.js&quot;,//...
-    
-
-        <a href="/note/60e1e8cf.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-04-npm网速慢用淘宝cnpm" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-04-26 21:34:40" datetime="2017-04-26T13:34:40.000Z" itemprop="datePublished">2017-04-26</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/616e90c2.html">npm网速慢用淘宝cnpm</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        npm网速慢
-用淘宝npm镜像
-1.继续用npm这个命令临时使用
-1npm --registry https://registry.npm.taobao.org install &lt;pkg&gt;
-长期使用
-123npm config set registry https://registry.npm.taobao.org// 验证是否成功npm config get registry
-...
-    
-
-        <a href="/note/616e90c2.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-04-用vultr建立网站" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-04-20 21:34:40" datetime="2017-04-20T13:34:40.000Z" itemprop="datePublished">2017-04-20</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/fe724b4e.html">用vultr建立网站</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        内容会运用到Linux、docker
-如果有visa，可以直接到vultr官网付款购买服务器。如果没有，某宝上面有代沟。
-我在这里使用的配置是，Tokyo Ubuntu16.04 25GB SSD，也就是通常能买到的最低的配置
-我是在某宝上面代购的，谈好价钱后，对方会给你一个ip地址和用户名还有密码。
-
-                
-                    
-      ...
-    
-
-        <a href="/note/fe724b4e.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2017-04-es6-coding-style" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-04-14 14:24:08" datetime="2017-04-14T06:24:08.000Z" itemprop="datePublished">2017-04-14</time>
+        <time class="post-time" title="2017-02-07 11:10:43" datetime="2017-02-07T03:10:43.000Z" itemprop="datePublished">2017-02-07</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -433,7 +195,7 @@ forever的帮助手册  forever --help
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/67fe8f98.html">ES6编码风格</a>
+      <a class="post-title-link" href="/note/12cd9bda.html">IE6下常见的兼容性问题</a>
     </h3>
   
 
@@ -443,17 +205,157 @@ forever的帮助手册  forever --help
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、块级作用域
-1.1 let取代var
+        常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确
+1234567891011121314151617181920.box&#123;    width:400px;&#125;.left&#123;    width:200px;    height:210px;    background:red;    float:left&#125;.right&#123;    width:200px;    float:right;    overflow:hidden;&#125;.div&#123;    width:180px;    height:180px;    background:blue;    padding:25px;&#125;
+123456&lt;div class="box"&gt;	&lt;div class="left"&gt;&lt;/div&gt;	&lt;div class="right"&gt;		&lt;div class="div"&gt;&lt;/div&gt;	&lt;/div&gt;&lt;/div&gt;
 
-ES6提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，因为两者语义相同，而且let没有副作用
-var命令存在变量提升效用，let命令没有这个问题
-建议不再使用var命令，而是使用let命令取代
+                
+                    
+                    
+                
+                
+            
 
-12345"use strict";if(true) &#123;console.log(x); // Referenc...
+                
+                    
+                    
+                
+                
+            
     
 
-        <a href="/note/67fe8f98.html" class="post-more waves-effect waves-button">
+        <a href="/note/12cd9bda.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csshack/">csshack</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-02-flex" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-06 19:20:43" datetime="2017-02-06T11:20:43.000Z" itemprop="datePublished">2017-02-06</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/cc5b9b13.html">弹性布局总结</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+以下6个属性设置在容器上
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+
+
+属性详解
+flex-direction: row | row-reverse | column | column-reverse;
+flex-wrap: nowrap | wrap | wrap-revers...
+    
+
+        <a href="/note/cc5b9b13.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-02-es6-new-property" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-04 18:20:43" datetime="2017-02-04T10:20:43.000Z" itemprop="datePublished">2017-02-04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/de81bfb9.html">ES6新特性</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、作用域
+
+块级作用域
+块级变量let
+块级常量 const
+
+二、箭头函数
+
+sum = (a,b)=&gt; a + b
+nums.forEach(v=&gt; {console.log(v)})
+词法 this
+
+三、参数处理
+
+默认参数值
+剩余参数
+展开运算符
+
+四、模板字面量
+
+多行字符串
+字符串插值
+带标签的模板字面量
+原始字符串
+
+五、原有字面量加强
+
+更安全的二进制字面量(...
+    
+
+        <a href="/note/de81bfb9.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -469,12 +371,14 @@ var命令存在变量提升效用，let命令没有这个问题
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-04-使用autohotkey修改方向键、回车和启动程序" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-01-gulp-works" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-04-07 21:34:40" datetime="2017-04-07T13:34:40.000Z" itemprop="datePublished">2017-04-07</time>
+        <time class="post-time" title="2017-01-21 17:40:43" datetime="2017-01-21T09:40:43.000Z" itemprop="datePublished">2017-01-21</time>
 
         
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
+
 
 
     </div>
@@ -484,7 +388,7 @@ var命令存在变量提升效用，let命令没有这个问题
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/9f35addd.html">使用autohotkey修改方向键、回车和启动程序</a>
+      <a class="post-title-link" href="/note/3e0bf339.html">基于gulp的工作流配置</a>
     </h3>
   
 
@@ -494,21 +398,20 @@ var命令存在变量提升效用，let命令没有这个问题
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        autohotkey官网
-autohotkey官方文档
-官方文档中文版
-具体步骤
-下载并安装autohotkey。
+        
+配置一套基于gulp的工作流，满足日常的基本开发。
 
-在你觉得合适的地方鼠标右键-新建-autohotkey script（脚本）；或者创建一个别的文件，再把后缀改成ahk也可以
-
-一个新建的ahk文档里面会有这些东西
-1234#NoEnv  ; Recommended for performance and compatibi...
     
 
-        <a href="/note/9f35addd.html" class="post-more waves-effect waves-button">
+        <a href="/note/3e0bf339.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+
     </div>
     
 </article>
@@ -516,12 +419,14 @@ autohotkey官方文档
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-03-一个关于闭包、回调函数和异步程序的例子" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-01-webpack-summary" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-03-25 21:34:40" datetime="2017-03-25T13:34:40.000Z" itemprop="datePublished">2017-03-25</time>
+        <time class="post-time" title="2017-01-14 17:40:43" datetime="2017-01-14T09:40:43.000Z" itemprop="datePublished">2017-01-14</time>
 
         
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
+
 
 
     </div>
@@ -531,7 +436,7 @@ autohotkey官方文档
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/751c501.html">一个关于回调函数的例子以及异步程序和非阻塞I/O的理解</a>
+      <a class="post-title-link" href="/note/c6147aa3.html">webpack学习总结(二)</a>
     </h3>
   
 
@@ -541,14 +446,22 @@ autohotkey官方文档
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        JavaScript有一个明显的特征：第一类函数（first-class functions）（wiki） 。
-与第一类函数有关的名词还有第一类对象和第一类公民（头等公民）（wiki） ，在JavaScript中，函数是第一类对象或者说是第一类公民，简单理解，就是权限很大，可调用的资源多。这是因为这样，它才可以被当做参数或变量来使用。
-对于异步程序和非阻塞I/O，记得在知乎上看到过一个非常好...
+        
+声明 本教程整理于互联网
+
+
+webpack是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如CommonJs模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 ...
     
 
-        <a href="/note/751c501.html" class="post-more waves-effect waves-button">
+        <a href="/note/c6147aa3.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
     </div>
     
 </article>
@@ -556,10 +469,10 @@ autohotkey官方文档
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-03-closure-summary" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-01-js-and-jquery-dom-compare" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-03-22 14:24:08" datetime="2017-03-22T06:24:08.000Z" itemprop="datePublished">2017-03-22</time>
+        <time class="post-time" title="2017-01-14 11:30:43" datetime="2017-01-14T03:30:43.000Z" itemprop="datePublished">2017-01-14</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -573,7 +486,7 @@ autohotkey官方文档
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/56cde313.html">浅谈闭包</a>
+      <a class="post-title-link" href="/note/753b84db.html">原生JS与jquery操作dom对比</a>
     </h3>
   
 
@@ -583,23 +496,20 @@ autohotkey官方文档
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-闭包的形成跟变量的作用域以及变量的生存周期密切相关
-
-一、变量的作用域,是指变量的有效范围
-当在函数中声明一个变量的时候,如果该变量前面没有带上关键字 var,这个变量就会成为全局变量 ,这当然是一种很容易造成命名冲突的做法。另外一种情况是用 var 关键字在函数中声明变量,这时候的变量即是局部变量,只有在该函数内部才能访问到这个变量,在函数外面是访问不到的。
-
-例：变量的搜索是从内到外而...
+        一、创建元素节点
+1.1 原生JS创建元素节点
+1document.createElement("p");
+1.2 jquery创建元素节点
     
 
-        <a href="/note/56cde313.html" class="post-more waves-effect waves-button">
+        <a href="/note/753b84db.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </div>
     
@@ -608,12 +518,14 @@ autohotkey官方文档
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-03-从三个区域理解git命令（基础篇）" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2017-01-jQuery-dom" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-03-20 21:34:40" datetime="2017-03-20T13:34:40.000Z" itemprop="datePublished">2017-03-20</time>
+        <time class="post-time" title="2017-01-14 10:20:43" datetime="2017-01-14T02:20:43.000Z" itemprop="datePublished">2017-01-14</time>
 
         
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
 
 
     </div>
@@ -623,7 +535,7 @@ autohotkey官方文档
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/219c3b9b.html">从三个区域理解git命令（基础篇）</a>
+      <a class="post-title-link" href="/note/def62515.html">jquery之dom操作小结</a>
     </h3>
   
 
@@ -633,16 +545,172 @@ autohotkey官方文档
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        2.1 获取库在学习这些下面的命令之前，首先要清楚你的代码的三种状态，已修改、已暂存、以提交。以及他们对应的三个区域：工作目录、暂存区、库。
-其实在除这三个区域之外还有一个区域，这个区域是在你的git系统之外的区域，暂且叫它非跟踪区，所以我们上面说的三个区域就可以统称为跟踪区了。
-下面这个链接是一个git的操作教学。
+        一、过滤器
+1 匹配指定元素的父
 
-库从哪来？两个来源，一个是你的电脑，一个是别人的电脑不管在哪，他们现在都...
+elem.parent([exp])
+
+2 匹配指定元素的子元素
     
 
-        <a href="/note/219c3b9b.html" class="post-more waves-effect waves-button">
+        <a href="/note/def62515.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-01-js-snippets-summary" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-14 08:20:43" datetime="2017-01-14T00:20:43.000Z" itemprop="datePublished">2017-01-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/160b6587.html">javascript常用积累</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、JS动画与动作不一致解决:
+123if(!$( "#handle").is(":animated"))&#123;	//判断元素是否处于动画状态&#125;
+    
+
+        <a href="/note/160b6587.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Snippet/">Snippet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-01-webpack" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-13 18:40:43" datetime="2017-01-13T10:40:43.000Z" itemprop="datePublished">2017-01-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/6925e1c1.html">webpack学习总结(一)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+声明 本教程整理于互联网
+
+先看一个例子
+123456789101112131415161718// webpack.config.jsmodule.exports = &#123;    // 入口    entry: &#123;        'index': './index.js'    &#125;,    // 输出    output: &#123;        path: './',        /*            [name] 是 entry 中的 key            entry: &#123;                key: value            &#125;        */        filename: "[name].b.js"    &#125;&#125;;
+module.exports 是 CommonJS 规范中定义一个文件对外接口的语法，webpack.config.js 文件对外的接口是一个 object ，其中定义了一些配置参数。
+    
+
+        <a href="/note/6925e1c1.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-01-gulp" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-13 18:20:43" datetime="2017-01-13T10:20:43.000Z" itemprop="datePublished">2017-01-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端自动化/">前端自动化</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/51b4c428.html">gulp学习总结篇</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+声明 本教程整理于互联网
+
+一、gulp 入门简介
+gulp 是基于 node 实现Web 前端自动化开发的工具，利用它能够极大的提高开发效率。
+在 Web 前端开发工作中有很多“重复工作”，比如压缩CSS/JS文件。而这些工作都是有规律的。找到这些规律，并编写 gulp 配置代码,让 gulp 自动执行这些“重复工作”。
+    
+
+        <a href="/note/51b4c428.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+
     </div>
     
 </article>
@@ -654,7 +722,7 @@ autohotkey官方文档
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/20/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/22/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/20/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/22/">下一页</a>
     </div>
 </nav>
 
