@@ -1,8 +1,9 @@
 ---
-layout: html5
-title: Drop）事件详解（摘自w3school）
+title: html5 Drop 事件详解（摘自w3school）
+tags:
+  - html5
+abbrlink: '40559693'
 date: 2018-11-09 15:22:12
-tags: [html5]
 ---
 
 ### 设置元素为可拖放
