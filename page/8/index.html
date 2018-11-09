@@ -178,10 +178,10 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-2018-03-vue-data-bind" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-vm-method-props" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-26 14:01:32" datetime="2018-08-26T06:01:32.000Z" itemprop="datePublished">2018-08-26</time>
+        <time class="post-time" title="2018-08-28 16:04:43" datetime="2018-08-28T08:04:43.000Z" itemprop="datePublished">2018-08-28</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -195,7 +195,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/d3019ce8.html">vue中的数据绑定（二）</a>
+      <a class="post-title-link" href="/note/e3a5e3c3.html">vue实例方法（十三)</a>
     </h3>
   
 
@@ -205,20 +205,22 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化
-
-
+        一、Vue之实例属性
                 
                     
                     
                 
-                
+                image.png
             
-一、数据渲染123&lt;div&gt;&#123;messag...
+
+Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的数据属性区分
+
+组件树
+
+$parent：用来访问组件实...
     
 
-        <a href="/note/d3019ce8.html" class="post-more waves-effect waves-button">
+        <a href="/note/e3a5e3c3.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -234,10 +236,10 @@ Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的�
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-03-vue-start" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-axios" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-26 13:12:32" datetime="2018-08-26T05:12:32.000Z" itemprop="datePublished">2018-08-26</time>
+        <time class="post-time" title="2018-08-28 15:35:32" datetime="2018-08-28T07:35:32.000Z" itemprop="datePublished">2018-08-28</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -251,7 +253,7 @@ Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/3658c71f.html">初识vue与环境搭建（一）</a>
+      <a class="post-title-link" href="/note/ed55b987.html">vue-axios封装请求（十二）</a>
     </h3>
   
 
@@ -261,13 +263,83 @@ Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、初识
-Vue框架是一个mvvm框架，Module和view是双向绑定的。vue没有控制器的概念，它的核心思想是数据驱动，状态管理，以及组件化。
-因此在我们js编程中，不会去操作dom、class，更多的关注我们的数据层面。去改变一个变量，通过变量来控制我们的视图，通过事件绑定、状态管理来进一步渲染视图。
-mvvm框架的特点是没有控制器，通过view和module来进行交互，实际上底层已经...
+        一、axios 简介
+axios 是一个基于Promise用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征：
+
+
+从浏览器中创建 XMLHttpRequest
+从 node.js 发出 http 请求
+支持Promise api
+拦截请求和响应
+转换请求和响应数据
+取消请求
+自动转换JSON数据
+客户端支持防止CSRF/XSRF
+
+二、axios基础
+axios.requ...
     
 
-        <a href="/note/3658c71f.html" class="post-more waves-effect waves-button">
+        <a href="/note/ed55b987.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2018-03-vue-router" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-08-28 15:30:32" datetime="2018-08-28T07:30:32.000Z" itemprop="datePublished">2018-08-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/35f2d11f.html">vue路由（十一）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、路由基础介绍1.1 什么是前端路由
+路由是根据不同的url地址展示不同的内容或页面
+前端路由就是把不同的路由对应不同的内容或页面的任务交给前端来做，之前是通过服务端根据url的不同返回不同的页面实现的
+
+1.2 什么时候使用前端路由
+在单页面应用，大部分结构不变，只改变内容的使用
+
+1.3 前端路由优点、缺点
+优点：
+用户体验好，不需要每次都从服务器全部获取，快速展现给用户
+
+
+缺点：
+...
+    
+
+        <a href="/note/35f2d11f.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -283,10 +355,10 @@ mvvm框架的特点是没有控制器，通过view和module来进行交互，实
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-08-quick-app-summary" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-computed-watch" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-21 18:05:43" datetime="2018-08-21T10:05:43.000Z" itemprop="datePublished">2018-08-21</time>
+        <time class="post-time" title="2018-08-28 14:10:42" datetime="2018-08-28T06:10:42.000Z" itemprop="datePublished">2018-08-28</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -300,7 +372,7 @@ mvvm框架的特点是没有控制器，通过view和module来进行交互，实
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/97c34044.html">快应用入门小结篇</a>
+      <a class="post-title-link" href="/note/fdf99685.html">vue计算属性与数据监听（十）</a>
     </h3>
   
 
@@ -310,26 +382,23 @@ mvvm框架的特点是没有控制器，通过view和module来进行交互，实
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_posts/quick-app-summary.md
+        一、监听属性
+我们在工作中常常需要监听某一个属性值的变化，这个时候我们就需要用到了监听属性watch
 
+1.1 基础版监听
+场景如下：输入框输入你的年龄，如果年龄在0-15岁提示信息：你还是个小孩，如果年龄在 15-25岁，提示信息：你已经是个少年，如果年龄在25岁以上，提示信息：你已经长大了
 
-注册账号通过 https://www.quickapp.cn/docCenter/post/74
-
-一、环境搭建1.1 安装nodeJS
-需安装6.0以上版本的nodeJS
-
-1.2 安装hap...
+12345678910111213141516171819202122232425262728&...
     
 
-        <a href="/note/97c34044.html" class="post-more waves-effect waves-button">
+        <a href="/note/fdf99685.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快应用/">快应用</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -338,10 +407,10 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-08-怎么把数组倒置，又不影响原来数组，reverse不行" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-component" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-18 23:33:00" datetime="2018-08-18T15:33:00.000Z" itemprop="datePublished">2018-08-18</time>
+        <time class="post-time" title="2018-08-27 11:20:32" datetime="2018-08-27T03:20:32.000Z" itemprop="datePublished">2018-08-27</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -355,7 +424,7 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/46862a63.html">怎么把数组倒置，又不影响原来数组，reverse不行</a>
+      <a class="post-title-link" href="/note/a45ffb2e.html">vue组件（九)</a>
     </h3>
   
 
@@ -365,18 +434,20 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        情景：怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。1234var arr = ["1","2","3","4"];var bbb = arr.reverse()console.log(arr); //["4", "3", "2", "1"]console.log(bbb); //["4", "3", "2", "1"]
-直接改的话bbb和arr指向是同一个数组...
+        一、组件的基本使用1.1 注册组件
+注册组件就是利用Vue.component()方法，先传入一个自定义组件的名字，然后传入这个组件的配置
+
+12345678Vue.component('mycomponent',&#123;    template: `&lt;div&gt;这是一个自定义组件&lt;/div&gt;`,    data () &#123;      return &#12...
     
 
-        <a href="/note/46862a63.html" class="post-more waves-effect waves-button">
+        <a href="/note/a45ffb2e.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js代码片段/">js代码片段</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -385,10 +456,10 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-08-javaScript-arr-summary" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-filters" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-18 18:40:43" datetime="2018-08-18T10:40:43.000Z" itemprop="datePublished">2018-08-18</time>
+        <time class="post-time" title="2018-08-27 10:20:32" datetime="2018-08-27T02:20:32.000Z" itemprop="datePublished">2018-08-27</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -402,7 +473,7 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/cd524e3e.html">JavaScript数组方法总结篇</a>
+      <a class="post-title-link" href="/note/c243ab9b.html">vue过滤器（八）</a>
     </h3>
   
 
@@ -412,28 +483,19 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、数组预览图
-                
-                    
-                    
-                
-                数组方法
-            
-二、会改变原数组的方法2.1 push()
-方法在数组的尾部添加一个或多个元素，并返回数组的长度
-
-
-参数: item1, item2, …, itemX ,...
+        一、全局过滤器12345// 第一个参数表示：过滤器的名称// 第二个参数表示：函数，使用过滤器的时候，这个函数中的代码会被执行Vue.filter('filterName', function (value) &#123;  // value 表示要过滤的内容&#125;)
+例子
+123456789101112131415161718Vue.filter('date', function ...
     
 
-        <a href="/note/cd524e3e.html" class="post-more waves-effect waves-button">
+        <a href="/note/c243ab9b.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -442,10 +504,10 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-08-javascript怎么设置和暂停stream流" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-form" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-16 16:43:46" datetime="2018-08-16T08:43:46.000Z" itemprop="datePublished">2018-08-16</time>
+        <time class="post-time" title="2018-08-27 10:10:32" datetime="2018-08-27T02:10:32.000Z" itemprop="datePublished">2018-08-27</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -459,7 +521,7 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/84de6d80.html">Javascript怎么设置和暂停stream流</a>
+      <a class="post-title-link" href="/note/79c90ec.html">vue 表单控件与绑定（七）</a>
     </h3>
   
 
@@ -469,18 +531,17 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1234567function stopStream() &#123;    if (window.stream) &#123;        window.stream.getTracks().forEach(function (track) &#123;            track.stop();        &#125;);    &#125;&#125;
-1234functi...
+        一、文本框1.1 普通文本框1234567891011&lt;div id="app-1"&gt;    &lt;p&gt;&lt;input v-model="textBox" placeholder="输入内容..."&gt;输入的内容：&#123;&#123; textBox &#125;&#125;&lt;/p&gt;&lt;/div&gt;&lt;script type="text...
     
 
-        <a href="/note/84de6d80.html" class="post-more waves-effect waves-button">
+        <a href="/note/79c90ec.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -489,10 +550,10 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-08-vue路由传参的三种基本方式" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-event" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-15 18:31:11" datetime="2018-08-15T10:31:11.000Z" itemprop="datePublished">2018-08-15</time>
+        <time class="post-time" title="2018-08-27 00:10:32" datetime="2018-08-26T16:10:32.000Z" itemprop="datePublished">2018-08-27</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -506,7 +567,7 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/701e9ca3.html">vue路由传参的三种基本方式</a>
+      <a class="post-title-link" href="/note/dd238463.html">vue事件（六）</a>
     </h3>
   
 
@@ -516,20 +577,17 @@ MD原文件 https://github.com/poetries/poetries.github.io/blob/dev/source/_post
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。父组件中：
-1&lt;li v-for="article in articles" @click="getDescribe(article.id)"&gt;
-methods：
-方案一：12345      getDescribe(id) &#123;//   直接调用$router.push 实现携带参数的跳转...
+        一、方法传参1234567891011121314&lt;div id="test"&gt;    &lt;button @click="sayHi('你好')"&gt;说你好&lt;/button&gt; &lt;!--这里使用@--&gt;    &lt;button @click="sayHi('我被点击了')"&gt;说我被点击了&lt;/button&gt; &lt;!--这里使用...
     
 
-        <a href="/note/701e9ca3.html" class="post-more waves-effect waves-button">
+        <a href="/note/dd238463.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -538,10 +596,10 @@ methods：
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-08-immutable-review" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-lifecircle" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-13 20:00:24" datetime="2018-08-13T12:00:24.000Z" itemprop="datePublished">2018-08-13</time>
+        <time class="post-time" title="2018-08-26 17:21:32" datetime="2018-08-26T09:21:32.000Z" itemprop="datePublished">2018-08-26</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -555,7 +613,7 @@ methods：
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/6c95af34.html">Immutable之回顾</a>
+      <a class="post-title-link" href="/note/3ab58e3e.html">vue生命周期（五）</a>
     </h3>
   
 
@@ -565,82 +623,31 @@ methods：
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、Immutable几种数据结构
-                
-                    
-                    
-                
-                Immutable几种数据结构
-            
-二、fromJS
-                
-                    
-           ...
-    
-
-        <a href="/note/6c95af34.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Immutable/">Immutable</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2018-08-wx-login" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-13 00:01:20" datetime="2018-08-12T16:01:20.000Z" itemprop="datePublished">2018-08-13</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是vue的生命周期
 
 
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/b106285.html">小程序之登录</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、登录流程
                 
                     
                     
                 
                 
             
-
-小程序内通过wx.login接口获得code
-将code传入后台，后台对微信服务器发起一个https请求换取openid、session_key(解密encrypte...
+一、生命周期钩子函数
+beforeCreate
+created
+beforeMount
+mo...
     
 
-        <a href="/note/b106285.html" class="post-more waves-effect waves-button">
+        <a href="/note/3ab58e3e.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -649,10 +656,10 @@ methods：
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2018-08-wx-component" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-2018-03-vue-base-directive" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-08-12 23:43:20" datetime="2018-08-12T15:43:20.000Z" itemprop="datePublished">2018-08-12</time>
+        <time class="post-time" title="2018-08-26 14:10:32" datetime="2018-08-26T06:10:32.000Z" itemprop="datePublished">2018-08-26</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -666,7 +673,7 @@ methods：
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/356b2ea3.html">小程序之自定义组件</a>
+      <a class="post-title-link" href="/note/63a9f06.html">vue 基本指令（四）</a>
     </h3>
   
 
@@ -676,22 +683,31 @@ methods：
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、创建自定义组件
-类似于页面，一个自定义组件由 json wxml wxss js 4个文件组成。要编写一个自定义组件，首先需要在 json 文件中进行自定义组件声明（将 component 字段设为 true 可这一组文件设为自定义组件）
+        
+                
+                    
+                    
+                
+                image.png
+            
+一、常用指令v-text
 
-123&#123;  &quot;component&quot;: true&#125;
-二、使用自定义组件
-使用已注册的自定义组件前，首先要在页面...
+更新元素的 textContent
+
+1&lt;h1 v-text="msg"&gt;&lt;/h1&gt;
+v-html
+
+更新元素...
     
 
-        <a href="/note/356b2ea3.html" class="post-more waves-effect waves-button">
+        <a href="/note/63a9f06.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </div>
     
@@ -704,7 +720,7 @@ methods：
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/7/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/9/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/7/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/9/">下一页</a>
     </div>
 </nav>
 

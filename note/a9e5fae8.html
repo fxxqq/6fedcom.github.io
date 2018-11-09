@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/a9e5fae8.html">
+    
+    
+    <title>韦博英语教师端vue踩坑记录（2） | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="vue项目在nginx中部署nginx的配置文件：添加如下server12345678910111213141516171819202122232425server &amp;#123;	listen 7070;	server_name localhost;	error_page 500 502 503 504 / 50x.html;	location = /50x.html &amp;#123;">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="韦博英语教师端vue踩坑记录（2）">
+<meta property="og:url" content="https://ru23.com/note/a9e5fae8.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="vue项目在nginx中部署nginx的配置文件：添加如下server12345678910111213141516171819202122232425server &amp;#123;	listen 7070;	server_name localhost;	error_page 500 502 503 504 / 50x.html;	location = /50x.html &amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-09T07:14:55.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="韦博英语教师端vue踩坑记录（2）">
+<meta name="twitter:description" content="vue项目在nginx中部署nginx的配置文件：添加如下server12345678910111213141516171819202122232425server &amp;#123;	listen 7070;	server_name localhost;	error_page 500 502 503 504 / 50x.html;	location = /50x.html &amp;#123;">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://m.aliyun.com/act/team1111/#/share?params=N.FF7yxCciiM.doof6fbz">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=doof6fbz" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            韦博英语教师端vue踩坑记录（2）
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            韦博英语教师端vue踩坑记录（2）
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2018-11-09T07:12:15.000Z" itemprop="datePublished" class="page-time">
+  2018-11-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue项目在nginx中部署"><span class="post-toc-text">vue项目在nginx中部署</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#element-ui-的-upload组件的clearFiles方法调用方法"><span class="post-toc-text">element-ui 的 upload组件的clearFiles方法调用方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue模板初始化报错："><span class="post-toc-text">vue模板初始化报错：</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2018-11-韦博英语教师端vue踩坑记录（2）" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">韦博英语教师端vue踩坑记录（2）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-09 15:12:15" datetime="2018-11-09T07:12:15.000Z" itemprop="datePublished">2018-11-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="vue项目在nginx中部署"><a href="#vue项目在nginx中部署" class="headerlink" title="vue项目在nginx中部署"></a>vue项目在nginx中部署</h3><p><strong>nginx的配置文件：</strong><br>添加如下server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	listen 7070;</span><br><span class="line">	server_name localhost;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	error_page 500 502 503 504 / 50x.html;</span><br><span class="line">	location = /50x.html &#123;</span><br><span class="line">        root html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        root /data / xytest / project / zkview - ui / dist;</span><br><span class="line">	index index.html;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	location / &#123;</span><br><span class="line">		try_files $uri $uri / @router;</span><br><span class="line">		index index.html;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	location@router &#123;</span><br><span class="line">		rewrite ^ . * $ / index.html last;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>添加完成后热加载nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx - s reload</span><br></pre></td></tr></table></figure></p>
+<p>nginx如何正确配置部署在子目录的vue项目（History模式）<br><strong>Q1：Vue项目用Webpack打包后放到服务器上，但访问是404页面？</strong><br>原因是vue的项目为单页应用，路由找不到所致。所以要在nginx服务器配置对所有的路径或者文件夹进行跳转。重定向到首页index下，这样就都能找到路由了。<br>nginx配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">  try_files $uri $uri/ /index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为项目是子项目，所以不能放在根目录下，index.html需要放在一个新建的teacher目录 </p>
+<p><strong>Q2：配置好nginx后，发现这样虽然不会404，但是页面全部转到了根目录的index.html，访问的是空白页面？</strong></p>
+<p>于是调整了nginx和vue-router的配置如下：<br>nginx配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">###教师端 vue项目</span><br><span class="line">location /teacher/ &#123;</span><br><span class="line">    index  index.html index.htm index.php;</span><br><span class="line">    try_files $uri $uri/ /teacher/index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>vue路由配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">routes: [&#123;</span><br><span class="line">	path: <span class="string">'/teacher/login'</span>,</span><br><span class="line">	name: <span class="string">'Login'</span>,</span><br><span class="line">	component: Login,</span><br><span class="line">	meta: &#123;</span><br><span class="line">		title: <span class="string">'教师端登录中心'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">	path: <span class="string">'/teacher/courseCenter'</span>,</span><br><span class="line">	name: <span class="string">'CourseCenter'</span>,</span><br><span class="line">	component: CourseCenter,</span><br><span class="line">	meta: &#123;</span><br><span class="line">		title: <span class="string">'CourseCenter'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>拓展：<br>apache 做web服务器的虚拟空间，开启.htaccess文件支持,也可以解决vue项目配置子目录的问题。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">  Options +FollowSymlinks</span><br><span class="line">  RewriteEngine On</span><br><span class="line">  </span><br><span class="line">  RewriteCond %&#123;REQUEST_URI&#125; ^/(teacher|teacher/.*)$</span><br><span class="line">  RewriteRule ^/teacher/index\.html$ - [L,NC]</span><br><span class="line">  </span><br><span class="line">  RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">  RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">  RewriteRule ^(teacher|teacher/.*)$ teacher/index.html [L]</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="element-ui-的-upload组件的clearFiles方法调用方法"><a href="#element-ui-的-upload组件的clearFiles方法调用方法" class="headerlink" title="element-ui 的 upload组件的clearFiles方法调用方法"></a>element-ui 的 upload组件的clearFiles方法调用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;el-button @click=&quot;clearUploadedImage&quot;&gt;重新上传&lt;/el-button&gt;</span><br><span class="line">    &lt;el-upload ref=&quot;upload&quot;&gt;&lt;/el-upload&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    clearUploadedImage () &#123;</span><br><span class="line">      this.$refs.upload.clearFiles();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="vue模板初始化报错："><a href="#vue模板初始化报错：" class="headerlink" title="vue模板初始化报错："></a>vue模板初始化报错：</h3><p>vue模板初始化报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Failed to compile with 2 errors                                                                                                                                                                                                                                                           21:49:02</span><br><span class="line"> error  in ./src/App.vue</span><br><span class="line"></span><br><span class="line">Module build failed: Error: No parser and no file path given, couldn&apos;t infer a parser.</span><br><span class="line">    at normalize (path\node_modules\prettier\index.js:7051:13)</span><br><span class="line">    at formatWithCursor (path\node_modules\prettier\index.js:10370:12)</span><br><span class="line">    at path\node_modules\prettier\index.js:31115:15</span><br><span class="line">    at Object.format (path\node_modules\prettier\index.js:31134:12)</span><br><span class="line">    at Object.module.exports (path\node_modules\vue-loader\lib\template-compiler\index.js:80:23)</span><br><span class="line"></span><br><span class="line"> @ ./src/App.vue 11:0-354</span><br><span class="line"> @ ./src/main.js</span><br><span class="line"> @ multi (webpack)-dev-server/client?http://localhost:8080 webpack/hot/dev-server ./src/main.js</span><br><span class="line"></span><br><span class="line"> error  in ./src/components/HelloWorld.vue</span><br><span class="line"></span><br><span class="line">Module build failed: Error: No parser and no file path given, couldn&apos;t infer a parser.</span><br><span class="line">    at normalize (path\node_modules\prettier\index.js:7051:13)</span><br><span class="line">    at formatWithCursor (path\node_modules\prettier\index.js:10370:12)</span><br><span class="line">    at path\node_modules\prettier\index.js:31115:15</span><br><span class="line">    at Object.format (path\node_modules\prettier\index.js:31134:12)</span><br><span class="line">    at Object.module.exports (path\node_modules\vue-loader\lib\template-compiler\index.js:80:23)</span><br></pre></td></tr></table></figure>
+<p>Prettier has caused this regression in their 1.13.0 update which occurred today. Downgrade to the previous version to fix this error:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev prettier@1.12.0</span><br><span class="line"></span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure></p>
+<p>That should do the trick.</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/a9e5fae8.html&title=《韦博英语教师端vue踩坑记录（2）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/a9e5fae8.html&title=《韦博英语教师端vue踩坑记录（2）》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/a9e5fae8.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《韦博英语教师端vue踩坑记录（2）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/a9e5fae8.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/a9e5fae8.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/83060485.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue.js 兄弟组件传值</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/4560708.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue watch监听对象及对应值的变化(computed)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/a9e5fae8.html&title=《韦博英语教师端vue踩坑记录（2）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/a9e5fae8.html&title=《韦博英语教师端vue踩坑记录（2）》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/a9e5fae8.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《韦博英语教师端vue踩坑记录（2）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/a9e5fae8.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/a9e5fae8.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3ay46EIBAF0P7/n3bWkw56qxA0ncPKTIOccUHqwecTj2MwRr9+rx2987Ni4OLiTnOP0/E9Z7Rl/p7eWlxc3P3c84Nm/jn5V6PDDhcX95XcXtQxmo+Li/sb3OSQqq7CxcV9J7eatCRFjYdzNVxc3AluXqVc97ykvouLi9viHsVRDWvOGy3l3XFxcbdw8wOlV+ZIcOV9cXFxF3N71ylyUPVzXOyOi4u7hZsszq9e5b/Oz8TFxV3HzS9a5QdfUs3IP9C/Z1xc3I3cXjO1XM5otVqHyQ8uLu4ybq9wOZPM3JD84OLiLubmAccM4q7ECRcXdye3+qIoUQnaMNVwChcXdw+3t0GyfS+IKSQ/uLi4D3GrYc29TdbhWlxc3I3c6oFSnZOXVy4+EC4u7kPcmb8nM5Piy0Xyg4uLu4WbBz35IVUNdKKZuLi4i7m9xupMCbXQ+8XFxX2Im49quFMNcXpvwMXFXcetBij5lYteY2bqHhkuLu6t3Gp7Iy+PVk/Qi9QLFxf3ldxeElUujFarJri4uC/gJqy7Ch83HGS4uLgtbl4kzROVakIVpVu4uLhbuL3GZ+/Ymg+DcHFxF3P/AArsSOfkgXJsAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>
