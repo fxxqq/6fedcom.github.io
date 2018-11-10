@@ -8,9 +8,9 @@ abbrlink: 2bf1a5b6
 date: 2018-11-09 14:16:01
 ---
 
-<h2>坑1：new FormData() - FormData对象的作用及用法</h2>
+### 坑1：new FormData() - FormData对象的作用及用法 
 
-<h4>一、概述</h4>
+#### 一、概述 
 
 ```html
 FormData 对象的使用：
@@ -19,12 +19,12 @@ FormData 对象的使用：
 2. 异步上传二进制文件。
 ```
 
-<h4>二、使用</h4>
+#### 二、使用 
 1.FormData对象的操作方法，全部在原型中，自己本身没任何的属性及方法。
 
 ![image](https://user-images.githubusercontent.com/22697565/39160831-291476d4-47a0-11e8-9820-0dbf99e92a4a.png)
 
-<h5>1、append()</h5>
+**1、append()**
 
 append()方法用于向 FormData 对象中添加键值对：
 
@@ -35,7 +35,7 @@ fd.append('key2',"value2");
 
 fd是 FormData 对象，可以新建的空的对象，也可以是已经包含 form 表单或其他键值对。
 
-<h5>2、set()</h5>
+**2、set()**
 
 设置对应的键 key 对应的值 value(s)
 
@@ -62,7 +62,7 @@ fd.set('name',"will");
 
 以上就是 append() 和 set() 的区别。如果设置的key值不存在，那么两者的效果是一样的。
 
-<h5>3、delete()</h5>
+**3、delete()**
 
 接收一个参数，表示你要删除的 key 值的名字，如果有多个相同 key 值，会一并删除：
 
@@ -73,7 +73,7 @@ fd.delete('name');
 
 form 中的 name 信息以及通过append() 新增的name 的信息都被删除了。
 
-<h5>4、get() 和 getAll()</h5>
+**4、get() 和 getAll()**
 
 接收一个参数，表示需要查找的 key 的名称，返回第一个该 key 对应的 value 值。如果有多个相同的 key， 而且要返回所有的这个 key 对应的 value 值。
 
@@ -87,7 +87,7 @@ fd.append('name','will');
 console.log(fd.getAll('name')); // ["sean", "will"]
  ```
 
-<h5>5、has()</h5>
+**5、has()**
 
 该方法也接收一个参数，同样是 key 的名称，返回一个Boolean 值， 用来判断FormData 对象是否含有该 key。以上面的form为例：
 
@@ -96,7 +96,7 @@ console.log(fd.has('name')); // true
 console.log(fd.has('Name')); // false
  ```
 
-<h5>6、keys()</h5>
+**6、keys()**
 
 该方法不需要接收参数，返回一个迭代器，通过这个迭代器，我们可以遍历FormData 对象中所有的 key。以上面的form为例：
 
@@ -115,7 +115,7 @@ number
 photo
 ```
 
-<h5>7、values()</h5>
+**7、values()**
 
 有遍历 key 的迭代，当然也就少不了遍历 value 的迭代器了。values()就是遍历value 的迭代器，用法与 keys() 类似：
 
@@ -129,7 +129,7 @@ for (var value of fd.values()) {
 ![image](https://user-images.githubusercontent.com/22697565/39161320-b2c89a48-47a2-11e8-87d0-43f0d22b8812.png)
 
 
-<h5>8、entries()</h5>
+**8、entries()**
 
 有遍历 key 的迭代器，也有遍历 value 的迭代器，为何不搞一个两者一起的呢！entries()就是返回一个包含键值对的迭代器：
 
@@ -158,6 +158,9 @@ HTML部分
         </label>
 </form>
 JS部分
+```
+
+```js
 var btn = document.querySelector('[type=button]');
 btn.onclick = function () {
     // 文件元素
@@ -216,11 +219,11 @@ new FormData的参数是一个DOM对象，而非jQuery对象
 var formData = new FormData($("#file")[0]);
 ```
 
-<h4>三、jQuery的参数序列化方法serialize()</h4>
+#### 三、jQuery的参数序列化方法serialize()
 序列表表格内容为字符串，用于 Ajax 请求。 
 $("form").serialize()
 
-<h2>坑2：webuploader 上传传自定义参数</h2><br>
+### 坑2：webuploader 上传传自定义参数
 <br>
 @WebUploader 是由百度开发的一个上传文件的框架，简单上传文件可以查看官网的两个demo。 
 由于自己需要上传用户信息，和用户照片，直接使用官网的demo，只能得到图片，于是花了一下午时间研究了一下WebUploader。
@@ -230,7 +233,7 @@ $("form").serialize()
 
 ![image](https://user-images.githubusercontent.com/22697565/39161837-38068308-47a5-11e8-8c4f-5f0fee6be362.png)
 
-<h4>全局设置</h4>
+##### 全局设置
 
 ```js
 // 初始化的时候直接添加  
@@ -246,7 +249,7 @@ var uploader = new WebUploader.Uploader({
 uploader.options.formData.uid = 123; 
 ```
 
-<h4>局部设置</h4>
+#### 局部设置
 
 ```js
 uploader.on( 'uploadBeforeSend', function( block, data ) {  
