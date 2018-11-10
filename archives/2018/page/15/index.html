@@ -183,7 +183,7 @@
         <div class="waterfall-item">
   <article class="article-card archive-article">
     <div class="post-meta">
-      <time class="post-time" title="2018-01-27 22:41:24" datetime="2018-01-27T14:41:24.000Z" itemprop="datePublished">2018-01-27</time>
+      <time class="post-time" id="post-time" title="2018-01-27 22:41:24" datetime="2018-01-27T14:41:24.000Z" itemprop="datePublished">2018-01-27</time>
 
       
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -217,7 +217,7 @@
         <div class="waterfall-item">
   <article class="article-card archive-article">
     <div class="post-meta">
-      <time class="post-time" title="2018-01-27 21:20:43" datetime="2018-01-27T13:20:43.000Z" itemprop="datePublished">2018-01-27</time>
+      <time class="post-time" id="post-time" title="2018-01-27 21:20:43" datetime="2018-01-27T13:20:43.000Z" itemprop="datePublished">2018-01-27</time>
 
       
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -251,7 +251,7 @@
         <div class="waterfall-item">
   <article class="article-card archive-article">
     <div class="post-meta">
-      <time class="post-time" title="2018-01-12 11:24:03" datetime="2018-01-12T03:24:03.000Z" itemprop="datePublished">2018-01-12</time>
+      <time class="post-time" id="post-time" title="2018-01-12 11:24:03" datetime="2018-01-12T03:24:03.000Z" itemprop="datePublished">2018-01-12</time>
 
       
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -285,7 +285,7 @@
         <div class="waterfall-item">
   <article class="article-card archive-article">
     <div class="post-meta">
-      <time class="post-time" title="2018-01-12 10:05:43" datetime="2018-01-12T02:05:43.000Z" itemprop="datePublished">2018-01-12</time>
+      <time class="post-time" id="post-time" title="2018-01-12 10:05:43" datetime="2018-01-12T02:05:43.000Z" itemprop="datePublished">2018-01-12</time>
 
       
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -331,10 +331,10 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        <span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+        <span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -453,6 +453,20 @@
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
 <!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>

@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/38230382-2911a2b2-3740-11e8-8ff1-ae8dbbb27098.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/38230404-41cc0b62-3740-11e8-9cb6-f2b14a0a4cb4.png">
-<meta property="og:updated_time" content="2018-11-09T07:19:01.760Z">
+<meta property="og:updated_time" content="2018-11-09T07:29:49.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ie和safari浏览器new Date(yyyy-MM-dd HH:mm:ss )为NaN的解决方案">
 <meta name="twitter:description" content="今天碰到一个bug，在Safari浏览器里从日历选择器里面获取时间的时候，传给后台会报错，经排查发现，通过IE开发者工具控制台执行js代码，new Date(“2018-04-03 13:11:12”).getTime() 在IE下和Safari会返回NaN，而其他浏览器可以正常返回毫秒数。chorme">
@@ -200,7 +200,7 @@
     <div class="post-card">
         <h1 class="post-card-title">ie和safari浏览器new Date(yyyy-MM-dd HH:mm:ss )为NaN的解决方案</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-11-09 14:22:27" datetime="2018-11-09T06:22:27.000Z" itemprop="datePublished">2018-11-09</time>
+            <time class="post-time" id="post-time" title="2018-11-09 14:22:27" datetime="2018-11-09T06:22:27.000Z" itemprop="datePublished">2018-11-09</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -405,10 +405,10 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        <span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+        <span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -527,6 +527,20 @@
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
 <!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>

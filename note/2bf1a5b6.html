@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/39161320-b2c89a48-47a2-11e8-87d0-43f0d22b8812.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/39161365-ec6d92d0-47a2-11e8-8362-3b8d520b2354.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/39161837-38068308-47a5-11e8-8c4f-5f0fee6be362.png">
-<meta property="og:updated_time" content="2018-11-09T06:16:30.922Z">
+<meta property="og:updated_time" content="2018-11-09T07:29:49.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="韦博成人项目webuploader上传文件的一系列坑总结">
 <meta name="twitter:description" content="坑1：new FormData() - FormData对象的作用及用法  一、概述  1234FormData 对象的使用：1.用一些键值对来模拟一系列表单控件：即把form中所有表单元素的name与value组装成一个queryString2. 异步上传二进制文件。 二、使用1.FormData对象的操作方法，全部在原型中，自己本身没任何的属性及方法。">
@@ -204,7 +204,7 @@
     <div class="post-card">
         <h1 class="post-card-title">韦博成人项目webuploader上传文件的一系列坑总结</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-11-09 14:16:01" datetime="2018-11-09T06:16:01.000Z" itemprop="datePublished">2018-11-09</time>
+            <time class="post-time" id="post-time" title="2018-11-09 14:16:01" datetime="2018-11-09T06:16:01.000Z" itemprop="datePublished">2018-11-09</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -435,10 +435,10 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        <span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+        <span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -557,6 +557,20 @@
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
 <!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>

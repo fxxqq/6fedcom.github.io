@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="在使用element-ui的时候，有些功能不能满足我们的需求，就需要修改源码来满足。阅读官方给的教程，对于我这小菜鸟过于简略，结合自己的实践整理一下修改方法： 克隆element官方的仓库到本地1git clone https://github.com/ElemeFE/element.git 下载到本地之后安装依赖包12cd element &amp;amp;&amp;amp; npm installnpm ru">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-09T06:24:20.410Z">
+<meta property="og:updated_time" content="2018-11-09T07:29:49.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何修改ElementUI源码">
 <meta name="twitter:description" content="在使用element-ui的时候，有些功能不能满足我们的需求，就需要修改源码来满足。阅读官方给的教程，对于我这小菜鸟过于简略，结合自己的实践整理一下修改方法： 克隆element官方的仓库到本地1git clone https://github.com/ElemeFE/element.git 下载到本地之后安装依赖包12cd element &amp;amp;&amp;amp; npm installnpm ru">
@@ -189,7 +189,7 @@
     <div class="post-card">
         <h1 class="post-card-title">如何修改ElementUI源码</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-11-09 14:23:59" datetime="2018-11-09T06:23:59.000Z" itemprop="datePublished">2018-11-09</time>
+            <time class="post-time" id="post-time" title="2018-11-09 14:23:59" datetime="2018-11-09T06:23:59.000Z" itemprop="datePublished">2018-11-09</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -382,10 +382,10 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        <span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+        <span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -504,6 +504,20 @@
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
 <!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>

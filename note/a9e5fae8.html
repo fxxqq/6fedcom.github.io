@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="vue项目在nginx中部署nginx的配置文件：添加如下server12345678910111213141516171819202122232425server &amp;#123;	listen 7070;	server_name localhost;	error_page 500 502 503 504 / 50x.html;	location = /50x.html &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-09T07:14:55.891Z">
+<meta property="og:updated_time" content="2018-11-09T07:29:49.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="韦博英语教师端vue踩坑记录（2）">
 <meta name="twitter:description" content="vue项目在nginx中部署nginx的配置文件：添加如下server12345678910111213141516171819202122232425server &amp;#123;	listen 7070;	server_name localhost;	error_page 500 502 503 504 / 50x.html;	location = /50x.html &amp;#123;">
@@ -197,7 +197,7 @@
     <div class="post-card">
         <h1 class="post-card-title">韦博英语教师端vue踩坑记录（2）</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-11-09 15:12:15" datetime="2018-11-09T07:12:15.000Z" itemprop="datePublished">2018-11-09</time>
+            <time class="post-time" id="post-time" title="2018-11-09 15:12:15" datetime="2018-11-09T07:12:15.000Z" itemprop="datePublished">2018-11-09</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -395,10 +395,10 @@
         
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        站点总访客数：18<span id="busuanzi_value_site_uv"></span>
+        <span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        站点总访问量：7<span id="busuanzi_value_site_pv"></span>
+        <span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
@@ -517,6 +517,20 @@
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
 <!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
 <script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
 <script>
