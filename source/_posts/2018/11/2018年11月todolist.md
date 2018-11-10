@@ -15,7 +15,7 @@ HTTP/HTTPS
 10分钟理解JS引擎的执行机制
 https://segmentfault.com/a/1190000012806637?utm_source=tag-newest
 
-优化一下cv的js代码
+
 
 阿里
 
@@ -128,7 +128,6 @@ bind、call、apply的区别
 
 有赞
 
-Linux 754 介绍
 介绍冒泡排序，选择排序，冒泡排序如何优化
 transform动画和直接使用left、top改变位置有什么优缺点
 如何判断链表是否有环
@@ -178,9 +177,6 @@ shouldComponentUpdate是为了解决什么问题
 webpack生命周期
 webpack打包的整个过程
 常用的plugins
-pm2怎么做进程管理，进程挂掉怎么处理
-不用pm2怎么做进程管理
-
 
 沪江
 
@@ -242,15 +238,263 @@ some、every、find、filter、map、forEach有什么区别
 
 携程
 
-对React看法，有没有遇到一些坑
-对闭包的看法，为什么要用闭包
-手写数组去重函数
-手写数组扁平化函数
-介绍下Promise的用途和性质
-Promise和Callback有什么区别
-React生命周期
-两道手写算法题
+### 对React看法，有没有遇到一些坑
+React快速的原因之一就是React很少直接操作DOM,浏览器事件也是一样。原因是太多的浏览器事件会占用很大内存。
+组件化很强大
 
+1. react项目的部署问题，nginx部署成功后刷新下会404
+解决方案：nginx根目录指向index.html
+```
+location / {
+        try_files $uri $uri/ /index.html;
+}
+```
+2. this.setState方法是异步的 
+this.setState()会调用render方法，但并不会立即改变state的值，state是在render方法中赋值的。所以执行this.setState()后立即获取state的值是不变的。同样的直接赋值state并不会出发更新，因为没有调用render函数。
+调用setState函数后，react将传入参数对象和组件当前的状态合并，然后触发调和过程，经过调和过程，react以高效的方式根据新的状态构建react元素树并且重新渲染整个UI界面。react得到元素树后，会自动计算出新老树的节点差异，然后根据差异对界面进行最小化重渲染。在差异算法中，react知道精准的知道哪些位置发生了改变，以及应该如何改变，这就保证了按需更新，而不是全部更新渲染
+setState 只在合成事件和钩子函数中是“异步”的，在原生事件和 setTimeout 中都是同步的。
+3. 路由跳转的时候必须在组件卸载周期清除定时器和监听事件（`removeEventListener`），react不会自动清除
+4. `componentWillUpdate`中可以直接改变`state`的值，而不能用`setState`
+
+### 对闭包的看法，为什么要用闭包
+当在一个函数里嵌套定义一个函数时，就会产生一个闭包，因此定义一个闭包需要下面几个条件：
+ 
+
+### 手写数组去重函数
+```js
+function unique(arr){
+	reutrn Array.from(new Set(arr))
+}
+```
+
+### 手写数组扁平化函数
+数组扁平化是指将一个多维数组变为一维数组
+[1, [2, 3, [4, 5]]]  ------>    [1, 2, 3, 4, 5]
+
+1. reduce
+遍历数组每一项，若值为数组则递归遍历，否则concat。
+```js
+function flatten(arr) {  
+    return arr.reduce((result, item)=> {
+        return result.concat(Array.isArray(item) ? flatten(item) : item);
+    }, []);
+}
+reduce是数组的一种方法，它接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。
+
+reduce包含两个参数：回调函数，传给total的初始值
+
+
+// 求数组的各项值相加的和： 
+arr.reduce((total, item)=> {  // total为之前的计算结果，item为数组的各项值
+    return total + item;
+}, 0);
+```
+2. toString & split
+调用数组的toString方法，将数组变为字符串然后再用split分割还原为数组
+```js
+function flatten(arr) {
+    return arr.toString().split(',').map(function(item) {
+        return Number(item);
+    })
+} 
+```
+因为split分割后形成的数组的每一项值为字符串，所以需要用一个map方法遍历数组将其每一项转换为数值型
+
+3. join & split
+和上面的toString一样，join也可以将数组转换为字符串
+```js
+function flatten(arr) {
+    return arr.join(',').split(',').map(function(item) {
+        return parseInt(item);
+    })
+}
+```
+4. 递归
+递归的遍历每一项，若为数组则继续遍历，否则concat
+
+```js
+function flatten(arr) {
+    var res = [];
+    arr.map(item => {
+        if(Array.isArray(item)) {
+            res = res.concat(flatten(item));
+        } else {
+            res.push(item);
+        }
+    });
+    return res;
+}
+```
+5. 扩展运算符
+es6的扩展运算符能将二维数组变为一维
+```js
+[].concat(...[1, 2, 3, [4, 5]]);  // [1, 2, 3, 4, 5]
+根据这个结果我们可以做一个遍历，若arr中含有数组则使用一次扩展运算符，直至没有为止。
+
+function flatten(arr) {
+    while(arr.some(item=>Array.isArray(item))) {
+        arr = [].concat(...arr);
+    }
+    return arr;
+}
+```
+总结
+虽然说写了5种方法，但是核心也只有一个：
+
+遍历数组arr，若arr[i]为数组则递归遍历，直至arr[i]不为数组然后与之前的结果concat。 
+
+### 介绍下Promise的用途和性质
+**性质**
+（1）对象的状态不受外界影响。Promise 对象代表一个异步操作，有三种状态：Pending（进行中）、Resolved（已完成，又称 Fulfilled）和 Rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是 Promise 这个名字的由来，它的英语意思就是「承诺」，表示其他手段无法改变。
+
+（2）一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise 对象的状态改变，只有两种可能：从 Pending 变为 Resolved 和从 Pending 变为 Rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果。就算改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
+**用途**
+有了 Promise 对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise 对象提供统一的接口，使得控制异步操作更加容易。
+Promise的出现主要是解决地狱回调的问题，比如你需要结果需要请求很多个接口，这些接口的参数需要另外那个的接口返回的数据作为依赖，这样就需要我们一层嵌套一层，但是有了Promise 我们就无需嵌套
+**缺点**
+Promise 也有一些缺点。首先，无法取消 Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise 内部抛出的错误，不会反应到外部。第三，当处于 Pending 状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
+```js
+function promise () {
+    return new Promise ( function (resolve, reject) {
+        if ( success ) {
+            resolve(a)
+        } else {
+            reject(err)
+        }
+})
+```
+### Promise和Callback有什么区别
+
+### React生命周期
+React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁
+1、getDefaultProps()
+
+设置默认的props，也可以用dufaultProps设置组件的默认属性.
+
+2、getInitialState()
+
+在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state。此时可以访问this.props
+
+3、componentWillMount()
+
+组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。
+
+4、 render()
+
+react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行。此时就不能更改state了。
+
+5、componentDidMount()
+
+组件渲染之后调用，只调用一次。
+
+更新
+6、componentWillReceiveProps(nextProps)
+
+组件初始化时不调用，组件接受新的props时调用。
+
+7、shouldComponentUpdate(nextProps, nextState)
+
+react性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，尤其是在dom结构复杂的时候
+
+8、componentWillUpdata(nextProps, nextState)
+
+组件初始化时不调用，只有在组件将要更新时才调用，此时可以修改state
+
+9、render()
+
+组件渲染
+
+10、componentDidUpdate()
+
+组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点。
+
+卸载
+11、componentWillUnmount()
+
+组件将要卸载时调用，一些事件监听和定时器需要在此时清除。
+
+
+两道手写算法题
+编程第一题：
+ 
+```js
+function test (str) {
+  var arr = str.split('');
+  var numArr = [],
+     alpArr = [];
+  arr.forEach(function (item) {
+    if ((/[0-9]/.test(item)) && (numArr.indexOf(item) === -1)) {
+      numArr.push(item);
+    } else if (/[a-zA-Z]/.test(item)) {
+      alpArr.push(item);
+    }
+  });
+  return numArr.concat(alpArr).join('');
+}
+ 
+var result = test('携程C2t0r1i8p2020校招');
+console.log(result);    // 2018Ctrip
+```
+```js
+function groupList (list) {
+  /* 对 list 参数做类型判断 */
+  if (!(list instanceof Array) || list.length === 0) {
+    return [];
+  }
+  var map = {},
+     res = [];
+  /* 遍历 list 数组的每一项，过滤掉不符合规范的数据项，同时将有效数据存入 map 对象 */
+  list.forEach(function (item) {
+    if ((typeof item === 'object') && (item !== null)) {
+      var type = item.type;
+      if (type && (type in map)) {
+        map[type].content.push(item.content);
+      } else {
+        map[type] = {
+          type: type,
+          content: [item.content]
+        };
+      }
+    }
+  });
+  /* 将 map 对象的数据 push 到结果数组中 */
+  for (let key of Object.keys(map)) {
+    res.push(map[key]);
+  }
+  return res;
+}
+ 
+var list = [null, 2, "test", undefined, {
+  "type": "product",
+  "content": "product1"
+}, {
+  "type": "product",
+  "content": "product2"
+}, {
+  "type": "tag",
+  "content": "tag1"
+}, {
+  "type": "product",
+  "content": "product3"
+}, {
+  "type": "tag",
+  "content": "tag2"
+}];
+ 
+var result = groupList(list);
+console.log(JSON.stringify(result));
+/*
+ 
+[{
+  "type": "product",
+  "content": ["product1", "product2", "product3"]
+}, {
+  "type": "tag",
+  "content": ["tag1", "tag1"]
+}]
+ 
+ */
+ ```  
 
 喜马拉雅
 
