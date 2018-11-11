@@ -38,7 +38,7 @@ date: 2017-01-13 18:20:43
 ---
 
 ```js
-// 压缩 JavaScript 文件
+// 压缩 javascript 文件
 gulp.task('script', function() {
     // 1. 找到
     gulp.src('js/*.js')
@@ -94,7 +94,7 @@ function demo(n){alert("--------\r\n"+n+"\r\n--------")}demo("Hi");
 
 `gulp` 是基于 `node` 实现的，那么我们就需要先安装 node。
 
-> node 是一个基于Chrome JavaScript V8引擎建立的一个平台，可以利用它实现 Web服务，做类似php的事。
+> node 是一个基于Chrome javascript V8引擎建立的一个平台，可以利用它实现 Web服务，做类似php的事。
 
 打开 https://nodejs.org/ 点击绿色的 **INSTALL** 按钮下载安装 node。
 
@@ -1401,7 +1401,7 @@ gulp.task('minifycss', function () {
 ### 7.7 配置 Less 任务
 ---
 
-- 参考配置 JavaScript 任务的方式配置 less 任务
+- 参考配置 javascript 任务的方式配置 less 任务
 
 ```js
 var less = require('gulp-less')
@@ -1448,7 +1448,7 @@ gulp.task('default', ['watchjs', 'watchcss', 'watchless'])
 ### 7.8 配置 Sass 任务
 ---
 
-参考配置 JavaScript 任务的方式配置 Sass 任务
+参考配置 javascript 任务的方式配置 Sass 任务
 
 ```js
 gulp.task('watchsass',function () {

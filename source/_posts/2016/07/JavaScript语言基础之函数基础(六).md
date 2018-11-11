@@ -1,5 +1,5 @@
 ---
-title: JavaScript语言基础之函数基础(六)
+title: javascript语言基础之函数基础(六)
 tags: javascript
 categories: front-end
 abbrlink: 4bed88f0
@@ -30,4 +30,4 @@ date: 2016-07-26 21:46:43
 
 附录：思维导图总结
 
-![](http://7xq6al.com1.z0.glb.clouddn.com/JavaScript%20%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80.gif)
+![](http://7xq6al.com1.z0.glb.clouddn.com/javascript%20%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80.gif)

@@ -155,7 +155,7 @@ date: 2018-09-04 18:00:43
   <body>
     <!-- Image -->
     <img src="/images/hello.png" />                 
-    <!-- JavaScript -->
+    <!-- javascript -->
     <script async src="/js/script.js"></script>     
     <script>
       // 注册 service worker

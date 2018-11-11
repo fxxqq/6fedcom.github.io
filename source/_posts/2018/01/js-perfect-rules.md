@@ -1,5 +1,5 @@
 ---
-title: JavaScript工程项目的一系列最佳实践
+title: javascript工程项目的一系列最佳实践
 tags:
   - 前端规范
   - 最佳实践
@@ -276,7 +276,7 @@ module.exports = config;
 
 **将其他测试文件放入独立的测试文件夹中以避免混淆**
 
-> 一些测试文件与任何特定的文件实现没有特别的关系。您只需将它放在最有可能被其他开发人员找到的文件夹中：__test__ 文件夹。这个名字：__test__也是现在的标准，被大多数JavaScript测试框架所接受
+> 一些测试文件与任何特定的文件实现没有特别的关系。您只需将它放在最有可能被其他开发人员找到的文件夹中：__test__ 文件夹。这个名字：__test__也是现在的标准，被大多数javascript测试框架所接受
 
 
 **编写可测试代码，避免副作用（side effects），提取副作用，编写纯函数**
@@ -361,7 +361,7 @@ module.exports = config;
 
 ### 7.1 若干个代码风格指导
 
-**对新项目请使用 Stage2 和更高版本的 JavaScript（现代化）语法。对于老项目，保持与老的语法一致，除非您打算把老的项目也更新为现代化风格**
+**对新项目请使用 Stage2 和更高版本的 javascript（现代化）语法。对于老项目，保持与老的语法一致，除非您打算把老的项目也更新为现代化风格**
 
 - 这完全取决于您的选择。我们使用转换器来使用新的语法糖。Stage2更有可能最终成为规范的一部分，而且仅仅只需经过小版本的迭代就会成为规范
 
@@ -369,11 +369,11 @@ module.exports = config;
 
 - 在构建时中断下一步操作是一种强制执行代码风格检查的方法。强制您认真对待代码。请确保在客户端和服务器端代码都执行代码检查
 
-**使用 ESLint - Pluggable JavaScript linter 去强制执行代码检查**
+**使用 ESLint - Pluggable javascript linter 去强制执行代码检查**
 
 - 我们个人很喜欢 eslint ，不强制您也喜欢。它拥有支持更多的规则，配置规则的能力和添加自定义规则的能力
 
-**针对 JavaScript 我们使用Airbnb JavaScript Style Guide , 更多请阅读。 请依据您的项目和您的团队选择使用所需的JavaScript 代码风格**
+**针对 javascript 我们使用Airbnb javascript Style Guide , 更多请阅读。 请依据您的项目和您的团队选择使用所需的javascript 代码风格**
 
 **当使用FlowType的时候，我们使用 ESLint的Flow样式检查规则。**
 
@@ -480,7 +480,7 @@ GET /blogs/:blogId/posts/:postId/summary
 
 **请求体或响应类型如果是JSON，那么请遵循camelCase规范为JSON属性命名来保持一致性**
 
-> 这是一个 JavaScript 项目指南，其中用于生成JSON的编程语言以及用于解析JSON的编程语言被假定为 JavaScript
+> 这是一个 javascript 项目指南，其中用于生成JSON的编程语言以及用于解析JSON的编程语言被假定为 javascript
 
 **如何使用HTTP方法来操作CRUD功能**
 

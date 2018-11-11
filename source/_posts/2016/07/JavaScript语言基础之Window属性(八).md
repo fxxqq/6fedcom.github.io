@@ -1,5 +1,5 @@
 ---
-title: JavaScript语言基础之Window属性(八)
+title: javascript语言基础之Window属性(八)
 tags: javascript
 categories: front-end
 abbrlink: 8908f567

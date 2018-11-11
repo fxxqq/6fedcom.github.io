@@ -24,7 +24,7 @@ date: 2016-09-24 10:33:00
 #### 1、javascript介绍
 ---
 
-- `JavaScript`操作`dom`的本质是=获取+触发+改变
+- `javascript`操作`dom`的本质是=获取+触发+改变
 
 - 目的：就是用来操作内存中的`dom`节点
   - 修改`dom`节点的属性
@@ -201,7 +201,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 - 大小写不能写错，比较麻烦，但胜在通用。
 - 通常情况下用`typeof `判断就可以了，遇到预知`Object`类型的情况可以选用`instanceof`或`constructor`方法
 
-#### Javascript的数据类型有六种（ES6新增了第七种`Symbol`）
+#### javascript的数据类型有六种（ES6新增了第七种`Symbol`）
 ---
 
 - 数值（`number`）：整数和小数（比如1和3.14）
@@ -228,7 +228,7 @@ alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------> tr
 ##### **转换函数**
 ---
 
-- `toString()` 转换为字符串，在JavaScript中所有数据类型都可以转换为`string`类型
+- `toString()` 转换为字符串，在javascript中所有数据类型都可以转换为`string`类型
 
 ```js
         var n1 = 12;
@@ -662,7 +662,7 @@ alert(c);//30
 ![js原型链演示10-构造器拷贝继承](http://upload-images.jianshu.io/upload_images/1480597-b832f7372de9dc35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - 扩展阅读
-   - [Javascript的原型链图详解](https://zhuanlan.zhihu.com/p/22189387)
+   - [javascript的原型链图详解](https://zhuanlan.zhihu.com/p/22189387)
 
 ### 第七课时
 ---
@@ -1633,7 +1633,7 @@ var str = decodeURI(code); //结果: “hello all”
 //相应的还有: encodeURIComponent() decodeURIComponent()
 ```
 - 扩展阅读
-    - [JavaScript下常用的字符串](http://blog.poetries.top/2016/08/02/javascript%20%E4%B8%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/)
+    - [javascript下常用的字符串](http://blog.poetries.top/2016/08/02/javascript%20%E4%B8%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/)
 
 ##### Math对象型
 ---
@@ -2417,9 +2417,9 @@ child.innerHTML = 'pppppp';
 
 ![学编程最佳实践](http://upload-images.jianshu.io/upload_images/1480597-7848f738f43affba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-- `JavaScript`读书路线
+- `javascript`读书路线
 
-![JavaScript读书路线--from phodal](https://github.com/phodal/developer/raw/master/images/js.gif)
+![javascript读书路线--from phodal](https://github.com/phodal/developer/raw/master/images/js.gif)
 
 
 
@@ -2427,8 +2427,8 @@ child.innerHTML = 'pppppp';
 ---
 
 - 视频
-    - [Javascript第一季初级视频教程【李炎恢老师】](http://edu.51cto.com/course/course_id-166-page-1.html)
-    - [JavaScript视频教程 | 智能社](http://www.zhinengshe.com/video.html)
+    - [javascript第一季初级视频教程【李炎恢老师】](http://edu.51cto.com/course/course_id-166-page-1.html)
+    - [javascript视频教程 | 智能社](http://www.zhinengshe.com/video.html)
 - 了解`web`开发知识体系
   - [Growth - 陪你成为顶尖开发者](https://github.com/phodal/growth)
   - [gitHub上收集整理的前端资源](https://github.com/poetries/mywiki)
@@ -2436,10 +2436,10 @@ child.innerHTML = 'pppppp';
 - 常用组件
   - [js常用组件整理](https://github.com/poetries/mywiki/blob/master/bookmark/%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6.md)
 - 扩展阅读
-  - [廖雪峰JavaScript基础教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000)
- - [JavaScript 闯关记](https://github.com/stone0090/javascript-lessons)
- - [深入理解JavaScript系列 - 汤姆大叔](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
- - [JavaScript秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+  - [廖雪峰javascript基础教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000)
+ - [javascript 闯关记](https://github.com/stone0090/javascript-lessons)
+ - [深入理解javascript系列 - 汤姆大叔](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
+ - [javascript秘密花园](http://bonsaiden.github.io/javascript-Garden/zh/)
 
 ### 附录一份大神总结的关于js的导图
 ---
@@ -2448,20 +2448,20 @@ child.innerHTML = 'pppppp';
 
 ![javascript函数基础](http://upload-images.jianshu.io/upload_images/1480597-7de04acbf81543fc.gif?imageMogr2/auto-orient/strip)
 
-![JavaScript数据类型](http://upload-images.jianshu.io/upload_images/1480597-5737bc8360e9e8d3.gif?imageMogr2/auto-orient/strip)
+![javascript数据类型](http://upload-images.jianshu.io/upload_images/1480597-5737bc8360e9e8d3.gif?imageMogr2/auto-orient/strip)
 
 ![window对象](http://upload-images.jianshu.io/upload_images/1480597-44d4ba1c8f6d48a6.gif?imageMogr2/auto-orient/strip)
 
 ![javascript变量](http://upload-images.jianshu.io/upload_images/1480597-05b7f79120cc6150.gif?imageMogr2/auto-orient/strip)
 
-![JavaScript字符串函数](http://upload-images.jianshu.io/upload_images/1480597-1b25cf62140a30fb.gif?imageMogr2/auto-orient/strip)
+![javascript字符串函数](http://upload-images.jianshu.io/upload_images/1480597-1b25cf62140a30fb.gif?imageMogr2/auto-orient/strip)
 
-![JavaScript正则表达式](http://upload-images.jianshu.io/upload_images/1480597-30e2e0981d225fd4.gif?imageMogr2/auto-orient/strip)
+![javascript正则表达式](http://upload-images.jianshu.io/upload_images/1480597-30e2e0981d225fd4.gif?imageMogr2/auto-orient/strip)
 
-![JavaScript流程控制](http://upload-images.jianshu.io/upload_images/1480597-8bdb24d940eceeea.gif?imageMogr2/auto-orient/strip)
+![javascript流程控制](http://upload-images.jianshu.io/upload_images/1480597-8bdb24d940eceeea.gif?imageMogr2/auto-orient/strip)
 
-![JavaScript运算符](http://upload-images.jianshu.io/upload_images/1480597-caa897f33ef0e47d.gif?imageMogr2/auto-orient/strip)
+![javascript运算符](http://upload-images.jianshu.io/upload_images/1480597-caa897f33ef0e47d.gif?imageMogr2/auto-orient/strip)
 
-![JavaScript数组](http://upload-images.jianshu.io/upload_images/1480597-eb23ab7b14608e83.gif?imageMogr2/auto-orient/strip)
+![javascript数组](http://upload-images.jianshu.io/upload_images/1480597-eb23ab7b14608e83.gif?imageMogr2/auto-orient/strip)
 
 - [本文mardown原文件--欢迎转载](https://github.com/poetries/poetries.github.io/blob/dev/source/_posts/javascript%E7%AC%94%E8%AE%B0%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93%E7%AF%87.md)

@@ -1,5 +1,5 @@
 ---
-title: JavaScript对象
+title: javascript对象
 tags: javascript
 categories: front-end
 abbrlink: 17d9136e
@@ -147,7 +147,7 @@ lisi.talk();
 
 ```
 
-### JavaScript内置对象:
+### javascript内置对象:
 ---
 
 - 在js中 所有的变量 都可以被js引擎包装秤对象来处理

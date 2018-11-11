@@ -1,5 +1,5 @@
 ---
-title: JavaScript中三种绑定事件的方式与去除绑定
+title: javascript中三种绑定事件的方式与去除绑定
 tags: javascript
 categories: front-end
 abbrlink: e23a0171

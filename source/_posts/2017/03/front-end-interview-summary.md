@@ -64,13 +64,13 @@ date: 2017-03-12 22:24:08
 
 
 
-### $JavaScript
+### $javascript
 
 - 1、闭包
 - 2、说说你对作用域链的理解
-- 3、`JavaScript`原型，原型链 ? 有什么特点？
+- 3、`javascript`原型，原型链 ? 有什么特点？
 - 4、请解释什么是事件代理
-- 5、`Javascript`如何实现继承？
+- 5、`javascript`如何实现继承？
 - 6、谈谈`This`对象的理解
 - 7、事件模型
 - 8、`new`操作符具体干了什么呢?
@@ -94,8 +94,8 @@ date: 2017-03-12 22:24:08
 - 28、`web`开发中会话跟踪的方法有哪些
 - 29、介绍`js`的基本数据类型
 - 30、介绍`js`有哪些内置对象？
-- 31、说几条写`JavaScript`的基本规范？
-- 32、`JavaScript`有几种类型的值？，你能画一下他们的内存图吗？
+- 31、说几条写`javascript`的基本规范？
+- 32、`javascript`有几种类型的值？，你能画一下他们的内存图吗？
 - 33、`javascript`创建对象的几种方式？
 - 34、`eval`是做什么的？
 - 35、`null，undefined` 的区别？
@@ -228,7 +228,7 @@ date: 2017-03-12 22:24:08
     2. 不使用`CSS`表达式
     3. 使用`<link>`不使用`@import`
 
-- `Javascript`方面
+- `javascript`方面
     1. 将脚本放到页面底部
     2. 将`javascript`和`css`从外部引入
     3. 压缩`javascript`和`css`
@@ -636,7 +636,7 @@ FALLBACK:
 - 缺点是需要消耗`CPU`进行编解码
 
 
-## $JavaScript
+## $javascript
 
 ### 1、闭包
 - 闭包就是能够读取其他函数内部变量的函数
@@ -668,24 +668,24 @@ FALLBACK:
 - 作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到`window`对象即被终止，作用域链向下访问变量是不被允许的
 - 简单的说，作用域就是变量与函数的可访问范围，即作用域控制着变量与函数的可见性和生命周期
 
-### 3、JavaScript原型，原型链 ? 有什么特点？
+### 3、javascript原型，原型链 ? 有什么特点？
 
 - 每个对象都会在其内部初始化一个属性，就是`prototype`(原型)，当我们访问一个对象的属性时
 - 如果这个对象内部不存在这个属性，那么他就会去`prototype`里找这个属性，这`个prototype`又会有自己的`prototype`，于是就这样一直找下去，也就是我们平时所说的原型链的概念
 - 关系：`instance.constructor.prototype = instance.__proto__`
 - 特点：
-  - `JavaScript`对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变
+  - `javascript`对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变
   
--  当我们需要一个属性的时，`Javascript`引擎会先看当前对象中是否有这个属性， 如果没有的
+-  当我们需要一个属性的时，`javascript`引擎会先看当前对象中是否有这个属性， 如果没有的
 -  就会查找他的`Prototype`对象是否有这个属性，如此递推下去，一直检索到 `Object` 内建对象
 
 ### 4、请解释什么是事件代理
 
-- 事件代理（`Event Delegation`），又称之为事件委托。是 `JavaScript` 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。事件代理的原理是dom元素的事件冒泡。使用事件代理的好处是可以提高性能
+- 事件代理（`Event Delegation`），又称之为事件委托。是 `javascript` 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。事件代理的原理是dom元素的事件冒泡。使用事件代理的好处是可以提高性能
 - 可以大量节省内存占用，减少事件注册，比如在`table`上代理所有`td`的`click`事件就非常棒 
 - 可以实现当新增子对象时无需再次对其绑定
 
-### 5、Javascript如何实现继承？
+### 5、javascript如何实现继承？
 
 - 构造继承
 - 原型继承
@@ -735,7 +735,7 @@ FALLBACK:
 ### 9、Ajax原理
 
 - `Ajax`的原理简单来说是在用户和服务器之间加了—个中间层(`AJAX`引擎)，通过`XmlHttpRequest`对象来向服务器发异步请求，从服务器获得数据，然后用`javascrip`t来操作`dom`而更新页面。使用户操作与服务器响应异步化。这其中最关键的一步就是从服务器获得请求数据
-- `Ajax`的过程只涉及`JavaScript`、`XMLHttpRequest`和`dom`。`XMLHttpRequest`是`aja`x的核心机制
+- `Ajax`的过程只涉及`javascript`、`XMLHttpRequest`和`dom`。`XMLHttpRequest`是`aja`x的核心机制
 
 ```js
  // 1. 创建连接
@@ -811,7 +811,7 @@ var module1 = (function(){
   - `JSON`相对`于XML`来讲，数据的体积小，传递的速度更快些。
   
 - 数据交互方面
-  - `JSON`与`JavaScript`的交互更加方便，更容易解析处理，更好的数据交互
+  - `JSON`与`javascript`的交互更加方便，更容易解析处理，更好的数据交互
   
 - 数据描述方面
   - `JSON`对数据的描述性比`XML`较差
@@ -821,7 +821,7 @@ var module1 = (function(){
 
 ### 15、谈谈你对webpack的看法
 
-- `WebPack` 是一个模块打包工具，你可以使用`WebPack`管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包`Web`开发中所用到的`HTML`、`Javascript`、`CSS`以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源，`webpack`有对应的模块加载器。`webpack`模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源
+- `WebPack` 是一个模块打包工具，你可以使用`WebPack`管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包`Web`开发中所用到的`HTML`、`javascript`、`CSS`以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源，`webpack`有对应的模块加载器。`webpack`模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源
 
 ### 16、说说你对AMD和Commonjs的理解
 
@@ -876,7 +876,7 @@ var module1 = (function(){
 ### 19、为什么要有同源限制？
 
 - 同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议
-- 举例说明：比如一个黑客程序，他利用`Iframe`把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过`Javascript`读取到你的表单中`input`中的内容，这样用户名，密码就轻松到手了。
+- 举例说明：比如一个黑客程序，他利用`Iframe`把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过`javascript`读取到你的表单中`input`中的内容，这样用户名，密码就轻松到手了。
 
 
 ### 20、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别
@@ -970,7 +970,7 @@ promise.then(onFulfilled, onRejected)
 ### 25、node的应用场景
 
 - 特点：
-  - 1、它是一个`Javascript`运行环境
+  - 1、它是一个`javascript`运行环境
   - 2、依赖于`Chrome V8`引擎进行代码解释
   - 3、事件驱动
   - 4、非阻塞`I/O`
@@ -1010,12 +1010,12 @@ promise.then(onFulfilled, onRejected)
 - `Undefined`、`Null`、`Boolean`、`Number`、`String`
 
 ### 30、介绍js有哪些内置对象？
-- `Object` 是 `JavaScript` 中所有对象的父对象
+- `Object` 是 `javascript` 中所有对象的父对象
 - 数据封装类对象：`Object`、`Array`、`Boolean`、`Number` 和 `String`
 - 其他对象：`Function`、`Arguments`、`Math`、`Date`、`RegExp`、`Error`
 
 
-### 31、说几条写JavaScript的基本规范？
+### 31、说几条写javascript的基本规范？
 
 
 - 不要在同一行声明多个变量
@@ -1027,7 +1027,7 @@ promise.then(onFulfilled, onRejected)
 - `for-in`循环中的变量 应该使用`var`关键字明确限定作用域，从而避免作用域污
 
 
-### 32、JavaScript有几种类型的值？，你能画一下他们的内存图吗？
+### 32、javascript有几种类型的值？，你能画一下他们的内存图吗？
 
 - 栈：原始数据类型（`Undefined`，`Null`，`Boolean`，`Numbe`r、`String`）
 - 堆：引用数据类型（对象、数组和函数）
@@ -1147,12 +1147,12 @@ function Dog(){
 ### 37、javascript 代码中的"use strict";是什么意思 ? 使用它区别是什么？
 
 
-- `use strict`是一种`ECMAscript 5` 添加的（严格）运行模式,这种模式使得 Javascript 在更严格的条件下运行,使`JS`编码更加规范化的模式,消除`Javascript`语法的一些不合理、不严谨之处，减少一些怪异行为
+- `use strict`是一种`ECMAscript 5` 添加的（严格）运行模式,这种模式使得 javascript 在更严格的条件下运行,使`JS`编码更加规范化的模式,消除`javascript`语法的一些不合理、不严谨之处，减少一些怪异行为
 
 ### 38、JSON 的了解？**
 
-- `JSON(JavaScript Object Notation)` 是一种轻量级的数据交换格式
-- 它是基于`JavaScript`的一个子集。数据格式简单, 易于读写, 占用带宽小
+- `JSON(javascript Object Notation)` 是一种轻量级的数据交换格式
+- 它是基于`javascript`的一个子集。数据格式简单, 易于读写, 占用带宽小
 
 - `JSON`字符串转换为JSON对象:
 
@@ -1209,7 +1209,7 @@ var last=JSON.stringify(obj);
 
 ### 45、谈谈你对ES6的理解
 
-- 新增模板字符串（为`JavaScript`提供了简单的字符串插值功能）
+- 新增模板字符串（为`javascript`提供了简单的字符串插值功能）
 - 箭头函数
 - `for-of`（用来遍历数据—例如数组中的值。）
 - `arguments`对象可被不定参数和默认参数完美代替。

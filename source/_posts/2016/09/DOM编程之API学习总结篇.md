@@ -754,7 +754,7 @@ for(var i=0;i<para.lenght;i++){
 
 ---
 - 参考
-  - `JavaScript dom`编程艺术
+  - `javascript dom`编程艺术
   - [常用dom操作](http://www.jianshu.com/p/e1391dc17361)
 
 ---

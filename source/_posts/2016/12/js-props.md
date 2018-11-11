@@ -1,5 +1,5 @@
 ---
-title: JavaScript及jquery中的各种宽高属性图解
+title: javascript及jquery中的各种宽高属性图解
 tags: javascript
 categories: front-end
 abbrlink: ae4d3c59
@@ -11,7 +11,7 @@ date: 2016-12-13 23:35:24
 
 强烈建议打开控制台自己动手练习一遍，这样印象才会深刻
 
-## 第一部分 JavaScript中的宽高属性
+## 第一部分 javascript中的宽高属性
 ---
 
 ###  一、与window相关的宽高属性

@@ -11,7 +11,7 @@ date: 2017-11-19 10:10:24
 一、什么是react
 ---
 
-- react是由Facebook开发的一个JavaScript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题
+- react是由Facebook开发的一个javascript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题
 
 二、react的特点
 ---
@@ -32,7 +32,7 @@ date: 2017-11-19 10:10:24
 
 - `react.js`：`react`的核心库
 - `react-dom.js`：提供操作`dom`相关的功能
-- `brower,js`：将使用的`JSX`语法转换成`JavaScript`语法
+- `brower,js`：将使用的`JSX`语法转换成`javascript`语法
 
 > 注意：三者引用顺序必须是`react`、`react-dom`、`brower`
 

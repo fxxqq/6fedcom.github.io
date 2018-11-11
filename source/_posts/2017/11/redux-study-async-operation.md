@@ -301,7 +301,7 @@ function reducer(oldState, action) {
 
 - 由于乐观更新发生在用户操作时，要处理它，意味着必须有action表示用户的初始动作
 - 在上面`redux-thunk`的例子中，我们看到了`GET_DATA`, `GET_DATA_SUCCESS`、`GET_DATA_FAILED`三个`action`，分别表示初始动作、异步成功和异步失败，其中第一个`action`使得`redux-thunk`具备乐观更新的能力
-- 而在`redux-promise`中，最初触发的action被中间件拦截然后过滤掉了。原因很简单，`redux`认可的`action`对象是 `plain JavaScript objects`，即简单对象，而在`redux-promise`中，初始`action`的`payload`是个`Promise`
+- 而在`redux-promise`中，最初触发的action被中间件拦截然后过滤掉了。原因很简单，`redux`认可的`action`对象是 `plain javascript objects`，即简单对象，而在`redux-promise`中，初始`action`的`payload`是个`Promise`
 
 **redux-promise-middleware**
 
@@ -399,7 +399,7 @@ function posts(state = {
 
     case RECEIVE_POSTS:
       // Object.assign是ES6的一个语法。合并对象，将对象合并为一个，前后相同的话，后者覆盖强者。详情可以看这里
-      //  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+      //  https://developer.mozilla.org/en-US/docs/Web/javascript/Reference/Global_Objects/Object/assign
       return Object.assign({}, state, {
         items: action.posts //数据都存在了这里
       })

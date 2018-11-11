@@ -96,7 +96,7 @@ handlerToHandler();  //返回调用者handler函数
 #### 方法重载
 
 方法重载是指在一个类中定义多个同名的方法，但要求每个方法具有不同的参数的类型或参数的个数。
-Javascript并没有重载函数的功能，但是Arguments对象能够模拟重载。
+javascript并没有重载函数的功能，但是Arguments对象能够模拟重载。
 
 ```js
 //普通方法实现方法重载

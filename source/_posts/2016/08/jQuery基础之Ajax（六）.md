@@ -6,7 +6,7 @@ abbrlink: b5fbc47
 date: 2016-08-07 22:30:08
 ---
 
-- **ajax** : `Asynchronous Javascript And XML` （异步的`JavaScript`和`XML`）
+- **ajax** : `Asynchronous javascript And XML` （异步的`javascript`和`XML`）
 
 - 创建`ajax`对象 `var xhr = new XMLHttpRequest();`
 <!--more-->

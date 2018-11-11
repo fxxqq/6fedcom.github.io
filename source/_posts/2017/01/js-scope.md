@@ -1,5 +1,5 @@
 ---
-title: JavaScript作用域分析总结
+title: javascript作用域分析总结
 tags:
   - javascript
   - 作用域

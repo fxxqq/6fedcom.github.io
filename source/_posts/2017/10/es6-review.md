@@ -76,10 +76,10 @@ let {title:esTitle,test:[{title:cnTitle,desc:cnDesc}]} = metaData;
 
 ```js
 // 普通字符串
-`In JavaScript '\n' is a line-feed.`
+`In javascript '\n' is a line-feed.`
 
 // 多行字符串
-`In JavaScript this is
+`In javascript this is
  not legal.`
 
 console.log(`string text line 1
@@ -319,7 +319,7 @@ module.exports = {
 
 **属性名表达式**
 
-- `JavaScript` 定义对象的属性，有两种方法
+- `javascript` 定义对象的属性，有两种方法
 
 ```js
 // 方法一
@@ -613,7 +613,7 @@ s; // Set {1, 2}
 
 
 - `Map`是一组键值对的结构，具有极快的查找速度
-- 用`Map`实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用`JavaScript`写一个`Map`如下：
+- 用`Map`实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用`javascript`写一个`Map`如下：
 
 ```
 var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);

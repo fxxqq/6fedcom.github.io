@@ -46,7 +46,7 @@ var vm = new mvvm({
 
 ### 1.1 发布者-订阅者模式
 
-- 一般通过`sub`, `pub`的方式实现数据和视图的绑定监听，更新数据方式通常做法是 `vm.set('property', value)`，[这里有篇文章讲的比较详细](http://www.html-js.com/article/Study-of-twoway-data-binding-JavaScript-talk-about-JavaScript-every-day)
+- 一般通过`sub`, `pub`的方式实现数据和视图的绑定监听，更新数据方式通常做法是 `vm.set('property', value)`，[这里有篇文章讲的比较详细](http://www.html-js.com/article/Study-of-twoway-data-binding-javascript-talk-about-javascript-every-day)
 - 这种方式现在毕竟太low了，我们更希望通过 `vm.property = value `这种方式更新数据，同时自动更新视图，于是有了下面两种方式
 
 ### 1.2 脏值检查
@@ -65,7 +65,7 @@ var vm = new mvvm({
 
 ## 二、实现思路
 
-> 已经了解到`vue`是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过`Object.defineProperty()`来实现对属性的劫持，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一，如果不熟悉`defineProperty`，猛戳[这里](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+> 已经了解到`vue`是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过`Object.defineProperty()`来实现对属性的劫持，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一，如果不熟悉`defineProperty`，猛戳[这里](https://developer.mozilla.org/zh-CN/docs/Web/javascript/Reference/Global_Objects/Object/defineProperty)
 
 **要实现mvvm的双向绑定，就必须要实现以下几点**
 

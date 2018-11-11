@@ -1,5 +1,5 @@
 ---
-title: JavaScript之定时器
+title: javascript之定时器
 tags: javascript
 categories: front-end
 abbrlink: e59c5ebc

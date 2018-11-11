@@ -25,7 +25,7 @@ date: 2017-01-14 17:40:43
 <script src="module3.js"></script>
 ```
 
-- 这是最原始的 `JavaScript` 文件加载方式，如果把每一个文件看做是一个模块，那么他们的接口通常是暴露在全局作用域下，也就是定义在 `window` 对象中，不同模块的接口调用都是一个作用域中，一些复杂的框架，会使用命名空间的概念来组织这些模块的接口，典型的例子如 `YUI` 库
+- 这是最原始的 `javascript` 文件加载方式，如果把每一个文件看做是一个模块，那么他们的接口通常是暴露在全局作用域下，也就是定义在 `window` 对象中，不同模块的接口调用都是一个作用域中，一些复杂的框架，会使用命名空间的概念来组织这些模块的接口，典型的例子如 `YUI` 库
 
 - 这种原始的加载方式暴露了一些显而易见的弊端
   - 全局作用域下容易造成变量冲突
@@ -108,7 +108,7 @@ module.exports = ...
 ### 1.4 ES6 模块
 ---
 
-- `EcmaScript6` 标准增加了 `JavaScript `语言层面的模块体系定义。`ES6` 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。`CommonJS` 和`AMD` 模块，都只能在运行时确定这些东西
+- `EcmaScript6` 标准增加了 `javascript `语言层面的模块体系定义。`ES6` 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。`CommonJS` 和`AMD` 模块，都只能在运行时确定这些东西
 
 ```
 import "jquery";
@@ -137,7 +137,7 @@ module "localModule" {}
 ### 1.6 所有资源都是模块
 ---
 
-> 在上面的分析过程中，我们提到的模块仅仅是指`JavaScript`模块文件。然而，在前端开发过程中还涉及到样式、图片、字体、`HTML` 模板等等众多的资源。这些资源还会以各种方言的形式存在，比如 `coffeescript`、 `less`、 `sass`、众多的模板库、多语言系统（`i18n`）等
+> 在上面的分析过程中，我们提到的模块仅仅是指`javascript`模块文件。然而，在前端开发过程中还涉及到样式、图片、字体、`HTML` 模板等等众多的资源。这些资源还会以各种方言的形式存在，比如 `coffeescript`、 `less`、 `sass`、众多的模板库、多语言系统（`i18n`）等
 
 - 如果他们都可以视作模块，并且都可以通过 `require` 的方式来加载，将带来优雅的开发体验，比如
 
@@ -171,7 +171,7 @@ require("./image.png");
   - `Webpack `有两种组织模块依赖的方式，同步和异步。异步依赖作为分割点，形成一个新的块。在优化了依赖树后，每一个异步区块都作为一个文件被打包
 
 - Loader
-  - `Webpack` 本身只能处理原生的 `JavaScript` 模块，但是 `loader` 转换器可以将各种类型的资源转换成 `JavaScript` 模块。这样，任何资源都可以成为 `Webpack `可以处理的模块
+  - `Webpack` 本身只能处理原生的 `javascript` 模块，但是 `loader` 转换器可以将各种类型的资源转换成 `javascript` 模块。这样，任何资源都可以成为 `Webpack `可以处理的模块
 - 智能解析
   - `Webpack` 有一个智能解析器，几乎可以处理任何第三方库，无论它们的模块形式是`CommonJS`、 `AMD `还是普通的 `JS` 文件。甚至在加载依赖的时候，允许使用动态表达式``require("./templates/" + name + ".jade") ``
 - 插件系统
@@ -294,13 +294,13 @@ document.write(require('./module.js')) // 添加模块
 ## 三、Loader
 ---
 
-- `Webpack` 本身只能处理 `JavaScript` 模块，如果要处理其他类型的文件，就需要使用 `loader`进行转换
+- `Webpack` 本身只能处理 `javascript` 模块，如果要处理其他类型的文件，就需要使用 `loader`进行转换
 - `Loader` 可以理解为是模块和资源的转换器，它本身是一个函数，接受源文件作为参数，返回转换的结果。这样，我们就可以通过 require 来加载任何类型的模块或文件，比如CoffeeScript、 JSX、 LESS 
 
 ### 3.1  loader 有哪些特性
 ---
 
-- `Loader` 可以通过管道方式链式调用，每个 `loader` 可以把资源转换成任意格式并传递给下一个 `loader` ，但是最后一个 `loader` 必须返回 `JavaScript`
+- `Loader` 可以通过管道方式链式调用，每个 `loader` 可以把资源转换成任意格式并传递给下一个 `loader` ，但是最后一个 `loader` 必须返回 `javascript`
 - `Loader `可以同步或异步执行。
 - `Loader` 运行在 `node.js` 环境中，所以可以做任何可能的事情。
 - `Loader` 可以接受参数，以此来传递配置项给 `loader`。
@@ -311,7 +311,7 @@ document.write(require('./module.js')) // 添加模块
 - 插件可以让 `loader` 拥有更多特性。
 - `Loader `可以分发出附加的任意文件
 
->- `Loader`本身也是运行在 `node.js` 环境中的 `JavaScript `模块，它通常会返回一个函数。大多数情况下，我们通过 npm 来管理 `loader`，但是你也可以在项目中自己写 `loader` 模块
+>- `Loader`本身也是运行在 `node.js` 环境中的 `javascript `模块，它通常会返回一个函数。大多数情况下，我们通过 npm 来管理 `loader`，但是你也可以在项目中自己写 `loader` 模块
 - 按照惯例，而非必须，`loader` 一般以 `xxx-loader` 的方式命名， `xxx` 代表了这个 `loader `要做的转换功能，比如 `json-loader `
 - 在引用 `loader` 的时候可以使用全名 `json-loader` ，或者使用短名 `json `。这个命名规则和搜索优先级顺序在` webpack` 的`resolveLoader.moduleTemplates api `中定义
 

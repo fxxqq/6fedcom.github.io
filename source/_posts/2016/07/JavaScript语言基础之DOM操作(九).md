@@ -1,5 +1,5 @@
 ---
-title: JavaScript语言基础之dom操作(九)
+title: javascript语言基础之dom操作(九)
 tags: javascript
 categories: front-end
 abbrlink: 5bd7146a

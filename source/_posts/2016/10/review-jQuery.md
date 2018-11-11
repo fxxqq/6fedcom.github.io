@@ -396,8 +396,8 @@ alert($nav.get(0) == nav);//true
 
 - **`dom`操作的分类**
   - **`dom Core`**
-     - `dom core`并不专属于`JavaScript`，任何支持`dom`的程序都可以使用
-     - `JavaScript` 中的`getElementByID()` `getElementsByTagName()` `getAttribute()` `setAttribute()`等方法都是`dom Core`的组成部分
+     - `dom core`并不专属于`javascript`，任何支持`dom`的程序都可以使用
+     - `javascript` 中的`getElementByID()` `getElementsByTagName()` `getAttribute()` `setAttribute()`等方法都是`dom Core`的组成部分
 
   - **`HTML-dom`**
     - `HTML -dom`的出现比`dom-Core`还要早，它提供一些更简明的标志来描述`HTML`元素的属性
@@ -405,7 +405,7 @@ alert($nav.get(0) == nav);//true
       - `element.src`
 
   - **`CSS-dom`**
-    - 针对`CSS`的操作。在`JavaScript`中，主要用于获取和设置`style`对象的各种属性，通过改变`style`对象的属性，使网页呈现不同的效果
+    - 针对`CSS`的操作。在`javascript`中，主要用于获取和设置`style`对象的各种属性，通过改变`style`对象的属性，使网页呈现不同的效果
 
 - **查找节点**
     - 查找属性节点 `attr()` 可以获取各属性的值
@@ -451,11 +451,11 @@ alert($nav.get(0) == nav);//true
     - `hasClass()`可以用来判断元素是否含有某个`class`,如有返回`true` 该方法等价于`is()`
 - **设置和获取HTML、文本和值**
   - **`html()`**
-    - 此方法类似`JavaScript`中`innerHTML`属性，可以用来读取和设置某个元素中的`HTML`内容
+    - 此方法类似`javascript`中`innerHTML`属性，可以用来读取和设置某个元素中的`HTML`内容
   - **`text()`**方法
-    - 此方法类型`JavaScript`中`innerHTML`，用来读取和设置某个元素中的文本内容
+    - 此方法类型`javascript`中`innerHTML`，用来读取和设置某个元素中的文本内容
  - **`val()`**方法
-    - 此方法类似`JavaScript`中的`value`属性，用来设置获取元素的值。无论是文本框、下拉列表还是单选框，都可以返回元素的值，如果元素多选，返回一个包含所有选择的值的数组
+    - 此方法类似`javascript`中的`value`属性，用来设置获取元素的值。无论是文本框、下拉列表还是单选框，都可以返回元素的值，如果元素多选，返回一个包含所有选择的值的数组
 
 - **遍历节点**
   - **`children()`**方法
@@ -719,7 +719,7 @@ $(body).append($div);
       - 在`jquery`中提供了` preventDefault()`方法来阻止元素的默认行为
  - **事件捕获**
     - 事件捕获和冒泡是相反的过程，事件捕获是从最顶端往下开始触发
-    - 并非所有的浏览器都支持事件捕获，并且这个缺陷无法通过`JavaScript`来修复。`jquery`不支持事件捕获，如需要用事件捕获，要用原生的`JavaScript`
+    - 并非所有的浏览器都支持事件捕获，并且这个缺陷无法通过`javascript`来修复。`jquery`不支持事件捕获，如需要用事件捕获，要用原生的`javascript`
 
 - **`bind()`;绑定**
   - 为匹配元素绑定处理方法
@@ -765,8 +765,8 @@ $(body).append($div);
 ---
 
 - **Ajax**简介 :
-  -  `Asynchronous Javascript And XML` （异步的
-`JavaScript`和`XML`）
+  -  `Asynchronous javascript And XML` （异步的
+`javascript`和`XML`）
   - 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相关的技术所形成的结合体
 - **`Ajax`优势与不足**
     - **`Ajax`优势**
@@ -1116,7 +1116,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
         - `$(".class")`
           - 建议有选择性的使用  
         - `$("[attribute=value]")`
-          - 对这个利用属性定位`dom`元素，本地`JavaScript`并没有直接实现。这种方式性能并不是很理想。建议避免使用。
+          - 对这个利用属性定位`dom`元素，本地`javascript`并没有直接实现。这种方式性能并不是很理想。建议避免使用。
         - `$(":hidden")`
           -  和上面利用属性定位`dom`方式类似，建议尽量不要使用 
         - **注意的地方**
@@ -1128,7 +1128,7 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
   - **数组方式使用`jquery`对象**
     - 使用`jquery`选择器获取的结果是一个`jquery`对象。在性能方面，建议使用`for`或`while`循环来处理，而不是`$.each()`
  - **事件代理**
-    - 每一个`JavaScript`事件（如：`click`、`mouseove`r）都会冒泡到父级节点。当我们需要给多个元素调用同个函数时这点很有用。比如，我们要为一个表单绑定这样的行为：点击td后，把背景颜色设置为红色
+    - 每一个`javascript`事件（如：`click`、`mouseove`r）都会冒泡到父级节点。当我们需要给多个元素调用同个函数时这点很有用。比如，我们要为一个表单绑定这样的行为：点击td后，把背景颜色设置为红色
       - `$("#myTable td").click(function(){$(this).css("background","red");});`
       - 假设有`100`个`td`元素，在使用以上的方式时，绑定了`100`个事件，将带来性能影响
       - 代替这种多元素的事件监听方法是，你只需向他们的父节点绑定一次事件，然后通过`event.target`获取到点击的当前元素
@@ -1149,9 +1149,9 @@ $("#testTest").load("test.html",function(responseText,textStatus,XMLHttpRequest)
         - `$("#dl').data("lastValue';//43)`
         - `$("#dl').data("options';//john)`
       
-  - **尽量使用原生的JavaScript方法**
-  - **压缩JavaScript代码**
-    - 一方面使用`Gzip`；另一方面去除`JavaScript`文件里面的注释、空白 
+  - **尽量使用原生的javascript方法**
+  - **压缩javascript代码**
+    - 一方面使用`Gzip`；另一方面去除`javascript`文件里面的注释、空白 
 
 #### 附录三 常用的jquery代码片段
 ---

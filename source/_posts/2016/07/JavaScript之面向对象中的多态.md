@@ -1,5 +1,5 @@
 ---
-title: JavaScript之面向对象中的多态
+title: javascript之面向对象中的多态
 tags: javascript
 categories: front-end
 abbrlink: 1fe7b385

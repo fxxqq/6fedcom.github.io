@@ -1,5 +1,5 @@
 ---
-title: JavaScript常用api合集
+title: javascript常用api合集
 tags:
   - javascript
   - api

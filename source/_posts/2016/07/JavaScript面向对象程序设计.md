@@ -1,5 +1,5 @@
 ---
-title: JavaScript面向对象程序设计
+title: javascript面向对象程序设计
 tags: javascript
 categories: front-end
 abbrlink: 3c278cf7

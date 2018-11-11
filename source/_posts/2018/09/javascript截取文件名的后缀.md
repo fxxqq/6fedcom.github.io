@@ -1,5 +1,5 @@
 ---
-title: Javascript截取文件名的后缀
+title: javascript截取文件名的后缀
 categories: front-end
 issues: 112
 tags:

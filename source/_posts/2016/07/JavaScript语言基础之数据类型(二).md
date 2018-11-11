@@ -1,16 +1,16 @@
 ---
-title: JavaScript语言基础之数据类型(二)
+title: javascript语言基础之数据类型(二)
 tags: javascript
 categories: front-end
 abbrlink: fd8d9d1f
 date: 2016-07-26 21:46:43
 ---
 
-###  一、JavaScript中基本的数据类型
+###  一、javascript中基本的数据类型
 
 查看数据类型用：typeof 变量名
 <!--more-->
-**Javascript的数据类型有六种（ES6新增了第七种Symbol）**
+**javascript的数据类型有六种（ES6新增了第七种Symbol）**
 
 - JS中的值有两种类型：原始类型(`Primitive`)、对象类型(`Object`)。
 
@@ -37,7 +37,7 @@ date: 2016-07-26 21:46:43
 
   - **转换函数**
 
-   - `toString()` 转换为字符串，在JavaScript中所有数据类型都可以转换为string类型
+   - `toString()` 转换为字符串，在javascript中所有数据类型都可以转换为string类型
 
     ```js
         var n1 = 12;

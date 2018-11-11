@@ -75,7 +75,7 @@ PS：国内使用SublimeText3，经常可能遇到无法安装可用插件问题
 
  - [**JSFormat**][6]
 
-功能：Javascript的代码格式化插件
+功能：javascript的代码格式化插件
 
 简介：很多网站的JS代码都进行了压缩，一行式的甚至混淆压缩，这让我们看起来很吃力。而这个插件能帮我们把原始代码进行格式的整理，包括换行和缩进等等，是代码一目了然，更快读懂~
 
@@ -310,12 +310,12 @@ SublimeText不仅仅是能够查看和编辑 Markdown 文件，但它会视它�
 
  - **[SublimeLinter插件][54]**
 
-SublimeLinter 是前端编码利器——[Sublime Text][55] 的一款插件，用于高亮提示用户编写的代码中存在的不规范和错误的写法，支持 JavaScript、CSS、HTML、Java、php、Python、Ruby 等十多种开发语言。这篇文章介绍如何在 Windows 中配置 SublimeLinter 进行 JS & CSS 校验。
+SublimeLinter 是前端编码利器——[Sublime Text][55] 的一款插件，用于高亮提示用户编写的代码中存在的不规范和错误的写法，支持 javascript、CSS、HTML、Java、php、Python、Ruby 等十多种开发语言。这篇文章介绍如何在 Windows 中配置 SublimeLinter 进行 JS & CSS 校验。
 比如写例如像lua这样的弱语言脚本代码，有这个可以规避掉很多不该有的低级错误吧？当然这也需要你SublimeLinter安装完毕之后再安装一个
 
 > SublimeLinter-lua
 
-即可。具体的使用可以参见：借助 [SublimeLinter 编写高质量的 JavaScript & CSS 代码][56]
+即可。具体的使用可以参见：借助 [SublimeLinter 编写高质量的 javascript & CSS 代码][56]
 
  - **[SideBarEnhancements插件][57]**
 
@@ -358,9 +358,9 @@ ctrl+alt+p php
 ctrl+alt+r ruby
 ctrl+alt+shift+p python
 
- - **[Javascript-api-Completions:][62]**
+ - **[javascript-api-Completions:][62]**
 
-支持Javascript、JQuery、Twitter Bootstrap框架、html5标签属性提示的插件，是少数支持sublime text 3的后缀提示的插件，html5标签提示sublime text3自带，不过JQuery提示还是很有用处的，也可设置要提示的语言。
+支持javascript、JQuery、Twitter Bootstrap框架、html5标签属性提示的插件，是少数支持sublime text 3的后缀提示的插件，html5标签提示sublime text3自带，不过JQuery提示还是很有用处的，也可设置要提示的语言。
 
 **[WakaTime][63]** — 记录你的Code时间;
 WakaTime可以做到精确地统计到你花在某个项     目上的时间;WakaTime针对不同的IDE，拥有不同的[插件][64]，在Sublime上安装着插件，就能统计到我使用Sublime进行的所有项目的行为。可以高效管理和知晓自己code时间
@@ -536,7 +536,7 @@ Tomorrow 主题颜色丰富，有着强烈的对比
   [59]: http://frontenddev.org/article/sublime-does-text-three-plug-ins-html-and-css-js-prettify.html
   [60]: https://github.com/csscomb/CSScomb-for-Sublime
   [61]: https://github.com/kairyou/SublimeTmpl
-  [62]: https://github.com/Pleasurazy/Sublime-JavaScript-api-Completions
+  [62]: https://github.com/Pleasurazy/Sublime-javascript-api-Completions
   [63]: https://wakatime.com/
   [64]: https://wakatime.com/help/plugins/sublime
   [65]: http://7xoosr.com1.z0.glb.clouddn.com/WakaTime.jpg

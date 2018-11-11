@@ -138,7 +138,7 @@ module.exports = {
 }
 ~~~
 
-**可以编译JavaScript的loader，babel**
+**可以编译javascript的loader，babel**
 
 ~~~
 npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react

@@ -69,7 +69,7 @@ str += str;
 console.log(str.replace(/WoRlD/g, "World")); //替换所有, 输出：Hello World! Hello World! 
 
 var str = "javascript Tutorial ";
-console.log(str.replace(/javascript/i, "JavaScript")); //确保匹配字符串大写字符的正确
+console.log(str.replace(/javascript/i, "javascript")); //确保匹配字符串大写字符的正确
 
 var name = "Doe, John";
 console.log(name.replace(/(\w+)\s*, \s*(\w+)/, "$2 $1")); //将把 "Doe, John" 转换为 "John Doe" 的形式

@@ -384,7 +384,7 @@ return this._queue[0];
 ## 九、模块
 ---
 
-- `Module`语法是`JavaScript`模块的标准写法，坚持使用这种写法。使用`import`取代`require`
+- `Module`语法是`javascript`模块的标准写法，坚持使用这种写法。使用`import`取代`require`
 
 ```js
 // bad

@@ -92,7 +92,7 @@ const title = (
 
 ### 3.4 JSX表达式
 
-> 在 `JSX` 元素中，我们同样可以使用 `JavaScript` 表达式，在 `JSX` 当中的表达式需要用一个大括号括起来
+> 在 `JSX` 元素中，我们同样可以使用 `javascript` 表达式，在 `JSX` 当中的表达式需要用一个大括号括起来
 
 ```js
 function sayhi(name) {
@@ -468,7 +468,7 @@ class Counter extends React.Component {
 
 > 在此方法中可进行
 
-- 与其他 `JavaScript` 框架集成，如初始化 `jquery` 插件；
+- 与其他 `javascript` 框架集成，如初始化 `jquery` 插件；
 - 使用 `setTimeout`/`setInterval` 设置定时器；
 - 通过 `Ajax`/`Fetch` 获取数据；
 - 绑定 `dom` 事件

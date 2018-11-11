@@ -1,5 +1,5 @@
 ---
-title: JavaScript数组、字符串、对象常用方法
+title: javascript数组、字符串、对象常用方法
 tags:
   - javascript
   - api

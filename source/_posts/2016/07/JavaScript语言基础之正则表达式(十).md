@@ -1,5 +1,5 @@
 ---
-title: JavaScript语言基础之正则表达式(十)
+title: javascript语言基础之正则表达式(十)
 tags: javascript
 categories: front-end
 abbrlink: d5559bcf
@@ -22,4 +22,4 @@ date: 2016-07-27 00:09:43
 
 ### 附录：思维导图总结
 
-![](http://7xq6al.com1.z0.glb.clouddn.com/JavaScript%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.gif)
+![](http://7xq6al.com1.z0.glb.clouddn.com/javascript%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.gif)

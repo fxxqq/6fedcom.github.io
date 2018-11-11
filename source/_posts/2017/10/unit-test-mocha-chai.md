@@ -12,7 +12,7 @@ date: 2017-10-22 15:35:43
 一、简介
 ---
 
-- `Istanbul`是`JavaScript`程序的代码覆盖率工具
+- `Istanbul`是`javascript`程序的代码覆盖率工具
 - `Mocha`是一种测试框架，也就是运行测试的工具。用`descibe`和`it`方法，来定义`test suit`，为不同的测试分组。
 - `mocha`本身并不提供`assert`断言，所以要提供更加有表现力的断言，可以搭配`chai`使用，当然也可以使用`nodejs`提供的`assert`模块
 

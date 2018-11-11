@@ -1,5 +1,5 @@
 ---
-title: JavaScript-dom事件
+title: javascript-dom事件
 tags: javascript
 categories: front-end
 abbrlink: 329b1ea8

@@ -1,5 +1,5 @@
 ---
-title: JavaScript与Unicode编码
+title: javascript与Unicode编码
 tags: javascript
 categories: front-end
 abbrlink: 82c24800

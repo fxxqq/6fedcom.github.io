@@ -34,7 +34,7 @@ example1.items = example1.items.filter(function (item) {
 你可能认为这将导致 Vue 丢弃现有 dom 并重新渲染整个列表。幸运的是，事实并非如此。Vue 为了使得 dom 元素得到最大范围的重用而实现了一些智能的、启发式的方法，所以用一个含有相同元素的数组去替换原来的数组是非常高效的操作。
 
 **注意事项**
-由于 JavaScript 的限制，Vue 不能检测以下变动的数组：
+由于 javascript 的限制，Vue 不能检测以下变动的数组：
 
 当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue
 当你修改数组的长度时，例如：vm.items.length = newLength
@@ -67,7 +67,7 @@ vm.$set(vm.items, indexOfItem, newValue)
 vm.items.splice(newLength)
 ```
 ## 对象更改检测注意事项 
-还是由于 JavaScript 的限制，Vue 不能检测对象属性的添加或删除：
+还是由于 javascript 的限制，Vue 不能检测对象属性的添加或删除：
 
 ```js
 var vm = new Vue({

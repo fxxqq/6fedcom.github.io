@@ -200,7 +200,7 @@ var person = {
 person.hello("hello world");//global says hello world
 ```
 
-- 在内部函数中，`this`没有按预想的绑定到外层函数对象上，而是绑定到了全局对象。这里普遍被认为是`JavaScript`语言的设计错误，因为没有人想让内部函数中的`this`指向全局对象。一般的处理方式是将`this`作为变量保存下来，一般约定为`that`或者`self`：
+- 在内部函数中，`this`没有按预想的绑定到外层函数对象上，而是绑定到了全局对象。这里普遍被认为是`javascript`语言的设计错误，因为没有人想让内部函数中的`this`指向全局对象。一般的处理方式是将`this`作为变量保存下来，一般约定为`that`或者`self`：
 
 ```js
 var name = "global";

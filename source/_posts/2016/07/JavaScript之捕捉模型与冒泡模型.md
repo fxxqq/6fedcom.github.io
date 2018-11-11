@@ -1,5 +1,5 @@
 ---
-title: JavaScript之捕捉模型与冒泡模型
+title: javascript之捕捉模型与冒泡模型
 tags: javascript
 categories: front-end
 abbrlink: 3de25d52

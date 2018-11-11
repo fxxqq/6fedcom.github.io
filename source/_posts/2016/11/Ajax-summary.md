@@ -17,8 +17,8 @@ date: 2016-11-26 14:35:24
 ---
 
 - Ajax简介 :
-  -  `Asynchronous Javascript And XML` （异步的
-`JavaScript`和`XML`）
+  -  `Asynchronous javascript And XML` （异步的
+`javascript`和`XML`）
   - 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相关的技术所形成的结合体
   - `AJAX` 是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，`AJAX` 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
 
@@ -56,7 +56,7 @@ date: 2016-11-26 14:35:24
 
 - 第一张图尤其说明了传统` Web` 应用程序的结构与采用了 `AJAX` 技术的 `Web`
 应用程序的结构上的差别
-- 主要的差别，其实不是 `JavaScript`，不是 `HTML/xhtml `和 `CSS`，而是采用
+- 主要的差别，其实不是 `javascript`，不是 `HTML/xhtml `和 `CSS`，而是采用
 了 `XMLHttpRequest` 来向服务器异步的请求 `XML` 数据
 
 
@@ -185,7 +185,7 @@ xhr.onreadystatechange = function(){
 
 - **从服务器传回的数据是json格式，这里做一个例子说明，如何利用**
 
-  - 1、首先需要从`XMLHttpRequest`对象取回数据这是一个`JSON`串，把它转换为真正的`JavaScript`对象。使用`JSON.parse(xhr.responseText)`转化为`JSON`对象
+  - 1、首先需要从`XMLHttpRequest`对象取回数据这是一个`JSON`串，把它转换为真正的`javascript`对象。使用`JSON.parse(xhr.responseText)`转化为`JSON`对象
   - 2、遍历得到的数组，向`dom`中添加新元素
 
 ```js
@@ -282,7 +282,7 @@ function ajax(url, success, fail){
 ---
 
 - 要访问web服务器的数据除了XMLHttpRequest外还有一种方法是JSONP
-- 如果HTML和JavaScript与数据同时在同一个机器上，就可以使用XMLHttpRequest
+- 如果HTML和javascript与数据同时在同一个机器上，就可以使用XMLHttpRequest
 
 - 什么是JSONP？
   - JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问（这仅仅是JSONP简单的实现形式）
@@ -291,7 +291,7 @@ function ajax(url, success, fail){
 - 如何使用JSONP？
   - 在客户端声明回调函数之后，客户端通过script标签向服务器跨域请求数据，然后服务端返回相应的数据并动态执行回调函数
 
-- 用XMLHttpRequest时，我们得到一个字符串；要用JSON.parse把字符串转化成对象，使用jsonp时，script标志会解析并执行返回的代码，等我们处理数据时，已经是一个JavaScript对象了
+- 用XMLHttpRequest时，我们得到一个字符串；要用JSON.parse把字符串转化成对象，使用jsonp时，script标志会解析并执行返回的代码，等我们处理数据时，已经是一个javascript对象了
 
 - 简单实例
 
@@ -308,14 +308,14 @@ function ajax(url, success, fail){
     }  
 </script>  
 <script type="text/javascript" src="http://crossdomain.com/services.php?callback=jsonpCallback"></script>  
-<!--callback参数指示生成JavaScript代码时要使用的函数jsonpcallback-->
+<!--callback参数指示生成javascript代码时要使用的函数jsonpcallback-->
 ```
 - 注意浏览器的缓存问题
   - 在末尾增加一个随机数可避免频繁请求同一个链接出现的缓存问题
   - `<script type="text/javascript" src="http://crossdomain.com/services.php?callback=jsonpCallback&random=(new Date()).getTime()"></script>  
 
 
-**原生JavaScript实现完整的Ajax、JSONP例子**
+**原生javascript实现完整的Ajax、JSONP例子**
 
 ```js
 function ajax(params) {

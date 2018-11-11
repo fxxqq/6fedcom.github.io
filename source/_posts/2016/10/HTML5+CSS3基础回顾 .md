@@ -583,7 +583,7 @@ obj.addEventListener('transitionend',function(){})
 ---
 
 - 什么是`css3` 动画？
-  - 通过 `css3`，我们能够创建动画，这可以在许多网页中取代动画图片、`Flash` 动画以及 `JavaScript`
+  - 通过 `css3`，我们能够创建动画，这可以在许多网页中取代动画图片、`Flash` 动画以及 `javascript`
 
 - **动画接口**
 
@@ -1248,7 +1248,7 @@ btn.onclick = function(){
 ---
 
 
-![H5在JavaScript中新增的方法一览](http://upload-images.jianshu.io/upload_images/1480597-aec985a8f543f52e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![H5在javascript中新增的方法一览](http://upload-images.jianshu.io/upload_images/1480597-aec985a8f543f52e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 - **新增选择器**
@@ -1267,7 +1267,7 @@ btn.onclick = function(){
 
 ```js
 /**
-* 动态加载script文件 （推荐方法） 只需请求一次 可加载多个JavaScript文件，减少请求次数以及页面的加载阻塞
+* 动态加载script文件 （推荐方法） 只需请求一次 可加载多个javascript文件，减少请求次数以及页面的加载阻塞
 */
 function loadScript(url,callback){
 	var script = document.createElement("script");

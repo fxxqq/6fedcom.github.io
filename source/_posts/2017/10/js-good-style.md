@@ -1,5 +1,5 @@
 ---
-title: 编写可维护的JavaScript
+title: 编写可维护的javascript
 tags:
   - javascript
   - 读书笔记
@@ -66,7 +66,7 @@ addEventListener(element,"click",function(e){
 ### 2.1 检测原始值
 ---
 
-> 在`JavaScript`中有五种原始类型：字符串、数字、布尔值、`null`、`undefined`。如果你希望一个值是字符串、数字、布尔值或`undefined`，最佳选择是使用typeof运算符。typeof运算符会返回一个表示值 饿类型的字符串
+> 在`javascript`中有五种原始类型：字符串、数字、布尔值、`null`、`undefined`。如果你希望一个值是字符串、数字、布尔值或`undefined`，最佳选择是使用typeof运算符。typeof运算符会返回一个表示值 饿类型的字符串
  
 - 对于字符串，`typeof`返回`string`
 - 对于数字，`typeof`返回`number`
@@ -210,4 +210,4 @@ function validate(value){
 ```
 
 - 参考
-  - 编写可维护的JavaScript
+  - 编写可维护的javascript

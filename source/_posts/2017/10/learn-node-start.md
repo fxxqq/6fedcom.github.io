@@ -80,10 +80,10 @@ date: 2017-10-15 11:40:43
 
 **顶层对象**
 
-- `JavaScript`：`window`
+- `javascript`：`window`
 - `nodejs`: `global`
 
-- 在ECMA部分node和JavaScript是一样的，比如数据类型的定义，语法结构、内置对象
+- 在ECMA部分node和javascript是一样的，比如数据类型的定义，语法结构、内置对象
 
 三、模块 
 ---

@@ -128,7 +128,7 @@ console.log(a2.get('c') === b2.get('c')); //true
 ## 三、为什么要在React.js中使用Immutable
 
 
-> - 它是一个完全独立的库，无论基于什么框架都可以用它。意义在于它弥补了`Javascript` 没有不可变数据结构的问题
+> - 它是一个完全独立的库，无论基于什么框架都可以用它。意义在于它弥补了`javascript` 没有不可变数据结构的问题
 > - 由于是不可变的，可以放心的对对象进行任意操作。在`React`开发中，频繁操作state对象或是`store`，配合`immutableJS`快、安全、方便
 
 - 熟悉`React.js`的都应该知道，`React.js`是一个`UI = f(states)`的框架，为了解决更新的问题，`React.js`使用了`virtual dom`，`virtual dom`通过`diff`修改`dom`，来实现高效的`dom`更新。
@@ -188,15 +188,15 @@ a.get('filter') === b.get('filter'); // true
 ## 四、Immutable 的几种数据类型
 
 
-- `List`: 有序索引集，类似`JavaScript`中的`Array`。
-- `Map`: 无序索引集，类似`JavaScript`中的`Object`。
+- `List`: 有序索引集，类似`javascript`中的`Array`。
+- `Map`: 无序索引集，类似`javascript`中的`Object`。
 - `OrderedMap`: 有序的`Map`，根据数据的`set()`进行排序。
 - `Set`: 没有重复值的集合。
 - `OrderedSet`: 有序的`Set`，根据数据的`add`进行排序。
 - `Stack`: 有序集合，支持使用`unshift（）`和`shift（）`添加和删除。
 - `Range()`: 返回一个`Seq.Indexed`类型的集合，这个方法有三个参数，`start`表示开始值，默认值为`0`，`end`表示结束值，默认为无穷大，`step`代表每次增大的数值，默认为`1`.如果`start = end`,则返回空集合。
 - `Repeat()`: 返回一个`vSeq.Indexe`类型的集合，这个方法有两个参数，`value`代表需要重复的值，`times`代表要重复的次数，默认为无穷大。
-- `Record`: 一个用于生成`Record`实例的类。类似于`JavaScript`的`Object`，但是只接收特定字符串为`key`，具有默认值。
+- `Record`: 一个用于生成`Record`实例的类。类似于`javascript`的`Object`，但是只接收特定字符串为`key`，具有默认值。
 - `Seq`: 序列，但是可能不能由具体的数据结构支持。
 - `Collection`: 是构建所有数据结构的基类，不可以直接构建
 

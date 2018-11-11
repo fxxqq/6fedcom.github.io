@@ -131,16 +131,16 @@ console.log('a is: ' + this.a)
 ```html
 <div v-bind:id="dynamicId"></div>
 ```
-**使用 JavaScript 表达式**
+**使用 javascript 表达式**
 
-- 对于所有的数据绑定， `Vue.js`都提供了完全的 `JavaScript `表达式支持。
+- 对于所有的数据绑定， `Vue.js`都提供了完全的 `javascript `表达式支持。
 
 ```html
 {{ number + 1 }}{{ ok ? 'YES' : 'NO' }}
 {{ message.split('').reverse().join('') }}
 <div v-bind:id="'list-' + id"></div>
 ```
-- 这些表达式会在所属 Vue 实例的数据作用域下作为 JavaScript 被解析
+- 这些表达式会在所属 Vue 实例的数据作用域下作为 javascript 被解析
 
 **过滤器**
 
@@ -151,7 +151,7 @@ console.log('a is: ' + this.a)
 ```
 **指令**
 
-- 指令（`Directives`）是带有` v- `前缀的特殊属性。指令属性的值预期是单一 `JavaScript `表达式（除了`v-for` ，之后再讨论）
+- 指令（`Directives`）是带有` v- `前缀的特殊属性。指令属性的值预期是单一 `javascript `表达式（除了`v-for` ，之后再讨论）
 - 指令的职责就是当其表达式的值改变时相应地将某些行为应用到 dom 上
 
 ```html
@@ -376,7 +376,7 @@ data: { activeClass: 'active', errorClass: 'text-danger'}
 
 **对象语法**
 
-- `v-bind:style` 的对象语法十分直观——看着非常像` CSS` ，其实它是一个 `JavaScript` 对象。 `CSS` 属性名可以用驼峰式（camelCase）或短横分隔命名（kebab-case）
+- `v-bind:style` 的对象语法十分直观——看着非常像` CSS` ，其实它是一个 `javascript` 对象。 `CSS` 属性名可以用驼峰式（camelCase）或短横分隔命名（kebab-case）
 
 ```html
 <div 
@@ -480,7 +480,7 @@ data: { styleObject: { color: 'red', fontSize: '13px' }}
 	</li>
 </ul>
 ```
-- 你也可以用 `of `替代 `in `作为分隔符，因为它是最接近 `JavaScript` 迭代器的语法
+- 你也可以用 `of `替代 `in `作为分隔符，因为它是最接近 `javascript` 迭代器的语法
 
 ```html
 <div v-for="item of items"></div>
@@ -559,7 +559,7 @@ v-bind:item="item" v-bind:index="index">
 
 **监听事件**
 
-- 可以用 `v-on` 指令监听 `dom` 事件来触发一些 `JavaScript` 代码
+- 可以用 `v-on` 指令监听 `dom` 事件来触发一些 `javascript` 代码
 
 ```html
 <div id="example-1"> 
@@ -576,11 +576,11 @@ data: {
 ```
 **方法事件处理器**
 
-- 许多事件处理的逻辑都很复杂，所以直接把 `JavaScript` 代码写在 `v-on` 指令中是不可行的。因此 `v-on` 可以接收一个定义的方法来调用
+- 许多事件处理的逻辑都很复杂，所以直接把 `javascript` 代码写在 `v-on` 指令中是不可行的。因此 `v-on` 可以接收一个定义的方法来调用
 
 **内联处理器方法**
 
-- 除了直接绑定到一个方法，也可以用内联 `JavaScript `语句
+- 除了直接绑定到一个方法，也可以用内联 `javascript `语句
 
 ```html
 <div id="example-3"> 
@@ -678,8 +678,8 @@ warn: function (message, event) {
 - 你可能注意到这种事件监听的方式违背了关注点分离（separation of concern）传统理念。不必担心，因为所有的 `Vue.js `事件处理方法和表达式都严格绑定在当前视图的 `ViewModel `上，它不会导致任何维护上的困难。
 
 - 实际上，使用 `v-on `有几个好处
-  - 扫一眼` HTML` 模板便能轻松定位在 `JavaScript `代码里对应的方法
-  - 因为你无须在 `JavaScript`里手动绑定事件，你的 `ViewModel `代码可以是非常纯粹的逻辑，和 `dom` 完全解耦，更易于测试。
+  - 扫一眼` HTML` 模板便能轻松定位在 `javascript `代码里对应的方法
+  - 因为你无须在 `javascript`里手动绑定事件，你的 `ViewModel `代码可以是非常纯粹的逻辑，和 `dom` 完全解耦，更易于测试。
   - 当一个 `ViewModel `被销毁时，所有的事件处理器都会自动被删除。你无须担心如何自己清理它们。
 
 ## 九、表单控制绑定
@@ -825,7 +825,7 @@ template: '<span>{{ message}}</span>
 ##### 视图（用户界面）
 ---
 
-- 视图是呈现给用户的，用户与之产生交互。在JavaScript应用中，视图大都是由HTML、css、JavaScript模板组成的
+- 视图是呈现给用户的，用户与之产生交互。在javascript应用中，视图大都是由HTML、css、javascript模板组成的
 
 ##### 控制器（业务逻辑）
 ---

@@ -16,7 +16,7 @@ date: 2017-11-08 16:55:24
 
 > `styled components`一种全新的控制样式的编程方式，它能解决`CSS`全局作用域的问题，而且移除了样式和组件间的映射关系
 
-- 我们要理清一件事情：`styled-components` 只是 `CSS` 层面的高度抽象。它只是解析定义在 `JavaScript `中的 `CSS`，然后生成对应 `CSS` 的 `JSX `元素
+- 我们要理清一件事情：`styled-components` 只是 `CSS` 层面的高度抽象。它只是解析定义在 `javascript `中的 `CSS`，然后生成对应 `CSS` 的 `JSX `元素
 
 ```js
 import React from 'react';

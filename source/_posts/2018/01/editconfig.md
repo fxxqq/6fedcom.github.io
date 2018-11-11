@@ -17,7 +17,7 @@ date: 2018-01-27 22:48:24
 editorconfig
 ---
 
-- 一个`editorconfig`文件例子，用于设置`Python`和`JavaScript`行尾和缩进风格的配置文件
+- 一个`editorconfig`文件例子，用于设置`Python`和`javascript`行尾和缩进风格的配置文件
 
 
 ```bash

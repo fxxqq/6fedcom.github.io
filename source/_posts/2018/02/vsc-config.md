@@ -28,7 +28,7 @@ date: 2018-02-02 11:40:43
 - `Beautify` - HTML、CSS、JS、JSON语法高亮
 - `Guides` - 代码对齐辅助线
 - `OneDark`主题
-- `JavaScript (ES6) Code Snippets` (代码片段插件)
+- `javascript (ES6) Code Snippets` (代码片段插件)
 - `Project Manager` (项目管理器插件) 简单的项目管理器,可以在你的编辑器中快速切换项目
 - `Sync Settings` (设置同步插件)在电脑上移植你的插件和设置是轻而易举的事
 - `git History` (`git` 历史记录插件) 可视化的 `git` 历史记录插件
@@ -43,7 +43,7 @@ date: 2018-02-02 11:40:43
 - `Minify` 代码压缩 
 - `Regex Previewer` 正则表达式预览
 - `File Tree View`  提供几个常见编程语言的函数或状态的树集合展示,可以快速点击跳转!
-- `JavaScript Test Runner Preview` 快速执行单元测试,支持 `Mocha` 和 `Jest`
+- `javascript Test Runner Preview` 快速执行单元测试,支持 `Mocha` 和 `Jest`
 - `NPM-Scripts` 在侧边栏可视化执行 `npm` 命令(项目内的 `package.json`)
 - `colorize`会给颜色代码增加一个当前匹配代码颜色的背景
 - `vscode-fake`------生成各种假数据类型。（姓名，电话）
@@ -55,7 +55,7 @@ date: 2018-02-02 11:40:43
 - `File Peek` 根据路径字符串，快速定位到文件
 - `Font-awesome codes for html FontAwesome`提示代码段
 - `Guides` 高亮缩进基准线
-- `JavaScript (ES6) code snippets ES6`语法代码段
+- `javascript (ES6) code snippets ES6`语法代码段
 - `language-stylus Stylus`语法高亮和提示
 - `Lodash Lodash`代码段
 - `Prettify JSON` 格式化`JSON`

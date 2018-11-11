@@ -1,5 +1,5 @@
 ---
-title: JavaScript词法分析和作用域闭包
+title: javascript词法分析和作用域闭包
 tags: javascript
 categories: front-end
 abbrlink: 1f382076

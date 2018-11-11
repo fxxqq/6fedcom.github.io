@@ -1,5 +1,5 @@
 ---
-title: JavaScript语言基础之变量(一)
+title: javascript语言基础之变量(一)
 tags: javascript
 categories: front-end
 abbrlink: e67d370b
@@ -31,4 +31,4 @@ date: 2016-07-26 20:46:43
 
 附录：思维导图总结
 
-![](http://7xq6al.com1.z0.glb.clouddn.com/JavaScript%20%E5%8F%98%E9%87%8F.gif)
+![](http://7xq6al.com1.z0.glb.clouddn.com/javascript%20%E5%8F%98%E9%87%8F.gif)

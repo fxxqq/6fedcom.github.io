@@ -181,7 +181,7 @@ new Vue({
 
 ![image.png](https://upload-images.jianshu.io/upload_images/1480597-39733c55ff054c34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-> 在`mounted`之前h1中还是通过`{message}`进行占位的，因为此时还有挂在到页面上，还是JavaScript中的虚拟dom形式存在的。在`mounted`之后可以看到h1中的内容发生了变化
+> 在`mounted`之前h1中还是通过`{message}`进行占位的，因为此时还有挂在到页面上，还是javascript中的虚拟dom形式存在的。在`mounted`之后可以看到h1中的内容发生了变化
 
 ### 2.5 beforeUpdate、updated
 

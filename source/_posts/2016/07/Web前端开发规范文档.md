@@ -10,9 +10,9 @@ date: 2016-07-19 19:50:20
 ### 通用规范：
 
 - TAB键用两个空格代替（WINDOWS下TAB键占四个空格，LINUX下TAB键占八个空格）。
-- CSS样式属性或者JAVASCRIPT代码后加“;”方便压缩工具“断句”。
+- CSS样式属性或者javascript代码后加“;”方便压缩工具“断句”。
 文件内容编码均统一为UTF-8。
-- CSS、JAVASCRIPT中的非注释类中文字符须转换成unicode编码使用，以避免编码错误时乱码显示。
+- CSS、javascript中的非注释类中文字符须转换成unicode编码使用，以避免编码错误时乱码显示。
 
 <!--more-->
 ---
@@ -55,7 +55,7 @@ IE支持通过特定<meta>标签来确定绘制当前页面所应该采用的IE�
 
 ` <meta http-equiv="X-UA-Compatible" content="IE=Edge">`
 
-非特殊情况下CSS样式文件外链至HEAD之间，JAVASCRIPT文件外链至页面底部
+非特殊情况下CSS样式文件外链至HEAD之间，javascript文件外链至页面底部
 
 ```html
 <!DOCTYPE html>
@@ -71,11 +71,11 @@ IE支持通过特定<meta>标签来确定绘制当前页面所应该采用的IE�
 </html>
 
 ```
-引入JAVASCRIPT库文件，文件名须包含库名称及版本号及是否为压缩版
+引入javascript库文件，文件名须包含库名称及版本号及是否为压缩版
 
 `jquery-1.8.3.min.js`
 
-引入JAVASCRIPT插件, 文件名格式为库名称+.+插件名称
+引入javascript插件, 文件名格式为库名称+.+插件名称
 
 `jquery.cookie.js`
 
@@ -101,7 +101,7 @@ NAME --> N_Head_Title --> NAME属性命名遵循首个字母大写+_
 
 ```
 
-当JAVASCRIPT获取单个元素时，通常使用document.getElementById来获取dom元素，document.getElementById兼容所有浏览器，但IE浏览器会混淆元素的ID和NAME属性，所以要区分ID和NAME命名
+当javascript获取单个元素时，通常使用document.getElementById来获取dom元素，document.getElementById兼容所有浏览器，但IE浏览器会混淆元素的ID和NAME属性，所以要区分ID和NAME命名
 
 ```html
 <input type="text" name="test">
@@ -294,7 +294,7 @@ float:left;//如这些定位或浮动属性
 
 ---
 
-### javaScript书写规范：
+### javascript书写规范：
 
 **命名规范**
 
@@ -502,7 +502,7 @@ header_btn2.gif
 
 ### 注释规范：
 
-> JAVASCRIPT、CSS文件注释需要标明作者、文件版本、创建/修改时间、重大版本修改记录、函数描述、文件版本、创建或者修改时间、功能、作者等信息。
+> javascript、CSS文件注释需要标明作者、文件版本、创建/修改时间、重大版本修改记录、函数描述、文件版本、创建或者修改时间、功能、作者等信息。
 
 
 `/* * 注释块 */`

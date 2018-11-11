@@ -1691,9 +1691,9 @@ overflow:hidden;
 - 优雅降级(`graceful degradation`)
   - 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容
 - 渐进增强 `progressive enhancement`：
-  - 是在浏览器开启`JavaScript`功能后，如果浏览器版本不支持某些  `JavaScript`  能力，我们解决这种问题的方式
+  - 是在浏览器开启`javascript`功能后，如果浏览器版本不支持某些  `javascript`  能力，我们解决这种问题的方式
 - 平稳退化
-  - 是在浏览器没有`JavaScript`功能，或没有开启`JavaScript`功能情况下，我们解决这种问题的方式；
+  - 是在浏览器没有`javascript`功能，或没有开启`javascript`功能情况下，我们解决这种问题的方式；
 
 ##### 方案荟萃扩展阅读
 ---
@@ -1746,7 +1746,7 @@ overflow:hidden;
 ---
 
 - [dom编程之api学习](http://www.jianshu.com/p/1e638b7da640)
-- [JavaScript基础学习](http://www.jianshu.com/p/1f2314552e23)
+- [javascript基础学习](http://www.jianshu.com/p/1f2314552e23)
 
 #### 附录七 其他资源
 ---

@@ -1,5 +1,5 @@
 ---
-title: JavaScript取url参数（支持中文解码）
+title: javascript取url参数（支持中文解码）
 categories: front-end
 tags:
   - javascript

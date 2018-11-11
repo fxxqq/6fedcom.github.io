@@ -1,5 +1,5 @@
 ---
-title: JavaScript语言基础之运算符(三)
+title: javascript语言基础之运算符(三)
 tags: javascript
 categories: front-end
 abbrlink: 477e687b
@@ -55,4 +55,4 @@ date: 2016-07-26 22:46:43
 
 ### 附录：思维导图总结
 
-![](http://7xq6al.com1.z0.glb.clouddn.com/Javascript%20%E8%BF%90%E7%AE%97%E7%AC%A6.gif)
+![](http://7xq6al.com1.z0.glb.clouddn.com/javascript%20%E8%BF%90%E7%AE%97%E7%AC%A6.gif)

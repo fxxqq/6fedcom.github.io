@@ -20,6 +20,8 @@ https://segmentfault.com/a/1190000012806637?utm_source=tag-newest
 阿里
 
 React生命周期及自己的理解
+
+ 
 如何配置React-Router
 路由的动态加载模块
 服务端渲染SSR
@@ -98,10 +100,7 @@ state是怎么注入到组件的，从reducer到组件经历了什么样的过�
 koa中response.send、response.rounded、response.json发生了什么事，浏览器为什么能识别到它是一个json结构或是html
 koa-bodyparser怎么来解析request
 webpack整个生命周期，loader和plugin有什么区别
-介绍AST（Abstract Syntax Tree）抽象语法树
-安卓Activity之间数据是怎么传递的
-安卓4.0到6.0过程中WebView对js兼容性的变化
-WebView和原生是如何通信
+ 
 跨域怎么解决，有没有使用过Apache等方案
 
 
@@ -207,7 +206,6 @@ JS里垃圾回收机制是什么，常用的是哪种，怎么处理的
 
 饿了么
 
-小程序里面开页面最多多少
 React子父组件之间如何传值
 Emit事件怎么发，需要引入什么
 介绍下React高阶组件，和普通组件有什么区别
@@ -257,7 +255,7 @@ setState 只在合成事件和钩子函数中是“异步”的，在原生事�
 4. `componentWillUpdate`中可以直接改变`state`的值，而不能用`setState`
 
 ### 对闭包的看法，为什么要用闭包
-当在一个函数里嵌套定义一个函数时，就会产生一个闭包，因此定义一个闭包需要下面几个条件：
+ 
  
 
 ### 手写数组去重函数
@@ -726,7 +724,6 @@ get和post有什么区别
 
 百分点
 
-React15/16.x的区别
 重新渲染render会做些什么
 哪些方法会触发react重新渲染
 state和props触发更新的生命周期分别有什么区别
@@ -734,9 +731,6 @@ setState是同步还是异步
 对无状态组件的理解
 介绍Redux工作流程
 介绍ES6的功能
-let、const以及var的区别
-浅拷贝和深拷贝的区别
-介绍箭头函数的this
 介绍Promise和then
 介绍快速排序
 算法：前K个最大的元素

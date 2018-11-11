@@ -1,5 +1,5 @@
 ---
-title: JavaScript数组方法总结篇
+title: javascript数组方法总结篇
 tags: javascript
 categories: front-end
 abbrlink: cd524e3e
@@ -35,7 +35,7 @@ console.log(arr,length)
 - 方法删除数组的最后一个元素，减小数组长度并返回它删除的值
 
 ```js
-//组合使用push()和pop()能够用JavaScript数组实现先进后出的栈
+//组合使用push()和pop()能够用javascript数组实现先进后出的栈
 
 let stack = [];
 

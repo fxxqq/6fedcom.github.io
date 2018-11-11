@@ -199,4 +199,4 @@ methods: {
 }
 ```
 
-> 当只用 `JavaScript` 过渡的时候，在 `enter` 和 `leave` 中必须使用 `done` 进行回调。否则，它们将被同步调用，过渡会立即完成
+> 当只用 `javascript` 过渡的时候，在 `enter` 和 `leave` 中必须使用 `done` 进行回调。否则，它们将被同步调用，过渡会立即完成

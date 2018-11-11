@@ -1,5 +1,5 @@
 ---
-title: JavaScript中property和attribute的区别
+title: javascript中property和attribute的区别
 tags:
   - javascript
 categories: front-end

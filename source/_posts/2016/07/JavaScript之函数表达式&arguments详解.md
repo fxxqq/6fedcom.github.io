@@ -1,5 +1,5 @@
 ---
-title: JavaScript之函数表达式&arguments详解
+title: javascript之函数表达式&arguments详解
 tags: javascript
 categories: front-end
 abbrlink: 765dd0ea

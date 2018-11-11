@@ -389,7 +389,7 @@ console.log(str.search(re));
 	<p><input type="button" value="查找中间含有hi的单词" onclick="t1();"></p>
 	<p><input type="button" value="查找所有中间含有hi的单词" onclick="t2();"></p>
 	<p><input type="button" value="查找所有中间含有hi的单词，不区分大小写" onclick="t3();"></p>
-	<p><input type="button" value="替换JavaScript标签" onclick="t4();"></p>
+	<p><input type="button" value="替换javascript标签" onclick="t4();"></p>
 	<p><input type="button" value="把连接换成空连接" onclick="t5();"></p>
 	<p><input type="button" value="把每一行的结尾的数字换成#" onclick="t6();"></p>
 	<p><input type="button" value="替换goods中多余的O" onclick="t7();"></p>
@@ -416,7 +416,7 @@ console.log(str.search(re));
             function t4(){
             	var cont = document.getElementById('cont');
             	var cv = cont.value;
-            	var  reg = /<script.*<\/script>/;//替换JavaScript标签
+            	var  reg = /<script.*<\/script>/;//替换javascript标签
             	alert(cv.replace(reg,'哈哈哈'));
             }
             function t5(){
@@ -685,7 +685,7 @@ console.log(str.search(re));
 
 ## 五、总结
 
-![](http://7xq6al.com1.z0.glb.clouddn.com/JavaScript%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.gif)
+![](http://7xq6al.com1.z0.glb.clouddn.com/javascript%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.gif)
 
 
 ## 六、扩展阅读

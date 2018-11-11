@@ -16,7 +16,7 @@ date: 2016-11-19 16:55:24
  - `Bootstrap`，来自 `Twitter`（全国最大的微博），是目前最受欢迎的前端框架。
  - `bootstrap`下载及演示 http://v3.bootcss.com
 - 什么是`bootstrap`？
-    - `Bootstrap `是基于 `HTML`、`CSS`、`JAVASCRIPT` 的开源框架，它简洁、直观、强悍、灵活，使得 `Web `开发更加快捷，
+    - `Bootstrap `是基于 `HTML`、`CSS`、`javascript` 的开源框架，它简洁、直观、强悍、灵活，使得 `Web `开发更加快捷，
    - 用于开发响应式布局、移动设备优先的 `WEB `项目。
 - 为什么使用 `Bootstrap`？
     - 跨设备
@@ -491,7 +491,7 @@ date: 2016-11-19 16:55:24
 	 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></button>
 	 <ul class="dropdown-menu">
 		<li><a href="">Html</a></li>
-		<li><a href="">Javascript</a></li>
+		<li><a href="">javascript</a></li>
 		<li><a href="">jquery</a></li>
 		<li><a href="">html5+css3</a></li>
 	 </ul>
@@ -1399,7 +1399,7 @@ date: 2016-11-19 16:55:24
 </button>
 ```
 
-- `JavaScript` 初始化  `$('button').popover();`
+- `javascript` 初始化  `$('button').popover();`
 
 - `Popover` 插件中的属性：
    - `data-animation`   默认 `true`，在 `popover` 上应用一个 `CSS` `fade` 动画。 如果设置 `false`，则不应用。
@@ -1468,7 +1468,7 @@ date: 2016-11-19 16:55:24
 
 - 添加淡入淡出效果   `<div class="alert alert-warning fade in">`
 
-- 如果用 `JavaScript`，可以代替 `data-dismiss="alert"`
+- 如果用 `javascript`，可以代替 `data-dismiss="alert"`
 - `Alert` 插件中的方法：
 
 ```js
@@ -1549,7 +1549,7 @@ date: 2016-11-19 16:55:24
    <a href="#" data-toggle="tooltip" title="超文本标识符">html5</a>
 ```
 
-- `JavaScript` 初始化 ` $('#section').tooltip();`
+- `javascript` 初始化 ` $('#section').tooltip();`
 
 - `data-animation`   默认 `true`，在 `tooltip` 上应用一个 `CSS fade` 动画。 如果设置 `false`，则不应用。
 - `data-html `       默认 `false`，不允许提示内容格式为 `html`。如果设置 为 `true`，则可以设置 `html` 格式的提示内容。
@@ -1827,7 +1827,7 @@ $('#selector a').tooltip({
    <div class="modal fade" id="myModal">
 ```
 
-- 所有的插件，都是基于 `JavaScript`/`jquery` 的。
+- 所有的插件，都是基于 `javascript`/`jquery` 的。
 - 四个要素：用法、参数、方法和事件。
 
 - **用法**
@@ -1845,7 +1845,7 @@ $('#selector a').tooltip({
    - `data-show`   布尔值 `true`   如果是 `true`，初始化时，默认显示； 如果是 `false`，初始化时，默认隐藏。
    - `remote`   `url` 路径 空值   如果值不是以`#`号开头，则表示一个 `url` 地址，加载 `url` 内容到 `modal-content` 容器里，并只加载一 次。
    - 如果是`#`号，就是取代 `data-target` 的方法。
-   - 在 `JavaScript` 直接设置
+   - 在 `javascript` 直接设置
    - 通过 `jquery` 方式声明
 
 ```js
@@ -1898,7 +1898,7 @@ $('#myModal').on('loaded.bs.modal', function () {
   - `data-interval `   默认值 `5000`，幻灯片的等待时间(毫秒)。如果为 `false`，轮播将不会自动开始循环。
   - `data-pause`       默认鼠标停留在幻灯片区域(`hover`)即暂停轮播，鼠 标离开即启动轮播。
   - `data-wrap`        默认值 `true`，轮播是否持续循环。
-  - 如果在 `JavaScript` 调用就直接使用键值对方法，并去掉 `data-`；
+  - 如果在 `javascript` 调用就直接使用键值对方法，并去掉 `data-`；
 
 ```js
    $('#myCarousel').carousel({  //设置自定义属性

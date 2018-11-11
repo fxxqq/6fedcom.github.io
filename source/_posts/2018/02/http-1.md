@@ -298,7 +298,7 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT;
 | `path=PATH` | 将服务器上的文件目录作为 `Cookie` 的适用对象（若不指定则默认为文档所在的文件目录） |
 | `domain=域名` | 作为 `Cookie` 适用对象的域名（若不指定则默认为创建 Cookie 的服务器的域名） |
 | `Secure `| 仅在 `HTTPs` 安全通信时才会发送 `Cookie `|
-| `HttpOnly` | 加以限制，使 `Cookie` 不能被 `JavaScript` 脚本访问 |
+| `HttpOnly` | 加以限制，使 `Cookie` 不能被 `javascript` 脚本访问 |
 
 ### 5.1.4 Session 和 Cookie 区别
 
@@ -311,7 +311,7 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT;
 ### 5.1.6 使用 Cookie 实现用户名和密码的自动填写
 
 - 网站脚本会自动从保存在浏览器中的 `Cookie` 读取用户名和密码，从而实现自动填写。
-- 但是如果 `Set-Cookie` 指定了 `HttpOnly `属性，就无法通过 `Javascript `脚本获取 `Cookie `信息，这是出于安全性考虑。
+- 但是如果 `Set-Cookie` 指定了 `HttpOnly `属性，就无法通过 `javascript `脚本获取 `Cookie `信息，这是出于安全性考虑。
 
 ## 5.2 缓存
 
@@ -508,7 +508,7 @@ Content-Length: 1024
 
 ### 7.2.1 概念
 
-> 跨站脚本攻击（`Cross-Site Scripting, XSS`），可以将代码注入到用户浏览的网页上，这种代码包括 HTML 和 JavaScript。利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和 Cookie 等各种内容。
+> 跨站脚本攻击（`Cross-Site Scripting, XSS`），可以将代码注入到用户浏览的网页上，这种代码包括 HTML 和 javascript。利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和 Cookie 等各种内容。
 
 例如有一个论坛网站，攻击者可以在上面发表以下内容：
 

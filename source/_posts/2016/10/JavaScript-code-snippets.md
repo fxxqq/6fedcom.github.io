@@ -1,5 +1,5 @@
 ---
-title: JavaScript常用的代码片段
+title: javascript常用的代码片段
 tags:
   - javascript
   - Snippet
@@ -958,7 +958,7 @@ function SetSort(){
 function clear_script(){
     K1.value=K1.value.replace(/<script.*?>[\s\S]*?<\/script>|\s+on[a-zA-Z]{3,16}\s?=\s?"[\s\S]*?"|\s+on[a-zA-Z]{3,16}\s?=\s?'[\s\S]*?'|\s+on[a-zA-Z]{3,16}\s?=[^ >]+/ig,"");
 }
-动态执行JavaScript脚本
+动态执行javascript脚本
  
 function javascript(){
     try{

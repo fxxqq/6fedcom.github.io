@@ -39,7 +39,7 @@ date: 2017-11-19 10:11:24
 
 ```js
 /*
-    JSX（javaScriptXML）语法入门：
+    JSX（javascriptXML）语法入门：
         1、不是一门语言，是一个语法或者说是语法糖
         2、JSX标签其实就是HTML标签，只不过在javascript中这些标签的时候，
             不使用“”,遇到HTML标签（以<开始），就用HTML规则解析，遇到代码块

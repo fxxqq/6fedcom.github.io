@@ -1,5 +1,5 @@
 ---
-title: JavaScript启示录阅读笔录
+title: javascript启示录阅读笔录
 tags:
   - javascript
   - 读书笔记
@@ -8,7 +8,7 @@ abbrlink: a87a6818
 date: 2017-10-24 10:30:13
 ---
 
-## 第一章 JavaScript对象
+## 第一章 javascript对象
 
 ### 1.1 创建对象
 ---
@@ -29,7 +29,7 @@ console.log(cody);
 
 - 最重要的是要记住：对象只是属性的容器，每个属性都有一个名称和一个值
 
-### 1.2 JavaScript构造函数构建并返回对象实例
+### 1.2 javascript构造函数构建并返回对象实例
 ---
 
 - 构造函数的作用是创建多个共享特定特性和行为的对象。
@@ -55,10 +55,10 @@ console.log(cody);
 
 ```
 
-### 1.3 JavaScript原生内置对象构造函数
+### 1.3 javascript原生内置对象构造函数
 ---
 
-- `JavaScript`包含九个原生对象构造函数，`JavaScript`使用这些对象来构建`JavaScript`语言
+- `javascript`包含九个原生对象构造函数，`javascript`使用这些对象来构建`javascript`语言
 
 - `Number()`
 - `String()`

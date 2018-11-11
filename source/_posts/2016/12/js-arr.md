@@ -1,5 +1,5 @@
 ---
-title: Javascript数组详解
+title: javascript数组详解
 tags:
   - javascript
   - 数组

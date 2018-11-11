@@ -15,7 +15,7 @@ css代码
 	overflow: scroll;
 }
 ```
-Javascript代码
+javascript代码
 ```js
 $("img").lazyload({
 	placeholder: "img/grey.gif",

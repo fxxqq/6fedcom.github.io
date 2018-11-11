@@ -1,5 +1,5 @@
 ---
-title: JavaScript之面向对象中的封装
+title: javascript之面向对象中的封装
 tags: javascript
 categories: front-end
 abbrlink: bec5cc2b

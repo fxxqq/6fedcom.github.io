@@ -1,5 +1,5 @@
 ---
-title: JavaScript语言基础之数组(七)
+title: javascript语言基础之数组(七)
 tags: javascript
 categories: front-end
 abbrlink: 4d991e84

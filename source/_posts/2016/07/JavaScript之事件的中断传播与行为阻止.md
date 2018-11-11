@@ -1,5 +1,5 @@
 ---
-title: JavaScript之事件的中断传播与行为阻止
+title: javascript之事件的中断传播与行为阻止
 tags: javascript
 categories: front-end
 abbrlink: 45243f7e

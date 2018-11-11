@@ -1,5 +1,5 @@
 ---
-title: 'JavaScript之IE,火狐兼容事件对象'
+title: 'javascript之IE,火狐兼容事件对象'
 tags: javascript
 categories: front-end
 abbrlink: 41b2f700

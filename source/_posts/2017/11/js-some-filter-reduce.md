@@ -1,5 +1,5 @@
 ---
-title: JavaScript原生数组及高阶函数
+title: javascript原生数组及高阶函数
 tags:
   - javascript
   - 高阶函数

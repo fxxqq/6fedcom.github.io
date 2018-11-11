@@ -1,5 +1,5 @@
 ---
-title: JavaScript继承的几种方式
+title: javascript继承的几种方式
 tags:
   - javascript
   - 继承
@@ -8,7 +8,7 @@ abbrlink: 6d4a6414
 date: 2017-10-18 19:46:43
 ---
 
-> JavaScript继承本质和原型链有关
+> javascript继承本质和原型链有关
 
 - 原型、实例、构造函数、原型链之间的关系
 

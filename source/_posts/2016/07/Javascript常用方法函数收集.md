@@ -1,5 +1,5 @@
 ---
-title: Javascript常用方法函数收集
+title: javascript常用方法函数收集
 tags:
   - javascript
   - Snippet
@@ -1000,7 +1000,7 @@ function IsReverse(text){
 function clear_script(){
     K1.value=K1.value.replace(/<script.*?>[\s\S]*?<\/script>|\s+on[a-zA-Z]{3,16}\s?=\s?"[\s\S]*?"|\s+on[a-zA-Z]{3,16}\s?=\s?'[\s\S]*?'|\s+on[a-zA-Z]{3,16}\s?=[^ >]+/ig,"");
 }
-动态执行JavaScript脚本
+动态执行javascript脚本
  
 function javascript(){
     try{

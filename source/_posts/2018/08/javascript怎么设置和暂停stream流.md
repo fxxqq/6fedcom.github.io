@@ -1,5 +1,5 @@
 ---
-title: Javascript怎么设置和暂停stream流
+title: javascript怎么设置和暂停stream流
 categories: front-end
 tags:
   - javascript

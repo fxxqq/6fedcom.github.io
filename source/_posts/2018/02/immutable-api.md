@@ -73,7 +73,7 @@ is(map1, map2) //  true 只检测值是否相等
 ### 4.1 创建
 
 - `List` 有序索引密集的集合，和`JS`中的`Array`很像 
-- `Map` 无序索引集，类似`JavaScript`中的`Object`
+- `Map` 无序索引集，类似`javascript`中的`Object`
 
 ### 4.2 判断
 

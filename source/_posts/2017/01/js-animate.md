@@ -1,5 +1,5 @@
 ---
-title: JavaScript运动框架之速度时间版本
+title: javascript运动框架之速度时间版本
 tags:
   - javascript
   - 运动框架
@@ -8,7 +8,7 @@ abbrlink: 258fc88c
 date: 2017-01-12 15:50:43
 ---
 
-### 一、JavaScript运动框架之速度版
+### 一、javascript运动框架之速度版
 ---
 
 #### 1.1 运动框架的实现思路
@@ -472,7 +472,7 @@ function getId(id){
 
 
 
-### 二、JavaScript运动框架之时间版
+### 二、javascript运动框架之时间版
 ---
 
 

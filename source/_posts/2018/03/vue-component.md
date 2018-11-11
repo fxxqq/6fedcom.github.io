@@ -100,7 +100,7 @@ template: `<div>这是一个局部的自定义组件，只能在当前Vue实例�
 **应当注意，如果您使用来自以下来源之一的字符串模板，这些限制将不适用**：
 
 - `<script type="text/x-template">`
-- `JavaScript` 内联模版字符串
+- `javascript` 内联模版字符串
 - `.vue` 组件
 
 > 一般情况下，只有单文件组件`.vue`可以忽略这种情况

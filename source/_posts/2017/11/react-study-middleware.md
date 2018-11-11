@@ -92,7 +92,7 @@ var asyncSayActionCreator = function (message) {
 
 - 也就是说，正常来说，`action`返回的是一个对象，而不是一个函数。如果返回函数，会出现错误
 - 　而异步操作呢，需要`action`的返回值是一个函数。那么咋办呢，所以需要引入中间件`middleware`,它在中间起到了桥梁的作用，让`action`的返回值可以是一个函数，从而传到`reducer`那里。也就是说，中间件是用在`action`发起之后，`reducer`接收到之前的这个时间段
-- 也可以这么说，`Middleware` 主要是负责改变`Store`中的`dispatch`方法，从而能处理不同类型的 `action` 输入，得到最终的 `Javascript Plain Object` 形式的 `action` 对象
+- 也可以这么说，`Middleware` 主要是负责改变`Store`中的`dispatch`方法，从而能处理不同类型的 `action` 输入，得到最终的 `javascript Plain Object` 形式的 `action` 对象
 
 > 因此，上面那个`ActionCreator`就可以改写为这样：因为`action`的返回值是一个函数
 
