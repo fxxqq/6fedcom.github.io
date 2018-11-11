@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ce57255f3fd73efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-195f2150c8aebccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-01T09:36:40.578Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:14.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redux之浅析中间件（八）">
 <meta name="twitter:description" content="一、前言 在redux里，middleware是发送action和action到达reducer之间的第三方扩展，也就是中间层。也可以这样说，middleware是架在action和store之间的一座桥梁 在redux里，action仅仅是携带了数据的普通js对象   Reducer 拆分可以使组件获取其最小属性(state)，而不需要整个Store。中间件则可以在Action Creator">
@@ -248,7 +248,7 @@
 <ul>
 <li>也就是说，正常来说，<code>action</code>返回的是一个对象，而不是一个函数。如果返回函数，会出现错误</li>
 <li>　而异步操作呢，需要<code>action</code>的返回值是一个函数。那么咋办呢，所以需要引入中间件<code>middleware</code>,它在中间起到了桥梁的作用，让<code>action</code>的返回值可以是一个函数，从而传到<code>reducer</code>那里。也就是说，中间件是用在<code>action</code>发起之后，<code>reducer</code>接收到之前的这个时间段</li>
-<li>也可以这么说，<code>Middleware</code> 主要是负责改变<code>Store</code>中的<code>dispatch</code>方法，从而能处理不同类型的 <code>action</code> 输入，得到最终的 <code>Javascript Plain Object</code> 形式的 <code>action</code> 对象</li>
+<li>也可以这么说，<code>Middleware</code> 主要是负责改变<code>Store</code>中的<code>dispatch</code>方法，从而能处理不同类型的 <code>action</code> 输入，得到最终的 <code>javascript Plain Object</code> 形式的 <code>action</code> 对象</li>
 </ul>
 <blockquote>
 <p>因此，上面那个<code>ActionCreator</code>就可以改写为这样：因为<code>action</code>的返回值是一个函数</p>

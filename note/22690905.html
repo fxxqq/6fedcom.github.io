@@ -21,7 +21,7 @@
     <link rel="canonical" href="https://ru23.com/note/22690905.html">
     
     
-    <title>编写可维护的JavaScript | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <title>编写可维护的javascript | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#006fbc">
@@ -31,14 +31,14 @@
     <meta name="description" content="一、事件处理 1.1 规则1：隔离应用层 好的写法，拆分应用逻辑  1234567891011121314var myApp = &amp;#123;    handleClick: function(e)&amp;#123;      this.showPopup(e);      &amp;#125;,    showPopup: function(e)&amp;#123;        var popup = docume">
 <meta name="keywords" content="javascript,读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编写可维护的JavaScript">
+<meta property="og:title" content="编写可维护的javascript">
 <meta property="og:url" content="https://ru23.com/note/22690905.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="一、事件处理 1.1 规则1：隔离应用层 好的写法，拆分应用逻辑  1234567891011121314var myApp = &amp;#123;    handleClick: function(e)&amp;#123;      this.showPopup(e);      &amp;#125;,    showPopup: function(e)&amp;#123;        var popup = docume">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T09:37:46.140Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:13.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编写可维护的JavaScript">
+<meta name="twitter:title" content="编写可维护的javascript">
 <meta name="twitter:description" content="一、事件处理 1.1 规则1：隔离应用层 好的写法，拆分应用逻辑  1234567891011121314var myApp = &amp;#123;    handleClick: function(e)&amp;#123;      this.showPopup(e);      &amp;#125;,    showPopup: function(e)&amp;#123;        var popup = docume">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
@@ -137,7 +137,7 @@
             <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            编写可维护的JavaScript
+            编写可维护的javascript
         </div>
         
         <div class="search-wrap" id="search-wrap">
@@ -160,7 +160,7 @@
 <header class="content-header post-header">
     <div class="container fade-scale">
         <h1 class="title">
-            编写可维护的JavaScript
+            编写可维护的javascript
         </h1>
         <h5 class="subtitle">
             
@@ -195,7 +195,7 @@
 <article id="post-2017-10-js-good-style" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">编写可维护的JavaScript</h1>
+        <h1 class="post-card-title">编写可维护的javascript</h1>
         <div class="post-meta">
             <time class="post-time" id="post-time" title="2017-10-24 10:10:43" datetime="2017-10-24T02:10:43.000Z" itemprop="datePublished">2017-10-24</time>
 
@@ -221,7 +221,7 @@
 <h2 id="二、javascript中的检测方法"><a href="#二、javascript中的检测方法" class="headerlink" title="二、javascript中的检测方法"></a>二、javascript中的检测方法</h2><hr>
 <h3 id="2-1-检测原始值"><a href="#2-1-检测原始值" class="headerlink" title="2.1 检测原始值"></a>2.1 检测原始值</h3><hr>
 <blockquote>
-<p>在<code>JavaScript</code>中有五种原始类型：字符串、数字、布尔值、<code>null</code>、<code>undefined</code>。如果你希望一个值是字符串、数字、布尔值或<code>undefined</code>，最佳选择是使用typeof运算符。typeof运算符会返回一个表示值 饿类型的字符串</p>
+<p>在<code>javascript</code>中有五种原始类型：字符串、数字、布尔值、<code>null</code>、<code>undefined</code>。如果你希望一个值是字符串、数字、布尔值或<code>undefined</code>，最佳选择是使用typeof运算符。typeof运算符会返回一个表示值 饿类型的字符串</p>
 </blockquote>
 <ul>
 <li>对于字符串，<code>typeof</code>返回<code>string</code></li>
@@ -263,7 +263,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将配置数据抽离出来</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    MSG_INVALID_VALUE: <span class="string">"invalid value"</span>,</span><br><span class="line">    URL_INVALID: <span class="string">"errors/invalid.php"</span>,</span><br><span class="line">    CSS_SELECTED: <span class="string">"selected"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validate</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!value)&#123;</span><br><span class="line">        alert(config.MSG_INVALID_VALUE);</span><br><span class="line">        location.href = config.URL_INVALID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>参考<ul>
-<li>编写可维护的JavaScript</li>
+<li>编写可维护的javascript</li>
 </ul>
 </li>
 </ul>
@@ -315,7 +315,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/22690905.html&title=《编写可维护的javascript》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -325,7 +325,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/22690905.html&title=《编写可维护的javascript》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -335,7 +335,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&url=https://ru23.com/note/22690905.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编写可维护的javascript》 — 前端迷 (front-end fan)&url=https://ru23.com/note/22690905.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -365,7 +365,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/note/a87a6818.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript启示录阅读笔录</h4>
+        <h4 class="title">javascript启示录阅读笔录</h4>
       </a>
     </div>
   
@@ -476,7 +476,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/22690905.html&title=《编写可维护的javascript》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -486,7 +486,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/22690905.html&title=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/22690905.html&title=《编写可维护的javascript》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -496,7 +496,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编写可维护的JavaScript》 — 前端迷 (front-end fan)&url=https://ru23.com/note/22690905.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编写可维护的javascript》 — 前端迷 (front-end fan)&url=https://ru23.com/note/22690905.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

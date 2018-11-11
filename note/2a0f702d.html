@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://segmentfault.com/image?src=http://img.alicdn.com/tps/i2/TB1zzi_KXXXXXctXFXXbrb8OVXX-613-575.gif&objectId=1190000003910357&token=4f994e3bf65c373b010a157dfbab240f">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ddbb8fec9c23aa7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-01T09:36:40.875Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:15.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React之Immutable学习记录（十二）">
 <meta name="twitter:description" content="整理于互联网  一、前言 从问题说起：熟悉 React 组件生命周期的话都知道：调用 setState 方法总是会触发 render 方法从而进行 vdom re-render 相关逻辑，哪怕实际上你没有更改到 Component.state  12this.state = &amp;#123;count: 0&amp;#125;this.setState(&amp;#123;count: 0&amp;#125;);// 组件">
@@ -268,7 +268,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原生对象</span></span><br><span class="line"><span class="keyword">let</span> a1 = &#123;</span><br><span class="line">    b: <span class="number">1</span>,</span><br><span class="line">    c: &#123;</span><br><span class="line">        c1: <span class="number">123</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b1 = a1;</span><br><span class="line">b1.b = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a1.b, b1.b); <span class="comment">// 2, 2</span></span><br><span class="line"><span class="built_in">console</span>.log(a1 === b1); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a1.c === b1.c); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// immutable.js 的Map</span></span><br><span class="line"><span class="keyword">let</span> a2 = Immutable.fromJS(&#123;</span><br><span class="line">    b: <span class="number">1</span>,</span><br><span class="line">    c: &#123;</span><br><span class="line">        c1: <span class="number">123</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b2 = a2.set(<span class="string">'b'</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象</span></span><br><span class="line"><span class="built_in">console</span>.log(a2.get(<span class="string">'b'</span>), b2.get(<span class="string">'b'</span>)); <span class="comment">// 1, 2  对象 a2 的 b 值并没有变成2。</span></span><br><span class="line"><span class="built_in">console</span>.log(a2 === b2); <span class="comment">//  false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享。</span></span><br><span class="line"><span class="built_in">console</span>.log(a2.get(<span class="string">'c'</span>) === b2.get(<span class="string">'c'</span>)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <h2 id="三、为什么要在React-js中使用Immutable"><a href="#三、为什么要在React-js中使用Immutable" class="headerlink" title="三、为什么要在React.js中使用Immutable"></a>三、为什么要在React.js中使用Immutable</h2><blockquote>
 <ul>
-<li>它是一个完全独立的库，无论基于什么框架都可以用它。意义在于它弥补了<code>Javascript</code> 没有不可变数据结构的问题</li>
+<li>它是一个完全独立的库，无论基于什么框架都可以用它。意义在于它弥补了<code>javascript</code> 没有不可变数据结构的问题</li>
 <li>由于是不可变的，可以放心的对对象进行任意操作。在<code>React</code>开发中，频繁操作state对象或是<code>store</code>，配合<code>immutableJS</code>快、安全、方便</li>
 </ul>
 </blockquote>
@@ -324,15 +324,15 @@
 <li>容易与原生对象混淆</li>
 </ul>
 <h2 id="四、Immutable-的几种数据类型"><a href="#四、Immutable-的几种数据类型" class="headerlink" title="四、Immutable 的几种数据类型"></a>四、Immutable 的几种数据类型</h2><ul>
-<li><code>List</code>: 有序索引集，类似<code>JavaScript</code>中的<code>Array</code>。</li>
-<li><code>Map</code>: 无序索引集，类似<code>JavaScript</code>中的<code>Object</code>。</li>
+<li><code>List</code>: 有序索引集，类似<code>javascript</code>中的<code>Array</code>。</li>
+<li><code>Map</code>: 无序索引集，类似<code>javascript</code>中的<code>Object</code>。</li>
 <li><code>OrderedMap</code>: 有序的<code>Map</code>，根据数据的<code>set()</code>进行排序。</li>
 <li><code>Set</code>: 没有重复值的集合。</li>
 <li><code>OrderedSet</code>: 有序的<code>Set</code>，根据数据的<code>add</code>进行排序。</li>
 <li><code>Stack</code>: 有序集合，支持使用<code>unshift（）</code>和<code>shift（）</code>添加和删除。</li>
 <li><code>Range()</code>: 返回一个<code>Seq.Indexed</code>类型的集合，这个方法有三个参数，<code>start</code>表示开始值，默认值为<code>0</code>，<code>end</code>表示结束值，默认为无穷大，<code>step</code>代表每次增大的数值，默认为<code>1</code>.如果<code>start = end</code>,则返回空集合。</li>
 <li><code>Repeat()</code>: 返回一个<code>vSeq.Indexe</code>类型的集合，这个方法有两个参数，<code>value</code>代表需要重复的值，<code>times</code>代表要重复的次数，默认为无穷大。</li>
-<li><code>Record</code>: 一个用于生成<code>Record</code>实例的类。类似于<code>JavaScript</code>的<code>Object</code>，但是只接收特定字符串为<code>key</code>，具有默认值。</li>
+<li><code>Record</code>: 一个用于生成<code>Record</code>实例的类。类似于<code>javascript</code>的<code>Object</code>，但是只接收特定字符串为<code>key</code>，具有默认值。</li>
 <li><code>Seq</code>: 序列，但是可能不能由具体的数据结构支持。</li>
 <li><code>Collection</code>: 是构建所有数据结构的基类，不可以直接构建</li>
 </ul>
@@ -673,7 +673,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/note/c5d4add4.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript常用api合集</h4>
+        <h4 class="title">javascript常用api合集</h4>
       </a>
     </div>
   

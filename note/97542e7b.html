@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-9bd38573bdc1456c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-ae36b6816feed422.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-01T09:40:04.727Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:16.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack4定制前端开发环境">
 <meta name="twitter:description" content="来源掘金小册笔记  一、webpack概念和基础使用1.1 安装和使用1234567npm install webpack webpack-cli -g # 或者yarn global add webpack webpack-cli# 然后就可以全局执行命令了webpack --help 1.2 webpack 的基本概念 webpack 本质上是一个打包工具，它会根据代码的内容解析模块依赖，帮">
@@ -618,7 +618,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(png|jpg|gif)$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">'url-loader'</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: <span class="number">8192</span>, <span class="comment">// 单位是 Byte，当文件小于 8KB 时作为 DataURL 处理</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;...</span><br></pre></td></tr></table></figure>
 <h2 id="9-4-代码压缩"><a href="#9-4-代码压缩" class="headerlink" title="9.4 代码压缩"></a>9.4 代码压缩</h2><ul>
-<li><code>webpack 4.x</code> 版本运行时，<code>mode</code> 为 <code>production</code> 即会启动压缩 <code>JS</code> 代码的插件，而对于 <code>webpack</code> <code>3.x</code>，使用压缩 <code>JS</code> 代码插件的方式也已经介绍过了。在生产环境中，压缩 <code>JS</code> 代码基本是一个必不可少的步骤，这样可以大大减小 <code>JavaScript</code> 的体积，相关内容这里不再赘述。</li>
+<li><code>webpack 4.x</code> 版本运行时，<code>mode</code> 为 <code>production</code> 即会启动压缩 <code>JS</code> 代码的插件，而对于 <code>webpack</code> <code>3.x</code>，使用压缩 <code>JS</code> 代码插件的方式也已经介绍过了。在生产环境中，压缩 <code>JS</code> 代码基本是一个必不可少的步骤，这样可以大大减小 <code>javascript</code> 的体积，相关内容这里不再赘述。</li>
 <li>除了 JS 代码之外，我们一般还需要 HTML 和 CSS 文件，这两种文件也都是可以压缩的，虽然不像 JS 的压缩那么彻底（替换掉长变量等），只能移除空格换行等无用字符，但也能在一定程度上减小文件大小。在 webpack 中的配置使用也不是特别麻烦，所以我们通常也会使用。</li>
 <li>对于 HTML 文件，之前介绍的 <code>html-webpack-plugin</code> 插件可以帮助我们生成需要的 HTML 并对其进行压缩…</li>
 </ul>

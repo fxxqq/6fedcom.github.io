@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="一、fromJS 作用：是最最常用的将原生JS数据转换为ImmutableJS数据的转换方法,默认将原生JS的Array转为List，Object转为Map  12345678910111213141516171819202122232425262728Immutable.fromJS(&amp;#123;  a: &amp;#123;    b: [1, 2, 3],    c: 40  &amp;#125;&amp;#125">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T09:36:41.325Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:15.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梳理Immutable常用api">
 <meta name="twitter:description" content="一、fromJS 作用：是最最常用的将原生JS数据转换为ImmutableJS数据的转换方法,默认将原生JS的Array转为List，Object转为Map  12345678910111213141516171819202122232425262728Immutable.fromJS(&amp;#123;  a: &amp;#123;    b: [1, 2, 3],    c: 40  &amp;#125;&amp;#125">
@@ -227,7 +227,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="built_in">Map</span>, is &#125; <span class="keyword">from</span> <span class="string">'immutable'</span></span><br><span class="line"><span class="keyword">const</span> map1 = <span class="built_in">Map</span>(&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">1</span>, <span class="attr">c</span>: <span class="number">1</span> &#125;)</span><br><span class="line"><span class="keyword">const</span> map2 = <span class="built_in">Map</span>(&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">1</span>, <span class="attr">c</span>: <span class="number">1</span> &#125;)</span><br><span class="line"></span><br><span class="line">map1 === map2   <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.is(map1, map2) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">is(map1, map2) <span class="comment">//  true 只检测值是否相等</span></span><br></pre></td></tr></table></figure>
 <h2 id="四、List-和-Map"><a href="#四、List-和-Map" class="headerlink" title="四、List 和 Map"></a>四、List 和 Map</h2><h3 id="4-1-创建"><a href="#4-1-创建" class="headerlink" title="4.1 创建"></a>4.1 创建</h3><ul>
 <li><code>List</code> 有序索引密集的集合，和<code>JS</code>中的<code>Array</code>很像 </li>
-<li><code>Map</code> 无序索引集，类似<code>JavaScript</code>中的<code>Object</code></li>
+<li><code>Map</code> 无序索引集，类似<code>javascript</code>中的<code>Object</code></li>
 </ul>
 <h3 id="4-2-判断"><a href="#4-2-判断" class="headerlink" title="4.2 判断"></a>4.2 判断</h3><ul>
 <li><code>List.isList()</code> 和 <code>Map.isMap()</code> 判断一个数据结构是不是<code>List/Map</code>类型</li>

@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://ru23.com/img/2018/11/domtree.png">
 <meta property="og:image" content="https://ru23.com/img/2018/11/shendubianli.png">
 <meta property="og:image" content="https://ru23.com/img/2018/11/guangdubianli.png">
-<meta property="og:updated_time" content="2018-11-09T06:20:56.848Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:16.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="头条2018秋招面试题">
 <meta name="twitter:description" content="简答题1.css3特性中的transform：translateZ(0)有什么作用答案：gpu加速,提高浏览器渲染的性能  2.列举三种禁止浏览器缓存的头字段，并写出响应的设置值Expires：告诉浏览器把回送的资源缓存多长时间 -1或0则是不缓存简要：添加Expires头能有效的利用浏览器的缓存能力来改善页面的性能，能在后续的页面中有效避免很多不必要的Http请求，WEB服务器使用Expires">
@@ -273,17 +273,17 @@
 <p>//构建一个render函数，将demoNode对象渲染为以下dom<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>douyin<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>toutiao<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>看到虚拟DOM，是不是感觉很玄乎，但是剥开它华丽的外衣，也就那样:</p>
 <ol>
-<li>通过JavaScript来构建虚拟的DOM树结构，并将其呈现到页面中；</li>
+<li>通过javascript来构建虚拟的DOM树结构，并将其呈现到页面中；</li>
 <li>当数据改变，引起DOM树结构发生改变，从而生成一颗新的虚拟DOM树，将其与之前的DOM对比，将变化部分应用到真实的DOM树中，即页面中。<br>通过上面的介绍，下面，我们就来实现一个简单的虚拟DOM，并将其与真实的DOM关联。</li>
 </ol>
 <p><strong>构建虚拟DOM</strong></p>
-<p>虚拟DOM，其实就是用JavaScript对象来构建DOM树，如上ul组件模版，其树形结构如下：<br><figure class="image-bubble">
+<p>虚拟DOM，其实就是用javascript对象来构建DOM树，如上ul组件模版，其树形结构如下：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/2018/11/domtree.png" alt="DOM树" title="">
                 </div>
                 <div class="image-caption">DOM树</div>
-            </figure><br>通过JavaScript，我们可以很容易构建它，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elem = Element(&#123;</span><br><span class="line">    tagName: <span class="string">'ul'</span>,</span><br><span class="line">    props: &#123;<span class="string">'class'</span>: <span class="string">'list'</span>&#125;,</span><br><span class="line">    children: [</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item1'</span>]&#125;),</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item2'</span>]&#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+            </figure><br>通过javascript，我们可以很容易构建它，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elem = Element(&#123;</span><br><span class="line">    tagName: <span class="string">'ul'</span>,</span><br><span class="line">    props: &#123;<span class="string">'class'</span>: <span class="string">'list'</span>&#125;,</span><br><span class="line">    children: [</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item1'</span>]&#125;),</span><br><span class="line">        Element(&#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">children</span>: [<span class="string">'item2'</span>]&#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>note：Element为一个构造函数，返回一个Element对象。为了更清晰的呈现虚拟DOM结构，我们省略了new，而在Element中实现。</p>
 </blockquote>

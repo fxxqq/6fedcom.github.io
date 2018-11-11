@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="闭包的形成跟变量的作用域以及变量的生存周期密切相关  一、变量的作用域,是指变量的有效范围 当在函数中声明一个变量的时候,如果该变量前面没有带上关键字 var,这个变量就会成为全局变量 ,这当然是一种很容易造成命名冲突的做法。另外一种情况是用 var 关键字在函数中声明变量,这时候的变量即是局部变量,只有在该函数内部才能访问到这个变量,在函数外面是访问不到的。  例：变量的搜索是从内到外而非从外">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T08:08:55.111Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:13.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈闭包">
 <meta name="twitter:description" content="闭包的形成跟变量的作用域以及变量的生存周期密切相关  一、变量的作用域,是指变量的有效范围 当在函数中声明一个变量的时候,如果该变量前面没有带上关键字 var,这个变量就会成为全局变量 ,这当然是一种很容易造成命名冲突的做法。另外一种情况是用 var 关键字在函数中声明变量,这时候的变量即是局部变量,只有在该函数内部才能访问到这个变量,在函数外面是访问不到的。  例：变量的搜索是从内到外而非从外">
@@ -246,7 +246,7 @@
 <ul>
 <li>首先有一个封闭的函数<code>a</code>（即自定义的一个<code>function a()</code>方法），该函数内部的变量<code>b</code>（局部变量/局部方法）外部无法直接调用；但如果把这个函数赋值给一个全部变量<code>c</code>时，</li>
 <li>全局变量c就获取到了函数局部变量b的值，从而使局部变量<code>b</code>的值得到了保存，即延长了一个局部变量<code>b</code>的生命周期，除非主动销毁这个全局变量<code>c</code>。<br>此时，我们也就制造出来了一个“闭包”。简单说“闭包是指有权限访问另一个函数作用域的变量的函数”。</li>
-<li>在这个过程中，因为局部变量b的声明周期延长，使得<code>Javascript</code>的垃圾回收机制不会收回函数<code>a</code>所占用的资源,因为函数a的局部变量<code>b</code>的执行需要依赖函数a中的变量。</li>
+<li>在这个过程中，因为局部变量b的声明周期延长，使得<code>javascript</code>的垃圾回收机制不会收回函数<code>a</code>所占用的资源,因为函数a的局部变量<code>b</code>的执行需要依赖函数a中的变量。</li>
 </ul>
 
         </div>

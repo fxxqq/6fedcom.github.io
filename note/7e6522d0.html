@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="对象 对象的含义 所谓对象，就是一种无序的数据集合，由若干个“键值对”（key-value）构成">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T08:08:56.009Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:16.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP之类与对象">
 <meta name="twitter:description" content="对象 对象的含义 所谓对象，就是一种无序的数据集合，由若干个“键值对”（key-value）构成">
@@ -284,7 +284,7 @@
 <h5 id="作为构造函数"><a href="#作为构造函数" class="headerlink" title="作为构造函数"></a>作为构造函数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> F(); <span class="comment">// 函数内部的this指向新创建的对象。</span></span><br></pre></td></tr></table></figure>
 <h5 id="多层嵌套的内部函数"><a href="#多层嵌套的内部函数" class="headerlink" title="多层嵌套的内部函数"></a>多层嵌套的内部函数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"global"</span>;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name : <span class="string">"person"</span>,</span><br><span class="line">    hello : <span class="function"><span class="keyword">function</span>(<span class="params">sth</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> sayhello = <span class="function"><span class="keyword">function</span>(<span class="params">sth</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says "</span> + sth);</span><br><span class="line">        &#125;;</span><br><span class="line">        sayhello(sth);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.hello(<span class="string">"hello world"</span>);<span class="comment">//global says hello world</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>在内部函数中，<code>this</code>没有按预想的绑定到外层函数对象上，而是绑定到了全局对象。这里普遍被认为是<code>JavaScript</code>语言的设计错误，因为没有人想让内部函数中的<code>this</code>指向全局对象。一般的处理方式是将<code>this</code>作为变量保存下来，一般约定为<code>that</code>或者<code>self</code>：</li>
+<li>在内部函数中，<code>this</code>没有按预想的绑定到外层函数对象上，而是绑定到了全局对象。这里普遍被认为是<code>javascript</code>语言的设计错误，因为没有人想让内部函数中的<code>this</code>指向全局对象。一般的处理方式是将<code>this</code>作为变量保存下来，一般约定为<code>that</code>或者<code>self</code>：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"global"</span>;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name : <span class="string">"person"</span>,</span><br><span class="line">    hello : <span class="function"><span class="keyword">function</span>(<span class="params">sth</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">var</span> sayhello = <span class="function"><span class="keyword">function</span>(<span class="params">sth</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(that.name + <span class="string">" says "</span> + sth);</span><br><span class="line">        &#125;;</span><br><span class="line">        sayhello(sth);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.hello(<span class="string">"hello world"</span>);<span class="comment">//person says hello world</span></span><br></pre></td></tr></table></figure>
 <h5 id="事件中的this"><a href="#事件中的this" class="headerlink" title="事件中的this"></a>事件中的this</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line">ele.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">//this指向dom元素</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -403,18 +403,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/note/b61cd12f.html" id="post-prev" class="post-nav-link">
+      <a href="/note/6c17c77b.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JS继承的几种方法总结</h4>
+        <h4 class="title">OOP之面向对象</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/note/e36aeed5.html" id="post-next" class="post-nav-link">
+      <a href="/note/b61cd12f.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">OOP之原型与原型链</h4>
+        <h4 class="title">JS继承的几种方法总结</h4>
       </a>
     </div>
   

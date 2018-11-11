@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="整理于互联网，整理最常用的部分，完善中…. 参考资料: http://es6.ruanyifeng.com   第一部分：扩展1.1、let和const const声明一个只读的常量。一旦声明，常量的值就不能改变 let不允许在相同作用域内，重复声明同一个变量 for循环的计数器，就很合适使用let命令 不存在变量提升 会创建块级作用域  1.2、变量的解构赋值数组解构赋值应用场景  变量交换">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T09:40:04.405Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:13.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript6回顾">
 <meta name="twitter:description" content="整理于互联网，整理最常用的部分，完善中…. 参考资料: http://es6.ruanyifeng.com   第一部分：扩展1.1、let和const const声明一个只读的常量。一旦声明，常量的值就不能改变 let不允许在相同作用域内，重复声明同一个变量 for循环的计数器，就很合适使用let命令 不存在变量提升 会创建块级作用域  1.2、变量的解构赋值数组解构赋值应用场景  变量交换">
@@ -246,7 +246,7 @@
 <h3 id="1-3、字符串扩展"><a href="#1-3、字符串扩展" class="headerlink" title="1.3、字符串扩展"></a>1.3、字符串扩展</h3><ul>
 <li>模板字符串是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="string">`In JavaScript '\n' is a line-feed.`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行字符串</span></span><br><span class="line"><span class="string">`In JavaScript this is</span></span><br><span class="line"><span class="string"> not legal.`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`string text line 1</span></span><br><span class="line"><span class="string">string text line 2`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串中嵌入变量</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">"Bob"</span>, time = <span class="string">"today"</span>;</span><br><span class="line"><span class="string">`Hello <span class="subst">$&#123;name&#125;</span>, how are you <span class="subst">$&#123;time&#125;</span>?`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="string">`In javascript '\n' is a line-feed.`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行字符串</span></span><br><span class="line"><span class="string">`In javascript this is</span></span><br><span class="line"><span class="string"> not legal.`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`string text line 1</span></span><br><span class="line"><span class="string">string text line 2`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串中嵌入变量</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">"Bob"</span>, time = <span class="string">"today"</span>;</span><br><span class="line"><span class="string">`Hello <span class="subst">$&#123;name&#125;</span>, how are you <span class="subst">$&#123;time&#125;</span>?`</span></span><br></pre></td></tr></table></figure>
 <h3 id="1-4、数值扩展"><a href="#1-4、数值扩展" class="headerlink" title="1.4、数值扩展"></a>1.4、数值扩展</h3><p><strong>Number.isFinite(), Number.isNaN()</strong></p>
 <ul>
 <li><code>Number.isFinite()</code>用来检查一个数值是否为有限的</li>
@@ -323,7 +323,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123; getItem, setItem, clear &#125;;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  getItem: getItem,</span><br><span class="line">  setItem: setItem,</span><br><span class="line">  clear: clear</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>属性名表达式</strong></p>
 <ul>
-<li><code>JavaScript</code> 定义对象的属性，有两种方法</li>
+<li><code>javascript</code> 定义对象的属性，有两种方法</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line">obj.foo = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line">obj[<span class="string">'a'</span> + <span class="string">'bc'</span>] = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -434,7 +434,7 @@
 <p><strong>Map</strong></p>
 <ul>
 <li><code>Map</code>是一组键值对的结构，具有极快的查找速度</li>
-<li>用<code>Map</code>实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用<code>JavaScript</code>写一个<code>Map</code>如下：</li>
+<li>用<code>Map</code>实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用<code>javascript</code>写一个<code>Map</code>如下：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var m = new Map([[&apos;Michael&apos;, 95], [&apos;Bob&apos;, 75], [&apos;Tracy&apos;, 85]]);</span><br><span class="line">m.get(&apos;Michael&apos;); // 95</span><br></pre></td></tr></table></figure>
 <ul>

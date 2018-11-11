@@ -37,7 +37,7 @@
 <meta property="og:description" content="声明 本教程整理于互联网   webpack是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如CommonJs模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LES">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-476c485bbf2af2f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-01T09:40:04.366Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:13.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack学习总结(二)">
 <meta name="twitter:description" content="声明 本教程整理于互联网   webpack是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如CommonJs模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LES">
@@ -229,7 +229,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;module1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;module2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;libraryA.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;module3.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>这是最原始的 <code>JavaScript</code> 文件加载方式，如果把每一个文件看做是一个模块，那么他们的接口通常是暴露在全局作用域下，也就是定义在 <code>window</code> 对象中，不同模块的接口调用都是一个作用域中，一些复杂的框架，会使用命名空间的概念来组织这些模块的接口，典型的例子如 <code>YUI</code> 库</p>
+<li><p>这是最原始的 <code>javascript</code> 文件加载方式，如果把每一个文件看做是一个模块，那么他们的接口通常是暴露在全局作用域下，也就是定义在 <code>window</code> 对象中，不同模块的接口调用都是一个作用域中，一些复杂的框架，会使用命名空间的概念来组织这些模块的接口，典型的例子如 <code>YUI</code> 库</p>
 </li>
 <li><p>这种原始的加载方式暴露了一些显而易见的弊端</p>
 <ul>
@@ -315,7 +315,7 @@
 </ul>
 <h3 id="1-4-ES6-模块"><a href="#1-4-ES6-模块" class="headerlink" title="1.4 ES6 模块"></a>1.4 ES6 模块</h3><hr>
 <ul>
-<li><code>EcmaScript6</code> 标准增加了 <code>JavaScript</code>语言层面的模块体系定义。<code>ES6</code> 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。<code>CommonJS</code> 和<code>AMD</code> 模块，都只能在运行时确定这些东西</li>
+<li><code>EcmaScript6</code> 标准增加了 <code>javascript</code>语言层面的模块体系定义。<code>ES6</code> 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。<code>CommonJS</code> 和<code>AMD</code> 模块，都只能在运行时确定这些东西</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &quot;jquery&quot;;</span><br><span class="line">export function doStuff() &#123;&#125;</span><br><span class="line">module &quot;localModule&quot; &#123;&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -343,7 +343,7 @@
 </ul>
 <h3 id="1-6-所有资源都是模块"><a href="#1-6-所有资源都是模块" class="headerlink" title="1.6 所有资源都是模块"></a>1.6 所有资源都是模块</h3><hr>
 <blockquote>
-<p>在上面的分析过程中，我们提到的模块仅仅是指<code>JavaScript</code>模块文件。然而，在前端开发过程中还涉及到样式、图片、字体、<code>HTML</code> 模板等等众多的资源。这些资源还会以各种方言的形式存在，比如 <code>coffeescript</code>、 <code>less</code>、 <code>sass</code>、众多的模板库、多语言系统（<code>i18n</code>）等</p>
+<p>在上面的分析过程中，我们提到的模块仅仅是指<code>javascript</code>模块文件。然而，在前端开发过程中还涉及到样式、图片、字体、<code>HTML</code> 模板等等众多的资源。这些资源还会以各种方言的形式存在，比如 <code>coffeescript</code>、 <code>less</code>、 <code>sass</code>、众多的模板库、多语言系统（<code>i18n</code>）等</p>
 </blockquote>
 <ul>
 <li>如果他们都可以视作模块，并且都可以通过 <code>require</code> 的方式来加载，将带来优雅的开发体验，比如</li>
@@ -370,7 +370,7 @@
 </li>
 <li><p>Loader</p>
 <ul>
-<li><code>Webpack</code> 本身只能处理原生的 <code>JavaScript</code> 模块，但是 <code>loader</code> 转换器可以将各种类型的资源转换成 <code>JavaScript</code> 模块。这样，任何资源都可以成为 <code>Webpack</code>可以处理的模块</li>
+<li><code>Webpack</code> 本身只能处理原生的 <code>javascript</code> 模块，但是 <code>loader</code> 转换器可以将各种类型的资源转换成 <code>javascript</code> 模块。这样，任何资源都可以成为 <code>Webpack</code>可以处理的模块</li>
 </ul>
 </li>
 <li>智能解析<ul>
@@ -451,12 +451,12 @@
 </ul>
 <h2 id="三、Loader"><a href="#三、Loader" class="headerlink" title="三、Loader"></a>三、Loader</h2><hr>
 <ul>
-<li><code>Webpack</code> 本身只能处理 <code>JavaScript</code> 模块，如果要处理其他类型的文件，就需要使用 <code>loader</code>进行转换</li>
+<li><code>Webpack</code> 本身只能处理 <code>javascript</code> 模块，如果要处理其他类型的文件，就需要使用 <code>loader</code>进行转换</li>
 <li><code>Loader</code> 可以理解为是模块和资源的转换器，它本身是一个函数，接受源文件作为参数，返回转换的结果。这样，我们就可以通过 require 来加载任何类型的模块或文件，比如CoffeeScript、 JSX、 LESS </li>
 </ul>
 <h3 id="3-1-loader-有哪些特性"><a href="#3-1-loader-有哪些特性" class="headerlink" title="3.1  loader 有哪些特性"></a>3.1  loader 有哪些特性</h3><hr>
 <ul>
-<li><code>Loader</code> 可以通过管道方式链式调用，每个 <code>loader</code> 可以把资源转换成任意格式并传递给下一个 <code>loader</code> ，但是最后一个 <code>loader</code> 必须返回 <code>JavaScript</code></li>
+<li><code>Loader</code> 可以通过管道方式链式调用，每个 <code>loader</code> 可以把资源转换成任意格式并传递给下一个 <code>loader</code> ，但是最后一个 <code>loader</code> 必须返回 <code>javascript</code></li>
 <li><code>Loader</code>可以同步或异步执行。</li>
 <li><code>Loader</code> 运行在 <code>node.js</code> 环境中，所以可以做任何可能的事情。</li>
 <li><code>Loader</code> 可以接受参数，以此来传递配置项给 <code>loader</code>。</li>
@@ -469,7 +469,7 @@
 </ul>
 <blockquote>
 <ul>
-<li><code>Loader</code>本身也是运行在 <code>node.js</code> 环境中的 <code>JavaScript</code>模块，它通常会返回一个函数。大多数情况下，我们通过 npm 来管理 <code>loader</code>，但是你也可以在项目中自己写 <code>loader</code> 模块</li>
+<li><code>Loader</code>本身也是运行在 <code>node.js</code> 环境中的 <code>javascript</code>模块，它通常会返回一个函数。大多数情况下，我们通过 npm 来管理 <code>loader</code>，但是你也可以在项目中自己写 <code>loader</code> 模块</li>
 <li>按照惯例，而非必须，<code>loader</code> 一般以 <code>xxx-loader</code> 的方式命名， <code>xxx</code> 代表了这个 <code>loader</code>要做的转换功能，比如 <code>json-loader</code></li>
 <li>在引用 <code>loader</code> 的时候可以使用全名 <code>json-loader</code> ，或者使用短名 <code>json</code>。这个命名规则和搜索优先级顺序在<code>webpack</code> 的<code>resolveLoader.moduleTemplates api</code>中定义</li>
 </ul>

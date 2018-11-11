@@ -28,18 +28,18 @@
     
     
     <meta name="keywords" content="前端规范,editconfig">
-    <meta name="description" content="简介 在团队开发中，统一的代码格式是必要的。但是不同开发人员的代码风格不同，代码编辑工具的默认格式也不相同，这样就造成代码的differ。而editorConfig可以帮助开发人员在不同的编辑器和IDE中定义和维护一致的编码风格  editorconfig 一个editorconfig文件例子，用于设置Python和JavaScript行尾和缩进风格的配置文件  12345678910111213">
+    <meta name="description" content="简介 在团队开发中，统一的代码格式是必要的。但是不同开发人员的代码风格不同，代码编辑工具的默认格式也不相同，这样就造成代码的differ。而editorConfig可以帮助开发人员在不同的编辑器和IDE中定义和维护一致的编码风格  editorconfig 一个editorconfig文件例子，用于设置Python和javascript行尾和缩进风格的配置文件  12345678910111213">
 <meta name="keywords" content="前端规范,editconfig">
 <meta property="og:type" content="article">
 <meta property="og:title" content="editconfig配置">
 <meta property="og:url" content="https://ru23.com/note/59f3075e.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="简介 在团队开发中，统一的代码格式是必要的。但是不同开发人员的代码风格不同，代码编辑工具的默认格式也不相同，这样就造成代码的differ。而editorConfig可以帮助开发人员在不同的编辑器和IDE中定义和维护一致的编码风格  editorconfig 一个editorconfig文件例子，用于设置Python和JavaScript行尾和缩进风格的配置文件  12345678910111213">
+<meta property="og:description" content="简介 在团队开发中，统一的代码格式是必要的。但是不同开发人员的代码风格不同，代码编辑工具的默认格式也不相同，这样就造成代码的differ。而editorConfig可以帮助开发人员在不同的编辑器和IDE中定义和维护一致的编码风格  editorconfig 一个editorconfig文件例子，用于设置Python和javascript行尾和缩进风格的配置文件  12345678910111213">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T08:08:32.918Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:15.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="editconfig配置">
-<meta name="twitter:description" content="简介 在团队开发中，统一的代码格式是必要的。但是不同开发人员的代码风格不同，代码编辑工具的默认格式也不相同，这样就造成代码的differ。而editorConfig可以帮助开发人员在不同的编辑器和IDE中定义和维护一致的编码风格  editorconfig 一个editorconfig文件例子，用于设置Python和JavaScript行尾和缩进风格的配置文件  12345678910111213">
+<meta name="twitter:description" content="简介 在团队开发中，统一的代码格式是必要的。但是不同开发人员的代码风格不同，代码编辑工具的默认格式也不相同，这样就造成代码的differ。而editorConfig可以帮助开发人员在不同的编辑器和IDE中定义和维护一致的编码风格  editorconfig 一个editorconfig文件例子，用于设置Python和javascript行尾和缩进风格的配置文件  12345678910111213">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
@@ -216,7 +216,7 @@
 <p>在团队开发中，统一的代码格式是必要的。但是不同开发人员的代码风格不同，代码编辑工具的默认格式也不相同，这样就造成代码的<code>differ</code>。而<code>editorConfig</code>可以帮助开发人员在不同的编辑器和IDE中定义和维护一致的编码风格</p>
 </blockquote>
 <h2 id="editorconfig"><a href="#editorconfig" class="headerlink" title="editorconfig"></a>editorconfig</h2><ul>
-<li>一个<code>editorconfig</code>文件例子，用于设置<code>Python</code>和<code>JavaScript</code>行尾和缩进风格的配置文件</li>
+<li>一个<code>editorconfig</code>文件例子，用于设置<code>Python</code>和<code>javascript</code>行尾和缩进风格的配置文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># EditorConfig is awesome: http://EditorConfig.org</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># top-most EditorConfig file</span></span><br><span class="line">root = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Unix-style newlines with a newline ending every file</span></span><br><span class="line">[*]</span><br><span class="line">end_of_line = lf</span><br><span class="line">insert_final_newline = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Matches multiple files with brace expansion notation</span></span><br><span class="line"><span class="comment"># Set default charset</span></span><br><span class="line">[*.&#123;js,py&#125;]</span><br><span class="line">charset = utf-8</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 space indentation</span></span><br><span class="line">[*.py]</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 4</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tab indentation (no size specified)</span></span><br><span class="line">[*.js]</span><br><span class="line">indent_style = tab</span><br><span class="line"></span><br><span class="line"><span class="comment"># Indentation override for all JS under lib directory</span></span><br><span class="line">[lib/**.js]</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Matches the exact files either package.json or .travis.yml</span></span><br><span class="line">[&#123;package.json,.travis.yml&#125;]</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 2</span><br></pre></td></tr></table></figure>
 <h2 id="安装editorconfig"><a href="#安装editorconfig" class="headerlink" title="安装editorconfig"></a>安装editorconfig</h2><blockquote>
@@ -405,7 +405,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/note/1adc5a41.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript工程项目的一系列最佳实践</h4>
+        <h4 class="title">javascript工程项目的一系列最佳实践</h4>
       </a>
     </div>
   

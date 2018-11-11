@@ -44,7 +44,7 @@
 <meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020107.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
-<meta property="og:updated_time" content="2018-11-01T09:37:45.950Z">
+<meta property="og:updated_time" content="2018-11-11T02:02:13.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习总结(一)">
 <meta name="twitter:description" content="一、介绍                                                                                             Paste_Image.png               Vue是一套构建用户界面的 渐进式框架。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。  二、Vue实例构造器">
@@ -285,13 +285,13 @@
 <li>Mustache 不能在 <code>HTML</code> 属性中使用，应使用 <code>v-bind</code> 指令：</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>使用 JavaScript 表达式</strong></p>
+<p><strong>使用 javascript 表达式</strong></p>
 <ul>
-<li>对于所有的数据绑定， <code>Vue.js</code>都提供了完全的 <code>JavaScript</code>表达式支持。</li>
+<li>对于所有的数据绑定， <code>Vue.js</code>都提供了完全的 <code>javascript</code>表达式支持。</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; number + 1 &#125;&#125;&#123;&#123; ok ? 'YES' : 'NO' &#125;&#125;</span><br><span class="line">&#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"'list-' + id"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>这些表达式会在所属 Vue 实例的数据作用域下作为 JavaScript 被解析</li>
+<li>这些表达式会在所属 Vue 实例的数据作用域下作为 javascript 被解析</li>
 </ul>
 <p><strong>过滤器</strong></p>
 <ul>
@@ -300,7 +300,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; message | capitalize &#125;&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>指令</strong></p>
 <ul>
-<li>指令（<code>Directives</code>）是带有<code>v-</code>前缀的特殊属性。指令属性的值预期是单一 <code>JavaScript</code>表达式（除了<code>v-for</code> ，之后再讨论）</li>
+<li>指令（<code>Directives</code>）是带有<code>v-</code>前缀的特殊属性。指令属性的值预期是单一 <code>javascript</code>表达式（除了<code>v-for</code> ，之后再讨论）</li>
 <li>指令的职责就是当其表达式的值改变时相应地将某些行为应用到 dom 上</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"seen"</span>&gt;</span>Now you see me<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -439,7 +439,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="绑定内联样式"><a href="#绑定内联样式" class="headerlink" title="绑定内联样式"></a>绑定内联样式</h3><p><strong>对象语法</strong></p>
 <ul>
-<li><code>v-bind:style</code> 的对象语法十分直观——看着非常像<code>CSS</code> ，其实它是一个 <code>JavaScript</code> 对象。 <code>CSS</code> 属性名可以用驼峰式（camelCase）或短横分隔命名（kebab-case）</li>
+<li><code>v-bind:style</code> 的对象语法十分直观——看着非常像<code>CSS</code> ，其实它是一个 <code>javascript</code> 对象。 <code>CSS</code> 属性名可以用驼峰式（camelCase）或短横分隔命名（kebab-case）</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-bind:style</span>=<span class="string">"&#123; color: activeColor, fontSize: fontSize + 'px' &#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data: &#123; <span class="attr">activeColor</span>: <span class="string">'red'</span>, <span class="attr">fontSize</span>: <span class="number">30</span>&#125;</span><br></pre></td></tr></table></figure>
@@ -509,7 +509,7 @@
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span> </span><br><span class="line">		&#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125; </span><br><span class="line">	<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>你也可以用 <code>of</code>替代 <code>in</code>作为分隔符，因为它是最接近 <code>JavaScript</code> 迭代器的语法</li>
+<li>你也可以用 <code>of</code>替代 <code>in</code>作为分隔符，因为它是最接近 <code>javascript</code> 迭代器的语法</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item of items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>Template v-for</strong></p>
@@ -553,17 +553,17 @@
 </ul>
 <h2 id="八、事件处理器"><a href="#八、事件处理器" class="headerlink" title="八、事件处理器"></a>八、事件处理器</h2><p><strong>监听事件</strong></p>
 <ul>
-<li>可以用 <code>v-on</code> 指令监听 <code>dom</code> 事件来触发一些 <code>JavaScript</code> 代码</li>
+<li>可以用 <code>v-on</code> 指令监听 <code>dom</code> 事件来触发一些 <code>javascript</code> 代码</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"counter += 1"</span>&gt;</span>增加 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>这个按钮被点击了 &#123;&#123; counter &#125;&#125; 次。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123; </span><br><span class="line">el: <span class="string">'#example-1'</span>, </span><br><span class="line">data: &#123; </span><br><span class="line">	counter: <span class="number">0</span> </span><br><span class="line">&#125;&#125;)</span><br></pre></td></tr></table></figure>
 <p><strong>方法事件处理器</strong></p>
 <ul>
-<li>许多事件处理的逻辑都很复杂，所以直接把 <code>JavaScript</code> 代码写在 <code>v-on</code> 指令中是不可行的。因此 <code>v-on</code> 可以接收一个定义的方法来调用</li>
+<li>许多事件处理的逻辑都很复杂，所以直接把 <code>javascript</code> 代码写在 <code>v-on</code> 指令中是不可行的。因此 <code>v-on</code> 可以接收一个定义的方法来调用</li>
 </ul>
 <p><strong>内联处理器方法</strong></p>
 <ul>
-<li>除了直接绑定到一个方法，也可以用内联 <code>JavaScript</code>语句</li>
+<li>除了直接绑定到一个方法，也可以用内联 <code>javascript</code>语句</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"say('hi')"</span>&gt;</span>Say hi<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"say('what')"</span>&gt;</span>Say what<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">el: <span class="string">'#example-3'</span>, </span><br><span class="line">methods: &#123; </span><br><span class="line">	say: <span class="function"><span class="keyword">function</span> (<span class="params">message</span>) </span>&#123; </span><br><span class="line">		alert(message) </span><br><span class="line">	&#125;</span><br><span class="line">&#125;&#125;)</span><br></pre></td></tr></table></figure>
@@ -611,8 +611,8 @@
 </li>
 <li><p>实际上，使用 <code>v-on</code>有几个好处</p>
 <ul>
-<li>扫一眼<code>HTML</code> 模板便能轻松定位在 <code>JavaScript</code>代码里对应的方法</li>
-<li>因为你无须在 <code>JavaScript</code>里手动绑定事件，你的 <code>ViewModel</code>代码可以是非常纯粹的逻辑，和 <code>dom</code> 完全解耦，更易于测试。</li>
+<li>扫一眼<code>HTML</code> 模板便能轻松定位在 <code>javascript</code>代码里对应的方法</li>
+<li>因为你无须在 <code>javascript</code>里手动绑定事件，你的 <code>ViewModel</code>代码可以是非常纯粹的逻辑，和 <code>dom</code> 完全解耦，更易于测试。</li>
 <li>当一个 <code>ViewModel</code>被销毁时，所有的事件处理器都会自动被删除。你无须担心如何自己清理它们。</li>
 </ul>
 </li>
@@ -702,7 +702,7 @@
 </ul>
 <h5 id="视图（用户界面）"><a href="#视图（用户界面）" class="headerlink" title="视图（用户界面）"></a>视图（用户界面）</h5><hr>
 <ul>
-<li>视图是呈现给用户的，用户与之产生交互。在JavaScript应用中，视图大都是由HTML、css、JavaScript模板组成的</li>
+<li>视图是呈现给用户的，用户与之产生交互。在javascript应用中，视图大都是由HTML、css、javascript模板组成的</li>
 </ul>
 <h5 id="控制器（业务逻辑）"><a href="#控制器（业务逻辑）" class="headerlink" title="控制器（业务逻辑）"></a>控制器（业务逻辑）</h5><hr>
 <ul>
