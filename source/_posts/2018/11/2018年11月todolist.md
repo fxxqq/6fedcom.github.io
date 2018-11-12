@@ -1,7 +1,7 @@
 ---
 title: 2018年11月todolist
 categories: todolist
-password: frank
+password: ms
 abbrlink: b66af66b
 date: 2018-11-03 20:38:59
 tags:
@@ -9,11 +9,18 @@ tags:
 
 博客加谷歌广告：https://www.google.com/adsense/signup/new/lead?subid=ww-ww-et-HC-acqpage&referer=https://support.google.com/adsense/troubleshooter/1631343?url%3Dhttps://alili.tech/archive/9d64fe09/%26gl%3DCN%26hl%3Dzh-Hans%26client%3Dca-pub-1769617155450062%26ai0%3DCeH7Chq3iW7DaLYndrQSvxrXAA_2-u7YFnbqB9NMBACDi1LZtYJ0ByAEBqAMByAMCqgSpAU_QSc7k8r3BriICKin68qdBijZ2SvkreI1koA6qHAhyKAQS6Vq0RIoWFraEDLju3KfB8nKyJSCjN7G1OCngG0myI6qrtDHofJ0P6Rqj5etujv7AsfprcLibhqLctGps-V3vfziqbHGHte1AOoF7LrZwqrU1Duw3DxkUmx9DsLCLR84wcfSB9X06Y8wIri6fStl6NGcKvaTIPEvI0UJiXRKlnTktueQFOqiQBgGgBkvABguIBwGQBwKoB47OG6gH1ckbqAeoBqgH2csbqAfPzBuoB6a-G9gHAdIIBggAEAIYAoAKAQ%26visit_id%3D636771790511970373-3385297102%26rd%3D1&gsessionid=VV8FusznMGAeRmt157LTKHL0mb-AMI8m
 
+1,时区是一个基本的技术领域，叫做Globalizaton，是有一些实践技巧的，时区，币种，语言，都是这个范畴，通常在UI层面会有所体现，比如同一个系统，不同国家的人进入看到的都是一个换算过的本地时间，例如某些国际性网站比如facebook，gmail, hotmail，都有让用户选择自己的区域。
+2,如果两块业务线有相同的业务逻辑，那么应该考虑如何复用。一块同样的代码写了两次以上，那么肯定要考虑重构了。
+
 如何提高自己
+
+看书
 
 HTTP/HTTPS
 10分钟理解JS引擎的执行机制
 https://segmentfault.com/a/1190000012806637?utm_source=tag-newest
+
+巩固一下携程前端面试题
 
 
 
@@ -32,16 +39,28 @@ Redux如何实现多个组件之间的通信，多个组件使用相同状态如
 使用过的Redux中间件
 如何解决跨域的问题
 常见Http请求头
-移动端适配1px的问题
-介绍flex布局
+### 移动端适配1px的问题
+
+### 介绍flex布局
+display:flex; flexbox模型只适用于直系子代
+flex-direction: row | row-reverse | column | column-reverse;子元素是如何排列
+justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;子元素水平排列方式
+align-items: flex-start | flex-end | center | baseline | stretch;子元素垂直排列方式
+flex-wrap: nowrap | wrap | wrap-reverse; 
+align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 其他css方式设置垂直居中
 居中为什么要使用transform（为什么不使用marginLeft/Top）
 使用过webpack里面哪些plugin和loader
 webpack里面的插件是怎么实现的
 dev-server是怎么跑起来
 项目优化
-抽取公共文件是怎么配置的
+#### 抽取公共文件是怎么配置的
+CommonsChunkPlugin
+将webpack入口的chunk文件中所有公共的代码提取出来，减少代码体积；同时提升webpack打包速度。
+利用缓存机制：依赖的公共模块文件一般很少更改或者不会更改，这样独立模块文件提取出可以长期缓存。
+
 项目中如何处理安全问题
+
 怎么实现this对象的深拷贝
 
 
