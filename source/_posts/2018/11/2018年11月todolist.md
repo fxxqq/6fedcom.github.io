@@ -122,7 +122,6 @@ webpack整个生命周期，loader和plugin有什么区别
  
 跨域怎么解决，有没有使用过Apache等方案
 
-
 今日头条
 
 对async、await的理解，内部原理 
@@ -346,7 +345,7 @@ function flatten(arr) {
 es6的扩展运算符能将二维数组变为一维
 ```js
 [].concat(...[1, 2, 3, [4, 5]]);  // [1, 2, 3, 4, 5]
-根据这个结果我们可以做一个遍历，若arr中含有数组则使用一次扩展运算符，直至没有为止。
+//根据这个结果我们可以做一个遍历，若arr中含有数组则使用一次扩展运算符，直至没有为止。
 
 function flatten(arr) {
     while(arr.some(item=>Array.isArray(item))) {
@@ -516,8 +515,7 @@ console.log(JSON.stringify(result));
 喜马拉雅
 
 ES6新的特性
-介绍Promise
-Promise有几个状态
+
 说一下闭包
 React的生命周期
 componentWillReceiveProps的触发条件是什么
@@ -528,7 +526,7 @@ React16.3对生命周期的改变
 父子组件之间如何通信
 Redux怎么实现属性传递，介绍下原理
 React-Router版本号
-网站SEO怎么处理
+ 
 介绍下HTTP状态码
 403、301、302是什么
 缓存相关的HTTP请求头
@@ -553,7 +551,25 @@ localStorage和cookie有什么区别
 CSS选择器有哪些
 盒子模型，以及标准情况和IE下的区别
 如何实现高度自适应
-prototype和——proto——区别
+### prototype和——proto——区别
+——proto——是每个对象都有的一个属性，而prototype是函数才会有的属性
+几乎所有的函数（除了一些内建函数）都有一个名为prototype（原型）的属性，这个属性是一个指针，而这个对象的用途是包含可以有特定类型的所有实例共享的属性和方法。
+prototype是通过调用构造函数而创建的那个对象实例的原型对象。
+示例：自有属性&原型属性
+```js
+var obj = {a: 1};
+obj.hasOwnProperty("a"); // true
+obj.hasOwnProperty("toString"); // false
+"a" in obj; // true
+"toString" in obj; // true
+```
+示例：鉴别原型属性
+```js
+function hasPrototypeProperty(obj, name){
+    return name in obj && !obj.hasOwnProperty(name);
+}
+```
+
 _construct是什么
 new是怎么实现的
 promise的精髓，以及优缺点
