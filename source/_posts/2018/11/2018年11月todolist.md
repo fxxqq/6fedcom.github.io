@@ -22,7 +22,8 @@ https://segmentfault.com/a/1190000012806637?utm_source=tag-newest
 
 巩固一下携程前端面试题
 
-
+css3 transition哪些属性 flex布局问题，js原型链作用域链 es6了解多少最好多了解一些，
+箭头函数和匿名函数区别，如果会redux会问redux，react高阶组件，react同级组件传值除redux，promise了解多少 主要问题
 
 阿里
 
