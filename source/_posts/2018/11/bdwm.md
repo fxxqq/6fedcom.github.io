@@ -24,18 +24,21 @@ React 的使用主要考虑以下原因：
 
 一面
 先完成笔试题
-### 1 实现一个函数，判断输入是不是回文字符串。
+#### 1 实现一个函数，判断输入是不是回文字符串。
 ```js
 function isPalindrome(str){
+    let flag
     if(typeof str!=='string'|| str.constructor !== String){
         return
     }
-    str.map((item, key, ary)=>{
-        if(item!==ary[ary.length-1-key]){
-           return 
+    for(var i=0,j=str.length-1;i<j;i++,j--){
+        console.log(i,j)
+        if(str.charAt(i) !== str.charAt(j)){
+            return false;
         }
-    })
-    return true
+    }
+    return true;
+   
 }
 console.log(isPalindrome('adddddda'));//true
 console.log(isPalindrome('addddda'));//true
@@ -43,21 +46,102 @@ console.log(isPalindrome('adddasd'));//false
 
 ```
 
+
 拓展
 对象的constructor属性用于返回创建该对象的函数，也就是我们常说的构造函数。在JavaScript中，每个具有原型的对象都会自动获得constructor属性。除了arguments、Enumerator、Error、Global、Math、RegExp、Regular Expression等一些特殊对象之外，其他所有的JavaScript内置对象都具备constructor属性。例如：Array、Boolean、Date、Function、Number、Object、String等。
 
  
-2 
+#### 2 居中
+ transform:translate(-50%,-50%); (ie9以上兼容)
+ flex;align-items: center;justify-content: center （ 移动端首选）
 
 3 实现效果，点击容器内的图标，图标边框变成border 1px solid red，点击空白处重置。
 
 4 请简单实现双向数据绑定mvvm。
 
+ Object.defineProperty 来实现一个简单的数据双向绑定
+```html
+<input type="text" id="input" />
+<div id="div"></div>
+```
+```js
+var obj = {};
+var input = document.getElementById("input");
+var div = document.getElementById("div");
+
+Object.defineProperty(obj, "name", {
+    set: function(newVal) {
+        input.value = newVal;
+        div.innerHTML = newVal;
+    }
+});
+input.addEventListener('input', function(event){
+    obj.name = event.target.value;
+});
+```
+
 5 实现Storage，使得该对象为单例，并对localStorage进行封装设置值setItem(key,value)和getItem(key)
 
-Q1 你的技术栈主要是react，那你说说你用react有什么坑点？
+```js
+let instance =null;
 
-Q2 我现在有一个button，要用react在上面绑定点击事件，我要怎么做？
+class Storage {
+    constructor(props) {
+         super(props)
+         this.state={
+
+         }
+    }
+   //实例化
+    static getInstance(name) {
+        if(!this.instance) {
+            this.instance = new Singleton(name);
+        }
+        return this.instance;
+    }
+
+    setItem = (key, value) => localStorage.setItem(key, JSON.stringify(value)),
+    getItem = key => localStorage.getItem(key)
+ 
+}
+```
+
+
+#### Q1 你的技术栈主要是react，那你说说你用react有什么坑点？
+1.在JSX语法种，需要将 class改写成 className
+2.react 打包后，项目部署完毕，刷新页面报错（404） 配置nginx 把目录指向index.html就可以解决
+3.this.setState()会调用render方法，但并不会立即改变state的值，state是在render方法中赋值的。所以执行this.setState()后立即获取state的值是不变的。同样的直接赋值state并不会出发更新，因为没有调用render函数
+4.监听事件和定时器需要在组件卸载的时候清除，否则切换路由的话这些事件还会一直执行下去
+5.react列表渲染时为什么尽量不要把索引设置为key值
+用state和jsx模板生成虚拟DOM，然后用虚拟DOM生成真实的 DOM，当我们state发生变化时,render函数执行，生成新的 虚拟DOM，然后比较新旧虚拟DOM的区别，找到区别，然后直接操作DOM，改变有区别的内容，这样比传统的操作DOM，极大的提升了性能。
+再说虚拟DOM，虚拟DOM其实就是一个JS对象(['div',{class:'app'},'item']),虚拟DOM核心之一是diff算法，diff算法的核心之一是同层对比，
+
+因为react中渲染dom是通过render方式，也就是通过虚拟的dom与真实的存在的dom树比较之后发现哪不一样，再进行渲染，这样的渲染对于性能的提升很有帮助，所以键值在保证稳定性,唯一性的时候，在遍历寻找需要改变的地方时候就能很块的找见并对其进行操作，如果键值不是稳定的而是变化的就会使渲染更改dom的效率大大的打折。
+
+我们如果不用索引为key , 程序能快速的对比出差异，反之也能对出差异，但是必须对比整个虚拟DOM，
+这样，程序仍然能正常执行，只不过大大消耗了新旧虚拟DOM的对比的性能，并可能导致组件状态问题。
+
+
+
+#### Q2 我现在有一个button，要用react在上面绑定点击事件，我要怎么做？
+第一种是在构造函数中绑定this，第二种是在render()函数里面绑定this，第三种就是使用箭头函数，都能实现上述方法；
+
+但是哪一种方法的性能最好，是我们要考虑的问题。应该大家都知道答案：第一种的性能最好。
+
+因为第一种，构造函数每一次渲染的时候只会执行一遍；
+
+而第二种方法，在每次render()的时候都会重新执行一遍函数；
+
+第三种方法的话，每一次render()的时候，都会生成一个新的箭头函数，即使两个箭头函数的内容是一样的。
+
+第三种方法我们可以举一个例子，因为react判断是否需要进行render是浅层比较，简单来说就是通过===来判断的，如果state或者prop的类型是字符串或者数字，只要值相同，那么浅层比较就会认为其相同；
+
+但是如果前者的类型是复杂的对象的时候，我们知道对象是引用类型，浅层比较只会认为这两个prop是不是同一个引用，如果不是，哪怕这两个对象中的内容完全一样，也会被认为是两个不同的prop。
+
+作者：darrell
+链接：https://www.jianshu.com/p/333f390f2e84
+來源：简书
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
 Q3 接上一个问题，你觉得你这样设置点击事件会有什么问题吗？
 
