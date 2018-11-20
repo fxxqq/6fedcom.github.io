@@ -6,9 +6,48 @@ tags:
 password : ms
 ---
 
+Vue 的使用主要考虑以下几点：
+
+体积小，复杂度低
+业务上移动端项目占比 70% 以上，Vue 的体积小，网络性能角度相比 React 更适合移动端
+移动端一般巨型项目很少，从代码结构上来讲，使用 Vue 实现更符合我们的场景复杂度，React 更适合大型相对更复杂的 SPA
+上手成本和迁移成本低
+Vue 的学习和上手成本相对更低，团队成员对于 Vue 的认可度和热情也比较高
+组件内双向绑定、数据依赖收集
+组件内支持双向绑定，更方便的去进行组件内的数据响应与交互
+独有的数据依赖收集模式使其默认的数据响应和渲染效率都要比 React 高一些
+React 的使用主要考虑以下原因：
+
+有一部分现有后台项目采用 React 技术栈，迭代和维护较少，老的项目如果没有足够的迁移价值则不额外投入资源
+保留很小的一部分 React 技术生态也可以一定程度上保持一些技术多样性
+
+
 一面
 先完成笔试题
-1 实现一个函数，判断输入是不是回文字符串。
+### 1 实现一个函数，判断输入是不是回文字符串。
+```js
+function isPalindrome(str){
+    if(typeof str!=='string'|| str.constructor !== String){
+        return
+    }
+    str.map((item, key, ary)=>{
+        if(item!==ary[ary.length-1-key]){
+           return 
+        }
+    })
+    return true
+}
+console.log(isPalindrome('adddddda'));//true
+console.log(isPalindrome('addddda'));//true
+console.log(isPalindrome('adddasd'));//false
+
+```
+
+拓展
+对象的constructor属性用于返回创建该对象的函数，也就是我们常说的构造函数。在JavaScript中，每个具有原型的对象都会自动获得constructor属性。除了arguments、Enumerator、Error、Global、Math、RegExp、Regular Expression等一些特殊对象之外，其他所有的JavaScript内置对象都具备constructor属性。例如：Array、Boolean、Date、Function、Number、Object、String等。
+
+ 
+2 
 
 3 实现效果，点击容器内的图标，图标边框变成border 1px solid red，点击空白处重置。
 
