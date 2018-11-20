@@ -9,8 +9,6 @@ tags:
 
 博客加谷歌广告：https://www.google.com/adsense/signup/new/lead?subid=ww-ww-et-HC-acqpage&referer=https://support.google.com/adsense/troubleshooter/1631343?url%3Dhttps://alili.tech/archive/9d64fe09/%26gl%3DCN%26hl%3Dzh-Hans%26client%3Dca-pub-1769617155450062%26ai0%3DCeH7Chq3iW7DaLYndrQSvxrXAA_2-u7YFnbqB9NMBACDi1LZtYJ0ByAEBqAMByAMCqgSpAU_QSc7k8r3BriICKin68qdBijZ2SvkreI1koA6qHAhyKAQS6Vq0RIoWFraEDLju3KfB8nKyJSCjN7G1OCngG0myI6qrtDHofJ0P6Rqj5etujv7AsfprcLibhqLctGps-V3vfziqbHGHte1AOoF7LrZwqrU1Duw3DxkUmx9DsLCLR84wcfSB9X06Y8wIri6fStl6NGcKvaTIPEvI0UJiXRKlnTktueQFOqiQBgGgBkvABguIBwGQBwKoB47OG6gH1ckbqAeoBqgH2csbqAfPzBuoB6a-G9gHAdIIBggAEAIYAoAKAQ%26visit_id%3D636771790511970373-3385297102%26rd%3D1&gsessionid=VV8FusznMGAeRmt157LTKHL0mb-AMI8m
 
-1,时区是一个基本的技术领域，叫做Globalizaton，是有一些实践技巧的，时区，币种，语言，都是这个范畴，通常在UI层面会有所体现，比如同一个系统，不同国家的人进入看到的都是一个换算过的本地时间，例如某些国际性网站比如facebook，gmail, hotmail，都有让用户选择自己的区域。
-2,如果两块业务线有相同的业务逻辑，那么应该考虑如何复用。一块同样的代码写了两次以上，那么肯定要考虑重构了。
 
 如何提高自己
 

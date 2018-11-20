@@ -1,8 +1,7 @@
 ---
-layout: nginx出现413
-title: Large错误解决方法
+title: nginx出现413 Large错误解决方法
 date: 2018-05-09 15:08:31
-tags:
+tags: [nginx]
 ---
 
 Nginx出现的413 Request Entity Too Large错误,这个错误一般在上传文件的时候出现，打开nginx主配置文件nginx conf，找到http{}段，添加解决方法就是打开nginx主配置文件nginx conf，一般在 usr local ngin
