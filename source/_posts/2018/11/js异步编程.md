@@ -1,7 +1,6 @@
 ---
-title: js异步编程（草稿）
+title: js异步编程
 categories: front-end
-password: 580ae11
 abbrlink: 580ae11
 date: 2018-11-07 17:54:01
 tags:
