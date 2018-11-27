@@ -31,3 +31,5 @@ hexo new page "about"
 ```
 图片路径
 ![React生命周期](/img/2018/10/react-life-cycle.png)
+
+{% qnimg 七牛云.png title:七牛云 alt:七牛云 'class:' extend:?imageView2/2/w/450 %}

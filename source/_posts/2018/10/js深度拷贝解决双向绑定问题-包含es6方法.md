@@ -5,7 +5,6 @@ tags:
   - javascript
 abbrlink: 284d188d
 date: 2018-10-26 15:44:21
-top: 4
 ---
 
 >当我们利用v-bind：来绑定属性向子组件传递对象的时候，有时候我们需要子组件改变的时候不改变父组件的值，一般可以利用JSON.stringify(JSON.parse(jsonstr))将传递来的对象赋值到子组件自己的data，这样做的原理是对传过来的值重新赋予一个空间，从而解决双向绑定。，但是es6有一个深度赋值的方法也可以解决这个问题, let obj= Object.assign({}, obj)也可以解决。

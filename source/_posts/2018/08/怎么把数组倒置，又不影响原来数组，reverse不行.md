@@ -4,7 +4,6 @@ categories: front-end
 date: '2018-08-18 23:33'
 tags:
   - js代码片段
-top: 1
 abbrlink: 46862a63
 ---
 
