@@ -71,13 +71,23 @@ PS: 客户端不一定特指浏览器，有时候也可使用Linux下的CURL命�
 常见的请求报头有: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Content-Type, Authorization, Cookie, User-Agent等。
 
 
-
 #### 事件循环(Event loop)
 1. js是单线程，js解析方法时，将同步任务排队到执行栈中，异步任务排队到事件队列中。
 2. 事件队列分为:
 宏任务：setTimeout，setInterval，setImmediate，I/O，UI交互事件
 微任务：process.nextTick，Promise.then
 3. 浏览器环境中执行方法时，先将执行栈中的任务清空，再将微任务推到执行栈中并清空，之后检查是否存在宏任务，若存在则取出一个宏任务，执行完成检查是否有微任务，以此循环…
+
+### 4. 服务器处理HTTP请求并返回HTTP报文
+
+HTTP响应报文也是由三部分组成: 状态码, 响应报头和响应报文。
+
+HTTP缓存
+
+### 5.浏览器解析渲染页面
+
+### 6.断开TCP连接（4次挥手）
+
 
 
 
