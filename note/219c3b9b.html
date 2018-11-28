@@ -1,68 +1,594 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/219c3b9b.html">
+    
+    
+    <title>从三个区域理解git命令（基础篇） | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="2.1 获取库在学习这些下面的命令之前，首先要清楚你的代码的三种状态，已修改、已暂存、以提交。以及他们对应的三个区域：工作目录、暂存区、库。 其实在除这三个区域之外还有一个区域，这个区域是在你的git系统之外的区域，暂且叫它非跟踪区，所以我们上面说的三个区域就可以统称为跟踪区了。 下面这个链接是一个git的操作教学。  库从哪来？两个来源，一个是你的电脑，一个是别人的电脑不管在哪，他们现在都在非跟">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从三个区域理解git命令（基础篇）">
+<meta property="og:url" content="https://ru23.com/note/219c3b9b.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="2.1 获取库在学习这些下面的命令之前，首先要清楚你的代码的三种状态，已修改、已暂存、以提交。以及他们对应的三个区域：工作目录、暂存区、库。 其实在除这三个区域之外还有一个区域，这个区域是在你的git系统之外的区域，暂且叫它非跟踪区，所以我们上面说的三个区域就可以统称为跟踪区了。 下面这个链接是一个git的操作教学。  库从哪来？两个来源，一个是你的电脑，一个是别人的电脑不管在哪，他们现在都在非跟">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-01T08:51:04.523Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从三个区域理解git命令（基础篇）">
+<meta name="twitter:description" content="2.1 获取库在学习这些下面的命令之前，首先要清楚你的代码的三种状态，已修改、已暂存、以提交。以及他们对应的三个区域：工作目录、暂存区、库。 其实在除这三个区域之外还有一个区域，这个区域是在你的git系统之外的区域，暂且叫它非跟踪区，所以我们上面说的三个区域就可以统称为跟踪区了。 下面这个链接是一个git的操作教学。  库从哪来？两个来源，一个是你的电脑，一个是别人的电脑不管在哪，他们现在都在非跟">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            从三个区域理解git命令（基础篇）
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            从三个区域理解git命令（基础篇）
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2017-03-20T13:34:40.000Z" itemprop="datePublished" class="page-time">
+  2017-03-20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-1-获取库"><span class="post-toc-text">2.1 获取库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#库从哪来？"><span class="post-toc-text">库从哪来？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#两个来源，一个是你的电脑，一个是别人的电脑"><span class="post-toc-text">两个来源，一个是你的电脑，一个是别人的电脑</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开始编程"><span class="post-toc-text">开始编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跟踪新文件（新增文件加入git管理范围）"><span class="post-toc-text">跟踪新文件（新增文件加入git管理范围）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检查你文件的状态"><span class="post-toc-text">检查你文件的状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看文件具体做了哪些修改"><span class="post-toc-text">查看文件具体做了哪些修改</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#忽略文件"><span class="post-toc-text">忽略文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提交更改"><span class="post-toc-text">提交更改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如果觉得麻烦，可以跳过暂存区"><span class="post-toc-text">如果觉得麻烦，可以跳过暂存区</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看提交历史"><span class="post-toc-text">查看提交历史</span></a></li></ol></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#撤销"><span class="post-toc-text">撤销</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改已提交"><span class="post-toc-text">修改已提交</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#取消已缓存"><span class="post-toc-text">取消已缓存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#撤销已更改"><span class="post-toc-text">撤销已更改</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#别名"><span class="post-toc-text">别名</span></a></li>
+    </nav>
+</aside>
+
+
+
+<article id="post-2017-03-从三个区域理解git命令（基础篇）" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">从三个区域理解git命令（基础篇）</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2017-03-20 21:34:40" datetime="2017-03-20T13:34:40.000Z" itemprop="datePublished">2017-03-20</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="2-1-获取库"><a href="#2-1-获取库" class="headerlink" title="2.1 获取库"></a>2.1 获取库</h1><p>在学习这些下面的命令之前，首先要清楚你的代码的三种状态，已修改、已暂存、以提交。以及他们对应的三个区域：工作目录、暂存区、库。</p>
+<p>其实在除这三个区域之外还有一个区域，这个区域是在你的git系统之外的区域，暂且叫它<strong>非跟踪区</strong>，所以我们上面说的三个区域就可以统称为跟踪区了。</p>
+<p>下面这个链接是一个git的操作教学。</p>
+<p><a href="https://try.github.io" target="_blank" rel="noopener"></a></p>
+<h2 id="库从哪来？"><a href="#库从哪来？" class="headerlink" title="库从哪来？"></a>库从哪来？</h2><h3 id="两个来源，一个是你的电脑，一个是别人的电脑"><a href="#两个来源，一个是你的电脑，一个是别人的电脑" class="headerlink" title="两个来源，一个是你的电脑，一个是别人的电脑"></a>两个来源，一个是你的电脑，一个是别人的电脑</h3><p><strong>不管在哪，他们现在都在非跟踪区。</strong>所以这一步的意义就是把代码从非跟踪区拉到你git管理的跟踪区。</p>
+<p><strong>如果是你的电脑</strong>，在你写的代码的那个<strong>文件夹</strong>右键，点击git bash here（前提是你要安装了git）；或者在terminal用cd命令到所在文件夹。</p>
+<p>然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<p><strong>如果是别人的电脑</strong> （一般是在服务器），在你觉得方便的文件夹，比如右键你的<code>新建文件夹</code> ，点击git bash here，然后输入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/libgit2/libgit2</span><br></pre></td></tr></table></figure>
+<p>这样在你的新建文件夹里面就有一个libgit2的文件夹了。</p>
+<p>当然你也可在克隆的时候顺便把名字改了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/libgit2/libgit2 mylibgit</span><br></pre></td></tr></table></figure>
+<h1 id="开始编程"><a href="#开始编程" class="headerlink" title="开始编程"></a>开始编程</h1><h3 id="跟踪新文件（新增文件加入git管理范围）"><a href="#跟踪新文件（新增文件加入git管理范围）" class="headerlink" title="跟踪新文件（新增文件加入git管理范围）"></a>跟踪新文件（新增文件加入git管理范围）</h3><p>在把需要的东西拉到跟踪区之后（本地库）之后，就可以开始写代码了。</p>
+<p>如果你是新建了一个文件写，git不会主动把他划在<strong>跟踪区</strong>，所以你需要用<code>git add</code> ；</p>
+<p>如果你是在已有的文件里面修改代码，修改好了之后想把它添加到<strong>暂存区</strong>，那你需要用<code>git add</code> ；</p>
+<p>所以，<code>git add</code> 不但可以把文件从非跟踪区拉到工作目录，还可以把文件从工作目录拉到暂存区。 <code>git add</code> 还有其他的功能，总之，要把它理解成“<strong>添加内容到下一次提交</strong>”，不要理解成“<strong>把文件增加到项目中</strong>”。</p>
+<p>具体举例：</p>
+<figure class="highlight plain"><figcaption><span>git add README~~~</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
+<p>一个一个添加麻烦？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add -A</span><br></pre></td></tr></table></figure>
+<p><code>A</code> 就是<code>all</code> ，无论文件在<strong>非跟踪区</strong>还是<strong>工作区</strong>，都通通拉到<strong>暂存区</strong>。</p>
+<p>当然<code>git add</code> 还有很多其他的细节，具体可以看<a href="https://git-scm.com/docs/git-add" target="_blank" rel="noopener">这个</a>。</p>
+<h3 id="检查你文件的状态"><a href="#检查你文件的状态" class="headerlink" title="检查你文件的状态"></a>检查你文件的状态</h3><p>用过<code>git add</code> 之后，或者没有用，无所谓，你都可以用<code>git staus</code> 查看你的<strong>工作目录</strong>的里面文件的状态，这个工作目录就是你用git初始化的文件夹，这个命令查看的区域可以包括<strong>非跟踪区</strong>、<strong>工作目录</strong>、<strong>暂存区</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<p>里面不但显示文件的状态，也会有相应的操作的提示。如果你觉得使用这个命令得到的信息过于冗长，那你就可以试着用<code>git status -s</code> 或者 <code>git status --short</code> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line"> M README</span><br><span class="line">MM Rakefile</span><br><span class="line">A  lib/git.rb</span><br><span class="line">M  lib/simplegit.rb</span><br><span class="line">?? LICENSE.txt</span><br></pre></td></tr></table></figure>
+<p> <code>??</code> 表示新的且<strong>没有被缓存</strong>的文件,</p>
+<p> <code>A</code> 新的且<strong>已经被缓存</strong>的文件,</p>
+<p> <code>M</code> 被修改的文件</p>
+<p><code>MM</code> 缓存之后再次修改的。</p>
+<h3 id="查看文件具体做了哪些修改"><a href="#查看文件具体做了哪些修改" class="headerlink" title="查看文件具体做了哪些修改"></a>查看文件具体做了哪些修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
+<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>总是有一些文件你不想被git接手，那就手动忽略他们吧。</p>
+<p>创建一个<code>.gitignore</code> 的文件，以存放你需要忽略的文件模式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat .gitignore</span><br><span class="line">*.[oa]</span><br><span class="line">*~</span><br></pre></td></tr></table></figure>
+<p> “.o” or “.a”表示忽略以<code>.o</code>、<code>.a</code> 结尾的文件。</p>
+<p>第二行的意思是忽略名字里面带有波浪线 (<code>~</code>)的文件。</p>
+<h3 id="提交更改"><a href="#提交更改" class="headerlink" title="提交更改"></a>提交更改</h3><p>用了<code>git add</code> 把文件拉到<strong>暂存区</strong>之后，就可以提交了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit</span><br></pre></td></tr></table></figure>
+<p>用 <code>commit</code> 加 <code>-m</code> 留下提交信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;Story 182: Fix benchmarks for speed&quot;</span><br><span class="line">[master 463dc4f] Story 182: Fix benchmarks for speed</span><br><span class="line"> 2 files changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 README</span><br></pre></td></tr></table></figure>
+<h4 id="如果觉得麻烦，可以跳过暂存区"><a href="#如果觉得麻烦，可以跳过暂存区" class="headerlink" title="如果觉得麻烦，可以跳过暂存区"></a>如果觉得麻烦，可以跳过暂存区</h4><p>这个命令用到的<code>all</code> 与上面说的<code>git add</code> 的<code>all</code> 是有区别的，<code>git commit</code> 的<code>all</code> 不包括<strong>非跟踪区</strong>的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -a</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -a -m`</span><br></pre></td></tr></table></figure>
+<h4 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br></pre></td></tr></table></figure>
+<h1 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h1><h4 id="修改已提交"><a href="#修改已提交" class="headerlink" title="修改已提交"></a>修改已提交</h4><p><strong>针对的是已提交的文件。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
+<p>git commit –amend命令用来修复最近一次commit. 可以让你合并你缓存区的修改和上一次commit, 而不是提交一个新的快照. 还可以用来编辑上一次的commit描述.记住amend不是修改最近一次commit, 而是整个替换掉他. 对于git来说是一个新的commit. 如果文件没有变，那就可以用它来修改上一次的描述。</p>
+<h4 id="取消已缓存"><a href="#取消已缓存" class="headerlink" title="取消已缓存"></a>取消已缓存</h4><p><strong>在已缓存区</strong>，可以把不想缓存的文件拉出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
+<h4 id="撤销已更改"><a href="#撤销已更改" class="headerlink" title="撤销已更改"></a>撤销已更改</h4><p><strong>针对的文件是工作目录里面的文件</strong>，如果是没有缓存的文件，退回到的是上次提交的状态；如果是缓存了之后再次修改的文件，那退回的是缓存之后的状态。这个命令使用要慎重，一旦退回，无法恢复。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h1><p>用 <code>git config</code> 简化命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.co checkout</span><br><span class="line">$ git config --global alias.br branch</span><br><span class="line">$ git config --global alias.ci commit</span><br><span class="line">$ git config --global alias.st status</span><br></pre></td></tr></table></figure>
+<p>执行了上述的命令后，checkout就变成了co，branch就变成了br，其他两个同理。</p>
+<p>如果是想替换<code>reset HEAD</code> 这样多单词的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.unstage &apos;reset HEAD --&apos;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/219c3b9b.html&title=《从三个区域理解git命令（基础篇）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/219c3b9b.html&title=《从三个区域理解git命令（基础篇）》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/219c3b9b.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从三个区域理解git命令（基础篇）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/219c3b9b.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/219c3b9b.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/56cde313.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">浅谈闭包</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/7c9df6a.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue学习总结(一)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/219c3b9b.html&title=《从三个区域理解git命令（基础篇）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/219c3b9b.html&title=《从三个区域理解git命令（基础篇）》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/219c3b9b.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从三个区域理解git命令（基础篇）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/219c3b9b.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/219c3b9b.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3awY7DIAxF0fz/T3ekWbWaltxnBzcjXVZRQuHQhWUMx4Hb47eR5+c3n95/6nlZkytXbpv7WLa/rPQNH3/dR65cufNcErzS0MP/AmKQK1fuPbk8xVkvjwRKuXLl/hcuARHuaNyVK1dug8s3JyQB4uWSjXs1uXLlNrjXFkxrz1+r78qVKzc8lSCpDFleZ8aX2eXKlTvC5Yciac+0/MoLJXLlyt3NTY9O0/BUC3ytECZXrtyLuLWCKXm/Pj7hf8qbjEyuXLmD3E7ZND1QKW575MqVu5mbXsPi4YwvtRj+5MqVu43Lu/JNUZow8TRIrly53+XygdIROguWK1fuDLdWvqyxUm6wALly5V7KrSUxtSWR4sjJ7HLlyh3nroMaj4tpT15alStX7gw3vTyRbpDSUgsqoMiVK3czlx+BkLpEMTDhQxq5cuVOco+wpWUR/vUkwZIrV+4gt3VBqnFMwsePb3LJlSu3wd0RvPiC0zHlypU7ye1sgfilTPJVrly5d+N2KKguGxZZTo5S5MqVextubRqeEpHfypUr957ctFDCL2yh1EquXLmD3P5GJS2O1C57yZUrd4abFkx5eOJXtfizXLlyN3N/ANZ53UTBWkRZAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

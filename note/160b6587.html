@@ -1,68 +1,576 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/160b6587.html">
+    
+    
+    <title>javascript常用积累 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="javascript,Snippet">
+    <meta name="description" content="一、JS动画与动作不一致解决: 123if(!$( &quot;#handle&quot;).is(&quot;:animated&quot;))&amp;#123;	//判断元素是否处于动画状态&amp;#125;">
+<meta name="keywords" content="javascript,Snippet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript常用积累">
+<meta property="og:url" content="https://ru23.com/note/160b6587.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、JS动画与动作不一致解决: 123if(!$( &quot;#handle&quot;).is(&quot;:animated&quot;))&amp;#123;	//判断元素是否处于动画状态&amp;#125;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-11T02:02:13.831Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript常用积累">
+<meta name="twitter:description" content="一、JS动画与动作不一致解决: 123if(!$( &quot;#handle&quot;).is(&quot;:animated&quot;))&amp;#123;	//判断元素是否处于动画状态&amp;#125;">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            javascript常用积累
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            javascript常用积累
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2017-01-14T00:20:43.000Z" itemprop="datePublished" class="page-time">
+  2017-01-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、JS动画与动作不一致解决"><span class="post-toc-text">一、JS动画与动作不一致解决:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、停止事件冒泡"><span class="post-toc-text">二、停止事件冒泡</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三、查看JS对象属性"><span class="post-toc-text">三、查看JS对象属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四、页面刷新时禁用提交按钮"><span class="post-toc-text">四、页面刷新时禁用提交按钮</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#五、获取事件"><span class="post-toc-text">五、获取事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#六、获取键盘码"><span class="post-toc-text">六、获取键盘码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#七、-鼠标滑入-滑出样式切换"><span class="post-toc-text">七、 鼠标滑入/滑出样式切换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#八、点击鼠标-显示-隐藏切换"><span class="post-toc-text">八、点击鼠标,显示/隐藏切换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#九、JS-调试"><span class="post-toc-text">九、JS 调试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十、为子元素集合绑定事件"><span class="post-toc-text">十、为子元素集合绑定事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十一、自定义IE浏览器渲染方式-解决IE10下JS或插件失效"><span class="post-toc-text">十一、自定义IE浏览器渲染方式(解决IE10下JS或插件失效):</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十二、注册事件"><span class="post-toc-text">十二、注册事件</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2017-01-js-snippets-summary" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">javascript常用积累</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2017-01-14 08:20:43" datetime="2017-01-14T00:20:43.000Z" itemprop="datePublished">2017-01-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="一、JS动画与动作不一致解决"><a href="#一、JS动画与动作不一致解决" class="headerlink" title="一、JS动画与动作不一致解决:"></a>一、JS动画与动作不一致解决:</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!$( <span class="string">"#handle"</span>).is(<span class="string">":animated"</span>))&#123;</span><br><span class="line">	<span class="comment">//判断元素是否处于动画状态</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="二、停止事件冒泡"><a href="#二、停止事件冒泡" class="headerlink" title="二、停止事件冒泡"></a>二、停止事件冒泡</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation();</span><br><span class="line">- 禁止JS报错</span><br><span class="line">	<span class="built_in">window</span>.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span> ; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">/*try to do*/</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(e)&#123;</span><br><span class="line"><span class="comment">/*do this if try error */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三、查看JS对象属性"><a href="#三、查看JS对象属性" class="headerlink" title="三、查看JS对象属性"></a>三、查看JS对象属性</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">var</span> res = <span class="string">''</span> ; </span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">eval</span>( obj );</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">var</span> p <span class="keyword">in</span> <span class="built_in">eval</span>( obj ) )&#123;</span><br><span class="line">		<span class="keyword">var</span> prop = p + <span class="string">':'</span> + obj[p] + <span class="string">'\n'</span> ; </span><br><span class="line">		res += prop ; </span><br><span class="line">	&#125;</span><br><span class="line">	alert( res );</span><br></pre></td></tr></table></figure>
+<h4 id="四、页面刷新时禁用提交按钮"><a href="#四、页面刷新时禁用提交按钮" class="headerlink" title="四、页面刷新时禁用提交按钮"></a>四、页面刷新时禁用提交按钮</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">':submit'</span>).attr(<span class="string">'disabled'</span>,<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：<code>Opera</code> 浏览器不支持，其他浏览器避免在同一页面中使用 <code>&quot;javascrpt:&quot;</code> 等伪协议</p>
+<h4 id="五、获取事件"><a href="#五、获取事件" class="headerlink" title="五、获取事件"></a>五、获取事件</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getEvent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> ieEvent = <span class="built_in">window</span>.event ; </span><br><span class="line">	<span class="keyword">var</span> ffEvent = <span class="built_in">arguments</span>.callee.caller.arguments[<span class="number">0</span>] ; </span><br><span class="line">	<span class="comment">//arguments.callee						当前执行函数</span></span><br><span class="line">	<span class="comment">//arguments.callee.caller				当前执行函数的调用者</span></span><br><span class="line">	<span class="comment">//arguments.callee.caller.arguments[0]	当前函数调用者的第一个参数</span></span><br><span class="line">	<span class="keyword">var</span> e = ieEvent || ffEvent ; </span><br><span class="line">	<span class="keyword">return</span> e ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取鼠标距离浏览器顶部 左侧的实际距离 兼容IE</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getXY</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> ev = ev || <span class="built_in">window</span>.event;</span><br><span class="line">	<span class="keyword">var</span> xx  = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">var</span> yy = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(ev.pageX)&#123; <span class="comment">//iE9+</span></span><br><span class="line">		xx = ev.pageX;</span><br><span class="line">		yy = ev.pageY;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; </span><br><span class="line">		<span class="comment">//IE678 clientX,clientY + scroll</span></span><br><span class="line">		<span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || </span><br><span class="line">				   <span class="built_in">document</span>.body.scrollTop;<span class="comment">//IE9+</span></span><br><span class="line">		<span class="keyword">var</span> scrollLeft = <span class="built_in">document</span>.documentElement.scrollLeft || </span><br><span class="line">					<span class="built_in">document</span>.body.scrollLeft;<span class="comment">//IE9+     </span></span><br><span class="line">		xx = ev.clientX + scrollLeft;</span><br><span class="line">		yy = ev.clientY + scrollTop;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		x:xx,</span><br><span class="line">		y:yy</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="六、获取键盘码"><a href="#六、获取键盘码" class="headerlink" title="六、获取键盘码"></a>六、获取键盘码</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getKCode = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> ieEvent = <span class="built_in">window</span>.event ; </span><br><span class="line">		<span class="keyword">var</span> ffEvent = <span class="built_in">arguments</span>.callee.caller.arguments[<span class="number">0</span>] ; </span><br><span class="line">		<span class="keyword">var</span> e = ieEvent || ffEvent ; </span><br><span class="line">		<span class="keyword">var</span> kCode = e.keyCode || e.which ;</span><br><span class="line">		<span class="keyword">return</span> kCode ;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="七、-鼠标滑入-滑出样式切换"><a href="#七、-鼠标滑入-滑出样式切换" class="headerlink" title="七、 鼠标滑入/滑出样式切换"></a>七、 鼠标滑入/滑出样式切换</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div"</span>).on(<span class="string">"mouseover mouseout"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).toggleClass(<span class="string">"over"</span>);</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="八、点击鼠标-显示-隐藏切换"><a href="#八、点击鼠标-显示-隐藏切换" class="headerlink" title="八、点击鼠标,显示/隐藏切换"></a>八、点击鼠标,显示/隐藏切换</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#panel h5.head"</span>).toggle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">"highlight"</span>);</span><br><span class="line">	$(<span class="keyword">this</span>).next().toggle();</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">"highlight"</span>);</span><br><span class="line">	$(<span class="keyword">this</span>).next().toggle();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="九、JS-调试"><a href="#九、JS-调试" class="headerlink" title="九、JS 调试"></a>九、JS 调试</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log() ;			<span class="comment">//打印变量</span></span><br><span class="line"><span class="built_in">console</span>.dir() ; 		<span class="comment">//打印对象</span></span><br><span class="line"><span class="built_in">console</span>.dirxml() ; 		<span class="comment">//打印节点</span></span><br><span class="line"><span class="built_in">console</span>.trace() ; 		<span class="comment">//打印函数调用轨迹</span></span><br><span class="line"><span class="built_in">window</span>.document.title = str;</span><br></pre></td></tr></table></figure>
+<h4 id="十、为子元素集合绑定事件"><a href="#十、为子元素集合绑定事件" class="headerlink" title="十、为子元素集合绑定事件"></a>十、为子元素集合绑定事件</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div"</span>).delegate(<span class="string">"button"</span>,<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">"p"</span>).slideToggle();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="十一、自定义IE浏览器渲染方式-解决IE10下JS或插件失效"><a href="#十一、自定义IE浏览器渲染方式-解决IE10下JS或插件失效" class="headerlink" title="十一、自定义IE浏览器渲染方式(解决IE10下JS或插件失效):"></a>十一、自定义<code>IE</code>浏览器渲染方式(解决<code>IE10</code>下<code>JS</code>或插件失效):</h4><hr>
+<p>如果安装了<code>Chrome</code>内核，则使用<code>Chrome</code>内核来渲染页面<code>[chrome=1]</code>，如果未安装，则使用最高版本的IE内核进行渲染<code>[IE=edge]:</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="十二、注册事件"><a href="#十二、注册事件" class="headerlink" title="十二、注册事件"></a>十二、注册事件</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 标准浏览器</span></span><br><span class="line">form1.addEventListener(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();		<span class="comment">//阻止浏览器默认动作</span></span><br><span class="line">	e.stopPropagation();		<span class="comment">//阻止事件流产生</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// IE8及更早版本IE浏览器</span></span><br><span class="line">form1.attachEvent(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	event.cancelBubble = <span class="literal">true</span>; <span class="comment">//阻止浏览器默认动作--IE8及更早版本IE浏览器</span></span><br><span class="line">	event.returnValue = <span class="literal">false</span>; <span class="comment">//阻止事件流产生--IE8及更早版本IE浏览器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Snippet/">Snippet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/160b6587.html&title=《javascript常用积累》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/160b6587.html&title=《javascript常用积累》 — 前端迷 (front-end fan)&source=一、JS动画与动作不一致解决:
+123if(!$( " #handle").is(":animated"))&#123;="" 判断元素是否处于动画状态&#1..."="" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/160b6587.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript常用积累》 — 前端迷 (front-end fan)&url=https://ru23.com/note/160b6587.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/160b6587.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/def62515.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">jquery之dom操作小结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/6925e1c1.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">webpack学习总结(一)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/160b6587.html&title=《javascript常用积累》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/160b6587.html&title=《javascript常用积累》 — 前端迷 (front-end fan)&source=一、JS动画与动作不一致解决:
+123if(!$( " #handle").is(":animated"))&#123;="" 判断元素是否处于动画状态&#1..."="" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/160b6587.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript常用积累》 — 前端迷 (front-end fan)&url=https://ru23.com/note/160b6587.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/160b6587.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3aS27kMAwFwNz/0h0g69h5j5I1HqC0arQ/KnlBiKS+vuLx+RlX/99fvbrz6qkNAxcXd5n7uR33E99PeXXP1fvvDbi4uOe5SRhqr7afIAqguLi4L+MmrNm2CRcX9//lthOvhEJcXNw3cJPtSJScxMnS47kaLi7uAndlO7Lr94P1XVxc3JL7GY1dm5t6Xlxc3CPcpFGax5MkodrQfMXFxT3IbSkr5dS8xfLLP7i4uEe4s6bI7KBVe6SjqOXg4uJu4rbly3ab0j71x8YLFxf3CDcPOm0IaxezoZWCi4u7idu2Qu8X0wavuq2Ci4t7kNsmLbPDW20R9rJ+g4uL+zC3LVjki1lPnHBxcf8tN2+WtElRfn+SDuHi4p7kzhokbUozS5ai6IuLi3uQuzJB/lQ7Fy4u7nluEtRmTZEZorgfFxf3AW6SbCSt0OQNs3IqLi7uGe6nHO2XWCl8/HIVFxf3CHcW+ZLWyMpTuLi4b+DmG5e2wDoDFWdGcHFxH+a2BzJmxymW8jNcXNwXc3PErBH7x14MFxf3ZdxZebRddtQHxsXFPcLd1Rxdb8rWPR9cXNwHuOsNkjwwzYLghvouLi5uyv0GS4fIL6HVeM8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

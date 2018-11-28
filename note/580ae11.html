@@ -1,68 +1,603 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/580ae11.html">
+    
+    
+    <title>js异步编程 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="JS 异步编程及常考面试题在上一章节中 并发（concurrency）和并行（parallelism）区别异步和这小节的知识点其实并不是一个概念，但是这两个名词确实是很多人都常会混淆的知识点。其实混淆的原因可能只是两个名词在中文上的相似，在英文上来说完全是不同的单词。 并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。 并行是微观">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js异步编程">
+<meta property="og:url" content="https://ru23.com/note/580ae11.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="JS 异步编程及常考面试题在上一章节中 并发（concurrency）和并行（parallelism）区别异步和这小节的知识点其实并不是一个概念，但是这两个名词确实是很多人都常会混淆的知识点。其实混淆的原因可能只是两个名词在中文上的相似，在英文上来说完全是不同的单词。 并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。 并行是微观">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-28T02:59:22.832Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js异步编程">
+<meta name="twitter:description" content="JS 异步编程及常考面试题在上一章节中 并发（concurrency）和并行（parallelism）区别异步和这小节的知识点其实并不是一个概念，但是这两个名词确实是很多人都常会混淆的知识点。其实混淆的原因可能只是两个名词在中文上的相似，在英文上来说完全是不同的单词。 并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。 并行是微观">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            js异步编程
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            js异步编程
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2018-11-07T09:54:01.000Z" itemprop="datePublished" class="page-time">
+  2018-11-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS-异步编程及常考面试题"><span class="post-toc-text">JS 异步编程及常考面试题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#并发（concurrency）和并行（parallelism）区别"><span class="post-toc-text">并发（concurrency）和并行（parallelism）区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回调函数（Callback）"><span class="post-toc-text">回调函数（Callback）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Generator"><span class="post-toc-text">Generator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Promise"><span class="post-toc-text">Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#async-及-await"><span class="post-toc-text">async 及 await</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#setTimeout"><span class="post-toc-text">setTimeout</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-text">小结</span></a></li></ol></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2018-11-js异步编程" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">js异步编程</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2018-11-07 17:54:01" datetime="2018-11-07T09:54:01.000Z" itemprop="datePublished">2018-11-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="JS-异步编程及常考面试题"><a href="#JS-异步编程及常考面试题" class="headerlink" title="JS 异步编程及常考面试题"></a>JS 异步编程及常考面试题</h1><p>在上一章节中</p>
+<h2 id="并发（concurrency）和并行（parallelism）区别"><a href="#并发（concurrency）和并行（parallelism）区别" class="headerlink" title="并发（concurrency）和并行（parallelism）区别"></a>并发（concurrency）和并行（parallelism）区别</h2><p>异步和这小节的知识点其实并不是一个概念，但是这两个名词确实是很多人都常会混淆的知识点。其实混淆的原因可能只是两个名词在中文上的相似，在英文上来说完全是不同的单词。</p>
+<p>并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。</p>
+<p>并行是微观概念，假设 CPU 中存在两个核心，那么我就可以同时完成任务 A、B。同时完成多个任务的情况就可以称之为并行。</p>
+<h2 id="回调函数（Callback）"><a href="#回调函数（Callback）" class="headerlink" title="回调函数（Callback）"></a>回调函数（Callback）</h2><ol>
+<li>什么是回调函数？</li>
+<li>回调函数有什么缺点？</li>
+<li>如何解决回调地狱问题？</li>
+<li>什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？</li>
+</ol>
+<p>回调函数应该是大家经常使用到的，以下代码就是一个回调函数的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ajax(url, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 处理逻辑</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>但是回调函数有一个致命的弱点，就是容易写出回调地狱（Callback hell）。假设多个请求存在依赖性，你可能就会写出如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ajax(url, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 处理逻辑</span></span><br><span class="line">    ajax(url1, () =&gt; &#123;</span><br><span class="line">        <span class="comment">// 处理逻辑</span></span><br><span class="line">        ajax(url2, () =&gt; &#123;</span><br><span class="line">            <span class="comment">// 处理逻辑</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上代码看起来不利于阅读和维护，当然，你可能会想解决这个问题还不简单，把函数分开来写不就得了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">firstAjax</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ajax(url1, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 处理逻辑</span></span><br><span class="line">    secondAjax()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">secondAjax</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ajax(url2, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 处理逻辑</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">ajax(url, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// 处理逻辑</span></span><br><span class="line">  firstAjax()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上的代码虽然看上去利于阅读了，但是还是没有解决根本问题。</p>
+<p>回调地狱的根本问题就是：</p>
+<ol>
+<li>嵌套函数存在耦合性，一旦有所改动，就会牵一发而动全身</li>
+<li>嵌套函数一多，就很难处理错误</li>
+</ol>
+<p>当然，回调函数还存在着别的几个缺点，比如不能使用 <code>try catch</code> 捕获错误，不能直接 <code>return</code>。在接下来的几小节中，我们会通过别的技术解决这些问题。</p>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><p>Generator 算是 ES6 中难理解的概念之一了，Generator 最大的特点就是可以控制函数的执行。在这一小节中我们不会去讲什么是 Generator，而是把重点放在 Generator 的一些容易困惑的地方。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">2</span> * (<span class="keyword">yield</span> (x + <span class="number">1</span>))</span><br><span class="line">  <span class="keyword">let</span> z = <span class="keyword">yield</span> (y / <span class="number">3</span>)</span><br><span class="line">  <span class="keyword">return</span> (x + y + z)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> it = foo(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">console</span>.log(it.next())   <span class="comment">// =&gt; &#123;value: 6, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">12</span>)) <span class="comment">// =&gt; &#123;value: 8, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">13</span>)) <span class="comment">// =&gt; &#123;value: 42, done: true&#125;</span></span><br></pre></td></tr></table></figure>
+<p>你也许会疑惑为什么会产生与你预想不同的值，接下来就让我为你逐行代码分析原因</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generator 函数调用于普通函数不同，它会返回一个迭代器</span></span><br><span class="line"><span class="keyword">let</span> it = foo(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当执行第一次 next 时，传参会被忽略，并且函数暂停在</span></span><br><span class="line"><span class="comment">// yield (x + 1) 处，所以返回 5 + 1 = 6</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next()) <span class="comment">// =&gt; &#123;value: 6, done: false&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当执行第二次 next 时，传入的参数等于上一个 yield 的</span></span><br><span class="line"><span class="comment">// 返回值，如果你不传参，yield 永远返回 undefined。</span></span><br><span class="line"><span class="comment">// 也就是说 let y = 2 * 12</span></span><br><span class="line"><span class="comment">// 所以第二个 yield 等于 2 * 12 / 3 = 8</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">12</span>)) <span class="comment">// =&gt; &#123;value: 8, done: false&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当执行第三次 next 时，传入的参数会传递给 z</span></span><br><span class="line"><span class="comment">// 所以 z = 13, x = 5, y = 24，相加等于 42</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">13</span>)) <span class="comment">// =&gt; &#123;value: 42, done: true&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Generator 函数一般见到的不多，其实也于他有点绕有关系，并且一般会配合 co 库去使用。当然，我们可以通过 Generator 函数解决回调地狱的问题，可以把之前的回调地狱例子改写为如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">fetch</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> ajax(url, () =&gt; &#123;&#125;)</span><br><span class="line">    <span class="keyword">yield</span> ajax(url1, () =&gt; &#123;&#125;)</span><br><span class="line">    <span class="keyword">yield</span> ajax(url2, () =&gt; &#123;&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> it = fetch()</span><br><span class="line"><span class="keyword">let</span> result1 = it.next()</span><br><span class="line"><span class="keyword">let</span> result2 = it.next()</span><br><span class="line"><span class="keyword">let</span> result3 = it.next()</span><br></pre></td></tr></table></figure>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise 翻译过来就是承诺的意思，这个承诺会在未来有一个确切的答复，并且该承诺有三种状态，分别是：</p>
+<ol>
+<li>等待中（pending）</li>
+<li>完成了 （resolved）</li>
+<li>拒绝了（rejected）</li>
+</ol>
+<p>这个承诺一旦从等待状态变成为其他状态就永远不能更改状态了，也就是说一旦状态变为 resolved 后，就不能再次改变</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  resolve(<span class="string">'success'</span>)</span><br><span class="line">  <span class="comment">// 无效</span></span><br><span class="line">  reject(<span class="string">'reject'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>当我们在构造 Promise 的时候，构造函数内部的代码是立即执行的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'new Promise'</span>)</span><br><span class="line">  resolve(<span class="string">'success'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'finifsh'</span>)</span><br><span class="line"><span class="comment">// new Promise -&gt; finifsh</span></span><br></pre></td></tr></table></figure>
+<p>Promise 实现了链式调用，也就是说每次调用 <code>then</code> 之后返回的都是一个 Promise，并且是一个全新的 Promise，原因也是因为状态不可变。如果你在 <code>then</code> 中 使用了 <code>return</code>，那么 <code>return</code> 的值会被 <code>Promise.resolve()</code> 包装</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="number">1</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res) <span class="comment">// =&gt; 1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> <span class="comment">// 包装成 Promise.resolve(2)</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res) <span class="comment">// =&gt; 2</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>当然了，Promise 也很好地解决了回调地狱的问题，可以把之前的回调地狱例子改写为如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ajax(url)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res)</span><br><span class="line">      <span class="keyword">return</span> ajax(url1)</span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res)</span><br><span class="line">      <span class="keyword">return</span> ajax(url2)</span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> <span class="built_in">console</span>.log(res))</span><br></pre></td></tr></table></figure>
+<h2 id="async-及-await"><a href="#async-及-await" class="headerlink" title="async 及 await"></a>async 及 await</h2><p>一个函数如果加上 <code>async</code> ，那么该函数就会返回一个 <code>Promise</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"1"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(test()) <span class="comment">// -&gt; Promise &#123;&lt;resolved&gt;: "1"&#125;</span></span><br></pre></td></tr></table></figure>
+<p><code>async</code> 就是将函数返回值使用 <code>Promise.resolve()</code> 包裹了下，和 <code>then</code> 的处理返回值一样，并且<code>await</code> 只能配套 <code>async</code> 使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> value = <span class="keyword">await</span> sleep()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>async</code> 和 <code>await</code> 可以说是异步终极解决方案了，相比直接使用 <code>Promise</code> 来说，优势在于处理 <code>then</code> 的调用链，能够更清晰准确的写出代码，毕竟写一大堆 <code>then</code> 也很恶心，并且也能优雅地解决异步问题。当然也存在一些缺点，因为 <code>await</code> 将异步代码改造成了同步代码，如果多个异步代码没有依赖性却使用了 <code>await</code> 会导致性能上的降低。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式</span></span><br><span class="line">  <span class="comment">// 如果有依赖性的话，其实就是解决回调地狱的例子了</span></span><br><span class="line">  <span class="keyword">await</span> fetch(url)</span><br><span class="line">  <span class="keyword">await</span> fetch(url1)</span><br><span class="line">  <span class="keyword">await</span> fetch(url2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面来看一个使用 <code>await</code> 的代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  a = a + <span class="keyword">await</span> <span class="number">10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'2'</span>, a) <span class="comment">// -&gt; '2' 10</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line">a++</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'1'</span>, a) <span class="comment">// -&gt; '1' 1</span></span><br></pre></td></tr></table></figure>
+<p>对于以上代码你可能会有疑惑，这里解释下原理</p>
+<ul>
+<li>首先函数 <code>b</code> 先执行，在执行到 <code>await 10</code> 之前变量 <code>a</code> 还是 0，因为 <code>await</code> 内部实现了 <code>generator</code> ，<code>generator</code> 会保留堆栈中东西，所以这时候 <code>a = 0</code> 被保存了下来</li>
+<li>因为 <code>await</code> 是异步操作，遇到 <code>await</code> 就会立即返回一个 <code>pending</code> 状态的 <code>Promise</code> 对象，这时候会去执行函数外的同步代码</li>
+<li>同步代码执行完毕后开始执行异步代码，将保存下来的值拿出来使用，这时候 <code>a = 0 + 10</code></li>
+</ul>
+<p>上述解释中提到了 <code>await</code> 内部实现了 <code>generator</code>，其实 <code>await</code> 就是 <code>generator</code> 加上 <code>Promise</code> 的语法糖，且内部实现了自动执行 <code>generator</code>。如果你熟悉 co 的话，其实自己就可以实现这样的语法糖。</p>
+<h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><p>异步编程当然少不了 <code>setTimeout</code> 了，但是很多人对于 <code>setTimeout</code> 的理解是，认为它延时多久，那就应该是多久后执行。</p>
+<p>其实这个观点是错误的，因为 JS 是单线程执行的，如果前面的代码影响了性能，就会导致 <code>setTimeout</code> 不会按期执行。当然了，我们可以通过代码去修正 <code>setTimeout</code>，从而使定时器相对准确</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> period = <span class="number">60</span> * <span class="number">1000</span> * <span class="number">60</span> * <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> startTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> end = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime() + period</span><br><span class="line"><span class="keyword">let</span> interval = <span class="number">1000</span></span><br><span class="line"><span class="keyword">let</span> currentInterval = interval</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  count++</span><br><span class="line">  <span class="comment">// 代码执行所消耗的时间</span></span><br><span class="line">  <span class="keyword">let</span> offset = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - (startTime + count * interval);</span><br><span class="line">  <span class="keyword">let</span> diff = end - <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span><br><span class="line">  <span class="keyword">let</span> h = <span class="built_in">Math</span>.floor(diff / (<span class="number">60</span> * <span class="number">1000</span> * <span class="number">60</span>))</span><br><span class="line">  <span class="keyword">let</span> hdiff = diff % (<span class="number">60</span> * <span class="number">1000</span> * <span class="number">60</span>)</span><br><span class="line">  <span class="keyword">let</span> m = <span class="built_in">Math</span>.floor(hdiff / (<span class="number">60</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> mdiff = hdiff % (<span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> s = mdiff / (<span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> sCeil = <span class="built_in">Math</span>.ceil(s)</span><br><span class="line">  <span class="keyword">let</span> sFloor = <span class="built_in">Math</span>.floor(s)</span><br><span class="line">  <span class="comment">// 得到下一次循环所消耗的时间</span></span><br><span class="line">  currentInterval = interval - offset </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'时：'</span>+h, <span class="string">'分：'</span>+m, <span class="string">'毫秒：'</span>+s, <span class="string">'秒向上取整：'</span>+sCeil, <span class="string">'代码执行时间：'</span>+offset, <span class="string">'下次循环间隔'</span>+currentInterval) </span><br><span class="line"></span><br><span class="line">  setTimeout(loop, currentInterval)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setTimeout(loop, currentInterval)</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>异步编程是 JS 中较难掌握的内容，同时也是很重要的知识点。以上提到的每个知识点其实都可以作为一道面试题，希望大家可以好好掌握以上内容。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/580ae11.html&title=《js异步编程》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/580ae11.html&title=《js异步编程》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/580ae11.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js异步编程》 — 前端迷 (front-end fan)&url=https://ru23.com/note/580ae11.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/580ae11.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/16840463.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">11月份整理的知识点</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/7c193027.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">头条2018秋招面试题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/580ae11.html&title=《js异步编程》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/580ae11.html&title=《js异步编程》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/580ae11.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js异步编程》 — 前端迷 (front-end fan)&url=https://ru23.com/note/580ae11.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/580ae11.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3aQY7CMAwFUO5/aUaa1UjQ8m03oSO9rBAtyQsLK7bzeMTj+Ttev3n9/uidv28mvx0NXFzcMfd5Os6557P1NnD0Di4u7n7uefA6nyLfavL5gw0XF/dm3OqSebDDxcX9v9ze8tW/AxcX9z7c5JiShKq8gLI8V8PFxR1wqwXTFZ8X1ndxcXGL3GdxVMPfZK03c+Li4m7h9soZ8wJHcoQ6DHO4uLiLudWW5/ymRH6EOgxhuLi4i7l5ElK9llG9jFVoyeDi4i7mJsElD2TXpk9R2oOLi7uMO2mczNObPCzi4uJ+i5u0Qq9Nb5J27CPPyXBxccfcZrY0OOhUG7e4uLjf5SahLXl6PmfOLXSBcHFxF3CrB5RrjyzloxUuLu5ibnIcycNTXhKttnJxcXF3cnvFzeoyvV8dhjlcXNzF3DwY5RurNl0K/VNcXNyN3N6kvQNQoRiKi4v7VW71gtQ8yeld/MLFxd3DrQaUZPlq0aT3FBcXdzW3GryuulqRzPChioOLi7uYW66zjrfRa+ji4uLejdtrtU7+iDez4eLi3pKbN1YLbZJ887i4uBu5k0tUk4JpAm3mari4uANutWDau5wxL6Dg4uJu4f4AZSG0e3u5Ge0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

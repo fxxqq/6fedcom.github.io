@@ -1,68 +1,598 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/9196d3a3.html">
+    
+    
+    <title>React之环境的搭建（一） | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="javascript,react">
+    <meta name="description" content="一、什么是react react是由Facebook开发的一个javascript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题  二、react的特点 简单：学习简单，代码简单 声明式（编程）：自动dom操作   React的核心是组件，组件的设计目的是提升代码的复用率、降低测试难度和代码复杂度。   提">
+<meta name="keywords" content="javascript,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React之环境的搭建（一）">
+<meta property="og:url" content="https://ru23.com/note/9196d3a3.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="一、什么是react react是由Facebook开发的一个javascript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题  二、react的特点 简单：学习简单，代码简单 声明式（编程）：自动dom操作   React的核心是组件，组件的设计目的是提升代码的复用率、降低测试难度和代码复杂度。   提">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-57b13a4de85f4636.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-5139d73619a38b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-11-11T02:02:15.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React之环境的搭建（一）">
+<meta name="twitter:description" content="一、什么是react react是由Facebook开发的一个javascript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题  二、react的特点 简单：学习简单，代码简单 声明式（编程）：自动dom操作   React的核心是组件，组件的设计目的是提升代码的复用率、降低测试难度和代码复杂度。   提">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-57b13a4de85f4636.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            React之环境的搭建（一）
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            React之环境的搭建（一）
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2017-11-19T02:10:24.000Z" itemprop="datePublished" class="page-time">
+  2017-11-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、什么是react"><span class="post-toc-text">一、什么是react</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、react的特点"><span class="post-toc-text">二、react的特点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、react的开发环境的配置"><span class="post-toc-text">三、react的开发环境的配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、React、Reactdom中有什么"><span class="post-toc-text">四、React、Reactdom中有什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、yeoman环境"><span class="post-toc-text">五、yeoman环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、React脚手架搭建"><span class="post-toc-text">六、React脚手架搭建</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2017-11-react-study-build-env" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">React之环境的搭建（一）</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2017-11-19 10:10:24" datetime="2017-11-19T02:10:24.000Z" itemprop="datePublished">2017-11-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、什么是react"><a href="#一、什么是react" class="headerlink" title="一、什么是react"></a>一、什么是react</h2><ul>
+<li>react是由Facebook开发的一个javascript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题</li>
+</ul>
+<h2 id="二、react的特点"><a href="#二、react的特点" class="headerlink" title="二、react的特点"></a>二、react的特点</h2><ul>
+<li>简单：学习简单，代码简单</li>
+<li>声明式（编程）：自动<code>dom</code>操作</li>
+</ul>
+<blockquote>
+<p><code>React</code>的核心是组件，组件的设计目的是提升代码的复用率、降低测试难度和代码复杂度。</p>
+</blockquote>
+<ul>
+<li>提高代码复用率：组件将数据与逻辑封装</li>
+<li>降低测试难度：组件高内聚低耦合，很容易对单个组件进行测试</li>
+<li>降低代码复杂度：使用<code>JSX</code>语法，更直观的在js文件中看<code>HTML</code>代码，提高可读性</li>
+</ul>
+<h2 id="三、react的开发环境的配置"><a href="#三、react的开发环境的配置" class="headerlink" title="三、react的开发环境的配置"></a>三、react的开发环境的配置</h2><blockquote>
+<p>如果是要直接在<code>HTML</code>上编辑，需要下载<code>react.js</code>与<code>react-dom.js</code>。如果要使用JSX语法，则需要使用转换<code>JSX</code>语法的插件。这里使用<code>brower.js</code>。在线地址：<a href="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js" target="_blank" rel="noopener">https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js</a></p>
+</blockquote>
+<ul>
+<li><code>react.js</code>：<code>react</code>的核心库</li>
+<li><code>react-dom.js</code>：提供操作<code>dom</code>相关的功能</li>
+<li><code>brower,js</code>：将使用的<code>JSX</code>语法转换成<code>javascript</code>语法</li>
+</ul>
+<blockquote>
+<p>注意：三者引用顺序必须是<code>react</code>、<code>react-dom</code>、<code>brower</code></p>
+</blockquote>
+<h2 id="四、React、Reactdom中有什么"><a href="#四、React、Reactdom中有什么" class="headerlink" title="四、React、Reactdom中有什么"></a>四、React、Reactdom中有什么</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-57b13a4de85f4636.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1480597-5139d73619a38b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<h2 id="五、yeoman环境"><a href="#五、yeoman环境" class="headerlink" title="五、yeoman环境"></a>五、yeoman环境</h2><blockquote>
+<p><code>yeoman</code>前端脚手架工具</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i -g yeoman</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://yeoman.io/" target="_blank" rel="noopener">http://yeoman.io/</a></li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/react-webpack-generators/generator-react-webpack#readme" target="_blank" rel="noopener">https://github.com/react-webpack-generators/generator-react-webpack#readme</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Make sure both is installed globally</span><br><span class="line">npm install -g yo</span><br><span class="line">npm install -g generator-react-webpack</span><br><span class="line"></span><br><span class="line"># Create a new directory, and `cd` into it:</span><br><span class="line">mkdir my-<span class="keyword">new</span>-project &amp;&amp; cd my-<span class="keyword">new</span>-project</span><br><span class="line"></span><br><span class="line"># Run the generator</span><br><span class="line">yo react-webpack</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># Start for development</span><br><span class="line">npm start # or</span><br><span class="line">npm run serve</span><br><span class="line"></span><br><span class="line"># Start the dev-server with the dist version</span><br><span class="line">npm run serve:dist</span><br><span class="line"></span><br><span class="line"># Just build the dist version and copy static files</span><br><span class="line">npm run dist</span><br><span class="line"></span><br><span class="line"># Run unit tests</span><br><span class="line">npm test</span><br><span class="line"></span><br><span class="line"># Auto-run unit tests on file changes</span><br><span class="line">npm run test:watch</span><br><span class="line"></span><br><span class="line"># Lint all files in src (also automatically done AFTER tests are run)</span><br><span class="line">npm run lint</span><br><span class="line"></span><br><span class="line"># Clean up the dist directory</span><br><span class="line">npm run clean</span><br><span class="line"></span><br><span class="line"># Just copy the static assets</span><br><span class="line">npm run copy</span><br></pre></td></tr></table></figure>
+<h2 id="六、React脚手架搭建"><a href="#六、React脚手架搭建" class="headerlink" title="六、React脚手架搭建"></a>六、React脚手架搭建</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm i create-react-app</span><br><span class="line"></span><br><span class="line">create-react-app your-app-name &amp;&amp; cd your-app-name</span><br><span class="line"></span><br><span class="line">npm install </span><br><span class="line"></span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/9196d3a3.html&title=《React之环境的搭建（一）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/9196d3a3.html&title=《React之环境的搭建（一）》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/9196d3a3.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React之环境的搭建（一）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/9196d3a3.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/9196d3a3.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/22a8b6f6.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">React之JSX语法及非dom操作属性（二）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/dee16b26.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">axios异步请求的那些事</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/9196d3a3.html&title=《React之环境的搭建（一）》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/9196d3a3.html&title=《React之环境的搭建（一）》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/9196d3a3.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React之环境的搭建（一）》 — 前端迷 (front-end fan)&url=https://ru23.com/note/9196d3a3.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/9196d3a3.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzklEQVR42u3aQW7DMAwEQP//0ynQUwq09pK0FKMYnwIjscY5EBRXxxFfr+/r/fP7nfP7+RNuu3Bxccfc1+l1vthf389/VX0mLi7uTu6K0pO8dm7AxcV9JrdapM6fjIuL+z+4eUlKCh8uLu7zufnmJC9tyRhl4V4NFxd32nWUB6b3fl4+38XFxb0plciHm1Fr0lrxxyq4uLhbuEmzcn4/b0SShikqc7i4uFu4VXoekSZ/wWSwgouLu4I7D0uq0csotsHFxd3I7R2uyovdfCN0TP4zXFzcwYShWoYSYvXlL9bFxcXdwu1tcsoHJoKDWdUhCy4u7jpuFTQ/aFUNbnFxcfdzc3TemvSCmULrg4uLu5hbHXOcjzzO7/faHVxc3Odwk9FndfDRi2ZxcXH3c8ulJA5C8rCkeoQLFxd3NTeJPXrNSm+DdFEucXFxN3KrMclkCBKlOvNMGBcXd8wtH5CKl+mNUY5qpcTFxb2VO18+H4X0Nld5ZIuLi3svNx9wVI9bVV8MFxf3adxe8cqDlryVudhQ4eLiPoybL5AcvUqCnF+ejIuL+0huL1DpFTtcXNzPcqsHKar3843QbXs1XFzcAbc6MO0FsdXxBy4u7oe4X0AW3USnuC+aAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

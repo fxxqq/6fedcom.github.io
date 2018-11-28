@@ -1,68 +1,541 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/60aa5031.html">
+    
+    
+    <title>如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030) | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="The article has been encrypted, please enter your password to view.">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)">
+<meta property="og:url" content="https://ru23.com/note/60aa5031.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="The article has been encrypted, please enter your password to view.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-08T06:58:30.393Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)">
+<meta name="twitter:description" content="The article has been encrypted, please enter your password to view.">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2018-10-30T03:25:50.000Z" itemprop="datePublished" class="page-time">
+  2018-10-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#encrypt-message"><span class="post-toc-text">Please enter the password to read the blog.</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2018-10-如何提升自己的开发水平" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2018-10-30 11:25:50" datetime="2018-10-30T03:25:50.000Z" itemprop="datePublished">2018-10-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/60aa5031.html&title=《如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/60aa5031.html&title=《如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)》 — 前端迷 (front-end fan)&source=The article has been encrypted, please enter your password to view." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/60aa5031.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)》 — 前端迷 (front-end fan)&url=https://ru23.com/note/60aa5031.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/60aa5031.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/540b8f23.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">get请求中特殊字符&amp;的处理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/9aead141.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">关于webpack，CommonsChunkPlugin无效，重复引用的问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/60aa5031.html&title=《如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/60aa5031.html&title=《如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)》 — 前端迷 (front-end fan)&source=The article has been encrypted, please enter your password to view." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/60aa5031.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何利用上下班地铁闲置时间提升自己的前端技术(更新时间：20181030)》 — 前端迷 (front-end fan)&url=https://ru23.com/note/60aa5031.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/60aa5031.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aQZKDMAwEwPz/02zVXglkJIHh0D5RJED7orJH/nzisf2P/fX+P/tf9/eP/nnZwMXFHXO303FOnEDP7x9OCRcXdyE3KV5HoGrNqRZHXFzcN3Pz8nS+iMkLJS4u7vu5vcXKfEOFi4v7FDdZjvQKU7I8umWvhouLO+BOAtOrrhflu7i4uOOuRK+oHVG28cDFxV3DPX91jpj0SatBCS4u7t3cpDk6iU3zKUXBCi4u7hJu9TOTADQJVqLv4uLiLuTm0WdSbqqt1ubBLFxc3Bu4vRZpTsyXRFH5w8XFXcKd1IfJQYpkws1MBRcX9yJutYT1mq+9Z3FxcddzJ8uOeSBSjWJxcXHXc6ufvOq4RmEyuLi4D3GrS5NmSQpilC/vx8XFXcK9NgSZFLtCgIKLi3szd7JAqbZSqs/i4uI+y52EmMk0ym2S854wLi7uEm75gFTxkGVSpJrdHlxc3Bu41YJSbZxUp1Q90oGLi3sfN98C9c5C9AoZLi7uG7i9Q5Y5Pa+gP57CxcV9GTfZPuURSTKxL2/AxcV9Mbcapkzu4OLiPsXtfSwvUvkhrcv2ari4uAPuJDDtHc+qRrG4uLgLuX8PcfwzrZLWfwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

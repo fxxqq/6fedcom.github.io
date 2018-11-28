@@ -1,68 +1,576 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/cd9fe451.html">
+    
+    
+    <title>基于vue的韦博教师端项目踩坑记录 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="Vue,vuex">
+    <meta name="description" content="1.vue的生命周期 详细讲解：https://segmentfault.com/a/1190000011381906beforeCreatecreatedbeforeMountmountedbeforeUpdateupdatedbeforeDestroydestroyed  2.axios  封装方法详见api文件，使用方法如下：12345678910111213141516171819befo">
+<meta name="keywords" content="Vue,vuex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于vue的韦博教师端项目踩坑记录">
+<meta property="og:url" content="https://ru23.com/note/cd9fe451.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="1.vue的生命周期 详细讲解：https://segmentfault.com/a/1190000011381906beforeCreatecreatedbeforeMountmountedbeforeUpdateupdatedbeforeDestroydestroyed  2.axios  封装方法详见api文件，使用方法如下：12345678910111213141516171819befo">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-01T09:39:01.392Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于vue的韦博教师端项目踩坑记录">
+<meta name="twitter:description" content="1.vue的生命周期 详细讲解：https://segmentfault.com/a/1190000011381906beforeCreatecreatedbeforeMountmountedbeforeUpdateupdatedbeforeDestroydestroyed  2.axios  封装方法详见api文件，使用方法如下：12345678910111213141516171819befo">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            基于vue的韦博教师端项目踩坑记录
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            基于vue的韦博教师端项目踩坑记录
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2018-05-26T07:51:09.000Z" itemprop="datePublished" class="page-time">
+  2018-05-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-vue的生命周期"><span class="post-toc-text">1.vue的生命周期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-axios"><span class="post-toc-text">2.axios</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-vue-全局公用函数"><span class="post-toc-text">3.vue 全局公用函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-重写console-log-实现自己的逻辑"><span class="post-toc-text">4.重写console.log 实现自己的逻辑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-使用vue-router设置每个页面的title"><span class="post-toc-text">5.使用vue-router设置每个页面的title</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-密码加密逻辑"><span class="post-toc-text">6.密码加密逻辑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-webpack解决开发环境的跨域问题"><span class="post-toc-text">7.webpack解决开发环境的跨域问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-弹窗组件文档"><span class="post-toc-text">8.弹窗组件文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-nginx如何正确配置部署在子目录的vue项目"><span class="post-toc-text">9.nginx如何正确配置部署在子目录的vue项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-vue-哪个生命周期进行数据请求"><span class="post-toc-text">10.vue 哪个生命周期进行数据请求</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2018-05-基于vue的韦博教师端项目踩坑记录" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">基于vue的韦博教师端项目踩坑记录</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2018-05-26 15:51:09" datetime="2018-05-26T07:51:09.000Z" itemprop="datePublished">2018-05-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="1-vue的生命周期"><a href="#1-vue的生命周期" class="headerlink" title="1.vue的生命周期"></a>1.vue的生命周期</h3><ul>
+<li>详细讲解：<a href="https://segmentfault.com/a/1190000011381906" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011381906</a><br>beforeCreate<br>created<br>beforeMount<br>mounted<br>beforeUpdate<br>updated<br>beforeDestroy<br>destroyed</li>
+</ul>
+<h3 id="2-axios"><a href="#2-axios" class="headerlink" title="2.axios"></a>2.axios</h3><blockquote>
+<p> 封装方法详见api文件，使用方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">beforeMount()&#123;</span><br><span class="line">	<span class="keyword">this</span>.loading2 = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">	<span class="keyword">let</span> params = &#123;</span><br><span class="line">		api:<span class="string">"/getdbdata2"</span>,</span><br><span class="line">		param:<span class="string">"exec xFool_p_getapp '',1"</span></span><br><span class="line">	&#125;;</span><br><span class="line">	api.get(params)</span><br><span class="line">		.then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(res.data))</span><br><span class="line">			that.tableData = <span class="built_in">JSON</span>.parse(res.data).data;</span><br><span class="line">			that.loading2 = <span class="literal">false</span>;</span><br><span class="line">		&#125;)</span><br><span class="line">		.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(err);</span><br><span class="line">			that.loading2 = <span class="literal">false</span>;</span><br><span class="line">			api.reqFail(that,<span class="string">"获取列表失败请刷新"</span>);</span><br><span class="line">		&#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="3-vue-全局公用函数"><a href="#3-vue-全局公用函数" class="headerlink" title="3.vue 全局公用函数"></a>3.vue 全局公用函数</h3><p>如果你需要让一个工具函数在每个组件可用，可以把方法挂载到 Vue.prototype上。</p>
+<p><strong>注册</strong><br>main.js 中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$method = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p> 一般建议函数名使用 $ 前缀。像 vue-router 的 $route 和 $router。</p>
+</blockquote>
+<p><strong>使用</strong></p>
+<p>那么组件代码里<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="keyword">this</span>.$method()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>说明</strong><br>挂载到 prototype 上是为了方便组件内直接用 this.$method 来使用，你也可以直接用 Vue.method，这样同样可以全局使用，不过在组件内就需要再 import 一次 Vue 了。</p>
+<h3 id="4-重写console-log-实现自己的逻辑"><a href="#4-重写console-log-实现自己的逻辑" class="headerlink" title="4.重写console.log 实现自己的逻辑"></a>4.重写console.log 实现自己的逻辑</h3><blockquote>
+<p> 重写console.log 实现自己的逻辑<br> 可以通过如下代码重写console.log</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log = (<span class="function"><span class="keyword">function</span>(<span class="params">oriLogFunc</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        oriLogFunc.call(<span class="built_in">console</span>,<span class="string">"hello:"</span>+str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="built_in">console</span>.log);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"userName"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="5-使用vue-router设置每个页面的title"><a href="#5-使用vue-router设置每个页面的title" class="headerlink" title="5.使用vue-router设置每个页面的title"></a>5.使用vue-router设置每个页面的title</h3><p><strong>进入 router 文件夹底下的index.js文件</strong></p>
+<p><strong>首先引入：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>然后在路由里面配置每个路由的地址：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123;          <span class="comment">/* （首页）默认路由地址 */</span></span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'Entrance'</span>,</span><br><span class="line">    component: Entrance,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      title: <span class="string">'首页入口'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;          <span class="comment">/* 修改昵称 */</span></span><br><span class="line">    path: <span class="string">'/modifyName/:nickName'</span>,</span><br><span class="line">    name: <span class="string">'modifyName'</span>,</span><br><span class="line">    component: modifyName,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      title: <span class="string">'修改昵称'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;          <span class="comment">/* 商品详情 */</span></span><br><span class="line">    path: <span class="string">'/goodsDetail'</span>,</span><br><span class="line">    name: <span class="string">'goodsDetail'</span>,</span><br><span class="line">    component: goodsDetail,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      title: <span class="string">'商品详情'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; <span class="comment">/* Not Found 路由，必须是最后一个路由 */</span></span><br><span class="line">    path: <span class="string">'*'</span>,</span><br><span class="line">    component: NotFound,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      title: <span class="string">'找不到页面'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><strong>在每一个meta里面设置页面的title名字，最后在遍历</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/* 路由发生变化修改页面title */</span></span><br><span class="line">  <span class="keyword">if</span> (to.meta.title) &#123;</span><br><span class="line">    <span class="built_in">document</span>.title = to.meta.title</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-密码加密逻辑"><a href="#6-密码加密逻辑" class="headerlink" title="6.密码加密逻辑"></a>6.密码加密逻辑</h3><p>登录密码加密规则：首先把js sha512把原密码加密，然后在加密后的密码后面加上当前服务器时间（格式为：YYYY-MM-DD），<br>最后把加密后的密码加服务器时间再次进行一次sha512加密<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install js-sha512 --save</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sha512(<span class="string">'password'</span>+YYYY-MM-DD);</span><br></pre></td></tr></table></figure>
+<h3 id="7-webpack解决开发环境的跨域问题"><a href="#7-webpack解决开发环境的跨域问题" class="headerlink" title="7.webpack解决开发环境的跨域问题"></a>7.webpack解决开发环境的跨域问题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   devServer: &#123;</span><br><span class="line">       proxy: &#123;</span><br><span class="line">           <span class="string">'/api/teacherCenter*'</span>: &#123;</span><br><span class="line">               target: <span class="string">'http://192.168.250.241:8764'</span>,</span><br><span class="line">               secure: <span class="literal">false</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">       disableHostCheck: <span class="literal">true</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="8-弹窗组件文档"><a href="#8-弹窗组件文档" class="headerlink" title="8.弹窗组件文档"></a>8.弹窗组件文档</h3><ul>
+<li><a href="https://sweetalert.js.org" target="_blank" rel="noopener">详细讲解</a></li>
+</ul>
+<h3 id="9-nginx如何正确配置部署在子目录的vue项目"><a href="#9-nginx如何正确配置部署在子目录的vue项目" class="headerlink" title="9.nginx如何正确配置部署在子目录的vue项目"></a>9.nginx如何正确配置部署在子目录的vue项目</h3><p><strong>nginx配置文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /teacher/ &#123;</span><br><span class="line">    index  index.html index.htm index.php;</span><br><span class="line">    try_files $uri $uri/ /teacher/index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>vue路由配置</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">routes: [&#123;</span><br><span class="line">	path: <span class="string">'/teacher/login'</span>,</span><br><span class="line">	name: <span class="string">'Login'</span>,</span><br><span class="line">	component: Login,</span><br><span class="line">	meta: &#123;</span><br><span class="line">		title: <span class="string">'教师端登录中心'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">	path: <span class="string">'/teacher/courseCenter'</span>,</span><br><span class="line">	name: <span class="string">'CourseCenter'</span>,</span><br><span class="line">	component: CourseCenter,</span><br><span class="line">	meta: &#123;</span><br><span class="line">		title: <span class="string">'CourseCenter'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<h3 id="10-vue-哪个生命周期进行数据请求"><a href="#10-vue-哪个生命周期进行数据请求" class="headerlink" title="10.vue 哪个生命周期进行数据请求"></a>10.vue 哪个生命周期进行数据请求</h3><p> 不考虑服务器端渲染，一般选在 mounted 周期内请求数据，因为这个周期开始时，当前组件已经被挂载到真实的元素上了。<br> 如果要进行服务器渲染，则在created周期内</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/cd9fe451.html&title=《基于vue的韦博教师端项目踩坑记录》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/cd9fe451.html&title=《基于vue的韦博教师端项目踩坑记录》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/cd9fe451.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于vue的韦博教师端项目踩坑记录》 — 前端迷 (front-end fan)&url=https://ru23.com/note/cd9fe451.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/cd9fe451.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/b79658e7.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vuerouter的问题，单页刷新或者直接输入路径不触发 beforeEach</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/5e4f4766.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【ElementUI】日期选择器时间选择范围限制插入、替换</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/cd9fe451.html&title=《基于vue的韦博教师端项目踩坑记录》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/cd9fe451.html&title=《基于vue的韦博教师端项目踩坑记录》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/cd9fe451.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于vue的韦博教师端项目踩坑记录》 — 前端迷 (front-end fan)&url=https://ru23.com/note/cd9fe451.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/cd9fe451.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3aQY6FIBAFQO9/aWc7i1HfA+H/SYqVMaKFiw7dzXHE4/w1ru7fP3P1zmPFwMXFneaet+PqmWTuPT1/Dy4u7qe494Em+XBCyd9/eR8XF/cruW04a5eHi4v7f7lvpUy4uLjfzG3DUL7gNrS9lqvh4uJOcPOQtO56SX0XFxd3iHuWIy+RzBdJ//g6Li7uFm4eUMaWlDRl6/QJFxd3Mfd+Wtt2HTuEkQS4hyoLLi7uq9wEPdZKGaMUWxxcXNxl3DYtaVsm+bYmSplwcXG3cPMJeWDK06G84IKLi7uT24aePMC1LZMiV8PFxV3MbaEzx6rGSqgPaFxc3GXct9qi81ul6Hfg4uJu5NaFiaC00W5iikCGi4u7mFs/OtSObZOfh7m4uLiLuTNbkLb5OlZSKWo5uLi4r3JniqQzJY+kZYuLi/spbjGhDFtHOaL2CS4u7jLuWY6xIJWHyGgduLi4i7ltcGlLHu2Sku0OLi7uHu5M6zQvjrS/4KGJgouLu4U7343Jj2G1yc8L9V1cXNzF3DYM5WXWImPDxcX9Mm57UGO+8PFy3MXFxY25eat1Jo1JjnQ8/CBcXNwt3JnGZ9sOGTukhYuLu5H7Azq9AS+zSe1IAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

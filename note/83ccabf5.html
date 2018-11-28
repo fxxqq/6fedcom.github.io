@@ -1,68 +1,629 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/83ccabf5.html">
+    
+    
+    <title>各种速查表收集整理 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="速查表">
+    <meta name="description" content="前端工程师知识体系">
+<meta name="keywords" content="速查表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各种速查表收集整理">
+<meta property="og:url" content="https://ru23.com/note/83ccabf5.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="前端工程师知识体系">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.jpg">
+<meta property="og:image" content="http://designzum.com/wp-content/uploads/2014/05/html5_cheat_sheet_tags.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/HTML%E7%9F%A5%E8%AF%86%E7%BD%91%E6%80%BB%E7%BB%93.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/Emmet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E9%80%9F%E6%9F%A5%E8%A1%A8.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/CSS%E7%9F%A5%E8%AF%86%E7%BD%91%E6%80%BB%E7%BB%93.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/DIV%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E7%BB%8F%E5%85%B8%E7%89%88--vim.gif">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/Vim%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/atom%E5%AE%9E%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/webstorm%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/git%20Supervisual%20cheat%20sheet.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/git%20cheat%20sheet%202.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/git%20cheat%20sheet%203.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/git%20cheat%20sheet.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/git-model@2x.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/github.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/git%E6%8A%80%E6%9C%AF%E6%A0%88.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E5%90%84%E8%A1%8C%E4%B8%9A%E7%BD%91%E7%AB%99%E8%AE%BE%E8%AE%A1%E5%8F%82%E8%80%83-%E8%A1%8C%E4%B8%9A%E5%88%97%E8%A1%A8.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99UI%E8%AE%BE%E8%AE%A1.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E8%AE%BE%E8%AE%A1%E8%AF%8D%E6%B1%87%E5%85%A8%E8%A7%A3.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/Fireworks.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/WEB%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E4%B8%93%E9%A2%98%E9%A1%B5%E8%AE%BE%E8%AE%A1.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E6%8B%BE%E8%89%B2%E5%99%A8.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B.jpg">
+<meta property="og:updated_time" content="2018-11-01T09:38:36.166Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="各种速查表收集整理">
+<meta name="twitter:description" content="前端工程师知识体系">
+<meta name="twitter:image" content="http://7xq6al.com1.z0.glb.clouddn.com/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            各种速查表收集整理
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            各种速查表收集整理
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2016-03-14T08:08:24.000Z" itemprop="datePublished" class="page-time">
+  2016-03-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML-CSS相关"><span class="post-toc-text">HTML+CSS相关</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IDE相关"><span class="post-toc-text">IDE相关</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计相关"><span class="post-toc-text">设计相关</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2016-03-各种速查表收集整理" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">各种速查表收集整理</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2016-03-14 16:08:24" datetime="2016-03-14T08:08:24.000Z" itemprop="datePublished">2016-03-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong>前端工程师知识体系</strong><br><a id="more"></a><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<h2 id="HTML-CSS相关"><a href="#HTML-CSS相关" class="headerlink" title="HTML+CSS相关"></a>HTML+CSS相关</h2><ul>
+<li><strong>html5属性速查表</strong></li>
+</ul>
+<p><img src="http://designzum.com/wp-content/uploads/2014/05/html5_cheat_sheet_tags.png" alt="此处输入图片的描述"></p>
+<hr>
+<ul>
+<li>HTML知识网总结</li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/HTML%E7%9F%A5%E8%AF%86%E7%BD%91%E6%80%BB%E7%BB%93.jpg" alt="此处输入图片的描述"></p>
+<ul>
+<li>Emmet插件命令速查表</li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/Emmet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E9%80%9F%E6%9F%A5%E8%A1%A8.png" alt="此处输入图片的描述"></p>
+<hr>
+<ul>
+<li>css知识网总结</li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/CSS%E7%9F%A5%E8%AF%86%E7%BD%91%E6%80%BB%E7%BB%93.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<ul>
+<li>DIV+css命名规范</li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/DIV%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<h2 id="IDE相关"><a href="#IDE相关" class="headerlink" title="IDE相关"></a>IDE相关</h2><ul>
+<li><strong>Vim键盘图&amp;&amp;快捷键</strong></li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E7%BB%8F%E5%85%B8%E7%89%88--vim.gif" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/Vim%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<ul>
+<li>atom快捷键<br><img src="http://7xq6al.com1.z0.glb.clouddn.com/atom%E5%AE%9E%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg" alt="此处输入图片的描述"></li>
+</ul>
+<hr>
+<ul>
+<li>webstorm快捷键</li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/webstorm%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<ul>
+<li>sublime快捷键</li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<ul>
+<li><strong>gitHub速查表</strong></li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/git%20Supervisual%20cheat%20sheet.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/git%20cheat%20sheet%202.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/git%20cheat%20sheet%203.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/git%20cheat%20sheet.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/git-model@2x.png" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/github.png" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/git%E6%8A%80%E6%9C%AF%E6%A0%88.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<h2 id="设计相关"><a href="#设计相关" class="headerlink" title="设计相关"></a>设计相关</h2><ul>
+<li><strong>网站UI设计</strong></li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E5%90%84%E8%A1%8C%E4%B8%9A%E7%BD%91%E7%AB%99%E8%AE%BE%E8%AE%A1%E5%8F%82%E8%80%83-%E8%A1%8C%E4%B8%9A%E5%88%97%E8%A1%A8.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99UI%E8%AE%BE%E8%AE%A1.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E8%AE%BE%E8%AE%A1%E8%AF%8D%E6%B1%87%E5%85%A8%E8%A7%A3.jpg" alt="此处输入图片的描述"></p>
+<ul>
+<li>WEB标准化布局–WEB界面设计</li>
+</ul>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/Fireworks.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/WEB%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E4%B8%93%E9%A2%98%E9%A1%B5%E8%AE%BE%E8%AE%A1.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E6%8B%BE%E8%89%B2%E5%99%A8.jpg" alt="此处输入图片的描述"><br><img src="http://7xq6al.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B.jpg" alt="此处输入图片的描述"></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/速查表/">速查表</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/83ccabf5.html&title=《各种速查表收集整理》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/83ccabf5.html&title=《各种速查表收集整理》 — 前端迷 (front-end fan)&source=前端工程师知识体系" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/83ccabf5.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《各种速查表收集整理》 — 前端迷 (front-end fan)&url=https://ru23.com/note/83ccabf5.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/83ccabf5.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/96063689.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">编码神器atom使用详解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/fb68b5e4.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Emmet：HTML/CSS代码快速编写神器</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/83ccabf5.html&title=《各种速查表收集整理》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/83ccabf5.html&title=《各种速查表收集整理》 — 前端迷 (front-end fan)&source=前端工程师知识体系" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/83ccabf5.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《各种速查表收集整理》 — 前端迷 (front-end fan)&url=https://ru23.com/note/83ccabf5.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/83ccabf5.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3awW7DIBAE0Pz/T7tXS1HiGcA4lR6nKnXNSw+r3YHXK17HaZ0/ef/t+fP3N3x62+KFi4s7zT2+rgR0BOsTOjfg4uLu5yalJyEmfzv2DC4u7u9z82LUNky4uLj/kZsPLUnDhIuL+8vctmUZ22zrrIaLizvBzUvSfT/fku/i4uIOcY9ytY1R3uhEu+Pi4m7h5gVlrOkZC02+74uLi3s3NylSbbSRj0btjri4uHu47aDSlrM8Qi3CEVxc3Ju5bXw5c1CaHLte1CtcXNwt3LHgso022gFpwayGi4s7wZ2JL/M4dfGshouLu5G7qh1pnywaKVxc3I3cJOwYu8LVxrIXrQ8uLu52blvI8nI2Fr9Gh6y4uLg3cGei0pnSNnYlFBcX91nufFTaXtFIdsHFxX2Km7QybdPTtkQXpRAXF3cjd+w6xdpGJ3oSFxf3Zu7YMeqqYSZpd3Bxcfdz28tY7avbUWqmzcLFxV3LbYtXe9CSPFkUOFxc3I3cmUKTX6Fo26M6xcHFxX2Im1+YWFXypgoZLi7uo9x81BlLOXBxcfdz84sUbUTShqcX/whcXNwt3Jnos/0C7deeyndxcXFHuH+9hin4H/UengAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>

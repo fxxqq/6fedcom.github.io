@@ -1,68 +1,541 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
+<!-- End Baidu Tongji -->
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
 
-    if page.comments
-      include _partial/comments.pug
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://ru23.com/note/d196d9f1.html">
+    
+    
+    <title>每周攻克一个技术点 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#006fbc">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="The article has been encrypted, please enter your password to view.">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每周攻克一个技术点">
+<meta property="og:url" content="https://ru23.com/note/d196d9f1.html">
+<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:description" content="The article has been encrypted, please enter your password to view.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-21T08:11:26.435Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每周攻克一个技术点">
+<meta name="twitter:description" content="The article has been encrypted, please enter your password to view.">
+    
+        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/blue.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+
+    <aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="/img/avatar.gif">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">
+                        frank
+                    </h5>
+                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
+            </a>
+            <ul class="nav">
+                
+                <li class="waves-block waves-effect">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        主页
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/tags">
+                        <i class="icon icon-lg icon-tags"></i>
+                        标签
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/categories">
+                        <i class="icon icon-lg icon-th-list"></i>
+                        目录
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="/archives">
+                        <i class="icon icon-lg icon-archives"></i>
+                        归档
+                    </a>
+                </li>
+                
+                <li class="waves-block waves-effect">
+                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+                        <i class="icon icon-lg icon-link"></i>
+                        2折云主机
+                    </a>
+                </li>
+                
+
+                <!-- <li class="ad-qrcode">
+                    <img src="/img/ad/201810/ad-left.jpg">
+                </li> -->
+                <li class="ad-qrcode">
+                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            每周攻克一个技术点
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">
+            每周攻克一个技术点
+        </h1>
+        <h5 class="subtitle">
+            
+            <time datetime="2018-11-17T12:35:36.000Z" itemprop="datePublished" class="page-time">
+  2018-11-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#encrypt-message"><span class="post-toc-text">Please enter the password to read the blog.</span></a></li></ol>
+    </nav>
+</aside>
+
+
+
+<article id="post-2018-11-每周攻克一个技术点" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">每周攻克一个技术点</h1>
+        <div class="post-meta">
+            <time class="post-time" id="post-time" title="2018-11-17 20:35:36" datetime="2018-11-17T12:35:36.000Z" itemprop="datePublished">2018-11-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    <div class="qrcode-container">
+        <img src="/img/qrcode.png">
+    </div><br>
+</span><br>
+
+
+        
+        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
+        
+    </div>
+    
+    <footer>
+        <a href="https://ru23.com">
+            <img src="/img/avatar.gif" alt="frank">
+            frank
+        </a>
+    </footer>
+</blockquote>
+
+<div class="ad-art-end">
+    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
+        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
+    </a>
+</div>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/d196d9f1.html&title=《每周攻克一个技术点》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/d196d9f1.html&title=《每周攻克一个技术点》 — 前端迷 (front-end fan)&source=The article has been encrypted, please enter your password to view." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/d196d9f1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《每周攻克一个技术点》 — 前端迷 (front-end fan)&url=https://ru23.com/note/d196d9f1.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/d196d9f1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/bc5cd3d4.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2018年11月份看到的前端好文章</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/note/fd1af4a9.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2018年11月17号整理的知识点（al）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+            avatar: "mm",
+            qrcode: "",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        <span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                frank &copy;
+                
+                2015 -
+                
+                2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    晋ICP备18012373号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/d196d9f1.html&title=《每周攻克一个技术点》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/d196d9f1.html&title=《每周攻克一个技术点》 — 前端迷 (front-end fan)&source=The article has been encrypted, please enter your password to view." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/d196d9f1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《每周攻克一个技术点》 — 前端迷 (front-end fan)&url=https://ru23.com/note/d196d9f1.html&via=https://ru23.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/d196d9f1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzElEQVR42u3ay27CMBAF0P7/T1Opq1YV4d4xNlkcrxAJzgmLkefx9RWvx8+6vvp7Jb+93nNp4eLiLnMfl+v/1sn9z0DX+yd74uLinuReB5rrF2hjzrP9o2CHi4t7M24SdF6EofLlcXFx789tKUnKhIuLe2duchyZBaYkNdqSq+Hi4i5w24Lpjs8b67u4uLgld5bGDI8moyf+eTouLu4R7nXDo0W0oXBYkMXFxT3ITRqieYKU/wVJIoSLi3uSex042qvJ/W3b5s83uLi4R7gzyqyCsZIIFScyXFzcN3HbA0p7GNoS/nBxcTdz8wGs9rCShLn8GISLi3ue244+DMudZeMWFxf3PLdtqbaDGnkDJnp5XFzcI9w25uVNlNmeUbqFi4u7mdvikhSofY28tIqLi3uGmychbTskb5a0aRUuLu5ubjtiNWuXzpoxuLi4n+WuDGPlrZT1MQ5cXNyT3KUBqbJsmoTLYc8HFxf3TdzZ49tSyCwsrrRzcHFx17krqUtbVM0DGS4u7h24eeGyPb60yc+LAQ5cXNybcdukpQ2FURkFFxf3ltz1kNeGP1xc3E9xdwxRzZKot+VquLi4C9xZwbQto7TlD1xc3A9xvwEcwpWMXbgkCAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+<script>
+    var BLOG = {
+        ROOT: '/',
+        SHARE: true,
+        REWARD: false
+    };
+
+    
+    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
+    
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script>
+    setTimeout(function () {
+        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
+        var nowTime = new Date().getTime();
+        
+        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
+            // document.getElementById("random").innerHTML = 1;
+        } else {
+            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
+            document.getElementById("random").innerHTML = viewCount[0];
+        }
+    }, 0)
+
+</script> -->
+<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
+<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
+<script>
+    $(document).snowfall('clear');
+    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
+    $(document).snowfall({
+        image: "/img/huaban.png",
+        flakeCount: 30,
+        minSize: 5,
+        maxSize: 22
+    });
+</script> -->
+
+
+
+
+
+</body>
+</html>
