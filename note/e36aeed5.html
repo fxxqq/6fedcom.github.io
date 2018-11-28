@@ -1,598 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-    
-
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://ru23.com/note/e36aeed5.html">
-    
-    
-    <title>OOP之原型与原型链 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#006fbc">
-    
-    
-    <meta name="keywords" content="javascript,原型链">
-    <meta name="description" content="prototype原型对象  每个函数都有一个默认的prototype属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象 在构造函数中的prototype中定义的属性和方法，会被创建的对象所继承下来。举个栗子：">
-<meta name="keywords" content="javascript,原型链">
-<meta property="og:type" content="article">
-<meta property="og:title" content="OOP之原型与原型链">
-<meta property="og:url" content="https://ru23.com/note/e36aeed5.html">
-<meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="prototype原型对象  每个函数都有一个默认的prototype属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象 在构造函数中的prototype中定义的属性和方法，会被创建的对象所继承下来。举个栗子：">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://segmentfault.com/img/bVzPrk">
-<meta property="og:image" content="https://segmentfault.com/img/bVcXNb">
-<meta property="og:updated_time" content="2018-11-11T02:02:15.971Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OOP之原型与原型链">
-<meta name="twitter:description" content="prototype原型对象  每个函数都有一个默认的prototype属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象 在构造函数中的prototype中定义的属性和方法，会被创建的对象所继承下来。举个栗子：">
-<meta name="twitter:image" content="https://segmentfault.com/img/bVzPrk">
-    
-        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/blue.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
-</head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-
-    <aside id="menu">
-    <div class="inner flex-row-vertical">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-            <i class="icon icon-lg icon-close"></i>
-        </a>
-        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-            <div class="brand">
-                <a href="/" class="avatar waves-effect waves-circle waves-light">
-                    <img src="/img/avatar.gif">
-                </a>
-                <hgroup class="introduce">
-                    <h5 class="nickname">
-                        frank
-                    </h5>
-                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-                </hgroup>
-            </div>
-        </div>
-        <div class="scroll-wrap flex-col">
-            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
-                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
-            </a>
-            <ul class="nav">
-                
-                <li class="waves-block waves-effect">
-                    <a href="/">
-                        <i class="icon icon-lg icon-home"></i>
-                        主页
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/tags">
-                        <i class="icon icon-lg icon-tags"></i>
-                        标签
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/categories">
-                        <i class="icon icon-lg icon-th-list"></i>
-                        目录
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/archives">
-                        <i class="icon icon-lg icon-archives"></i>
-                        归档
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-                        <i class="icon icon-lg icon-link"></i>
-                        2折云主机
-                    </a>
-                </li>
-                
-
-                <!-- <li class="ad-qrcode">
-                    <img src="/img/ad/201810/ad-left.jpg">
-                </li> -->
-                <li class="ad-qrcode">
-                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
-                </li>
-
-
-            </ul>
-
-        </div>
-    </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-            <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">
-            OOP之原型与原型链
-        </div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-    <div class="container fade-scale">
-        <h1 class="title">
-            OOP之原型与原型链
-        </h1>
-        <h5 class="subtitle">
-            
-            <time datetime="2016-12-13T06:55:24.000Z" itemprop="datePublished" class="page-time">
-  2016-12-13
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-<aside class="post-widget">
-    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-        <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#prototype原型对象"><span class="post-toc-text">prototype原型对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#神秘的proto"><span class="post-toc-text">神秘的proto</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#原型链"><span class="post-toc-text">原型链</span></a></li></ol>
-    </nav>
-</aside>
-
-
-
-<article id="post-2016-12-js-prototype" class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">OOP之原型与原型链</h1>
-        <div class="post-meta">
-            <time class="post-time" id="post-time" title="2016-12-13 14:55:24" datetime="2016-12-13T06:55:24.000Z" itemprop="datePublished">2016-12-13</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
-    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="prototype原型对象"><a href="#prototype原型对象" class="headerlink" title="prototype原型对象"></a>prototype原型对象</h4><hr>
-<ul>
-<li>每个函数都有一个默认的<code>prototype</code>属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象</li>
-<li><p>在构造函数中的<code>prototype</code>中定义的属性和方法，会被创建的对象所继承下来。举个栗子：</p>
-<a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">F.prototype.work = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'F is working..'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line">f.work(); <span class="comment">// F is working..</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当你创建函数时，<code>JS</code>会为这个函数自动添加 <code>prototype</code> 属性，值是空对象。而一旦你把这个函数当作构造函数（ <code>constructor</code> ）调用（即通过 <code>new</code>关键字调用），那么<code>JS</code>就会帮你创建该构造函数的实例，实例继承构造函数 <code>prototype</code> 的所有属性和方法（实例通过设置自己的<code>__proto__</code> 指向构造函数的 <code>prototype</code> 来实现这种继承）</p>
-</li>
-</ul>
-<h4 id="神秘的proto"><a href="#神秘的proto" class="headerlink" title="神秘的proto"></a>神秘的<strong>proto</strong></h4><hr>
-<ul>
-<li><code>JS</code>的对象中都包含了一个<code>__proto__</code>属性，其指向的是创建该对象时的构造函数的原型对象<code>prototype</code></li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://segmentfault.com/img/bVzPrk" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<ul>
-<li>从上面的输出结果看出，<code>f.__proto__</code>指向了其构造函数<code>F</code>的<code>prototype</code>，而<code>F.prototype</code>本身也是一个对象，其内部也有<code>__proto__</code>属性，其指向的是<code>Object.prototype</code>,直到最后<code>Object.prototype</code>指向<code>null</code>，这条原型链才结束</li>
-<li>因此，<code>__proto__</code>这个神秘的属性才是原型链形成的真正原因</li>
-</ul>
-<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><hr>
-<ul>
-<li>由于原型对象本身也是对象，根据上边的定义，它也有自己的原型，而它自己的原型对象又可以有自己的原型，这样就组成了一条链，这个就是原型链，<code>JavaScritp</code>引擎在访问对象的属性时，如果在对象本身中没有找到，则会去原型链中查找，如果找到，直接返回值，如果整个链都遍历且没有找到属性，则返回<code>undefined</code>。原型链一般实现为一个链表，这样就可以按照一定的顺序来查找</li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://segmentfault.com/img/bVcXNb" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<ul>
-<li><p>从上图看出：</p>
-<ul>
-<li><code>Object.prototype</code>是顶级对象，所有对象都继承自它。</li>
-<li><code>Function</code>继承 <code>Function</code>本身， <code>Function.prototype</code> 继承 <code>Object.prototype</code></li>
-<li><code>Function.prototype</code> 和 <code>Function.__proto__</code> 都指向 <code>Function.prototype</code></li>
-<li><code>Object.prototype.__proto__ === null</code> ，说明原型链到 <code>Object.prototype</code>终止</li>
-</ul>
-</li>
-</ul>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    <div class="qrcode-container">
-        <img src="/img/qrcode.png">
-    </div><br>
-</span><br>
-
-
-        
-        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
-        
-    </div>
-    
-    <footer>
-        <a href="https://ru23.com">
-            <img src="/img/avatar.gif" alt="frank">
-            frank
-        </a>
-    </footer>
-</blockquote>
-
-<div class="ad-art-end">
-    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
-    </a>
-</div>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型链/">原型链</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/e36aeed5.html&title=《OOP之原型与原型链》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/e36aeed5.html&title=《OOP之原型与原型链》 — 前端迷 (front-end fan)&source=prototype原型对象
-
-每个函数都有一个默认的prototype属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象
-在构造函数中的pro..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/e36aeed5.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OOP之原型与原型链》 — 前端迷 (front-end fan)&url=https://ru23.com/note/e36aeed5.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/e36aeed5.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/note/6c17c77b.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">OOP之面向对象</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/note/7e6522d0.html" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">OOP之类与对象</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
-            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
-            avatar: "mm",
-            qrcode: "",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style="display:none">
-        <span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
-        <span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>
-                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>
-                frank &copy;
-                
-                2015 -
-                
-                2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">
-                    晋ICP备18012373号</a><br>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/e36aeed5.html&title=《OOP之原型与原型链》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/e36aeed5.html&title=《OOP之原型与原型链》 — 前端迷 (front-end fan)&source=prototype原型对象
-
-每个函数都有一个默认的prototype属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象
-在构造函数中的pro..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/e36aeed5.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OOP之原型与原型链》 — 前端迷 (front-end fan)&url=https://ru23.com/note/e36aeed5.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/e36aeed5.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aS4rDMBAFwNz/0hmYXRjivKe2FQ+UViYYq5RF0x89HvF6/q7kl+TN499PWLi4uGPu83D9/XTyfnKktW/i4uLu5B4Hmpb1LrQlzx++jIuLezPuJOvIj4GLi/u/uHlIOuZujbu4uLgDblL8JKtto1xYq+Hi4g64bcP0iucL+7u4uLgl91mutSA12fFld1xc3C3ctc3WBqVJKRWFOVxc3I3c4zHJZDi61iIpajVcXNxTue2Vi8l1jcnY5kNGhouLeyq3TUTa7ddCZNEwxcXF3cKdXNVqE5284VL8x7i4uGPuWrKylo7kIbJoiODi4l7Aba9SraU+a+/j4uJ+izsfl+ZNjcnxXlIcXFzcLdwc3bZQkzhaHAYXF/dL3GSM2m7TDmjfBk1cXNwt3PxyVdsqbd8sGii4uLgXc9vNJvQ8hcLFxb0DdxK88gFtHjQ/DFlxcXG3cCcXKSZjknaEg4uLu4fbBpRkmxyRX+OoD4OLizvm5sGr7bi0hRMuLu7duGuUCT0vkHBxce/MzcerayVQci0DFxf3ntxJ+jJJiXBxcfdzJ03Sc5unp9VquLi4A27bMJ00RyaHwcXF3cL9AZGmi7LXDfR8AAAAAElFTkSuQmCC" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
-<script>
-    var BLOG = {
-        ROOT: '/',
-        SHARE: true,
-        REWARD: false
-    };
-
-    
-    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
-    
-
-</script>
-
-<script src="/js/main.min.js?v=1.7.2"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="/js/search.min.js?v=1.7.2" async></script>
-
-
-
-
-
-
-<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- <script>
-    setTimeout(function () {
-        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
-        var nowTime = new Date().getTime();
-        
-        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
-            // document.getElementById("random").innerHTML = 1;
-        } else {
-            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
-            document.getElementById("random").innerHTML = viewCount[0];
-        }
-    }, 0)
-
-</script> -->
-<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
-<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
-<script>
-    $(document).snowfall('clear');
-    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
-    $(document).snowfall({
-        image: "/img/huaban.png",
-        flakeCount: 30,
-        minSize: 5,
-        maxSize: 22
-    });
-</script> -->
-
-
-
-
-
-</body>
-</html>
+extends base
+
+block title
+  title= page.title + ' | ' + config.title
+
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+      if theme.wordcount == true
+        include _partial/wordcount.pug
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if theme.changyan
+      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
+        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
+        span= ' ' + __('Comment')
+      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
+    if theme.valine.enable
+      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
+        span.valine-comment-count(data-xid=url_for(page.path))
+        span= ' ' + __('Comment')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content, {list_number: theme.toc_number})
+    .post-content
+      != page.content
+    if theme.donate.enable == true
+      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+
+    if theme.post_copyright.enable == true
+      div
+        ul.post-copyright
+          li.post-copyright-author
+            strong= __('copyright_author_prefix')
+            = theme.post_copyright.author
+          li.post-copyright-link
+            strong= __('copyright_link_prefix')
+            a(href='/' + page.path)= page.permalink
+          li.post-copyright-license
+            strong= __('copyright_declare_prefix')
+            if theme.post_copyright.copyright_text
+              != theme.post_copyright.copyright_text
+            else
+              != __('copyright_default_text')
+      br
+
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
+
+    include _partial/tag.pug
+    include _partial/post_nav.pug
+
+    if page.comments
+      include _partial/comments.pug

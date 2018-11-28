@@ -1,538 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-    
-
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://ru23.com/note/fc137cfa.html">
-    
-    
-    <title>canvas 绘制粒子动画背景 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#006fbc">
-    
-    
-    <meta name="keywords" content="html5,canvas">
-    <meta name="description" content="1&amp;lt;canvas id=&quot;canvas&quot;&amp;gt;您的浏览器不支持，请升级最新的版本!&amp;lt;/canvas&amp;gt;">
-<meta name="keywords" content="html5,canvas">
-<meta property="og:type" content="article">
-<meta property="og:title" content="canvas 绘制粒子动画背景">
-<meta property="og:url" content="https://ru23.com/note/fc137cfa.html">
-<meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="1&amp;lt;canvas id=&quot;canvas&quot;&amp;gt;您的浏览器不支持，请升级最新的版本!&amp;lt;/canvas&amp;gt;">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T09:38:36.206Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas 绘制粒子动画背景">
-<meta name="twitter:description" content="1&amp;lt;canvas id=&quot;canvas&quot;&amp;gt;您的浏览器不支持，请升级最新的版本!&amp;lt;/canvas&amp;gt;">
-    
-        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/blue.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
-</head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-
-    <aside id="menu">
-    <div class="inner flex-row-vertical">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-            <i class="icon icon-lg icon-close"></i>
-        </a>
-        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-            <div class="brand">
-                <a href="/" class="avatar waves-effect waves-circle waves-light">
-                    <img src="/img/avatar.gif">
-                </a>
-                <hgroup class="introduce">
-                    <h5 class="nickname">
-                        frank
-                    </h5>
-                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-                </hgroup>
-            </div>
-        </div>
-        <div class="scroll-wrap flex-col">
-            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
-                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
-            </a>
-            <ul class="nav">
-                
-                <li class="waves-block waves-effect">
-                    <a href="/">
-                        <i class="icon icon-lg icon-home"></i>
-                        主页
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/tags">
-                        <i class="icon icon-lg icon-tags"></i>
-                        标签
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/categories">
-                        <i class="icon icon-lg icon-th-list"></i>
-                        目录
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/archives">
-                        <i class="icon icon-lg icon-archives"></i>
-                        归档
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-                        <i class="icon icon-lg icon-link"></i>
-                        2折云主机
-                    </a>
-                </li>
-                
-
-                <!-- <li class="ad-qrcode">
-                    <img src="/img/ad/201810/ad-left.jpg">
-                </li> -->
-                <li class="ad-qrcode">
-                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
-                </li>
-
-
-            </ul>
-
-        </div>
-    </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-            <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">
-            canvas 绘制粒子动画背景
-        </div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-    <div class="container fade-scale">
-        <h1 class="title">
-            canvas 绘制粒子动画背景
-        </h1>
-        <h5 class="subtitle">
-            
-            <time datetime="2016-12-02T12:30:24.000Z" itemprop="datePublished" class="page-time">
-  2016-12-02
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-
-<article id="post-2016-12-draw-particle-animator-with-canvas" class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">canvas 绘制粒子动画背景</h1>
-        <div class="post-meta">
-            <time class="post-time" id="post-time" title="2016-12-02 20:30:24" datetime="2016-12-02T12:30:24.000Z" itemprop="datePublished">2016-12-02</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
-    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span>您的浏览器不支持，请升级最新的版本!<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">0px</span>;</span><br><span class="line">	<span class="attribute">padding</span>:<span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:<span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">canvas</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimFrame = ( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">window</span>.requestAnimationFrame ||</span><br><span class="line">					<span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">					<span class="built_in">window</span>.mozRequestAnimationFrame ||</span><br><span class="line">					<span class="function"><span class="keyword">function</span>(<span class="params"> callback </span>) </span>&#123;</span><br><span class="line">						<span class="built_in">window</span>.setTimeout( callback, <span class="number">1000</span> / <span class="number">60</span> );</span><br><span class="line">					&#125;;</span><br><span class="line">		&#125;)();</span><br><span class="line">		<span class="keyword">var</span> can = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">		<span class="keyword">var</span> cxt = can.getContext(<span class="string">"2d"</span>);</span><br><span class="line">		can.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">		can.height = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">		cxt.lineWidth = <span class="number">0.3</span>;</span><br><span class="line">		<span class="comment">//初始链接线条显示位置</span></span><br><span class="line">		<span class="keyword">var</span> mousePosition = &#123;</span><br><span class="line">			x : <span class="number">30</span>*can.width/<span class="number">100</span>,</span><br><span class="line">			y : <span class="number">30</span>*can.height/<span class="number">100</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//圆形粒子对象参数</span></span><br><span class="line">		<span class="keyword">var</span> dots = &#123;</span><br><span class="line">			n : <span class="number">500</span>,<span class="comment">//圆形粒子个数</span></span><br><span class="line">			distance : <span class="number">50</span>,<span class="comment">//圆形粒子之间的距离</span></span><br><span class="line">			d_radius : <span class="number">100</span>,<span class="comment">//粒子距离鼠标点的距离</span></span><br><span class="line">			array : []<span class="comment">//保存n个圆形粒子对象</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//创建随即颜色值</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">colorValue</span>(<span class="params">min</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">255</span> + min);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">createColorStyle</span>(<span class="params">r,g,b</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"rgba("</span>+r+<span class="string">","</span>+g+<span class="string">","</span>+b+<span class="string">", 1)"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//混合两个圆形粒子的颜色</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">mixConnect</span>(<span class="params">c1,r1,c2,r2</span>)</span>&#123;<span class="comment">//圆的颜色 半径</span></span><br><span class="line">			<span class="keyword">return</span> (c1*r1+c2*r2)/(r1+r2);</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="comment">//生成线条的颜色</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">lineColor</span>(<span class="params">dot1,dot2</span>)</span>&#123;<span class="comment">//获取具体的圆的颜色再计算</span></span><br><span class="line">			<span class="keyword">var</span> color1 = dot1.color,</span><br><span class="line">				color2 = dot2.color;</span><br><span class="line">			<span class="keyword">var</span> r = mixConnect(color1.r,dot1.radius,color2.r,dot2.radius);</span><br><span class="line">			<span class="keyword">var</span> g = mixConnect(color1.g,dot1.radius,color2.g,dot2.radius);</span><br><span class="line">			<span class="keyword">var</span> b = mixConnect(color1.b,dot1.radius,color2.b,dot2.radius);</span><br><span class="line">			<span class="keyword">return</span> createColorStyle(<span class="built_in">Math</span>.floor(r),<span class="built_in">Math</span>.floor(g),<span class="built_in">Math</span>.floor(b));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//生成圆形粒子的颜色对象</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">Color</span>(<span class="params">min</span>)</span>&#123;</span><br><span class="line">			min = min || <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">this</span>.r = colorValue(min);</span><br><span class="line">			<span class="keyword">this</span>.g = colorValue(min);</span><br><span class="line">			<span class="keyword">this</span>.b = colorValue(min);</span><br><span class="line">			<span class="keyword">this</span>.style = createColorStyle(<span class="keyword">this</span>.r,<span class="keyword">this</span>.g,<span class="keyword">this</span>.b);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//创建圆形粒子对象</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">Dot</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="comment">//圆形粒子随机圆心坐标点</span></span><br><span class="line">			<span class="keyword">this</span>.x = <span class="built_in">Math</span>.random()*can.width;</span><br><span class="line">			<span class="keyword">this</span>.y = <span class="built_in">Math</span>.random()*can.height;</span><br><span class="line">			<span class="comment">//x y 方向运动的速度值</span></span><br><span class="line">			<span class="keyword">this</span>.vx = <span class="number">-0.5</span> + <span class="built_in">Math</span>.random();</span><br><span class="line">			<span class="keyword">this</span>.vy = <span class="number">-0.5</span> + <span class="built_in">Math</span>.random();</span><br><span class="line">			<span class="keyword">this</span>.radius = <span class="built_in">Math</span>.random()*<span class="number">5</span>;</span><br><span class="line">			<span class="comment">//this.color = "#ff3333";</span></span><br><span class="line">			<span class="keyword">this</span>.color = <span class="keyword">new</span> Color();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//绘制出圆形粒子</span></span><br><span class="line">		Dot.prototype.draw = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			cxt.beginPath();</span><br><span class="line">			cxt.fillStyle = <span class="keyword">this</span>.color.style;</span><br><span class="line">			cxt.arc(<span class="keyword">this</span>.x,<span class="keyword">this</span>.y,<span class="keyword">this</span>.radius,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">false</span>);</span><br><span class="line">			cxt.fill();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//添加圆形粒子</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">createCircle</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;dots.n ;i++ )</span><br><span class="line">			&#123;</span><br><span class="line">				dots.array.push(<span class="keyword">new</span> Dot());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//绘制出圆形粒子</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">drawDots</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;dots.n ;i++ )</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">var</span> dot = dots.array[i];</span><br><span class="line">				dot.draw();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//drawDots();</span></span><br><span class="line">		<span class="comment">//移动</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">moveDots</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;dots.n ;i++ )&#123;</span><br><span class="line">				<span class="keyword">var</span> dot = dots.array[i];</span><br><span class="line">				<span class="comment">//当圆形粒子对象碰壁的时候就反弹回来</span></span><br><span class="line">				<span class="keyword">if</span> (dot.y &lt; <span class="number">0</span> || dot.y &gt; can.height)</span><br><span class="line">				&#123;</span><br><span class="line">					dot.vx = dot.vx;</span><br><span class="line">					dot.vy = -dot.vy;</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span> (dot.x &lt; <span class="number">0</span> || dot.x &gt; can.width)</span><br><span class="line">				&#123;</span><br><span class="line">					dot.vx = -dot.vx;</span><br><span class="line">					dot.vy = dot.vy;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">//给圆形粒子圆心坐标加上速度值移动圆形粒子</span></span><br><span class="line">				dot.x += dot.vx;</span><br><span class="line">				dot.y += dot.vy;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//链接粒子对象</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">connectDots</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;dots.n ; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span> ( <span class="keyword">var</span> j=<span class="number">0</span>;j&lt;dots.n ; j++)</span><br><span class="line">				&#123;</span><br><span class="line">					iDot = dots.array[i];</span><br><span class="line">					jDot = dots.array[j];</span><br><span class="line">					<span class="keyword">if</span> ((iDot.x - jDot.x) &lt; dots.distance &amp;&amp; (iDot.y - jDot.y) &lt; dots.distance &amp;&amp; (iDot.x - jDot.x) &gt; -dots.distance &amp;&amp; (iDot.y - jDot.y) &gt; -dots.distance)</span><br><span class="line">					&#123;</span><br><span class="line">						<span class="keyword">if</span> ((iDot.x - mousePosition.x) &lt; dots.d_radius &amp;&amp; (iDot.y - mousePosition.y) &lt; dots.d_radius &amp;&amp; (iDot.x - mousePosition.x) &gt; -dots.d_radius &amp;&amp; (iDot.y - mousePosition.y) &gt; -dots.d_radius)</span><br><span class="line">						&#123;</span><br><span class="line">							cxt.beginPath();</span><br><span class="line">							<span class="comment">//cxt.strokeStyle = "yellow";</span></span><br><span class="line">							cxt.strokeStyle = lineColor(iDot,jDot);</span><br><span class="line">							cxt.moveTo(iDot.x,iDot.y);</span><br><span class="line">							cxt.lineTo(jDot.x,jDot.y);</span><br><span class="line">							cxt.closePath();</span><br><span class="line">							cxt.stroke();</span><br><span class="line">						&#125;</span><br><span class="line">						</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		createCircle();</span><br><span class="line">		<span class="comment">//让圆形粒子不断的移动</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">animateDots</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			cxt.clearRect(<span class="number">0</span>,<span class="number">0</span>,can.width,can.height);</span><br><span class="line">			moveDots();</span><br><span class="line">			connectDots()</span><br><span class="line">			drawDots();</span><br><span class="line">			requestAnimFrame(animateDots);</span><br><span class="line">		&#125;</span><br><span class="line">		animateDots();</span><br><span class="line">		</span><br><span class="line">		can.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> ev = ev || <span class="built_in">window</span>.event;</span><br><span class="line">			mousePosition.x = ev.pageX;</span><br><span class="line">			mousePosition.y = ev.pageY;</span><br><span class="line">		&#125;</span><br><span class="line">		can.onmouseout = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			mousePosition.x = can.width/<span class="number">2</span>;</span><br><span class="line">			mousePosition.y = can.height/<span class="number">2</span>;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    <div class="qrcode-container">
-        <img src="/img/qrcode.png">
-    </div><br>
-</span><br>
-
-
-        
-        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
-        
-    </div>
-    
-    <footer>
-        <a href="https://ru23.com">
-            <img src="/img/avatar.gif" alt="frank">
-            frank
-        </a>
-    </footer>
-</blockquote>
-
-<div class="ad-art-end">
-    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
-    </a>
-</div>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fc137cfa.html&title=《canvas 绘制粒子动画背景》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fc137cfa.html&title=《canvas 绘制粒子动画背景》 — 前端迷 (front-end fan)&source=1&lt;canvas id=" canvas"&gt;您的浏览器不支持，请升级最新的版本!&lt;="" canvas&gt;"="" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fc137cfa.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《canvas 绘制粒子动画背景》 — 前端迷 (front-end fan)&url=https://ru23.com/note/fc137cfa.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fc137cfa.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/note/17ec6504.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">canvas 绘制八大行星</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/note/1e283ca4.html" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">canvas 绘制动画时钟</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
-            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
-            avatar: "mm",
-            qrcode: "",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style="display:none">
-        <span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
-        <span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>
-                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>
-                frank &copy;
-                
-                2015 -
-                
-                2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">
-                    晋ICP备18012373号</a><br>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fc137cfa.html&title=《canvas 绘制粒子动画背景》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fc137cfa.html&title=《canvas 绘制粒子动画背景》 — 前端迷 (front-end fan)&source=1&lt;canvas id=" canvas"&gt;您的浏览器不支持，请升级最新的版本!&lt;="" canvas&gt;"="" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fc137cfa.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《canvas 绘制粒子动画背景》 — 前端迷 (front-end fan)&url=https://ru23.com/note/fc137cfa.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fc137cfa.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aSw7CMAwFQO5/adgiAe1zjFOQJitUSjthYfmT2y1e96f1fOX12+frr3cm17+wcHFx29z74ToGHd/z6dv8t2+2hIuLu5F7HGjW6GvPP7Hh4uL+CTcPhUlQw8XF/UduNQx9+i0uLu7vc/MwlDc18k2O1Gq4uLgNbt6lnPs80t/FxcVd4vbLmDwZSpqwJ2/HxcXdwq0mK9URS07Ph7u4uLjT3DwRyV+f049D4cn/iouLO8bNQ0yH9d3N4+Li7uF2Epck6OT3RAUVLi7uMLfTClmLl9VDGOUuDi4u7jB3rfGRsFq1Gi4u7hZudZiaH8I4fn61HMLFxb2Wmxc81SFr9ZDWm+IHFxd3mJtA117QGdkmW8XFxZ3mtgJK8YhG50goLi7utdy51Kc6VokCGS4u7hg3b1hUD14kxU8h2cLFxb2IW31Qf0ybN2FxcXGnuffiypOVpJhJ0h1cXNz93HzlR6/WRrB56MTFxd3DXUtQ1tKganF1MvPBxcUd5lbHG3l7tBpBT/4aXFzcH+Ymw49kZFJuneDi4v4ktxB08q5tLsTFxd3IzZuk+VGJJA2q3omLi7uHuzb47Gymkwbh4uIOcx+PASAe3M7PJAAAAABJRU5ErkJggg==" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
-<script>
-    var BLOG = {
-        ROOT: '/',
-        SHARE: true,
-        REWARD: false
-    };
-
-    
-    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
-    
-
-</script>
-
-<script src="/js/main.min.js?v=1.7.2"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="/js/search.min.js?v=1.7.2" async></script>
-
-
-
-
-
-
-<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- <script>
-    setTimeout(function () {
-        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
-        var nowTime = new Date().getTime();
-        
-        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
-            // document.getElementById("random").innerHTML = 1;
-        } else {
-            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
-            document.getElementById("random").innerHTML = viewCount[0];
-        }
-    }, 0)
-
-</script> -->
-<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
-<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
-<script>
-    $(document).snowfall('clear');
-    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
-    $(document).snowfall({
-        image: "/img/huaban.png",
-        flakeCount: 30,
-        minSize: 5,
-        maxSize: 22
-    });
-</script> -->
-
-
-
-
-
-</body>
-</html>
+extends base
+
+block title
+  title= page.title + ' | ' + config.title
+
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+      if theme.wordcount == true
+        include _partial/wordcount.pug
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if theme.changyan
+      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
+        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
+        span= ' ' + __('Comment')
+      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
+    if theme.valine.enable
+      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
+        span.valine-comment-count(data-xid=url_for(page.path))
+        span= ' ' + __('Comment')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content, {list_number: theme.toc_number})
+    .post-content
+      != page.content
+    if theme.donate.enable == true
+      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+
+    if theme.post_copyright.enable == true
+      div
+        ul.post-copyright
+          li.post-copyright-author
+            strong= __('copyright_author_prefix')
+            = theme.post_copyright.author
+          li.post-copyright-link
+            strong= __('copyright_link_prefix')
+            a(href='/' + page.path)= page.permalink
+          li.post-copyright-license
+            strong= __('copyright_declare_prefix')
+            if theme.post_copyright.copyright_text
+              != theme.post_copyright.copyright_text
+            else
+              != __('copyright_default_text')
+      br
+
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
+
+    include _partial/tag.pug
+    include _partial/post_nav.pug
+
+    if page.comments
+      include _partial/comments.pug

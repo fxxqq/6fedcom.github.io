@@ -1,562 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-    
-
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://ru23.com/note/75c16ddd.html">
-    
-    
-    <title>韦博微信端项目微信内置浏览器播放视频碰到的问题 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#006fbc">
-    
-    
-    <meta name="keywords" content="踩过的坑,微信开发">
-    <meta name="description" content="1.如何小窗不全屏( 亲测安卓微信 ios下通用)123&amp;lt;video  src=&quot;&quot;  controls=&quot;&quot; x5-playsinline=&quot;&quot; playsinline=&quot;&quot; webkit-playsinline=&quot;&quot; poster=&quot;&quot; preload=&quot;auto&quot;&amp;gt;&amp;lt;/video&amp;gt; 2.页面打开自动播放 123456789101112131415//  使用微信的wx">
-<meta name="keywords" content="踩过的坑,微信开发">
-<meta property="og:type" content="article">
-<meta property="og:title" content="韦博微信端项目微信内置浏览器播放视频碰到的问题">
-<meta property="og:url" content="https://ru23.com/note/75c16ddd.html">
-<meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="1.如何小窗不全屏( 亲测安卓微信 ios下通用)123&amp;lt;video  src=&quot;&quot;  controls=&quot;&quot; x5-playsinline=&quot;&quot; playsinline=&quot;&quot; webkit-playsinline=&quot;&quot; poster=&quot;&quot; preload=&quot;auto&quot;&amp;gt;&amp;lt;/video&amp;gt; 2.页面打开自动播放 123456789101112131415//  使用微信的wx">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-11T02:09:26.462Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="韦博微信端项目微信内置浏览器播放视频碰到的问题">
-<meta name="twitter:description" content="1.如何小窗不全屏( 亲测安卓微信 ios下通用)123&amp;lt;video  src=&quot;&quot;  controls=&quot;&quot; x5-playsinline=&quot;&quot; playsinline=&quot;&quot; webkit-playsinline=&quot;&quot; poster=&quot;&quot; preload=&quot;auto&quot;&amp;gt;&amp;lt;/video&amp;gt; 2.页面打开自动播放 123456789101112131415//  使用微信的wx">
-    
-        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/blue.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
-</head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-
-    <aside id="menu">
-    <div class="inner flex-row-vertical">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-            <i class="icon icon-lg icon-close"></i>
-        </a>
-        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-            <div class="brand">
-                <a href="/" class="avatar waves-effect waves-circle waves-light">
-                    <img src="/img/avatar.gif">
-                </a>
-                <hgroup class="introduce">
-                    <h5 class="nickname">
-                        frank
-                    </h5>
-                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-                </hgroup>
-            </div>
-        </div>
-        <div class="scroll-wrap flex-col">
-            <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
-                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
-            </a>
-            <ul class="nav">
-                
-                <li class="waves-block waves-effect">
-                    <a href="/">
-                        <i class="icon icon-lg icon-home"></i>
-                        主页
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/tags">
-                        <i class="icon icon-lg icon-tags"></i>
-                        标签
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/categories">
-                        <i class="icon icon-lg icon-th-list"></i>
-                        目录
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/archives">
-                        <i class="icon icon-lg icon-archives"></i>
-                        归档
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-                        <i class="icon icon-lg icon-link"></i>
-                        2折云主机
-                    </a>
-                </li>
-                
-
-                <!-- <li class="ad-qrcode">
-                    <img src="/img/ad/201810/ad-left.jpg">
-                </li> -->
-                <li class="ad-qrcode">
-                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
-                </li>
-
-
-            </ul>
-
-        </div>
-    </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-            <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">
-            韦博微信端项目微信内置浏览器播放视频碰到的问题
-        </div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-    <div class="container fade-scale">
-        <h1 class="title">
-            韦博微信端项目微信内置浏览器播放视频碰到的问题
-        </h1>
-        <h5 class="subtitle">
-            
-            <time datetime="2018-11-09T06:17:46.000Z" itemprop="datePublished" class="page-time">
-  2018-11-09
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-<aside class="post-widget">
-    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-        <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#html5-video微信浏览器视频不能自动播放"><span class="post-toc-text">html5 video微信浏览器视频不能自动播放</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#移动端阻止视频自动全屏"><span class="post-toc-text">移动端阻止视频自动全屏</span></a></li></ol>
-    </nav>
-</aside>
-
-
-
-<article id="post-2018-11-韦博微信端项目微信内置浏览器播放视频碰到的问题" class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">韦博微信端项目微信内置浏览器播放视频碰到的问题</h1>
-        <div class="post-meta">
-            <time class="post-time" id="post-time" title="2018-11-09 14:17:46" datetime="2018-11-09T06:17:46.000Z" itemprop="datePublished">2018-11-09</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
-    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p><strong>1.如何小窗不全屏( 亲测安卓微信 ios下通用)</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span>  <span class="attr">src</span>=<span class="string">""</span>  <span class="attr">controls</span>=<span class="string">""</span> <span class="attr">x5-playsinline</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag"> <span class="attr">playsinline</span>=<span class="string">""</span> <span class="attr">webkit-playsinline</span>=<span class="string">""</span> <span class="attr">poster</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag"> <span class="attr">preload</span>=<span class="string">"auto"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>2.页面打开自动播放</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  使用微信的wx.ready事件</span></span><br><span class="line"><span class="keyword">var</span> wx = <span class="built_in">require</span>(<span class="string">'weixin-js-sdk'</span>);</span><br><span class="line">wx.config(&#123;</span><br><span class="line">    <span class="comment">// 配置信息, 即使不正确也能使用 wx.ready</span></span><br><span class="line">    debug: <span class="literal">false</span>,</span><br><span class="line">    appId: <span class="string">''</span>,</span><br><span class="line">    timestamp: <span class="number">1</span>,</span><br><span class="line">    nonceStr: <span class="string">''</span>,</span><br><span class="line">    signature: <span class="string">''</span>,</span><br><span class="line">    jsApiList: []</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">wx.ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'media'</span>).play(); <span class="comment">//video标签id=media</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>3.React-js设置video的playsinline属性</strong></p>
-<p>最近的应该项目用到了video标签，发现这类标签的属性，在jsx定义根本不起作用~<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">"video"</span> <span class="attr">x-webkit-airplay</span>=<span class="string">"true"</span>  <span class="attr">webkit-playsinline</span>=<span class="string">"true"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">src</span>=<span class="string">"https://teenagercdn.speakhi.com/front/web/static/video/login.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>就可以了，但是在react-js里面 webkit-playsinline这样写似乎没有作用，应该如何写？</p>
-<p><a href="https://github.com/facebook/react/issues/140" target="_blank" rel="noopener">参考</a></p>
-<p><strong>方案1：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">video</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123; </span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state=&#123;</span><br><span class="line">      </span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">    componentWillMount() &#123;</span><br><span class="line">         Util.weixinTitle(<span class="string">"视频播放"</span>);</span><br><span class="line">         <span class="keyword">const</span> that=<span class="keyword">this</span>;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        <span class="keyword">let</span> videoPlayer=<span class="built_in">document</span>.getElementById(<span class="string">'videoCtrl'</span>);</span><br><span class="line">        videoPlayer.setAttribute(<span class="string">'x5-playsinline'</span> ,<span class="string">''</span>)</span><br><span class="line">        videoPlayer.setAttribute(<span class="string">'playsinline'</span> ,<span class="string">''</span>)</span><br><span class="line">        videoPlayer.setAttribute(<span class="string">'webkit-playsinline'</span> ,<span class="string">''</span>)        </span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">const</span> that=<span class="keyword">this</span>;</span><br><span class="line">   </span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=<span class="string">'bg-black'</span>&gt;</span><br><span class="line">                 </span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">export default video</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>方案2. react自带的设置私有属性方法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line">React.registerCustomAttributePrefix(<span class="string">'e-'</span>);</span><br><span class="line">React.registerCustomAttributePrefix(<span class="string">'ng-'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="html5-video微信浏览器视频不能自动播放"><a href="#html5-video微信浏览器视频不能自动播放" class="headerlink" title="html5 video微信浏览器视频不能自动播放"></a>html5 video微信浏览器视频不能自动播放</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">preload</span>=<span class="string">"preload"</span> <span class="attr">controls</span> <span class="attr">id</span>=<span class="string">"car_audio"</span> <span class="attr">src</span>=<span class="string">"http://media.xitaoinfo.com/ei_zamenjiehunba.mp3"</span> <span class="attr">loop</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"video"</span> <span class="attr">controls</span>=<span class="string">""</span> <span class="attr">preload</span>=<span class="string">"none"</span> <span class="attr">mediagroup</span>=<span class="string">"myVideoGroup"</span> <span class="attr">poster</span>=<span class="string">"http://media.w3.org/2010/05/sintel/poster.png"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">source</span> <span class="attr">id</span>=<span class="string">"mp4"</span> <span class="attr">src</span>=<span class="string">"http://media.w3.org/2010/05/sintel/trailer.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">source</span> <span class="attr">id</span>=<span class="string">"webm"</span> <span class="attr">src</span>=<span class="string">"http://media.w3.org/2010/05/sintel/trailer.webm"</span> <span class="attr">type</span>=<span class="string">"video/webm"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">source</span> <span class="attr">id</span>=<span class="string">"ogv"</span> <span class="attr">src</span>=<span class="string">"http://media.w3.org/2010/05/sintel/trailer.ogv"</span> <span class="attr">type</span>=<span class="string">"video/ogg"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Your user agent does not support the HTML5 Video element.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!-- 必须加在微信api资源 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://res.wx.qq.com/open/js/jweixin-1.0.0.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"> </span></span><br><span class="line"><span class="javascript">     <span class="comment">//一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以 </span></span></span><br><span class="line"><span class="javascript">     <span class="built_in">document</span>.getElementById(<span class="string">'car_audio'</span>).play(); </span></span><br><span class="line"><span class="javascript">    <span class="comment">//必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效 </span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'car_audio'</span>).play(); </span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'video'</span>).play(); </span></span><br><span class="line"><span class="javascript">    &#125;, <span class="literal">false</span>); </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="移动端阻止视频自动全屏"><a href="#移动端阻止视频自动全屏" class="headerlink" title="移动端阻止视频自动全屏"></a>移动端阻止视频自动全屏</h3><p><strong>阻止 ios视频自动全屏的代码</strong><br>添加 playsinline 和 webkit-playsinline=”true”；<br>例如:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video id=<span class="string">"video"</span> playsinline  webkit-playsinline &gt;<span class="xml"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>备注：<br>1、此方法仅仅针对 ios有效（safari、微信都有效）。<br>2、playsinline属性针对ios 10以上系统有效。<br>3、webkit-playsinline属性针对ios10以下系统有效。<br>4、安卓目前没有办法（机型不一样自带浏览器也效果也不一样，有一部分浏览器是可以小窗播放的。）</p>
-</blockquote>
-<p><strong>阻止安卓版微信 视频自动全屏的代码</strong><br>添加 x5-playsinline<br>例如:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video id=<span class="string">"video"</span> x5-playsinline &gt;<span class="xml"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>备注：此方法仅仅针对安卓版微信有效。</p>
-</blockquote>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    <div class="qrcode-container">
-        <img src="/img/qrcode.png">
-    </div><br>
-</span><br>
-
-
-        
-        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
-        
-    </div>
-    
-    <footer>
-        <a href="https://ru23.com">
-            <img src="/img/avatar.gif" alt="frank">
-            frank
-        </a>
-    </footer>
-</blockquote>
-
-<div class="ad-art-end">
-    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
-    </a>
-</div>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/踩过的坑/">踩过的坑</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/75c16ddd.html&title=《韦博微信端项目微信内置浏览器播放视频碰到的问题》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/75c16ddd.html&title=《韦博微信端项目微信内置浏览器播放视频碰到的问题》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/75c16ddd.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《韦博微信端项目微信内置浏览器播放视频碰到的问题》 — 前端迷 (front-end fan)&url=https://ru23.com/note/75c16ddd.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/75c16ddd.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/note/f192b16c.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">ie和safari浏览器new Date(yyyy-MM-dd HH:mm:ss )为NaN的解决方案</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/note/2bf1a5b6.html" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">韦博成人项目webuploader上传文件的一系列坑总结</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
-            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
-            avatar: "mm",
-            qrcode: "",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style="display:none">
-        <span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
-        <span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>
-                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>
-                frank &copy;
-                
-                2015 -
-                
-                2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">
-                    晋ICP备18012373号</a><br>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/75c16ddd.html&title=《韦博微信端项目微信内置浏览器播放视频碰到的问题》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/75c16ddd.html&title=《韦博微信端项目微信内置浏览器播放视频碰到的问题》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/75c16ddd.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《韦博微信端项目微信内置浏览器播放视频碰到的问题》 — 前端迷 (front-end fan)&url=https://ru23.com/note/75c16ddd.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/75c16ddd.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB1ElEQVR42u3aQY6EMAxEUe5/aWY7G8IvO/Ew0s+qhbrh0YvILue68Lp/rafr5Dvru21bcuXKbXPv5Vo/ktPXdyAGuXLlznOfdoz155RC7v9ikytX7ie5pHBZFzFkW5QrV+7/4vI2plMwyZUr9wtc0rqsETzBGOrV5MqV2+DylPLc5yP5rly5ckvcO1w8BEkLHfR0uXLljnD5htIZjaShyctwV65cuSPcdQzBAwvS5PASCr2SXLlyD3DTW5NBaRqUBAGNXLlyx7mkKKnFHHzs+hLEyJUrd4TLt6T0UAU/jJUe8pArV+5pLt+20iForfRBzY9cuXIPc4NoEsem5Pu1dkiuXLkz3LQoSY9brV8pHcPIlSt3kptuSZ2RSTp0Qc2PXLlyt3LTqCJtkDrNTysqlStX7lYuf0Ba7myLVOTKlTvI7TQ/tdcuhily5cod5Kalxo1XrTW6OtWQXLlyG9w7XOlhLB6MopeRK1fuCJevziGMdJRSa8PkypW7l9vfvHjkypsodE5Erly5h7m8TKmNT9IQ9vGKXLlyP8lNR63FYDRNTeTKlfun3Np21gk+Nuy7cuXKLXFrh6vSK2RzfPmz5MqVO8JNtxJeyvBfHcl35cqVW+H+AK5+r46069lmAAAAAElFTkSuQmCC" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
-<script>
-    var BLOG = {
-        ROOT: '/',
-        SHARE: true,
-        REWARD: false
-    };
-
-    
-    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
-    
-
-</script>
-
-<script src="/js/main.min.js?v=1.7.2"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="/js/search.min.js?v=1.7.2" async></script>
-
-
-
-
-
-
-<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- <script>
-    setTimeout(function () {
-        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
-        var nowTime = new Date().getTime();
-        
-        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
-            // document.getElementById("random").innerHTML = 1;
-        } else {
-            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
-            document.getElementById("random").innerHTML = viewCount[0];
-        }
-    }, 0)
-
-</script> -->
-<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
-<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
-<script>
-    $(document).snowfall('clear');
-    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
-    $(document).snowfall({
-        image: "/img/huaban.png",
-        flakeCount: 30,
-        minSize: 5,
-        maxSize: 22
-    });
-</script> -->
-
-
-
-
-
-</body>
-</html>
+extends base
+
+block title
+  title= page.title + ' | ' + config.title
+
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+      if theme.wordcount == true
+        include _partial/wordcount.pug
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if theme.changyan
+      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
+        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
+        span= ' ' + __('Comment')
+      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
+    if theme.valine.enable
+      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
+        span.valine-comment-count(data-xid=url_for(page.path))
+        span= ' ' + __('Comment')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content, {list_number: theme.toc_number})
+    .post-content
+      != page.content
+    if theme.donate.enable == true
+      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+
+    if theme.post_copyright.enable == true
+      div
+        ul.post-copyright
+          li.post-copyright-author
+            strong= __('copyright_author_prefix')
+            = theme.post_copyright.author
+          li.post-copyright-link
+            strong= __('copyright_link_prefix')
+            a(href='/' + page.path)= page.permalink
+          li.post-copyright-license
+            strong= __('copyright_declare_prefix')
+            if theme.post_copyright.copyright_text
+              != theme.post_copyright.copyright_text
+            else
+              != __('copyright_default_text')
+      br
+
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
+
+    include _partial/tag.pug
+    include _partial/post_nav.pug
+
+    if page.comments
+      include _partial/comments.pug
