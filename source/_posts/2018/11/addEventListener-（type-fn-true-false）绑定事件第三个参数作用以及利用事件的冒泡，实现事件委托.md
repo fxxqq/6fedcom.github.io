@@ -1,8 +1,10 @@
 ---
 title: 'addEventListener （type, fn , true/false）绑定事件第三个参数作用以及利用事件的冒泡，实现事件委托'
 categories: front-end
+tags:
+  - js
+abbrlink: f078bfb
 date: 2018-11-23 15:00:11
-tags: [js]
 ---
 
  

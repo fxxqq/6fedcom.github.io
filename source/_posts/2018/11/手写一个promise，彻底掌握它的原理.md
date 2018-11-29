@@ -1,6 +1,7 @@
 ---
 title: 手写一个promise，彻底掌握它的原理
 categories: front-end
+abbrlink: e5037e31
 date: 2018-11-27 22:35:58
 tags:
 ---

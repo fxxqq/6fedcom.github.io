@@ -1,8 +1,10 @@
 ---
 title: How to resolve iOS 11 Safari getUserMedia “Invalid constraint” issue
 categories: front-end
+tags:
+  - 踩过的坑
+abbrlink: e4a16398
 date: 2018-11-26 13:01:05
-tags: [踩过的坑]
 ---
 
 
