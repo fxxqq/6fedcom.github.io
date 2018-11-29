@@ -178,6 +178,100 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-2018-10-js深度拷贝解决双向绑定问题-包含es6方法" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" id="post-time" title="2018-10-26 15:44:21" datetime="2018-10-26T07:44:21.000Z" itemprop="datePublished">2018-10-26</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/284d188d.html">js深度拷贝解决双向绑定问题(包含es6方法)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+当我们利用v-bind：来绑定属性向子组件传递对象的时候，有时候我们需要子组件改变的时候不改变父组件的值，一般可以利用JSON.stringify(JSON.parse(jsonstr))将传递来的对象赋值到子组件自己的data，这样做的原理是对传过来的值重新赋予一个空间，从而解决双向绑定。，但是es6有一个深度赋值的方法也可以解决这个问题, let obj= Object.assign(...
+    
+
+        <a href="/note/284d188d.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2018-10-ajax和fetch、axios的优缺点以及比较" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" id="post-time" title="2018-10-26 09:18:54" datetime="2018-10-26T01:18:54.000Z" itemprop="datePublished">2018-10-26</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/note/7fae67c6.html">ajax和fetch、axios的优缺点以及比较</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前端是个发展迅速的领域，前端请求自然也发展迅速，从原生的XHR到jquery ajax，再到现在的axios和fetch。
+jquery ajax12345678$.ajax(&#123;    type: 'POST',    url: url,    data: data,    dataType: dataType,    success: function() &#123;&#125...
+    
+
+        <a href="/note/7fae67c6.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fetch/">fetch</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-2018-10-关于数组中forEach-、map-、filter-、reduce-、some-、every-的总结" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -597,110 +691,6 @@ dom 变化的对比，放在 JS 层来做
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2018-10-jquery-deferred" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" id="post-time" title="2018-10-20 21:50:43" datetime="2018-10-20T13:50:43.000Z" itemprop="datePublished">2018-10-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/d841583b.html">jquery的deferred对象详解</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-转载于互联网
-
-一、什么是deferred对象？
-开发网站的过程中，我们经常遇到某些耗时很长的javascript操作。其中，既有异步的操作（比如ajax读取服务器数据），也有同步的操作（比如遍历一个大型数组），它们都不是立即能得到结果的。
-
-通常的做法是，为它们指定回调函数（callback）。即事先规定，一旦它们运行结束，应该调用哪些函数。
-
-但是，在回调函数方面，jquery的功能非...
-    
-
-        <a href="/note/d841583b.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2018-10-goods-app-summary" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" id="post-time" title="2018-10-19 16:50:43" datetime="2018-10-19T08:50:43.000Z" itemprop="datePublished">2018-10-19</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/note/7bec924e.html">韦博嗨英语微信端（H5开发）小结</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、deepLink跳转1.1 快应用中呼起deepLink第一步：检测是安装了app
-
-前提条件：需要知道app的包名
-
-123456789101112131415// 判断用户是否安装了appexport const checkInstalledApp = (pkg_name) =&gt; &#123;  const pkg = require('@system.package')  r...
-    
-
-        <a href="/note/7bec924e.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li></ul>
 
     </div>
     

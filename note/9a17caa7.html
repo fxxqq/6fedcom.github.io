@@ -18,38 +18,28 @@
     
     
     
-    <link rel="canonical" href="https://ru23.com/note/f4c59ce6.html">
+    <link rel="canonical" href="https://ru23.com/note/9a17caa7.html">
     
     
-    <title>jquery之思维导图 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
+    <title>React 坑点总结 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="jquery,javascript">
-    <meta name="description" content="一、认识JQ">
-<meta name="keywords" content="jquery,javascript">
+    <meta name="keywords" content="">
+    <meta name="description" content="setState 异步特性基于性能考虑，React 通常是批量合并更新，调用 setState() 之后，this.state 并没有马上修改，而是创建了一个中间态作为过渡。 但是有些例外情况，它是同步执行的，比如：eventListeners，Ajax，setTimeout 等。原因是这些 JS 原生的 API 不在 React 的上下文控制范围，无法进行优化。 如何解决？ setState 第">
+<meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jquery之思维导图">
-<meta property="og:url" content="https://ru23.com/note/f4c59ce6.html">
+<meta property="og:title" content="React 坑点总结">
+<meta property="og:url" content="https://ru23.com/note/9a17caa7.html">
 <meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="一、认识JQ">
+<meta property="og:description" content="setState 异步特性基于性能考虑，React 通常是批量合并更新，调用 setState() 之后，this.state 并没有马上修改，而是创建了一个中间态作为过渡。 但是有些例外情况，它是同步执行的，比如：eventListeners，Ajax，setTimeout 等。原因是这些 JS 原生的 API 不在 React 的上下文控制范围，无法进行优化。 如何解决？ setState 第">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq1.png">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq2.png">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq3.png">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq4.png">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq5.png)">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq6.png">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq7.png">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq8.png">
-<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq9.png">
-<meta property="og:updated_time" content="2018-11-11T02:02:14.063Z">
+<meta property="og:updated_time" content="2018-11-29T03:58:35.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jquery之思维导图">
-<meta name="twitter:description" content="一、认识JQ">
-<meta name="twitter:image" content="http://7xq6al.com1.z0.glb.clouddn.com/jq1.png">
+<meta name="twitter:title" content="React 坑点总结">
+<meta name="twitter:description" content="setState 异步特性基于性能考虑，React 通常是批量合并更新，调用 setState() 之后，this.state 并没有马上修改，而是创建了一个中间态作为过渡。 但是有些例外情况，它是同步执行的，比如：eventListeners，Ajax，setTimeout 等。原因是这些 JS 原生的 API 不在 React 的上下文控制范围，无法进行优化。 如何解决？ setState 第">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
@@ -147,7 +137,7 @@
             <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            jquery之思维导图
+            React 坑点总结
         </div>
         
         <div class="search-wrap" id="search-wrap">
@@ -170,12 +160,12 @@
 <header class="content-header post-header">
     <div class="container fade-scale">
         <h1 class="title">
-            jquery之思维导图
+            React 坑点总结
         </h1>
         <h5 class="subtitle">
             
-            <time datetime="2017-10-28T00:20:43.000Z" itemprop="datePublished" class="page-time">
-  2017-10-28
+            <time datetime="2018-11-29T03:36:28.000Z" itemprop="datePublished" class="page-time">
+  2018-11-29
 </time>
 
 
@@ -193,13 +183,21 @@
 
 <div class="container body-wrap">
     
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#setState-异步特性"><span class="post-toc-text">setState 异步特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shouldComponentUpdate-检查"><span class="post-toc-text">shouldComponentUpdate() 检查</span></a></li></ol>
+    </nav>
+</aside>
 
-<article id="post-2017-10-jq-naotu" class="post-article article-type-post fade" itemprop="blogPost">
+
+
+<article id="post-2018-11-React-坑点总结" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">jquery之思维导图</h1>
+        <h1 class="post-card-title">React 坑点总结</h1>
         <div class="post-meta">
-            <time class="post-time" id="post-time" title="2017-10-28 08:20:43" datetime="2017-10-28T00:20:43.000Z" itemprop="datePublished">2017-10-28</time>
+            <time class="post-time" id="post-time" title="2018-11-29 11:36:28" datetime="2018-11-29T03:36:28.000Z" itemprop="datePublished">2018-11-29</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
@@ -214,73 +212,11 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq1.png" alt="一、认识JQ" title="">
-                </div>
-                <div class="image-caption">一、认识JQ</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq2.png" alt="二、JQ选择器" title="">
-                </div>
-                <div class="image-caption">二、JQ选择器</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq3.png" alt="三、JQ中对 属性 、样式、HTML内容、文本内容、值的操作" title="">
-                </div>
-                <div class="image-caption">三、JQ中对 属性 、样式、HTML内容、文本内容、值的操作</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq4.png" alt="四、JQ中的事件" title="">
-                </div>
-                <div class="image-caption">四、JQ中的事件</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq5.png)" alt="五、JQ中的筛选方法" title="">
-                </div>
-                <div class="image-caption">五、JQ中的筛选方法</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq6.png" alt="六、JQ中 dom操作" title="">
-                </div>
-                <div class="image-caption">六、JQ中 dom操作</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq7.png" alt="七、JQ中的动画" title="">
-                </div>
-                <div class="image-caption">七、JQ中的动画</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq8.png" alt="八、JQ对象访问" title="">
-                </div>
-                <div class="image-caption">八、JQ对象访问</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xq6al.com1.z0.glb.clouddn.com/jq9.png" alt="九、位置、尺寸" title="">
-                </div>
-                <div class="image-caption">九、位置、尺寸</div>
-            </figure>
-<ul>
-<li><a href="https://pan.baidu.com/s/1qYFcg4s" target="_blank" rel="noopener">xmind地址</a></li>
-</ul>
-
+            <h3 id="setState-异步特性"><a href="#setState-异步特性" class="headerlink" title="setState 异步特性"></a>setState 异步特性</h3><p>基于性能考虑，React 通常是批量合并更新，调用 setState() 之后，this.state 并没有马上修改，而是创建了一个中间态作为过渡。</p>
+<p>但是有些例外情况，它是同步执行的，比如：eventListeners，Ajax，setTimeout 等。<br>原因是这些 JS 原生的 API 不在 React 的上下文控制范围，无法进行优化。</p>
+<p>如何解决？</p>
+<p>setState 第二个参数可以传入 callback<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'State before : '</span> + <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.state));</span><br><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">	dollars: <span class="number">50</span></span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Here state will always be updated to latest version!'</span>);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'State after : '</span> + <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.state));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="shouldComponentUpdate-检查"><a href="#shouldComponentUpdate-检查" class="headerlink" title="shouldComponentUpdate() 检查"></a>shouldComponentUpdate() 检查</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">AutocompleteItem</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="keyword">return</span> nextProps.url !== <span class="keyword">this</span>.props.url ||</span><br><span class="line">      nextProps.selected !== <span class="keyword">this</span>.props.selected;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;props&#125; = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">const</span> selectedClass = props.selected === <span class="literal">true</span> ? <span class="string">"selected"</span> : <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> path = parseUri(props.url).path;</span><br><span class="line">    path = path.length &lt;= <span class="number">0</span> ? props.url : <span class="string">"..."</span> + path;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;li</span><br><span class="line">        onMouseLeave=&#123;props.onMouseLeave&#125;</span><br><span class="line">        className=&#123;selectedClass&#125;&gt;</span><br><span class="line">        &lt;i className=<span class="string">"ion-ios-eye"</span></span><br><span class="line">           data-image=&#123;props.image&#125;</span><br><span class="line">           data-url=&#123;props.url&#125;</span><br><span class="line">           data-title=&#123;props.title&#125;</span><br><span class="line">           onClick=&#123;props.handlePlanetViewClick&#125;/&gt;</span><br><span class="line">        &lt;span</span><br><span class="line">          onMouseEnter=&#123;props.onMouseEnter&#125;&gt;</span><br><span class="line">          &lt;div className=<span class="string">"dot bg-mint"</span>/&gt;</span><br><span class="line">          &#123;path&#125;</span><br><span class="line">        &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>li&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -318,8 +254,6 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
-
 
             
 <div class="page-share-wrap">
@@ -328,7 +262,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/f4c59ce6.html&title=《jquery之思维导图》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/9a17caa7.html&title=《React 坑点总结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -338,22 +272,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/f4c59ce6.html&title=《jquery之思维导图》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/9a17caa7.html&title=《React 坑点总结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/f4c59ce6.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/9a17caa7.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jquery之思维导图》 — 前端迷 (front-end fan)&url=https://ru23.com/note/f4c59ce6.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React 坑点总结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/9a17caa7.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/f4c59ce6.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/9a17caa7.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -373,21 +307,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/note/d427e9e2.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">细数国内外的前端大牛</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/note/a87a6818.html" id="post-next" class="post-nav-link">
+      <a href="/note/4bf41c9b.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">javascript启示录阅读笔录</h4>
+        <h4 class="title">12月份tidolist</h4>
       </a>
     </div>
   
@@ -492,7 +419,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/f4c59ce6.html&title=《jquery之思维导图》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/9a17caa7.html&title=《React 坑点总结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -502,22 +429,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/f4c59ce6.html&title=《jquery之思维导图》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/9a17caa7.html&title=《React 坑点总结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/f4c59ce6.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/9a17caa7.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jquery之思维导图》 — 前端迷 (front-end fan)&url=https://ru23.com/note/f4c59ce6.html&via=https://ru23.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React 坑点总结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/9a17caa7.html&via=https://ru23.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/f4c59ce6.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/9a17caa7.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -528,7 +455,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3aQY7DIAwF0N7/0pntSJlJvu1AW+mxqqIEHl0gY/v1isfxa5yfnMf52//mfK0YuLi4Y26y8OSd6w1XN4+Li7uTe33QXE+dvJ/Pf2PDxcX9SG419sgDJlxc3O/lXlOuN4CLi/td3OTqco2oHm3L72q4uLgDbp6lXPd7SX4XFxe3xT2KI0999tIrN6vj4uJu4c5THtUtVcMXXFzc/dxJsWTyVRJC3fyvuLi4y7jPFkJ6iZJqggYXF3c196nmieTN5C+4uTLh4uK+iZsXVvNjKAllkjlxcXF3cquhTK91Iwl9orsaLi7uRm6v5SLfcH7hiQ4yXFzcLdxJCJI86RVf/7j84OLiLuYWKrHFhq1qyba6VVxc3NXcXnmjVyapbjuq+eDi4m7k5o1WvSfNlAouLu5budXjafJtIVGLi4u7kZu0RORNVOXURrwuLi7uau5RHPnCectXnoLBxcXdw81Hb9JeKmS+Li4u7pw7P7yqyZG8pSNKmOLi4i7jVsOUZHt5C1ehpQMXF/cjuXmZJC/KFlInuLi4H8ntFUUmiY8Hzl1cXNwWtxqy5LhJewcuLu67uNWjpFeUfSoMwsXFXcz9AehvcbD0VmjfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aS47CMBAFQO5/aeYAM5D33LEHpPIKocgpZ9Hqjx+PeD3L9WqH37s9dixcXNwxN3lxwsr3eX+Ai8Pj4uIe5CahZ/L8q+Ple+Li4n4+tw1DyQ64uLjfy23D0PtkCBcX95O5eRiacI/Wari4uANu3qXc93tLfxcXF3eJOxmQ5Ii2Cfvy7bi4uEe4eUBJEo68SZqnL7i4uOe5d12VyAe07VGj74qLi7uN26Y1k2Hq4gUOXFzcg9w8ACUFTBLmkpHJHwUVLi7uEW47SmlZbeBLxrG4uLj/xU3+b0cvNxQ/uLi4B7k5vaXMW6gXaFxc3G3cNrlZK2PaMW1d/ODi4t7EzS895IXKJIm5OCouLu4R7uRuZNtSmV8JxcXFPcmdBJQW2iZJF8UPLi7uZm7bqmjLnnafi1oNFxf3CDdPRNaGrFFulTyJi4u7mfss11qLJGmM3laT4eLijrn5yult4GvTHVxc3DPctumZjEwmFy8uAhwuLu5BbjveSI6Uh7ykvYKLi/st3OQwi43RtmuCi4v7Mdy1wLTW5cDFxT3PbZuka8XPJDji4uKe5E4Gn22aknya2/q7uLi4K9wfo9CQnzeQfDcAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
