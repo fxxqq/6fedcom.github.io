@@ -3,7 +3,7 @@ title: 手写一个promise，彻底掌握它的原理
 categories: front-end
 abbrlink: e5037e31
 date: 2018-11-27 22:35:58
-tags:
+tags: [promise]
 ---
 
 Promise 是异步编程的一种解决方案,解决传统的回调嵌套问题
@@ -98,8 +98,8 @@ Promise.prototype.then = function(onResolved, onRejected) {
 				}
 			})
 
-            self.onRejected.push(function(reason){
-                try {
+			self.onRejected.push(function(reason) {
+				try {
 					var x = onRejected(self.data)
 					if (x instanceof Promise) {
 						x.then(resolve, reject)
@@ -107,14 +107,20 @@ Promise.prototype.then = function(onResolved, onRejected) {
 				} catch (e) {
 					reject(e)
 				}
-            })
+			})
 		})
 	}
 }
 
-Promise.prototype.catch=function(onRejected){
-    return this.then(null,onRejected)
+Promise.prototype.
+catch = function(onRejected) {
+	return this.then(null, onRejected)
 }
 
 ```
 ES6实现Promise
+
+```js
+class  Promise{
+	constructor(fn)
+}
