@@ -34,7 +34,7 @@ TCP三次握手(three-way handshaking)
 * 发送方:ACK - 确认接收方在线可收消息，握手结束
 * Accept
 
-![TCP三次握手](/img/2018/11/react-life-cycle.png)
+![TCP三次握手](/img/2018/11/three-way-handshaking.jpg)
 
 （1）第一次握手：建立连接时，客户端A发送SYN包（SYN=j）到服务器B，并进入SYN_SEND状态，等待服务器B确认。
 
@@ -82,9 +82,15 @@ PS: 客户端不一定特指浏览器，有时候也可使用Linux下的CURL命�
 
 HTTP响应报文也是由三部分组成: 状态码, 响应报头和响应报文。
 
-HTTP缓存
+#### HTTP缓存
+强缓存和协商缓存
 
 ### 5.浏览器解析渲染页面
+使用HTML创建文件对象类型（DOM）
+使用CSS创建CSS对象类型（CSSOM）
+基于DOM和CSSOM执行脚本（Scripts）
+合并DOM和CSSOM形成渲染树（Render Tree)
+使用渲染布局（Layout）所有元素渲染（Paint）所有元素
 
 ### 6.断开TCP连接（4次挥手）
 
