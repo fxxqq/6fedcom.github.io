@@ -48,10 +48,4 @@ date: 2017-02-06 19:20:43
 
 ---
 
-- **图解flex布局**
-
-
-![enter description here][1]
-
-
-  [1]: http://7xq6al.com1.z0.glb.clouddn.com/0001.jpg
+https://juejin.im/post/5ac2329b6fb9a028bf057caf#heading-11

@@ -1,5 +1,5 @@
 ---
-title: 12月份tidolist
+title: 12月份todolist
 categories: front-end
 top: 5
 password: ms
@@ -16,7 +16,7 @@ v-router原理
 v-cli构建以及优化
 axios
 promise，async/await,Generator 实现异步的方案与区别
-
+BFC
 ES6实现Promise
 
 react-router的实现原理
