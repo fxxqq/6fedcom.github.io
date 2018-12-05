@@ -766,7 +766,6 @@ setState是同步还是异步
 介绍Redux工作流程
 介绍ES6的功能
 介绍Promise和then
-介绍快速排序
 算法：前K个最大的元素
 
 
