@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="setState 异步特性基于性能考虑，React 通常是批量合并更新，调用 setState() 之后，this.state 并没有马上修改，而是创建了一个中间态作为过渡。 但是有些例外情况，它是同步执行的，比如：eventListeners，Ajax，setTimeout 等。原因是这些 JS 原生的 API 不在 React 的上下文控制范围，无法进行优化。 如何解决？ setState 第">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-29T03:58:35.662Z">
+<meta property="og:updated_time" content="2018-11-29T09:52:15.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 坑点总结">
 <meta name="twitter:description" content="setState 异步特性基于性能考虑，React 通常是批量合并更新，调用 setState() 之后，this.state 并没有马上修改，而是创建了一个中间态作为过渡。 但是有些例外情况，它是同步执行的，比如：eventListeners，Ajax，setTimeout 等。原因是这些 JS 原生的 API 不在 React 的上下文控制范围，无法进行优化。 如何解决？ setState 第">
@@ -307,14 +307,21 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/note/8463a2db.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">对css重绘和重排的理解，两个有什么不同</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
       <a href="/note/4bf41c9b.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">12月份tidolist</h4>
+        <h4 class="title">12月份todolist</h4>
       </a>
     </div>
   

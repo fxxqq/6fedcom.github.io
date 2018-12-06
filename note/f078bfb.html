@@ -27,9 +27,9 @@
     <meta name="theme-color" content="#006fbc">
     
     
-    <meta name="keywords" content="js">
+    <meta name="keywords" content="js,事件流">
     <meta name="description" content="第一个参数type，事件的类型，如click，mouseover等； fn，事件监听执行的function； 第三参数，决定事件执行的过程（大概这样解释。。），捕获或者冒泡，首先我们看一张图片：                                                                                              事件流原理">
-<meta name="keywords" content="js">
+<meta name="keywords" content="js,事件流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="addEventListener （type, fn , true&#x2F;false）绑定事件第三个参数作用以及利用事件的冒泡，实现事件委托">
 <meta property="og:url" content="https://ru23.com/note/f078bfb.html">
@@ -37,7 +37,7 @@
 <meta property="og:description" content="第一个参数type，事件的类型，如click，mouseover等； fn，事件监听执行的function； 第三参数，决定事件执行的过程（大概这样解释。。），捕获或者冒泡，首先我们看一张图片：                                                                                              事件流原理">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ru23.com/img/2018/11/shijianliu.gif">
-<meta property="og:updated_time" content="2018-11-28T05:33:05.997Z">
+<meta property="og:updated_time" content="2018-12-03T02:25:44.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="addEventListener （type, fn , true&#x2F;false）绑定事件第三个参数作用以及利用事件的冒泡，实现事件委托">
 <meta name="twitter:description" content="第一个参数type，事件的类型，如click，mouseover等； fn，事件监听执行的function； 第三参数，决定事件执行的过程（大概这样解释。。），捕获或者冒泡，首先我们看一张图片：                                                                                              事件流原理">
@@ -185,6 +185,14 @@
 
 <div class="container body-wrap">
     
+<aside class="post-widget">
+    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件委托和事件代理的理解"><span class="post-toc-text">事件委托和事件代理的理解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件委托的原理？"><span class="post-toc-text">事件委托的原理？</span></a></li></ol>
+    </nav>
+</aside>
+
+
 
 <article id="post-2018-11-addEventListener-（type-fn-true-false）绑定事件第三个参数作用以及利用事件的冒泡，实现事件委托" class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -220,6 +228,10 @@
 <p>e.target和e.currentTarget</p>
 <p>　　target和currentTarget都是event上面的属性，target是真正发生事件的DOM元素，而currentTarget是当前事件发生在哪个DOM元素上。</p>
 <p>　　可以结合控制台打印出来的信息理解下，目标阶段也就是 target == currentTarget的时候。我没有打印它们两个因为太长了，所以打印了它们的nodeName，但是由于window没有nodeName这个属性，所以是undefined。</p>
+<h3 id="事件委托和事件代理的理解"><a href="#事件委托和事件代理的理解" class="headerlink" title="事件委托和事件代理的理解"></a>事件委托和事件代理的理解</h3><p>事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件，当我们需要对很多元素添加事件的时候，可以通过事件添加到他们的父节点二将时间委托给父节点来触发处理函数</p>
+<p>减少与dom的交互次数，提高性能</p>
+<h3 id="事件委托的原理？"><a href="#事件委托的原理？" class="headerlink" title="事件委托的原理？"></a>事件委托的原理？</h3><p>事件委托是利用事件的冒泡机制来实现的，何为事件冒泡呢？这里介绍下浏览器dom事件处理的过程，dom2.0模型将事件流程分为三个阶段：事件捕获阶段，事件目标阶段，事件冒泡阶段。</p>
+<p>事件捕获：当某个元素触发某个事件，顶层对象document就会发出一个事件流，随着dom树的节点向目标元素节点流去，直到到达事件真正发生的目标元素，在这个过程中，事件相应的监听函数是不会被触发的<br>事件目标：当到达目标元素之后，执行目标元素该事件相应的处理函数，如果没有绑定监听函数，那就不执行<br>事件冒泡：从目标元素开始，往顶层元素传播，途中如果有节点绑定了相应的事件处理函数，这些函数都会被一次触发，如果想阻止事件冒泡，可以使用event.stopPropgation()或者event.cancelBubble=true来阻止事件的冒泡传播</p>
 
         </div>
 
@@ -258,7 +270,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件流/">事件流</a></li></ul>
 
 
             

@@ -36,13 +36,13 @@
 <meta property="og:site_name" content="前端迷 (front-end fan)">
 <meta property="og:description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ru23.com/img/2018/11/react-life-cycle.png">
+<meta property="og:image" content="https://ru23.com/img/2018/11/three-way-handshaking.jpg">
 <meta property="og:image" content="https://ru23.com/img/2018/11/https.jpg">
-<meta property="og:updated_time" content="2018-11-29T01:32:46.048Z">
+<meta property="og:updated_time" content="2018-11-30T12:56:27.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从输入URL到页面加载发生了什么">
 <meta name="twitter:description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
-<meta name="twitter:image" content="https://ru23.com/img/2018/11/react-life-cycle.png">
+<meta name="twitter:image" content="https://ru23.com/img/2018/11/three-way-handshaking.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
     
@@ -189,7 +189,7 @@
 <aside class="post-widget">
     <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
         <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DNS解析"><span class="post-toc-text">DNS解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP连接"><span class="post-toc-text">TCP连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS协议"><span class="post-toc-text">HTTPS协议</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS过程"><span class="post-toc-text">HTTPS过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发送HTTP请求"><span class="post-toc-text">发送HTTP请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件循环-Event-loop"><span class="post-toc-text">事件循环(Event loop)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-服务器处理HTTP请求并返回HTTP报文"><span class="post-toc-text">4. 服务器处理HTTP请求并返回HTTP报文</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-浏览器解析渲染页面"><span class="post-toc-text">5.浏览器解析渲染页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-断开TCP连接（4次挥手）"><span class="post-toc-text">6.断开TCP连接（4次挥手）</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DNS解析"><span class="post-toc-text">DNS解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP连接"><span class="post-toc-text">TCP连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS协议"><span class="post-toc-text">HTTPS协议</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS过程"><span class="post-toc-text">HTTPS过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发送HTTP请求"><span class="post-toc-text">发送HTTP请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件循环-Event-loop"><span class="post-toc-text">事件循环(Event loop)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-服务器处理HTTP请求并返回HTTP报文"><span class="post-toc-text">4. 服务器处理HTTP请求并返回HTTP报文</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP缓存"><span class="post-toc-text">HTTP缓存</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-浏览器解析渲染页面"><span class="post-toc-text">5.浏览器解析渲染页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-断开TCP连接（4次挥手）"><span class="post-toc-text">6.断开TCP连接（4次挥手）</span></a></li></ol>
     </nav>
 </aside>
 
@@ -242,7 +242,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/2018/11/react-life-cycle.png" alt="TCP三次握手" title="">
+                    <img src="/img/2018/11/three-way-handshaking.jpg" alt="TCP三次握手" title="">
                 </div>
                 <div class="image-caption">TCP三次握手</div>
             </figure>
@@ -272,8 +272,9 @@
 <li>浏览器环境中执行方法时，先将执行栈中的任务清空，再将微任务推到执行栈中并清空，之后检查是否存在宏任务，若存在则取出一个宏任务，执行完成检查是否有微任务，以此循环…</li>
 </ol>
 <h3 id="4-服务器处理HTTP请求并返回HTTP报文"><a href="#4-服务器处理HTTP请求并返回HTTP报文" class="headerlink" title="4. 服务器处理HTTP请求并返回HTTP报文"></a>4. 服务器处理HTTP请求并返回HTTP报文</h3><p>HTTP响应报文也是由三部分组成: 状态码, 响应报头和响应报文。</p>
-<p>HTTP缓存</p>
-<h3 id="5-浏览器解析渲染页面"><a href="#5-浏览器解析渲染页面" class="headerlink" title="5.浏览器解析渲染页面"></a>5.浏览器解析渲染页面</h3><h3 id="6-断开TCP连接（4次挥手）"><a href="#6-断开TCP连接（4次挥手）" class="headerlink" title="6.断开TCP连接（4次挥手）"></a>6.断开TCP连接（4次挥手）</h3>
+<h4 id="HTTP缓存"><a href="#HTTP缓存" class="headerlink" title="HTTP缓存"></a>HTTP缓存</h4><p>强缓存和协商缓存</p>
+<h3 id="5-浏览器解析渲染页面"><a href="#5-浏览器解析渲染页面" class="headerlink" title="5.浏览器解析渲染页面"></a>5.浏览器解析渲染页面</h3><p>使用HTML创建文件对象类型（DOM）<br>使用CSS创建CSS对象类型（CSSOM）<br>基于DOM和CSSOM执行脚本（Scripts）<br>合并DOM和CSSOM形成渲染树（Render Tree)<br>使用渲染布局（Layout）所有元素渲染（Paint）所有元素</p>
+<h3 id="6-断开TCP连接（4次挥手）"><a href="#6-断开TCP连接（4次挥手）" class="headerlink" title="6.断开TCP连接（4次挥手）"></a>6.断开TCP连接（4次挥手）</h3>
         </div>
 
         <blockquote class="post-copyright">
