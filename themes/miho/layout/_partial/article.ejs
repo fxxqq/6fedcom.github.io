@@ -20,10 +20,10 @@
                 <a href="<%- url_for(post.path) %>" <% if (theme.open_new_link) {%> target="_blank"
                     <% } %>>
                     <% if (post.cover_picture) { %>
-                    <img src="<%- (/^(http:|https:)?\/\//.test(post.cover_picture) ? post.cover_picture : config.url.replace(/\/$/, '') + '/' + post.cover_picture)%>"
+                    <img src="<%- (/^(http:|https:)?\/\//.test(post.cover_picture) ? post.cover_picture : config.cdn.replace(/\/$/, '') + '/' + post.cover_picture)%>"
                         alt="<%- post.title %>" title="<%- post.title %>">
                     <% } else { %>
-                    <img src="<%- (/^(http:|https:)?\/\//.test(theme.cover_picture) ? theme.cover_picture : config.url.replace(/\/$/, '') + '/' + theme.cover_picture) %>"
+                    <img src="<%- (/^(http:|https:)?\/\//.test(theme.cover_picture) ? theme.cover_picture : config.cdn.replace(/\/$/, '') + '/' + theme.cover_picture) %>"
                         alt="<%- post.title %>" title="<%- post.title %>">
                     <% } %>
                 </a>

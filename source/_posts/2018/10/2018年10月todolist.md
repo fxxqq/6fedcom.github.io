@@ -4,7 +4,7 @@ categories: todolist
 abbrlink: 2c3fba04
 date: 2018-10-06 00:17:07
 password: todo
-tags: 
+tags: [todo]
 ---
 
 了解canvas和webgl

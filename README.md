@@ -45,7 +45,9 @@ cover_picture: /images/banner.jpg
 <!-- more -->
 
 上传七牛云：
-hexo qiniu sync 上传
-hexo qiniu sync2 更新
+上传
+hexo qiniu sync 
+更新
+hexo qiniu sync2 
 
  

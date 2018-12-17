@@ -4,7 +4,7 @@ categories: front-end
 password: ms
 abbrlink: 4bf41c9b
 date: 2018-11-28 22:45:45
-tags:
+tags: [todo]
 ---
 for of 和for in的区别
 算法题刷一遍
