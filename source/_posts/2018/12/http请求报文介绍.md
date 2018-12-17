@@ -15,7 +15,7 @@ HTTP报文是面向文本的，报文中的每一个字段都是一些ASCII码�
 
 以下逐步分析各个数据部分的作用。
 
-　　1、请求行
+1、请求行
 
 　　　　请求行由请求方法字段、URL字段和HTTP协议版本字段3个字段组成，它们用空格分隔。
 
@@ -30,10 +30,7 @@ HTTP报文是面向文本的，报文中的每一个字段都是一些ASCII码�
 　　　　(2)URL信息:  /index.php
 
 　　　　(3)HTTP协议版本:  HTTP/1.1　　
-
-
-　　2、请求头部
-
+2、请求头部
 　　　　User-Agent：浏览器的具体类型　　如：User-Agent：Mozilla/5.0 (Windows NT 6.1; rv:17.0) Gecko/20100101 Firefox/17.0
 
  　　　  Accept：浏览器支持哪些数据类型　　如：Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
@@ -59,6 +56,13 @@ HTTP报文是面向文本的，报文中的每一个字段都是一些ASCII码�
 　　　　Cookie：最常用的请求头，浏览器每次都会将cookie发送到服务器上，允许服务器在客户端存储少量数据。
 
  　　　  Referer：包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。服务器能知道你是从哪个页面过来的。Referer: http://www.baidu.com/
+
+ 3.空行
+最后一个请求头之后是一个空行，发送回车符和换行符，通知服务器以下不再有请求头。
+
+4.请求数据
+
+请求数据不在GET方法中使用，而是在POST方法中使用。POST方法适用于需要客户填写表单的场合。与请求数据相关的最常使用的请求头是Content-Type和Content-Length。
 
  ### 二、HTTP响应报文
 
