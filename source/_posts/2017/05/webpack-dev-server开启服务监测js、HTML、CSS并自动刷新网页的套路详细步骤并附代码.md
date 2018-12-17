@@ -126,7 +126,7 @@ node_modules/.bin/webpack-dev-server --content-base app/
 
 运行了之后命令行会提示端口的号码，这个时候这个命令行在启动服务，在想用命令行打开浏览器就不方便了，所以手动到浏览器输入`localhost:8080/index.html`；
 
-![port](/img/2017/webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码/Jietu20170520-222013.jpg)
+![port](https://cdn.ru23.com/img/2017/webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码/Jietu20170520-222013.jpg)
 
 另一种iframe模式的操作的区别只在输入的网址：`localhost:8080/webpack-dev-server/index.html`
 
@@ -140,7 +140,7 @@ node_modules/.bin/webpack-dev-server --content-base app/
 "dev": "webpack-dev-server --content-base app/"
 ~~~
 
-![npmscripts](/img/2017/webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码/Jietu20170520-222619.jpg)
+![npmscripts](https://cdn.ru23.com/img/2017/webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码/Jietu20170520-222619.jpg)
  
 再运行的时候就这样
 
