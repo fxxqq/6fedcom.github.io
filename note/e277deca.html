@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    
-
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://ru23.com/note/e277deca.html">
-    
-    
-    <title>从输入URL到页面加载发生了什么 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#006fbc">
-    
-    
-    <meta name="keywords" content="">
-    <meta name="description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
+  <meta charset="utf-8">
+  
+  <title>从输入URL到页面加载发生了什么 | 前端迷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+  
+  <meta name="description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
 <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从输入URL到页面加载发生了什么">
 <meta property="og:url" content="https://ru23.com/note/e277deca.html">
-<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ru23.com/img/2018/11/three-way-handshaking.jpg">
@@ -43,171 +23,119 @@
 <meta name="twitter:title" content="从输入URL到页面加载发生了什么">
 <meta name="twitter:description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
 <meta name="twitter:image" content="https://ru23.com/img/2018/11/three-way-handshaking.jpg">
-    
-        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/blue.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
-    <script>window.lazyScripts=[]</script>
+  
+  
+    <link rel="icon" href="/img/blue.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
 
-    <!-- custom head -->
-    
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
 
 </head>
-
+</html>
 <body>
-    <div id="loading" class="active"></div>
-
-
-    <aside id="menu">
-    <div class="inner flex-row-vertical">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-            <i class="icon icon-lg icon-close"></i>
-        </a>
-        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-            <div class="brand">
-                <a href="/" class="avatar waves-effect waves-circle waves-light">
-                    <img src="/img/avatar.gif">
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Frank&#39;s Blog</span>
                 </a>
-                <hgroup class="introduce">
-                    <h5 class="nickname">
-                        frank
-                    </h5>
-                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-                </hgroup>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
         </div>
-        <div class="scroll-wrap flex-col">
-            <!-- <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
-                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
-            </a> -->
-            <ul class="nav">
-                
-                <li class="waves-block waves-effect">
-                    <a href="/">
-                        <i class="icon icon-lg icon-home"></i>
-                        主页
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/tags">
-                        <i class="icon icon-lg icon-tags"></i>
-                        标签
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/categories">
-                        <i class="icon icon-lg icon-th-list"></i>
-                        目录
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/archives">
-                        <i class="icon icon-lg icon-archives"></i>
-                        归档
-                    </a>
-                </li>
-                
-
-                <!-- <li class="ad-qrcode">
-                    <img src="/img/ad/201810/ad-left.jpg">
-                </li> -->
-                <li class="ad-qrcode">
-                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
-                </li>
-
-
-            </ul>
-
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Frank&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        前端开发爱好者,欢迎一切技术交流
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
         </div>
-    </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-            <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">
-            从输入URL到页面加载发生了什么
-        </div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
     </div>
 </header>
-<header class="content-header post-header">
-    <div class="container fade-scale">
-        <h1 class="title">
-            从输入URL到页面加载发生了什么
-        </h1>
-        <h5 class="subtitle">
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-11-从输入URL到页面加载发生了什么" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
             
-            <time datetime="2018-11-23T15:14:05.000Z" itemprop="datePublished" class="page-time">
-  2018-11-23
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-            
-        </h5>
+  
+    <h1 class="post-title" itemprop="name">
+      从输入URL到页面加载发生了什么
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-23
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
     </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-<aside class="post-widget">
-    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-        <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DNS解析"><span class="post-toc-text">DNS解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP连接"><span class="post-toc-text">TCP连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS协议"><span class="post-toc-text">HTTPS协议</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS过程"><span class="post-toc-text">HTTPS过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发送HTTP请求"><span class="post-toc-text">发送HTTP请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件循环-Event-loop"><span class="post-toc-text">事件循环(Event loop)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-服务器处理HTTP请求并返回HTTP报文"><span class="post-toc-text">4. 服务器处理HTTP请求并返回HTTP报文</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP缓存"><span class="post-toc-text">HTTP缓存</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-浏览器解析渲染页面"><span class="post-toc-text">5.浏览器解析渲染页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-断开TCP连接（4次挥手）"><span class="post-toc-text">6.断开TCP连接（4次挥手）</span></a></li></ol>
-    </nav>
-</aside>
-
-
-
-<article id="post-2018-11-从输入URL到页面加载发生了什么" class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">从输入URL到页面加载发生了什么</h1>
-        <div class="post-meta">
-            <time class="post-time" id="post-time" title="2018-11-23 23:14:05" datetime="2018-11-23T15:14:05.000Z" itemprop="datePublished">2018-11-23</time>
+  
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
-    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
+            
             <p>眼过千遍，不如手敲一遍。<br>文章参考：<a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006879700</a></p>
 <ol>
 <li>DNS解析</li>
@@ -232,13 +160,7 @@
 <li>发送方:ACK - 确认接收方在线可收消息，握手结束</li>
 <li>Accept</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/2018/11/three-way-handshaking.jpg" alt="TCP三次握手" title="">
-                </div>
-                <div class="image-caption">TCP三次握手</div>
-            </figure>
+<p><img src="/img/2018/11/three-way-handshaking.jpg" alt="TCP三次握手"></p>
 <p>（1）第一次握手：建立连接时，客户端A发送SYN包（SYN=j）到服务器B，并进入SYN_SEND状态，等待服务器B确认。</p>
 <p>（2）第二次握手：服务器B收到SYN包，必须确认客户A的SYN（ACK=j+1），同时自己也发送一个SYN包（SYN=k），即SYN+ACK包，此时服务器B进入SYN_RECV状态。</p>
 <p>（3）第三次握手：客户端A收到服务器B的SYN＋ACK包，向服务器B发送确认包ACK（ACK=k+1），此包发送完毕，客户端A和服务器B进入ESTABLISHED状态，完成三次握手。</p>
@@ -248,13 +170,7 @@
 <li>因为HTTP报文是包裹在TCP报文中发送的，服务端收到TCP报文时候会解包提取出HTTP报文。</li>
 <li>但是这个过程中存在一定的风险。HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的危险。那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/2018/11/https.jpg" alt="HTTPS" title="">
-                </div>
-                <div class="image-caption">HTTPS</div>
-            </figure>
+<p><img src="/img/2018/11/https.jpg" alt="HTTPS"></p>
 <h4 id="HTTPS过程"><a href="#HTTPS过程" class="headerlink" title="HTTPS过程"></a>HTTPS过程</h4><p>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL使用了非对称加密，对称加密以及hash等。具体过程请参考经典的阮一峰先生的博客TLS/SSL握手过程。<br>HTTPS相比于HTTP，虽然提供了安全保证，但是势必会带来一些时间上的损耗，如握手和加密等过程，<br><strong>是否使用HTTPS需要根据具体情况在安全和性能方面做出权衡</strong>。</p>
 <h3 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h3><p>构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080, HTTPS协议443)。<br>HTTP请求报文是由三部分组成: 请求行, 请求报头和请求正文。</p>
 <p><strong>请求行：</strong><br>Method Request-URL HTTP-Version CRLF</p>
@@ -268,329 +184,266 @@
 <h4 id="HTTP缓存"><a href="#HTTP缓存" class="headerlink" title="HTTP缓存"></a>HTTP缓存</h4><p>强缓存和协商缓存</p>
 <h3 id="5-浏览器解析渲染页面"><a href="#5-浏览器解析渲染页面" class="headerlink" title="5.浏览器解析渲染页面"></a>5.浏览器解析渲染页面</h3><p>使用HTML创建文件对象类型（DOM）<br>使用CSS创建CSS对象类型（CSSOM）<br>基于DOM和CSSOM执行脚本（Scripts）<br>合并DOM和CSSOM形成渲染树（Render Tree)<br>使用渲染布局（Layout）所有元素渲染（Paint）所有元素</p>
 <h3 id="6-断开TCP连接（4次挥手）"><a href="#6-断开TCP连接（4次挥手）" class="headerlink" title="6.断开TCP连接（4次挥手）"></a>6.断开TCP连接（4次挥手）</h3>
-        </div>
-
-        <blockquote class="post-copyright">
-    
+            <div class="post-copyright">
     <div class="content">
-        
-<span class="post-time">
-    <div class="qrcode-container">
-        <img src="/img/qrcode.png">
-    </div><br>
-</span><br>
-
-
-        
-        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
-        
+        <p>最后更新： 2018年11月30日 20:56</p>
+        <p>原始链接： <a class="post-url" href="/note/e277deca.html" title="从输入URL到页面加载发生了什么">https://ru23.com/note/e277deca.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="/images/logo.png" alt="frank">
+                frank
+            </a>
+        </footer>
     </div>
-    
-    <footer>
-        <a href="https://ru23.com">
-            <img src="/img/avatar.gif" alt="frank">
-            frank
-        </a>
-    </footer>
-</blockquote>
-
-<div class="ad-art-end">
-    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
-    </a>
 </div>
 
-        
-
-
-        <div class="post-footer">
+            
+            
             
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/e277deca.html&title=《从输入URL到页面加载发生了什么》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/e277deca.html&title=《从输入URL到页面加载发生了什么》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/e277deca.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从输入URL到页面加载发生了什么》 — 前端迷 (front-end fan)&url=https://ru23.com/note/e277deca.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/e277deca.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
         </div>
-    </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/e277deca.html&title=《从输入URL到页面加载发生了什么》 — 前端迷&pic=https://ru23.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/e277deca.html&title=《从输入URL到页面加载发生了什么》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/e277deca.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从输入URL到页面加载发生了什么》 — 前端迷&url=https://ru23.com/note/e277deca.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/e277deca.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3azYrDMAxF4bz/S2dgVgND3XOlyHXheFVo63zOQujH14XX/bvW3/5d5L/rPVtLrly5be69XP+3Jr9/BVrvT/aUK1fuTu460JADrGPO+l9BsJMrV+5hXHKYN2EIHEOuXLnfxV2nLKQQ4q9Drly5J3BJ8dN5/GOhUK5cuVu4acN04vNgf1euXLkh9w5XJzW520uuXLl7uDwdIaVOGgp5Q/biuZJcuXIf5XYuT0wUTkGtJleu3GEurz7IdYpaSvTmlcmVK3eYy0cjnRELSZhaZY9cuXIf5fL0gpcuPGHir+blO5YrV+4ANy1a0jKGp0pof7ly5W7k9oepQbszfJZcuXLP4XYuSPHwlKZQcuXK3cOtNUT4IUlQSw8jV67caS5vaF541YavRCJXrtw93PhSVJjKxGMSMqqRK1fuMLfTMO0kOnwoK1eu3E9xa53JWhCsJUxy5crdz00vSKWj1nQMg+xy5cod49aaHWnBkx4pGLvKlSt3jMuDFx+okASIlFJy5cr9LDfts/IGSjqYWdPlypV7GjfYtFQCoRGvXLlyD+Z2LlvUUiK5cuXu5849rFZQPVCryZUrt8FNG6b8YCQw8TRIrly5W7g/w/klC6rGNFUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
 
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DNS解析"><span class="post-toc-text">DNS解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP连接"><span class="post-toc-text">TCP连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS协议"><span class="post-toc-text">HTTPS协议</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS过程"><span class="post-toc-text">HTTPS过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发送HTTP请求"><span class="post-toc-text">发送HTTP请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件循环-Event-loop"><span class="post-toc-text">事件循环(Event loop)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-服务器处理HTTP请求并返回HTTP报文"><span class="post-toc-text">4. 服务器处理HTTP请求并返回HTTP报文</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP缓存"><span class="post-toc-text">HTTP缓存</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-浏览器解析渲染页面"><span class="post-toc-text">5.浏览器解析渲染页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-断开TCP连接（4次挥手）"><span class="post-toc-text">6.断开TCP连接（4次挥手）</span></a></li></ol>
+        </nav>
+    </aside>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/note/f4c4f07f.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">算法题</h4>
-      </a>
-    </div>
-  
 
+<nav id="article-nav">
   
-    <div class="waves-block waves-effect next">
-      <a href="/note/f078bfb.html" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">addEventListener （type, fn , true/false）绑定事件第三个参数作用以及利用事件的冒泡，实现事件委托</h4>
-      </a>
-    </div>
+    <a href="/note/f4c4f07f.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          算法题
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/f078bfb.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">addEventListener （type, fn , true/false）绑定事件第三个参数作用以及利用事件的冒泡，实现事件委托</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 
 
 
-    
 
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'false' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
 
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
-            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
-            avatar: "mm",
-            qrcode: "",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
+</section>
         
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        <span id="busuanzi_value_site_uv"></span>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        <span id="busuanzi_value_site_pv"></span>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
-        <p>
-            
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>
-                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 frank<br>
+      </p>
     </div>
-    <div class="bottom">
-        <p><span>
-                frank &copy;
-                
-                2015 -
-                
-                2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">
-                    晋ICP备18012373号</a><br>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
+  </div>
 </footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/e277deca.html&title=《从输入URL到页面加载发生了什么》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/e277deca.html&title=《从输入URL到页面加载发生了什么》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/e277deca.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从输入URL到页面加载发生了什么》 — 前端迷 (front-end fan)&url=https://ru23.com/note/e277deca.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/e277deca.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3azYrDMAxF4bz/S2dgVgND3XOlyHXheFVo63zOQujH14XX/bvW3/5d5L/rPVtLrly5be69XP+3Jr9/BVrvT/aUK1fuTu460JADrGPO+l9BsJMrV+5hXHKYN2EIHEOuXLnfxV2nLKQQ4q9Drly5J3BJ8dN5/GOhUK5cuVu4acN04vNgf1euXLkh9w5XJzW520uuXLl7uDwdIaVOGgp5Q/biuZJcuXIf5XYuT0wUTkGtJleu3GEurz7IdYpaSvTmlcmVK3eYy0cjnRELSZhaZY9cuXIf5fL0gpcuPGHir+blO5YrV+4ANy1a0jKGp0pof7ly5W7k9oepQbszfJZcuXLP4XYuSPHwlKZQcuXK3cOtNUT4IUlQSw8jV67caS5vaF541YavRCJXrtw93PhSVJjKxGMSMqqRK1fuMLfTMO0kOnwoK1eu3E9xa53JWhCsJUxy5crdz00vSKWj1nQMg+xy5cod49aaHWnBkx4pGLvKlSt3jMuDFx+okASIlFJy5cr9LDfts/IGSjqYWdPlypV7GjfYtFQCoRGvXLlyD+Z2LlvUUiK5cuXu5849rFZQPVCryZUrt8FNG6b8YCQw8TRIrly5W7g/w/klC6rGNFUAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    var BLOG = {
-        ROOT: '/',
-        SHARE: true,
-        REWARD: false
-    };
-
-    
-    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
-    
-
+  var mihoConfig = {
+      root: "https://ru23.com",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
 </script>
-
-<script src="/js/main.min.js?v=1.7.2"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
 </div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/designed/">designed</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端分享/">前端分享</a><a class="category-link" href="/categories/前端工具/">前端工具</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
         </div>
-    </a>
-</li>
-</template>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 12.31px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 11.54px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端周刊/" style="font-size: 10.77px;">前端周刊</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/运动框架/" style="font-size: 10px;">运动框架</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 12.31px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 11.54px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端周刊/" style="font-size: 10.77px;">前端周刊</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/运动框架/" style="font-size: 10px;">运动框架</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
 
 
 
 
 
 
-<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- <script>
-    setTimeout(function () {
-        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
-        var nowTime = new Date().getTime();
-        
-        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
-            // document.getElementById("random").innerHTML = 1;
-        } else {
-            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
-            document.getElementById("random").innerHTML = viewCount[0];
-        }
-    }, 0)
-
-</script> -->
-<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
-<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
-<script>
-    $(document).snowfall('clear');
-    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
-    $(document).snowfall({
-        image: "/img/huaban.png",
-        flakeCount: 30,
-        minSize: 5,
-        maxSize: 22
-    });
-</script> -->
 
 
 
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
-
+  </div>
 </body>
 </html>

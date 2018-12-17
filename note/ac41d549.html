@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    
-
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://ru23.com/note/ac41d549.html">
-    
-    
-    <title>Dva实践总结 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#006fbc">
-    
-    
-    <meta name="keywords" content="react,dva">
-    <meta name="description" content="一、环境搭建1234567$ npm install dva-cli -g# 创建应用$ dva new dva-quickstart# 启动$ npm start  react项目的推荐目录结构（如果使用dva脚手架创建，则自动生成如下）  12345678910111213141516171819|── /mock/             # 数据mock的接口文件  |── /src/">
+  <meta charset="utf-8">
+  
+  <title>Dva实践总结 | 前端迷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+  
+  <meta name="description" content="一、环境搭建1234567$ npm install dva-cli -g# 创建应用$ dva new dva-quickstart# 启动$ npm start  react项目的推荐目录结构（如果使用dva脚手架创建，则自动生成如下）  12345678910111213141516171819|── /mock/             # 数据mock的接口文件  |── /src/">
 <meta name="keywords" content="react,dva">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dva实践总结">
 <meta property="og:url" content="https://ru23.com/note/ac41d549.html">
-<meta property="og:site_name" content="前端迷 (front-end fan)">
+<meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、环境搭建1234567$ npm install dva-cli -g# 创建应用$ dva new dva-quickstart# 启动$ npm start  react项目的推荐目录结构（如果使用dva脚手架创建，则自动生成如下）  12345678910111213141516171819|── /mock/             # 数据mock的接口文件  |── /src/">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1505342-9ecf9d7d1f0452f9.png">
@@ -48,171 +28,119 @@
 <meta name="twitter:title" content="Dva实践总结">
 <meta name="twitter:description" content="一、环境搭建1234567$ npm install dva-cli -g# 创建应用$ dva new dva-quickstart# 启动$ npm start  react项目的推荐目录结构（如果使用dva脚手架创建，则自动生成如下）  12345678910111213141516171819|── /mock/             # 数据mock的接口文件  |── /src/">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1505342-9ecf9d7d1f0452f9.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/blue.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
-    <script>window.lazyScripts=[]</script>
+  
+  
+    <link rel="icon" href="/img/blue.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
 
-    <!-- custom head -->
-    
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
 
 </head>
-
+</html>
 <body>
-    <div id="loading" class="active"></div>
-
-
-    <aside id="menu">
-    <div class="inner flex-row-vertical">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-            <i class="icon icon-lg icon-close"></i>
-        </a>
-        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-            <div class="brand">
-                <a href="/" class="avatar waves-effect waves-circle waves-light">
-                    <img src="/img/avatar.gif">
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Frank&#39;s Blog</span>
                 </a>
-                <hgroup class="introduce">
-                    <h5 class="nickname">
-                        frank
-                    </h5>
-                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-                </hgroup>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
         </div>
-        <div class="scroll-wrap flex-col">
-            <!-- <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
-                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
-            </a> -->
-            <ul class="nav">
-                
-                <li class="waves-block waves-effect">
-                    <a href="/">
-                        <i class="icon icon-lg icon-home"></i>
-                        主页
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/tags">
-                        <i class="icon icon-lg icon-tags"></i>
-                        标签
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/categories">
-                        <i class="icon icon-lg icon-th-list"></i>
-                        目录
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/archives">
-                        <i class="icon icon-lg icon-archives"></i>
-                        归档
-                    </a>
-                </li>
-                
-
-                <!-- <li class="ad-qrcode">
-                    <img src="/img/ad/201810/ad-left.jpg">
-                </li> -->
-                <li class="ad-qrcode">
-                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
-                </li>
-
-
-            </ul>
-
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Frank&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        前端开发爱好者,欢迎一切技术交流
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
         </div>
-    </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-            <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">
-            Dva实践总结
-        </div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
     </div>
 </header>
-<header class="content-header post-header">
-    <div class="container fade-scale">
-        <h1 class="title">
-            Dva实践总结
-        </h1>
-        <h5 class="subtitle">
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-09-dva" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
             
-            <time datetime="2018-09-05T08:00:43.000Z" itemprop="datePublished" class="page-time">
-  2018-09-05
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-            
-        </h5>
+  
+    <h1 class="post-title" itemprop="name">
+      Dva实践总结
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-09-05
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
     </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-<aside class="post-widget">
-    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-        <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、环境搭建"><span class="post-toc-text">一、环境搭建</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、初识Dva"><span class="post-toc-text">二、初识Dva</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-Dva的特性"><span class="post-toc-text">2.1 Dva的特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-Dva的五个api"><span class="post-toc-text">2.2 Dva的五个api</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-app-dva-Opts"><span class="post-toc-text">2.2.1 app = dva(Opts)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-app-use-Hooks"><span class="post-toc-text">2.2.2 app.use(Hooks)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-app-model-ModelObject"><span class="post-toc-text">2.2.3 app.model(ModelObject)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4-app-unmodel-namespace"><span class="post-toc-text">2.2.4 app.unmodel(namespace)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-5-app-router-Function"><span class="post-toc-text">2.2.5 app.router(Function)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-6-app-start"><span class="post-toc-text">2.2.6 app.start</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-Dva九个概念"><span class="post-toc-text">2.3 Dva九个概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-1-State"><span class="post-toc-text">2.3.1 State</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-2-Action"><span class="post-toc-text">2.3.2 Action</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-3-Model"><span class="post-toc-text">2.3.3 Model</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-Router"><span class="post-toc-text">2.3.4 Router</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-整体架构"><span class="post-toc-text">2.4 整体架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-Dva图解"><span class="post-toc-text">2.5 Dva图解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、计数器例子"><span class="post-toc-text">三、计数器例子</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、Dva实践"><span class="post-toc-text">四、Dva实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-抽离Model"><span class="post-toc-text">4.1 抽离Model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-设计组件"><span class="post-toc-text">4.2 设计组件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-1-容器组件"><span class="post-toc-text">4.2.1 容器组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-2-展示组件"><span class="post-toc-text">4.2.2 展示组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-3-设置路由"><span class="post-toc-text">4.2.3 设置路由</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-4-设计容器组件"><span class="post-toc-text">4.2.4 设计容器组件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-添加Reducer"><span class="post-toc-text">4.3 添加Reducer</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-1-第一步：实现reducer函数"><span class="post-toc-text">4.3.1 第一步：实现reducer函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-2-第二步：关联Model中的数据源"><span class="post-toc-text">4.3.2 第二步：关联Model中的数据源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-3-第三步：通过发起Action，在组件中获取Model中的数据"><span class="post-toc-text">4.3.3 第三步：通过发起Action，在组件中获取Model中的数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-4-第四步：-在index-js中添加models"><span class="post-toc-text">4.3.4 第四步： 在index.js中添加models</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-4-添加Effects"><span class="post-toc-text">4.4 添加Effects</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-5-把请求处理分离到service中"><span class="post-toc-text">4.5 把请求处理分离到service中</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、使用dva框架和直接使用redux写法的区别"><span class="post-toc-text">五、使用dva框架和直接使用redux写法的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-使用-redux"><span class="post-toc-text">5.1 使用 redux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-使用dva"><span class="post-toc-text">5.2 使用dva</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六、使用axios统一处理"><span class="post-toc-text">六、使用axios统一处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1-示例代码"><span class="post-toc-text">6.1 示例代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2-明确响应体"><span class="post-toc-text">6.2 明确响应体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-3-依赖包分析"><span class="post-toc-text">6.3 依赖包分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-4-axios-全局配置"><span class="post-toc-text">6.4 axios 全局配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-5-加载-NProgress-过渡组件"><span class="post-toc-text">6.5 加载 NProgress 过渡组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-6-网络请求成功处理"><span class="post-toc-text">6.6 网络请求成功处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-7-网络请求失败处理"><span class="post-toc-text">6.7 网络请求失败处理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#七、更多参考"><span class="post-toc-text">七、更多参考</span></a></li></ol>
-    </nav>
-</aside>
-
-
-
-<article id="post-2018-09-dva" class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">Dva实践总结</h1>
-        <div class="post-meta">
-            <time class="post-time" id="post-time" title="2018-09-05 16:00:43" datetime="2018-09-05T08:00:43.000Z" itemprop="datePublished">2018-09-05</time>
+  
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
-    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
+            
             <h1 id="一、环境搭建"><a href="#一、环境搭建" class="headerlink" title="一、环境搭建"></a>一、环境搭建</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install dva-cli -g</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建应用</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> dva new dva-quickstart</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm start</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>react项目的推荐目录结构（如果使用dva脚手架创建，则自动生成如下）</p>
@@ -236,13 +164,7 @@
 <li>支持<code>TypeScript</code></li>
 <li>支持路由和 <code>Model</code> 的动态加载</li>
 </ul>
-<h2 id="2-2-Dva的五个api"><a href="#2-2-Dva的五个api" class="headerlink" title="2.2 Dva的五个api"></a>2.2 Dva的五个api</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload-images.jianshu.io/upload_images/1505342-9ecf9d7d1f0452f9.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="2-2-Dva的五个api"><a href="#2-2-Dva的五个api" class="headerlink" title="2.2 Dva的五个api"></a>2.2 Dva的五个api</h2><p><img src="https://upload-images.jianshu.io/upload_images/1505342-9ecf9d7d1f0452f9.png" alt=""></p>
 <h3 id="2-2-1-app-dva-Opts"><a href="#2-2-1-app-dva-Opts" class="headerlink" title="2.2.1 app = dva(Opts)"></a>2.2.1 app = dva(Opts)</h3><blockquote>
 <p><code>app = dva(Opts)</code>：创建应用，返回 <code>dva</code> 实例。(注：dva 支持多实例)**</p>
 </blockquote>
@@ -305,13 +227,7 @@
 <h3 id="2-2-3-app-model-ModelObject"><a href="#2-2-3-app-model-ModelObject" class="headerlink" title="2.2.3 app.model(ModelObject)"></a>2.2.3 app.model(ModelObject)</h3><blockquote>
 <p><code>app.model(ModelObject)</code>：这个是你数据逻辑处理，数据流动的地方</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload-images.jianshu.io/upload_images/1505342-7a3cdeb874110d7c.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/1505342-7a3cdeb874110d7c.png" alt=""></p>
 <h3 id="2-2-4-app-unmodel-namespace"><a href="#2-2-4-app-unmodel-namespace" class="headerlink" title="2.2.4 app.unmodel(namespace)"></a>2.2.4 app.unmodel(namespace)</h3><blockquote>
 <p>取消 <code>model</code> 注册，清理 <code>reducers</code>,<code>effects</code> 和 <code>subscriptions</code>。<code>subscription</code> 如果没有返回 <code>unlisten</code> 函数，使用 <code>app.unmodel</code> 会给予警告</p>
 </blockquote>
@@ -379,13 +295,7 @@
 </blockquote>
 <p>其中它用到了<code>redux-saga</code>，里面有几个常用的函数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// effects 写法</span></span><br><span class="line">effects: &#123;</span><br><span class="line">    *addTodo(&#123; <span class="attr">payload</span>: value &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      <span class="comment">// 模拟网络请求</span></span><br><span class="line">      <span class="keyword">const</span> data = <span class="keyword">yield</span> call(todoService.query, value)</span><br><span class="line">      <span class="built_in">console</span>.log(data)</span><br><span class="line">      <span class="keyword">let</span> tempList = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span> =&gt;</span> state.todo.list)</span><br><span class="line">      <span class="keyword">let</span> list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      <span class="keyword">const</span> tempObj = &#123;&#125;</span><br><span class="line">      tempObj.title = value</span><br><span class="line">      tempObj.id = list.length</span><br><span class="line">      tempObj.finished = <span class="literal">false</span></span><br><span class="line">      list.push(tempObj)</span><br><span class="line">      <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'save'</span>, <span class="attr">payload</span>: &#123; list &#125;&#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    *toggle(&#123; <span class="attr">payload</span>: index &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      <span class="comment">// 模拟网络请求</span></span><br><span class="line">      <span class="keyword">const</span> data = <span class="keyword">yield</span> call(todoService.query, index)</span><br><span class="line">      <span class="keyword">let</span> tempList = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span> =&gt;</span> state.todo.list)</span><br><span class="line">      <span class="keyword">let</span> list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      <span class="keyword">let</span> obj = list[index]</span><br><span class="line">      obj.finished = !obj.finished</span><br><span class="line">      <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'save'</span>, <span class="attr">payload</span>: &#123; list &#125; &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    *<span class="keyword">delete</span>(&#123; <span class="attr">payload</span>: index &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      <span class="keyword">const</span> data = <span class="keyword">yield</span> call(todoService.query, index)</span><br><span class="line">      <span class="keyword">let</span> tempList = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span> =&gt;</span> state.todo.list)</span><br><span class="line">      <span class="keyword">let</span> list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      list.splice(index, <span class="number">1</span>)</span><br><span class="line">      <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'save'</span>, <span class="attr">payload</span>: &#123; list &#125; &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    *modify(&#123; <span class="attr">payload</span>: &#123; value, index &#125; &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      <span class="keyword">const</span> data = <span class="keyword">yield</span> call(todoService.query, value)</span><br><span class="line">      <span class="keyword">let</span> tempList = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span> =&gt;</span> state.todo.list)</span><br><span class="line">      <span class="keyword">let</span> list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      <span class="keyword">let</span> obj = list[index]</span><br><span class="line">      obj.title = value</span><br><span class="line">      <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'save'</span>, <span class="attr">payload</span>: &#123; list &#125; &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload-images.jianshu.io/upload_images/1505342-9ecb8ba2d8fd3ec2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/1505342-9ecb8ba2d8fd3ec2.png" alt=""></p>
 <blockquote>
 <p>在项目中最主要的会用到的是 <code>put</code> 与 <code>call</code></p>
 </blockquote>
@@ -409,13 +319,7 @@
 <p><code>RouteComponent</code> 表示<code>Router</code> 里匹配路径的 <code>Component</code>，通常会绑定<code>model</code>的数据。如下:</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'dva'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>App<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">todos</span>: state.todos &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(App);</span><br></pre></td></tr></table></figure>
-<h2 id="2-4-整体架构"><a href="#2-4-整体架构" class="headerlink" title="2.4 整体架构"></a>2.4 整体架构</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload-images.jianshu.io/upload_images/1505342-be8059756ba0db38.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="2-4-整体架构"><a href="#2-4-整体架构" class="headerlink" title="2.4 整体架构"></a>2.4 整体架构</h2><p><img src="https://upload-images.jianshu.io/upload_images/1505342-be8059756ba0db38.png" alt=""></p>
 <ul>
 <li>首先我们根据 <code>url</code> 访问相关的 <code>Route-Component</code>，在组件中我们通过 <code>dispatch</code>发送 <code>action</code> 到 <code>model</code> 里面的 <code>effect</code> 或者直接 <code>Reducer</code></li>
 <li>当我们将<code>action</code>发送给<code>Effect</code>，基本上是取服务器上面请求数据的，服务器返回数据之后，<code>effect</code> 会发送相应的 <code>action</code>给 <code>reducer</code>，由唯一能改变 <code>state</code>的 <code>reducer</code> 改变 <code>state</code> ，然后通过<code>connect</code>重新渲染组件。</li>
@@ -425,13 +329,7 @@
 <blockquote>
 <p><code>React</code> 只负责页面渲染, 而不负责页面逻辑, 页面逻辑可以从中单独抽取出来, 变成 <code>store</code></p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://cdn.yuque.com/yuque/0/2018/png/103904/1528436167824-7fa834ea-aa6c-4f9f-bab5-b8c5312bcf7e.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://cdn.yuque.com/yuque/0/2018/png/103904/1528436167824-7fa834ea-aa6c-4f9f-bab5-b8c5312bcf7e.png" alt=""></p>
 <blockquote>
 <p>使用 <code>Middleware</code> 拦截 <code>action</code>, 这样一来异步的网络操作也就很方便了, 做成一个 <code>Middleware</code>就行了, 这里使用<code>redux-saga</code> 这个类库</p>
 </blockquote>
@@ -440,13 +338,7 @@
 <li><code>saga</code> 拦截这个 <code>action</code>, 发起 <code>http</code> 请求, 如果请求成功, 则继续向 <code>reducer</code> 发一个 <code>type == addTodoSucc</code> 的 <code>action</code>, 提示创建成功, 反之则发送 <code>type == addTodoFail</code> 的<code>action</code> 即可</li>
 </ul>
 <p><strong>图解二：Dva表示法</strong></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://cdn.yuque.com/yuque/0/2018/png/103904/1528436195004-cd3800f2-f13d-40ba-bb1f-4efba99cfe0d.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://cdn.yuque.com/yuque/0/2018/png/103904/1528436195004-cd3800f2-f13d-40ba-bb1f-4efba99cfe0d.png" alt=""></p>
 <blockquote>
 <p>dva做了 3 件很重要的事情</p>
 </blockquote>
@@ -594,13 +486,7 @@
 <blockquote>
 <p><code>NProgress</code> 的使用主要有两个方法，当调用 <code>NProgress.start();</code> 时在浏览器顶部就会出现蓝色小条，当调用 <code>NProgress.done();</code> 蓝色小条就会消失。我们分别在请求开始和接收到响应调用这两个方法</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload-images.jianshu.io/upload_images/6693922-948c3efcfeeaf4fd.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/6693922-948c3efcfeeaf4fd.gif" alt=""></p>
 <h2 id="6-6-网络请求成功处理"><a href="#6-6-网络请求成功处理" class="headerlink" title="6.6 网络请求成功处理"></a>6.6 网络请求成功处理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.then(<span class="function">(<span class="params">response</span>) =&gt;</span> </span><br><span class="line">      <span class="comment">// &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 请求成功 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`【<span class="subst">$&#123;opt.method&#125;</span> <span class="subst">$&#123;opt.url&#125;</span>】请求成功，响应数据：%o`</span>, response);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 打印业务错误提示</span></span><br><span class="line">      <span class="keyword">if</span> (response.data &amp;&amp; response.data.code != <span class="string">'0000'</span>) &#123;</span><br><span class="line">        message.error(response.data.message);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> &#123; ...response.data &#125;;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>网络请求状态码为 <code>200-300</code> 表示成功，此时还应该判断业务处理是否成功。这个根据具体项目具体规定，比如微信小程序有一套场景值。在实际项目中可以自行规定 <code>code = &#39;0000&#39;</code> 业务处理完全没问题，<code>code = &#39;1111&#39;</code>校验不通过，<code>code = &#39;2222&#39;</code> 数据库出错等等。</p>
@@ -632,331 +518,275 @@
 <li><a href="https://dvajs.com/api/" target="_blank" rel="noopener">dva-api文档</a></li>
 </ul>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
+            <div class="post-copyright">
     <div class="content">
-        
-<span class="post-time">
-    <div class="qrcode-container">
-        <img src="/img/qrcode.png">
-    </div><br>
-</span><br>
-
-
-        
-        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
-        
+        <p>最后更新： 2018年11月11日 10:02</p>
+        <p>原始链接： <a class="post-url" href="/note/ac41d549.html" title="Dva实践总结">https://ru23.com/note/ac41d549.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="/images/logo.png" alt="frank">
+                frank
+            </a>
+        </footer>
     </div>
-    
-    <footer>
-        <a href="https://ru23.com">
-            <img src="/img/avatar.gif" alt="frank">
-            frank
-        </a>
-    </footer>
-</blockquote>
-
-<div class="ad-art-end">
-    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
-    </a>
 </div>
 
-        
-
-
-        <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dva/">dva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
-
+            
+            
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/ac41d549.html&title=《Dva实践总结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/ac41d549.html&title=《Dva实践总结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/ac41d549.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dva实践总结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/ac41d549.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/ac41d549.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
         </div>
-    </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/ac41d549.html&title=《Dva实践总结》 — 前端迷&pic=https://ru23.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/ac41d549.html&title=《Dva实践总结》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/ac41d549.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dva实践总结》 — 前端迷&url=https://ru23.com/note/ac41d549.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/ac41d549.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aQW7DMAwEwP7/0ynQa2BnV7QVFxidAsOKRj4QIqmfn3i8/sb7k6NxPvf8+QUDFxd3zE0Wfv+dsI5mHf1/snlcXNyd3PNAczg5+IfzbdfBDhcX92HchLIWCnFxcf8vN1mmfRMXF/fJ3Ely0uLy1AgXF/db3LZgesfvG+u7uLi4JfdVjiTJyQsl9eq4uLhbuPlxZN4uTcoiUZjDxcXdyE1CUvJmQlkrweDi4u7hrh1c1lov87YNLi7uc7hrqU67+TrtwcXFvZk7aY1MNtaugouLu4c7L1gU5YzgqBQ1VnFxcbdzJ93afEuj5isuLu4Wbp60tAtPuIttFVxc3Iu4eXGzvZaRBKb6E+Di4t7MTYJOm6jk7ZmkjIKLi7uf2yYe7ZJtOTVKnHBxcW/m5u3PlpuUWesVcXFxN3LbEmdLKdok57NwcXE3ctuLFJNrFsnzunGCi4t7KXetgdqmQ21TdtR2xcXFvYi7lrq0IS8PcLi4uM/htnXW/FjTXvn6MAsXF/dh3PwqxuRDfCij4OLiPpI7v3KRX/XAxcX9LndykSIJdskniD4QLi7uFm5bMG0PJWvlD1xc3C9xfwE6A6qh+FF2lgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
 
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/react/" class="color1">react</a>
+      
+    <a href="/tags/dva/" class="color4">dva</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、环境搭建"><span class="post-toc-text">一、环境搭建</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、初识Dva"><span class="post-toc-text">二、初识Dva</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-Dva的特性"><span class="post-toc-text">2.1 Dva的特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-Dva的五个api"><span class="post-toc-text">2.2 Dva的五个api</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-app-dva-Opts"><span class="post-toc-text">2.2.1 app = dva(Opts)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-app-use-Hooks"><span class="post-toc-text">2.2.2 app.use(Hooks)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-app-model-ModelObject"><span class="post-toc-text">2.2.3 app.model(ModelObject)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4-app-unmodel-namespace"><span class="post-toc-text">2.2.4 app.unmodel(namespace)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-5-app-router-Function"><span class="post-toc-text">2.2.5 app.router(Function)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-6-app-start"><span class="post-toc-text">2.2.6 app.start</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-Dva九个概念"><span class="post-toc-text">2.3 Dva九个概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-1-State"><span class="post-toc-text">2.3.1 State</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-2-Action"><span class="post-toc-text">2.3.2 Action</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-3-Model"><span class="post-toc-text">2.3.3 Model</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-Router"><span class="post-toc-text">2.3.4 Router</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-整体架构"><span class="post-toc-text">2.4 整体架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-Dva图解"><span class="post-toc-text">2.5 Dva图解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、计数器例子"><span class="post-toc-text">三、计数器例子</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、Dva实践"><span class="post-toc-text">四、Dva实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-抽离Model"><span class="post-toc-text">4.1 抽离Model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-设计组件"><span class="post-toc-text">4.2 设计组件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-1-容器组件"><span class="post-toc-text">4.2.1 容器组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-2-展示组件"><span class="post-toc-text">4.2.2 展示组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-3-设置路由"><span class="post-toc-text">4.2.3 设置路由</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-4-设计容器组件"><span class="post-toc-text">4.2.4 设计容器组件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-添加Reducer"><span class="post-toc-text">4.3 添加Reducer</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-1-第一步：实现reducer函数"><span class="post-toc-text">4.3.1 第一步：实现reducer函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-2-第二步：关联Model中的数据源"><span class="post-toc-text">4.3.2 第二步：关联Model中的数据源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-3-第三步：通过发起Action，在组件中获取Model中的数据"><span class="post-toc-text">4.3.3 第三步：通过发起Action，在组件中获取Model中的数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-4-第四步：-在index-js中添加models"><span class="post-toc-text">4.3.4 第四步： 在index.js中添加models</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-4-添加Effects"><span class="post-toc-text">4.4 添加Effects</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-5-把请求处理分离到service中"><span class="post-toc-text">4.5 把请求处理分离到service中</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、使用dva框架和直接使用redux写法的区别"><span class="post-toc-text">五、使用dva框架和直接使用redux写法的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-使用-redux"><span class="post-toc-text">5.1 使用 redux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-使用dva"><span class="post-toc-text">5.2 使用dva</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六、使用axios统一处理"><span class="post-toc-text">六、使用axios统一处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1-示例代码"><span class="post-toc-text">6.1 示例代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2-明确响应体"><span class="post-toc-text">6.2 明确响应体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-3-依赖包分析"><span class="post-toc-text">6.3 依赖包分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-4-axios-全局配置"><span class="post-toc-text">6.4 axios 全局配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-5-加载-NProgress-过渡组件"><span class="post-toc-text">6.5 加载 NProgress 过渡组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-6-网络请求成功处理"><span class="post-toc-text">6.6 网络请求成功处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-7-网络请求失败处理"><span class="post-toc-text">6.7 网络请求失败处理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#七、更多参考"><span class="post-toc-text">七、更多参考</span></a></li></ol>
+        </nav>
+    </aside>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/note/3d134670.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">javascript截取文件名的后缀</h4>
-      </a>
-    </div>
-  
 
+<nav id="article-nav">
   
-    <div class="waves-block waves-effect next">
-      <a href="/note/c8cbf86a.html" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">浅谈PWA(Progressive Web App)</h4>
-      </a>
-    </div>
+    <a href="/note/3d134670.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          javascript截取文件名的后缀
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/c8cbf86a.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">浅谈PWA(Progressive Web App)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 
 
 
-    
 
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'false' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
 
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
-            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
-            avatar: "mm",
-            qrcode: "",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
+</section>
         
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        <span id="busuanzi_value_site_uv"></span>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        <span id="busuanzi_value_site_pv"></span>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
-        <p>
-            
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>
-                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 frank<br>
+      </p>
     </div>
-    <div class="bottom">
-        <p><span>
-                frank &copy;
-                
-                2015 -
-                
-                2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">
-                    晋ICP备18012373号</a><br>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
+  </div>
 </footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/ac41d549.html&title=《Dva实践总结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/ac41d549.html&title=《Dva实践总结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/ac41d549.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dva实践总结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/ac41d549.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/ac41d549.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aQW7DMAwEwP7/0ynQa2BnV7QVFxidAsOKRj4QIqmfn3i8/sb7k6NxPvf8+QUDFxd3zE0Wfv+dsI5mHf1/snlcXNyd3PNAczg5+IfzbdfBDhcX92HchLIWCnFxcf8vN1mmfRMXF/fJ3Ely0uLy1AgXF/db3LZgesfvG+u7uLi4JfdVjiTJyQsl9eq4uLhbuPlxZN4uTcoiUZjDxcXdyE1CUvJmQlkrweDi4u7hrh1c1lov87YNLi7uc7hrqU67+TrtwcXFvZk7aY1MNtaugouLu4c7L1gU5YzgqBQ1VnFxcbdzJ93afEuj5isuLu4Wbp60tAtPuIttFVxc3Iu4eXGzvZaRBKb6E+Di4t7MTYJOm6jk7ZmkjIKLi7uf2yYe7ZJtOTVKnHBxcW/m5u3PlpuUWesVcXFxN3LbEmdLKdok57NwcXE3ctuLFJNrFsnzunGCi4t7KXetgdqmQ21TdtR2xcXFvYi7lrq0IS8PcLi4uM/htnXW/FjTXvn6MAsXF/dh3PwqxuRDfCij4OLiPpI7v3KRX/XAxcX9LndykSIJdskniD4QLi7uFm5bMG0PJWvlD1xc3C9xfwE6A6qh+FF2lgAAAABJRU5ErkJggg==" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    var BLOG = {
-        ROOT: '/',
-        SHARE: true,
-        REWARD: false
-    };
-
-    
-    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
-    
-
+  var mihoConfig = {
+      root: "https://ru23.com",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
 </script>
-
-<script src="/js/main.min.js?v=1.7.2"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
 </div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/designed/">designed</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端分享/">前端分享</a><a class="category-link" href="/categories/前端工具/">前端工具</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
         </div>
-    </a>
-</li>
-</template>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 12.31px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 11.54px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端周刊/" style="font-size: 10.77px;">前端周刊</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/运动框架/" style="font-size: 10px;">运动框架</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 12.31px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 11.54px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端周刊/" style="font-size: 10.77px;">前端周刊</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/运动框架/" style="font-size: 10px;">运动框架</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
 
 
 
 
 
 
-<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- <script>
-    setTimeout(function () {
-        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
-        var nowTime = new Date().getTime();
-        
-        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
-            // document.getElementById("random").innerHTML = 1;
-        } else {
-            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
-            document.getElementById("random").innerHTML = viewCount[0];
-        }
-    }, 0)
-
-</script> -->
-<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
-<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
-<script>
-    $(document).snowfall('clear');
-    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
-    $(document).snowfall({
-        image: "/img/huaban.png",
-        flakeCount: 30,
-        minSize: 5,
-        maxSize: 22
-    });
-</script> -->
 
 
 
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
-
+  </div>
 </body>
 </html>

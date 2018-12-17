@@ -1,40 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    
-
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?38be42ece57751ae5fcd54ba1c669508"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://ru23.com/note/84c8c02e.html">
-    
-    
-    <title>echart使用小结 | 前端迷 (front-end fan) | frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#006fbc">
-    
-    
-    <meta name="keywords" content="echart">
-    <meta name="description" content="十一个组件选项主要用来进行交互  一、Timeline选项 时间轴，每个图表最多仅有一个时间轴控件                                                                                               image.png              二、Title选项 每个图表最多仅有一个标题控件，每个标题控件可">
+  <meta charset="utf-8">
+  
+  <title>echart使用小结 | 前端迷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+  
+  <meta name="description" content="十一个组件选项主要用来进行交互  一、Timeline选项 时间轴，每个图表最多仅有一个时间轴控件   二、Title选项 每个图表最多仅有一个标题控件，每个标题控件可设主副标题   可以对标题文字的大小样式进行设置   三、toolbox 工具箱，每个图表最多仅有一个工具箱。工具箱里面可以实现图表类型的切换，保存图片，刷新，查看数据等功能。可以对其像素进行设置   12345678910111">
 <meta name="keywords" content="echart">
 <meta property="og:type" content="article">
 <meta property="og:title" content="echart使用小结">
 <meta property="og:url" content="https://ru23.com/note/84c8c02e.html">
-<meta property="og:site_name" content="前端迷 (front-end fan)">
-<meta property="og:description" content="十一个组件选项主要用来进行交互  一、Timeline选项 时间轴，每个图表最多仅有一个时间轴控件                                                                                               image.png              二、Title选项 每个图表最多仅有一个标题控件，每个标题控件可">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="十一个组件选项主要用来进行交互  一、Timeline选项 时间轴，每个图表最多仅有一个时间轴控件   二、Title选项 每个图表最多仅有一个标题控件，每个标题控件可设主副标题   可以对标题文字的大小样式进行设置   三、toolbox 工具箱，每个图表最多仅有一个工具箱。工具箱里面可以实现图表类型的切换，保存图片，刷新，查看数据等功能。可以对其像素进行设置   12345678910111">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-6a02bd853069b904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-aeae6a9ace95a4aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -47,263 +27,163 @@
 <meta property="og:updated_time" content="2018-11-01T09:37:58.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="echart使用小结">
-<meta name="twitter:description" content="十一个组件选项主要用来进行交互  一、Timeline选项 时间轴，每个图表最多仅有一个时间轴控件                                                                                               image.png              二、Title选项 每个图表最多仅有一个标题控件，每个标题控件可">
+<meta name="twitter:description" content="十一个组件选项主要用来进行交互  一、Timeline选项 时间轴，每个图表最多仅有一个时间轴控件   二、Title选项 每个图表最多仅有一个标题控件，每个标题控件可设主副标题   可以对标题文字的大小样式进行设置   三、toolbox 工具箱，每个图表最多仅有一个工具箱。工具箱里面可以实现图表类型的切换，保存图片，刷新，查看数据等功能。可以对其像素进行设置   12345678910111">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-6a02bd853069b904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-    
-        <link rel="alternate" type="application/atom+xml" title="前端迷 (front-end fan)" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/blue.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
-    <script>window.lazyScripts=[]</script>
+  
+  
+    <link rel="icon" href="/img/blue.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
 
-    <!-- custom head -->
-    
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
 
 </head>
-
+</html>
 <body>
-    <div id="loading" class="active"></div>
-
-
-    <aside id="menu">
-    <div class="inner flex-row-vertical">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-            <i class="icon icon-lg icon-close"></i>
-        </a>
-        <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-            <div class="brand">
-                <a href="/" class="avatar waves-effect waves-circle waves-light">
-                    <img src="/img/avatar.gif">
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Frank&#39;s Blog</span>
                 </a>
-                <hgroup class="introduce">
-                    <h5 class="nickname">
-                        frank
-                    </h5>
-                    <a href="mailto:188105274@qq.com" title="188105274@qq.com" class="mail">188105274@qq.com</a>
-                </hgroup>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
         </div>
-        <div class="scroll-wrap flex-col">
-            <!-- <a target="_blank" class="ad_left" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
-                <img src="/img/ad/201810/300×90.jpg" alt="/双11红包来啦">
-            </a> -->
-            <ul class="nav">
-                
-                <li class="waves-block waves-effect">
-                    <a href="/">
-                        <i class="icon icon-lg icon-home"></i>
-                        主页
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/tags">
-                        <i class="icon icon-lg icon-tags"></i>
-                        标签
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/categories">
-                        <i class="icon icon-lg icon-th-list"></i>
-                        目录
-                    </a>
-                </li>
-                
-                <li class="waves-block waves-effect">
-                    <a href="/archives">
-                        <i class="icon icon-lg icon-archives"></i>
-                        归档
-                    </a>
-                </li>
-                
-
-                <!-- <li class="ad-qrcode">
-                    <img src="/img/ad/201810/ad-left.jpg">
-                </li> -->
-                <li class="ad-qrcode">
-                    <img src="https://user-images.githubusercontent.com/22697565/47767553-1d435500-dd0f-11e8-99ea-63cc43444e5c.jpg">
-                </li>
-
-
-            </ul>
-
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Frank&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        前端开发爱好者,欢迎一切技术交流
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
         </div>
-    </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-            <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">
-            echart使用小结
-        </div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
     </div>
 </header>
-<header class="content-header post-header">
-    <div class="container fade-scale">
-        <h1 class="title">
-            echart使用小结
-        </h1>
-        <h5 class="subtitle">
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-01-echart" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
             
-            <time datetime="2018-01-12T02:05:43.000Z" itemprop="datePublished" class="page-time">
-  2018-01-12
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-            
-        </h5>
+  
+    <h1 class="post-title" itemprop="name">
+      echart使用小结
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-01-12
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
     </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-<aside class="post-widget">
-    <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-        <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、Timeline选项"><span class="post-toc-text">一、Timeline选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Title选项"><span class="post-toc-text">二、Title选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、toolbox"><span class="post-toc-text">三、toolbox</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、tooltip"><span class="post-toc-text">四、tooltip</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、legend"><span class="post-toc-text">五、legend</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、dataRange"><span class="post-toc-text">六、dataRange</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、dataZoom"><span class="post-toc-text">七、dataZoom</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#roamController"><span class="post-toc-text">roamController</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、grid"><span class="post-toc-text">八、grid</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、xAxis"><span class="post-toc-text">九、xAxis</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十、yAxis"><span class="post-toc-text">十、yAxis</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十一、series（通用）"><span class="post-toc-text">十一、series（通用）</span></a></li></ol>
-    </nav>
-</aside>
-
-
-
-<article id="post-2018-01-echart" class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">echart使用小结</h1>
-        <div class="post-meta">
-            <time class="post-time" id="post-time" title="2018-01-12 10:05:43" datetime="2018-01-12T02:05:43.000Z" itemprop="datePublished">2018-01-12</time>
+  
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/front-end/">front-end</a></li></ul>
-
-
-
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
-    <i class="icon icon-eye icon-pr"></i><span id="random"></span><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
+            
             <blockquote>
 <p>十一个组件选项主要用来进行交互</p>
 </blockquote>
 <h2 id="一、Timeline选项"><a href="#一、Timeline选项" class="headerlink" title="一、Timeline选项"></a>一、Timeline选项</h2><ul>
 <li>时间轴，每个图表最多仅有一个时间轴控件</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-6a02bd853069b904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-6a02bd853069b904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="二、Title选项"><a href="#二、Title选项" class="headerlink" title="二、Title选项"></a>二、Title选项</h2><ul>
 <li>每个图表最多仅有一个标题控件，每个标题控件可设主副标题</li>
 </ul>
 <blockquote>
 <p>可以对标题文字的大小样式进行设置</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-aeae6a9ace95a4aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-aeae6a9ace95a4aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="三、toolbox"><a href="#三、toolbox" class="headerlink" title="三、toolbox"></a>三、toolbox</h2><ul>
 <li>工具箱，每个图表最多仅有一个工具箱。工具箱里面可以实现图表类型的切换，保存图片，刷新，查看数据等功能。可以对其像素进行设置</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-dcc780629ce8ad78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-dcc780629ce8ad78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    mark : &#123;</span><br><span class="line"></span><br><span class="line">        show : <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        title : &#123;</span><br><span class="line"></span><br><span class="line">            mark : <span class="string">'辅助线开关'</span>,</span><br><span class="line"></span><br><span class="line">            markUndo : <span class="string">'删除辅助线'</span>,</span><br><span class="line"></span><br><span class="line">            markClear : <span class="string">'清空辅助线'</span></span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        lineStyle : &#123;</span><br><span class="line"></span><br><span class="line">            width : <span class="number">2</span>,</span><br><span class="line"></span><br><span class="line">            color : <span class="string">'#1e90ff'</span>,</span><br><span class="line"></span><br><span class="line">            type : <span class="string">'dashed'</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    dataZoom : &#123;</span><br><span class="line"></span><br><span class="line">        show : <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        title : &#123;</span><br><span class="line"></span><br><span class="line">            dataZoom : <span class="string">'区域缩放'</span>,</span><br><span class="line"></span><br><span class="line">            dataZoomReset : <span class="string">'区域缩放后退'</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    dataView : &#123;</span><br><span class="line"></span><br><span class="line">        show : <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        title : <span class="string">'数据视图'</span>,</span><br><span class="line"></span><br><span class="line">        readOnly: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        lang: [<span class="string">'数据视图'</span>, <span class="string">'关闭'</span>, <span class="string">'刷新'</span>]</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    magicType: &#123;</span><br><span class="line"></span><br><span class="line">        show : <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        title : &#123;</span><br><span class="line"></span><br><span class="line">            line : <span class="string">'折线图切换'</span>,</span><br><span class="line"></span><br><span class="line">            bar : <span class="string">'柱形图切换'</span>,</span><br><span class="line"></span><br><span class="line">            stack : <span class="string">'堆积'</span>,</span><br><span class="line"></span><br><span class="line">            tiled : <span class="string">'平铺'</span>,</span><br><span class="line"></span><br><span class="line">            force: <span class="string">'力导向布局图切换'</span>,</span><br><span class="line"></span><br><span class="line">            chord: <span class="string">'和弦图切换'</span>,</span><br><span class="line"></span><br><span class="line">            pie: <span class="string">'饼图切换'</span>,</span><br><span class="line"></span><br><span class="line">            funnel: <span class="string">'漏斗图切换'</span></span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        option: &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// line: &#123;...&#125;,</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// bar: &#123;...&#125;,</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// stack: &#123;...&#125;,</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// tiled: &#123;...&#125;,</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// force: &#123;...&#125;,</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// chord: &#123;...&#125;,</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// pie: &#123;...&#125;,</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// funnel: &#123;...&#125;</span></span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        type : []</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    restore : &#123;</span><br><span class="line"></span><br><span class="line">        show : <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        title : <span class="string">'还原'</span></span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    saveAsImage : &#123;</span><br><span class="line"></span><br><span class="line">        show : <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        title : <span class="string">'保存为图片'</span>,</span><br><span class="line"></span><br><span class="line">        type : <span class="string">'png'</span>,</span><br><span class="line"></span><br><span class="line">        lang : [<span class="string">'点击保存'</span>]</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="四、tooltip"><a href="#四、tooltip" class="headerlink" title="四、tooltip"></a>四、tooltip</h2><ul>
 <li>提示框，鼠标悬浮交互时的信息提示</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-b9c8f725f2f4a50a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-b9c8f725f2f4a50a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="五、legend"><a href="#五、legend" class="headerlink" title="五、legend"></a>五、legend</h2><ul>
 <li>图例，每个图表最多仅有一个图例，混搭图表共享</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-0d79caad2b169951.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-0d79caad2b169951.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="六、dataRange"><a href="#六、dataRange" class="headerlink" title="六、dataRange"></a>六、dataRange</h2><ul>
 <li>值域选择，每个图表最多仅有一个值域控件</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-c0df8ad67dbd51b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-c0df8ad67dbd51b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="七、dataZoom"><a href="#七、dataZoom" class="headerlink" title="七、dataZoom"></a>七、dataZoom</h2><ul>
 <li><a href="http://echarts.baidu.com/echarts2/doc/example/dataZoom.html" target="_blank" rel="noopener">数据区域缩放</a>。与toolbox.feature.dataZoom同步，仅对直角坐标系图表有效</li>
 </ul>
 <h2 id="roamController"><a href="#roamController" class="headerlink" title="roamController"></a>roamController</h2><ul>
 <li><a href="http://echarts.baidu.com/echarts2/doc/example/map1.html" target="_blank" rel="noopener">缩放漫游组件</a>，仅对地图有效</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-15c5718cc0299a2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-15c5718cc0299a2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="八、grid"><a href="#八、grid" class="headerlink" title="八、grid"></a>八、grid</h2><blockquote>
 <p>直角坐标系内绘图网格</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1480597-264f17badedea9f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" title="">
-                </div>
-                <div class="image-caption">image.png</div>
-            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-264f17badedea9f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="九、xAxis"><a href="#九、xAxis" class="headerlink" title="九、xAxis"></a>九、xAxis</h2><blockquote>
 <p>直角坐标系中横轴数组，数组中每一项代表一条横轴坐标轴，仅有一条时可省略数组。最多同时存在2条横轴，单条横轴时可指定安放于grid的底部（默认）或顶部，2条同时存在时位置互斥，默认第一条安放于底部，第二条安放于顶部</p>
 </blockquote>
@@ -317,331 +197,273 @@
 <p>驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型</p>
 </blockquote>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
+            <div class="post-copyright">
     <div class="content">
-        
-<span class="post-time">
-    <div class="qrcode-container">
-        <img src="/img/qrcode.png">
-    </div><br>
-</span><br>
-
-
-        
-        【前端迷】微信公众号是一个公益性的前端技术分享平台，可以为广大前端开发者们带来最新的技术资讯，欢迎大家订阅。
-        
+        <p>最后更新： 2018年11月01日 17:37</p>
+        <p>原始链接： <a class="post-url" href="/note/84c8c02e.html" title="echart使用小结">https://ru23.com/note/84c8c02e.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="/images/logo.png" alt="frank">
+                frank
+            </a>
+        </footer>
     </div>
-    
-    <footer>
-        <a href="https://ru23.com">
-            <img src="/img/avatar.gif" alt="frank">
-            frank
-        </a>
-    </footer>
-</blockquote>
-
-<div class="ad-art-end">
-    <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=jh5fwy2j" target="_blank">
-        <img src="/img/ad/201810/alierzhe.png" alt="全民云计算 云主机低至2折">
-    </a>
 </div>
 
-        
-
-
-        <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/echart/">echart</a></li></ul>
-
+            
+            
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/84c8c02e.html&title=《echart使用小结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/84c8c02e.html&title=《echart使用小结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/84c8c02e.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《echart使用小结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/84c8c02e.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/84c8c02e.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
         </div>
-    </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/84c8c02e.html&title=《echart使用小结》 — 前端迷&pic=https://ru23.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/84c8c02e.html&title=《echart使用小结》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/84c8c02e.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《echart使用小结》 — 前端迷&url=https://ru23.com/note/84c8c02e.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/84c8c02e.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aQW7DMAwEwPz/0+m1QFt7V4zUBBidgsCyxjoQJKXHIx7Pb+Pn/9fPtE++YODi4o65z8vx1zOT91x/wM1auLi4B7lJ6Mmfmcy9seHi4r4l91mOJGHCxcX9dO71rOukBxcX97O486IlL4cO1Wq4uLgDbt6l3Pd7S38XFxd3iTsvY9pkaFRE4eLiHuGulTGT8qZNX3Bxcc9z22Um9DaF+nNfcXFxN3Mnl64myVD+wdEe4+LibuCutS/b45CktVpczsDFxd3GLRKL+ApFEqryD/6l+MHFxT3CzQNWnoK01zXqWg0XF3cbNy9+1ihtqLoJZLi4uAe5UXoRt0TXPrsuq3BxcTdzk4Xb32tJTBF3cXFxN3PzhulaObR2yHozFxcXdzN3bclXzco3DhcX9zy3PSyZXOgcNVNwcXEPctvjkLUjlmTczMLFxd3MfZZjUszk7ddoX3Fxcbdx2+DS0tsip30DLi7uPu6kwbF25WIU4HBxcQ9yJ4EmanQupUd1FwcXF/dfuXmTNG+zFhUbLi7uW3Lb1Gfe5cDFxT3PzS9jJclNnga178fFxT3DbUNJ3shoD2Vf3N/FxcVd4X4B6lq5aNIZ7jwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
 
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/echart/" class="color2">echart</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、Timeline选项"><span class="post-toc-text">一、Timeline选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Title选项"><span class="post-toc-text">二、Title选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、toolbox"><span class="post-toc-text">三、toolbox</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、tooltip"><span class="post-toc-text">四、tooltip</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、legend"><span class="post-toc-text">五、legend</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、dataRange"><span class="post-toc-text">六、dataRange</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、dataZoom"><span class="post-toc-text">七、dataZoom</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#roamController"><span class="post-toc-text">roamController</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、grid"><span class="post-toc-text">八、grid</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、xAxis"><span class="post-toc-text">九、xAxis</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十、yAxis"><span class="post-toc-text">十、yAxis</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十一、series（通用）"><span class="post-toc-text">十一、series（通用）</span></a></li></ol>
+        </nav>
+    </aside>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/note/fa4a006c.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">图解前端性能优化</h4>
-      </a>
-    </div>
-  
 
+<nav id="article-nav">
   
-    <div class="waves-block waves-effect next">
-      <a href="/note/c5d4add4.html" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">javascript常用api合集</h4>
-      </a>
-    </div>
+    <a href="/note/fa4a006c.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          图解前端性能优化
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/c5d4add4.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">javascript常用api合集</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 
 
 
-    
 
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'false' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
 
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
-            appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
-            avatar: "mm",
-            qrcode: "",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
+</section>
         
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
 <p>
     <span id="busuanzi_container_site_uv" style="display:none">
-        <span id="busuanzi_value_site_uv"></span>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
     <span id="busuanzi_container_site_pv" style="display:none">
-        <span id="busuanzi_value_site_pv"></span>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
 
 
-        <p>
-            
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>
-                博客内容遵循 <a rel="license" href="javascript:;">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 frank<br>
+      </p>
     </div>
-    <div class="bottom">
-        <p><span>
-                frank &copy;
-                
-                2015 -
-                
-                2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">
-                    晋ICP备18012373号</a><br>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
+  </div>
 </footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/84c8c02e.html&title=《echart使用小结》 — 前端迷 (front-end fan)&pic=https://ru23.com/img/avatar.gif" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/84c8c02e.html&title=《echart使用小结》 — 前端迷 (front-end fan)&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/84c8c02e.html" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《echart使用小结》 — 前端迷 (front-end fan)&url=https://ru23.com/note/84c8c02e.html&via=https://ru23.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/84c8c02e.html" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aQW7DMAwEwPz/0+m1QFt7V4zUBBidgsCyxjoQJKXHIx7Pb+Pn/9fPtE++YODi4o65z8vx1zOT91x/wM1auLi4B7lJ6Mmfmcy9seHi4r4l91mOJGHCxcX9dO71rOukBxcX97O486IlL4cO1Wq4uLgDbt6l3Pd7S38XFxd3iTsvY9pkaFRE4eLiHuGulTGT8qZNX3Bxcc9z22Um9DaF+nNfcXFxN3Mnl64myVD+wdEe4+LibuCutS/b45CktVpczsDFxd3GLRKL+ApFEqryD/6l+MHFxT3CzQNWnoK01zXqWg0XF3cbNy9+1ihtqLoJZLi4uAe5UXoRt0TXPrsuq3BxcTdzk4Xb32tJTBF3cXFxN3PzhulaObR2yHozFxcXdzN3bclXzco3DhcX9zy3PSyZXOgcNVNwcXEPctvjkLUjlmTczMLFxd3MfZZjUszk7ddoX3Fxcbdx2+DS0tsip30DLi7uPu6kwbF25WIU4HBxcQ9yJ4EmanQupUd1FwcXF/dfuXmTNG+zFhUbLi7uW3Lb1Gfe5cDFxT3PzS9jJclNnga178fFxT3DbUNJ3shoD2Vf3N/FxcVd4X4B6lq5aNIZ7jwAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    var BLOG = {
-        ROOT: '/',
-        SHARE: true,
-        REWARD: false
-    };
-
-    
-    lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747')
-    
-
+  var mihoConfig = {
+      root: "https://ru23.com",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
 </script>
-
-<script src="/js/main.min.js?v=1.7.2"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
 </div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/designed/">designed</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端分享/">前端分享</a><a class="category-link" href="/categories/前端工具/">前端工具</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
         </div>
-    </a>
-</li>
-</template>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 12.31px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 11.54px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端周刊/" style="font-size: 10.77px;">前端周刊</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/运动框架/" style="font-size: 10px;">运动框架</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 12.31px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 11.54px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端周刊/" style="font-size: 10.77px;">前端周刊</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/运动框架/" style="font-size: 10px;">运动框架</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
 
 
 
 
 
 
-<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- <script>
-    setTimeout(function () {
-        var postTime = new Date(document.getElementById("post-time").innerHTML).getTime();
-        var nowTime = new Date().getTime();
-        
-        if ((nowTime - postTime) < 24 * 3 * 3600 * 1000) {
-            // document.getElementById("random").innerHTML = 1;
-        } else {
-            var viewCount = window.location.pathname.match(/\d+(\ \d+)?/)[0];
-            document.getElementById("random").innerHTML = viewCount[0];
-        }
-    }, 0)
-
-</script> -->
-<!-- <script type="text/javascript" class="autoinsert" src="https://ru23.com/cdn/jquery-1.2.6.min.js"></script>
-<script src="https://ru23.com/cdn/snowfall.jquery.min.js"></script>
-<script>
-    $(document).snowfall('clear');
-    $("#random").html(Math.floor(Math.random() * (1 - 10) + 10))
-    $(document).snowfall({
-        image: "/img/huaban.png",
-        flakeCount: 30,
-        minSize: 5,
-        maxSize: 22
-    });
-</script> -->
 
 
 
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
-
+  </div>
 </body>
 </html>
