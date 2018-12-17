@@ -1,0 +1,178 @@
+@media mq-mobile
+  #header
+    height: 150px
+  #header-row
+    padding-top: 0
+  #logo
+    width: m-logo-size
+    height: m-logo-size
+  #logo img
+    width: m-logo-size
+    height: m-logo-size
+    transform: scale(0.8)
+    -ms-transform: scale(0.8)
+    -moz-transform: scale(0.8)
+    -webkit-transform: scale(0.8)
+    -o-transform: scale(0.8)
+  .header-info
+    display: none
+  #header-title
+    display: none
+    h2
+      font-size: 1em
+      color: color-grey
+  #header-description
+    display: none
+  .header-nav
+    margin: 0 auto
+  #mobile-nav
+    position: absolute
+    top: 0
+    left: 0
+    width: mobile-nav-width
+    height: 100%
+    background: color-mobile-nav-background
+    border-right: 1px solid #fff
+  .mobile-nav-link
+    display: block
+    color: color-grey
+    text-decoration: none
+    padding: 15px 20px
+    font-weight: bold
+    &:hover
+      color: #fff
+  .article
+    margin: 10px 10px
+    .article-img
+      display: none
+    .article-entry, .article-feed
+      margin-left: 0
+      p
+        margin: 0
+      iframe
+        max-width: 100%
+    .article-footer .article-footer-menu .article-footer-tags
+      display: none
+  .module-mobile-cmt-barrage
+    display: none
+  .sidebar
+    display: none
+  #header-menu
+    box-shadow: none
+    height: 30px
+    .header-menu-container #header-menu-nav
+      display: none
+    .header-menu-container .site-title
+      margin: 2px 0 0 8px
+      line-height: 30px
+      font-size: 16px
+    .mobile-header-menu-button
+      position: relative
+      float: right
+      padding: 5px 10px
+      margin-right: 2px
+      border-radius: 50%
+      display: block
+      color: white
+      line-height: 20px
+      &.active
+        background-color: rgba(255,255,255,.25)
+      i
+        font-size: 20px
+  .mobile-header-menu-nav
+    -webkit-transform: translateX(22em)
+    -ms-transform: translateX(22em)
+    transform: translateX(22em)
+    -moz-transition: -moz-transform 0.45s ease, visibility 0.45s
+    -webkit-transition: -webkit-transform 0.45s ease, visibility 0.45s
+    -ms-transition: -ms-transform 0.45s ease, visibility 0.45s
+    transition: transform 0.45s ease, visibility 0.45s
+    position: fixed
+    top: 0
+    right: 0
+    height: 100%
+    background: rgba(0,0,0,0.17)
+    color: #ffffff
+    cursor: default
+    z-index: 1
+    visibility: hidden
+    border: none
+    width: 80%
+    float: right
+    margin: 0
+    .title
+      line-height: 50px
+      font-size: 25px
+      font-weight: 400
+      display: block;
+      text-align: center
+      border-bottom: 1px solid #fff
+    .mobile-header-menu-navbar
+      li
+        line-height: 30px
+        font-size: 18px
+        font-weight: 300
+        text-align: left
+        border-bottom: 1px dotted #fff
+        margin-top: 5px
+        a
+          color: white
+          text-decoration: none
+          display: inline-block
+          width: 100%
+          padding-left: 5px
+        span
+          margin-left: 5px
+  .mobile-header-menu-nav-in
+    -webkit-transform: translateX(0)
+    -ms-transform: translateX(0)
+    transform: translateX(0)
+    visibility: visible
+  .mobile-header-tag-container
+    #mobile-header-container-tags
+      @extend $tags-style
+      padding-left: 5px
+      max-height: 100%
+      overflow-y: auto
+      a
+        color: #fff
+        display: inline-block
+        text-decoration: none
+        font-weight: normal
+        font-size: 12px
+        height: 18px
+        line-height: 18px
+        float: left
+        padding: 0 5px 0 10px
+        position: relative
+        border-radius: 0 5px 5px 0
+        margin: 5px 9px 5px 8px
+        &:hover
+          opacity: 0.8
+        &:before
+          content: " "
+          width: 0
+          height: 0
+          position: absolute
+          top: 0
+          left: -18px
+          border: 9px solid transparent
+        &:after
+          content:" "
+          width:4px
+          height:4px
+          background-color:#fff
+          border-radius:4px
+          box-shadow:0px 0px 0px 1px rgba(0,0,0,.3)
+          position:absolute
+          top: 7px
+          left: 2px
+  .outer
+    padding: 0
+  .article-footer
+    .post-share
+      right: 8px
+  .reward-lay
+    max-width: calc(100vw - 60px)
+  .reward-title
+    font-size: 18px

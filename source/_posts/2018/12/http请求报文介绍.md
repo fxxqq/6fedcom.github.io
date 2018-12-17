@@ -11,7 +11,7 @@ HTTP报文是面向文本的，报文中的每一个字段都是一些ASCII码�
 ### 一、一个HTTP请求报文由请求行（request line）、请求头部（header）、空行和请求数据4个部分组成
 下图给出了请求报文的一般格式。
 ![HTTP请求报文1](/img/2018/12/http-message.png)
-![HTTP请求报文-详解](/img/2018/10/http-message2.jpg)
+![HTTP请求报文-详解](/img/2018/12/http-message2.jpg)
 
 以下逐步分析各个数据部分的作用。
 
@@ -86,8 +86,8 @@ Content-Length: 122
 ＜/html＞
 ```
 
-![HTTP响应报文](/img/2018/10/xiangying.jpg)
-![HTTP响应报文-详解](/img/2018/10/xiangying2.jpg)
+![HTTP响应报文](/img/2018/12/xiangying.jpg)
+![HTTP响应报文-详解](/img/2018/12/xiangying2.jpg)
 
 HTTP响应报文常用属性：
 

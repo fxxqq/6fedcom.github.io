@@ -32,4 +32,16 @@ hexo new page "about"
 图片路径
 ![React生命周期](/img/2018/10/react-life-cycle.png)
 
+---
+title: Hello World
+date: 2017-06-18
+categories: First
+tags:
+    - First
+    - Second
+cover_picture: /images/banner.jpg
+---
+ 
+<!-- more -->
+
  

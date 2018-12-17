@@ -1,0 +1,126 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        <% if (post.link || post.title){ %>
+        <header class="article-header">
+            <%- partial('post/title', {class_name: 'article-title'}) %>
+            <% if (index && post.categories && post.categories.length){ %>
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                <% post.categories.forEach(function (category) { %>
+                <a href="<%= config.root %>categories/<%= category.name.replace(/\s+/g, '') %>/">
+                    <%- category.name %></a>
+                <% }) %>
+            </span>
+            <% } %>
+        </header>
+        <% } %>
+        <div class="article-entry <% if (is_post()) { %>post-content<% } %>" itemprop="articleBody">
+            <% if (index && site.posts.length > 1) { %>
+            <div class="article-img">
+                <a href="<%- url_for(post.path) %>" <% if (theme.open_new_link) {%> target="_blank"
+                    <% } %>>
+                    <% if (post.cover_picture) { %>
+                    <img src="<%- (/^(http:|https:)?\/\//.test(post.cover_picture) ? post.cover_picture : config.url.replace(/\/$/, '') + '/' + post.cover_picture)%>"
+                        alt="<%- post.title %>" title="<%- post.title %>">
+                    <% } else { %>
+                    <img src="<%- (/^(http:|https:)?\/\//.test(theme.cover_picture) ? theme.cover_picture : config.url.replace(/\/$/, '') + '/' + theme.cover_picture) %>"
+                        alt="<%- post.title %>" title="<%- post.title %>">
+                    <% } %>
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    <%- post.excerpt ? post.excerpt : truncate(strip_html(post.content), {
+                    length: theme.excerpt_length
+                }) %>
+                </p>
+            </div>
+            <% } else { %>
+            <%- partial('post/gallery') %>
+            <%- post.content %>
+            <%- partial('post/copyright') %>
+            <% } %>
+            <% if (! index){ %>
+            <%- partial('post/reward') %>
+            <% } %>
+        </div>
+        <footer class="article-footer">
+            <% if (!index && theme.share){ %>
+            <%- partial('post/share') %>
+            <% } %>
+            <ul class="article-footer-menu">
+                <% if (index) { %>
+                <li><i class="fa fa-calendar"></i>
+                    <%= date(post.date) %>
+                </li>
+                <% } %>
+                <%- partial('post/tag') %>
+            </ul>
+            <% if (index) { %>
+            <a href="<%- url_for(post.path) %>#more" class="article-more-link" <% if (theme.open_new_link) {%>
+                target="_blank"
+                <% } %>>
+                <%= theme.excerpt_link %></a>
+            <% } %>
+        </footer>
+    </div>
+</article>
+<% if (!index){ %>
+<%- partial('post/toc') %>
+<%- partial('post/nav') %>
+<% } %>
+<% if (!index && post.comments){ %>
+<% if (theme.changyan_appid && theme.changyan_appkey){ %>
+<%- partial('plugins/comments/changyan', {
+            key: post.slug,
+            title: post.title,
+            url: config.url+url_for(post.path)
+        }) %>
+<% } else if (theme.youyan_id) { %>
+<%- partial('plugins/comments/youyan') %>
+<% } else if (theme.gitment.owner) { %>
+<%- partial('plugins/comments/gitment') %>
+<% } else if (theme.disqus || config.disqus_shortname) { %>
+<section id="comments">
+    <div id="disqus_thread">
+        <script type="text/javascript">
+            var disqus_shortname = '<%= theme.disqus || config.disqus_shortname %>';
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
+                    dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+<% }else if (theme.valine.enable) { %>
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: '<%= theme.valine.notify %>' == 'true',
+        verify: '<%= theme.valine.verify %>' == 'true',
+        appId: "<%= theme.valine.appId %>",
+        appKey: "<%= theme.valine.appKey %>",
+        avatar: "<%= theme.valine.avatar %>",
+        qrcode: "<%= theme.valine.qrcode %>",
+        placeholder: "<%= theme.valine.placeholder %>",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "<%= theme.valine.pageSize %>"
+    })
+</script>
+<!-- Valine Comments end -->
+<% } %>
+<% } %>
