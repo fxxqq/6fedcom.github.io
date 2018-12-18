@@ -2,8 +2,8 @@
 title: save-dev 和--save的区别
 categories: front-end
 abbrlink: 3c8059e3
-date: 2018-11-09 15:29:08
-tags:
+date: 2016-11-09 15:29:08
+tags: [npm]
 ---
 
 --save 会把依赖包名称添加到 package.json 文件 dependencies 键下，
