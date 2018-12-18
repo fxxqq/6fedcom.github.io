@@ -30,7 +30,7 @@ hexo clean && hexo g && hexo d
 hexo new page "about"
 ```
 图片路径
-![React生命周期](/img/2018/10/react-life-cycle.png)
+![React生命周期](https://cdn.ru23.com/img/2018/12/react-life-cycle.png)
 
 ---
 title: Hello World
@@ -43,5 +43,11 @@ cover_picture: /images/banner.jpg
 ---
  
 <!-- more -->
+
+上传七牛云：
+上传
+hexo qiniu sync 
+更新
+hexo qiniu sync2 
 
  

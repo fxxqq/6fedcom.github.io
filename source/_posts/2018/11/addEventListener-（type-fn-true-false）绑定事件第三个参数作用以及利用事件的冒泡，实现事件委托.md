@@ -15,7 +15,7 @@ fn，事件监听执行的function；
 
 第三参数，决定事件执行的过程（大概这样解释。。），捕获或者冒泡，首先我们看一张图片：
 
-![事件流原理](/img/2018/11/shijianliu.gif)
+![事件流原理](https://cdn.ru23.com/img/2018/11/shijianliu.gif)
 
 由此可以知道
 　　1、一个完整的JS事件流是从window开始，最后回到window的一个过程
