@@ -173,14 +173,14 @@
 
 
   
-    <article id="post-2016-12-js-inherit" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2016-12-js-prototype" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         <header class="article-header">
             
   
     <h1 itemprop="name">
-      <a class="article-title" href="/note/b61cd12f.html" target="_blank">JS继承的几种方法总结</a>
+      <a class="article-title" href="/note/e36aeed5.html" target="_blank">OOP之原型与原型链</a>
     </h1>
   
 
@@ -198,89 +198,18 @@
         <div class="article-entry " itemprop="articleBody">
             
             <div class="article-img">
-                <a href="/note/b61cd12f.html" target="_blank">
+                <a href="/note/e36aeed5.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="JS继承的几种方法总结" title="JS继承的几种方法总结">
-                    
-                </a>
-            </div>
-            <div class="article-feed">
-                <p>
-                    <ul>
-<li>由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念</li>
-<li>所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？</li>
-<li>这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（prototype）的一个拷贝 （实际上不是拷贝而是链接，只不过这种链接是不可见，新实例化的对象内部有一个看不见的<strong>Proto</strong>指针，指向原型对象）。</li>
-</ul>
-                </p>
-            </div>
-            
-            
-        </div>
-        <footer class="article-footer">
-            
-            <ul class="article-footer-menu">
-                
-                <li><i class="fa fa-calendar"></i>
-                    2016-12-13
-                </li>
-                
-                
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/javascript/" class="color1">javascript</a>
-      
-    <a href="/tags/继承/" class="color3">继承</a>
-      
-  </li>
-
-            </ul>
-            
-            <a href="/note/b61cd12f.html#more" class="article-more-link" target="_blank">
-                more&gt;&gt;</a>
-            
-        </footer>
-    </div>
-</article>
-
-
-  
-    <article id="post-2016-12-js-oop-and-class" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/note/7e6522d0.html" target="_blank">OOP之类与对象</a>
-    </h1>
-  
-
-            
-            <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                
-                <a href="/categories/front-end/">
-                    front-end</a>
-                
-            </span>
-            
-        </header>
-        
-        <div class="article-entry " itemprop="articleBody">
-            
-            <div class="article-img">
-                <a href="/note/7e6522d0.html" target="_blank">
-                    
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="OOP之类与对象" title="OOP之类与对象">
+                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="OOP之原型与原型链" title="OOP之原型与原型链">
                     
                 </a>
             </div>
             <div class="article-feed">
                 <p>
-                    </p><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><hr>
-<h5 id="对象的含义"><a href="#对象的含义" class="headerlink" title="对象的含义"></a>对象的含义</h5><ul>
-<li><p>所谓对象，就是一种无序的数据集合，由若干个“键值对”（<code>key-value</code>）构成</p>
+                    </p><h4 id="prototype原型对象"><a href="#prototype原型对象" class="headerlink" title="prototype原型对象"></a>prototype原型对象</h4><hr>
+<ul>
+<li>每个函数都有一个默认的<code>prototype</code>属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象</li>
+<li><p>在构造函数中的<code>prototype</code>中定义的属性和方法，会被创建的对象所继承下来。举个栗子：</p>
                 <p></p>
             </li></ul></div>
             
@@ -300,13 +229,13 @@
       
     <a href="/tags/javascript/" class="color1">javascript</a>
       
-    <a href="/tags/面向对象/" class="color5">面向对象</a>
+    <a href="/tags/原型链/" class="color4">原型链</a>
       
   </li>
 
             </ul>
             
-            <a href="/note/7e6522d0.html#more" class="article-more-link" target="_blank">
+            <a href="/note/e36aeed5.html#more" class="article-more-link" target="_blank">
                 more&gt;&gt;</a>
             
         </footer>
@@ -377,6 +306,78 @@
             </ul>
             
             <a href="/note/40b57898.html#more" class="article-more-link" target="_blank">
+                more&gt;&gt;</a>
+            
+        </footer>
+    </div>
+</article>
+
+
+  
+    <article id="post-2016-12-js-oop" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/note/6c17c77b.html" target="_blank">OOP之面向对象</a>
+    </h1>
+  
+
+            
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                
+                <a href="/categories/front-end/">
+                    front-end</a>
+                
+            </span>
+            
+        </header>
+        
+        <div class="article-entry " itemprop="articleBody">
+            
+            <div class="article-img">
+                <a href="/note/6c17c77b.html" target="_blank">
+                    
+                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="OOP之面向对象" title="OOP之面向对象">
+                    
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    <blockquote>
+<p>一般面向对象包含：继承，封装，多态，抽象</p>
+</blockquote>
+</p><h4 id="对象形式的继承"><a href="#对象形式的继承" class="headerlink" title="对象形式的继承"></a>对象形式的继承</h4><hr>
+<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><hr>
+                <p></p>
+            </div>
+            
+            
+        </div>
+        <footer class="article-footer">
+            
+            <ul class="article-footer-menu">
+                
+                <li><i class="fa fa-calendar"></i>
+                    2016-12-13
+                </li>
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/面向对象/" class="color5">面向对象</a>
+      
+  </li>
+
+            </ul>
+            
+            <a href="/note/6c17c77b.html#more" class="article-more-link" target="_blank">
                 more&gt;&gt;</a>
             
         </footer>
@@ -466,149 +467,6 @@
 
 
   
-    <article id="post-2016-12-js-prototype" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/note/e36aeed5.html" target="_blank">OOP之原型与原型链</a>
-    </h1>
-  
-
-            
-            <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                
-                <a href="/categories/front-end/">
-                    front-end</a>
-                
-            </span>
-            
-        </header>
-        
-        <div class="article-entry " itemprop="articleBody">
-            
-            <div class="article-img">
-                <a href="/note/e36aeed5.html" target="_blank">
-                    
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="OOP之原型与原型链" title="OOP之原型与原型链">
-                    
-                </a>
-            </div>
-            <div class="article-feed">
-                <p>
-                    </p><h4 id="prototype原型对象"><a href="#prototype原型对象" class="headerlink" title="prototype原型对象"></a>prototype原型对象</h4><hr>
-<ul>
-<li>每个函数都有一个默认的<code>prototype</code>属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象</li>
-<li><p>在构造函数中的<code>prototype</code>中定义的属性和方法，会被创建的对象所继承下来。举个栗子：</p>
-                <p></p>
-            </li></ul></div>
-            
-            
-        </div>
-        <footer class="article-footer">
-            
-            <ul class="article-footer-menu">
-                
-                <li><i class="fa fa-calendar"></i>
-                    2016-12-13
-                </li>
-                
-                
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/javascript/" class="color1">javascript</a>
-      
-    <a href="/tags/原型链/" class="color4">原型链</a>
-      
-  </li>
-
-            </ul>
-            
-            <a href="/note/e36aeed5.html#more" class="article-more-link" target="_blank">
-                more&gt;&gt;</a>
-            
-        </footer>
-    </div>
-</article>
-
-
-  
-    <article id="post-2016-12-js-oop" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/note/6c17c77b.html" target="_blank">OOP之面向对象</a>
-    </h1>
-  
-
-            
-            <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                
-                <a href="/categories/front-end/">
-                    front-end</a>
-                
-            </span>
-            
-        </header>
-        
-        <div class="article-entry " itemprop="articleBody">
-            
-            <div class="article-img">
-                <a href="/note/6c17c77b.html" target="_blank">
-                    
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="OOP之面向对象" title="OOP之面向对象">
-                    
-                </a>
-            </div>
-            <div class="article-feed">
-                <p>
-                    <blockquote>
-<p>一般面向对象包含：继承，封装，多态，抽象</p>
-</blockquote>
-</p><h4 id="对象形式的继承"><a href="#对象形式的继承" class="headerlink" title="对象形式的继承"></a>对象形式的继承</h4><hr>
-<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><hr>
-                <p></p>
-            </div>
-            
-            
-        </div>
-        <footer class="article-footer">
-            
-            <ul class="article-footer-menu">
-                
-                <li><i class="fa fa-calendar"></i>
-                    2016-12-13
-                </li>
-                
-                
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/javascript/" class="color1">javascript</a>
-      
-    <a href="/tags/面向对象/" class="color5">面向对象</a>
-      
-  </li>
-
-            </ul>
-            
-            <a href="/note/6c17c77b.html#more" class="article-more-link" target="_blank">
-                more&gt;&gt;</a>
-            
-        </footer>
-    </div>
-</article>
-
-
-  
     <article id="post-2016-12-arguments详解" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -667,6 +525,148 @@
             </ul>
             
             <a href="/note/4cc35512.html#more" class="article-more-link" target="_blank">
+                more&gt;&gt;</a>
+            
+        </footer>
+    </div>
+</article>
+
+
+  
+    <article id="post-2016-12-js-oop-and-class" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/note/7e6522d0.html" target="_blank">OOP之类与对象</a>
+    </h1>
+  
+
+            
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                
+                <a href="/categories/front-end/">
+                    front-end</a>
+                
+            </span>
+            
+        </header>
+        
+        <div class="article-entry " itemprop="articleBody">
+            
+            <div class="article-img">
+                <a href="/note/7e6522d0.html" target="_blank">
+                    
+                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="OOP之类与对象" title="OOP之类与对象">
+                    
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    </p><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><hr>
+<h5 id="对象的含义"><a href="#对象的含义" class="headerlink" title="对象的含义"></a>对象的含义</h5><ul>
+<li><p>所谓对象，就是一种无序的数据集合，由若干个“键值对”（<code>key-value</code>）构成</p>
+                <p></p>
+            </li></ul></div>
+            
+            
+        </div>
+        <footer class="article-footer">
+            
+            <ul class="article-footer-menu">
+                
+                <li><i class="fa fa-calendar"></i>
+                    2016-12-13
+                </li>
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/面向对象/" class="color5">面向对象</a>
+      
+  </li>
+
+            </ul>
+            
+            <a href="/note/7e6522d0.html#more" class="article-more-link" target="_blank">
+                more&gt;&gt;</a>
+            
+        </footer>
+    </div>
+</article>
+
+
+  
+    <article id="post-2016-12-js-inherit" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/note/b61cd12f.html" target="_blank">JS继承的几种方法总结</a>
+    </h1>
+  
+
+            
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                
+                <a href="/categories/front-end/">
+                    front-end</a>
+                
+            </span>
+            
+        </header>
+        
+        <div class="article-entry " itemprop="articleBody">
+            
+            <div class="article-img">
+                <a href="/note/b61cd12f.html" target="_blank">
+                    
+                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="JS继承的几种方法总结" title="JS继承的几种方法总结">
+                    
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    <ul>
+<li>由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念</li>
+<li>所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？</li>
+<li>这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（prototype）的一个拷贝 （实际上不是拷贝而是链接，只不过这种链接是不可见，新实例化的对象内部有一个看不见的<strong>Proto</strong>指针，指向原型对象）。</li>
+</ul>
+                </p>
+            </div>
+            
+            
+        </div>
+        <footer class="article-footer">
+            
+            <ul class="article-footer-menu">
+                
+                <li><i class="fa fa-calendar"></i>
+                    2016-12-13
+                </li>
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/继承/" class="color3">继承</a>
+      
+  </li>
+
+            </ul>
+            
+            <a href="/note/b61cd12f.html#more" class="article-more-link" target="_blank">
                 more&gt;&gt;</a>
             
         </footer>
