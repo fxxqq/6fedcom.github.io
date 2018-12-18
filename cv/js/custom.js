@@ -22,11 +22,11 @@ $(function () {
   });
 
   // ------- WOW ANIMATED ------ //
-  wow = new WOW(
-    {
-      mobile: false
-    });
-  wow.init();
+  // wow = new WOW(
+  //   {
+  //     mobile: false
+  //   });
+  // wow.init();
 
   // ------- GOOGLE MAP ----- //
   // loadGoogleMap();
