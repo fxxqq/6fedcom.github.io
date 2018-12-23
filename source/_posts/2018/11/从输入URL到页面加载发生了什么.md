@@ -93,7 +93,7 @@ HTTP响应报文也是由三部分组成: 状态码, 响应报头和响应报文
 使用渲染布局（Layout）所有元素渲染（Paint）所有元素
 
 ### 6.断开TCP连接（4次挥手）
-
+(https://cdn.ru23.com/img/2018/12/tcp4次挥手.png)
 四次分手
 第一次分手：主机1（可以使客户端，也可以是服务器端），设置Sequence Number和Acknowledgment Number，向主机2发送一个FIN报文段；此时，主机1进入FIN_WAIT_1状态；这表示主机1没有数据要发送给主机2了；
 第二次分手：主机2收到了主机1发送的FIN报文段，向主机1回一个ACK报文段，Acknowledgment Number为Sequence Number加1；主机1进入FIN_WAIT_2状态；主机2告诉主机1，我“同意”你的关闭请求；
