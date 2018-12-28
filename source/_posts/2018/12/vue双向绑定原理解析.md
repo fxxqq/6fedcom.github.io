@@ -1,8 +1,11 @@
 ---
 title: vue双向绑定原理解析
 categories: front-end
+tags:
+  - mvvm
+  - vue
+abbrlink: a8fcf354
 date: 2018-12-28 09:55:52
-tags: [mvvm,vue]
 ---
 
 ### 1.vue的实现原理
