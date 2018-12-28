@@ -117,31 +117,42 @@ Diff算法包括以下三个步骤:
 *
 
 
-1.一次完整的HTTP请求所经历的7个步骤
-HTTP通信机制是在一次完整的HTTP通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤： 
-1. 建立TCP连接
-在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建 Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则， 只有低层协议建立之后才能，才能进行更层协议的连接，因此，首先要建立TCP连接，一般TCP连接的端口号是80。
-2. Web浏览器向Web服务器发送请求命令 
-一旦建立了TCP连接，Web浏览器就会向Web服务器发送请求命令。例如：GET/sample/hello.jsp HTTP/1.1。
-3. Web浏览器发送请求头信息 
-浏览器发送其请求命令之后，还要以头信息的形式向Web服务器发送一些别的信息，之后浏览器发送了一空白行来通知服务器，它已经结束了该头信息的发送。 
-4. Web服务器应答 
-客户机向服务器发出请求后，服务器会客户机回送应答， HTTP/1.1 200 OK ，应答的第一部分是协议的版本号和应答状态码。
-5. Web服务器发送应答头信息 
-正如客户端会随同请求发送关于自身的信息一样，服务器也会随同应答向用户发送关于它自己的数据及被请求的文档。 
-6. Web服务器向浏览器发送数据 
-Web服务器向浏览器发送头信息后，它会发送一个空白行来表示头信息的发送到此为结束，接着，它就以Content-Type应答头信息所描述的格式发送用户所请求的实际数据。
-7. Web服务器关闭TCP连接 
-一般情况下，一旦Web服务器向浏览器发送了请求数据，它就要关闭TCP连接，然后如果浏览器或者服务器在其头信息加入了这行代码：
-Connection:keep-alive 
-TCP连接在发送后将仍然保持打开状态，于是，浏览器可以继续通过相同的连接发送请求。保持连接节省了为每个请求建立新连接所需的时间，还节约了网络带宽。
 
-箭头函数
-可以让this指向固定化，这种特性很有利于封装回调函数
-（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
-（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
-（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用Rest参数代替。
-（4）不可以使用yield命令，因此箭头函数不能用作Generator函数。
-async/await 是写异步代码的新方式，以前的方法有回调函数和Promise。
-async/await是基于Promise实现的，它不能用于普通的回调函数。async/await与Promise一样，是非阻塞的。
-async/await使得异步代码看起来像同步代码，这正是它的魔力所在。
+
+<script>
+    // add 函数柯里化
+    function add() {
+        //建立args,利用闭包特性，不断保存arguments
+        var args = [].slice.call(arguments);
+        //方法一，新建_add函数实现柯里化;
+        console.log(arguments)
+        console.log(args)
+        var _add = function () {
+            if (arguments.length === 0) {
+                //参数为空，对args执行加法
+                return args.reduce((a, b) => {
+                    return a + b
+                });
+            } else {
+                console.log([].push.apply(args, arguments));
+                
+                //否则，保存参数到args，返回一个函数
+                [].push.apply(args, arguments);
+                return _add;
+            }
+        }
+        //返回_add函数
+        return _add;
+
+        // //方法二，使用arguments.callee实现柯里化
+        // return function () {
+        //       if (arguments.length === 0) {
+        //           return args.reduce(function(a,b){return a+b});
+        //       }
+        //       Array.prototype.push.apply(args, arguments);
+        //       return arguments.callee;
+        //   }
+    }
+
+    console.log(add(1, 2, 3)(1)(2)(3)(4, 5, 6)(7, 8)()); //42
+</script>
