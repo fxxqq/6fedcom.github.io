@@ -1,8 +1,9 @@
 ---
 title: 2019年1月todolist
 categories: front-end
-date: 2019-01-05 10:39:38
 tags: todolist
+abbrlink: 5ab64037
+date: 2019-01-05 10:39:38
 ---
 
 1月份学习计划整理
