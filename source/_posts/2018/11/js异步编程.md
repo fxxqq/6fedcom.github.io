@@ -3,7 +3,7 @@ title: js异步编程
 categories: front-end
 abbrlink: 580ae11
 date: 2018-11-07 17:54:01
-tags:
+tags: [javascript]
 ---
 
 # JS 异步编程及常考面试题
