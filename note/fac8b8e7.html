@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>
+    
+    Mocha+Chai+Istanbul单元测试 |
+    
+    前端迷
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+  
+  <meta name="description" content="一、简介 Istanbul是javascript程序的代码覆盖率工具 Mocha是一种测试框架，也就是运行测试的工具。用descibe和it方法，来定义test suit，为不同的测试分组。 mocha本身并不提供assert断言，所以要提供更加有表现力的断言，可以搭配chai使用，当然也可以使用nodejs提供的assert模块  二、配置测试环境安装相应的依赖包 1npm install --">
+<meta name="keywords" content="javascript,测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mocha+Chai+Istanbul单元测试">
+<meta property="og:url" content="https://ru23.com/note/fac8b8e7.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="一、简介 Istanbul是javascript程序的代码覆盖率工具 Mocha是一种测试框架，也就是运行测试的工具。用descibe和it方法，来定义test suit，为不同的测试分组。 mocha本身并不提供assert断言，所以要提供更加有表现力的断言，可以搭配chai使用，当然也可以使用nodejs提供的assert模块  二、配置测试环境安装相应的依赖包 1npm install --">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-97b4892849c032af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-11-11T02:02:15.555Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mocha+Chai+Istanbul单元测试">
+<meta name="twitter:description" content="一、简介 Istanbul是javascript程序的代码覆盖率工具 Mocha是一种测试框架，也就是运行测试的工具。用descibe和it方法，来定义test suit，为不同的测试分组。 mocha本身并不提供assert断言，所以要提供更加有表现力的断言，可以搭配chai使用，当然也可以使用nodejs提供的assert模块  二、配置测试环境安装相应的依赖包 1npm install --">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-97b4892849c032af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+  
+  <link rel="icon" href="https://cdn.ru23.com/img/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.ru23.com/css/style.css">
+  <script src="https://cdn.ru23.com/js/pace.min.js"></script>
+  
+
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+ 
+</head></html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Frank&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="https://cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Frank&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        前端开发爱好者,欢迎一切技术交流
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2017-10-unit-test-mocha-chai" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      Mocha+Chai+Istanbul单元测试
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-10-22
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
+<li><code>Istanbul</code>是<code>javascript</code>程序的代码覆盖率工具</li>
+<li><code>Mocha</code>是一种测试框架，也就是运行测试的工具。用<code>descibe</code>和<code>it</code>方法，来定义<code>test suit</code>，为不同的测试分组。</li>
+<li><code>mocha</code>本身并不提供<code>assert</code>断言，所以要提供更加有表现力的断言，可以搭配<code>chai</code>使用，当然也可以使用<code>nodejs</code>提供的<code>assert</code>模块</li>
+</ul>
+<h2 id="二、配置测试环境"><a href="#二、配置测试环境" class="headerlink" title="二、配置测试环境"></a>二、配置测试环境</h2><p><strong>安装相应的依赖包</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev mocha chai  istanbul</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成之后，在<code>package.json</code>文件的<code>scripts</code>下，添加执行测试和测试覆盖率检查的命令</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="string">"scripts"</span>:&#123;</span><br><span class="line">    <span class="string">"cover"</span>: <span class="string">"istanbul cover _mocha -- -R spec --timeout 5000 --recursive"</span>,</span><br><span class="line">    <span class="string">"cover:check"</span>: <span class="string">"istanbul check-coverage"</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意，<code>window</code>下必须要这样才可以执行<code>cover</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"cover"</span>: <span class="string">"istanbul cover C:\Users\Administrator\Desktop\test\node_modules\mocha\bin\_mocha --reporter test/mocha.js"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行<code>npm run cover</code>和<code>npm run cover:check</code>，就可以生成测试报告，前者生成测试报告，后者则是检查测试覆盖率是否达到要求</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-97b4892849c032af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><strong>配置Istanbul</strong></p>
+<blockquote>
+<p><code>istanbul</code>相关的执行参数，可以在命令行下执行时传递参数来制定，也可以在<code>yaml</code>格式的<code>.istanbul.yml</code>文件中配置。简单贴出一些重要的配置项</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">instrumentation:</span><br><span class="line">  root: .   # 执行的根目录</span><br><span class="line">  extensions:</span><br><span class="line">    - .js   # 检查覆盖率的文件扩张名</span><br><span class="line">  excludes: [<span class="string">'**/benchmark/**'</span>]</span><br><span class="line"></span><br><span class="line">  ... ...</span><br><span class="line"></span><br><span class="line">reporting:</span><br><span class="line">  print: summary</span><br><span class="line">  reports: [lcov, text, html, text-summary] # 生成报告的格式</span><br><span class="line">  dir: ./coverage   # 生成报告保存的目录</span><br><span class="line">  watermarks:       # 在不同覆盖率下会显示使用不同颜色</span><br><span class="line">    statements: [<span class="number">80</span>, <span class="number">95</span>]</span><br><span class="line">    ... ...</span><br><span class="line">check:</span><br><span class="line">  global:</span><br><span class="line">    statements: <span class="number">100</span></span><br><span class="line">    branches: <span class="number">100</span></span><br><span class="line">    lines: <span class="number">100</span></span><br><span class="line">    functions: <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最后的<code>check</code>是项目要通过覆盖率检查需要达到的测试覆盖率，测试覆盖率包括四个维度，分别是语句覆盖率、分支覆盖率、行覆盖率和函数覆盖率。如果达不到设定的指标，在执行的时候会报错，项目的测试就无法通过自动化的持续集成</p>
+</blockquote>
+<h2 id="三、编写测试代码"><a href="#三、编写测试代码" class="headerlink" title="三、编写测试代码"></a>三、编写测试代码</h2><blockquote>
+<ul>
+<li>利用<code>chai</code>提供的<code>expect</code>断言，我们可以用<code>BDD</code>的方式，写出更加符合代码预期行为的测试用例.</li>
+<li>通常，测试脚本与所要测试的源码脚本同名，但是后缀名为<code>.test.js</code>（表示测试）或者<code>.spec.js</code>（表示规格）。比如，<code>add.js</code>的测试脚本名字就是<code>add.test.js</code></li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;should, expect, assert&#125; = <span class="built_in">require</span>(<span class="string">'chai'</span>);</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'#math'</span>, () =&gt; &#123;</span><br><span class="line">  describe(<span class="string">'add'</span>, () =&gt; &#123;</span><br><span class="line">    it(<span class="string">'should return 5 when 2 + 3'</span>, () =&gt; &#123;</span><br><span class="line">      expect(add(<span class="number">2</span>, <span class="number">3</span>), <span class="number">5</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    it(<span class="string">'should return 5 when 2 + 3'</span>, () =&gt; &#123;</span><br><span class="line">      expect(add(<span class="number">2</span>, <span class="number">-3</span>), <span class="number">-1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  describe(<span class="string">'mul'</span>, () =&gt; &#123;</span><br><span class="line">    it(<span class="string">'should return 6 when 2 * 3'</span>, () =&gt; &#123;</span><br><span class="line">      expect(mul(<span class="number">2</span>, <span class="number">3</span>), <span class="number">6</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  describe(<span class="string">'cover'</span>, () =&gt; &#123;</span><br><span class="line">    it(<span class="string">'should return 1 when cover(2, 1)'</span>, () =&gt; &#123;</span><br><span class="line">      expect(cover(<span class="number">2</span>, <span class="number">1</span>)).to.equal(<span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    it(<span class="string">'should return 3 when cover(1, 2)'</span>, () =&gt; &#123;</span><br><span class="line">      expect(cover(<span class="number">1</span>, <span class="number">2</span>)).to.equal(<span class="number">3</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    it(<span class="string">'should return 4 when cover(2, 2)'</span>, () =&gt; &#123;</span><br><span class="line">      expect(cover(<span class="number">2</span>, <span class="number">2</span>)).to.equal(<span class="number">4</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试脚本里面应该包括一个或多个<code>describe</code>块，每个<code>describe</code>块应该包括一个或多个<code>it</code>块</li>
+<li><code>describe</code>中的名字是自己定义的，为了方便查看</li>
+<li><code>describe</code>块称为”测试套件”（<code>test suite</code>），表示一组相关的测试。它是一个函数，第一个参数是测试套件的名称（”加法函数的测试”），第二个参数是一个实际执行的函数</li>
+<li>it块称为”测试用例”（<code>test case</code>），表示一个单独的测试，是测试的最小单位</li>
+</ul>
+<h2 id="四、断言库的用法"><a href="#四、断言库的用法" class="headerlink" title="四、断言库的用法"></a>四、断言库的用法</h2><blockquote>
+<p>所谓”断言”，就是判断源码的实际执行结果与预期结果是否一致，如果不一致就抛出一个错误</p>
+</blockquote>
+<ul>
+<li>所有的测试用例（<code>it</code>块）都应该含有一句或多句的断言。它是编写测试用例的关键。断言功能由断言库来实现，<code>Mocha</code>本身不带断言库，所以必须先引入断言库</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expect = <span class="built_in">require</span>(<span class="string">'chai'</span>).expect;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>断言库有很多种，<code>Mocha</code>并不限制使用哪一种。上面代码引入的断言库是<code>chai</code>，并且指定使用它的<code>expect</code>断言风格。<code>chai</code>包含了几种风格，如<code>should</code> <code>expect</code> <code>assert</code>。<code>expect</code>断言的优点是很接近自然语言.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相等或不相等</span></span><br><span class="line">expect(<span class="number">4</span> + <span class="number">5</span>).to.be.equal(<span class="number">9</span>);</span><br><span class="line">expect(<span class="number">4</span> + <span class="number">5</span>).to.be.not.equal(<span class="number">10</span>);</span><br><span class="line">expect(foo).to.be.deep.equal(&#123; <span class="attr">bar</span>: <span class="string">'baz'</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 布尔值为true</span></span><br><span class="line">expect(<span class="string">'everthing'</span>).to.be.ok;</span><br><span class="line">expect(<span class="literal">false</span>).to.not.be.ok;</span><br><span class="line"></span><br><span class="line"><span class="comment">// typeof</span></span><br><span class="line">expect(<span class="string">'test'</span>).to.be.a(<span class="string">'string'</span>);</span><br><span class="line">expect(&#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;).to.be.an(<span class="string">'object'</span>);</span><br><span class="line">expect(foo).to.be.an.instanceof(Foo);</span><br><span class="line"></span><br><span class="line"><span class="comment">// include</span></span><br><span class="line">expect([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]).to.include(<span class="number">2</span>);</span><br><span class="line">expect(<span class="string">'foobar'</span>).to.contain(<span class="string">'foo'</span>);</span><br><span class="line">expect(&#123; <span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">hello</span>: <span class="string">'universe'</span> &#125;).to.include.keys(<span class="string">'foo'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// empty</span></span><br><span class="line">expect([]).to.be.empty;</span><br><span class="line">expect(<span class="string">''</span>).to.be.empty;</span><br><span class="line">expect(&#123;&#125;).to.be.empty;</span><br><span class="line"></span><br><span class="line"><span class="comment">// match</span></span><br><span class="line">expect(<span class="string">'foobar'</span>).to.match(<span class="regexp">/^foo/</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基本上，<code>expect</code>断言的写法都是一样的。头部是<code>expect</code>方法，尾部是断言方法，比如<code>equal</code>、<code>a/an</code>、<code>ok</code>、<code>match</code>等。两者之间使用<code>to</code>或<code>to.be</code>连接</li>
+<li>如果<code>expect</code>断言不成立，就会抛出一个错误。事实上，只要不抛出错误，测试用例就算通过。</li>
+</ul>
+<h2 id="五、持续集成"><a href="#五、持续集成" class="headerlink" title="五、持续集成"></a>五、持续集成</h2><blockquote>
+<p>完成所有代码之后，我们可以将代码发布到<code>github</code>，然后使用持续集成工具<code>travis</code>检查代码，将生成的测试报告上传到<code>coverall</code>上，这样就可以在项目中显示项目状态和测试覆盖率的badges</p>
+</blockquote>
+<ul>
+<li>持续集成是一种软件开发流程</li>
+<li>频繁将代码集成到主干</li>
+<li>每次集成都通过自动化的构建来验证</li>
+<li>尽早发现错误</li>
+<li><p>防止防止大幅偏离主干</p>
+</li>
+<li><p>通常的<code>nodejs</code>项目<code>.travis.yml</code>配置如下</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">  - <span class="string">"6"</span></span><br><span class="line">  - <span class="string">"8"</span></span><br><span class="line">brancher:</span><br><span class="line">  only:</span><br><span class="line">    - <span class="string">"dev"</span></span><br><span class="line">    - <span class="string">"master"</span></span><br><span class="line">install:</span><br><span class="line">  - <span class="string">"npm install"</span></span><br><span class="line">  - <span class="string">"npm install -g codecov"</span></span><br><span class="line">script:</span><br><span class="line">  - <span class="string">"npm run cover"</span></span><br><span class="line">  - <span class="string">"codecov"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试代码预览 <a href="https://github.com/poetries/test" target="_blank" rel="noopener">https://github.com/poetries/test</a></li>
+</ul>
+<h2 id="六、Mocha的命令行参数"><a href="#六、Mocha的命令行参数" class="headerlink" title="六、Mocha的命令行参数"></a>六、Mocha的命令行参数</h2><ul>
+<li><code>--help</code>或<code>-h</code>参数，用来查看<code>Mocha</code>的所有命令行参数</li>
+<li><code>--reporter, -R</code> <code>--reporter</code>参数用来指定测试报告的格式，默认是<code>spec</code>格式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mocha</span><br><span class="line"># 等同于</span><br><span class="line">$ mocha --reporter spec</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2018年11月11日 10:02</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/fac8b8e7.html" title="Mocha+Chai+Istanbul单元测试">https://ru23.com/note/fac8b8e7.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="https://cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fac8b8e7.html&title=《Mocha+Chai+Istanbul单元测试》 — 前端迷&pic=https://cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fac8b8e7.html&title=《Mocha+Chai+Istanbul单元测试》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fac8b8e7.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mocha+Chai+Istanbul单元测试》 — 前端迷&url=https://ru23.com/note/fac8b8e7.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fac8b8e7.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aSY7CQAwFUO5/aZB61ZuEb5dTCdLLCjGkXlhYnl6v+Hr/Xf9fn19Hv03eH7hwcXGXucnBR9zz44/uk7x/dAouLu5O7krwqsaco/tHwQ4XF/dh3OT7vVCIi4v7u9z1JCb5O3BxcZ/DTcJQfmTvt8O1Gi4u7ky1UmiYzr6+vL+Li4s7NJXoJSu9Aik6HRcXdwu3d9h58VONSNVGCS4u7tXcpFxZGbTkqUx0Oi4u7hZuElzyFurswxfapri4uKPc6spUEraqxGbZg4uLezG3euveGlZvCSPq4uDi4o5yk6BTLWbydmqzyYKLi7uFG61DFRcsplY3cHFx93N7yU2exAw/PC4u7hZuL01JGijVlCgPc7i4uFdzq2Go9/388b6EPFxc3C3calKSpCx5A7S62IGLi7uHu75ykYxL84D4ZcSLi4u7kZu3UFdKnd6YBBcX9y5ueUGqNYypNl4L+x24uLij3PXjq+3UXsNlYEqMi4tb/LRXuvRCVW9Yi4uLexe32mdNPk0esho0cXFxn8bNFyaSO1TDIi4u7pO5+ThkKvzh4uLexe0VKiuN0WoKhYuLu5Pba5j2CqeVNAgXF3cL9wO/SpWM381OyQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/测试/" class="color3">测试</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、简介"><span class="post-toc-text">一、简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、配置测试环境"><span class="post-toc-text">二、配置测试环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、编写测试代码"><span class="post-toc-text">三、编写测试代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、断言库的用法"><span class="post-toc-text">四、断言库的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、持续集成"><span class="post-toc-text">五、持续集成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、Mocha的命令行参数"><span class="post-toc-text">六、Mocha的命令行参数</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/5d687d0f.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          初探RESTful api
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/7efe3a88.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">ECMAScript6回顾</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：3<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：3<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+      &copy; 2018 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/designed/">designed</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端分享/">前端分享</a><a class="category-link" href="/categories/前端工具/">前端工具</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 11.54px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.85px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端分享/" style="font-size: 11.54px;">前端分享</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 11.54px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.85px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端分享/" style="font-size: 11.54px;">前端分享</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="https://cdn.ru23.com/js/search.js"></script>
+<script src="https://cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

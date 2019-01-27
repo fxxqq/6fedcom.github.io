@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>
+    
+    javascript词法分析和作用域闭包 |
+    
+    前端迷
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+  
+  <meta name="description" content="在函数运行时 会进词法分析（预编译） 预编译做了哪些工作 分析参数 分析变量声明(分析带var的变量声明) 分析函数声明">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript词法分析和作用域闭包">
+<meta property="og:url" content="https://ru23.com/note/1f382076.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="在函数运行时 会进词法分析（预编译） 预编译做了哪些工作 分析参数 分析变量声明(分析带var的变量声明) 分析函数声明">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-11T02:02:15.621Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript词法分析和作用域闭包">
+<meta name="twitter:description" content="在函数运行时 会进词法分析（预编译） 预编译做了哪些工作 分析参数 分析变量声明(分析带var的变量声明) 分析函数声明">
+  
+  
+  <link rel="icon" href="https://cdn.ru23.com/img/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.ru23.com/css/style.css">
+  <script src="https://cdn.ru23.com/js/pace.min.js"></script>
+  
+
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+ 
+</head></html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Frank&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="https://cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Frank&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        前端开发爱好者,欢迎一切技术交流
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2016-07-JavaScript词法分析和作用域闭包" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      javascript词法分析和作用域闭包
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2016-07-27
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <ul>
+<li>在函数运行时 会进词法分析（预编译）</li>
+<li>预编译做了哪些工作<ul>
+<li>分析参数</li>
+<li>分析变量声明(分析带var的变量声明)</li>
+<li>分析函数声明 <a id="more"></a></li>
+</ul>
+</li>
+<li>如何分析变量声明？<ul>
+<li>答：对于var声明的变量 以<code>var str = ‘local’</code>为例，分为 分析过程 和执行过程 先分析后执行<br>先分析<code>var str</code>即仅仅声明了一个str变量 <code>str</code>变量此时没有赋值 值是<code>undefined</code> 然后在进行执行过程</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*var age = 22;</span></span><br><span class="line"><span class="comment">var num = 99;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> function t()&#123;</span></span><br><span class="line"><span class="comment"> 	var num = 88;</span></span><br><span class="line"><span class="comment"> 	var str = 'hello';</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 	function a()&#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 		var  str = 'world';</span></span><br><span class="line"><span class="comment"> 		alert(str);//world</span></span><br><span class="line"><span class="comment"> 		alert(num);//88</span></span><br><span class="line"><span class="comment"> 		alert(age);//22</span></span><br><span class="line"><span class="comment"> 	&#125;</span></span><br><span class="line"><span class="comment"> 	a();</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> t();</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*var str = 'global';</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">function t()&#123;</span></span><br><span class="line"><span class="comment">	alert(str);//undefined</span></span><br><span class="line"><span class="comment">	var str = 'local';//local</span></span><br><span class="line"><span class="comment">	alert(str);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	//词法分析</span></span><br><span class="line"><span class="comment">	var str;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	//执行语句</span></span><br><span class="line"><span class="comment">	alert(str)</span></span><br><span class="line"><span class="comment">	str = 'local'</span></span><br><span class="line"><span class="comment">	alert(str)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">t();</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>活动对象、激活对象 Active Object</strong></p>
+</li>
+<li><p>AO上有哪些属性：</p>
+</li>
+<li><p>对于函数的AO属性来自三个方面</p>
+<ul>
+<li>参数</li>
+<li>局部变量声明</li>
+<li>函数声明</li>
+</ul>
+</li>
+<li><p>在函数调用瞬间 <code>AO</code>这样形成</p>
+</li>
+<li>首先分析参数 把分析的的参数形成<code>AO</code>属性 如果传来实参 则把实参赋给相应的属性</li>
+<li>其次分析var声明 以<code>var str= hello</code>为例 把str声明为AO的属性 值为<code>undefined</code></li>
+<li>如果var声明的变量名与形参名称一致 不产生影响 因为<code>AO</code>的str已经存在</li>
+<li><p>最后分析函数声明，<code>function函数名(){}</code>//有函数名</p>
+</li>
+<li><p>函数的变量有其作用域，引用某变量时，在某个范围内查询该变量，这个范围又在哪里？在AO上找 在函数调用的瞬间  会产生一个AO 这个AO对象的属性 即存储着该函数所能引用的到的变量</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'global'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params">age</span>)</span>&#123;</span><br><span class="line">	alert(age);<span class="comment">//99</span></span><br><span class="line">	<span class="keyword">var</span> age = <span class="number">12</span>;</span><br><span class="line">	alert(age);<span class="comment">//12</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">t();</span><br></pre></td></tr></table></figure>
+<p>对上面的结果进行分析：</p>
+<p>AO：{age:undefined} //词法分析得到<br>AO：{age:99} //实参赋值 AO.age属性<br>AO:{age:12}  //修改AO.age的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">age,hei</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> age;</span><br><span class="line">	alert(age);</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">age</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		alert(<span class="string">'he'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>分析过程：<ul>
+<li>AO:{}</li>
+<li>AO:{age:undefined,hei:undefined}</li>
+<li>AO:{age:32,hei,undefined}</li>
+<li>分析完形参 紧接着分析var age  不产生影响 因为AO的age已经存在</li>
+<li>AO:{age:function(){aler..},hei:undefined}</li>
+<li>执行</li>
+<li>alert(age)—》AO.age—》函数</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>函数就是变量 函数声明就是变量声明</p>
+</li>
+<li><p>函数声明：假设函数名fn 函数声明会把函数赋值为AO.fn属性的值 </p>
+</li>
+<li><p><strong>函数声明与函数表达式的区别</strong></p>
+</li>
+<li>表达式必有一个返回值 （即 匿名函数赋给了一个变量 此时 就是普通的赋值过程）</li>
+<li>函数表达式返回返回 并把函数作为值 赋给变量</li>
+<li><p>函数声明的优先级高 例如<br><code>function fn(){} 则会把AO.fn = function fn(){}</code></p>
+</li>
+<li><p><strong>函数表达式</strong></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(age);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> age = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		alert(<span class="string">'hahh'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	alert(age);</span><br><span class="line">&#125;</span><br><span class="line">fn1(<span class="number">32</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果： 32 function</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(age);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">age</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		alert(<span class="string">'hahh'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	alert(age);</span><br><span class="line">&#125;</span><br><span class="line">fn1(<span class="number">32</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果： function function</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>闭包</strong></p>
+<ul>
+<li>a.程序永远是先定义后执行</li>
+<li>b.执行永远从上到下</li>
+<li>c.函数定义的话在堆（只是一个地址而已）</li>
+<li>d.函数调用的时候，就会有自己的堆和栈（<code>闭包</code>）</li>
+</ul>
+</li>
+<li><p><strong>闭包 作用域</strong></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>记住：先定义<code>var</code>  <code>function</code>  在从上往下执行</li>
+<li>定义在自己的栈里面 执行在自己的堆里面</li>
+<li>运行在运行的环境中</li>
+<li>函数每调用前  只是一个地址</li>
+<li>只要调用一次函数就会动态开辟一块内存 创建一个封闭的空间 在自己的封闭的空间的栈中定义<code>var</code>在执行</li>
+<li>函数执行完 里面的东西全部销毁</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//alert(x);//9:执行弹出x,结果x没定义,错误.</span></span><br><span class="line">alert(i);<span class="comment">//9:执行弹出i,然而i之前已经定义,只不过没地址,因此是undefiend</span></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">10</span>;<span class="comment">//1:var i;    10:把常量池中10的地址赋给栈中的i</span></span><br><span class="line"><span class="keyword">var</span> j = <span class="string">"你好"</span>;<span class="comment">//2:var j;   11:把常量池中 你好 的地址复给栈中的j</span></span><br><span class="line"><span class="keyword">var</span> k = z = <span class="literal">null</span>;<span class="comment">//3:var k,z;  12:把堆中null的地址赋值给z和k</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//4:var m;   5:function匿名函数  13:把匿名函数在堆中的地址赋给栈中的m</span></span><br><span class="line">    alert(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">document</span>.body;<span class="comment">//6:var b;    14:把堆中document.body对象的地址赋给栈中的b</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="literal">true</span>;<span class="comment">//7:var f; 15:把常量池中true的地址赋给栈中的变量f</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">m</span>(<span class="params"></span>)</span>&#123;<span class="comment">//8:function m;</span></span><br><span class="line">    alert(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">m</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    c = <span class="number">50</span>;<span class="comment">//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c</span></span><br><span class="line">    alert(<span class="string">'哈哈哈'</span>);</span><br><span class="line">    <span class="comment">//var c;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">150</span>; <span class="comment">// 函数m()还未执行到 还没被销毁 此时全局c的值c=50</span></span><br><span class="line">m();</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">20</span>;<span class="comment">//到这里一步 m()已经执行完了 函数已经销毁了  这里的c还是20</span></span><br><span class="line">alert(c);<span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">m</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    c = <span class="number">50</span>;<span class="comment">//在局部变量中找不到定义的c 沿着作用域链找到了全局变量的c</span></span><br><span class="line">    alert(<span class="string">'哈哈哈'</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        c = <span class="number">30</span>;</span><br><span class="line">        alert(<span class="string">'嘻嘻'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    inner();<span class="comment">//c在函数内部找不到定义 所以沿着作用域链找到了全局的c</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">20</span>;<span class="comment">//到这里一步 m()还没执行 函数没被销毁  这里的c是30</span></span><br><span class="line">m();</span><br><span class="line"></span><br><span class="line">alert(c);<span class="comment">//30</span></span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2018年11月11日 10:02</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/1f382076.html" title="javascript词法分析和作用域闭包">https://ru23.com/note/1f382076.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="https://cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/1f382076.html&title=《javascript词法分析和作用域闭包》 — 前端迷&pic=https://cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/1f382076.html&title=《javascript词法分析和作用域闭包》 — 前端迷&source=
+在函数运行时 会进词法分析（预编译）
+预编译做了哪些工作
+分析参数
+分析变量声明(分析带var的变量声明)
+分析函数声明" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/1f382076.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript词法分析和作用域闭包》 — 前端迷&url=https://ru23.com/note/1f382076.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/1f382076.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aS47DMAwEUd//0s4BJhaqSVFwBqVVEDjSUxaE+bkuvO4/a/3M+vv1PhuWXLly29x7udZHkh3Wv+IGuXLlnuc+RQzyDL9MbX+5cuX+CvfGi1xArly5/4PLd+DpkFy5ct/G5WGIgNLgNZKryZUrt8HlVcq5zyP1Xbly5Za4d7jSi3WKpF9OlytX7hEuDyhp0ZOkPcVz5cqVO8xd/3jdauUUgkOnyJUr9zi3M0rFw1N64cdAJleu3DFuJ2D1RzRqKZNcuXKnuTyQ8VZrelU+5CFXrtw3cElKUyubjiQ/cuXK3cTtjz7wpIiEKhRS5cqVO8xNCxkk4eEhjLdh5MqVe5K7a7t00Iq/NgU9Ybly5W7l7gpbe5us6C+QK1fuGLc/mFULTDyAbp4jkytXLubyAJS2XnhjNUh+5MqVe4SbJkJ8XeFCb2Fy5cod49YO7rympPvIlSv3PDcNLmnJI71SuoNcuXLnuDx48RJqStk8mCVXrtxN3DTQ8NegWh/k8Ru5cuW+kssDUDCOyQc45MqV+1Pc1twHF8qVK/cgNy2SpoNWJKFCV5UrV+4Rbr9Py7dL27Gt+q5cuXIr3A9yQVLBuSjKjgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/note/e59c5ebc.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          javascript之定时器
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/898d51f5.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">parsetInt-parsetFloat与eval-isNaN用法</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：3<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：3<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+      &copy; 2018 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/designed/">designed</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端分享/">前端分享</a><a class="category-link" href="/categories/前端工具/">前端工具</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 11.54px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.85px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端分享/" style="font-size: 11.54px;">前端分享</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/RESTful-api/" style="font-size: 10px;">RESTful api</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/csshack/" style="font-size: 10px;">csshack</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/elementUI/" style="font-size: 10px;">elementUI</a> <a href="/tags/elementui/" style="font-size: 10.77px;">elementui</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 11.54px;">hexo</a> <a href="/tags/html5/" style="font-size: 17.69px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 10.77px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.85px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10.77px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10.77px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 12.31px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端分享/" style="font-size: 11.54px;">前端分享</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端月刊/" style="font-size: 10px;">前端月刊</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/实践/" style="font-size: 10px;">实践</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/组件通信/" style="font-size: 10px;">组件通信</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/规则/" style="font-size: 10px;">规则</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="https://cdn.ru23.com/js/search.js"></script>
+<script src="https://cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

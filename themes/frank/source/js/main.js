@@ -1,543 +1,241 @@
 (function (w, d) {
-
-    var body = d.body,
-        $ = d.querySelector.bind(d),
-        $$ = d.querySelectorAll.bind(d),
-        root = $('html'),
-        gotop = $('#gotop'),
-        menu = $('#menu'),
-        header = $('#header'),
-        mask = $('#mask'),
-        menuToggle = $('#menu-toggle'),
-        menuOff = $('#menu-off'),
-        loading = $('#loading'),
-        animate = w.requestAnimationFrame,
-        scrollSpeed = 200 / (1000 / 60),
-        forEach = Array.prototype.forEach,
-        even = ('ontouchstart' in w && /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent)) ? 'touchstart' : 'click',
-        isWX = /micromessenger/i.test(navigator.userAgent),
-        noop = function () { },
-        offset = function (el) {
-            var x = el.offsetLeft,
-                y = el.offsetTop;
-
-            if (el.offsetParent) {
-                var pOfs = arguments.callee(el.offsetParent);
-                x += pOfs.x;
-                y += pOfs.y;
-            }
-
-            return {
-                x: x,
-                y: y
-            };
-        },
-        rootScollTop = function() {
-            return d.documentElement.scrollTop || d.body.scrollTop;
-        };
-
+    var body = $('body, html'),
+        toc = $("#post-toc"),
+        headerMenu = $("#header-menu"),
+        backTop = $("#sidebar-top"),
+        search = $('#sidebar-search'),
+        searchWrap = $('.search-wrap'),
+        tags = $("#sidebar-menu-box-tags"),
+        mobileTags = $("#mobile-header-container-tags"),
+        categories = $("#sidebar-menu-box-categories"),
+        sideMenuBox = $("#sidebar-menu-box"),
+        mobileHeaderMenu = $("#mobile-header-menu-nav"),
+        _mobileHeaderMenuLocked = false,
+        sideMenuBoxIsOpen = true,
+        clientHeight = d.documentElement.clientHeight; //获取可视区的高度
     var Blog = {
-        goTop: function (end) {
-            var top = rootScollTop();
-            var interval = arguments.length > 2 ? arguments[1] : Math.abs(top - end) / scrollSpeed;
-
-            if (top && top > end) {
-                w.scrollTo(0, Math.max(top - interval, 0));
-                animate(arguments.callee.bind(this, end, interval));
-            } else if (end && top < end) {
-                w.scrollTo(0, Math.min(top + interval, end));
-                animate(arguments.callee.bind(this, end, interval));
+        showHeaderMenu: function (scrollTop) {
+            if (scrollTop > clientHeight * 0.1) {
+                headerMenu.removeClass("slide-down");
+                headerMenu.addClass("slide-up");
             } else {
-                this.toc.actived(end);
+                headerMenu.removeClass("slide-up");
+                headerMenu.addClass("slide-down");
             }
         },
-        toggleGotop: function (top) {
-            if (top > w.innerHeight / 2) {
-                gotop.classList.add('in');
-            } else {
-                gotop.classList.remove('in');
+        showBackTop: function (scrollTop) {
+            backTop.css('display', (scrollTop > clientHeight) ? "block" : "none");
+        },
+        setTags: function (tags) {
+            var labels = tags.find("a");
+            labels.css({"font-size" : "15px"});
+            for(var i = 0, len = labels.length; i < len; i++){
+                var num = labels.eq(i).html().length % 5 +1;
+                labels[i].className = "";
+                labels.eq(i).addClass("color"+num);
             }
         },
-        toggleMenu: function (flag) {
-            var main = $('#main');
-            if (flag) {
-                menu.classList.remove('hide');
-
-                if (w.innerWidth < 1241) {
-                    mask.classList.add('in');
-                    menu.classList.add('show');
-
-                    if (isWX) {
-                        var top = rootScollTop();
-                        main.classList.add('lock');
-                        main.scrollTop = top;
-                    } else {
-                        root.classList.add('lock');
-                    }
-                }
-
-            } else {
-                menu.classList.remove('show');
-                mask.classList.remove('in');
-                if (isWX) {
-                    var top = main.scrollTop;
-                    main.classList.remove('lock');
-                    w.scrollTo(0, top);
-                } else {
-                    root.classList.remove('lock');
-                }
-
+        setCategories: function () {
+            var labels = categories.find("a");
+            labels.css({"font-size" : "15px"});
+            for(var i = 0, len = labels.length; i < len; i++){
+                var num = labels.eq(i).html().length % 5 +1;
+                labels[i].className = "";
+                labels.eq(i).addClass("color"+num);
             }
         },
-        fixedHeader: function (top) {
-            if (top > header.clientHeight) {
-                header.classList.add('fixed');
+        showSidebarBox: function (status) {
+            if (status) {
+                sideMenuBox.animate({
+                    height:'162px',
+                    opacity:'1'
+                }, 300);
             } else {
-                header.classList.remove('fixed');
+                sideMenuBox.animate({
+                    height:'0px',
+                    opacity:'0'
+                }, 300);
             }
         },
-        toc: (function () {
-            var toc = $('#post-toc');
-
-            if (!toc || !toc.children.length) {
-                return {
-                    fixed: noop,
-                    actived: noop
-                }
+        showToc: function (scrollTop) {
+            if (scrollTop / clientHeight >= 0.4) {
+                toc.removeClass("post-toc-top");
+                toc.addClass("post-toc-not-top");
+            } else {
+                toc.removeClass("post-toc-not-top");
+                toc.addClass("post-toc-top");
             }
-
-            var bannerH = $('.post-header').clientHeight,
-                headerH = header.clientHeight,
-                titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
-
-            toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
-
-            // Make every child shrink initially
-            var tocChilds = toc.querySelectorAll('.post-toc-child');
-            for (i = 0, len = tocChilds.length; i < len; i++) {
-                tocChilds[i].classList.add('post-toc-shrink');
+        },
+        showMobileHeaderMenu: function (status) {
+            if (_mobileHeaderMenuLocked) {
+                return false;
             }
-            var firstChild =
-                toc.querySelector('a[href="#' + titles[0].id + '"]')
-                    .nextElementSibling;
-            if (firstChild) {
-                firstChild.classList.add('post-toc-expand');
-                firstChild.classList.remove('post-toc-shrink');
+            if (status) {
+                mobileHeaderMenu.addClass("mobile-header-menu-nav-in");
+            } else {
+                mobileHeaderMenu.removeClass("mobile-header-menu-nav-in")
             }
-            toc.classList.remove('post-toc-shrink');
-
-            /**
-             * Handle toc active and expansion
-             * @param prevEle previous active li element
-             * @param currEle current active li element
-             */
-            var handleTocActive = function (prevEle, currEle) {
-                prevEle.classList.remove('active');
-                currEle.classList.add('active');
-
-                var siblingChilds = currEle.parentElement.querySelectorAll('.post-toc-child');
-                for (j = 0, len1 = siblingChilds.length; j < len1; j++) {
-                    siblingChilds[j].classList.remove('post-toc-expand');
-                    siblingChilds[j].classList.add('post-toc-shrink');
-                }
-                var myChild = currEle.querySelector('.post-toc-child');
-                if (myChild) {
-                    myChild.classList.remove('post-toc-shrink');
-                    myChild.classList.add('post-toc-expand');
-                }
-            };
-
-            return {
-                fixed: function (top) {
-                    top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed');
-                },
-                actived: function (top) {
-                    for (i = 0, len = titles.length; i < len; i++) {
-                        if (top > offset(titles[i]).y - headerH - 5) {
-                            var prevListEle = toc.querySelector('li.active');
-                            var currListEle = toc.querySelector('a[href="#' + titles[i].id + '"]').parentNode;
-
-                            handleTocActive(prevListEle, currListEle);
-                        }
-                    }
-
-                    if (top < offset(titles[0]).y) {
-                        handleTocActive(
-                            toc.querySelector('li.active'),
-                            toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode
-                        );
-                    }
-                }
+        },
+        hideMask: function (target) {
+            var mask = $('.mask');
+            mask.removeClass('in');
+            if (target) {
+                target.removeClass('in')
             }
-        })(),
-        hideOnMask: [],
-        modal: function (target) {
-            this.$modal = $(target);
-            this.$off = this.$modal.querySelector('.close');
-
-            var _this = this;
-
-            this.show = function () {
-                mask.classList.add('in');
-                _this.$modal.classList.add('ready');
-                setTimeout(function () {
-                    _this.$modal.classList.add('in');
-                }, 0)
-            }
-
-            this.onHide = noop;
-
-            this.hide = function () {
-                _this.onHide();
-                mask.classList.remove('in');
-                _this.$modal.classList.remove('in');
-                setTimeout(function () {
-                    _this.$modal.classList.remove('ready');
-                }, 300)
-            }
-
-            this.toggle = function () {
-                return _this.$modal.classList.contains('in') ? _this.hide() : _this.show();
-            }
-
-            Blog.hideOnMask.push(this.hide);
-            this.$off && this.$off.addEventListener(even, this.hide);
         },
         share: function () {
-
-            var pageShare = $('#pageShare'),
-                fab = $('#shareFab');
-
-            var shareModal = new this.modal('#globalShare');
-
-            $('#menuShare').addEventListener(even, shareModal.toggle);
-
-            if (fab) {
-                fab.addEventListener(even, function () {
-                    pageShare.classList.toggle('in')
-                }, false)
-
-                d.addEventListener(even, function (e) {
-                    !fab.contains(e.target) && pageShare.classList.remove('in')
-                }, false)
+            var shareSub = $('#share-sub');
+            if (shareSub) {
+                var shareList = $('#share-list'),
+                    wxFab = $('#wxFab'),
+                    close = $('#wxShare-close'),
+                    mask = $('.mask');
+                shareSub.click(function () {
+                    if (shareList.hasClass('in')) {
+                        shareList.removeClass('in');
+                    } else {
+                        shareList.addClass('in');
+                    }
+                });
+                wxFab.click(function () {
+                    var wxShare = $('#wxShare');
+                    wxShare.addClass('in ready');
+                    mask.addClass('in');
+                });
+                close.click(function () {
+                    Blog.hideMask($('#wxShare'));
+                });
+                mask.click(function () {
+                    Blog.hideMask($('#wxShare'));
+                });
             }
-
-            var wxModal = new this.modal('#wxShare');
-            wxModal.onHide = shareModal.hide;
-
-            forEach.call($$('.wxFab'), function (el) {
-                el.addEventListener(even, wxModal.toggle)
-            })
-
-        },
-        search: function () {
-            var searchWrap = $('#search-wrap');
-
-            function toggleSearch() {
-                searchWrap.classList.toggle('in');
-            }
-
-            $('#search').addEventListener(even, toggleSearch);
         },
         reward: function () {
-            var modal = new this.modal('#reward');
-            $('#rewardBtn').addEventListener(even, modal.toggle);
-
-            var $rewardToggle = $('#rewardToggle');
-            var $rewardCode = $('#rewardCode');
-            if ($rewardToggle) {
-                $rewardToggle.addEventListener('change', function () {
-                    $rewardCode.src = this.checked ? this.dataset.alipay : this.dataset.wechat
-                })
+            var reward = $('#reward'),
+                close = $('#reward-close'),
+                rewardCode = $('#rewardCode'),
+                rewardCheck = $('.reward-select-item'),
+                mask = $('.mask');
+            if (reward) {
+                var rewardBtn = $('#rewardBtn');
+                rewardBtn.click(function () {
+                    reward.addClass('in ready');
+                    mask.addClass('in');
+                });
+                rewardCheck.click(function () {
+                    $(this).addClass('checked').siblings(rewardCheck).removeClass('checked');
+                    rewardCode.attr('src', $(this).attr('data-id') === 'wechat' ? this.dataset.wechat : this.dataset.alipay);
+                });
+                close.click(function () {
+                    Blog.hideMask(reward);
+                });
+                mask.click(function () {
+                    Blog.hideMask(reward);
+                });
             }
         },
-        waterfall: function () {
-
-            if (w.innerWidth < 760) return;
-
-            forEach.call($$('.waterfall'), function (el) {
-                var childs = el.querySelectorAll('.waterfall-item');
-                var columns = [0, 0];
-
-                forEach.call(childs, function (item) {
-                    var i = columns[0] <= columns[1] ? 0 : 1;
-                    item.style.cssText = 'top:' + columns[i] + 'px;left:' + (i > 0 ? '50%' : 0);
-                    columns[i] += item.offsetHeight;
-                })
-
-                el.style.height = Math.max(columns[0], columns[1]) + 'px';
-                el.classList.add('in')
-            })
-
-        },
-        tabBar: function (el) {
-            el.parentNode.parentNode.classList.toggle('expand')
-        },
-        page: (function () {
-            var $elements = $$('.fade, .fade-scale');
-            var visible = false;
-
-            return {
-                loaded: function () {
-                    forEach.call($elements, function (el) {
-                        el.classList.add('in')
-                    });
-                    visible = true;
-                },
-                unload: function () {
-                    forEach.call($elements, function (el) {
-                        el.classList.remove('in')
-                    });
-                    visible = false;
-                },
-                visible: visible
-            }
-
-        })(),
-        lightbox: (function () {
-
-            function LightBox(element) {
-                this.$img = element.querySelector('img');
-                this.$overlay = element.querySelector('overlay');
-                this.margin = 40;
-                this.title = this.$img.title || this.$img.alt || '';
-                this.isZoom = false;
-
-                var naturalW, naturalH, imgRect, docW, docH;
-
-                this.calcRect = function () {
-                    docW = body.clientWidth;
-                    docH = body.clientHeight;
-                    var inH = docH - this.margin * 2;
-                    var w = naturalW;
-                    var h = naturalH;
-                    var t = this.margin;
-                    var l = 0;
-                    var sw = w > docW ? docW / w : 1;
-                    var sh = h > inH ? inH / h : 1;
-                    var s = Math.min(sw, sh);
-
-                    w = w * s;
-                    h = h * s;
-
-                    return {
-                        w: w,
-                        h: h,
-                        t: (docH - h) / 2 - imgRect.top,
-                        l: (docW - w) / 2 - imgRect.left + this.$img.offsetLeft
-                    }
-                }
-
-                this.setImgRect = function (rect) {
-                    this.$img.style.cssText = 'width: ' + rect.w + 'px; max-width: ' + rect.w + 'px; height:' + rect.h + 'px; top: ' + rect.t + 'px; left: ' + rect.l + 'px';
-                }
-
-                this.setFrom = function () {
-                    this.setImgRect({
-                        w: imgRect.width,
-                        h: imgRect.height,
-                        t: 0,
-                        l: (element.offsetWidth - imgRect.width) / 2
-                    })
-                }
-
-                this.setTo = function () {
-                    this.setImgRect(this.calcRect());
-                }
-
-                // this.updateSize = function () {
-                //     var sw = sh = 1;
-                //     if (docW !== body.clientWidth) {
-                //         sw = body.clientWidth / docW;
-                //     }
-
-                //     if (docH !== body.clientHeight) {
-                //         sh = body.clientHeight / docH;
-                //     }
-
-                //     docW = body.clientWidth;
-                //     docH = body.clientHeight;
-                //     var rect = this.$img.getBoundingClientRect();
-                //     var w = rect.width * sw;
-                //     var h = rect.height * sh;
-
-                //     this.$img.classList.remove('zoom-in');
-                //     this.setImgRect({
-                //         w: w,
-                //         h: h,
-                //         t: this.$img.offsetTop - (h - rect.height) / 2,
-                //         l: this.$img.offsetLeft - (w - rect.width) / 2
-                //     })
-                // }
-
-                this.addTitle = function () {
-                    if (!this.title) {
-                        return;
-                    }
-                    this.$caption = d.createElement('div');
-                    this.$caption.innerHTML = this.title;
-                    this.$caption.className = 'overlay-title';
-                    element.appendChild(this.$caption);
-                }
-
-                this.removeTitle = function () {
-                    this.$caption && element.removeChild(this.$caption)
-                }
-
-                var _this = this;
-
-                this.zoomIn = function () {
-                    naturalW = this.$img.naturalWidth || this.$img.width;
-                    naturalH = this.$img.naturalHeight || this.$img.height;
-                    imgRect = this.$img.getBoundingClientRect();
-                    element.style.height = imgRect.height + 'px';
-                    element.classList.add('ready');
-                    this.setFrom();
-                    this.addTitle();
-                    this.$img.classList.add('zoom-in');
-
-                    setTimeout(function () {
-                        element.classList.add('active');
-                        _this.setTo();
-                        _this.isZoom = true;
-                    }, 0);
-                }
-
-                this.zoomOut = function () {
-                    this.isZoom = false;
-                    element.classList.remove('active');
-                    this.$img.classList.add('zoom-in');
-                    this.setFrom();
-                    setTimeout(function () {
-                        _this.$img.classList.remove('zoom-in');
-                        _this.$img.style.cssText = '';
-                        _this.removeTitle();
-                        element.classList.remove('ready');
-                        element.removeAttribute('style');
-                    }, 300);
-                }
-
-                element.addEventListener('click', function (e) {
-                    _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
-                })
-
-                d.addEventListener('scroll', function () {
-                    _this.isZoom && _this.zoomOut()
-                })
-
-                w.addEventListener('resize', function () {
-                    // _this.isZoom && _this.updateSize()
-                    _this.isZoom && _this.zoomOut()
-                })
-            }
-
-            forEach.call($$('.img-lightbox'), function (el) {
-                new LightBox(el)
-            })
-        })(),
-        loadScript: function (scripts) {
-            scripts.forEach(function (src) {
-                var s = d.createElement('script');
-                s.src = src;
-                s.async = true;
-                body.appendChild(s);
-            })
-        }
     };
 
-    w.addEventListener('load', function () {
-        loading.classList.remove('active');
-        Blog.page.loaded();
-        w.lazyScripts && w.lazyScripts.length && Blog.loadScript(w.lazyScripts)
+    //初始化搜索数据
+    initSearch();
+    //搜索点击事件
+    search.click(function () {
+        searchWrap.css('top','50%');
+        searchWrap.css('marginTop','-80px');
+        searchWrap.css('opacity','1');
+    });
+    $('.search-close').click(function(){
+        searchWrap.css('top','0');
+        searchWrap.css('opacity','0');
+        $('#search-container').removeClass('search-container-show');
     });
 
-    w.addEventListener('DOMContentLoaded', function () {
-        Blog.waterfall();
-        var top = rootScollTop();
-        Blog.toc.fixed(top);
-        Blog.toc.actived(top);
-        Blog.page.loaded();
-    });
-
-    var ignoreUnload = false;
-    var $mailTarget = $('a[href^="mailto"]');
-    if($mailTarget) {
-        $mailTarget.addEventListener(even, function () {
-            ignoreUnload = true;
-        });
-    }
-
-    w.addEventListener('beforeunload', function (e) {
-        if (!ignoreUnload) {
-            Blog.page.unload();
+    //tags | 标签
+    Blog.setTags(tags);//pc
+    Blog.setTags(mobileTags);//mobile
+    //categories | 类别
+    Blog.setCategories();
+    //类别展示
+    $("#sidebar-category").click(function (e) {
+        tags.css('display', 'none');
+        categories.css('display', 'block');
+        e.stopPropagation();
+        if (sideMenuBoxIsOpen) {
+            Blog.showSidebarBox(true);
+            sideMenuBoxIsOpen = false;
         } else {
-            ignoreUnload = false;
+            Blog.showSidebarBox(false);
+            sideMenuBoxIsOpen = true;
         }
     });
-
-    w.addEventListener('pageshow', function () {
-        // fix OSX safari #162
-        !Blog.page.visible && Blog.page.loaded();
+    //标签展示
+    $("#sidebar-tag").click(function (e) {
+        tags.css('display', 'block');
+        categories.css('display', 'none');
+        e.stopPropagation();
+        if (sideMenuBoxIsOpen) {
+            Blog.showSidebarBox(true);
+            sideMenuBoxIsOpen = false;
+        } else {
+            Blog.showSidebarBox(false);
+            sideMenuBoxIsOpen = true;
+        }
+    });
+    //点击菜单区域不能关闭菜单
+    sideMenuBox.click(function (e) {
+        e.stopPropagation();
+        if (sideMenuBoxIsOpen) {
+            return false;
+        }
+    });
+    //点击close按钮关闭菜单
+    $(".sidebar-menu-box-close").click(function() {
+        Blog.showSidebarBox(false);
+        sideMenuBoxIsOpen = true;
     });
 
-    w.addEventListener('resize', function () {
-        w.BLOG.even = even = 'ontouchstart' in w ? 'touchstart' : 'click';
-        Blog.toggleMenu();
-        Blog.waterfall();
+    //回到顶部点击事件
+    backTop.click(function () {
+        body.animate({
+            scrollTop: 0
+        }, 500);
     });
 
-    gotop.addEventListener(even, function () {
-        animate(Blog.goTop.bind(Blog, 0));
-    }, false);
-
-    menuToggle.addEventListener(even, function (e) {
-        Blog.toggleMenu(true);
-        e.preventDefault();
-    }, false);
-
-    menuOff.addEventListener(even, function () {
-        menu.classList.add('hide');
-    }, false);
-
-    mask.addEventListener(even, function (e) {
-        Blog.toggleMenu();
-        Blog.hideOnMask.forEach(function (hide) {
-            hide()
-        });
-        e.preventDefault();
-    }, false);
-
+    //获取滚动事件
     d.addEventListener('scroll', function () {
-        var top = rootScollTop();
-        Blog.toggleGotop(top);
-        Blog.fixedHeader(top);
-        Blog.toc.fixed(top);
-        Blog.toc.actived(top);
+        var scrollTop = d.documentElement.scrollTop || d.body.scrollTop;
+        Blog.showHeaderMenu(scrollTop);
+        Blog.showBackTop(scrollTop);
+        Blog.showToc(scrollTop);
     }, false);
+    
+    //Mobile Menu
+    $(".mobile-header-menu-button").click(function () {
+        if (_mobileHeaderMenuLocked) {
+            return false;
+        }
+        Blog.showMobileHeaderMenu(true);
 
-    if (w.BLOG.SHARE) {
-        Blog.share()
+        _mobileHeaderMenuLocked = true;
+
+        window.setTimeout(function() {
+            _mobileHeaderMenuLocked = false;
+        }, 350);
+    });
+    
+    //Share
+    if (w.mihoConfig.share) {
+        Blog.share();
     }
 
-    if (w.BLOG.REWARD) {
-        Blog.reward()
+    //Reward
+    if (w.mihoConfig.reward === 1 || w.mihoConfig.reward === 2) {
+        Blog.reward();
     }
-
-    Blog.noop = noop;
-    Blog.even = even;
-    Blog.$ = $;
-    Blog.$$ = $$;
-
-    Object.keys(Blog).reduce(function (g, e) {
-        g[e] = Blog[e];
-        return g
-    }, w.BLOG);
-
-    if (w.Waves) {
-        Waves.init();
-        Waves.attach('.global-share li', ['waves-block']);
-        Waves.attach('.article-tag-list-link, #page-nav a, #page-nav span', ['waves-button']);
-    } else {
-        console.error('Waves loading failed.')
-    }
+    //body
+    body.click(function () {
+        Blog.showSidebarBox(false);
+        sideMenuBoxIsOpen = true;
+        Blog.showMobileHeaderMenu(false);
+    });
 })(window, document);

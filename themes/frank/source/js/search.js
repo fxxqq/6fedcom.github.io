@@ -1,40 +1,29 @@
-(function () {
-
-    var G = window || this,
-        even = G.BLOG.even,
-        $ = G.BLOG.$,
-        searchIco = $('#search'),
-        searchWrap = $('#search-wrap'),
-        keyInput = $('#key'),
+function initSearch() {
+    var keyInput = $('#keywords'),
         back = $('#back'),
-        searchPanel = $('#search-panel'),
+        searchContainer = $('#search-container'),
         searchResult = $('#search-result'),
-        searchTpl = $('#search-tpl').innerHTML,
-        JSON_DATA = (G.BLOG.ROOT + '/content.json').replace(/\/{2}/g, '/'),
+        searchTpl = $('#search-tpl').html(),
+        JSON_DATA = '/content.json?v=' + (+ new Date()),
         searchData;
 
     function loadData(success) {
-
-        if (!searchData) {
+        if (! searchData) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', JSON_DATA, true);
-
             xhr.onload = function () {
                 if (this.status >= 200 && this.status < 300) {
-                    var res = JSON.parse(this.response);
+                    var res = JSON.parse(this.response||this.responseText);
                     searchData = res instanceof Array ? res : res.posts;
                     success(searchData);
                 } else {
                     console.error(this.statusText);
                 }
             };
-
             xhr.onerror = function () {
                 console.error(this.statusText);
             };
-
             xhr.send();
-
         } else {
             success(searchData);
         }
@@ -47,95 +36,48 @@
         });
     }
 
-    var noop = G.BLOG.noop;
-    var root = $('html');
-
-    var Control = {
-        show: function () {
-            G.innerWidth < 760 ? root.classList.add('lock-size') : noop;
-            searchPanel.classList.add('in');
-        },
-        hide: function () {
-            G.innerWidth < 760 ? root.classList.remove('lock-size') : noop;
-            searchPanel.classList.remove('in');
-        }
-    };
-
     function render(data) {
         var html = '';
         if (data.length) {
-
             html = data.map(function (post) {
-
                 return tpl(searchTpl, {
                     title: post.title,
-                    path: (G.BLOG.ROOT + '/' + post.path).replace(/\/{2,}/g, '/'),
-                    date: new Date(post.date).toLocaleDateString(),
-                    tags: post.tags.map(function (tag) {
-                        return '<span>#' + tag.name + '</span>';
-                    }).join('')
+                    url: (window.mihoConfig.root + '/' + post.path)
                 });
-
             }).join('');
-
         } else {
-            html = '<li class="tips"><i class="icon icon-coffee icon-3x"></i><p>Results not found!</p></li>';
+            html = '<li class="search-result-item-tips"><p>No Result found!</p></li>';
         }
-
-        searchResult.innerHTML = html;
+        searchResult.html(html);
+        containerDisplay(true);
     }
-
-    function regtest(raw, regExp) {
-        regExp.lastIndex = 0;
-        return regExp.test(raw);
-    }
-
-    function matcher(post, regExp) {
-        return regtest(post.title, regExp) || post.tags.some(function (tag) {
-            return regtest(tag.name, regExp);
-        }) || regtest(post.text, regExp);
+    function containerDisplay(status) {
+        if (status) {
+            searchContainer.addClass('search-container-show')
+        } else {
+            searchContainer.removeClass('search-container-show')
+        }
     }
 
     function search(e) {
-        var key = this.value.trim();
-        if (!key) {
+        var keywords = this.value.trim().toLowerCase();
+        if (! keywords) {
+            containerDisplay(false);
             return;
         }
 
-        var regExp = new RegExp(key.replace(/[ ]/g, '|'), 'gmi');
-
-        loadData(function (data) {
-
-            var result = data.filter(function (post) {
-                return matcher(post, regExp);
+        loadData(function (items) {
+            var results = [];
+            items.forEach( function(item) {
+                if (item.title.toLowerCase().indexOf(keywords) > -1 || item.text.toLowerCase().indexOf(keywords) > -1) {
+                    results.push(item);
+                }
             });
-
-            render(result);
-            Control.show();
+            render(results);
         });
 
         e.preventDefault();
     }
 
-
-    searchIco.addEventListener(even, function () {
-        searchWrap.classList.toggle('in');
-        keyInput.value = '';
-        searchWrap.classList.contains('in') ? keyInput.focus() : keyInput.blur();
-    });
-
-    back.addEventListener(even, function () {
-        searchWrap.classList.remove('in');
-        Control.hide();
-    });
-
-    document.addEventListener(even, function (e) {
-        if (e.target.id !== 'key' && even === 'click') {
-            Control.hide();
-        }
-    });
-
-    keyInput.addEventListener('input', search);
-    keyInput.addEventListener(even, search);
-
-}).call(this);
+    keyInput.bind('input propertychange', search);
+};
