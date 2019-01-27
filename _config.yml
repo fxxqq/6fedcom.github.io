@@ -1,0 +1,129 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 前端迷  
+subtitle: frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com
+description: frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com
+keywords: 前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss
+author: frank
+language: zh-CN
+timezone: Asia/Shanghai
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://ru23.com/
+cdn: https://cdn.ru23.com
+root: /
+permalink: note/:abbrlink.html
+# permalink_defaults:
+# abbrlink config
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
+  # Security
+##
+encrypt:
+    enable: true
+# Directory
+source_dir: source
+public_dir: frontend
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: /:year/:month/:title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+  
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+    
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: miho
+
+baidu_url_submit:
+  count: 10 # 提交最新的链接数
+  host: ru23.com # 在百度站长平台中注册的域名,虽然官方推荐要带有 www, 但可以不带.
+  token: mCi9bGbza3HmRDJx # 你的秘钥,每个人都不一样,获取方法在下面
+  path: baidu_urls.txt # 文本文档的地址,新链接会保存在此文本文档里
+
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  - type: git
+    repo: git@github.com:ru23/ru23.github.io.git,master
+  - type: baidu_url_submitter
+
+
+# plugins:
+#   - hexo-qiniu-sync
+
+qiniu:
+  offline: false
+  sync: true
+  bucket:  cdnru23
+  # secret_file: sec/qn.json or C:
+  access_key: HCct3FpW17hnRMdsSCnogNeqtklD5nIiUa9hOrvi
+  secret_key: 7Pp2QhmgJo0SdwpKCiuq5M1VMFHbZNj68mjLBwRz
+  # 上传的资源子目录前缀.如设置，需与urlPrefix同步
+  dirPrefix: img
+  #外链前缀
+  urlPrefix: https://cdn.ru23.com/img
+  #使用默认配置即可
+  up_host: http://upload.qiniu.com
+  #本地目录
+  local_dir: source/img
+   # 是否更新已经上传过的文件(仅文件大小不同或在上次上传后进行更新的才会重新上传)
+  update_exist: true
+  # image: 
+  #   folder: images
+  #   extend: 
+  # js:
+  #   folder: js
+  # css:
+  #   folder: css
+
+ 
