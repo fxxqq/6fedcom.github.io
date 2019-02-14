@@ -49,7 +49,7 @@ export default {
 </script>
 ```
 **组件b**
-```vue
+```html
 <template>
      <div class="components-a">
          <div>{{btext}}</div>

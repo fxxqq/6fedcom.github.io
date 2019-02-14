@@ -84,7 +84,7 @@ console.log(Person.name);　//张三
 
 view变化更新data其实可以通过事件监听实现，比如input标签监听input事件，所有我们着重分析data变化更新view.
 
-data变化更新view的重点是如何知道view什么时候变化了，只要知道什么时候view变化了，那么接下来的就好处理了．这个时候我们上文提到的Object.defineProperty( )就起作用了．通过`Object.defineProperty( )`对属性设置一个set函数，当属性变化时就会触发这个函数，所以我们只需要将一些更新的方法放在set函数中就可以实现data变化更新view了．
+data变化更新view的重点是如何知道view什么时候变化了，只要知道什么时候view变化了，那么接下来的就好处理了．这个时候我们上文提到的`Object.defineProperty( )`就起作用了．通过`Object.defineProperty( )`对属性设置一个set函数，当属性变化时就会触发这个函数，所以我们只需要将一些更新的方法放在set函数中就可以实现data变化更新view了．
 
 实现过程
 
@@ -100,7 +100,7 @@ data变化更新view的重点是如何知道view什么时候变化了，只要�
 
 ### 1.实现一个监听器Observer
 
-数据监听器的核心方法就是Object.defineProperty( )，通过遍历循环对所有属性值进行监听，并对其进行Object.defineProperty( )处理，那么代码可以这样写：
+数据监听器的核心方法就是`Object.defineProperty( )`，通过遍历循环对所有属性值进行监听，并对其进行`Object.defineProperty( )`处理，那么代码可以这样写：
 ```js
 //对所有属性都要监听,递归遍历所有属性
 function defineReactive(data,key,val) {
@@ -280,7 +280,7 @@ function SelfVue(data,el,exp) {
 
 ```html
 <body>
-    <h1 id="name"{{name}}></h1>
+    <h1 id="name">{{name}}</h1>
 </body>
 
 <script src="../js/observer.js"></script>
@@ -301,7 +301,7 @@ function SelfVue(data,el,exp) {
 ```
 这时我们打开页面，显示的是'hello world',２s后变成了'byebye world',一个简单的双向绑定实现了．
 
-对比vue,我们发现了有一个问题，我们在为属性赋值的时候形式是： '  selfVue.data.name = 'byebye world'  ',而我们理想的形式是：'  selfVue.name = 'byebye world'  '，那么怎么实现这种形式呢，只需要在new SelfVue时做一个代理处理，让访问SelfVue的属性代理为访问selfVue.data的属性，原理还是使用Object.defineProperty( )对属性在包装一层．代码如下：
+对比vue,我们发现了有一个问题，我们在为属性赋值的时候形式是： 'selfVue.data.name = 'byebye world'  ',而我们理想的形式是：'  selfVue.name = 'byebye world'  '，那么怎么实现这种形式呢，只需要在new SelfVue时做一个代理处理，让访问SelfVue的属性代理为访问selfVue.data的属性，原理还是使用Object.defineProperty( )对属性在包装一层．代码如下：
 
 ```js
 function SelfVue(data,el,exp) {
@@ -360,7 +360,7 @@ nodeToFragment:function(el) {
     return fragment;
 }
 ```
-接下来需要遍历所有节点，对含有指令的节点进行特殊的处理，这里我们先处理最简单的情况，只对带有 '{{变量}}' 这种形式的指令进行处理，代码如下：
+接下来需要遍历所有节点，对含有指令的节点进行特殊的处理，这里我们先处理最简单的情况，只对带有  这种形式的指令进行处理，代码如下：
 ```js
 //遍历各个节点,对含有相关指定的节点进行特殊处理
 compileElement:function(el) {
@@ -370,7 +370,7 @@ compileElement:function(el) {
     [].slice.call(childNodes).forEach(function(node) {
         var reg = /\{\{(.*)\}\}/;
         var text = node.textContent;  //textContent 属性设置或返回指定节点的文本内容
-        if(self.isTextNode(node) && reg.test(text)) {      //判断是否符合{{}}的指令
+        if(self.isTextNode(node) && reg.test(text)) {      //判断是否符合 的指令
             //exec() 方法用于检索字符串中的正则表达式的匹配。
             //返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
             self.compileText(node,reg.exec(text)[1]);
@@ -394,7 +394,7 @@ updateText:function(node,value) {
 },
 ```
 
-获取到最外层节点后，调用compileElement函数，对所有子节点进行判断，如果节点是文本节点且匹配{{}}这种形式指令的节点就开始进行编译处理，编译处理首先需要初始化视图数据，对应上面所说的步骤1，接下去需要生成一个并绑定更新函数的订阅器，对应上面所说的步骤2。这样就完成指令的解析、初始化、编译三个过程，一个解析器Compile也就可以正常的工作了。
+获取到最外层节点后，调用compileElement函数，对所有子节点进行判断，如果节点是文本节点且匹配 这种形式指令的节点就开始进行编译处理，编译处理首先需要初始化视图数据，对应上面所说的步骤1，接下去需要生成一个并绑定更新函数的订阅器，对应上面所说的步骤2。这样就完成指令的解析、初始化、编译三个过程，一个解析器Compile也就可以正常的工作了。
 
 为了将解析器Compile与监听器Observer和订阅者Watcher关联起来，我们需要再修改一下类SelfVue函数：
 ```js
