@@ -25,7 +25,7 @@ animation和transiton的相关属性
 JavaScript闭包
 结合es6谈了下作用域和单例模式谈了下
 JavaScript的节流和防抖
-阿里交叉面问到的js事件执行机制。我大概谈了下event loop，microtask，task queue。然后事件委托、捕获、冒泡、目标阶段大概谈了下，也顺道谈了下target和currentTarget。
+交叉面问到的js事件执行机制。我大概谈了下event loop，microtask，task queue。然后事件委托、捕获、冒泡、目标阶段大概谈了下，也顺道谈了下target和currentTarget。
 
 因该算是考察基础功吧，谈了下XMLHTTPRequest的过程，readyState的几种类型和代表的意思。以及浏览器兼容性的处理方案。
 js判断数据类型的方法
