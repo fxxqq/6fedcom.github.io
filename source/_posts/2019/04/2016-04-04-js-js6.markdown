@@ -1,0 +1,125 @@
+---
+layout:     post
+title:      "JavaScript6 新语法，新特性"
+subtitle:   "ES6"
+date:       2016-04-04 10:00:00
+author:     ""
+header-img: "img/post-bg-2015.jpg"
+tags:
+   - javascript
+---
+
+
+ 
+
+# JavaScript6 新语法，新特性
+
+1.模版文件
+
+需要在字符串中加入变量时，通常做法就是使用字符串拼接，如
+
+    var param = 'b';
+    var str = 'a ' + param + ' c';
+
+ES6中简单了，可以直接在字符串中添加变量
+    var str = `a ${param} c`;
+
+注意，使用的是反引号 “，而不是 ”
+
+2、多行字符串
+
+例如想定义一个html代码片段，放在一行很难看，想用多行，还得用字符串拼接
+
+    var html =
+    '<div>' +
+    '<span>test</span>' +
+    '</div>';
+一堆加号和引号，很麻烦
+
+ES6中的反引号就能简单的解决
+
+    var html =
+    `<div>
+    <span>test</span>
+    </div>`;
+非常清晰，里面还可以直接加变量，很方便
+
+3.参数默认值
+
+想给参数设置默认值时，需要我们手工处理，例如
+
+    function (width, height) {
+    var height = height || 300;
+    var width = width || 600;
+    ...
+    }
+ES6可以直接指定默认值
+
+    function (width=600, height=300) {
+    ...
+    }
+
+4.解构赋值
+
+例如有一个json对象
+
+    var data = {name:'dys', age:1};
+想取得name,age属性的话，需要分别获取
+
+    var name = data.name;
+    var age = data.age;
+ES6可以自动获取并赋值
+
+    var {name, age} = data;
+这几个示例只是比较简单的语法方面的便利特性，ES6还有一些比较深入的改进，例如
+
+箭头函数、Promises、Classes ……
+如何使用ES6
+
+ES6是个新东西，兼容性还是个大问题，直接使用肯定是不可行了
+
+还好，已经有了ES6的代码转换器，可以把ES6的代码转为ES5的代码（例如 babel），可以让我们使用ES6，又不担心兼容问题
+
+我还没实际应用，不知道实际兼容效果是否有那么好
+
+babel的官网 [https://babeljs.io/](https://babeljs.io/)
+
+babel 示例
+
+babel有gulp插件，下面是个简单的ES6代码转换示例
+
+（1）安装环境
+
+需要你的机器上已经装了nodejs、gulp
+
+然后安装babel客户端
+
+    $ npm install -g babel-cli
+在项目目录下安装相关插件
+
+    $ npm install gulp
+    $ npm install --save-dev gulp-babel
+    $ npm install --save-dev babel-preset-es2015
+
+（2）测试脚本
+
+用ES6方式写一个测试 a.js
+
+    var str = `hi ${name}`;
+编写 gulpfile.js
+
+    var gulp = require("gulp");
+    var babel = require("gulp-babel");
+    gulp.task("default", function () {
+    return gulp.src("a.js")
+    .pipe(babel({presets: ['es2015']}))
+    .pipe(gulp.dest("dist"));
+    });
+这个脚本的意思是使用babel把a.js编译并输出到dist目录下
+
+（3）执行编译
+
+在项目目录中执行
+
+    $ gulp
+执行结束后，到dist目录下查看编译后的a.js
