@@ -1,6 +1,6 @@
 ---
 title: 前端开发周刊-(2018年09月第2周)
-categories: 前端分享
+categories: fed-shared
 tags:
   - 优质文章分享
 abbrlink: d53aad1e

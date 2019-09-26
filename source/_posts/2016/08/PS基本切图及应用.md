@@ -1,20 +1,20 @@
 ---
 title: PS基本切图及应用
-tags: PS
-categories: designed
 abbrlink: 374c3d40
 date: 2016-08-08 15:30:43
 ---
 
-之前一直用别人切好的页面，心中很是惭愧，为不在麻烦于他人，还是重新打开很久没用过得PS，学习了一下如何切页面，顺便整理一下近期学到的PS切图的基本方法。
+之前一直用别人切好的页面，心中很是惭愧，为不在麻烦于他人，还是重新打开很久没用过得 PS，学习了一下如何切页面，顺便整理一下近期学到的 PS 切图的基本方法。
 
 美工一般只提供设计稿，那么问题来了，我们如何把设计稿切成自己想要的图片呢，今天我们来简单学习一下如何切图：
+
 <!--more-->
-切图我们一般只切两种类型的图片，JPG图片和icon图表。重点还是在icon上。 
 
-#### PS环境配置
+切图我们一般只切两种类型的图片，JPG 图片和 icon 图表。重点还是在 icon 上。
 
-- ps中用到的快捷键：
+#### PS 环境配置
+
+- ps 中用到的快捷键：
   - 放大：`z`
   - 缩小：`Ctrl+alt+空格+鼠标点击`
   - 切片：`c`
@@ -38,8 +38,7 @@ date: 2016-08-08 15:30:43
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/ps5.png)
 
-#### icon图标切法
-
+#### icon 图标切法
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/ps6.png)
 
@@ -60,34 +59,37 @@ date: 2016-08-08 15:30:43
 #### 图片在网页中的定位
 
 ```css
-			*{
-				margin:0;
-				padding:0;
-			}
-			html,body{
-				width:100%;
-				height:100%;
-			}
-			.tb{background-image:url("icon.png");background-repeat:no-repeat;display:block;}
-			.icon{
-				width:28px;
-				height:28px;
-				background-position:-28px 0px;
-			}
-			.icon1{
-				width:38px;
-				height:38px;
-				background-position:-39px -27px;
-			}
- ```
- 
- ```html
- <span class="icon tb"></span>	
-<span class="icon1 tb"></span>
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.tb {
+  background-image: url('icon.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+.icon {
+  width: 28px;
+  height: 28px;
+  background-position: -28px 0px;
+}
+.icon1 {
+  width: 38px;
+  height: 38px;
+  background-position: -39px -27px;
+}
+```
+
+```html
+<span class="icon tb"></span> <span class="icon1 tb"></span>
 ```
 
 ---
-
 
 这里介两种图片的定位方法
 
@@ -95,12 +97,8 @@ date: 2016-08-08 15:30:43
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/ps13.png)
 
-- 方法二：在ps原稿中测量图片的位置
+- 方法二：在 ps 原稿中测量图片的位置
 
 ![](http://7xq6al.com1.z0.glb.clouddn.com/ps14.png)
 
-
 （完）
-
-
-

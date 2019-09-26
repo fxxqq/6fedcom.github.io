@@ -1,7 +1,7 @@
 ---
 title: Sublime Text3常用快捷键
 tags: sublime
-categories: 前端工具
+categories: tools
 abbrlink: e8fd76aa
 date: 2016-03-15 20:13:14
 ---

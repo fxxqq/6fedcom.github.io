@@ -1,8 +1,5 @@
 ---
 title: html5+css3整体回顾
-tags:
-  - html5
-  - css3
 categories: front-end
 abbrlink: d1c7e878
 date: 2016-10-19 09:35:08

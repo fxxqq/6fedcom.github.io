@@ -1,6 +1,6 @@
 ---
 title: ES6学习笔记
-categories: 前端分享
+categories: fed-shared
 tags:
   - 优质文章分享
   - es6

@@ -1,7 +1,7 @@
 ---
 title: Visual Studio Code 常用快捷键
 tags: vscode
-categories: 前端工具
+categories: tools
 abbrlink: cc661528
 date: 2017-07-23 19:40:03
 ---

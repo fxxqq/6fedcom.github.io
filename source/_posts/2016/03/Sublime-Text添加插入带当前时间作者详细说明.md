@@ -1,7 +1,7 @@
 ---
 title: Sublime Text添加插入带当前时间作者详细说明
 tags: sublime
-categories: 前端工具
+categories: tools
 abbrlink: 9b02e30a
 date: 2016-03-03 16:40:12
 ---
