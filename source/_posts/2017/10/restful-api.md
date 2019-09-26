@@ -2,7 +2,6 @@
 title: 初探RESTful api
 tags:
   - javascript
-  - RESTful api
 categories: front-end
 abbrlink: 5d687d0f
 date: 2017-10-23 16:35:24
@@ -16,12 +15,11 @@ date: 2017-10-23 16:35:24
 
 ![image.png](http://upload-images.jianshu.io/upload_images/1480597-f645ac53d435d6de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**总结一下什么是RESTful架构**
+**总结一下什么是 RESTful 架构**
 
 - 每一个`URI`代表一种资源
 - 客户端和服务器之间，传递这种资源的某种表现层
 - 客户端通过四个`HTTP`动词(`GET、POST、PUT、DELETE`)，对服务器端资源进行操作，实现"表现层状态转化"
-
 
 ## 二、RESTful api 设计
 
@@ -37,7 +35,7 @@ date: 2017-10-23 16:35:24
 https://api.example.com
 ```
 
-- 如果确定api很简单，不会有进一步扩展，可以考虑放在主域名下
+- 如果确定 api 很简单，不会有进一步扩展，可以考虑放在主域名下
 
 ```js
 https://example.org/api/
@@ -64,16 +62,15 @@ https://api.example.com/v1/animals
 https://api.example.com/v1/employees
 ```
 
-### 2.5、HTTP动词
+### 2.5、HTTP 动词
 
 - 对于资源的具体操作类型，由`HTTP`动词表示
 
-
-- `GET（SELECT）`：从服务器取出资源（一项或多项）。
-- `POST（CREATE）`：在服务器新建一个资源。
-- `PUT（UPDATE）`：在服务器更新资源（客户端提供改变后的完整资源）。
-- `PATCH（UPDATE）`：在服务器更新资源（客户端提供改变的属性）。
-- `DELETE（DELETE）`：从服务器删除资源。
+* `GET（SELECT）`：从服务器取出资源（一项或多项）。
+* `POST（CREATE）`：在服务器新建一个资源。
+* `PUT（UPDATE）`：在服务器更新资源（客户端提供改变后的完整资源）。
+* `PATCH（UPDATE）`：在服务器更新资源（客户端提供改变的属性）。
+* `DELETE（DELETE）`：从服务器删除资源。
 
 > 下面是一些例子
 
@@ -90,7 +87,7 @@ DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
 
 ### 2.6、过滤信息
 
-> 如果记录数量很多，服务器不可能都将它们返回给用户。api应该提供参数，过滤返回结果
+> 如果记录数量很多，服务器不可能都将它们返回给用户。api 应该提供参数，过滤返回结果
 
 - 下面是一些常见的参数
   - `?limit=10`：指定返回记录的数量
@@ -99,12 +96,11 @@ DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
   - `?sortby=name&order=asc`：指定返回结果按照哪个属性排序，以及排序顺序。
   - `?animal_type_id=1`：指定筛选条件
 
-> 参数的设计允许存在冗余，即允许api路径和URL参数偶尔有重复。比如，`GET /zoo/ID/animals` 与 `GET /animals?zoo_id=ID` 的含义是相同的
+> 参数的设计允许存在冗余，即允许 api 路径和 URL 参数偶尔有重复。比如，`GET /zoo/ID/animals` 与 `GET /animals?zoo_id=ID` 的含义是相同的
 
 ### 2.7、状态码
 
 > 服务器向用户返回的状态码和提示信息
-
 
 ### 2.8、错误处理
 
@@ -112,7 +108,7 @@ DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
 
 ```js
 {
-    error: "Invalid api key"
+  error: 'Invalid api key'
 }
 ```
 
@@ -131,9 +127,7 @@ DELETE /collection/resource：返回一个空文档
 
 ### 2.10、Hypermedia api
 
-
 > `RESTful api`最好做到`Hypermedia`，即返回结果中提供链接，连向其他`api`方法，使得用户不查文档，也知道下一步应该做什么
-
 
 - 比如，当用户向`api.example.com`的根目录发出请求，会得到这样一个文档
 
@@ -146,8 +140,8 @@ DELETE /collection/resource：返回一个空文档
 }}
 ```
 
-- 上面代码表示，文档中有一个`link`属性，用户读取这个属性就知道下一步该调用什么`api`了。`rel`表示这个`api`与当前网址的关系（collection关系，并给出该collection的网址），`href`表示`api`的路径，`title`表示`api`的标题，`type`表示返回类型
-
+- 上面代码表示，文档中有一个`link`属性，用户读取这个属性就知道下一步该调用什么`api`了。`rel`表示这个`api`与当前网址的关系（collection 关系，并给出该 collection 的网址），`href`表示`api`的路径，`title`表示`api`的标题，`type`表示返回类型
 
 ## 三、参考资料
-  - [restful_api](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+
+- [restful_api](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)

@@ -1,7 +1,7 @@
 ---
 title: 学会使用Sublime Text Snippets提高编码速度
 tags: sublime
-categories: 前端工具
+categories: tools
 abbrlink: e3137a15
 date: 2016-08-13 22:10:08
 ---

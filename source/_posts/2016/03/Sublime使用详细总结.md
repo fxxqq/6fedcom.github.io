@@ -1,7 +1,7 @@
 ---
 title: Sublime使用详细总结
 tags: sublime
-categories: 前端工具
+categories: tools
 abbrlink: 35c2a187
 date: 2016-03-14 13:37:18
 ---

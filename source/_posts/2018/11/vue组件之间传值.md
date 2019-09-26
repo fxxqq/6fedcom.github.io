@@ -139,7 +139,7 @@ export default {
 ```
 
 *FirstChild.vue*
-```vue
+```html
 <template>
   <div class="firstChild">
     <input type="text" placeholder="请输入文字" v-model="message">
@@ -168,7 +168,7 @@ export default {
  ```
 
 *SecondChild.vue*
-```vue
+```html
 <template>
     <div id="SecondChild">
         <h1>{{message}}</h1>

@@ -2,13 +2,13 @@
 title: 修改element ui 源码 npm run dist 报错以及解决方案
 categories: front-end
 tags:
-  - npm
-  - elementui
   - vue
 abbrlink: 47bf543f
 date: 2018-06-25 16:36:54
 ---
+
 报错
+
 ```jsx
 D:\astudy\element-dev\packages\theme-chalk\src\fonts\element-icons.ttf
   1:1  error  Parsing error: Unexpected character ''
@@ -41,7 +41,7 @@ npm ERR! A complete log of this run can be found in:
 npm ERR!     C:\Users\terry.wt\AppData\Roaming\npm-cache\_logs\2018-06-25T06_12_46_124Z-debug.log
 ```
 
-报错是因为eslint检测出空格导致的，网上找了很多在webpack配置关闭eslint的方法不生效
+报错是因为 eslint 检测出空格导致的，网上找了很多在 webpack 配置关闭 eslint 的方法不生效
 
-修改方案 找到package.json文件
-找到script里面的dist方法，删除&&npm run lint方法 就可以了
+修改方案 找到 package.json 文件
+找到 script 里面的 dist 方法，删除&&npm run lint 方法 就可以了

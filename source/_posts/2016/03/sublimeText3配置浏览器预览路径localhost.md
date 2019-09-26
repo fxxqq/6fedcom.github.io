@@ -1,7 +1,7 @@
 ---
 title: sublimeText3配置浏览器预览路径localhost
 tags: sublime
-categories: 前端工具
+categories: tools
 abbrlink: fba80764
 date: 2016-03-29 08:45:35
 ---

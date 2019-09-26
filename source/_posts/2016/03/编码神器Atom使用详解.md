@@ -1,7 +1,7 @@
 ---
 title: 编码神器atom使用详解
 tags: atom
-categories: 前端工具
+categories: tools
 abbrlink: '96063689'
 date: 2016-03-14 16:21:16
 ---
