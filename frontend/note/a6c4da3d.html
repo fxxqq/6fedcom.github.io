@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       虚拟dom（二） |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="一、为什么需要虚拟dom 先介绍浏览器加载一个HTML文件需要做哪些事，帮助我们理解为什么我们需要虚拟dom。webkit引擎的处理流程    所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建dom tree –&amp;gt; 创建Style Rules -&amp;gt; 构建Render tree -&amp;gt; 布局Layout –&amp;gt; 绘制Painting   第一步，用HTML分析器，分析HT">
+<meta name="keywords" content="javascript,dom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚拟dom（二）">
+<meta property="og:url" content="https://ru23.com/note/a6c4da3d.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="一、为什么需要虚拟dom 先介绍浏览器加载一个HTML文件需要做哪些事，帮助我们理解为什么我们需要虚拟dom。webkit引擎的处理流程    所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建dom tree –&amp;gt; 创建Style Rules -&amp;gt; 构建Render tree -&amp;gt; 布局Layout –&amp;gt; 绘制Painting   第一步，用HTML分析器，分析HT">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-409c2c86d78baa71.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-b834a19182079afd.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-fd068c191a95ea82.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-b592d77d1cc244e1.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-b13f0c68b7cc7c43.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-e5ca945bf041e1f4.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-17cf74f6fdd45468.png">
+<meta property="og:updated_time" content="2019-09-29T01:30:17.744Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="虚拟dom（二）">
+<meta name="twitter:description" content="一、为什么需要虚拟dom 先介绍浏览器加载一个HTML文件需要做哪些事，帮助我们理解为什么我们需要虚拟dom。webkit引擎的处理流程    所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建dom tree –&amp;gt; 创建Style Rules -&amp;gt; 构建Render tree -&amp;gt; 布局Layout –&amp;gt; 绘制Painting   第一步，用HTML分析器，分析HT">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg">  
+    <link rel="icon" href="https://cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.ru23.com/css/style.css"> <script src="https://cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="https://cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                            <i class="fa fa-github-square fa-2x"></i></a>
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                            <i class="fa fa-wechat fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                            <i class="fa fa-external-link-square fa-2x"></i></a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                            <i class="fa fa-external-link fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-10-vdom-improve" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      虚拟dom（二）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-10-20
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <h2 id="一、为什么需要虚拟dom"><a href="#一、为什么需要虚拟dom" class="headerlink" title="一、为什么需要虚拟dom"></a>一、为什么需要虚拟dom</h2><blockquote>
+<p>先介绍浏览器加载一个<code>HTML</code>文件需要做哪些事，帮助我们理解为什么我们需要虚拟<code>dom</code>。<code>webkit</code>引擎的处理流程</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg" alt=""></p>
+<blockquote>
+<p>所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建<code>dom tree</code> –&gt; 创建<code>Style Rules</code> -&gt; 构建<code>Render tree</code> -&gt; 布局<code>Layout</code> –&gt; 绘制<code>Painting</code></p>
+</blockquote>
+<ul>
+<li>第一步，用<code>HTML</code>分析器，分析<code>HTML</code>元素，构建一颗<code>dom</code>树。</li>
+<li>第二步：用<code>CSS</code>分析器，分析<code>CSS</code>文件和元素上的<code>inline</code>样式，生成页面的样式表。</li>
+<li>第三步：将上面的<code>dom</code>树和样式表，关联起来，构建一颗<code>Render</code>树。这一过程又称为<code>Attachment</code>。每个<code>dom</code>节点都有<code>attach</code>方法，接受样式信息，返回一个<code>render</code>对象（又名<code>renderer</code>）。这些<code>render</code>对象最终会被构建成一颗<code>Render</code>树。</li>
+<li>第四步：有了<code>Render</code>树后，浏览器开始布局，会为每个<code>Render</code>树上的节点确定一个在显示屏上出现的精确坐标值。</li>
+<li>第五步：<code>Render</code>数有了，节点显示的位置坐标也有了，最后就是调用每个节点的<code>paint</code>方法，让它们显示出来。</li>
+</ul>
+<blockquote>
+<p>当你用传统的源生<code>api</code>或<code>jquery</code>去操作<code>dom</code>时，浏览器会从构建<code>dom</code>树开始从头到尾执行一遍流程。比如当你在一次操作时，需要更新<code>10</code>个<code>dom</code>节点，理想状态是一次性构建完<code>dom</code>树，再执行后续操作。但浏览器没这么智能，收到第一个更新<code>dom</code>请求后，并不知道后续还有9次更新操作，因此会马上执行流程，最终执行10次流程。显然例如计算<code>dom</code>节点的坐标值等都是白白浪费性能，可能这次计算完，紧接着的下一个<code>dom</code>更新请求，这个节点的坐标值就变了，前面的一次计算是无用功。</p>
+</blockquote>
+<ul>
+<li>即使计算机硬件一直在更新迭代，操作<code>dom</code>的代价仍旧是昂贵的，频繁操作还是会出现页面卡顿，影响用户的体验。真实的<code>dom</code>节点，哪怕一个最简单的div也包含着很多属性，可以打印出来直观感受一下</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-409c2c86d78baa71.png" alt=""></p>
+<blockquote>
+<p>虚拟<code>dom</code>就是为了解决这个浏览器性能问题而被设计出来的。例如前面的例子，假如一次操作中有<code>10</code>次更新<code>dom</code>的动作，虚拟<code>dom</code>不会立即操作<code>dom</code>，而是将这<code>10</code>次更新的<code>diff</code>内容保存到本地的一个<code>js</code>对象中，最终将这个js对象一次性<code>attach</code>到<code>dom</code>树上，通知浏览器去执行绘制工作，这样可以避免大量的无谓的计算量</p>
+</blockquote>
+<h2 id="二、实现虚拟dom"><a href="#二、实现虚拟dom" class="headerlink" title="二、实现虚拟dom"></a>二、实现虚拟dom</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"real-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Real dom<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>cannot update<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>&gt;</span>Item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>&gt;</span>Item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>&gt;</span>Item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用<code>js</code>对象来模拟<code>dom</code>节点如下</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tree = Element(<span class="string">'div'</span>, &#123; <span class="attr">id</span>: <span class="string">'virtual-container'</span> &#125;, [</span><br><span class="line">    Element(<span class="string">'p'</span>, &#123;&#125;, [<span class="string">'Virtual dom'</span>]),</span><br><span class="line">    Element(<span class="string">'div'</span>, &#123;&#125;, [<span class="string">'before update'</span>]),</span><br><span class="line">    Element(<span class="string">'ul'</span>, &#123;&#125;, [</span><br><span class="line">        Element(<span class="string">'li'</span>, &#123; <span class="attr">class</span>: <span class="string">'item'</span> &#125;, [<span class="string">'Item 1'</span>]),</span><br><span class="line">        Element(<span class="string">'li'</span>, &#123; <span class="attr">class</span>: <span class="string">'item'</span> &#125;, [<span class="string">'Item 2'</span>]),</span><br><span class="line">        Element(<span class="string">'li'</span>, &#123; <span class="attr">class</span>: <span class="string">'item'</span> &#125;, [<span class="string">'Item 3'</span>]),</span><br><span class="line">    ]),</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> root = tree.render();</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'virtualDom'</span>).appendChild(root);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用<code>js</code>对象模拟<code>dom</code>节点的好处是，页面的更新可以先全部反映在<code>js</code>对象上，操作内存中的<code>js</code>对象的速度显然要快多了。等更新完后，再将最终的<code>js</code>对象映射成真实的<code>dom</code>，交由浏览器去绘制</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Element</span>(<span class="params">tagName, props, children</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> Element)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Element(tagName, props, children);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.tagName = tagName;</span><br><span class="line">    <span class="keyword">this</span>.props = props || &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.children = children || [];</span><br><span class="line">    <span class="keyword">this</span>.key = props ? props.key : <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.children.forEach(<span class="function">(<span class="params">child</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (child <span class="keyword">instanceof</span> Element) &#123;</span><br><span class="line">            count += child.count;</span><br><span class="line">        &#125;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">this</span>.count = count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第一个参数是节点名（如<code>div</code>），第二个参数是节点的属性（如<code>class</code>），第三个参数是子节点（如<code>ul</code>的<code>li</code>）。除了这三个参数会被保存在对象上外，还保存了<code>key</code>和<code>count</code></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-b834a19182079afd.png" alt=""></p>
+<blockquote>
+<p>有了<code>js</code>对象后，最终还需要将其映射成真实的<code>dom</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Element.prototype.render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> el = <span class="built_in">document</span>.createElement(<span class="keyword">this</span>.tagName);</span><br><span class="line">    <span class="keyword">const</span> props = <span class="keyword">this</span>.props;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> propName <span class="keyword">in</span> props) &#123;</span><br><span class="line">        setAttr(el, propName, props[propName]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.children.forEach(<span class="function">(<span class="params">child</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> childEl = (child <span class="keyword">instanceof</span> Element) ? child.render() : <span class="built_in">document</span>.createTextnode(child);</span><br><span class="line">        el.appendChild(childEl);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> el;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>根据<code>dom</code>名调用源生的<code>createElement</code>创建真实<code>dom</code>，将<code>dom</code>的属性全都加到这个<code>dom</code>元素上，如果有子元素继续递归调用创建子元素，并<code>appendChild</code>挂到该<code>dom</code>元素上。这样就完成了从创建虚拟<code>dom</code>到将其映射成真实<code>dom</code>的全部工作</p>
+</blockquote>
+<h2 id="三、Diff算法"><a href="#三、Diff算法" class="headerlink" title="三、Diff算法"></a>三、Diff算法</h2><blockquote>
+<p>我们已经完成了创建虚拟<code>dom</code>并将其映射成真实<code>dom</code>的工作，这样所有的更新都可以先反映到虚拟<code>dom</code>上，如何反映呢？需要明确一下<code>Diff</code>算法</p>
+</blockquote>
+<ul>
+<li>两棵树如果完全比较时间复杂度是<code>O(n^3)</code></li>
+<li><code>React</code>的<code>Diff</code>算法的时间复杂度是<code>O(n)</code>。要实现这么低的时间复杂度，意味着只能平层地比较两棵树的节点，放弃了深度遍历</li>
+<li>这样做，似乎牺牲了一定的精确性来换取速度，但考虑到现实中前端页面通常也不会跨层级移动<code>dom</code>元素，所以这样做是最优的。</li>
+</ul>
+<p>我们新创建一棵树，用于和之前的树进行比较</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newTree = Element(<span class="string">'div'</span>, &#123; <span class="attr">id</span>: <span class="string">'virtual-container'</span> &#125;, [</span><br><span class="line">    Element(<span class="string">'h3'</span>, &#123;&#125;, [<span class="string">'Virtual dom'</span>]),                     <span class="comment">// REPLACE</span></span><br><span class="line">    Element(<span class="string">'div'</span>, &#123;&#125;, [<span class="string">'after update'</span>]),                   <span class="comment">// TEXT</span></span><br><span class="line">    Element(<span class="string">'ul'</span>, &#123; <span class="attr">class</span>: <span class="string">'marginLeft10'</span> &#125;, [              <span class="comment">// PROPS</span></span><br><span class="line">        Element(<span class="string">'li'</span>, &#123; <span class="attr">class</span>: <span class="string">'item'</span> &#125;, [<span class="string">'Item 1'</span>]),</span><br><span class="line">        <span class="comment">// Element('li', &#123; class: 'item' &#125;, ['Item 2']),    // REORDER remove</span></span><br><span class="line">        Element(<span class="string">'li'</span>, &#123; <span class="attr">class</span>: <span class="string">'item'</span> &#125;, [<span class="string">'Item 3'</span>]),</span><br><span class="line">    ]),</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<p>只考虑平层地<code>Diff</code>的话，就简单多了，只需要考虑以下4种情况</p>
+<blockquote>
+<p>第一种是最简单的，节点类型变了，例如下图中的<code>P</code>变成了<code>h3</code>。我们将这个过程称之为<code>REPLACE</code>。直接将旧节点卸载（<code>componentWillUnmount</code>）并装载新节点（<code>componentWillMount</code>）就行了</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-fd068c191a95ea82.png" alt=""></p>
+<p>旧节点包括下面的子节点都将被卸载，如果新节点和旧节点仅仅是类型不同，但下面的所有子节点都一样时，这样做显得效率不高。但为了避免<code>O(n^3)</code>的时间复杂度，这样做是值得的。这也提醒了<code>React</code>开发者，应该避免无谓的节点类型的变化，例如运行时将<code>div</code>变成<code>p</code>就没什么太大意义</p>
+<blockquote>
+<p>第二种也比较简单，节点类型一样，仅仅属性或属性值变了</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">renderA: &lt;ul&gt;</span><br><span class="line">renderB: &lt;ul class: &apos;marginLeft10&apos;&gt;</span><br><span class="line">=&gt; [addAttribute class &quot;marginLeft10&quot;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我们将这个过程称之为<code>PROPS</code>。此时不会触发节点的卸载（<code>componentWillUnmount</code>）和装载（<code>componentWillMount</code>）动作。而是执行节点更新（<code>shouldComponentUpdate</code>到<code>componentDidUpdate</code>的一系列方法）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">diffProps</span>(<span class="params">oldnode, newnode</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> oldProps = oldnode.props;</span><br><span class="line">    <span class="keyword">const</span> newProps = newnode.props;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> key;</span><br><span class="line">    <span class="keyword">const</span> propsPatches = &#123;&#125;;</span><br><span class="line">    <span class="keyword">let</span> isSame = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// find out different props</span></span><br><span class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> oldProps) &#123;</span><br><span class="line">        <span class="keyword">if</span> (newProps[key] !== oldProps[key]) &#123;</span><br><span class="line">            isSame = <span class="literal">false</span>;</span><br><span class="line">            propsPatches[key] = newProps[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// find out new props</span></span><br><span class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> newProps) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!oldProps.hasOwnProperty(key)) &#123;</span><br><span class="line">            isSame = <span class="literal">false</span>;</span><br><span class="line">            propsPatches[key] = newProps[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> isSame ? <span class="literal">null</span> : propsPatches;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三种是文本变了，文本对也是一个<code>Text node</code>，也比较简单，直接修改文字内容就行了，我们将这个过程称之为<code>TEXT</code></li>
+<li>第四种是移动，增加，删除子节点，我们将这个过程称之为<code>REORDER</code></li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-b592d77d1cc244e1.png" alt=""></p>
+<blockquote>
+<p>在中间插入一个节点，程序员写代码很简单：$(B).after(F)。但如何高效地插入呢？简单粗暴的做法是：卸载C，装载F，卸载D，装载C，卸载E，装载D，装载E。如下图</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-b13f0c68b7cc7c43.png" alt=""></p>
+<blockquote>
+<p>我们写<code>JSX</code>代码时，如果没有给数组或枚举类型定义一个<code>key</code>，就会看到下面这样的<code>warning</code>。<code>React</code>提醒我们，没有<code>key</code>的话，涉及到移动，增加，删除子节点的操作时，就会用上面那种简单粗暴的做法来更新。虽然程序运行不会有错，但效率太低，因此<code>React</code>会给我们一个<code>warning</code></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-e5ca945bf041e1f4.png" alt=""></p>
+<blockquote>
+<p>如果我们在<code>JSX</code>里为数组或枚举型元素增加上<code>key</code>后，<code>React</code>就能根据<code>key</code>，直接找到具体的位置进行操作，效率比较高。如下图</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1959053-17cf74f6fdd45468.png" alt=""></p>
+<blockquote>
+<p>常见的最小编辑距离问题，可以用<code>Levenshtein Distance</code>算法来实现，时间复杂度是<code>O(M*N)</code>，但通常我们只要一些简单的移动就能满足需要，降低点精确性，将时间复杂度降低到<code>O(max(M, N)</code>即可</p>
+</blockquote>
+<p>最终<code>Diff</code>出来的结果如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="number">1</span>: [ &#123;<span class="attr">type</span>: REPLACE, <span class="attr">node</span>: Element&#125; ],</span><br><span class="line">    <span class="number">4</span>: [ &#123;<span class="attr">type</span>: TEXT, <span class="attr">content</span>: <span class="string">"after update"</span>&#125; ],</span><br><span class="line">    <span class="number">5</span>: [ &#123;<span class="attr">type</span>: PROPS, <span class="attr">props</span>: &#123;<span class="attr">class</span>: <span class="string">"marginLeft10"</span>&#125;&#125;, &#123;<span class="attr">type</span>: REORDER, <span class="attr">moves</span>: [&#123;<span class="attr">index</span>: <span class="number">2</span>, <span class="attr">type</span>: <span class="number">0</span>&#125;]&#125; ],</span><br><span class="line">    <span class="number">6</span>: [ &#123;<span class="attr">type</span>: REORDER, <span class="attr">moves</span>: [&#123;<span class="attr">index</span>: <span class="number">2</span>, <span class="attr">type</span>: <span class="number">0</span>&#125;]&#125; ],</span><br><span class="line">    <span class="number">8</span>: [ &#123;<span class="attr">type</span>: REORDER, <span class="attr">moves</span>: [&#123;<span class="attr">index</span>: <span class="number">2</span>, <span class="attr">type</span>: <span class="number">0</span>&#125;]&#125; ],</span><br><span class="line">    <span class="number">9</span>: [ &#123;<span class="attr">type</span>: TEXT, <span class="attr">content</span>: <span class="string">"Item 3"</span>&#125; ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、映射成真实dom"><a href="#四、映射成真实dom" class="headerlink" title="四、映射成真实dom"></a>四、映射成真实dom</h2><blockquote>
+<p>虚拟<code>dom</code>有了，<code>Diff</code>也有了，现在就可以将<code>Diff</code>应用到真实<code>dom</code>上了</p>
+</blockquote>
+<p>深度遍历dom将Diff的内容更新进去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfsWalk</span>(<span class="params">node, walker, patches</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> currentPatches = patches[walker.index];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> len = node.childnodes ? node.childnodes.length : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        walker.index++;</span><br><span class="line">        dfsWalk(node.childnodes[i], walker, patches);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (currentPatches) &#123;</span><br><span class="line">        applyPatches(node, currentPatches);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>具体更新的代码如下，其实就是根据<code>Diff</code>信息调用源生<code>api</code>操作<code>dom</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyPatches</span>(<span class="params">node, currentPatches</span>) </span>&#123;</span><br><span class="line">    currentPatches.forEach(<span class="function">(<span class="params">currentPatch</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (currentPatch.type) &#123;</span><br><span class="line">            <span class="keyword">case</span> REPLACE: &#123;</span><br><span class="line">                <span class="keyword">const</span> newnode = (<span class="keyword">typeof</span> currentPatch.node === <span class="string">'string'</span>)</span><br><span class="line">                    ? <span class="built_in">document</span>.createTextnode(currentPatch.node)</span><br><span class="line">                    : currentPatch.node.render();</span><br><span class="line">                node.parentnode.replaceChild(newnode, node);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> REORDER:</span><br><span class="line">                reorderChildren(node, currentPatch.moves);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> PROPS:</span><br><span class="line">                setProps(node, currentPatch.props);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> TEXT:</span><br><span class="line">                <span class="keyword">if</span> (node.textContent) &#123;</span><br><span class="line">                    node.textContent = currentPatch.content;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// ie</span></span><br><span class="line">                    node.nodeValue = currentPatch.content;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Unknown patch type <span class="subst">$&#123;currentPatch.type&#125;</span>`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>虚拟<code>dom</code>的目的是将所有操作累加起来，统计计算出所有的变化后，统一更新一次<code>dom</code></p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/a6c4da3d.html" title="虚拟dom（二）">https://ru23.com/note/a6c4da3d.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="https://cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/a6c4da3d.html&title=《虚拟dom（二）》 — 前端迷&pic=https://cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/a6c4da3d.html&title=《虚拟dom（二）》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/a6c4da3d.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟dom（二）》 — 前端迷&url=https://ru23.com/note/a6c4da3d.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/a6c4da3d.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aOY7DMAwF0Nz/0pk2jZVPytQ4wFNlGF6eXRBc9HrF6/2x8jOf56+e+ZpYuLi429z3ck1cc3W8vhcXF/c8dx1o1uEpYSVPiIIdLi7uI7nv4soTJlxc3N/l5gVMkgzh4uI+mZsXLevEZT8Nuq1Ww8XF3eDmXcq545H+Li4ubou7U8bkg5PbiihcXNwj3DygVJue+aCl/F5cXNxhbo6oPrqayqw/rPzPcHFxt7m9wWrvw/K06TIjw8XFHeYmo4vqo6vEXozCxcWd4/aGnfvNlHzU+qX4wcXFHeDmIexM6pMHPlxc3Dlur325U+rkP+VL3MXFxR3mrlOKaiBLwlxvDIOLi3ueWw1qUYlSTGIKgQwXF3eM29s2kTdKdoasl/fi4uL+E7e3PSvfjJWPVaJAhouLO8bNy548MaoOVqNyCxcX9yB3f+PUfqITXYmLizvM3Xlxr4W61YjBxcU9wu21RKshqTpKqbZicXFxJ7jVBCVBJNfnzZRC9MXFxb2V2ws0PWK1+Llsi+Di4j6Gm2+YqLZTCxUbLi7uI7lJkLqr2XFDIMPFxW1xe03SasDKf0FhJoyLizvAvWFOG7+yt0kLFxf3IPcPM6RxsFP31BAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/dom/" class="color4">dom</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、为什么需要虚拟dom"><span class="post-toc-text">一、为什么需要虚拟dom</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、实现虚拟dom"><span class="post-toc-text">二、实现虚拟dom</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Diff算法"><span class="post-toc-text">三、Diff算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、映射成真实dom"><span class="post-toc-text">四、映射成真实dom</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/872b0859.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          前端面试之mvvm浅析
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/96d236e5.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">虚拟dom（一）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10.77px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10.77px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="https://cdn.ru23.com/js/search.js"></script>
+<script src="https://cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

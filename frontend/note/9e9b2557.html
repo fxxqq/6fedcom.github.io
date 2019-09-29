@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       Redux之异步Action及操作（七） |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="一、创建同步Action Action是数据从应用传递到 store/state 的载体，也是开启一次完成数据流的开始  普通的action对象 123456const action = &amp;#123;	type:&apos;ADD_TODO&apos;,	name:&apos;poetries&apos;&amp;#125;dispatch(action) 封装action creator 12345678function actionCrea">
+<meta name="keywords" content="javascript,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux之异步Action及操作（七）">
+<meta property="og:url" content="https://ru23.com/note/9e9b2557.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="一、创建同步Action Action是数据从应用传递到 store/state 的载体，也是开启一次完成数据流的开始  普通的action对象 123456const action = &amp;#123;	type:&apos;ADD_TODO&apos;,	name:&apos;poetries&apos;&amp;#125;dispatch(action) 封装action creator 12345678function actionCrea">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-7ada60211c8b6262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-7937f0072593a955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-29T01:30:17.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redux之异步Action及操作（七）">
+<meta name="twitter:description" content="一、创建同步Action Action是数据从应用传递到 store/state 的载体，也是开启一次完成数据流的开始  普通的action对象 123456const action = &amp;#123;	type:&apos;ADD_TODO&apos;,	name:&apos;poetries&apos;&amp;#125;dispatch(action) 封装action creator 12345678function actionCrea">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-7ada60211c8b6262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
+    <link rel="icon" href="https://cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.ru23.com/css/style.css"> <script src="https://cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="https://cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                            <i class="fa fa-github-square fa-2x"></i></a>
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                            <i class="fa fa-wechat fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                            <i class="fa fa-external-link-square fa-2x"></i></a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                            <i class="fa fa-external-link fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2017-11-redux-study-async-operation" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      Redux之异步Action及操作（七）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-11-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <h2 id="一、创建同步Action"><a href="#一、创建同步Action" class="headerlink" title="一、创建同步Action"></a>一、创建同步Action</h2><blockquote>
+<p><code>Action</code>是数据从应用传递到 <code>store</code>/<code>state</code> 的载体，也是开启一次完成数据流的开始</p>
+</blockquote>
+<p><strong>普通的action对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> action = &#123;</span><br><span class="line">	type:<span class="string">'ADD_TODO'</span>,</span><br><span class="line">	name:<span class="string">'poetries'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dispatch(action)</span><br></pre></td></tr></table></figure>
+<p><strong>封装action creator</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">actionCreator</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">    	type:<span class="string">'ADD_TODO'</span>,</span><br><span class="line">    	data:data</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dispatch(actionCreator(<span class="string">'poetries'</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>bindActionCreators合并</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">name,id</span>)</span>&#123;</span><br><span class="line">	reurn &#123;</span><br><span class="line">		type:<span class="string">'a'</span>,</span><br><span class="line">		name,</span><br><span class="line">		id</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">name,id</span>)</span>&#123;</span><br><span class="line">	reurn &#123;</span><br><span class="line">		type:<span class="string">'b'</span>,</span><br><span class="line">		name,</span><br><span class="line">		id</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> actions = Redux.bindActionCreators(&#123;a,b&#125;,store.dispatch)</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">actions.a(<span class="string">'poetries'</span>,<span class="string">'id001'</span>)</span><br><span class="line">actions.b(<span class="string">'jing'</span>,<span class="string">'id002'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>action创建的标准</strong></p>
+<blockquote>
+<p>在Flux的架构中，一个Action要符合 FSA(Flux Standard Action) 规范，需要满足如下条件</p>
+</blockquote>
+<ul>
+<li>是一个纯文本对象</li>
+<li>只具备 <code>type</code> 、<code>payload</code>、<code>error</code> 和 <code>meta</code>中的一个或者多个属性。<code>type</code> 字段不可缺省，其它字段可缺省</li>
+<li>若 <code>Action</code> 报错，<code>error</code> 字段不可缺省，切必须为 <code>true</code></li>
+</ul>
+<blockquote>
+<p><code>payload</code> 是一个对象，用作Action携带数据的载体</p>
+</blockquote>
+<p><strong>标准action示例</strong></p>
+<ul>
+<li>A basic Flux Standard Action:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">  payload: &#123;</span><br><span class="line">    text: <span class="string">'Do something.'</span>  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>An FSA that represents an error, analogous to a rejected Promise</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">  payload: <span class="keyword">new</span> <span class="built_in">Error</span>(),</span><br><span class="line">  error: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/acdlite/flux-standard-action" target="_blank" rel="noopener">https://github.com/acdlite/flux-standard-action</a></p>
+</blockquote>
+<ul>
+<li>可以采用如下一个简单的方式检验一个<code>Action</code>是否符合FSA标准</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// every有一个匹配不到返回false</span></span><br><span class="line"><span class="keyword">let</span> isFSA = <span class="built_in">Object</span>.keys(action).every(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">return</span>  [<span class="string">'payload'</span>,<span class="string">'type'</span>,<span class="string">'error'</span>,<span class="string">'meta'</span>].indexOf(item) &gt;  <span class="number">-1</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="二、创建异步action的多种方式"><a href="#二、创建异步action的多种方式" class="headerlink" title="二、创建异步action的多种方式"></a>二、创建异步action的多种方式</h2><blockquote>
+<p>最简单的方式就是使用同步的方式来异步，将原来同步时一个<code>action</code>拆分成多个异步的<code>action</code>的，在异步开始前、异步请求中、异步正常返回（异常）操作分别使用同步的操作，从而模拟出一个异步操作了。这样的方式是比较麻烦的，现在已经有<code>redux-saga</code>等插件来解决这些问题了</p>
+</blockquote>
+<p><strong>异步action的实现方式一：setTimeout</strong></p>
+<blockquote>
+<p><code>redux-thunk</code>中间处理解析</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">thunkAction</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    reutrn (dispatch)=&gt;&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            dispatch(&#123;</span><br><span class="line">                type:<span class="string">'ADD_TODO'</span>,</span><br><span class="line">                data</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,<span class="number">3000</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>异步action的实现方式二：promise实现异步action</strong></p>
+<blockquote>
+<p><code>redux-promise</code>中间处理这种<code>action</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseAction</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function">(<span class="params">param</span>)=&gt;</span>&#123;</span><br><span class="line">            resolve(&#123;</span><br><span class="line">                type:<span class="string">'ADD_TODO'</span>,</span><br><span class="line">                name</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,<span class="number">3000</span>)</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">param</span>)=&gt;</span>&#123;</span><br><span class="line">        dispatch(action(<span class="string">"action2"</span>))</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">param</span>)=&gt;</span>&#123;</span><br><span class="line">        dispatch(action(<span class="string">"action3"</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、redux异步流程"><a href="#三、redux异步流程" class="headerlink" title="三、redux异步流程"></a>三、redux异步流程</h2><p><img src="http://upload-images.jianshu.io/upload_images/1480597-7ada60211c8b6262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>首先发起一个action，然后通过中间件，这里为什么要用中间件呢，因为这样<code>dispatch</code>的返回值才能是一个函数。</li>
+<li>通过<code>store.dispatch</code>，将状态的的改变传给<code>store</code>的小弟<code>reducer</code>，<code>reducer</code>根据<code>action</code>的改变，传递新的状态<code>state</code>。</li>
+<li>最后将所有的改变告诉给它的大哥，<code>store</code>。<code>store</code>保存着所有的数据，并将数据注入到组件的顶部，这样组件就可以获得它需要的数据了</li>
+</ul>
+<h2 id="四、Redux异步方案选型"><a href="#四、Redux异步方案选型" class="headerlink" title="四、Redux异步方案选型"></a>四、Redux异步方案选型</h2><p><strong>redux-thunk</strong></p>
+<blockquote>
+<p><code>Redux</code>本身只能处理同步的<code>Action</code>，但可以通过中间件来拦截处理其它类型的<code>action</code>，比如函数(<code>Thunk</code>)，再用回调触发普通<code>Action</code>，从而实现异步处理</p>
+</blockquote>
+<ul>
+<li>发送异步的<code>action</code>其实是被中间件捕获的，函数类型的action就被<code>middleware</code>捕获。至于怎么定义异步的<code>action</code>要看你用哪个中间件，根据他们的实例来定义，这样才会正确解析<code>action</code></li>
+</ul>
+<blockquote>
+<p><code>Redux</code> 本身不处理异步行为，需要依赖中间件。结合 <code>redux-actions</code> 使用，<code>Redux</code> 有两个推荐的异步中间件</p>
+</blockquote>
+<ul>
+<li><code>redux-thunk</code></li>
+<li><code>redux-promise</code></li>
+</ul>
+<blockquote>
+<p><code>redux-thunk</code> 的源码如下</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createThunkMiddleware</span>(<span class="params">extraArgument</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">&#123; dispatch, getState &#125;</span>) =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> action === <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> action(dispatch, getState, extraArgument);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> next(action);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> thunk = createThunkMiddleware();</span><br><span class="line">thunk.withExtraArgument = createThunkMiddleware;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> thunk;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>源码可知，<code>action creator</code> 需要返回一个函数给 <code>redux-thunk</code> 进行调用，示例如下</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> addTodoWithThunk = <span class="function">(<span class="params">val</span>) =&gt;</span> <span class="keyword">async</span> (dispatch, getState)=&gt;&#123;</span><br><span class="line">    <span class="comment">//请求之前的一些处理</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> value = <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(val + <span class="string">' thunk'</span>);</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">        type:CONSTANT.ADD_TO_DO_THUNK,</span><br><span class="line">        payload:&#123;</span><br><span class="line">            value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>而它使用起来最大的问题，就是重复的模板代码太多</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//action types</span></span><br><span class="line"><span class="keyword">const</span> GET_DATA = <span class="string">'GET_DATA'</span>,</span><br><span class="line">    GET_DATA_SUCCESS = <span class="string">'GET_DATA_SUCCESS'</span>,</span><br><span class="line">    GET_DATA_FAILED = <span class="string">'GET_DATA_FAILED'</span>;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//action creator</span></span><br><span class="line"><span class="keyword">const</span> getDataAction = <span class="function">(<span class="params">id</span>) =&gt;</span> (dispatch, getState) =&gt; &#123;</span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: GET_DATA, </span><br><span class="line">            payload: id</span><br><span class="line">        &#125;)</span><br><span class="line">        api.getData(id) <span class="comment">//注：本文所有示例的api.getData都返回promise对象</span></span><br><span class="line">            .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">                dispatch(&#123;</span><br><span class="line">                    type: GET_DATA_SUCCESS,</span><br><span class="line">                    payload: response</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">                dispatch(&#123;</span><br><span class="line">                    type: GET_DATA_FAILED,</span><br><span class="line">                    payload: error</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;) </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//reducer</span></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">oldState, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> GET_DATA : </span><br><span class="line">        <span class="keyword">return</span> oldState;</span><br><span class="line">    <span class="keyword">case</span> GET_DATA_SUCCESS : </span><br><span class="line">        <span class="keyword">return</span> successState;</span><br><span class="line">    <span class="keyword">case</span> GET_DATA_FAILED : </span><br><span class="line">        <span class="keyword">return</span> errorState;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这已经是最简单的场景了，请注意：我们甚至还没写一行业务逻辑，如果每个异步处理都像这样，重复且无意义的工作会变成明显的阻碍</p>
+</blockquote>
+<ul>
+<li>另一方面，像<code>GET_DATA_SUCCESS</code>、<code>GET_DATA_FAILED</code>这样的字符串声明也非常无趣且易错<br>上例中，<code>GET_DATA</code>这个<code>action</code>并不是多数场景需要的</li>
+</ul>
+<p><strong>redux-promise</strong></p>
+<blockquote>
+<p>由于<code>redux-thunk</code>写起来实在是太麻烦了，社区当然会有其它轮子出现。<code>redux-promise</code>则是其中比较知名的</p>
+</blockquote>
+<ul>
+<li>它自定义了一个<code>middleware</code>，当检测到有<code>action</code>的<code>payload</code>属性是<code>Promise</code>对象时，就会<ul>
+<li>若<code>resolve</code>，触发一个此<code>action</code>的拷贝，但<code>payload</code>为<code>promise</code>的<code>value</code>，并设<code>status</code>属性为<code>&quot;success&quot;</code></li>
+<li>若<code>reject</code>，触发一个此<code>action</code>的拷贝，但<code>payload</code>为<code>promise</code>的<code>reason</code>，并设<code>status</code>属性为<code>&quot;error&quot;</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//action types</span></span><br><span class="line"><span class="keyword">const</span> GET_DATA = <span class="string">'GET_DATA'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//action creator</span></span><br><span class="line"><span class="keyword">const</span> getData = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: GET_DATA,</span><br><span class="line">        payload: api.getData(id) <span class="comment">//payload为promise对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//reducer</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">oldState, action</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">        <span class="keyword">case</span> GET_DATA: </span><br><span class="line">            <span class="keyword">if</span> (action.status === <span class="string">'success'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> successState</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   <span class="keyword">return</span> errorState</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>redux-promise</code>为了精简而做出的妥协非常明显：无法处理乐观更新</p>
+</blockquote>
+<p><strong>场景解析之：乐观更新</strong></p>
+<blockquote>
+<p>多数异步场景都是悲观更新的，即等到请求成功才渲染数据。而与之相对的乐观更新，则是不等待请求成功，在发送请求的同时立即渲染数据</p>
+</blockquote>
+<ul>
+<li>由于乐观更新发生在用户操作时，要处理它，意味着必须有action表示用户的初始动作</li>
+<li>在上面<code>redux-thunk</code>的例子中，我们看到了<code>GET_DATA</code>, <code>GET_DATA_SUCCESS</code>、<code>GET_DATA_FAILED</code>三个<code>action</code>，分别表示初始动作、异步成功和异步失败，其中第一个<code>action</code>使得<code>redux-thunk</code>具备乐观更新的能力</li>
+<li>而在<code>redux-promise</code>中，最初触发的action被中间件拦截然后过滤掉了。原因很简单，<code>redux</code>认可的<code>action</code>对象是 <code>plain javascript objects</code>，即简单对象，而在<code>redux-promise</code>中，初始<code>action</code>的<code>payload</code>是个<code>Promise</code></li>
+</ul>
+<p><strong>redux-promise-middleware</strong></p>
+<blockquote>
+<p><code>redux-promise-middleware</code>相比<code>redux-promise</code>，采取了更为温和和渐进式的思路，保留了和<code>redux-thunk</code>类似的三个<code>action</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//action types</span></span><br><span class="line"><span class="keyword">const</span> GET_DATA = <span class="string">'GET_DATA'</span>,</span><br><span class="line">    GET_DATA_PENDING = <span class="string">'GET_DATA_PENDING'</span>,</span><br><span class="line">    GET_DATA_FULFILLED = <span class="string">'GET_DATA_FULFILLED'</span>,</span><br><span class="line">    GET_DATA_REJECTED = <span class="string">'GET_DATA_REJECTED'</span>;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//action creator</span></span><br><span class="line"><span class="keyword">const</span> getData = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: GET_DATA,</span><br><span class="line">        payload: &#123;</span><br><span class="line">            promise: api.getData(id),</span><br><span class="line">            data: id</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//reducer</span></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function"><span class="keyword">function</span>(<span class="params">oldState, action</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> GET_DATA_PENDING :</span><br><span class="line">        <span class="keyword">return</span> oldState; <span class="comment">// 可通过action.payload.data获取id</span></span><br><span class="line">    <span class="keyword">case</span> GET_DATA_FULFILLED : </span><br><span class="line">        <span class="keyword">return</span> successState;</span><br><span class="line">    <span class="keyword">case</span> GET_DATA_REJECTED : </span><br><span class="line">        <span class="keyword">return</span> errorState;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、redux异步操作代码演示"><a href="#五、redux异步操作代码演示" class="headerlink" title="五、redux异步操作代码演示"></a>五、redux异步操作代码演示</h2><ul>
+<li>根据官网的async例子分析 <a href="https://github.com/lewis617/react-redux-tutorial/tree/master/redux-examples/async" target="_blank" rel="noopener">https://github.com/lewis617/react-redux-tutorial/tree/master/redux-examples/async</a></li>
+</ul>
+<p><strong>action/index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fetch <span class="keyword">from</span> <span class="string">'isomorphic-fetch'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> RECEIVE_POSTS = <span class="string">'RECEIVE_POSTS'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取新闻成功的action</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">receivePosts</span>(<span class="params">reddit, json</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: RECEIVE_POSTS,</span><br><span class="line">    reddit: reddit,</span><br><span class="line">    posts: json.data.children.map(<span class="function"><span class="params">child</span> =&gt;</span>child.data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetchPosts</span>(<span class="params">subreddit</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">dispatch</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> fetch(<span class="string">`http://www.subreddit.com/r/<span class="subst">$&#123;subreddit&#125;</span>.json`</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">      .then(<span class="function"><span class="params">json</span> =&gt;</span></span><br><span class="line">        dispatch(receivePosts(subreddit, json))</span><br><span class="line">      )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果需要则开始获取文章</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchPostsIfNeeded</span>(<span class="params">subreddit</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">dispatch, getState</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> dispatch(fetchPosts(subreddit))</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> <code>fetchPostsIfNeeded</code>这里就是一个中间件。<code>redux-thunk</code>会拦截<code>fetchPostsIfNeeded</code>这个<code>action</code>，会先发起数据请求，如果成功，就将数据传给<code>action</code>从而到达<code>reducer</code>那里</p>
+</blockquote>
+<p><strong>reducers/index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  RECEIVE_POSTS</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'../actions'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">posts</span>(<span class="params">state = &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">  items: []</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> RECEIVE_POSTS:</span><br><span class="line">      <span class="comment">// Object.assign是ES6的一个语法。合并对象，将对象合并为一个，前后相同的话，后者覆盖强者。详情可以看这里</span></span><br><span class="line">      <span class="comment">//  https://developer.mozilla.org/en-US/docs/Web/javascript/Reference/Global_Objects/Object/assign</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, state, &#123;</span><br><span class="line">        items: action.posts <span class="comment">//数据都存在了这里</span></span><br><span class="line">      &#125;)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将所有的reducer结合为一个,传给store</span></span><br><span class="line"><span class="keyword">const</span> rootReducer = combineReducers(&#123;</span><br><span class="line">  postsByReddit</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> rootReducer</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个跟正常的<code>reducer</code>差不多。判断<code>action</code>的类型，从而根据<code>action</code>的不同类型，返回不同的数据。这里将数据存储在了<code>items</code>这里。这里的<code>reducer</code>只有一个。最后结合成<code>rootReducer</code>,传给<code>store</code></p>
+</blockquote>
+<p><strong>store/configureStore.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> thunkMiddleware <span class="keyword">from</span> <span class="string">'redux-thunk'</span></span><br><span class="line"><span class="keyword">import</span> createLogger <span class="keyword">from</span> <span class="string">'redux-logger'</span></span><br><span class="line"><span class="keyword">import</span> rootReducer <span class="keyword">from</span> <span class="string">'../reducers'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> createStoreWithMiddleware = applyMiddleware(</span><br><span class="line">  thunkMiddleware,  </span><br><span class="line">  createLogger()  </span><br><span class="line">)(createStore)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">configureStore</span>(<span class="params">initialState</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> store = createStoreWithMiddleware(rootReducer, initialState)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">module</span>.hot) &#123;</span><br><span class="line">    <span class="comment">// Enable Webpack hot module replacement for reducers</span></span><br><span class="line">    <span class="built_in">module</span>.hot.accept(<span class="string">'../reducers'</span>, () =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> nextRootReducer = <span class="built_in">require</span>(<span class="string">'../reducers'</span>)</span><br><span class="line">      store.replaceReducer(nextRootReducer)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> store</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们是如何在 <code>dispatch</code> 机制中引入 <code>Redux Thunk middleware</code> 的呢？<br>我们使用了<code>applyMiddleware()</code></li>
+<li>通过使用指定的 <code>middleware</code>，<code>action creator</code> 除了返回 <code>action</code> 对象外还可以返回函数</li>
+<li>这时，这个 <code>action creator</code> 就成为了 <code>thunk</code></li>
+</ul>
+<p><strong>界面上的调用：在containers/App.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化渲染后触发</span></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; dispatch&#125; = <span class="keyword">this</span>.props</span><br><span class="line">    <span class="comment">// 这里可以传两个值，一个是 reactjs 一个是 frontend</span></span><br><span class="line">    dispatch(fetchPostsIfNeeded(<span class="string">'frontend'</span>))</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>改变状态的时候也是需要通过<code>dispatch</code>来传递的</p>
+</blockquote>
+<ul>
+<li>数据的获取是通过<code>provider</code>,将<code>store</code>里面的数据注入给组件。让顶级组件提供给他们的子孙组件调用。代码如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'babel-core/polyfill'</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./containers/App'</span></span><br><span class="line"><span class="keyword">import</span> configureStore <span class="keyword">from</span> <span class="string">'./store/configureStore'</span></span><br><span class="line"><span class="keyword">const</span> store = configureStore()</span><br><span class="line">render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">  &lt;<span class="regexp">/Provider&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById('root')</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样就完成了<code>redux</code>的异步操作。其实最主要的区别还是<code>action</code>里面还有中间件的调用，其他的地方基本跟同步的<code>redux</code>差不多的。搞懂了中间件，就基本搞懂了<code>redux</code>的异步操作</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-7937f0072593a955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/9e9b2557.html" title="Redux之异步Action及操作（七）">https://ru23.com/note/9e9b2557.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="https://cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/9e9b2557.html&title=《Redux之异步Action及操作（七）》 — 前端迷&pic=https://cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/9e9b2557.html&title=《Redux之异步Action及操作（七）》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/9e9b2557.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redux之异步Action及操作（七）》 — 前端迷&url=https://ru23.com/note/9e9b2557.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/9e9b2557.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB2ElEQVR42u3aQW7DMAwEwPz/0+61RRuFS1qCUYxOQSzbIx8IkdTrVR7Xt/H7//WcdOYNAxcXd8y9lmM9p/KE3zPXC3h3Ly4u7nluJfRM5leC4PqZuLi4T+b2wtB6Abi4uP+DO0+ZcHFxn8+th6F5BeNQroaLizvg1l+87/eW+i4uLm6Le4Wj8pr1hiYts/64CxcX9wi3HlB6S6rTg/QJFxf3CHddqlgXLNaBqVJ8qSRCr/T1uLi4A269GFFZTHp4qxLmgh0ZLi7uTdx6+7MShiohr94yeZtu4eLiHudOSqhpOlQpuDRzNVxc3AE3LWXWw1PaMmkmP7i4uBu4le1FvSmSblzSdAgXF/cMtxfIek3W9EjHH1dxcXGPc+uPm2xl0oD4NpDh4uJu447CSohIm6wfPgEuLu5mbq/J2tsMpW2V4BAGLi7uBm66HWnWYMLiS9xkxcXFvZU7Px5RCYhp+zb+fri4uGPuFY5JuaRSlo2rKbi4uBu4aXCZbFZ6RzSai8HFxR1ze8ErvVpPnEoHs3BxcY9we+2NOrreiP1wFy4u7oO56aGuSjk1yNhwcXEfyb2roRKXUHFxcQ9y0/A0L4ymCRUuLu5Jbq/x2Xt02o4d1XdxcXE73C91qyn4qZ9/KgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/react/" class="color1">react</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、创建同步Action"><span class="post-toc-text">一、创建同步Action</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、创建异步action的多种方式"><span class="post-toc-text">二、创建异步action的多种方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、redux异步流程"><span class="post-toc-text">三、redux异步流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Redux异步方案选型"><span class="post-toc-text">四、Redux异步方案选型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、redux异步操作代码演示"><span class="post-toc-text">五、redux异步操作代码演示</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/f50d087a.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Redux之浅析中间件（八）
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/b007a017.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Redux之action、store、reducer分析（六）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10.77px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10.77px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="https://cdn.ru23.com/js/search.js"></script>
+<script src="https://cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

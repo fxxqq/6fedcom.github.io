@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       编码神器atom使用详解 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="atom 是 github 专门为程序员推出的一个跨平台文本编辑器。她很大程度上继承了SublimeText的美，而又不仅如此。而如今试用了 atom 一个多月以来，我被迫见异思迁了，幸好我不是一个喜新厌旧的男人～在编码砌字时，很多时候一款编辑器的标签不够用的，所以现在两款兼而用之。 atom与SublimeText3对比">
+<meta name="keywords" content="atom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码神器atom使用详解">
+<meta property="og:url" content="https://ru23.com/note/96063689.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="atom 是 github 专门为程序员推出的一个跨平台文本编辑器。她很大程度上继承了SublimeText的美，而又不仅如此。而如今试用了 atom 一个多月以来，我被迫见异思迁了，幸好我不是一个喜新厌旧的男人～在编码砌字时，很多时候一款编辑器的标签不够用的，所以现在两款兼而用之。 atom与SublimeText3对比">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xoosr.com1.z0.glb.clouddn.com/atom.png">
+<meta property="og:updated_time" content="2019-09-29T01:30:17.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编码神器atom使用详解">
+<meta name="twitter:description" content="atom 是 github 专门为程序员推出的一个跨平台文本编辑器。她很大程度上继承了SublimeText的美，而又不仅如此。而如今试用了 atom 一个多月以来，我被迫见异思迁了，幸好我不是一个喜新厌旧的男人～在编码砌字时，很多时候一款编辑器的标签不够用的，所以现在两款兼而用之。 atom与SublimeText3对比">
+<meta name="twitter:image" content="http://7xoosr.com1.z0.glb.clouddn.com/atom.png">  
+    <link rel="icon" href="https://cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.ru23.com/css/style.css"> <script src="https://cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="https://cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                            <i class="fa fa-github-square fa-2x"></i></a>
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                            <i class="fa fa-wechat fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                            <i class="fa fa-external-link-square fa-2x"></i></a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                            <i class="fa fa-external-link fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2016-03-编码神器Atom使用详解" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      编码神器atom使用详解
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/tools/">tools</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2016-03-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <p><a href="https://atom.io/" target="_blank" rel="noopener">atom</a> 是 <code>github</code> 专门为程序员推出的一个跨平台文本编辑器。她很大程度上继承了SublimeText的美，而又不仅如此。而如今试用了 <code>atom</code> 一个多月以来，我被迫见异思迁了，幸好我不是一个喜新厌旧的男人～在编码砌字时，很多时候一款编辑器的标签不够用的，所以现在两款兼而用之。</p>
+<p><strong>atom与SublimeText3对比</strong><br><a id="more"></a></p>
+<hr>
+<ul>
+<li>atom1.0之后，有比Sublime更美的UI，不输Sublime的插件包，比Sublime更加舒适的细节，比如：atom下<br><code>cmd-\</code></li>
+<li>显示或隐藏目录树；（Sublime默认是 <code>Ctrl＋K+B</code> ）。<br>更为简洁人性化的设置/插件安装等（当然SublimeText也不太复杂）。</li>
+<li>atom算是一款web app，源码都是 CoffeeScript 写的，连界面都可以用 CSS来自定义，扩展可以用JS开发，完全可以深度定制打造自己的IDE。Sublime基于Python，两者扩展性都非常强。</li>
+<li><strong>atom</strong> 暂时还是免费的。而SublimeText，额，一直会弹那个框(使用网上注册码？)。</li>
+<li>对 <strong>Markdown</strong>的支持更加完美(见下文)；这一点真心是赞的不要不要的。</li>
+<li>类Web App嘛，对各平台的支持更为有好；比如：在mac下打开xxx文件/文件夹，atom：terminal下直接 atom <strong>xxx</strong><br>即可。而SublimeText会相对繁琐很多，比如为其添加系统别名，可参见<a href="http://www.jeffjade.com/2015/07/29/2015-07-29-mac-musthave-software/" target="_blank" rel="noopener">Mac必备软件渐集之ZSH－终极Shell</a>。windows下，安装了<br>atom，就已经在鼠标右键列表了。</li>
+<li>atom,类Web的年轻一代编辑神器，在打开软件速度上稍逊SublimeText3。相比之下，对大文件响应处理上相比之下，还需很大提升。不过潜力还是挺足的。</li>
+<li>atom 有友好的中文社区<a href="https://atom-china.org/" target="_blank" rel="noopener">atom China</a>。</li>
+</ul>
+<p>关于如何初步使用atom，可以参见 <a href="https://atom-china.org/t/guan-fang-shou-ce-atom-ji-chu-shi-yong/62" target="_blank" rel="noopener">官方手册：atom 基础使用。</a></p>
+<p><img src="http://7xoosr.com1.z0.glb.clouddn.com/atom.png" alt="此处输入图片的描述"></p>
+<h3 id="atom安装篇"><a href="#atom安装篇" class="headerlink" title="atom安装篇"></a>atom安装篇</h3><p><strong>atom软件本身安装</strong></p>
+<ol>
+<li>可以去atom官网下载安装包，跟普通安装一致。</li>
+<li>可以在终端terminal中安装：</li>
+</ol>
+<p>Mac OS</p>
+<blockquote>
+<p>~ brew install Caskroom/cask/atom</p>
+</blockquote>
+<p>Window OS<br>可以用管理员身份打开Powershell，然后用 choco install 去安装 atom.</p>
+<blockquote>
+<p>choco install atom</p>
+</blockquote>
+<p>这一点具体可以参见文章： <a href="http://www.jeffjade.com/2016/01/13/2016-01-13-windows-software-cmder/" target="_blank" rel="noopener">Win下必备神器之Cmder</a></p>
+<h3 id="atom的插件安装"><a href="#atom的插件安装" class="headerlink" title="atom的插件安装"></a>atom的插件安装</h3><ol>
+<li><code>Command+Shift+P</code>呼出设置界面，点击 Install<br>，在调出的页面输入框中输入你想安装的插件名，搜索这个插件，然后再出现的插件选项中点击下载。</li>
+<li>atom编辑器还自带了一个叫做apm(atom Package<br>Manager)的包管理工具，用过<code>npm</code>的同学应该对包管理工具不会陌生，我们可以通过apm查找atom插件，安装和删除插件等操作。比如对emmet插件的操作。</li>
+</ol>
+<blockquote>
+<p>//查找<br>~ apm search emmet<br>//安装<br>~ apm install emmet<br>//删除<br>~ apm remove emmet</p>
+</blockquote>
+<h3 id="atom快捷键篇"><a href="#atom快捷键篇" class="headerlink" title="atom快捷键篇"></a>atom快捷键篇</h3><p><strong>文件切换</strong></p>
+<p><code>ctrl-shift-s</code> 保存所有打开的文件<br><code>cmd-shift-o</code> 打开目录<br><code>cmd-\</code> 显示或隐藏目录树<br><code>ctrl-0</code> 焦点移到目录树<br>目录树下，使用a，m，delete来增加，修改和删除<br><code>cmd-t</code>或<code>cmd-p</code> 查找文件<br><code>cmd-b</code> 在打开的文件之间切换<br><code>cmd-shift-b</code> 只搜索从上次<code>git commit</code>后修改或者新增的文件</p>
+<p><strong>导航</strong></p>
+<p>（等价于上下左右）<br><code>ctrl-p</code> 前一行<br><code>ctrl-n</code> 后一行<br><code>ctrl-f</code> 前一个字符<br><code>ctrl-b</code> 后一个字符<br><code>alt-B</code>, <code>alt-left</code> 移动到单词开始<br><code>alt-F</code>, <code>alt-right</code> 移动到单词末尾<br><code>cmd-right</code>, <code>ctrl-E</code> 移动到一行结束<br><code>cmd-left</code>, <code>ctrl-A</code> 移动到一行开始<br><code>cmd-up</code> 移动到文件开始<br><code>cmd-down</code> 移动到文件结束<br><code>ctrl-g</code> 移动到指定行 <code>row:column</code> 处<br><code>cmd-r</code> 在方法之间跳转</p>
+<p><strong>目录树操作</strong></p>
+<p><code>cmd-\</code> 或者 <code>cmd-k</code> <code>cmd-b</code> 显示(隐藏)目录树<br><code>ctrl-0</code> 焦点切换到目录树(再按一次或者Esc退出目录树)<br><code>a</code> 添加文件<br><code>d</code> 将当前文件另存为(duplicate)<br><code>i</code> 显示(隐藏)版本控制忽略的文件<br><code>alt-right</code> 和 <code>alt-left</code> 展开(隐藏)所有目录<br><code>ctrl-al-]</code> 和 <code>ctrl-al-[</code> 同上<br><code>ctrl-[</code> 和 <code>ctrl-]</code> 展开(隐藏)当前目录<br><code>ctrl-f</code> 和 <code>ctrl-b</code> 同上<br><code>cmd-k h</code> 或者 <code>cmd-k left</code> 在左半视图中打开文件<br><code>cmd-k j</code> 或者 <code>cmd-k down</code> 在下半视图中打开文件<br><code>cmd-k k</code> 或者 <code>cmd-k up</code> 在上半视图中打开文件<br><code>cmd-k l</code> 或者 <code>cmd-k right</code> 在右半视图中打开文件<br><code>ctrl-shift-C</code> 复制当前文件绝对路径<br>书签<br><code>cmd-F2</code> 在本行增加书签<br><code>F2</code> 跳到当前文件的下一条书签<br><code>shift-F2</code> 跳到当前文件的上一条书签<br><code>ctrl-F2</code> 列出当前工程所有书签</p>
+<p><strong>选取</strong></p>
+<pre><code>大部分和导航一致，只不过加上shift
+</code></pre><p><code>ctrl-shift-P</code> 选取至上一行<br><code>ctrl-shift-N</code> 选取至下一样<br><code>ctrl-shift-B</code> 选取至前一个字符<br><code>ctrl-shift-F</code> 选取至后一个字符<br><code>alt-shift-B</code>, <code>alt-shift-left</code> 选取至字符开始<br><code>alt-shift-F</code>, <code>alt-shift-right</code> 选取至字符结束<br><code>ctrl-shift-E</code>, <code>cmd-shift-right</code> 选取至本行结束<br><code>ctrl-shift-A</code>, <code>cmd-shift-left</code> 选取至本行开始<br><code>cmd-shift-up</code> 选取至文件开始<br><code>cmd-shift-down</code> 选取至文件结尾<br><code>cmd-A</code> 全选<br><code>cmd-L</code> 选取一行，继续按回选取下一行<br><code>ctrl-shift-W</code> 选取当前单词</p>
+<h3 id="编辑和删除文本"><a href="#编辑和删除文本" class="headerlink" title="编辑和删除文本"></a>编辑和删除文本</h3><p><strong>基本操作</strong></p>
+<p><code>ctrl-T</code> 使光标前后字符交换<br><code>cmd-J</code> 将下一行与当前行合并<br><code>ctrl-cmd-up</code>, <code>ctrl-cmd-down</code> 使当前行向上或者向下移动<br><code>cmd-shift-D</code> 复制当前行到下一行<br><code>cmd-K</code>, <code>cmd-U</code> 使当前字符大写<br><code>cmd-K</code>, <code>cmd-L</code> 使当前字符小写</p>
+<p><strong>删除和剪切</strong></p>
+<p><code>ctrl-shift-K</code> 删除当前行<br><code>cmd-backspace</code> 删除到当前行开始<br><code>cmd-fn-backspace</code> 删除到当前行结束<br><code>ctrl-K</code> 剪切到当前行结束<br><code>alt-backspace</code> 或 <code>alt-H</code> 删除到当前单词开始<br><code>alt-delete</code> 或 <code>alt-D</code> 删除到当前单词结束</p>
+<p><strong>多光标和多处选取</strong></p>
+<p><code>cmd-click</code> 增加新光标<br><code>cmd-shift-L</code> 将多行选取改为多行光标<br><code>ctrl-shift-up</code>, <code>ctrl-shift-down</code> 增加上（下）一行光标<br><code>cmd-D</code> 选取文档中和当前单词相同的下一处<br><code>ctrl-cmd-G</code> 选取文档中所有和当前光标单词相同的位置</p>
+<p><strong>括号跳转</strong></p>
+<p><code>ctrl-m</code> 相应括号之间，html tag之间等跳转<br><code>ctrl-cmd-m</code> 括号(tag)之间文本选取<br><code>alt-cmd-.</code> 关闭当前XML/HTML tag</p>
+<p><strong>编码方式</strong></p>
+<p><code>ctrl-shift-U</code> 调出切换编码选项</p>
+<p><strong>查找和替换</strong></p>
+<p><code>cmd-F</code> 在buffer中查找<br><code>cmd-shift-f</code> 在整个工程中查找</p>
+<p><strong>代码片段</strong></p>
+<p><code>alt-shift-S</code> 查看当前可用代码片段</p>
+<blockquote>
+<p>在~/.atom目录下snippets.cson文件中存放了你定制的snippets</p>
+</blockquote>
+<p><a href="https://atom.io/docs/v1.0.0/using-atom-snippets" target="_blank" rel="noopener">定制说明</a></p>
+<p><strong>自动补全</strong></p>
+<p><code>ctrl-space</code> 提示补全信息</p>
+<p><strong>折叠</strong></p>
+<p><code>alt-cmd-[</code> 折叠<br><code>alt-cmd-]</code> 展开<br><code>alt-cmd-shift-{</code> 折叠全部<br><code>alt-cmd-shift-}</code> 展开全部<br><code>cmd-k cmd-N</code> 指定折叠层级 N为层级数</p>
+<p><strong>文件语法高亮</strong></p>
+<p><code>ctrl-shift-L</code> 选择文本类型</p>
+<p><strong>使用atom进行写作</strong></p>
+<p><code>ctrl-shift-M</code> Markdown预览</p>
+<p>可用代码片段</p>
+<blockquote>
+<p>b, legal, img, l, i, code, t, table</p>
+</blockquote>
+<p><strong>git操作</strong></p>
+<p><code>cmd-alt-Z</code> checkout HEAD 版本<br><code>cmd-shift-B</code> 弹出untracked 和 modified文件列表<br><code>alt-g down</code> <code>alt-g up</code> 在修改处跳转<br><code>alt-G D</code> 弹出diff列表<br><code>alt-G O</code> 在github上打开文件<br><code>alt-G G</code> 在github上打开项目地址<br><code>alt-G B</code> 在github上打开文件blame<br><code>alt-G H</code> 在github上打开文件history<br><code>alt-G I</code> 在github上打开issues<br><code>alt-G R</code> 在github打开分支比较<br><code>alt-G C</code> 拷贝当前文件在gihub上的网址</p>
+<h3 id="推荐一些好用的插件"><a href="#推荐一些好用的插件" class="headerlink" title="推荐一些好用的插件"></a>推荐一些好用的插件</h3><p><strong>主题</strong></p>
+<p><a href="https://atom.io/themes/seti-ui" target="_blank" rel="noopener">seti-ui</a>A dark colored UI theme for atom with custom file icons. (+Seti Syntax)<br><a href="https://atom.io/themes/atom-material-ui" target="_blank" rel="noopener">atom-material-ui</a> 好看到爆<br><a href="https://atom.io/themes/atom-material-syntax" target="_blank" rel="noopener">atom-material-syntax</a></p>
+<p><strong>美化</strong></p>
+<p><a href="https://atom.io/packages/atom-beautify" target="_blank" rel="noopener">atom-beautify</a> 一键代码美化<br><a href="https://atom.io/packages/file-icons" target="_blank" rel="noopener">file-icons</a> 给文件加上好看的图标<br><a href="https://atom.io/users/atom-minimap" target="_blank" rel="noopener">atom-minimap</a> 方便美观的缩略滚动图</p>
+<p><strong>git</strong></p>
+<p><a href="https://atom.io/packages/atomatigit" target="_blank" rel="noopener">atomatigit</a> 可视化git操作</p>
+<p><strong>代码提示</strong></p>
+<p><a href="https://atom.io/packages/emmet" target="_blank" rel="noopener">emmet</a> 这个不用介绍了吧，前端开发必备，谁用谁知道；<br><a href="https://atom.io/packages/atom-ternjs" target="_blank" rel="noopener">atom-ternjs</a> js代码提示很强大，高度定制化<br><a href="https://atom.io/packages/docblockr" target="_blank" rel="noopener">docblockr</a> jsdoc 给js添加注释<br><a href="https://atom.io/packages/color-picker" target="_blank" rel="noopener">color-picker</a> 取色器 必备插件<br><a href="https://atom.io/packages/pigments" target="_blank" rel="noopener">pigments</a> 颜色显示插件 必装<br><a href="https://atom.io/packages/terminal-panel" target="_blank" rel="noopener">terminal-panel</a> 直接在atom里面写命令了<br><a href="https://atom.io/packages/svg-preview" target="_blank" rel="noopener">svg-preview</a> svg预览</p>
+<p><strong>便捷操作</strong></p>
+<p><a href="https://atom.io/packages/advanced-open-file" target="_blank" rel="noopener">advanced-open-file</a> 快速打开、切换文件</p>
+<p><strong>代码校验</strong></p>
+<p><a href="https://atom.io/packages/linter" target="_blank" rel="noopener">linter</a>代码校验工具;A Base Linter with Cow Powers</p>
+<p><strong>Web前端</strong></p>
+<p><a href="https://atom.io/packages/autoclose-html" target="_blank" rel="noopener">autoclose-html</a> 闭合html标签<br><a href="https://atom.io/packages/language-vue-component" target="_blank" rel="noopener">language-vue-component</a> atom编写Vue高亮<br><a href="https://atom.io/packages/vue-autocompile" target="_blank" rel="noopener">vue-autocompile</a> Auto compiles vue in atom<br><a href="https://atom.io/packages/language-vue" target="_blank" rel="noopener">language-vue</a> Syntax highlighting for vue component files<br>其插件已相当丰满，可以在<a href="https://atom.io/packages" target="_blank" rel="noopener">这里</a>搜索查找。Packages make atom do amazing things.</p>
+<p><strong>舒爽书写作(Markdown)</strong></p>
+<p>atom有自带MarkdownPreview,支持<code>Ctrl＋Shift＋M</code>实时预览。装上<a href="https://atom.io/packages/markdown-writer" target="_blank" rel="noopener">markdown-writer</a>插件，根据其默认配置:Settings for Keymaps，完美；想必之下比<code>SublimeText</code>下的书写爽很多；也比简书，作业部落要更为强大。 比如对已经写下的文字加粗，选中 <code>Command＋B</code>即可；如果文字还没写，空格下 <code>Command＋B</code> 就会生成 <strong>｜</strong>，光标在第二个<code>*</code>之后，很是方便。 当然这快捷是可以更改的， <code>cmd + shift + p</code>输入setting呼出设置界面自行更改。 <code>markdown-writer</code>书写 Markdown 默认快捷键如下：</p>
+<p><strong>快捷键操作</strong>         <strong>作用效果</strong><br><code>“shift-cmd-K”</code>:    “markdown-writer : insert-link”<br><code>“shift-cmd-I”</code>:    “markdown-writer : insert-image”<br><code>“cmd-i”</code>:    “markdown-writer : toggle-italic-text”<br><code>“cmd-b”</code>:    “markdown-writer : toggle-bold-text”<br><code>“cmd-‘“</code>:    “markdown-writer : toggle-code-text”<br><code>“cmd-k”</code>:    “markdown-writer : toggle-keystroke-text”<br><code>“cmd-h”</code>:    “markdown-writer : toggle-strikethrough-text”<br><code>“ctrl-alt-1”</code>:    “markdown-writer : toggle-h1”<br><code>“ctrl-alt-2”</code>:    “markdown-writer : toggle-h2”<br><code>“ctrl-alt-3”</code>:    “markdown-writer : toggle-h3”<br><code>“ctrl-alt-4”</code>:    “markdown-writer : toggle-h4”<br><code>“ctrl-alt-5”</code>:    “markdown-writer : toggle-h5”<br><code>“shift-cmd-O”</code>:    “markdown-writer : toggle-ol”<br><code>“shift-cmd-U”</code>:    “markdown-writer : toggle-ul”<br><code>“shift-cmd-&gt;”</code>:    “markdown-writer : toggle-blockquote”<br><code>‘shift-cmd-“‘</code>:    “markdown-writer : toggle-codeblock-text”<br><code>“cmd-j cmd-p”</code>:    “markdown-writer : jump-to-previous-heading”<br><code>“cmd-j cmd-n”</code>:    “markdown-writer : jump-to-next-heading”<br><code>“cmd-j cmd-d”</code>:    “markdown-writer : jump-between-reference-definition”<br><code>“cmd-j cmd-t”</code>:    “markdown-writer : jump-to-next-table-cell”</p>
+<p><strong>本文转载自：</strong> [新编码神器atom使用纪要][30]</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/96063689.html" title="编码神器atom使用详解">https://ru23.com/note/96063689.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="https://cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/96063689.html&title=《编码神器atom使用详解》 — 前端迷&pic=https://cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/96063689.html&title=《编码神器atom使用详解》 — 前端迷&source=atom 是 github 专门为程序员推出的一个跨平台文本编辑器。她很大程度上继承了SublimeText的美，而又不仅如此。而如今试用了 atom 一..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/96063689.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编码神器atom使用详解》 — 前端迷&url=https://ru23.com/note/96063689.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/96063689.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aS5LCMAwFQO5/6cyWxeA8yR9CVXtFQWK3Wagsya9XPK63Mf51/Ewy24KBi4s7zb2GY7zAp2fG8/TexcXFPc9NQs/4rYSSz//xe1xc3B/hFsLQhw3g4uL+OjdPWvIDEy4u7jO51aQlKW3kxC25Gi4u7uypIwpJ+z5vqe/i4uK2uFdxJM2VXrkkWh0XF/cINw8o1aJnssnmuri4uJu582lPkhTNpEn//K+4uLhf4uaJUC/Y5WEuCmS4uLhLudWGynyjNF/l5i1cXNzN3F5BMzni5EFtjMbFxT3JzVOd5CiTsxYkP7i4uNu4OSJfrIruNWxwcXG/xe0VSpK2a7UNg4uLe5Kb7ykvbvZuWBWSH1xc3M3cfOq84bqqyZpfDcHFxd3BnTnK5Fc38pLHzVZxcXEPcqsHnXlcs32Li4t7kDufhMykQ3lxFhcXdzf3Ko5ekEqSomhjuLi4R7jV4BL1ZFotlvy4g4uLe4bbK3Dkrdnk3UKAw8XFPcithqFyobM1z00VBxcX92HcvPmal1oKGRsuLu7DuL1j0HyVAxcX9zw3v1yVp0mrWra4uLjnudVQUiVWSzDL6ru4uLgd7h8zxnuKWaOAdwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/atom/" class="color5">atom</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#atom安装篇"><span class="post-toc-text">atom安装篇</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#atom的插件安装"><span class="post-toc-text">atom的插件安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#atom快捷键篇"><span class="post-toc-text">atom快捷键篇</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编辑和删除文本"><span class="post-toc-text">编辑和删除文本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#推荐一些好用的插件"><span class="post-toc-text">推荐一些好用的插件</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/ae4ebfd1.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Sublime Text资源整理篇
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/83ccabf5.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">各种速查表收集整理</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "Just go go",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10.77px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10.77px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitHub/" style="font-size: 10px;">gitHub</a> <a href="/tags/github/" style="font-size: 10.77px;">github</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 11.54px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.08px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="https://cdn.ru23.com/js/search.js"></script>
+<script src="https://cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>
