@@ -20,10 +20,10 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端迷">
 <meta name="twitter:description" content="frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com">  
-    <link rel="icon" href="https://cdn.ru23.com/img/favicon.ico">
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdn.ru23.com/css/style.css"> <script src="https://cdn.ru23.com/js/pace.min.js"></script> 
+    <link rel="stylesheet" href="/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
   
   <div style="display: none;">
     <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
@@ -71,7 +71,7 @@
         <div id="header-row">
             <div id="logo">
                 <a href="/">
-                    <img src="https://cdn.ru23.com/img/images/chrome.png" alt="logo">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
                 </a>
             </div>
             <div class="header-info">
@@ -114,155 +114,10 @@
         </div>
     </div>
 </header>
+    
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-2016-12-call-apply-bind" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/note/580a1014.html" target="_blank">JS 中的 call、apply、bind 方法</a>
-    </h1>
-  
-
-            
-            <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                
-                <a href="/categories/front-end/">
-                    front-end</a>
-                
-            </span>
-            
-        </header>
-        
-        <div class="article-entry " itemprop="articleBody">
-            
-            <div class="article-img">
-                <a href="/note/580a1014.html" target="_blank">
-                    
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="JS 中的 call、apply、bind 方法" title="JS 中的 call、apply、bind 方法">
-                    
-                </a>
-            </div>
-            <div class="article-feed">
-                <p>
-                    <ul>
-<li><code>call()</code>、<code>apply()</code>、<code>bind()</code>都是函数对象的一个方法，它们的作用都是改变函数的调用对象。它的使用极大的简化了代码的调用</li>
-</ul>
-</p><h4 id="一、方法定义"><a href="#一、方法定义" class="headerlink" title="一、方法定义"></a>一、方法定义</h4><ul>
-<li><strong>call方法</strong></li>
-<li>语法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.call(thisArg[, arg1[, arg2[, ...]]])</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>thisArg</code>：<code>fun</code>函数运行时指定的<code>this</code>值，可能的值为：<ul>
-<li>不传，或者传<code>null</code>，<code>undefined</code>， <code>this</code>指向<code>window</code>对象</li>
-<li>传递另一个函数的函数名<code>fun2</code>，<code>this</code>指向函数fun2的引用<br>值为原始值(数字，字符串，布尔值),this会指向该原始值的自动包装对象，如 String、Number、Boolean</li>
-<li>传递一个对象，函数中的<code>this</code>指向这个对象</li>
-</ul>
-</li>
-</ul>
-                <p></p>
-            </div>
-            
-            
-        </div>
-        <footer class="article-footer">
-            
-            <ul class="article-footer-menu">
-                
-                <li><i class="fa fa-calendar"></i>
-                    2016-12-13
-                </li>
-                
-                
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/javascript/" class="color1">javascript</a>
-      
-  </li>
-
-            </ul>
-            
-            <a href="/note/580a1014.html#more" class="article-more-link" target="_blank">
-                more&gt;&gt;</a>
-            
-        </footer>
-    </div>
-</article>
-
-
-  
-    <article id="post-2016-12-arguments详解" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/note/4cc35512.html" target="_blank">arguments详解</a>
-    </h1>
-  
-
-            
-            <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                
-                <a href="/categories/front-end/">
-                    front-end</a>
-                
-            </span>
-            
-        </header>
-        
-        <div class="article-entry " itemprop="articleBody">
-            
-            <div class="article-img">
-                <a href="/note/4cc35512.html" target="_blank">
-                    
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="arguments详解" title="arguments详解">
-                    
-                </a>
-            </div>
-            <div class="article-feed">
-                <p>
-                    </p><p>每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。<code>arguments.length</code>为函数实参个数，<code>arguments.callee</code>引用函数自身。</p>
-                <p></p>
-            </div>
-            
-            
-        </div>
-        <footer class="article-footer">
-            
-            <ul class="article-footer-menu">
-                
-                <li><i class="fa fa-calendar"></i>
-                    2016-12-13
-                </li>
-                
-                
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/javascript/" class="color1">javascript</a>
-      
-  </li>
-
-            </ul>
-            
-            <a href="/note/4cc35512.html#more" class="article-more-link" target="_blank">
-                more&gt;&gt;</a>
-            
-        </footer>
-    </div>
-</article>
-
-
+          <div class="outer-section">
+            <section id="main" class="body-wrap">
   
     <article id="post-2016-12-js-arr" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
@@ -291,7 +146,7 @@
             <div class="article-img">
                 <a href="/note/40b57898.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="javascript数组详解" title="javascript数组详解">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="javascript数组详解" title="javascript数组详解">
                     
                 </a>
             </div>
@@ -332,14 +187,14 @@
 
 
   
-    <article id="post-2016-12-js-event-listener" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2016-12-js-prototype" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         <header class="article-header">
             
   
     <h1 itemprop="name">
-      <a class="article-title" href="/note/ebeaea04.html" target="_blank">JS 中的事件绑定、事件监听、事件委托</a>
+      <a class="article-title" href="/note/e36aeed5.html" target="_blank">OOP之原型与原型链</a>
     </h1>
   
 
@@ -357,18 +212,90 @@
         <div class="article-entry " itemprop="articleBody">
             
             <div class="article-img">
-                <a href="/note/ebeaea04.html" target="_blank">
+                <a href="/note/e36aeed5.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="JS 中的事件绑定、事件监听、事件委托" title="JS 中的事件绑定、事件监听、事件委托">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="OOP之原型与原型链" title="OOP之原型与原型链">
                     
                 </a>
             </div>
             <div class="article-feed">
                 <p>
-                    </p><h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><hr>
+                    </p><h4 id="prototype原型对象"><a href="#prototype原型对象" class="headerlink" title="prototype原型对象"></a>prototype原型对象</h4><hr>
 <ul>
-<li>要想让 <code>javascript</code>对用户的操作作出响应，首先要对 <code>dom</code> 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称</li>
-</ul>
+<li>每个函数都有一个默认的<code>prototype</code>属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象</li>
+<li><p>在构造函数中的<code>prototype</code>中定义的属性和方法，会被创建的对象所继承下来。举个栗子：</p>
+                <p></p>
+            </li></ul></div>
+            
+            
+        </div>
+        <footer class="article-footer">
+            
+            <ul class="article-footer-menu">
+                
+                <li><i class="fa fa-calendar"></i>
+                    2016-12-13
+                </li>
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/原型链/" class="color4">原型链</a>
+      
+  </li>
+
+            </ul>
+            
+            <a href="/note/e36aeed5.html#more" class="article-more-link" target="_blank">
+                more&gt;&gt;</a>
+            
+        </footer>
+    </div>
+</article>
+
+
+  
+    <article id="post-2016-12-js-oop" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/note/6c17c77b.html" target="_blank">OOP之面向对象</a>
+    </h1>
+  
+
+            
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                
+                <a href="/categories/front-end/">
+                    front-end</a>
+                
+            </span>
+            
+        </header>
+        
+        <div class="article-entry " itemprop="articleBody">
+            
+            <div class="article-img">
+                <a href="/note/6c17c77b.html" target="_blank">
+                    
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="OOP之面向对象" title="OOP之面向对象">
+                    
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    <blockquote>
+<p>一般面向对象包含：继承，封装，多态，抽象</p>
+</blockquote>
+</p><h4 id="对象形式的继承"><a href="#对象形式的继承" class="headerlink" title="对象形式的继承"></a>对象形式的继承</h4><hr>
+<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><hr>
                 <p></p>
             </div>
             
@@ -388,13 +315,83 @@
       
     <a href="/tags/javascript/" class="color1">javascript</a>
       
-    <a href="/tags/事件/" class="color3">事件</a>
+    <a href="/tags/面向对象/" class="color5">面向对象</a>
       
   </li>
 
             </ul>
             
-            <a href="/note/ebeaea04.html#more" class="article-more-link" target="_blank">
+            <a href="/note/6c17c77b.html#more" class="article-more-link" target="_blank">
+                more&gt;&gt;</a>
+            
+        </footer>
+    </div>
+</article>
+
+
+  
+    <article id="post-2016-12-js-oop-and-class" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/note/7e6522d0.html" target="_blank">OOP之类与对象</a>
+    </h1>
+  
+
+            
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                
+                <a href="/categories/front-end/">
+                    front-end</a>
+                
+            </span>
+            
+        </header>
+        
+        <div class="article-entry " itemprop="articleBody">
+            
+            <div class="article-img">
+                <a href="/note/7e6522d0.html" target="_blank">
+                    
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="OOP之类与对象" title="OOP之类与对象">
+                    
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    </p><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><hr>
+<h5 id="对象的含义"><a href="#对象的含义" class="headerlink" title="对象的含义"></a>对象的含义</h5><ul>
+<li><p>所谓对象，就是一种无序的数据集合，由若干个“键值对”（<code>key-value</code>）构成</p>
+                <p></p>
+            </li></ul></div>
+            
+            
+        </div>
+        <footer class="article-footer">
+            
+            <ul class="article-footer-menu">
+                
+                <li><i class="fa fa-calendar"></i>
+                    2016-12-13
+                </li>
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/面向对象/" class="color5">面向对象</a>
+      
+  </li>
+
+            </ul>
+            
+            <a href="/note/7e6522d0.html#more" class="article-more-link" target="_blank">
                 more&gt;&gt;</a>
             
         </footer>
@@ -430,7 +427,7 @@
             <div class="article-img">
                 <a href="/note/fc5e7486.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="JS常用的内置函数整理" title="JS常用的内置函数整理">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="JS常用的内置函数整理" title="JS常用的内置函数整理">
                     
                 </a>
             </div>
@@ -504,7 +501,7 @@
             <div class="article-img">
                 <a href="/note/cec34af5.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="MVC、MVP、mvvm之间的关系" title="MVC、MVP、mvvm之间的关系">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="MVC、MVP、mvvm之间的关系" title="MVC、MVP、mvvm之间的关系">
                     
                 </a>
             </div>
@@ -581,7 +578,7 @@
             <div class="article-img">
                 <a href="/note/17ec6504.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="canvas 绘制八大行星" title="canvas 绘制八大行星">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="canvas 绘制八大行星" title="canvas 绘制八大行星">
                     
                 </a>
             </div>
@@ -652,7 +649,7 @@
             <div class="article-img">
                 <a href="/note/fc137cfa.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="canvas 绘制粒子动画背景" title="canvas 绘制粒子动画背景">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="canvas 绘制粒子动画背景" title="canvas 绘制粒子动画背景">
                     
                 </a>
             </div>
@@ -720,7 +717,7 @@
             <div class="article-img">
                 <a href="/note/1e283ca4.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="canvas 绘制动画时钟" title="canvas 绘制动画时钟">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="canvas 绘制动画时钟" title="canvas 绘制动画时钟">
                     
                 </a>
             </div>
@@ -764,14 +761,14 @@
 
 
   
-    <article id="post-2016-11-Ajax-summary" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2016-11-h5-api" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         <header class="article-header">
             
   
     <h1 itemprop="name">
-      <a class="article-title" href="/note/d4e64c45.html" target="_blank">Ajax总结篇</a>
+      <a class="article-title" href="/note/6cc0c2d4.html" target="_blank">html5之api总结</a>
     </h1>
   
 
@@ -789,25 +786,18 @@
         <div class="article-entry " itemprop="articleBody">
             
             <div class="article-img">
-                <a href="/note/d4e64c45.html" target="_blank">
+                <a href="/note/6cc0c2d4.html" target="_blank">
                     
-                    <img src="https://cdn.ru23.com/img/images/banner.jpg" alt="Ajax总结篇" title="Ajax总结篇">
+                    <img src="//cdn.ru23.com/img/images/banner.jpg" alt="html5之api总结" title="html5之api总结">
                     
                 </a>
             </div>
             <div class="article-feed">
                 <p>
-                    
-原文出处 http://blog.poetries.top/2016/11/26/Ajax-summary
-
-本文主要总结整理Ajax的一些常用的基础知识，适合初学者。
-一、Ajax简介、优劣势、应用场景以及技术
-
-Ajax简介 :
-
-Asynchronous javascript And XML （异步的javascript和XML）
-它并不是一种单一的技术，而是有机利用一系列交互式网页...
-                </p>
+                    </p><h3 id="一、canvas-api"><a href="#一、canvas-api" class="headerlink" title="一、canvas api"></a>一、canvas api</h3><hr>
+<p><code>canvas api</code>是<code>H5</code>标准中最复杂的部分， 它提供几种属性和方法，可以在<code>canvas</code>元素上创建图形应用</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><hr>
+                <p></p>
             </div>
             
             
@@ -824,15 +814,15 @@ Asynchronous javascript And XML （异步的javascript和XML）
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/javascript/" class="color1">javascript</a>
+    <a href="/tags/html5/" class="color1">html5</a>
       
-    <a href="/tags/ajax/" class="color5">ajax</a>
+    <a href="/tags/api/" class="color4">api</a>
       
   </li>
 
             </ul>
             
-            <a href="/note/d4e64c45.html#more" class="article-more-link" target="_blank">
+            <a href="/note/6cc0c2d4.html#more" class="article-more-link" target="_blank">
                 more&gt;&gt;</a>
             
         </footer>
@@ -847,8 +837,25 @@ Asynchronous javascript And XML （异步的javascript和XML）
     <a class="extend prev" rel="prev" href="/page/26/"><< Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/28/">Next >></a>
   </nav>
 </section>
+            <div class="outer-ad-aside">
+                
+                  
+                    <a title="微信公众号：前端迷" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
+                    </a>
+                  
+                    <a title="微信前端技术交流群" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
+                    </a>
+                  
+                
+            </div>
+          </div>
         
       </div>
+     
+    
+     
       <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -881,7 +888,7 @@ Asynchronous javascript And XML （异步的javascript和XML）
     animate: false,
     isHome: false,
     share: true,
-    reward: 0
+    reward: 2
   }
 </script>
 <div class="sidebar">
@@ -957,8 +964,8 @@ Asynchronous javascript And XML （异步的javascript和XML）
         </a>
     </li>
 </div>
-<script src="https://cdn.ru23.com/js/search.js"></script>
-<script src="https://cdn.ru23.com/js/main.js"></script>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
 
 
 
@@ -968,7 +975,7 @@ Asynchronous javascript And XML （异步的javascript和XML）
 
 
 
-<script src="https://cdn.ru23.com/js/pop-img.js"></script>
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
 <script>
   $(".article-entry p img").popImg();
 </script>

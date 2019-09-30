@@ -34,9 +34,22 @@ body
 
 .outer
   clearfix()
-  max-width: (column-width + gutter-width) * columns + gutter-width -
+  max-width: (column-width + gutter-width) * columns + gutter-width  
   margin: 0 auto
   padding: 0 gutter-width
+    
+.outer-section  
+  display: flex
+.outer-ad-aside 
+  width: 200px;
+  border-radius: 3px
+  margin: 25px 0 0 15px
+.outer-ad-aside a img
+  width: 200px
+  background: #fff
+  box-shadow: 1px 2px 3px #ddd
+  border: 1px solid #ddd
+  margin: 5px
 
 .inner
   column(columns)

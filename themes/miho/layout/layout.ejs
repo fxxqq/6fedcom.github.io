@@ -2,12 +2,27 @@
 <body>
   <div id="container">
       <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+    
       <div class="outer">
-        <section id="main" class="body-wrap"><%- body %></section>
+          <div class="outer-section">
+            <section id="main" class="body-wrap"><%- body %></section>
+            <div class="outer-ad-aside">
+                <% if (theme.aside){ %>
+                  <% for (var i in theme.aside) { %>
+                    <a <% if(theme.aside[i].title){ %>title="<%= theme.aside[i].title %>"<% } %> target="_blank" <% if(theme.aside[i].url){ %>href="<%- url_for(theme.aside[i].url) %><% } %>">
+                      <img src="<%= url_for(theme.aside[i].img) %>" alt="<%= theme.aside[i].title %>">
+                    </a>
+                  <% } %>
+                <% } %>
+            </div>
+          </div>
         <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
           <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
         <% } %>
       </div>
+     
+    
+     
       <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
     <%- partial('_partial/after-footer') %>
   </div>

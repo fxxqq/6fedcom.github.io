@@ -50,4 +50,6 @@ hexo qiniu sync
 更新
 hexo qiniu sync2 
 
+随机生成图片：https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302
+https://img.xjh.me/
  

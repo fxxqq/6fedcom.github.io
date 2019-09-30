@@ -7,7 +7,7 @@
     position: absolute;
     top: 0;
     left: 100%;
-    .transition(.4s);
+    .transition(0.4s);
 }
 
 #menu {
@@ -20,7 +20,7 @@
     min-height: 100%;
     background: #fff;
     box-shadow: @boxShadow;
-    .transition(.4s, cubic-bezier(.18, .81, .3, .89));
+    .transition(0.4s, cubic-bezier(0.18, 0.81, 0.3, 0.89));
     will-change: transform, -webkit-transform;
 
     &.hide {
@@ -28,7 +28,7 @@
         #menu-off {
             .transform(scale(0));
         }
-        +#main {
+        + #main {
             padding-left: 0;
         }
     }
@@ -74,12 +74,11 @@
         overflow-y: auto;
     }
 
-
     .nav {
         margin: 0;
-        padding:0 0 12px 0;
+        padding: 0 0 12px 0;
         height: 300px;
-        min-height: ~"calc(100% - 115px)";
+        min-height: ~'calc(100% - 115px)';
         list-style: none;
         line-height: @navH;
 
@@ -95,7 +94,7 @@
 
             &:hover,
             &.active {
-                background: rgba(0, 0, 0, .05);
+                background: rgba(0, 0, 0, 0.05);
 
                 a,
                 .icon {
@@ -119,20 +118,22 @@
 #main {
     padding-left: @menuWidth;
     min-height: 100%;
-    .transition(.4s);
+    .transition(0.4s);
 }
 
 .body-wrap {
     padding: 30px 0 40px;
     min-height: ~'calc(100vh - 340px)';
 }
-
+.body-wrap article {
+    width: 720px;
+}
 .container {
     width: @contentWidth;
     margin: 0 auto;
 
     &:after {
-        content: "";
+        content: '';
         display: table;
         clear: both;
     }
@@ -150,17 +151,17 @@
     background: #000;
     opacity: 0;
     pointer-events: none;
-    .transition(.3s);
+    .transition(0.3s);
 
     &.in {
         visibility: visible;
         pointer-events: auto;
-        opacity: .3;
+        opacity: 0.3;
     }
 }
 
 .footer {
-    color: rgba(255,255,255,.6);
+    color: rgba(255, 255, 255, 0.6);
     background: @darkPrimaryColor;
     p {
         margin: 0;
@@ -169,14 +170,14 @@
         text-align: center;
         span {
             &:not(:first-child):before {
-                content: "·";
-                padding: 0 .5em;
+                content: '·';
+                padding: 0 0.5em;
             }
         }
         a {
-            border-bottom: 1px dotted rgba(255,255,255,.5);
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
             &:hover {
-                border-bottom: 1px solid rgba(255,255,255,.7);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.7);
             }
         }
     }
@@ -187,11 +188,11 @@
     }
     a {
         color: inherit;
-        opacity: .8;
+        opacity: 0.8;
 
         &:hover {
             color: #fff;
-            text-decoration: none
+            text-decoration: none;
         }
     }
     .bottom {
@@ -199,11 +200,11 @@
     }
 }
 
-a[title="站长统计"] {
+a[title='站长统计'] {
     display: none;
 }
 
-@media screen and (max-width:1240px) {
+@media screen and (max-width: 1240px) {
     #menu-off {
         display: none;
     }
@@ -223,15 +224,14 @@ a[title="站长统计"] {
     }
 }
 
-
-@media screen and (max-width:1040px) {
+@media screen and (max-width: 1040px) {
     .container {
         width: 100%;
         padding: 20px 16px;
     }
 }
 
-@media screen and (max-width:760px) {
+@media screen and (max-width: 760px) {
     #main {
         width: 100%;
         overflow-x: hidden;
@@ -257,4 +257,3 @@ a[title="站长统计"] {
         display: none;
     }
 }
-
