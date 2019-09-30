@@ -2431,7 +2431,7 @@ child.innerHTML = 'pppppp';
     - [javascript视频教程 | 智能社](http://www.zhinengshe.com/video.html)
 - 了解`web`开发知识体系
   - [Growth - 陪你成为顶尖开发者](https://github.com/phodal/growth)
-  - [gitHub上收集整理的前端资源](https://github.com/poetries/mywiki)
+  - [github上收集整理的前端资源](https://github.com/poetries/mywiki)
 
 - 常用组件
   - [js常用组件整理](https://github.com/poetries/mywiki/blob/master/bookmark/%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6.md)

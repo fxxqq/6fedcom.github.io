@@ -264,7 +264,7 @@ font-family:;
 ---
 
 - [emmet插件下载中心][31]
-- [gitHub主页][32]
+- [github主页][32]
 - [emmet快捷键表][33]
 - [emmet文档][34]
 
