@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       git常用命令备忘记录 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="git配置">
+<meta name="keywords" content="github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令备忘记录">
+<meta property="og:url" content="https://ru23.com/note/a0d4697b.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="git配置">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git常用命令备忘记录">
+<meta name="twitter:description" content="git配置">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdn.ru23.com/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    
+      <div class="outer">
+          <div class="outer-section">
+            <section id="main" class="body-wrap"><article id="post-2016-03-Git常用命令备忘记录" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      git常用命令备忘记录
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/前端自动化/">前端自动化</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2016-03-15
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <h4 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h4><hr>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;robbin&quot;   </span><br><span class="line">git config --global user.email &quot;fankai@gmail.com&quot;</span><br><span class="line">git config --global color.ui true</span><br><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global core.editor &quot;mate -w&quot;    # 设置Editor使用textmate</span><br><span class="line">git config -l  # 列举所有配置</span><br><span class="line">用户的git配置文件~/.gitconfig</span><br></pre></td></tr></table></figure>
+<h4 id="git常用命令-查看、添加、提交、删除、找回，重置修改文件"><a href="#git常用命令-查看、添加、提交、删除、找回，重置修改文件" class="headerlink" title="git常用命令:查看、添加、提交、删除、找回，重置修改文件**"></a>git常用命令:查看、添加、提交、删除、找回，重置修改文件**</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">git help &lt;command&gt;  # 显示command的help</span><br><span class="line">git show            # 显示某次提交的内容</span><br><span class="line">git show $id</span><br><span class="line"></span><br><span class="line">git co  -- &lt;file&gt;   # 抛弃工作区修改</span><br><span class="line">git co  .           # 抛弃工作区修改</span><br><span class="line"></span><br><span class="line">git add &lt;file&gt;      # 将工作文件修改提交到本地暂存区</span><br><span class="line">git add .           # 将所有修改过的工作文件提交暂存区</span><br><span class="line"></span><br><span class="line">git rm &lt;file&gt;       # 从版本库中删除文件</span><br><span class="line">git rm &lt;file&gt; --cached  # 从版本库中删除文件，但不删除文件</span><br><span class="line"></span><br><span class="line">git reset &lt;file&gt;    # 从暂存区恢复到工作文件</span><br><span class="line">git reset -- .      # 从暂存区恢复到工作文件</span><br><span class="line">git reset --hard    # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改</span><br><span class="line"></span><br><span class="line">git ci &lt;file&gt;       </span><br><span class="line">git ci .</span><br><span class="line">git ci -a           # 将git add, git rm和git ci等操作都合并在一起做</span><br><span class="line">git ci -am &quot;some comments&quot;</span><br><span class="line">git ci --amend      # 修改最后一次提交记录</span><br><span class="line">git commit --amend  #修改最后一次提交注释的，利用–amend参数  </span><br><span class="line"></span><br><span class="line">git revert &lt;$id&gt;    # 恢复某次提交的状态，恢复动作本身也创建了一次提交对象</span><br><span class="line">git revert HEAD     # 恢复最后一次提交的状态</span><br></pre></td></tr></table></figure>
+<h4 id="查看文件diff"><a href="#查看文件diff" class="headerlink" title="查看文件diff**"></a>查看文件diff**</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;file&gt;     # 比较当前文件和暂存区文件差异</span><br><span class="line">git diff</span><br><span class="line">git diff &lt;$id1&gt; &lt;$id2&gt;   # 比较两次提交之间的差异</span><br><span class="line">git diff &lt;branch1&gt;..&lt;branch2&gt; # 在两个分支之间比较 </span><br><span class="line">git diff --staged   # 比较暂存区和版本库差异</span><br><span class="line">git diff --cached   # 比较暂存区和版本库差异</span><br><span class="line">git diff --stat     # 仅仅比较统计信息</span><br></pre></td></tr></table></figure>
+<h4 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录**"></a>查看提交记录**</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line">git log &lt;file&gt;      # 查看该文件每次提交记录</span><br><span class="line">git log -p &lt;file&gt;   # 查看每次详细修改内容的diff</span><br><span class="line">git log -p -2       # 查看最近两次详细修改内容的diff</span><br><span class="line">git log --stat      # 查看提交统计信息</span><br></pre></td></tr></table></figure>
+<h2 id="tig"><a href="#tig" class="headerlink" title="tig"></a><strong>tig</strong></h2><p><strong>git 本地分支管理查看、切换、创建和删除分支</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git br -r           # 查看远程分支</span><br><span class="line">git br &lt;new_branch&gt; # 创建新的分支</span><br><span class="line">git br -v           # 查看各个分支最后提交信息</span><br><span class="line">git br --merged     # 查看已经被合并到当前分支的分支</span><br><span class="line">git br --no-merged  # 查看尚未被合并到当前分支的分支</span><br><span class="line"></span><br><span class="line">git co &lt;branch&gt;     # 切换到某个分支</span><br><span class="line">git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去</span><br><span class="line">git co -b &lt;new_branch&gt; &lt;branch&gt;  # 基于branch创建新的new_branch</span><br><span class="line"></span><br><span class="line">git co $id          # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除</span><br><span class="line">git co $id -b &lt;new_branch&gt;  # 把某次历史提交记录checkout出来，创建成一个分支</span><br><span class="line"></span><br><span class="line">git br -d &lt;branch&gt;  # 删除某个分支</span><br><span class="line">git br -D &lt;branch&gt;  # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</span><br></pre></td></tr></table></figure>
+<h4 id="分支合并和rebase"><a href="#分支合并和rebase" class="headerlink" title="分支合并和rebase**"></a>分支合并和rebase**</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;branch&gt;               # 将branch分支合并到当前分支</span><br><span class="line">git merge origin/master --no-ff  # 不要Fast-Foward合并，这样可以生成merge提交</span><br><span class="line"></span><br><span class="line">git rebase master &lt;branch&gt;       # 将master rebase到branch，相当于：</span><br><span class="line">git co &lt;branch&gt; &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="git补丁管理-方便在多台机器上开发同步时用"><a href="#git补丁管理-方便在多台机器上开发同步时用" class="headerlink" title="git补丁管理(方便在多台机器上开发同步时用)"></a><strong>git补丁管理(方便在多台机器上开发同步时用)</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff &gt; ../sync.patch         # 生成补丁</span><br><span class="line">git apply ../sync.patch          # 打补丁</span><br><span class="line">git apply --check ../sync.patch  # 测试补丁能否成功</span><br></pre></td></tr></table></figure>
+<h4 id="git暂存管理"><a href="#git暂存管理" class="headerlink" title="git暂存管理"></a>git暂存管理</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git stash                        # 暂存</span><br><span class="line">git stash list                   # 列所有stash</span><br><span class="line">git stash apply                  # 恢复暂存的内容</span><br><span class="line">git stash drop                   # 删除暂存区</span><br></pre></td></tr></table></figure>
+<h4 id="git远程分支管理"><a href="#git远程分支管理" class="headerlink" title="git远程分支管理"></a>git远程分支管理</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git pull                         # 抓取远程仓库所有分支更新并合并到本地</span><br><span class="line">git pull --no-ff                 # 抓取远程仓库所有分支更新并合并到本地，不要快进合并</span><br><span class="line">git fetch origin                 # 抓取远程仓库更新</span><br><span class="line">git merge origin/master          # 将远程主分支合并到本地当前分支</span><br><span class="line">git co --track origin/branch     # 跟踪某个远程分支创建相应的本地分支</span><br><span class="line">git co -b &lt;local_branch&gt; origin/&lt;remote_branch&gt;  # 基于远程分支创建本地分支，功能同上</span><br><span class="line"></span><br><span class="line">git push                         # push所有分支</span><br><span class="line">git push origin master           # 将本地主分支推到远程主分支</span><br><span class="line">git push -u origin master        # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</span><br><span class="line">git push origin &lt;local_branch&gt;   # 创建远程分支， origin是远程仓库名</span><br><span class="line">git push origin &lt;local_branch&gt;:&lt;remote_branch&gt;  # 创建远程分支</span><br><span class="line">git push origin :&lt;remote_branch&gt;  #先删除本地分支(git br -d &lt;branch&gt;)，然后再push删除远程分支</span><br></pre></td></tr></table></figure>
+<h4 id="git远程仓库管理"><a href="#git远程仓库管理" class="headerlink" title="git远程仓库管理"></a>git远程仓库管理</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote -v                    # 查看远程服务器地址和仓库名称</span><br><span class="line">git remote show origin           # 查看远程服务器仓库状态</span><br><span class="line">git remote add origin git@github:robbin/robbin_site.git         # 添加远程仓库地址</span><br><span class="line">git remote set-url origin git@github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址)</span><br><span class="line">git remote rm &lt;repository&gt;       # 删除远程仓库</span><br></pre></td></tr></table></figure>
+<h4 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git clone --bare robbin_site robbin_site.git  # 用带版本的项目创建纯版本仓库</span><br><span class="line">scp -r my_project.git git@git.csdn.net:~      # 将纯仓库上传到服务器上</span><br><span class="line"></span><br><span class="line">mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git --bare init # 在服务器创建纯仓库</span><br><span class="line">git remote add origin git@github.com:robbin/robbin_site.git    # 设置远程仓库地址</span><br><span class="line">git push -u origin master                                      # 客户端首次提交</span><br><span class="line">git push -u origin develop    # 首次将本地develop分支提交到远程develop分支，并且track</span><br><span class="line"></span><br><span class="line">git remote set-head origin master   # 设置远程仓库的HEAD指向master分支</span><br></pre></td></tr></table></figure>
+<h4 id="也可以命令设置跟踪远程库和本地库"><a href="#也可以命令设置跟踪远程库和本地库" class="headerlink" title="也可以命令设置跟踪远程库和本地库"></a>也可以命令设置跟踪远程库和本地库</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream master origin/master</span><br><span class="line">git branch --set-upstream develop origin/develop</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/a0d4697b.html" title="git常用命令备忘记录">https://ru23.com/note/a0d4697b.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/a0d4697b.html&title=《git常用命令备忘记录》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/a0d4697b.html&title=《git常用命令备忘记录》 — 前端迷&source=git配置" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/a0d4697b.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git常用命令备忘记录》 — 前端迷&url=https://ru23.com/note/a0d4697b.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/a0d4697b.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aQY7CMBAEQP7/afYBq0D3ODbLqnyKECRFDq2ZsR+PeD0v1tV3fn9+dc/HjoWLi7vMfb5cV99Zuc/VdfJScHFxT3JfB00SWwklv//l57i4uH+Ym4fR68jDxcX9r9y86MHFxf0u7krTkkwwPtCr4eLiLnDzKeW+6y3zXVxc3BH3Wa6kycnHH/XTcXFxj3DzQGmHnu2fLJ6Li4t7kNtuqSbB1L6O6Om4uLibuS00CbLX27H50a43FRkuLu42bj70zKNnfbP2za9wcXGPcPMIm638TybHv3BxcT/FbXuNWekz7NVwcXGPcNvjF7Mxax6RxcAUFxf3CDffPpm1MSvbMLi4uCe5s6IkH6AkATdsfnBxcbdxk2DKW6CkiWpD7dHmKC4u7k3cWYTlLVN+MOuNBxcX9yA3b0WSsJu1ScNeDRcXdxt3vcnJo2qpicLFxd3MnR2kaMuUtomq6ylcXNxbuW245IPOtsSZ3QEXF3cfd3b8YhZY+YbKzQezcHFxR9z1oMmJbfMTjUVwcXE/ym03S/JxatGx4eLifhW3jcJ6hIqLi3uQOxuStkGWb+VGe8K4uLjbuG2UtEXMrAC6Yb6Li4s74f4AApziMbAiQ3UAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/github/" class="color2">github</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git配置"><span class="post-toc-text">git配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git常用命令-查看、添加、提交、删除、找回，重置修改文件"><span class="post-toc-text">git常用命令:查看、添加、提交、删除、找回，重置修改文件**</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看文件diff"><span class="post-toc-text">查看文件diff**</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看提交记录"><span class="post-toc-text">查看提交记录**</span></a></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tig"><span class="post-toc-text">tig</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分支合并和rebase"><span class="post-toc-text">分支合并和rebase**</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git补丁管理-方便在多台机器上开发同步时用"><span class="post-toc-text">git补丁管理(方便在多台机器上开发同步时用)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git暂存管理"><span class="post-toc-text">git暂存管理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git远程分支管理"><span class="post-toc-text">git远程分支管理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git远程仓库管理"><span class="post-toc-text">git远程仓库管理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建远程仓库"><span class="post-toc-text">创建远程仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#也可以命令设置跟踪远程库和本地库"><span class="post-toc-text">也可以命令设置跟踪远程库和本地库</span></a></li></ol>
+        </li></nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/e8fd76aa.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Sublime Text3常用快捷键
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/ae4ebfd1.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Sublime Text资源整理篇</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+            <div class="outer-ad-aside">
+                
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?userCode=jh5fwy2j&source=5176.11533457&userCode=jh5fwy2j&type=copy">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
+                    <a title="微信公众号：前端迷" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
+                    </a>
+                  
+                    <a title="微信前端技术交流群" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
+                    </a>
+                  
+                
+            </div>
+          </div>
+        
+      </div>
+     
+    
+     
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

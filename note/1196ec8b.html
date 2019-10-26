@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       javascript数组、字符串、对象常用方法 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="一、String对象1.1 slice stringObject.slice(start, end)  123456var a = &apos;Hello world!&apos;;var b = a.slice(2);var c = a.slice(-4, -2);// a: &apos;Hello world!&apos;// b: &apos;llo world!&apos;// c: &apos;rl&apos;，参数可为负 1.2 substr stringObje">
+<meta name="keywords" content="javascript,api">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript数组、字符串、对象常用方法">
+<meta property="og:url" content="https://ru23.com/note/1196ec8b.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="一、String对象1.1 slice stringObject.slice(start, end)  123456var a = &apos;Hello world!&apos;;var b = a.slice(2);var c = a.slice(-4, -2);// a: &apos;Hello world!&apos;// b: &apos;llo world!&apos;// c: &apos;rl&apos;，参数可为负 1.2 substr stringObje">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript数组、字符串、对象常用方法">
+<meta name="twitter:description" content="一、String对象1.1 slice stringObject.slice(start, end)  123456var a = &apos;Hello world!&apos;;var b = a.slice(2);var c = a.slice(-4, -2);// a: &apos;Hello world!&apos;// b: &apos;llo world!&apos;// c: &apos;rl&apos;，参数可为负 1.2 substr stringObje">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdn.ru23.com/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    
+      <div class="outer">
+          <div class="outer-section">
+            <section id="main" class="body-wrap"><article id="post-2018-02-js-string-arr-object-api" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      javascript数组、字符串、对象常用方法
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-02-23
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <h2 id="一、String对象"><a href="#一、String对象" class="headerlink" title="一、String对象"></a>一、String对象</h2><h3 id="1-1-slice"><a href="#1-1-slice" class="headerlink" title="1.1 slice"></a>1.1 slice</h3><ul>
+<li><code>stringObject.slice(start, end)</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'Hello world!'</span>;</span><br><span class="line"><span class="keyword">var</span> b = a.slice(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> c = a.slice(<span class="number">-4</span>, <span class="number">-2</span>);</span><br><span class="line"><span class="comment">// a: 'Hello world!'</span></span><br><span class="line"><span class="comment">// b: 'llo world!'</span></span><br><span class="line"><span class="comment">// c: 'rl'，参数可为负</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-substr"><a href="#1-2-substr" class="headerlink" title="1.2 substr"></a>1.2 substr</h3><ul>
+<li><code>stringObject.substr(start, length)</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'Hello world!'</span>;</span><br><span class="line"><span class="keyword">var</span> b = a.substr(<span class="number">0</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">var</span> c = a.substr(<span class="number">-5</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// a: 'Hello world!'</span></span><br><span class="line"><span class="comment">// b: 'Hell'</span></span><br><span class="line"><span class="comment">// c: 'or'，参数可为负</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-substring"><a href="#1-3-substring" class="headerlink" title="1.3 substring"></a>1.3 substring</h3><ul>
+<li><code>stringObject.substring(start, stop)</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'Hello world!'</span>;</span><br><span class="line"><span class="keyword">var</span> b = a.substring(<span class="number">0</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">var</span> c = a.substring(<span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> d = a.substring(<span class="number">0</span>, <span class="number">-1</span>);</span><br><span class="line"><span class="comment">// a: 'Hello world!'</span></span><br><span class="line"><span class="comment">// b: 'Hell'</span></span><br><span class="line"><span class="comment">// c: 'l'，start比stop小，交换这两个参数</span></span><br><span class="line"><span class="comment">// d: ''，参数为负，返回空字符串</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>slice</code>、<code>substr</code>、<code>substring</code>都是字符串的切割方法，三者之间有细微的区别，根据不同的使用场景可以灵活使用。三种方法都是生成新的字符串，而不是修改原<code>string</code></p>
+</blockquote>
+<h2 id="二、Array对象"><a href="#二、Array对象" class="headerlink" title="二、Array对象"></a>二、Array对象</h2><h3 id="2-1-concat"><a href="#2-1-concat" class="headerlink" title="2.1 concat"></a>2.1 concat</h3><ul>
+<li>参数可以为具体的值，也可以为数组对象，可以任意多个。不改变现有的数组，返回被连接数组的一个副本。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.concat(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">var</span> c = a.concat([<span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line"><span class="comment">// a: [1, 2, 3]</span></span><br><span class="line"><span class="comment">// b: [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="comment">// c: [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-pop"><a href="#2-2-pop" class="headerlink" title="2.2 pop"></a>2.2 pop</h3><ul>
+<li>删除 <code>arrayObject</code> 的最后一个元素，把数组长度减 <code>1</code>，并且返回它删除的元素的值。如果数组已经为空，则 pop() 不改变数组，并返回 <code>undefined</code> 值。该方法会改变原数组</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.pop();</span><br><span class="line"><span class="comment">// a: [1, 2]，修改了原数组</span></span><br><span class="line"><span class="comment">// b: 3，返回删除元素的值</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-push"><a href="#2-3-push" class="headerlink" title="2.3 push"></a>2.3 push</h3><ul>
+<li>参数顺序添加到 <code>arrayObject</code> 的尾部，直接修改<code>arrayObject</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.push(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// a: [1, 2, 3, 4, 5]，修改了原数组</span></span><br><span class="line"><span class="comment">// b: 5，返回修改后的数组的长度</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-4-shift"><a href="#2-4-shift" class="headerlink" title="2.4 shift"></a>2.4 shift</h3><ul>
+<li>把数组的第一个元素从其中删除，并返回第一个元素的值。如果数组是空的，那么 <code>shift()</code> 方法将不进行任何操作，返回<code>undefined</code>值。该方法会改变原数组。类比<code>pop</code>方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.shift();</span><br><span class="line"><span class="comment">// a: [2, 3]，修改了原数组</span></span><br><span class="line"><span class="comment">// b: 1，返回删除元素的值</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-5-unshift"><a href="#2-5-unshift" class="headerlink" title="2.5 unshift"></a>2.5 unshift</h3><ul>
+<li>向数组的开头添加一个或更多元素，并返回新的长度。该方法的第一个参数将成为数组的新元素 <code>0</code>，如果还有第二个参数，它将成为新的元素 <code>1</code>，以此类推</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.unshift(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// a: [ 4, 5, 1, 2, 3 ]，修改了原数组</span></span><br><span class="line"><span class="comment">// b: 5，返回修改后的数组的长度</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-6-slice"><a href="#2-6-slice" class="headerlink" title="2.6 slice"></a>2.6 slice</h3><ul>
+<li>返回一个新的数组，包含从 <code>start</code> 到 <code>end</code> （不包括该元素）的 <code>arrayObject</code> 中的元素。该方法不会修改原数组</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.slice(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// a: [1, 2, 3, 4, 5]，不修改原数组</span></span><br><span class="line"><span class="comment">// b: [3, 4, 5]，返回新数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> d = c.slice(<span class="number">2</span>, <span class="number">-1</span>);</span><br><span class="line"><span class="comment">// c: [1, 2, 3, 4, 5]，不修改原数组</span></span><br><span class="line"><span class="comment">// d: [3, 4]，返回新数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-7-splice"><a href="#2-7-splice" class="headerlink" title="2.7 splice"></a>2.7 splice</h3><ul>
+<li>可删除从 <code>index</code> 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。如果从 <code>arrayObject</code> 中删除了元素，则返回的是含有被删除的元素的数组。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.splice(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// a: [1, 3, 4, 5]，修改了原数组</span></span><br><span class="line"><span class="comment">// b: [2]，返回新数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> d = c.splice(<span class="number">-1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// c: [1, 2, 3, 4]，修改了原数组</span></span><br><span class="line"><span class="comment">// d: [5]，返回新数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> e = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> f = e.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">7</span>);</span><br><span class="line"><span class="comment">// e: [ 1, 6, 7, 3, 4, 5 ]，修改了原数组</span></span><br><span class="line"><span class="comment">// f: [2]，返回新数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> h = g.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">8</span>);</span><br><span class="line"><span class="comment">// g: [ 1, 8, 2, 3, 4, 5 ]，修改了原数组</span></span><br><span class="line"><span class="comment">// h: []，没有删除值，返回空数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-8-sort"><a href="#2-8-sort" class="headerlink" title="2.8 sort"></a>2.8 sort</h3><ul>
+<li>无参数时，将按字母顺序对数组中的元素进行排序。参数为比较函数时，如果要交换<code>prev</code>和<code>next</code>的值，返回大于<code>0</code>的值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">9</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.sort(<span class="function"><span class="keyword">function</span> (<span class="params">prev, next</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> prev - next;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// a: [1, 6, 8, 9, 10]，修改了原数组</span></span><br><span class="line"><span class="comment">// b: [1, 6, 8, 9, 10]，返回修改后的数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-9-reverse"><a href="#2-9-reverse" class="headerlink" title="2.9 reverse"></a>2.9 reverse</h3><ul>
+<li>用于颠倒数组中元素的顺序。会改变原数组</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.reverse();</span><br><span class="line"><span class="comment">// a: [3, 2, 1]，修改了原数组</span></span><br><span class="line"><span class="comment">// b: [3, 2, 1]，返回修改后的数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-10-map"><a href="#2-10-map" class="headerlink" title="2.10 map"></a>2.10 map</h3><blockquote>
+<p>有返回值，返回一个新的数组，每个元素为调用<code>func</code>的结果</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> other = list.map(<span class="function">(<span class="params">d, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> d * <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(other);</span><br><span class="line"><span class="comment">// print: [2, 4, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-11-forEach"><a href="#2-11-forEach" class="headerlink" title="2.11 forEach"></a>2.11 forEach</h3><ul>
+<li>数组的每个元素执行一次提供的函数。一般来说不修改原数组，但也可以通过处理函数修改原数组。该方法很灵活，可类比<code>for...of</code></li>
+<li>没有返回值，只针对每个元素调用<code>func</code>。</li>
+<li>优点：代码简介。</li>
+<li>缺点：无法使用<code>break</code>，<code>return</code>等终止循环</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>value</code> 当前操作的数组元素</li>
+<li>当前操作元素的数组索引</li>
+<li><code>array</code> 当前数组的引用</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">list.forEach(<span class="function">(<span class="params">d, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.push(d * <span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(other);</span><br><span class="line"><span class="comment">// print: [2, 4, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-12-find"><a href="#2-12-find" class="headerlink" title="2.12 find"></a>2.12 find</h3><ul>
+<li>返回数组中<strong>第一个满足测试条件</strong>（返回<code>true</code>）的元素。如果不存在这样的元素，返回<code>undefined</code>。<code>findIndex</code>类似，只不过返回的是第一个满足测试条件的元素的<code>index</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.find(<span class="function">(<span class="params">curVal</span>) =&gt;</span> curVal === <span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> c = a.find(<span class="function">(<span class="params">curVal</span>) =&gt;</span> curVal === <span class="number">4</span>);</span><br><span class="line"><span class="comment">// a: [1, 2, 3]，不修改原数组</span></span><br><span class="line"><span class="comment">// b: 1</span></span><br><span class="line"><span class="comment">// c: undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-13-filter"><a href="#2-13-filter" class="headerlink" title="2.13 filter"></a>2.13 filter</h3><ul>
+<li>返回数组中<strong>所有满足测试条件</strong>（返回<code>true</code>）的元素组成的数组。如果不存在这样的元素，返回<code>[]</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.filter(<span class="function">(<span class="params">curVal</span>) =&gt;</span> curVal &gt; <span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> c = a.filter(<span class="function">(<span class="params">curVal</span>) =&gt;</span> curVal &gt; <span class="number">3</span>);</span><br><span class="line"><span class="comment">// a: [1, 2, 3]，不修改原数组</span></span><br><span class="line"><span class="comment">// b: [2, 3]</span></span><br><span class="line"><span class="comment">// c: []</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-14-reduce和reduceRight"><a href="#2-14-reduce和reduceRight" class="headerlink" title="2.14 reduce和reduceRight"></a>2.14 reduce和reduceRight</h3><blockquote>
+<p><code>.reduce</code>从左到右而<code>.reduceRight</code>从右到左循环遍历数组，每次调用接收目前为止的部分结果和当前遍历的值</p>
+</blockquote>
+<ul>
+<li>两种方法都有如下典型用法：<code>.reduce(callback(previousValue, currentValue, index, array), initialValue)</code>。</li>
+<li><code>previousValue</code>是最后被调用的回调函数的返回值，<code>initialValue</code>是开始时<code>previousValue</code>被初始化的值。<code>currentValue</code></li>
+<li>是当前被遍历的元素值，<code>index</code>是当前元素在数组中的索引值。<code>array</code>是对调用<code>.reduce</code>数组的简单引用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.sum = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">partial, value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> partial + value</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">10</span>].sum()</span><br><span class="line"><span class="comment">// &lt;- 28</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以使用<code>.reduce</code>作为对象的字符串生成器</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concat</span> (<span class="params">input</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> input.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">partial, value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (partial) &#123;</span><br><span class="line">            partial += <span class="string">', '</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> partial + value</span><br><span class="line">    &#125;, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">concat([</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">'George'</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">'Sam'</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">'Pear'</span> &#125;</span><br><span class="line">])</span><br><span class="line"><span class="comment">// &lt;- 'George, Sam, Pear'</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-15-some"><a href="#2-15-some" class="headerlink" title="2.15 some"></a>2.15 some</h3><blockquote>
+<p>返回一个<code>boolean</code>，判断是否有元素符合<code>func</code>条件，如果有一个元素符合<code>func</code>条件，则循环会终止</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">list.some(<span class="function">(<span class="params">d, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(d, i);</span><br><span class="line">    <span class="keyword">return</span> d &gt; <span class="number">3</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// print: 1,0 2,1 3,2 4,3</span></span><br><span class="line"><span class="comment">// return false</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-16-every"><a href="#2-16-every" class="headerlink" title="2.16 every"></a>2.16 every</h3><blockquote>
+<p>返回一个<code>boolean</code>，判断每个元素是否符合<code>func</code>条件，有一个元素不满足<code>func</code>条件，则循环终止，返回<code>false</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">list.every(<span class="function">(<span class="params">d, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(d, i);</span><br><span class="line">    <span class="keyword">return</span> d &lt; <span class="number">3</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// print: 1,0 2,1 3,2</span></span><br><span class="line"><span class="comment">// return false</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、Object"><a href="#三、Object" class="headerlink" title="三、Object"></a>三、Object</h2><h3 id="3-1-for-in"><a href="#3-1-for-in" class="headerlink" title="3.1 for in"></a>3.1 for in</h3><blockquote>
+<p><code>for-in</code>循环实际是为循环”enumerable“对象而设计的，<code>for in</code>也可以循环数组，但是不推荐这样使用，<code>for–in</code>是用来循环带有字符串<code>key</code>的对象的方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"obj."</span> + prop + <span class="string">" = "</span> + obj[prop]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// print:  "obj.a = 1" "obj.b = 2" "obj.c = 3"</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-for-of"><a href="#3-2-for-of" class="headerlink" title="3.2 for of"></a>3.2 for of</h3><blockquote>
+<p><code>for of</code>为<code>ES6</code>提供，具有<code>iterator</code>接口，就可以用<code>for of</code>循环遍历它的成员</p>
+</blockquote>
+<ul>
+<li><code>for of</code>循环可以使用的范围包括数组、<code>Set</code>和<code>Map</code>结构、某些类似数组的对象（比如<code>arguments</code>对象、<code>dom nodeList</code>对象）、后文的<code>Generator</code>对象，以及字符串</li>
+</ul>
+<h4 id="3-2-1-entries"><a href="#3-2-1-entries" class="headerlink" title="3.2.1 entries"></a>3.2.1 entries</h4><blockquote>
+<p><code>entries()</code> 返回一个遍历器对象，用来遍历[键名, 键值]组成的数组。对于数组，键名就是索引值；对于<code>Set</code>，键名与键值相同。<code>Map</code>结构的<code>iterator</code>接口，默认就是调用<code>entries</code>方法</p>
+</blockquote>
+<h4 id="3-2-2-keys"><a href="#3-2-2-keys" class="headerlink" title="3.2.2 keys"></a>3.2.2 keys</h4><ul>
+<li><code>keys()</code> 返回一个遍历器对象，用来遍历所有的键名。</li>
+</ul>
+<h4 id="3-2-3-values"><a href="#3-2-3-values" class="headerlink" title="3.2.3 values"></a>3.2.3 values</h4><ul>
+<li><code>values()</code>返回一个遍历器对象，用来遍历所有的键值。 </li>
+</ul>
+<blockquote>
+<p>这三个方法调用后生成的遍历器对象，所遍历的都是计算生成的数据结构</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> e <span class="keyword">of</span> list) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// print: 1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历对象</span></span><br><span class="line">obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, obj[key]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// print:  a 1 b 2 c 3</span></span><br><span class="line"><span class="comment">//说明：对于普通的对象，for...in循环可以遍历键名，for...of循环会报错。</span></span><br><span class="line"><span class="comment">//一种解决方法是，使用Object.keys方法将对象的键名生成一个数组，然后遍历这个数组。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// entries</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> pair <span class="keyword">of</span> arr.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(pair);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// [0, 'a']</span></span><br><span class="line"><span class="comment">// [1, 'b']</span></span><br><span class="line"><span class="comment">// [2, 'c']</span></span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/1196ec8b.html" title="javascript数组、字符串、对象常用方法">https://ru23.com/note/1196ec8b.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/1196ec8b.html&title=《javascript数组、字符串、对象常用方法》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/1196ec8b.html&title=《javascript数组、字符串、对象常用方法》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/1196ec8b.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript数组、字符串、对象常用方法》 — 前端迷&url=https://ru23.com/note/1196ec8b.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/1196ec8b.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aQXLCMAwFUO5/abrutDFfUmxo53mVgZA8s9BIsh6PeD1/rN63V5/cvHBxccfc53KtX3B1z/o5vd/i4uKe515FjPU9yf35VtfPxMXF/SvcJBitsxRcXNz/we2x1qENFxf3M7l50ZK0QhLW9loNFxd3wM27lPuut/R3cXFxW9xncVUTozzRid6Oi4t7hFtthlaPSXqJ0TpJwsXFPcmtlh93Bb6kEBq9GBcXt8ittiF64Sn/55oZGS4u7gbuurlZLV3yA5WkZPp2jYuLe4Q7ORqZN1OqBza4uLjv4uZHoUnS8+KVvVoNFxd3MzdJX/KyJ0dUC6fLWg0XF3cDNy97esMZ85HQX56Ai4u7mVstRarQahITxV1cXNzN3OqwZrU5Mt92AYqLi3srN0lKqu3U+WBHYY4MFxd3M3fe6OyNZSTbxsXF/Rxu9Yh0kuhEd+Li4m7m9gYpEkT1yDbaDC4u7hFutTlSDVKT9KjZMMXFxb2JOw9e89GNQoDDxcU9yJ20PPKWSvVY5UVbBBcX92O4eQCabLjcNcHFxX0rtzeoMe9y4OLinucmYSgZoegVUYVyCxcX9wh3cvCZD1hMhrRwcXEPcr8A7FpI5xucdvYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/api/" class="color4">api</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、String对象"><span class="post-toc-text">一、String对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-slice"><span class="post-toc-text">1.1 slice</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-substr"><span class="post-toc-text">1.2 substr</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-substring"><span class="post-toc-text">1.3 substring</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Array对象"><span class="post-toc-text">二、Array对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-concat"><span class="post-toc-text">2.1 concat</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-pop"><span class="post-toc-text">2.2 pop</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-push"><span class="post-toc-text">2.3 push</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-shift"><span class="post-toc-text">2.4 shift</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-unshift"><span class="post-toc-text">2.5 unshift</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-6-slice"><span class="post-toc-text">2.6 slice</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-7-splice"><span class="post-toc-text">2.7 splice</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-8-sort"><span class="post-toc-text">2.8 sort</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-9-reverse"><span class="post-toc-text">2.9 reverse</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-10-map"><span class="post-toc-text">2.10 map</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-11-forEach"><span class="post-toc-text">2.11 forEach</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-12-find"><span class="post-toc-text">2.12 find</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-13-filter"><span class="post-toc-text">2.13 filter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-14-reduce和reduceRight"><span class="post-toc-text">2.14 reduce和reduceRight</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-15-some"><span class="post-toc-text">2.15 some</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-16-every"><span class="post-toc-text">2.16 every</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Object"><span class="post-toc-text">三、Object</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-for-in"><span class="post-toc-text">3.1 for in</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-for-of"><span class="post-toc-text">3.2 for of</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-1-entries"><span class="post-toc-text">3.2.1 entries</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-2-keys"><span class="post-toc-text">3.2.2 keys</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-3-values"><span class="post-toc-text">3.2.3 values</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/bfaf4cce.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          实现数据的双向绑定mvvm-剖析Vue的原理
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/dfae90e4.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">pm2用法之ecosystem部署nodejs项目</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+            <div class="outer-ad-aside">
+                
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?userCode=jh5fwy2j&source=5176.11533457&userCode=jh5fwy2j&type=copy">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
+                    <a title="微信公众号：前端迷" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
+                    </a>
+                  
+                    <a title="微信前端技术交流群" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
+                    </a>
+                  
+                
+            </div>
+          </div>
+        
+      </div>
+     
+    
+     
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

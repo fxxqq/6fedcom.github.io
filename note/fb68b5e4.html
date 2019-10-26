@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       Emmet：HTML/CSS代码快速编写神器 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="前端开发必备！Emmet使用手册">
+<meta name="keywords" content="Emmet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emmet：HTML&#x2F;CSS代码快速编写神器">
+<meta property="og:url" content="https://ru23.com/note/fb68b5e4.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="前端开发必备！Emmet使用手册">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2327/301ff5c9-3604-3dd3-a206-6d3516861ec4.jpg">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2329/0070e820-1cbf-3f42-8c5b-838e5774d02b.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2331/cb250aef-3b60-3297-86ba-8c3ed36cacad.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2333/167e1956-4ac6-3b6d-9025-8bf90fee1250.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2335/47ae82f5-4fd8-36a1-9b4e-d148237537ee.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2337/ae3a8b58-244a-3680-9f0c-d0cab459fc41.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2339/363af658-650f-38d1-ad0e-9608df9d2873.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2341/cf5613ac-4198-326e-a651-a08ad206800a.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2343/a1c5f9d8-d187-3bde-895b-2e14fb428184.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2345/21a47a7c-2d38-3231-8b4b-7d15f38be57a.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2347/2c8cccf4-be54-3190-b1e7-3713717e2a78.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2349/4c2c81e2-ebba-367e-a4fd-4f667d08ca84.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2351/a68eda57-f573-343c-81b8-19e0a48c08fe.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2353/f39213f9-5d68-3728-8cf3-7964aaa02bae.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/2355/87a3d500-1798-3050-b7e0-df51c94bd203.gif">
+<meta property="og:updated_time" content="2019-10-26T08:16:23.685Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emmet：HTML&#x2F;CSS代码快速编写神器">
+<meta name="twitter:description" content="前端开发必备！Emmet使用手册">
+<meta name="twitter:image" content="http://dl.iteye.com/upload/attachment/0083/2327/301ff5c9-3604-3dd3-a206-6d3516861ec4.jpg">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdn.ru23.com/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    
+      <div class="outer">
+          <div class="outer-section">
+            <section id="main" class="body-wrap"><article id="post-2018-01-Emmet：HTML-CSS代码快速编写神器" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      Emmet：HTML/CSS代码快速编写神器
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2016-03-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <ul>
+<li><a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="noopener">前端开发必备！Emmet使用手册</a><a id="more"></a></li>
+<li>Emmet的前身是大名鼎鼎的<code>Zen coding</code>，如果你从事<code>Web</code>前端开发的话，对该插件一定不会陌生。它使用仿<code>CSS</code>选择器的语法来生成代码，大大提高了<code>HTML/CSS</code>代码编写的速度，比如下面的演示： </li>
+</ul>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2327/301ff5c9-3604-3dd3-a206-6d3516861ec4.jpg" alt="此处输入图片的描述"></p>
+<ul>
+<li>该插件已经改名为Emmet。但Emmet不只改名，还带来了一些新特性。</li>
+</ul>
+<h3 id="快速编写HTML代码"><a href="#快速编写HTML代码" class="headerlink" title="快速编写HTML代码"></a>快速编写HTML代码</h3><hr>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><hr>
+<ul>
+<li>HTML文档需要包含一些固定的标签，比如<code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>、<code>&lt;body&gt;</code>等，现在你只需要1秒钟就可以输入这些标签。比如输入<code>“!”</code>或<code>“html:5”</code>，然后按<code>Tab</code>键：</li>
+</ul>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2329/0070e820-1cbf-3f42-8c5b-838e5774d02b.gif" alt="此处输入图片的描述"></p>
+<ul>
+<li><code>html:5</code> 或!：用于<code>html5</code>文档类型</li>
+<li><code>html:xt</code>：用于xhtml过渡文档类型</li>
+<li><code>html:4s</code>：用于HTML4严格文档类型</li>
+</ul>
+<ul>
+<li>连续输入元素名称和<code>ID</code>，<code>Emmet</code>会自动为你补全，比如输入<code>p#foo</code>： </li>
+</ul>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2331/cb250aef-3b60-3297-86ba-8c3ed36cacad.gif" alt="此处输入图片的描述"></p>
+<ul>
+<li>连续输入类和<code>id</code>，比如<code>p.bar#foo</code>，会自动生成：<code>Html</code>代码 <code>&lt;p class=&quot;bar&quot; id=&quot;foo&quot;&gt;&lt;/p&gt;</code></li>
+</ul>
+<p>下面来看看如何定义HTML元素的内容和属性。你可以通过输入h1{foo}和a[href=#]，就可以自动生成如下代码：</p>
+<p><code>&lt;h1&gt;foo&lt;/h1&gt;</code><br><code>&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;</code>  </p>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2333/167e1956-4ac6-3b6d-9025-8bf90fee1250.gif" alt="此处输入图片的描述"></p>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><hr>
+<ul>
+<li>现在你只需要1行代码就可以实现标签的嵌套。 <ul>
+<li><code>&gt;</code>：子元素符号，表示嵌套的元素</li>
+<li><code>+</code>：同级标签符号</li>
+<li><code>^</code>：可以使该符号前的标签提升一行</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2335/47ae82f5-4fd8-36a1-9b4e-d148237537ee.gif" alt="此处输入图片的描述"></p>
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><hr>
+<ul>
+<li>你可以通过嵌套和括号来快速生成一些代码块，比如输入<code>(.foo&gt;h1)+(.bar&gt;h2)</code>，会自动生成如下代码：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"foo"</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bar"</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> <img src="http://dl.iteye.com/upload/attachment/0083/2337/ae3a8b58-244a-3680-9f0c-d0cab459fc41.gif" alt="此处输入图片的描述"></p>
+<h4 id="隐式标签"><a href="#隐式标签" class="headerlink" title="隐式标签"></a>隐式标签</h4><hr>
+<ul>
+<li><p>声明一个带类的标签，只需输入<code>div.item</code>，就会生成<code>&lt;div class=&quot;item&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+<li><p>在过去版本中，可以省略掉div，即输入<code>.item</code>即可生成<code>&lt;div class=&quot;item&quot;&gt;&lt;/div&gt;</code>。现在如果只输入<code>.item</code>，则<code>Emmet</code>会根据父标签进行判定。比如在<code>&lt;ul&gt;</code>中输入<code>.item</code>，就会生成<code>&lt;li class=&quot;item&quot;&gt;&lt;/li&gt;</code>。 </p>
+</li>
+</ul>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2339/363af658-650f-38d1-ad0e-9608df9d2873.gif" alt="此处输入图片的描述"></p>
+<ul>
+<li>下面是所有的隐式标签名称：<ul>
+<li><code>li</code>：用于<code>ul</code>和<code>ol</code>中</li>
+<li><code>tr</code>：用于table、tbody、thead和tfoot中</li>
+<li><code>td</code>：用于<code>tr</code>中</li>
+<li><code>option</code>：用于<code>select</code>和<code>optgroup</code>中</li>
+</ul>
+</li>
+</ul>
+<h4 id="定义多个元素"><a href="#定义多个元素" class="headerlink" title="定义多个元素"></a>定义多个元素</h4><hr>
+<ul>
+<li>要定义多个元素，可以使用<code>*</code>符号。比如，<code>ul&gt;li*3</code>可以生成如下代码：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2341/cf5613ac-4198-326e-a651-a08ad206800a.gif" alt="此处输入图片的描述"></p>
+<h4 id="定义多个带属性的元素"><a href="#定义多个带属性的元素" class="headerlink" title="定义多个带属性的元素"></a>定义多个带属性的元素</h4><hr>
+<ul>
+<li>如果输入 <code>ul&gt;li.item$*3</code>，将会生成如下代码： </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2343/a1c5f9d8-d187-3bde-895b-2e14fb428184.gif" alt="此处输入图片的描述"></p>
+<h3 id="CSS缩写"><a href="#CSS缩写" class="headerlink" title="CSS缩写"></a>CSS缩写</h3><hr>
+<h4 id="值"><a href="#值" class="headerlink" title="值"></a>值</h4><hr>
+<ul>
+<li>比如要定义元素的宽度，只需输入<code>w100</code>，即可生成 <code>width: 100px;</code>  </li>
+</ul>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2345/21a47a7c-2d38-3231-8b4b-7d15f38be57a.gif" alt="此处输入图片的描述"></p>
+<ul>
+<li>除了<code>px</code>，也可以生成其他单位，比如输入<code>h10p+m5e</code>，结果如下：<ul>
+<li><code>height: 10%</code>;  </li>
+<li><code>margin: 5em</code>; </li>
+</ul>
+</li>
+<li>单位别名列表：<ul>
+<li><code>p</code> 表示<code>%</code></li>
+<li><code>e</code> 表示 <code>em</code></li>
+<li><code>x</code> 表示 <code>ex</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="附加属性"><a href="#附加属性" class="headerlink" title="附加属性"></a>附加属性</h4><hr>
+<ul>
+<li>可能你之前已经了解了一些缩写，比如 <code>@f</code>，可以生成：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123; </span><br><span class="line"><span class="attribute">font-family</span>:; </span><br><span class="line">  <span class="attribute">src</span>:<span class="built_in">url</span>();  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>一些其他的属性，比如<code>background-image</code>、<code>border-radius</code>、<code>font</code>、<code>@font-face</code>,<code>text-outline</code>、<code>text-shadow</code>等额外的选项，可以通过<code>“+”</code>符号来生成，比如输入<code>@f+</code>，将生成： </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;  </span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'FontName'</span>;  </span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot'</span>);  </span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), <span class="built_in">url</span>(<span class="string">'FileName.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),  </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'FileName.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),  </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'FileName.svg#FontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);  </span><br><span class="line">   <span class="attribute">font-style</span>: normal;  </span><br><span class="line">   <span class="attribute">font-weight</span>: normal;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2347/2c8cccf4-be54-3190-b1e7-3713717e2a78.gif" alt="此处输入图片的描述"></p>
+<h4 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h4><hr>
+<ul>
+<li><p>如果有些缩写你拿不准，<code>Emmet</code>会根据你的输入内容匹配最接近的语法，比如输入<code>ov:h</code>、<code>ov-h</code>、<code>ov</code>h和<code>oh</code>，生成的代码是相同的：<br><code>overflow: hidden</code>;</p>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2349/4c2c81e2-ebba-367e-a4fd-4f667d08ca84.gif" alt="此处输入图片的描述"></p>
+</li>
+</ul>
+<h4 id="供应商前缀"><a href="#供应商前缀" class="headerlink" title="供应商前缀"></a>供应商前缀</h4><hr>
+<ul>
+<li>如果输入非<code>W3C</code>标准的<code>CSS</code>属性，<code>Emmet</code>会自动加上供应商前缀，比如输入<code>trs</code>，则会生成： </li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-transform</span>: ; </span><br><span class="line"><span class="selector-tag">-moz-transform</span>: ;  </span><br><span class="line"><span class="selector-tag">-ms-transform</span>: ;  </span><br><span class="line"><span class="selector-tag">-o-transform</span>: ;  </span><br><span class="line"><span class="selector-tag">transform</span>: ;</span><br></pre></td></tr></table></figure>
+<p> <img src="http://dl.iteye.com/upload/attachment/0083/2351/a68eda57-f573-343c-81b8-19e0a48c08fe.gif" alt="此处输入图片的描述"></p>
+<ul>
+<li>你也可以在任意属性前加上<code>“-”</code>符号，也可以为该属性加上前缀。比如输入<code>-super-foo</code>：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-super-foo</span>: ;  </span><br><span class="line"><span class="selector-tag">-moz-super-foo</span>: ;  </span><br><span class="line"><span class="selector-tag">-ms-super-foo</span>: ;  </span><br><span class="line"><span class="selector-tag">-o-super-foo</span>: ; </span><br><span class="line"><span class="selector-tag">super-foo</span>: ;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果不希望加上所有前缀，可以使用缩写来指定，比如<code>-wm-trf</code>表示只加上<code>-webkit</code>和<code>-moz</code>前缀：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-transform</span>: ;  </span><br><span class="line"><span class="selector-tag">-moz-transform</span>: ;  </span><br><span class="line"><span class="selector-tag">transform</span>: ;</span><br></pre></td></tr></table></figure>
+<h4 id="前缀缩写如下："><a href="#前缀缩写如下：" class="headerlink" title="前缀缩写如下："></a>前缀缩写如下：</h4><hr>
+<ul>
+<li><code>w</code> 表示 <code>-webkit-</code></li>
+<li><code>m</code>表示 <code>-moz-</code></li>
+<li><code>s</code> 表示 <code>-ms-</code></li>
+<li><code>o</code> 表示 <code>-o-</code></li>
+</ul>
+<h4 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h4><hr>
+<ul>
+<li>输入<code>lg(left, #fff 50%, #000)</code>，会生成如下代码： </li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-webkit-gradient</span>(<span class="selector-tag">linear</span>, 0 0, 100% 0, <span class="selector-tag">color-stop</span>(0<span class="selector-class">.5</span>, <span class="selector-id">#fff</span>), <span class="selector-tag">to</span>(<span class="selector-id">#000</span>));</span><br><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">left</span>, <span class="selector-id">#fff</span> 50%, <span class="selector-id">#000</span>);</span><br><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-moz-linear-gradient</span>(<span class="selector-tag">left</span>, <span class="selector-id">#fff</span> 50%, <span class="selector-id">#000</span>);</span><br><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-o-linear-gradient</span>(<span class="selector-tag">left</span>, <span class="selector-id">#fff</span> 50%, <span class="selector-id">#000</span>);</span><br><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">left</span>, <span class="selector-id">#fff</span> 50%, <span class="selector-id">#000</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2353/f39213f9-5d68-3728-8cf3-7964aaa02bae.gif" alt="此处输入图片的描述"></p>
+<h3 id="附加功能"><a href="#附加功能" class="headerlink" title="附加功能"></a>附加功能</h3><hr>
+<h4 id="生成Lorem-ipsum文本"><a href="#生成Lorem-ipsum文本" class="headerlink" title="生成Lorem ipsum文本"></a>生成Lorem ipsum文本</h4><hr>
+<ul>
+<li>引用 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero delectus.</li>
+</ul>
+<p><img src="http://dl.iteye.com/upload/attachment/0083/2355/87a3d500-1798-3050-b7e0-df51c94bd203.gif" alt="此处输入图片的描述"></p>
+<h3 id="定制"><a href="#定制" class="headerlink" title="定制"></a>定制</h3><hr>
+<ul>
+<li>你还可以定制Emmet插件： <ul>
+<li>添加新缩写或更新现有缩写，可修改<code>[snippets.json][16]</code>文件</li>
+<li>更改<code>Emmet</code>过滤器和操作的行为，可修改<code>[preferences.json][17]</code>文件</li>
+<li>定义如何生成<code>HTML</code>或<code>XML</code>代码，可修改<code>[syntaxProfiles.json][18]</code>文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="针对不同编辑器的插件"><a href="#针对不同编辑器的插件" class="headerlink" title="针对不同编辑器的插件*"></a>针对不同编辑器的插件*</h3><hr>
+<ul>
+<li>Emmet支持的编辑器如下（链接为针对该编辑器的<code>Emmet</code>插件）： <ul>
+<li><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="noopener">Sublime Text 2</a></li>
+<li><a href="https://github.com/emmetio/Emmet.tmplugin" target="_blank" rel="noopener">TextMate 1.x</a></li>
+<li><a href="https://github.com/emmetio/emmet-eclipse" target="_blank" rel="noopener">Eclipse/Aptana</a></li>
+<li><a href="https://github.com/emmetio/Emmet.codaplugin" target="_blank" rel="noopener">Coda 1.6 and 2.x</a></li>
+<li><a href="https://github.com/emmetio/Emmet.sugar" target="_blank" rel="noopener">Espresso</a></li>
+<li><a href="https://github.com/sergeche/emmet.chocmixin" target="_blank" rel="noopener">Chocolat （通过“Install Mixin”对话框添加)</a></li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">Komodo Edit/IDE</a> （通过tools → Add-ons菜单添加)</li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">Notepad++</a></li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">PSPad</a></li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">textarea</a></li>
+<li><a href="https://github.com/emmetio/codemirror" target="_blank" rel="noopener">CodeMirror2/3</a></li>
+<li><a href="https://github.com/emmetio/brackets-emmet" target="_blank" rel="noopener">Brackets</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Emmet官网文档："><a href="#Emmet官网文档：" class="headerlink" title="Emmet官网文档："></a>Emmet官网文档：</h3><hr>
+<ul>
+<li><a href="http://emmet.io/download/" target="_blank" rel="noopener">emmet插件下载中心</a></li>
+<li><a href="https://github.com/emmetio/emmet" target="_blank" rel="noopener">github主页</a></li>
+<li><a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">emmet快捷键表</a></li>
+<li><a href="http://docs.emmet.ioio/cheat-sheet/" target="_blank" rel="noopener">emmet文档</a></li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年10月26日 16:16</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/fb68b5e4.html" title="Emmet：HTML/CSS代码快速编写神器">https://ru23.com/note/fb68b5e4.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/fb68b5e4.html&title=《Emmet：HTML/CSS代码快速编写神器》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/fb68b5e4.html&title=《Emmet：HTML/CSS代码快速编写神器》 — 前端迷&source=
+前端开发必备！Emmet使用手册" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/fb68b5e4.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Emmet：HTML/CSS代码快速编写神器》 — 前端迷&url=https://ru23.com/note/fb68b5e4.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/fb68b5e4.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aQYrDMAwF0N7/0h2YVWFI+iU5ThieVyW0znMXwv7y6xWP9+/4+/nzyec4+m3yfMHAxcUdc9+n45ybQJPvJwZcXNz93KR4RdMFf0RSHA+f4+LiPoybl6cEh4uL+z+4k03P+aEIFxf3mdykDOWvTMKRy89quLi4a04r5cB01edN+S4uLu64K7E2zniPBy4u7h5uvh2Zl6Q8WPkyJy4u7sXc8wPGqtKTN12+NG5xcXE3cvNItPrK3pbosLDi4uJu5yYXJpLLWJN5msceXFzcC7jVdkjeAsnbJ9EbcXFxN3Lzlmc1OsmXHW2kcHFxN3Kr0yVLWnt1AxcXdz+3Su9tjHpltJDi4OLiLuX2rlkkB6GkBVsoc7i4uBu51XuSCTrfBuXxKy4u7h5uNbaoLmnShjmU4OLiXsydrzVvpfSWgYuLexe31/7shSB5ccTFxb2XW70gNSl/1Xmi2164uLhLudWC0tv0VOcstF1xcXEv41aPLtXmax6n4uLiPo07uQdVLXB50cTFxX0+txp2JIFp3r7FxcV9PvcKaBTU4uLibuT2QtJqSeo1b5pnNVxc3AG3F5hGFyYG8QcuLu5N3B9Yf2LpzLXqjwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Emmet/" class="color1">Emmet</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速编写HTML代码"><span class="post-toc-text">快速编写HTML代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#初始化"><span class="post-toc-text">初始化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#嵌套"><span class="post-toc-text">嵌套</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分组"><span class="post-toc-text">分组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#隐式标签"><span class="post-toc-text">隐式标签</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定义多个元素"><span class="post-toc-text">定义多个元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定义多个带属性的元素"><span class="post-toc-text">定义多个带属性的元素</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CSS缩写"><span class="post-toc-text">CSS缩写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#值"><span class="post-toc-text">值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#附加属性"><span class="post-toc-text">附加属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模糊匹配"><span class="post-toc-text">模糊匹配</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#供应商前缀"><span class="post-toc-text">供应商前缀</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前缀缩写如下："><span class="post-toc-text">前缀缩写如下：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#渐变"><span class="post-toc-text">渐变</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#附加功能"><span class="post-toc-text">附加功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成Lorem-ipsum文本"><span class="post-toc-text">生成Lorem ipsum文本</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定制"><span class="post-toc-text">定制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#针对不同编辑器的插件"><span class="post-toc-text">针对不同编辑器的插件*</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Emmet官网文档："><span class="post-toc-text">Emmet官网文档：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/83ccabf5.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          各种速查表收集整理
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/35c2a187.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Sublime使用详细总结</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+            <div class="outer-ad-aside">
+                
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?userCode=jh5fwy2j&source=5176.11533457&userCode=jh5fwy2j&type=copy">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
+                    <a title="微信公众号：前端迷" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
+                    </a>
+                  
+                    <a title="微信前端技术交流群" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
+                    </a>
+                  
+                
+            </div>
+          </div>
+        
+      </div>
+     
+    
+     
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

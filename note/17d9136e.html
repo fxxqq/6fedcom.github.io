@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       javascript对象 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="创建对象">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript对象">
+<meta property="og:url" content="https://ru23.com/note/17d9136e.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="创建对象">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript对象">
+<meta name="twitter:description" content="创建对象">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdn.ru23.com/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    
+      <div class="outer">
+          <div class="outer-section">
+            <section id="main" class="body-wrap"><article id="post-2016-07-JavaScript对象" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      javascript对象
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2016-07-27
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><hr>
+<a id="more"></a>
+<ul>
+<li><p>对象的概念：</p>
+<ul>
+<li>对象和数组的本质一样 都是组织一堆数据</li>
+<li>只不过 对象的下表不为数字而且无序</li>
+<li>每个编号–&gt;内容</li>
+<li>属性–&gt;值</li>
+</ul>
+</li>
+<li><p>对象和数组的本质一样 都是组织一堆数据</p>
+</li>
+<li><p>只不过 对象的下表不为数字而且无序</p>
+</li>
+<li><p><strong>创建对象：</strong>（不仅给值 还给属性）</p>
+<ul>
+<li>创建对象和数组的[]不一样 </li>
+<li>和创建对象用{}</li>
+<li>和创建数组直接放置的值不一样 创建对象时值前面还要加上属性</li>
+<li>创建语法:<code>{属性1:值1,属性2:值2}</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>对象单元值的引用：（两种方法）</p>
+<ul>
+<li><code>Obj.属性</code></li>
+<li><code>Obj[&#39;属性&#39;]</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = &#123;<span class="attr">name</span>:<span class="string">'小明'</span>,<span class="attr">age</span>:<span class="number">22</span>,<span class="attr">number</span>:<span class="number">007</span>,<span class="attr">score</span>:<span class="number">99</span>&#125;;</span><br><span class="line"><span class="comment">// alert(stu);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这种方法不推荐</span></span><br><span class="line"><span class="comment">//alert(stu['name']);// name需要加上单引号 不然就和变量一样了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//推荐用法</span></span><br><span class="line">alert(stu.score);</span><br></pre></td></tr></table></figure>
+<h3 id="对象的遍历"><a href="#对象的遍历" class="headerlink" title="对象的遍历"></a>对象的遍历</h3><hr>
+<ul>
+<li><p><strong>遍历对象：</strong></p>
+<ul>
+<li>因为对象的属性和数组的下标不一样  </li>
+<li>数组的下表从0开始并且有规律的递增  因此可以用for循环遍历</li>
+</ul>
+<ul>
+<li>对象的属性 没有规律的</li>
+<li>for in结构来遍历<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">For(per in Obj)&#123;</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>注意：在<code>for in</code>结构中循环得到的属性取值时不能用<code>Obj.属性</code>的方式  <code>只能用中括号</code></p>
+<ul>
+<li>对象和数组本质一个键值对</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = &#123;<span class="attr">name</span>:<span class="string">'小明'</span>,<span class="attr">age</span>:<span class="number">22</span>,<span class="attr">number</span>:<span class="number">007</span>,<span class="attr">score</span>:<span class="number">99</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//注意：在for in 结构中循环得到的属性取值时不能用Obj.属性的方式  只能用obj[属性]</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> stu)&#123;<span class="comment">//把stu里面的所有属性依次赋给i遍历输出</span></span><br><span class="line">		<span class="built_in">document</span>.write(stu[i]+<span class="string">'&lt;br&gt;'</span>);<span class="comment">//stu['i'] 不能这样写   stu['name'] 必须加上单引号 否则系统理解为name是变量  name是属性 是一个字符</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对象的单元删除"><a href="#对象的单元删除" class="headerlink" title="对象的单元删除"></a>对象的单元删除</h3><hr>
+<ul>
+<li>对象的单元删除:对象单元的删除delete obj.属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = &#123;<span class="attr">name</span>:<span class="string">'小明'</span>,<span class="attr">age</span>:<span class="number">22</span>,<span class="attr">number</span>:<span class="number">007</span>,<span class="attr">score</span>:<span class="number">99</span>&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> stu)&#123;</span><br><span class="line">		<span class="built_in">document</span>.write(stu[i]+<span class="string">'&lt;br&gt;'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">document</span>.write(<span class="string">'&lt;hr&gt;'</span>);</span><br><span class="line">	<span class="keyword">delete</span> stu.score;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> stu)&#123;</span><br><span class="line">		<span class="built_in">document</span>.write(stu[i]+<span class="string">'&lt;br&gt;'</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对象的方法"><a href="#对象的方法" class="headerlink" title="对象的方法"></a>对象的方法</h3><hr>
+<ul>
+<li>在js中 函数本身就是变量 而在数组和对象中存储的就是‘变量’</li>
+<li>对象的某个属性的值–没有可能是一个哈函数？也是可以的</li>
+<li><p>对象的某个属性对象的值可以是函数，如果是函数时，这个属性叫做方法</p>
+</li>
+<li><p>如果对象的某个方法（属性），需要调用自身的某个属性值，可以在函数中用一个关键词this来代替自己这个对象</p>
+<ul>
+<li><code>this</code>–&gt;指向当前正在调用这个方法的对象（对象自身）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写法1</span></span><br><span class="line"><span class="keyword">var</span> stu = &#123;<span class="attr">name</span>:<span class="string">'张三'</span>,<span class="attr">age</span>:<span class="number">20</span>,<span class="attr">talk</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;alert(<span class="string">'哈哈哈'</span>);&#125;&#125;;</span><br><span class="line"><span class="comment">// alert(stu.talk);</span></span><br><span class="line">stu.talk();<span class="comment">//调用这个函数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写法2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zhang = &#123;<span class="attr">name</span>:<span class="string">'张三'</span>,<span class="attr">age</span>:<span class="number">20</span>,<span class="attr">talk</span>:<span class="literal">null</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> lisi = &#123;<span class="attr">name</span>:<span class="string">'李四'</span>,<span class="attr">age</span>:<span class="number">22</span>,<span class="attr">talk</span>:<span class="literal">null</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params">pname</span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">'你好'</span>+pname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">zhang.talk = t;</span><br><span class="line">zhang.talk(zhang.name);</span><br><span class="line"></span><br><span class="line">lisi.talk = t;</span><br><span class="line">lisi.talk(lisi.name);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写法3  推荐</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zhang = &#123;<span class="attr">name</span>:<span class="string">'张三'</span>,<span class="attr">age</span>:<span class="number">20</span>,<span class="attr">talk</span>:<span class="literal">null</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> lisi = &#123;<span class="attr">name</span>:<span class="string">'李四'</span>,<span class="attr">age</span>:<span class="number">22</span>,<span class="attr">talk</span>:<span class="literal">null</span>&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">'你好'</span>+<span class="keyword">this</span>.name);<span class="comment">//this指向当前正在调用这个方法的对象</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">zhang.talk = t;</span><br><span class="line">zhang.talk();</span><br><span class="line"></span><br><span class="line">lisi.talk = t;</span><br><span class="line">lisi.talk();</span><br></pre></td></tr></table></figure>
+<h3 id="javascript内置对象"><a href="#javascript内置对象" class="headerlink" title="javascript内置对象:"></a>javascript内置对象:</h3><hr>
+<ul>
+<li><p>在js中 所有的变量 都可以被js引擎包装秤对象来处理</p>
+</li>
+<li><p>比如：<code>str=&#39;abd&#39;</code>字符串本身没有<code>length</code>属性</p>
+</li>
+<li><p>但是你去调用<code>str.length</code> 在调用一瞬间<code>js</code>引擎会把它包装成一下 当做对象来处理 并且给这个赋了一些方法</p>
+</li>
+<li><p>对于字符串 布尔值 数值类型 数组 <code>null</code>这些变量 虽然没有属性 但是在调用的前一瞬间 js会为他们包装一些属性和方法</p>
+</li>
+<li><p>还有一些内置对象，是通过<code>new</code>得来的 比如：日期时间对象 先<code>new</code> 在调用方法和属性</p>
+<ul>
+<li><code>Math</code>对象  和字符串一样 不用<code>new</code>也能直接其方法</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>字符串对象的属性和方法：</strong></p>
+<ul>
+<li><p><code>length</code>属性： 长度</p>
+</li>
+<li><p><code>concat</code>方法：连接两个或者更多个字符串</p>
+</li>
+<li><p><code>indexOf（String）</code>返回出现字符串的位置  找不到就返回-1</p>
+</li>
+<li><p><code>substr(num1,[num2])</code>//截取字符串  num2截取的宽度</p>
+</li>
+<li><p><code>toUpperCase()</code>转换成大写</p>
+</li>
+<li><p><code>toLowerCase()</code>转换成小写</p>
+</li>
+<li><p><code>replace(oldstr1,newstr2)</code>//字符串替换</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'helloworld'</span>;<span class="comment">//这是一个字符串变量</span></span><br><span class="line"> <span class="comment">// alert(str.length);</span></span><br><span class="line"> </span><br><span class="line"> alert(str.concat(<span class="string">'中国'</span>));<span class="comment">//concat方法：连接两个或者更多个字符串</span></span><br><span class="line"></span><br><span class="line"> alert(str.indexOf(<span class="string">'o'</span>));<span class="comment">//4 </span></span><br><span class="line"></span><br><span class="line"> alert(str.substr(str.indexOf(<span class="string">'o'</span>)));<span class="comment">//substr截取字符串 一般从开始位置截取 </span></span><br><span class="line"> 									<span class="comment">//如有特殊：需要指定截取位置 indexOf（String）返回出现字符串的位置  从当前位置开始截取</span></span><br><span class="line"> 									</span><br><span class="line"> alert(str.toUpperCase());</span><br><span class="line"> alert(str.replace(<span class="string">'hello'</span>,<span class="string">'连英'</span>));<span class="comment">// replace(oldstr1,newstr2) 字符串替换</span></span><br></pre></td></tr></table></figure>
+<h4 id="日期时间对象"><a href="#日期时间对象" class="headerlink" title="日期时间对象"></a>日期时间对象</h4><hr>
+<ul>
+<li>日期时间对象 必须通过new 来得到</li>
+<li>早数组可以<code>new Array()</code></li>
+<li><p>造日期时间对象 <code>new Date();</code></p>
+</li>
+<li><p><code>getYear()</code>  返回年份（2位或4位）</p>
+</li>
+<li><code>getFullYear()</code> 返回年份（4位）</li>
+<li><code>getMonth()</code>返回月份（0-11）</li>
+<li><code>getDate()</code> 返回日期 1-31</li>
+<li><code>getDay()</code>  返回星期数  0-6</li>
+<li><code>getHours()</code>返回小时数0-23</li>
+<li><code>getMinutes()</code>返回分钟数 0-59</li>
+<li><code>getSeconds()</code>返回秒数  0-59</li>
+<li><code>getMilliseconds()</code> 返回毫秒数0-999</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">alert(time.getYear());<span class="comment">//116</span></span><br><span class="line">alert(time.getFullYear());<span class="comment">//2016</span></span><br><span class="line">alert(time.getMonth());<span class="comment">//5</span></span><br><span class="line">alert(time.getDate());<span class="comment">//5</span></span><br><span class="line">alert(time.getDay());<span class="comment">// 星期天 0</span></span><br><span class="line">alert(time.getHours());<span class="comment">//1</span></span><br><span class="line">alert(time.getSeconds());<span class="comment">//17</span></span><br><span class="line">alert(time.getMinutes());<span class="comment">//20</span></span><br><span class="line">alert(time.getMilliseconds());</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//页面上动态时钟</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//把年月日 拼接起来</span></span><br><span class="line">    <span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> year = time.getFullYear();</span><br><span class="line">    <span class="keyword">var</span> month = time.getMonth();</span><br><span class="line">    <span class="keyword">var</span> day = time.getDate();</span><br><span class="line">    <span class="keyword">var</span> hour = time.getHours();</span><br><span class="line">    <span class="keyword">var</span> minute = time.getMinutes();</span><br><span class="line">    <span class="keyword">var</span> second = time.getSeconds();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'clock'</span>).value = (year+<span class="string">" "</span>+month+<span class="string">" "</span>+day+<span class="string">" "</span>+hour+<span class="string">":"</span>+minute+<span class="string">":"</span>+second);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// document.getElementById('clock').value = t();  //error</span></span><br><span class="line">    <span class="keyword">var</span> clock = setInterval(<span class="string">'t()'</span>,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h4><hr>
+<ul>
+<li><p><code>Math</code>对象  和字符串一样 不用<code>new</code>也能直接其方法</p>
+<ul>
+<li><code>ceil(数值)</code>大于或等于该数的最小整数</li>
+<li><code>floor(数值)</code> 小于或等于该数的最大整数</li>
+<li><code>min(数值1,数值2)</code> 返回最小值</li>
+<li><code>max()</code>返回最大值</li>
+<li><code>pow(num1,num2)</code>//返回num1的那么次方</li>
+<li><code>random()</code>返回随机数  0–1</li>
+<li><code>round(数值)</code>四舍五入 </li>
+<li><code>sqrt(数值)</code>开平方根</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line"><span class="built_in">document</span>.write(<span class="number">5</span>+<span class="built_in">Math</span>.random()*<span class="number">5</span>+<span class="string">'&lt;br&gt;'</span>);<span class="comment">//5-10之间的随机</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(<span class="built_in">Math</span>.round(<span class="number">3.6658</span>));<span class="comment">//4</span></span><br><span class="line">alert(<span class="built_in">Math</span>.sqrt(<span class="number">2</span>));<span class="comment">//1.4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输入任意两个数字 返回两个数之间的随机数的整数 </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rd</span>(<span class="params">big,small</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random()*(big-small))+small;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">30</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">document</span>.write(rd(big,small)+<span class="string">'&lt;br&gt;'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//javascript中prompt方法可以让用户输入一个文本，从而作为返回值 prompt返回的是字符串类型</span></span><br><span class="line"><span class="comment">//需要用到parseInt 转成数字型  比如：输入12  实际返回的是'12'</span></span><br><span class="line"><span class="comment">//alert(typeof(window.prompt()));//string</span></span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/17d9136e.html" title="javascript对象">https://ru23.com/note/17d9136e.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/17d9136e.html&title=《javascript对象》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/17d9136e.html&title=《javascript对象》 — 前端迷&source=创建对象" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/17d9136e.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript对象》 — 前端迷&url=https://ru23.com/note/17d9136e.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/17d9136e.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3ayY3DMBAEQOeftDeAteRuUqRkoPgyYB1FPQZz8PWK1/t0/b/m6N7zKy9buLi409yWkrDOn3P0O3kLLi7uTu5RxBi7Jg9w+fNxcXF/i1uEodOkBxcX99e5SQGTl0m4uLjP5OZFS8tNiEtqNVxc3Alu3qVc93tJfxcXF3eI+y5Xu4E80YnejouLu4WbB5T8lclgNU9fcHFx7+XOHLBI6G0KNVir4eLiTnPbR+cHL9q2S3QlLi7uTdyx5kUS4NqRyYe7cHFxN3IvOCwVlzftqPVDIMPFxV3MnWmA5sVMnjxFtRouLu5i7szgJPkGbaiK4i4uLu5ibnuU6to0JTmk9SUI4uLiLuPmI9K6RBka2RZDVlxc3MXc/KHtmCTZTP5pcHFx7+LOj1Hz41l1moWLi3sTdyYdaTdZN1NwcXE3cvMUJE9x8nKoGNXg4uIu5r7LlW8ySWvqjeHi4m7htsGlDVhjrZCZViwuLu5V3LzpOXZgYqaZctgwxcXF3cJtA03eGC3qsKThgouL+2BuEuDGQt5g1wQXF/cx3LHR6VQLFRcXdyM3P1yVpDvJv4OHRHFxcbdw5+e0LahtueLi4m7k/gGiA+Ix90esJAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建对象"><span class="post-toc-text">创建对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象的遍历"><span class="post-toc-text">对象的遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象的单元删除"><span class="post-toc-text">对象的单元删除</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象的方法"><span class="post-toc-text">对象的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#javascript内置对象"><span class="post-toc-text">javascript内置对象:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#日期时间对象"><span class="post-toc-text">日期时间对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Math对象"><span class="post-toc-text">Math对象</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/765dd0ea.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          javascript之函数表达式&amp;arguments详解
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/ad8e4831.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">javascript之面向对象中的静态方法-静态属性</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+            <div class="outer-ad-aside">
+                
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?userCode=jh5fwy2j&source=5176.11533457&userCode=jh5fwy2j&type=copy">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
+                    <a title="微信公众号：前端迷" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
+                    </a>
+                  
+                    <a title="微信前端技术交流群" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
+                    </a>
+                  
+                
+            </div>
+          </div>
+        
+      </div>
+     
+    
+     
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>

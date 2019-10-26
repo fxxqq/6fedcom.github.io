@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       前后端分离之数据mock |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="文章内容整理于互联网，方便学习  一、学前预热 为了做到前后端并行开发，数据mock就成为环境搭建的重要一环  1.1 Web应用前后端分离 后台向前台提供api接口,只负责数据的提供和计算，而完全不处理展现  前台通过Http(Ajax)请求获取数据,　在浏览器端动态构建界面显示数据  1.2 利用node+express提供模拟数据 优点：可以在浏览器端访问  缺点：如果是打包发布就无法访问">
+<meta name="keywords" content="javascript,mock">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前后端分离之数据mock">
+<meta property="og:url" content="https://ru23.com/note/30ed4e0c.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="文章内容整理于互联网，方便学习  一、学前预热 为了做到前后端并行开发，数据mock就成为环境搭建的重要一环  1.1 Web应用前后端分离 后台向前台提供api接口,只负责数据的提供和计算，而完全不处理展现  前台通过Http(Ajax)请求获取数据,　在浏览器端动态构建界面显示数据  1.2 利用node+express提供模拟数据 优点：可以在浏览器端访问  缺点：如果是打包发布就无法访问">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-db916b41fde14ca3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-7c4747bf268572ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前后端分离之数据mock">
+<meta name="twitter:description" content="文章内容整理于互联网，方便学习  一、学前预热 为了做到前后端并行开发，数据mock就成为环境搭建的重要一环  1.1 Web应用前后端分离 后台向前台提供api接口,只负责数据的提供和计算，而完全不处理展现  前台通过Http(Ajax)请求获取数据,　在浏览器端动态构建界面显示数据  1.2 利用node+express提供模拟数据 优点：可以在浏览器端访问  缺点：如果是打包发布就无法访问">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-db916b41fde14ca3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdn.ru23.com/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: 'ca-pub-5526491839331555',
+        enable_page_level_ads: true
+      })
+    </script>
+  </head>
+</html>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    
+      <div class="outer">
+          <div class="outer-section">
+            <section id="main" class="body-wrap"><article id="post-2017-10-js-mock" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      前后端分离之数据mock
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-10-23
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <blockquote>
+<p>文章内容整理于互联网，方便学习</p>
+</blockquote>
+<h2 id="一、学前预热"><a href="#一、学前预热" class="headerlink" title="一、学前预热"></a>一、学前预热</h2><blockquote>
+<p>为了做到前后端并行开发，数据<code>mock</code>就成为环境搭建的重要一环</p>
+</blockquote>
+<h3 id="1-1-Web应用前后端分离"><a href="#1-1-Web应用前后端分离" class="headerlink" title="1.1 Web应用前后端分离"></a>1.1 Web应用前后端分离</h3><ul>
+<li>后台向前台提供<code>api</code>接口,只负责数据的提供和计算，而完全不处理展现 </li>
+<li>前台通过<code>Http(Ajax)</code>请求获取数据,　在浏览器端动态构建界面显示数据</li>
+</ul>
+<h3 id="1-2-利用node-express提供模拟数据"><a href="#1-2-利用node-express提供模拟数据" class="headerlink" title="1.2 利用node+express提供模拟数据"></a>1.2 利用node+express提供模拟数据</h3><ul>
+<li>优点：可以在浏览器端访问 </li>
+<li>缺点：如果是打包发布就无法访问模拟数据, 只能是测试时使用</li>
+</ul>
+<blockquote>
+<p>修改build/dev-server.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载json数据</span></span><br><span class="line"><span class="keyword">var</span> apiData = <span class="built_in">require</span>(<span class="string">'../src/mock/data.json'</span>)</span><br><span class="line"><span class="keyword">var</span> home = apiData.home;</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到路由器</span></span><br><span class="line"><span class="keyword">var</span> apiRouter = express.Router()</span><br><span class="line"></span><br><span class="line"><span class="comment">//注册路由</span></span><br><span class="line">apiRouter.get(<span class="string">'/home'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">      code: <span class="number">0</span>,   <span class="comment">//0代表正确数据</span></span><br><span class="line">      data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//启用路由</span></span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRouter)</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问http://localhost:8080/api/home</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-利用mockjs提供模拟数据"><a href="#1-3-利用mockjs提供模拟数据" class="headerlink" title="1.3 利用mockjs提供模拟数据"></a>1.3 利用mockjs提供模拟数据</h3><blockquote>
+<p>mockjs: 用来拦截ajax请求, 生成随机数据返回</p>
+</blockquote>
+<ul>
+<li>优点：不可以在浏览器端访问 </li>
+<li>缺点：打包发布运行模拟接口也是可以用的</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mock <span class="keyword">from</span> <span class="string">'mockjs'</span>  </span><br><span class="line"><span class="keyword">import</span> apiData <span class="keyword">from</span> <span class="string">'./data.json'</span></span><br><span class="line"></span><br><span class="line">mock.mock(<span class="string">'/api2/seller'</span>, &#123;<span class="attr">code</span>:<span class="number">0</span>, <span class="attr">data</span>:apiData.seller&#125;)</span><br><span class="line">mock.mock(<span class="string">'/api2/goods'</span>, &#123;<span class="attr">code</span>:<span class="number">0</span>, <span class="attr">data</span>:apiData.goods&#125;)</span><br><span class="line">mock.mock(<span class="string">'/api2/ratings'</span>, &#123;<span class="attr">code</span>:<span class="number">0</span>, <span class="attr">data</span>:apiData.ratings&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-使用postman工具测试接口"><a href="#1-4-使用postman工具测试接口" class="headerlink" title="1.4 使用postman工具测试接口"></a>1.4 使用postman工具测试接口</h3><ul>
+<li><code>postman</code>是用来测试<code>api</code>接口的<code>chrome</code>插件 </li>
+<li><code>postman</code>也是一个活接口文档</li>
+</ul>
+<h3 id="1-5-ajax请求mock数据接口"><a href="#1-5-ajax请求mock数据接口" class="headerlink" title="1.5 ajax请求mock数据接口"></a>1.5 ajax请求mock数据接口</h3><ul>
+<li><code>vue-resource</code>是用于<code>ajax</code>请求的<code>vue</code>插件 </li>
+<li><code>axios</code>是浏览器/服务器端通用的<code>ajax</code>请求库</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用示例</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> VueResource <span class="keyword">from</span> <span class="string">'vue-resource'</span> </span><br><span class="line">Vue.use(VueResource)</span><br><span class="line"></span><br><span class="line"><span class="comment">//组件对象多了$http属性, 使用它发送ajax请求</span></span><br><span class="line"><span class="keyword">this</span>.$http.get(<span class="string">'/api2/seller'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.body)</span><br><span class="line">&#125;, (response) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'失败了'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>  </span><br><span class="line">axios.get(<span class="string">'/api2/seller'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.body)</span><br><span class="line">&#125;, (response) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'失败了'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="二、数据mock思路"><a href="#二、数据mock思路" class="headerlink" title="二、数据mock思路"></a>二、数据mock思路</h2><ul>
+<li>在<code>client</code>端处数据<code>mock</code></li>
+<li>在<code>server</code>端<code>mock</code></li>
+</ul>
+<blockquote>
+<ul>
+<li>第一种方式拦截了请求的发出，直接返回<code>mock</code>的数据，而第二种方式请求则真实地发出，只是在<code>server</code>端进行<code>route</code>拦截</li>
+<li>前后端分离的方式，就是在传统开发模式中加了一个<code>node</code>层，这样数据<code>mock</code>完全可以在<code>node server</code>端完成，基本思路如下</li>
+</ul>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-db916b41fde14ca3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mock"></p>
+<h3 id="2-1-mock思路说明"><a href="#2-1-mock思路说明" class="headerlink" title="2.1 mock思路说明"></a>2.1 mock思路说明</h3><ul>
+<li>只有线下开发模式，才会需要进行数据<code>mock</code></li>
+<li>根据请求的<code>url</code>，拼接形成一个<code>file path</code></li>
+<li>为了避免<code>node</code>缓存，删除<code>require.cache(path)</code></li>
+<li>读取<code>require(path)</code> ，如果该文件不存在或读取失败，则跳转到失败路由。这样简单的数据<code>mock</code>就实现了</li>
+</ul>
+<h3 id="2-2-代码描述"><a href="#2-2-代码描述" class="headerlink" title="2.2 代码描述"></a>2.2 代码描述</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'development'</span>) &#123;</span><br><span class="line">  router.set(<span class="string">'/api/*'</span>, mockapi)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mockapi</span>(<span class="params">req, res, opts</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> basePath = url.parse(req.url).pathname;</span><br><span class="line">         </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> findPath = <span class="built_in">require</span>.resolve(prefixPath + basePath + <span class="string">'.js'</span>);</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">require</span>.cache[findPath]</span><br><span class="line">        <span class="keyword">var</span> result = <span class="built_in">require</span>(findPath);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> next(err);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> result === <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> result(req, res, opts);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> result.status === <span class="string">'undefined'</span> || <span class="keyword">typeof</span> result.body === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        next(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'status 或 body 不存在'</span>))</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    res.writeHead(result.status, &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json;charset=UTF-8'</span></span><br><span class="line">    &#125;);</span><br><span class="line">     </span><br><span class="line">    res.write(<span class="built_in">JSON</span>.stringify(result.body))</span><br><span class="line">    res.end();</span><br><span class="line">    cb()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、mock-js使用详解"><a href="#三、mock-js使用详解" class="headerlink" title="三、mock.js使用详解"></a>三、mock.js使用详解</h2><h3 id="3-1-mock-js实现的功能"><a href="#3-1-mock-js实现的功能" class="headerlink" title="3.1 mock.js实现的功能"></a>3.1 mock.js实现的功能</h3><ul>
+<li>让前端攻城师独立于后端进行开发</li>
+<li>通过随机数据，模拟各种场景</li>
+<li>不需要修改既有代码，就可以拦截 <code>Ajax</code> 请求，返回模拟的响应数据</li>
+<li>支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。</li>
+</ul>
+<h3 id="3-2-mock安装"><a href="#3-2-mock安装" class="headerlink" title="3.2 mock安装"></a>3.2 mock安装</h3><h4 id="3-2-1-node下使用"><a href="#3-2-1-node下使用" class="headerlink" title="3.2.1 node下使用"></a>3.2.1 node下使用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">npm install mockjs</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 mock</span></span><br><span class="line"><span class="keyword">var</span> mock = <span class="built_in">require</span>(<span class="string">'mockjs'</span>)</span><br><span class="line"><span class="keyword">var</span> data = mock.mock(&#123;</span><br><span class="line">    <span class="comment">// 属性 list 的值是一个数组，其中含有 1 到 10 个元素</span></span><br><span class="line">    <span class="string">'list|1-10'</span>: [&#123;</span><br><span class="line">        <span class="comment">// 属性 id 是一个自增数，起始值为 1，每次增 1</span></span><br><span class="line">        <span class="string">'id|+1'</span>: <span class="number">1</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-2-RequireJS-AMD"><a href="#3-2-2-RequireJS-AMD" class="headerlink" title="3.2.2 RequireJS (AMD)"></a>3.2.2 RequireJS (AMD)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置 mock 路径</span></span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    paths: &#123;</span><br><span class="line">        mock: <span class="string">'http://mockjs.com/dist/mock'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 加载 mock</span></span><br><span class="line"><span class="built_in">require</span>([<span class="string">'mock'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">mock</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 使用 mock</span></span><br><span class="line">    <span class="keyword">var</span> data = mock.mock(&#123;</span><br><span class="line">        <span class="string">'list|1-10'</span>: [&#123;</span><br><span class="line">            <span class="string">'id|+1'</span>: <span class="number">1</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 输出结果</span></span><br><span class="line">    <span class="built_in">document</span>.body.innerHTML +=</span><br><span class="line">        <span class="string">'&lt;pre&gt;'</span> +</span><br><span class="line">        <span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>) +</span><br><span class="line">        <span class="string">'&lt;/pre&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-使用语法"><a href="#3-3-使用语法" class="headerlink" title="3.3 使用语法"></a>3.3 使用语法</h3><ul>
+<li><code>mock.js</code> 的语法规范包括两部分<ul>
+<li>数据模板定义规范</li>
+<li>数据占位符定义规范</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-1-数据模板定义规范"><a href="#3-3-1-数据模板定义规范" class="headerlink" title="3.3.1 数据模板定义规范"></a>3.3.1 数据模板定义规范</h4><ul>
+<li>数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 属性名   name</span></span><br><span class="line"><span class="comment">// 生成规则 rule</span></span><br><span class="line"><span class="comment">// 属性值   value</span></span><br><span class="line"><span class="string">'name|rule'</span>: value</span><br></pre></td></tr></table></figure>
+<ul>
+<li>属性名 和 生成规则 之间用竖线 <code>|</code> 分隔</li>
+<li>生成规则 是可选的</li>
+<li><p>生成规则 有 7 种格式</p>
+<ul>
+<li><code>&#39;name|min-max&#39;: value</code></li>
+<li><code>&#39;name|count&#39;: value</code></li>
+<li><code>&#39;name|min-max.dmin-dmax&#39;: value</code></li>
+<li><code>&#39;name|min-max.dcount&#39;: value</code></li>
+<li><code>&#39;name|count.dmin-dmax&#39;: value</code></li>
+<li><code>&#39;name|count.dcount&#39;: value</code></li>
+<li><code>&#39;name|+step&#39;: value</code></li>
+</ul>
+</li>
+<li><p>生成规则 的 含义 需要依赖 属性值的类型 才能确定</p>
+</li>
+<li>属性值 中可以含有 <code>@</code>占位符</li>
+<li>属性值 还指定了最终值的初始值和类型</li>
+</ul>
+<h4 id="3-3-2-生成规则和示例"><a href="#3-3-2-生成规则和示例" class="headerlink" title="3.3.2 生成规则和示例"></a>3.3.2 生成规则和示例</h4><ul>
+<li><p>属性值是字符串 <code>String</code></p>
+<ul>
+<li><code>&#39;name|min-max&#39;: string</code><ul>
+<li>通过重复 <code>string</code>生成一个字符串，重复次数大于等于<code>min</code>，小于等于 <code>max</code></li>
+</ul>
+</li>
+<li><code>&#39;name|count&#39;: string</code><ul>
+<li>通过重复 <code>string</code>生成一个字符串，重复次数等于 <code>count</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性值是数字<code>Number</code></p>
+<ul>
+<li><code>&#39;name|+1&#39;: number</code><ul>
+<li>属性值自动加 <code>1</code>，初始值为 <code>number</code></li>
+</ul>
+</li>
+<li><code>&#39;name|min-max&#39;: number</code><ul>
+<li>生成一个大于等于 <code>min</code>、小于等于 <code>max</code>的整数，属性值 <code>number</code> 只是用来确定类型</li>
+</ul>
+</li>
+<li><code>&#39;name|min-max.dmin-dmax&#39;: number</code><ul>
+<li>生成一个浮点数，整数部分大于等于<code>min</code>、小于等于 <code>max</code>，小数部分保留 <code>dmin</code> 到 <code>dmax</code> 位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mock.mock(&#123;</span><br><span class="line">    <span class="string">'number1|1-100.1-10'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'number2|123.1-10'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'number3|123.3'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'number4|123.10'</span>: <span class="number">1.123</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"number1"</span>: <span class="number">12.92</span>,</span><br><span class="line">    <span class="string">"number2"</span>: <span class="number">123.51</span>,</span><br><span class="line">    <span class="string">"number3"</span>: <span class="number">123.777</span>,</span><br><span class="line">    <span class="string">"number4"</span>: <span class="number">123.1231091814</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>属性值是布尔型 <code>Boolean</code></p>
+<ul>
+<li><code>&#39;name|1&#39;: boolean</code><ul>
+<li>随机生成一个布尔值，值为 <code>true</code> 的概率是 <code>1/2</code>，值为 <code>false</code> 的概率同样是 <code>1/2</code></li>
+</ul>
+</li>
+<li><code>&#39;name|min-max&#39;: value</code><ul>
+<li>随机生成一个布尔值，值为 <code>value</code> 的概率是<code>min / (min + max)</code>，值为 <code>!value</code>的概率是 <code>max / (min + max)</code>\</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性值是对象 <code>Object</code></p>
+<ul>
+<li><code>&#39;name|count&#39;: object</code><ul>
+<li>从属性值 <code>object</code>中随机选取 <code>count</code>个属性</li>
+</ul>
+</li>
+<li><code>&#39;name|min-max&#39;: object</code><ul>
+<li>从属性值 <code>object</code>中随机选取 <code>min</code> 到 <code>max</code> 个属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性值是数组 <code>Array</code></p>
+<ul>
+<li><code>&#39;name|1&#39;: array</code><ul>
+<li>从属性值 <code>array</code> 中随机选取 <code>1</code>个元素，作为最终值</li>
+</ul>
+</li>
+<li><code>&#39;name|+1&#39;: array</code><ul>
+<li>从属性值 <code>array</code>中顺序选取 <code>1</code> 个元素，作为最终值</li>
+</ul>
+</li>
+<li><code>&#39;name|min-max&#39;: array</code><ul>
+<li>通过重复属性值<code>array</code> 生成一个新数组，重复次数大于等于 <code>min</code>，小于等于 <code>max</code></li>
+</ul>
+</li>
+<li><code>&#39;name|count&#39;: array</code><ul>
+<li>通过重复属性值 <code>array</code>生成一个新数组，重复次数为 <code>count</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性值是函数 <code>Function</code></p>
+<ul>
+<li><code>&#39;name&#39;: function</code><ul>
+<li>执行函数 <code>function</code>，取其返回值作为最终的属性值，函数的上下文为属性 <code>&#39;name&#39;</code> 所在的对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性值是正则表达式 <code>RegExp</code></p>
+<ul>
+<li><code>&#39;name&#39;: regexp</code><ul>
+<li>根据正则表达式 <code>regexp</code> 反向生成可以匹配它的字符串。用于生成自定义格式的字符串</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mock.mock(&#123;</span><br><span class="line">    <span class="string">'regexp1'</span>: <span class="regexp">/[a-z][A-Z][0-9]/</span>,</span><br><span class="line">    <span class="string">'regexp2'</span>: <span class="regexp">/\w\W\s\S\d\D/</span>,</span><br><span class="line">    <span class="string">'regexp3'</span>: <span class="regexp">/\d&#123;5,10&#125;/</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"regexp1"</span>: <span class="string">"pJ7"</span>,</span><br><span class="line">    <span class="string">"regexp2"</span>: <span class="string">"F)\fp1G"</span>,</span><br><span class="line">    <span class="string">"regexp3"</span>: <span class="string">"561659409"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-3-数据占位符定义规范"><a href="#3-3-3-数据占位符定义规范" class="headerlink" title="3.3.3 数据占位符定义规范"></a>3.3.3 数据占位符定义规范</h4><blockquote>
+<p>占位符,只是在属性值字符串中占个位置，并不出现在最终的属性值中</p>
+</blockquote>
+<ul>
+<li>占位符 的格式为</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@占位符</span><br><span class="line">@占位符(参数 [, 参数])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用 <code>@</code>来标识其后的字符串是 占位符</li>
+<li>占位符 引用的是 <code>mock.Random</code> 中的方法</li>
+<li>通过 <code>mock.Random.extend()</code> 来扩展自定义占位符</li>
+<li>占位符 也可以引用 数据模板 中的属性</li>
+<li>占位符 会优先引用 数据模板 中的属性</li>
+<li>占位符 支持 相对路径 和 绝对路径</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mock.mock(&#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        first: <span class="string">'@FIRST'</span>,</span><br><span class="line">        middle: <span class="string">'@FIRST'</span>,</span><br><span class="line">        last: <span class="string">'@LAST'</span>,</span><br><span class="line">        full: <span class="string">'@first @middle @last'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"name"</span>: &#123;</span><br><span class="line">        <span class="string">"first"</span>: <span class="string">"Charles"</span>,</span><br><span class="line">        <span class="string">"middle"</span>: <span class="string">"Brenda"</span>,</span><br><span class="line">        <span class="string">"last"</span>: <span class="string">"Lopez"</span>,</span><br><span class="line">        <span class="string">"full"</span>: <span class="string">"Charles Brenda Lopez"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-mock-mock"><a href="#3-4-mock-mock" class="headerlink" title="3.4 mock.mock()"></a>3.4 mock.mock()</h3><h4 id="3-4-1-mock-mock-template"><a href="#3-4-1-mock-mock-template" class="headerlink" title="3.4.1 mock.mock( template )"></a>3.4.1 mock.mock( template )</h4><ul>
+<li>根据数据模板生成模拟数据</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- （必选）加载 mock --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://mockjs.com/dist/mock.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mock.mock( template )</span></span><br><span class="line"><span class="keyword">var</span> template = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'Syntax Demo'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'string1|1-10'</span>: <span class="string">'★'</span>,</span><br><span class="line">    <span class="string">'string2|3'</span>: <span class="string">'value'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'number1|+1'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'number2|1-100'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'number3|1-100.1-10'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'number4|123.1-10'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'number5|123.3'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'number6|123.10'</span>: <span class="number">1.123</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'boolean1|1'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'boolean2|1-2'</span>: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'object1|2-4'</span>: &#123;</span><br><span class="line">        <span class="string">'110000'</span>: <span class="string">'北京市'</span>,</span><br><span class="line">        <span class="string">'120000'</span>: <span class="string">'天津市'</span>,</span><br><span class="line">        <span class="string">'130000'</span>: <span class="string">'河北省'</span>,</span><br><span class="line">        <span class="string">'140000'</span>: <span class="string">'山西省'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'object2|2'</span>: &#123;</span><br><span class="line">        <span class="string">'310000'</span>: <span class="string">'上海市'</span>,</span><br><span class="line">        <span class="string">'320000'</span>: <span class="string">'江苏省'</span>,</span><br><span class="line">        <span class="string">'330000'</span>: <span class="string">'浙江省'</span>,</span><br><span class="line">        <span class="string">'340000'</span>: <span class="string">'安徽省'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="string">'array1|1'</span>: [<span class="string">'AMD'</span>, <span class="string">'CMD'</span>, <span class="string">'KMD'</span>, <span class="string">'UMD'</span>],</span><br><span class="line">    <span class="string">'array2|1-10'</span>: [<span class="string">'mock.js'</span>],</span><br><span class="line">    <span class="string">'array3|3'</span>: [<span class="string">'mock.js'</span>],</span><br><span class="line"></span><br><span class="line">    <span class="string">'function'</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.title</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> data = mock.mock(template)</span><br><span class="line"></span><br><span class="line">$(<span class="string">'&lt;pre&gt;'</span>).text(<span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>))</span><br><span class="line">    .appendTo(<span class="string">'body'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//res</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"Syntax Demo"</span>,</span><br><span class="line">    <span class="string">"string1"</span>: <span class="string">"★★★"</span>,</span><br><span class="line">    <span class="string">"string2"</span>: <span class="string">"valuevaluevalue"</span>,</span><br><span class="line">    <span class="string">"number1"</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">"number2"</span>: <span class="number">48</span>,</span><br><span class="line">    <span class="string">"number3"</span>: <span class="number">99.05</span>,</span><br><span class="line">    <span class="string">"number4"</span>: <span class="number">123.6</span>,</span><br><span class="line">    <span class="string">"number5"</span>: <span class="number">123.516</span>,</span><br><span class="line">    <span class="string">"number6"</span>: <span class="number">123.1236370317</span>,</span><br><span class="line">    <span class="string">"boolean1"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"boolean2"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"object1"</span>: &#123;</span><br><span class="line">        <span class="string">"120000"</span>: <span class="string">"天津市"</span>,</span><br><span class="line">        <span class="string">"130000"</span>: <span class="string">"河北省"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"object2"</span>: &#123;</span><br><span class="line">        <span class="string">"320000"</span>: <span class="string">"江苏省"</span>,</span><br><span class="line">        <span class="string">"330000"</span>: <span class="string">"浙江省"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"array1"</span>: <span class="string">"KMD"</span>,</span><br><span class="line">    <span class="string">"array2"</span>: [</span><br><span class="line">        <span class="string">"mock.js"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"array3"</span>: [</span><br><span class="line">        <span class="string">"mock.js"</span>,</span><br><span class="line">        <span class="string">"mock.js"</span>,</span><br><span class="line">        <span class="string">"mock.js"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"function"</span>: <span class="string">"Syntax Demo"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-2-mock-mock-rurl-template"><a href="#3-4-2-mock-mock-rurl-template" class="headerlink" title="3.4.2 mock.mock( rurl, template )"></a>3.4.2 mock.mock( rurl, template )</h4><ul>
+<li>记录数据模板。当拦截到匹配 <code>rurl</code> 的 <code>Ajax</code> 请求时，将根据数据模板 <code>template</code>生成模拟数据，并作为响应数据返回</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- （必选）加载 mock --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://mockjs.com/dist/mock.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mock.mock(rurl, template)</span></span><br><span class="line">mock.mock(<span class="regexp">/\.json/</span>, &#123;</span><br><span class="line">    <span class="string">'list|1-10'</span>: [&#123;</span><br><span class="line">        <span class="string">'id|+1'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'email'</span>: <span class="string">'@EMAIL'</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;)</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'1.json'</span>,</span><br><span class="line">    dataType: <span class="string">'json'</span></span><br><span class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data, status, jqXHR</span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'&lt;pre&gt;'</span>).text(<span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>))</span><br><span class="line">        .appendTo(<span class="string">'body'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"list"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"id"</span>: <span class="number">1</span>,</span><br><span class="line">            <span class="string">"email"</span>: <span class="string">"k.sejuwxvego@xcwc.中国互联.公司"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"id"</span>: <span class="number">2</span>,</span><br><span class="line">            <span class="string">"email"</span>: <span class="string">"f.hjns@rhivyrvhpb.ve"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"id"</span>: <span class="number">3</span>,</span><br><span class="line">            <span class="string">"email"</span>: <span class="string">"g.bdwuuhm@czoybmyp.ms"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"id"</span>: <span class="number">4</span>,</span><br><span class="line">            <span class="string">"email"</span>: <span class="string">"n.tkgs@javvkxz.bf"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-3-mock-mock-rurl-function-options"><a href="#3-4-3-mock-mock-rurl-function-options" class="headerlink" title="3.4.3 mock.mock( rurl, function( options ) )"></a>3.4.3 mock.mock( rurl, function( options ) )</h4><ul>
+<li>记录用于生成响应数据的函数。当拦截到匹配 <code>rurl</code> 的 <code>Ajax</code> 请求时，函数 <code>function(options)</code>将被执行，并把执行结果作为响应数据返回</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mock.mock(rurl, function(options))</span></span><br><span class="line">mock.mock(<span class="regexp">/\.json/</span>, <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> options</span><br><span class="line">&#125;)</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'hello.json'</span>,</span><br><span class="line">    dataType: <span class="string">'json'</span></span><br><span class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data, status, jqXHR</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'&lt;pre&gt;'</span>).text(<span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>))</span><br><span class="line">        .appendTo(<span class="string">'body'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'hello.json'</span>,</span><br><span class="line">    dataType: <span class="string">'json'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        foo: <span class="number">1</span>,</span><br><span class="line">        bar: <span class="number">2</span>,</span><br><span class="line">        faz: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data, status, jqXHR</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'&lt;pre&gt;'</span>).text(<span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>))</span><br><span class="line">        .appendTo(<span class="string">'body'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'hello.json'</span>,</span><br><span class="line">    type: <span class="string">'post'</span>,</span><br><span class="line">    dataType: <span class="string">'json'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        foo: <span class="number">1</span>,</span><br><span class="line">        bar: <span class="number">2</span>,</span><br><span class="line">        faz: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data, status, jqXHR</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'&lt;pre&gt;'</span>).text(<span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>))</span><br><span class="line">        .appendTo(<span class="string">'body'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"url"</span>: <span class="string">"hello.json?foo=1&amp;bar=2&amp;faz=3"</span>,</span><br><span class="line">    <span class="string">"type"</span>: <span class="string">"GET"</span>,</span><br><span class="line">    <span class="string">"body"</span>: <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"url"</span>: <span class="string">"hello.json"</span>,</span><br><span class="line">    <span class="string">"type"</span>: <span class="string">"GET"</span>,</span><br><span class="line">    <span class="string">"body"</span>: <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"url"</span>: <span class="string">"hello.json"</span>,</span><br><span class="line">    <span class="string">"type"</span>: <span class="string">"POST"</span>,</span><br><span class="line">    <span class="string">"body"</span>: <span class="string">"foo=1&amp;bar=2&amp;faz=3"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-4-mock-setup"><a href="#3-4-4-mock-setup" class="headerlink" title="3.4.4 mock.setup()"></a>3.4.4 mock.setup()</h4><ul>
+<li><code>mock.setup( settings )</code><ul>
+<li>配置拦截 <code>Ajax</code> 请求时的行为。支持的配置项有：<code>timeout</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>指定被拦截的 <code>Ajax</code> 请求的响应时间，单位是毫秒。值可以是正整数，例如 <code>400</code>，表示 <code>400</code> 毫秒 后才会返回响应内容；也可以是横杠 <code>&#39;-&#39;</code> 风格的字符串，例如 <code>&#39;200-600&#39;</code>，表示响应时间介于 <code>200</code> 和 <code>600</code> 毫秒之间。默认值是<code>&#39;10-100&#39;</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mock.setup(&#123;</span><br><span class="line">    timeout: <span class="number">400</span></span><br><span class="line">&#125;)</span><br><span class="line">mock.setup(&#123;</span><br><span class="line">    timeout: <span class="string">'200-600'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>目前，接口 <code>mock.setup( settings )</code>仅用于配置 <code>Ajax</code> 请求</li>
+</ul>
+<h4 id="3-4-5-mock-Random"><a href="#3-4-5-mock-Random" class="headerlink" title="3.4.5 mock.Random"></a>3.4.5 mock.Random</h4><ul>
+<li><code>mock.Random</code> 是一个工具类，用于生成各种随机数据</li>
+<li><code>mock.Random</code>的方法在数据模板中称为『占位符』，书写格式为 <code>@</code>占位符(参数 [, 参数]) </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Random = mock.Random</span><br><span class="line">Random.email()</span><br><span class="line"><span class="comment">// =&gt; "n.clark@miller.io"</span></span><br><span class="line">mock.mock(<span class="string">'@email'</span>)</span><br><span class="line"><span class="comment">// =&gt; "y.lee@lewis.org"</span></span><br><span class="line">mock.mock( &#123; <span class="attr">email</span>: <span class="string">'@email'</span> &#125; )</span><br><span class="line"><span class="comment">// =&gt; &#123; email: "v.lewis@hall.gov" &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、简单构建一套mock-server"><a href="#四、简单构建一套mock-server" class="headerlink" title="四、简单构建一套mock-server"></a>四、简单构建一套mock-server</h2><blockquote>
+<p>为了更好的分工合作，让前端能在不依赖后端环境的情况下进行开发，其中一种手段就是为前端开发者提供一个 web 容器，这个本地环境就是 mock-server</p>
+</blockquote>
+<p><strong>一个比较好的 mock-server 该有的能力</strong></p>
+<ul>
+<li>与线上环境一致的接口地址，每次构建前端代码时不需要修改调用接口的代码</li>
+<li>所改即所得，具有热更新的能力，每次增加修改 <code>mock</code> 接口时不需要重启 <code>mock</code> 服务，更不用重启前端构建服务</li>
+<li>能配合 <code>Webpack</code></li>
+<li><code>mock</code> 数据可以由工具生成不需要自己手动写</li>
+<li>能模拟 <code>POST</code>、<code>GET</code> 请求</li>
+</ul>
+<p><strong>搭建主要思路</strong></p>
+<blockquote>
+<p>以 <code>json-server</code> 作为 <code>mock</code> 服务器， <code>mock.js</code> 生成<code>mock</code> 数据，利用 <code>gulp + nodemon + browser-sync</code> 监听<code>mock</code>文件的改动重启 <code>node</code> 服务，刷新浏览器，以此达到一种相对完美的 <code>mock-server</code>要求</p>
+</blockquote>
+<h3 id="4-1-json-server-搭配-mock-js"><a href="#4-1-json-server-搭配-mock-js" class="headerlink" title="4.1 json-server 搭配 mock.js"></a>4.1 json-server 搭配 mock.js</h3><ul>
+<li>这里以<code>Webpack</code> 的前端工程为例</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install json-server mockjs --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在项目根目录新建 <code>mock</code>文件夹，新建 <code>mock/db.js</code> 作为 <code>mock</code> 数据源，<code>mock/server.js</code>作为 <code>mock</code> 服务，<code>mock/routes.js</code>重写路由表</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mock = <span class="built_in">require</span>(<span class="string">'mockjs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  getComment: mock.mock(&#123;</span><br><span class="line">    <span class="string">"error"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">"message"</span>: <span class="string">"success"</span>,</span><br><span class="line">    <span class="string">"result|40"</span>: [&#123;</span><br><span class="line">      <span class="string">"author"</span>: <span class="string">"@name"</span>,</span><br><span class="line">      <span class="string">"comment"</span>: <span class="string">"@cparagraph"</span>,</span><br><span class="line">      <span class="string">"date"</span>: <span class="string">"@datetime"</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;),</span><br><span class="line">  addComment: mock.mock(&#123;</span><br><span class="line">    <span class="string">"error"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">"message"</span>: <span class="string">"success"</span>,</span><br><span class="line">    <span class="string">"result"</span>: []</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里我们利用 <code>mock.js</code> 生成 <code>mock</code> 数据，可以尽可能的还原真实数据，还可以减少数据构造的复杂度</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// routes.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"/comment/get.action"</span>: <span class="string">"/getComment"</span>,</span><br><span class="line">  <span class="string">"/comment/add.action"</span>: <span class="string">"/addComment"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.js</span></span><br><span class="line"><span class="keyword">const</span> jsonServer = <span class="built_in">require</span>(<span class="string">'json-server'</span>)</span><br><span class="line"><span class="keyword">const</span> db = <span class="built_in">require</span>(<span class="string">'./db.js'</span>)</span><br><span class="line"><span class="keyword">const</span> routes = <span class="built_in">require</span>(<span class="string">'./routes.js'</span>)</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = jsonServer.create()</span><br><span class="line"><span class="keyword">const</span> router = jsonServer.router(db)</span><br><span class="line"><span class="keyword">const</span> middlewares = jsonServer.defaults()</span><br><span class="line"><span class="keyword">const</span> rewriter = jsonServer.rewriter(routes)</span><br><span class="line"></span><br><span class="line">server.use(middlewares)</span><br><span class="line"><span class="comment">// 将 POST 请求转为 GET</span></span><br><span class="line">server.use(<span class="function">(<span class="params">request, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  request.method = <span class="string">'GET'</span>;</span><br><span class="line">  next();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.use(rewriter) <span class="comment">// 注意：rewriter 的设置一定要在 router 设置之前</span></span><br><span class="line">server.use(router)</span><br><span class="line"></span><br><span class="line">server.listen(port, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'open mock server at localhost:'</span> + port)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动服务</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node mock/server.js</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开 <code>http://localhost:3000/comment/get.action</code>即可查看到我们想要的数据</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-7c4747bf268572ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>是不是这样就算搭建完了我们的 <code>mock-server</code> ？不，并没有。我们可以尝试修改一下 <code>db.js</code> 的文件内容，刷新浏览器发现 <code>mock</code> 数据并没有像我们想象的那样修改。那也就是说每次当我们需要添加 /修改 <code>mock</code> 数据使都需要重启一次 <code>mock</code> 服务</p>
+</blockquote>
+<h3 id="4-2-端口代理"><a href="#4-2-端口代理" class="headerlink" title="4.2 端口代理"></a>4.2 端口代理</h3><blockquote>
+<p>通过 <code>Webpack</code> 配置 <code>proxy</code> 代理</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  </span><br><span class="line">  devServer: &#123;  </span><br><span class="line">    <span class="comment">//其实很简单的，只要配置这个参数就可以了  </span></span><br><span class="line">    proxy: &#123;  </span><br><span class="line">      <span class="string">'/api/'</span>: &#123;  </span><br><span class="line">        target: <span class="string">'http://localhost:3000'</span>,</span><br><span class="line">  	    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接着在代码里进行 <code>ajax</code>请求就可以写成，这里以 <code>axios</code> 为例子</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getComments</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  axios.get(<span class="string">'api/comment/get.action'</span>, &#123;&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-文件改动自动刷新"><a href="#4-3-文件改动自动刷新" class="headerlink" title="4.3 文件改动自动刷新"></a>4.3 文件改动自动刷新</h3><blockquote>
+<p>我们希望更改 <code>mock</code>文件能和 <code>webpack</code> 热更新一样，所改即所得。这里我使用了 <code>nodemon</code>，利用 <code>gulp</code> 建立自动执行的任务。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install gulp gulp-nodemon browser-sync --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gulpfile.js 的代码如下</span></span><br><span class="line">onst path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">const</span> nodemon = <span class="built_in">require</span>(<span class="string">'gulp-nodemon'</span>);</span><br><span class="line"><span class="keyword">const</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create();</span><br><span class="line"><span class="keyword">const</span> server = path.resolve(__dirname, <span class="string">'mock'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// browser-sync 配置，配置里启动 nodemon 任务</span></span><br><span class="line">gulp.task(<span class="string">'browser-sync'</span>, [<span class="string">'nodemon'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  browserSync.init(<span class="literal">null</span>, &#123;</span><br><span class="line">    proxy: <span class="string">"http://localhost:8080"</span>, <span class="comment">// 这里的端口和 webpack 的端口一致</span></span><br><span class="line">    port: <span class="number">8081</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// browser-sync 监听文件</span></span><br><span class="line">gulp.task(<span class="string">'mock'</span>, [<span class="string">'browser-sync'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.watch([<span class="string">'./mock/db.js'</span>, <span class="string">'./mock/**'</span>], [<span class="string">'bs-delay'</span>]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 延时刷新</span></span><br><span class="line">gulp.task(<span class="string">'bs-delay'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    browserSync.reload();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 服务器重启</span></span><br><span class="line">gulp.task(<span class="string">'nodemon'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 设个变量来防止重复重启</span></span><br><span class="line">  <span class="keyword">var</span> started = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">var</span> stream = nodemon(&#123;</span><br><span class="line">    script: <span class="string">'./mock/server.js'</span>,</span><br><span class="line">    <span class="comment">// 监听文件的后缀</span></span><br><span class="line">    ext: <span class="string">"js"</span>,</span><br><span class="line">    env: &#123;</span><br><span class="line">      <span class="string">'NODE_ENV'</span>: <span class="string">'development'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 监听的路径</span></span><br><span class="line">    watch: [</span><br><span class="line">      server</span><br><span class="line">    ]</span><br><span class="line">  &#125;);</span><br><span class="line">  stream.on(<span class="string">'start'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!started) &#123;</span><br><span class="line">      cb();</span><br><span class="line">      started = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).on(<span class="string">'crash'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'application has crashed!\n'</span>)</span><br><span class="line">    stream.emit(<span class="string">'restart'</span>, <span class="number">10</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这样以后我们在构建我们 <code>Webpack</code> 工程时只需要先执行 <code>npm run dev</code></li>
+<li>之后新建 <code>terminal</code> 执行 <code>gulp mock</code></li>
+<li>就可以搭建一个随改随变的 <code>mock-server</code> 环境</li>
+</ul>
+<p><strong>完整的代码详情</strong> <a href="https://github.com/poetries/mock-server" target="_blank" rel="noopener">https://github.com/poetries/mock-server</a></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/30ed4e0c.html" title="前后端分离之数据mock">https://ru23.com/note/30ed4e0c.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/30ed4e0c.html&title=《前后端分离之数据mock》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/30ed4e0c.html&title=《前后端分离之数据mock》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/30ed4e0c.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前后端分离之数据mock》 — 前端迷&url=https://ru23.com/note/30ed4e0c.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/30ed4e0c.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aS27DMAwFwNz/0u62QGrlUZQUFxitjMSwxl4Q/Oj1itf1a43/fb/n/ffx0xYsXFzcNvcarvEGV7De77+7Tp6Ai4t7knsXMVZd5/QPNlxc3Edy57KOJOnBxcX979x8syRhwsXFfSY3KX4Seh6wttdquLi4DW7epdx3vaW/i4uLO8W9iitJQVY1Sf/YHRcX9wg3Dyid0cgYV94XFxd3M7fT3Kz+Xk2hbr8rLi7uEW410OQHsKotjygjw8XF3cytNj6S0JYPVOZKJlxc3N3cPBjNNTLycij6NLi4uI/hripmFhc/uLi427g7miNJ4Mt3397LwcXFHeYMcy3RPE2pHun4UPzg4uJu5q5qfSapTHXocjtkxcXF3cadK0X6DZG5I6G4uLgnuZ22abVAqo5VJns5uLi4i7jV8JQPSvPBatSixcXFPcjtZ0nVdkn+2oW3xMXFbXP7IazzquWWCi4u7hFuvjpJz7hYqqY7uLi4Z7jV0Wm1PVo9ePHhc+Di4h7k5mlKdQBTqMOSAxy4uLiP5OZhK0lxWhNgXFzcx3A7RU6ny4GLi3uem5c01SDVCYi4uLjf4lZDydyxic6oBhcX9yD3B9292FfDuoUsAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/mock/" class="color5">mock</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、学前预热"><span class="post-toc-text">一、学前预热</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-Web应用前后端分离"><span class="post-toc-text">1.1 Web应用前后端分离</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-利用node-express提供模拟数据"><span class="post-toc-text">1.2 利用node+express提供模拟数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-利用mockjs提供模拟数据"><span class="post-toc-text">1.3 利用mockjs提供模拟数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-使用postman工具测试接口"><span class="post-toc-text">1.4 使用postman工具测试接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-5-ajax请求mock数据接口"><span class="post-toc-text">1.5 ajax请求mock数据接口</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、数据mock思路"><span class="post-toc-text">二、数据mock思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-mock思路说明"><span class="post-toc-text">2.1 mock思路说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-代码描述"><span class="post-toc-text">2.2 代码描述</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、mock-js使用详解"><span class="post-toc-text">三、mock.js使用详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-mock-js实现的功能"><span class="post-toc-text">3.1 mock.js实现的功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-mock安装"><span class="post-toc-text">3.2 mock安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-1-node下使用"><span class="post-toc-text">3.2.1 node下使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-2-RequireJS-AMD"><span class="post-toc-text">3.2.2 RequireJS (AMD)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-使用语法"><span class="post-toc-text">3.3 使用语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-3-1-数据模板定义规范"><span class="post-toc-text">3.3.1 数据模板定义规范</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-3-2-生成规则和示例"><span class="post-toc-text">3.3.2 生成规则和示例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-3-3-数据占位符定义规范"><span class="post-toc-text">3.3.3 数据占位符定义规范</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-4-mock-mock"><span class="post-toc-text">3.4 mock.mock()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-1-mock-mock-template"><span class="post-toc-text">3.4.1 mock.mock( template )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-2-mock-mock-rurl-template"><span class="post-toc-text">3.4.2 mock.mock( rurl, template )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-3-mock-mock-rurl-function-options"><span class="post-toc-text">3.4.3 mock.mock( rurl, function( options ) )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-4-mock-setup"><span class="post-toc-text">3.4.4 mock.setup()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-5-mock-Random"><span class="post-toc-text">3.4.5 mock.Random</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、简单构建一套mock-server"><span class="post-toc-text">四、简单构建一套mock-server</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-json-server-搭配-mock-js"><span class="post-toc-text">4.1 json-server 搭配 mock.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-端口代理"><span class="post-toc-text">4.2 端口代理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-文件改动自动刷新"><span class="post-toc-text">4.3 文件改动自动刷新</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/22690905.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          编写可维护的javascript
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/5d687d0f.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">初探RESTful api</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+            <div class="outer-ad-aside">
+                
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?userCode=jh5fwy2j&source=5176.11533457&userCode=jh5fwy2j&type=copy">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
+                    <a title="微信公众号：前端迷" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
+                    </a>
+                  
+                    <a title="微信前端技术交流群" target="_blank" ">
+                      <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
+                    </a>
+                  
+                
+            </div>
+          </div>
+        
+      </div>
+     
+    
+     
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        &copy; 2019 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+</body>
+</html>
