@@ -17,12 +17,12 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化   一、数据渲染123&amp;lt;div&amp;gt;&amp;#123;message&amp;#125; &amp;lt;/div&amp;gt;&amp;lt;!--数据绑定--&amp;gt;&amp;lt;div v-html=&quot;htmlMess&quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;!--html绑定--&amp;gt;   &amp;lt;div">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.659Z">
+<meta property="og:image" content="https://malun666.github.io/aicoder_vip_doc/pages/vue/imgs/02vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A.jpg">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中的数据绑定（二）">
 <meta name="twitter:description" content="Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化   一、数据渲染123&amp;lt;div&amp;gt;&amp;#123;message&amp;#125; &amp;lt;/div&amp;gt;&amp;lt;!--数据绑定--&amp;gt;&amp;lt;div v-html=&quot;htmlMess&quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;!--html绑定--&amp;gt;   &amp;lt;div">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="https://malun666.github.io/aicoder_vip_doc/pages/vue/imgs/02vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A.jpg">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -159,7 +159,7 @@
             <blockquote>
 <p>Vue 对象的改变会直接影响到 HTML 的标签的变化，而且标签的变化也会反过来影响 Vue 对象的属性的变化</p>
 </blockquote>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://malun666.github.io/aicoder_vip_doc/pages/vue/imgs/02vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A.jpg" alt=""></p>
+<p><img src="https://malun666.github.io/aicoder_vip_doc/pages/vue/imgs/02vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A.jpg" alt=""></p>
 <h2 id="一、数据渲染"><a href="#一、数据渲染" class="headerlink" title="一、数据渲染"></a>一、数据渲染</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;message&#125; <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--数据绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"htmlMess"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--html绑定--&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-text</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  <span class="comment">&lt;!--数据绑定--&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="二、属性绑定"><a href="#二、属性绑定" class="headerlink" title="二、属性绑定"></a>二、属性绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>  <span class="comment">&lt;!--属性绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span>  <span class="comment">&lt;!--属性绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span>    <span class="comment">&lt;!--简写--&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="三、类名绑定"><a href="#三、类名绑定" class="headerlink" title="三、类名绑定"></a>三、类名绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--类绑定，当isActive为true时类名生效--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"active : isActive"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--多类名绑定，用逗号隔开--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"active:isActive,red:isRed"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--对象类名绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"classObj"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--类名数组绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[active,red]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--三元运算符类名绑定--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"isActive ? active : red"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -198,7 +198,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/d3019ce8.html" title="vue中的数据绑定（二）">https://ru23.com/note/d3019ce8.html</a></p>
         <footer>
@@ -343,6 +343,10 @@
             <div class="outer-ad-aside">
                 
                   
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
@@ -484,5 +488,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

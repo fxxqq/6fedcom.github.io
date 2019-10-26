@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一般面向对象包含：继承，封装，多态，抽象  对象形式的继承 浅拷贝">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.587Z">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP之面向对象">
 <meta name="twitter:description" content="一般面向对象包含：继承，封装，多态，抽象  对象形式的继承 浅拷贝">  
@@ -214,7 +214,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DetectorBase</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Abstract class can not be invoked directly!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DetectorBase.prototype.detect = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Detection starting...'</span>);</span><br><span class="line">&#125;;</span><br><span class="line">DetectorBase.prototype.stop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Detection stopped.'</span>);</span><br><span class="line">&#125;;</span><br><span class="line">DetectorBase.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Error'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var d = new DetectorBase();</span></span><br><span class="line"><span class="comment">// Uncaught Error: Abstract class can not be invoked directly!</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkDetector</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">LinkDetector.prototype = <span class="built_in">Object</span>.create(DetectorBase.prototype);</span><br><span class="line">LinkDetector.prototype.constructor = LinkDetector;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> l = <span class="keyword">new</span> LinkDetector();</span><br><span class="line"><span class="built_in">console</span>.log(l); <span class="comment">//LinkDetector &#123;&#125;__proto__: LinkDetector</span></span><br><span class="line">l.detect(); <span class="comment">//Detection starting...</span></span><br><span class="line">l.init(); <span class="comment">//Uncaught Error: Error</span></span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/6c17c77b.html" title="OOP之面向对象">https://ru23.com/note/6c17c77b.html</a></p>
         <footer>
@@ -315,19 +315,19 @@
 
 <nav id="article-nav">
   
-    <a href="/note/ae4d3c59.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/note/e36aeed5.html" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          javascript及jquery中的各种宽高属性图解
+          OOP之原型与原型链
         
       </span>
     </a>
   
   
-    <a href="/note/580a1014.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">JS 中的 call、apply、bind 方法</span>
+    <a href="/note/7e6522d0.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">OOP之类与对象</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -364,6 +364,10 @@
 </section>
             <div class="outer-ad-aside">
                 
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
@@ -506,5 +510,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

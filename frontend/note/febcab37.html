@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="浏览器是如何运行javascript代码的？ 看例1： 123456var num = 12;function fn() &amp;#123;    var num = 100;&amp;#125;fn();num = 200; 用图解释这一行代码是如何执行的。  这是一个简单的图示，现在我们来增加几个概念：栈内存、堆内存和预处理。 栈内存栈内存用来存放基本数据类型(Number、String、Boolean、N">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.602Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fgxag0eo14j30ff0blaat.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fgxhh3tnlgj30no059q3b.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1fgxhq85drcj30g309waah.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fgxj9il06dj30g60bvwfi.jpg">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="栈内存、堆内存和预处理">
 <meta name="twitter:description" content="浏览器是如何运行javascript代码的？ 看例1： 123456var num = 12;function fn() &amp;#123;    var num = 100;&amp;#125;fn();num = 200; 用图解释这一行代码是如何执行的。  这是一个简单的图示，现在我们来增加几个概念：栈内存、堆内存和预处理。 栈内存栈内存用来存放基本数据类型(Number、String、Boolean、N">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fgxag0eo14j30ff0blaat.jpg">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -156,7 +156,7 @@
 <p>看例1：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var num = 12;</span><br><span class="line">function fn() &#123;</span><br><span class="line">    var num = 100;</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line">num = 200;</span><br></pre></td></tr></table></figure>
 <p>用图解释这一行代码是如何执行的。</p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://ws1.sinaimg.cn/large/006tNc79ly1fgxag0eo14j30ff0blaat.jpg" alt="图例一"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fgxag0eo14j30ff0blaat.jpg" alt="图例一"></p>
 <p>这是一个简单的图示，现在我们来增加几个概念：栈内存、堆内存和预处理。</p>
 <h2 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h2><p>栈内存用来存放基本数据类型(Number、String、Boolean、Null和Undefined)，<strong>在执行完之后销毁。</strong></p>
 <p>栈内存与另一个概念息息相关——作用域，即代码的执行环境。上图中左边的栈内存就是全局作用域，而右边的则是局部作用域。全局作用域在浏览器窗口关闭之后才销毁。局部作用域在执行完之后就会销毁。</p>
@@ -170,9 +170,9 @@
 <p>例3</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m = &#123; a: 10, b: 20 &#125;</span><br><span class="line">var n = m;</span><br><span class="line">n.a = 15;</span><br><span class="line">// m.a的值是分别是什么？</span><br></pre></td></tr></table></figure>
 <p>例2的图解</p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://ws3.sinaimg.cn/large/006tNc79ly1fgxhh3tnlgj30no059q3b.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fgxhh3tnlgj30no059q3b.jpg" alt=""></p>
 <p>例3的图解</p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://ws2.sinaimg.cn/large/006tNc79gy1fgxhq85drcj30g309waah.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fgxhq85drcj30g309waah.jpg" alt=""></p>
 <p>由上两个图解可见，当基本数据类型传递的时候，其实是复制了一个新的数据给另一个变量；而当引用类型传递的时候，复制的仅仅是引用数据类型的地址，两个变量通过地址指向的是同一个堆内存中的数据。</p>
 <p>所以在例3中，当我们改变n.a的时候，m.a也同样改变了。</p>
 <h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>预处理是浏览器在执行代码前要做的任务，它包括变量的声明和函数声明与定义。</p>
@@ -180,14 +180,14 @@
 <p>当我们写了<code>var num = 12</code>这样的一行代码的时候，在执行时其实是分为两步：声明<code>var num</code>和定义<code>num = 12</code>。对于变量，预处理只做声明而不做定义。</p>
 <p>而相对于函数<code>function fn(){var num 12}</code>，同样有声明和定义之分，与变量不同的是，预处理时声明和定义全部执行。具体步骤是：声明<code>function fn()</code>，定义<code>fn() = &quot;{var num = 12}&quot;</code>。</p>
 <p>理解了栈内存、堆内存和预处理之后，重新画出例1的图示：</p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://ws1.sinaimg.cn/large/006tNc79ly1fgxj9il06dj30g60bvwfi.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fgxj9il06dj30g60bvwfi.jpg" alt=""></p>
 <p>这里的堆内存xxxfff000被全局作用域的函数fn引用，而全局作用域只有在浏览器窗口关闭的时候才会销毁，所以，只要浏览器窗口没有关闭，则堆内存xxxfff000一直被引用而不会销毁。</p>
 <p>参考资料：</p>
 <p>javascript高级程序设计(第三版)；</p>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/febcab37.html" title="栈内存、堆内存和预处理">https://ru23.com/note/febcab37.html</a></p>
         <footer>
@@ -324,6 +324,10 @@
 </section>
             <div class="outer-ad-aside">
                 
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
@@ -466,5 +470,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念 所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？ 这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.586Z">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS继承的几种方法总结">
 <meta name="twitter:description" content="由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念 所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？ 这就需要用到js的原型：我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（">  
@@ -172,7 +172,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Parent(hello)&#123;</span><br><span class="line">    this.hello = hello;</span><br><span class="line">  &#125;</span><br><span class="line">  Parent.prototype.sayHello = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this.hello);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> Child(hello,world)&#123;</span><br><span class="line">    Parent.call(this,hello);//将父类的属性继承过来</span><br><span class="line">    this.world = world;//新增一些属性</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Child.prototype = new Parent();//将父类的方法继承过来</span><br><span class="line"></span><br><span class="line">  Child.prototype.sayWorld = <span class="function"><span class="title">function</span></span>()&#123;//新增一些方法</span><br><span class="line">    console.log(this.world);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var c = new Child(<span class="string">"zhangsan"</span>,<span class="string">"lisi"</span>);</span><br><span class="line">  c.sayHello();</span><br><span class="line">  c.sayWorld();</span><br><span class="line">可以继承通过prototype 添加的方法和属性</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/b61cd12f.html" title="JS继承的几种方法总结">https://ru23.com/note/b61cd12f.html</a></p>
         <footer>
@@ -271,19 +271,19 @@
 
 <nav id="article-nav">
   
-    <a href="/note/ebeaea04.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/note/7e6522d0.html" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          JS 中的事件绑定、事件监听、事件委托
+          OOP之类与对象
         
       </span>
     </a>
   
   
-    <a href="/note/fc5e7486.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">JS常用的内置函数整理</span>
+    <a href="/note/580a1014.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JS 中的 call、apply、bind 方法</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -320,6 +320,10 @@
 </section>
             <div class="outer-ad-aside">
                 
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
@@ -462,5 +466,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

@@ -17,17 +17,17 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、transition标签结合css  vue.2.0中的过渡动画利用自身的transition组件实现  有四种情形可以实现过渡效果  利用v-if渲染元素时 利用v-show展示或者隐藏元素时应用过渡生效 动态组件(把几个组件挂载到一个父节点上，在父节点绑定变量来决定显示哪个子组件) 组件根节点    过渡有两种总的状态：即enter(过渡开始)和leave(过渡结束)  这两中状态再细分，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.653Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-08967bd611312202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-cdb6a6cb0faa21b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://cn.vuejs.org/images/transition.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-d2cb3498acd43afd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-1460f61d58e3115c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-eefc46df55457ac2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue过渡与动画（十五）">
 <meta name="twitter:description" content="一、transition标签结合css  vue.2.0中的过渡动画利用自身的transition组件实现  有四种情形可以实现过渡效果  利用v-if渲染元素时 利用v-show展示或者隐藏元素时应用过渡生效 动态组件(把几个组件挂载到一个父节点上，在父节点绑定变量来决定显示哪个子组件) 组件根节点    过渡有两种总的状态：即enter(过渡开始)和leave(过渡结束)  这两中状态再细分，">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1480597-08967bd611312202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -161,7 +161,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <h2 id="一、transition标签结合css"><a href="#一、transition标签结合css" class="headerlink" title="一、transition标签结合css"></a>一、transition标签结合css</h2><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-08967bd611312202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+            <h2 id="一、transition标签结合css"><a href="#一、transition标签结合css" class="headerlink" title="一、transition标签结合css"></a>一、transition标签结合css</h2><p><img src="https://upload-images.jianshu.io/upload_images/1480597-08967bd611312202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p><code>vue.2.0</code>中的过渡动画利用自身的<code>transition</code>组件实现</p>
 </blockquote>
@@ -179,9 +179,9 @@
 <li>在进入/离开的过渡中，会有 6 个 <code>class</code> 切换</li>
 </ul>
 </blockquote>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-cdb6a6cb0faa21b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="transition"></p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://cn.vuejs.org/images/transition.png" alt=""></p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-d2cb3498acd43afd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-cdb6a6cb0faa21b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="transition"></p>
+<p><img src="https://cn.vuejs.org/images/transition.png" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-d2cb3498acd43afd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p>控制元素的滑入与滑出，例如：<code>dom</code>结构，要在<code>transition</code>组件上添加<code>name</code>属性，并在<code>css</code>中使用<code>name</code>的属性值替代以上<code>v-</code>状态种的<code>v</code>作为类名</p>
 </blockquote>
@@ -193,7 +193,7 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fade-enter-active</span>, <span class="selector-class">.fade-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: opacity .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade-enter</span>, <span class="selector-class">.fade-leave-to</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>类似的只需要在过度类中填写动画即可</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fade-enter-active</span>, <span class="selector-class">.fade-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: fade-in .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade-enter</span>, <span class="selector-class">.fade-leave-to</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>:fade-in .<span class="number">5s</span> reverse;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> bounce-in &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">ooacity</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  50% &#123;</span><br><span class="line">    <span class="attribute">ooacity</span>: .<span class="number">5</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">ooacity</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二、自定义过渡类名实现动画"><a href="#二、自定义过渡类名实现动画" class="headerlink" title="二、自定义过渡类名实现动画"></a>二、自定义过渡类名实现动画</h2><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-1460f61d58e3115c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="二、自定义过渡类名实现动画"><a href="#二、自定义过渡类名实现动画" class="headerlink" title="二、自定义过渡类名实现动画"></a>二、自定义过渡类名实现动画</h2><p><img src="https://upload-images.jianshu.io/upload_images/1480597-1460f61d58e3115c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p><code>animate.css</code>结合<code>transition</code></p>
 </blockquote>
@@ -201,7 +201,7 @@
 <p><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">https://daneden.github.io/animate.css/</a></p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"toggle"</span>&gt;</span>显示/隐藏<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">transition</span> </span></span><br><span class="line"><span class="tag">     <span class="attr">enter-active-class</span>=<span class="string">"animated fadeInRight"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">leave-active-class</span>=<span class="string">"animated fadeOutRight"</span></span></span><br><span class="line"><span class="tag">     &gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 坑：span行内元素（行内元素没有宽） 应该改为块级元素 --&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- &lt;span class="show" v-show="isshow"&gt;it创业&lt;/span&gt; --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:200px"</span> <span class="attr">class</span>=<span class="string">"show"</span> <span class="attr">v-show</span>=<span class="string">"isshow"</span>&gt;</span>it创业<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="三、js钩子函数实现动画"><a href="#三、js钩子函数实现动画" class="headerlink" title="三、js钩子函数实现动画"></a>三、js钩子函数实现动画</h2><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-eefc46df55457ac2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="三、js钩子函数实现动画"><a href="#三、js钩子函数实现动画" class="headerlink" title="三、js钩子函数实现动画"></a>三、js钩子函数实现动画</h2><p><img src="https://upload-images.jianshu.io/upload_images/1480597-eefc46df55457ac2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p>这些钩子函数可以结合 <code>CSS transitions/animations</code>使用，也可以单独使用。</p>
 </blockquote>
@@ -213,7 +213,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/880e7c61.html" title="vue过渡与动画（十五）">https://ru23.com/note/880e7c61.html</a></p>
         <footer>
@@ -358,6 +358,10 @@
             <div class="outer-ad-aside">
                 
                   
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
@@ -499,5 +503,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

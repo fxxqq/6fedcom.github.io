@@ -17,17 +17,17 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、编写事件处理函数  在函数体中进行一些操作，常见的有：更新页面内容，更新组件状态，与后台交互   书写方式 123456var Demo = React.createClass(&amp;#123;		getInitialState:function()&amp;#123;		&amp;#125;,		handleClick: function(event)&amp;#123;		&amp;#125;,		handleChange:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.630Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-f2421cc3f2723b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-269c34a011f83c1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-321747a6085cf459.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-96f7e6afef18b063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-7d4749b26ef496d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-10a91549777446a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React之事件（四）">
 <meta name="twitter:description" content="一、编写事件处理函数  在函数体中进行一些操作，常见的有：更新页面内容，更新组件状态，与后台交互   书写方式 123456var Demo = React.createClass(&amp;#123;		getInitialState:function()&amp;#123;		&amp;#125;,		handleClick: function(event)&amp;#123;		&amp;#125;,		handleChange:">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-f2421cc3f2723b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -161,11 +161,11 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <h2 id="一、编写事件处理函数"><a href="#一、编写事件处理函数" class="headerlink" title="一、编写事件处理函数"></a>一、编写事件处理函数</h2><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-f2421cc3f2723b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+            <h2 id="一、编写事件处理函数"><a href="#一、编写事件处理函数" class="headerlink" title="一、编写事件处理函数"></a>一、编写事件处理函数</h2><p><img src="http://upload-images.jianshu.io/upload_images/1480597-f2421cc3f2723b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li>在函数体中进行一些操作，常见的有：更新页面内容，更新组件状态，与后台交互</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-269c34a011f83c1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-269c34a011f83c1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><strong>书写方式</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Demo = React.createClass(&#123;</span><br><span class="line">		getInitialState:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;		&#125;,</span><br><span class="line">		handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;		&#125;,</span><br><span class="line">		handleChange: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;		&#125;,</span><br><span class="line">		render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;		&#125;,</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -191,22 +191,22 @@
 <ul>
 <li>通用：所有的事件都有事件属性</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-321747a6085cf459.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-321747a6085cf459.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li>键盘：键盘事件拥有的事件属性</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-96f7e6afef18b063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-96f7e6afef18b063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li>鼠标：鼠标事件拥有的事件属性</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-7d4749b26ef496d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-7d4749b26ef496d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li>滚动：滚动事件拥有的事件属性<ul>
 <li>为什么会有三个，因为有的设备可以实现三个方向的移动</li>
 </ul>
 </li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-10a91549777446a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-10a91549777446a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="四、事件与状态关联"><a href="#四、事件与状态关联" class="headerlink" title="四、事件与状态关联"></a>四、事件与状态关联</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inputChange:function(event)&#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">    	inputText:event.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>总的来说就是使用<code>this.setState</code>来更新状态，而状态的值因为事件的不同会不同</li>
@@ -214,7 +214,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/7d76909e.html" title="React之事件（四）">https://ru23.com/note/7d76909e.html</a></p>
         <footer>
@@ -361,6 +361,10 @@
             <div class="outer-ad-aside">
                 
                   
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
@@ -502,5 +506,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

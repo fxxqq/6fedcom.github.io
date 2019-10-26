@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="层级关系为：1234567891011121314151617181920212223&amp;lt;div ——————————— position:relative; 不是最近的祖先定位元素，不是参照物&amp;lt;div—————————-没有设置为定位元素，不是参照物&amp;lt;div———————- position:relative 参照物&amp;lt;div box1&amp;lt;div box2 ——–posi">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.536Z">
+<meta property="og:image" content="http://pic002.cnblogs.com/images/2012/422101/2012072618180663.jpg">
+<meta property="og:image" content="http://pic002.cnblogs.com/images/2012/422101/2012072618185065.jpg">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/css%E5%8D%95%E8%AF%8D.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/CSS%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%AE%9A%E4%BD%8D.png">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="绝对定位与相对定位">
 <meta name="twitter:description" content="层级关系为：1234567891011121314151617181920212223&amp;lt;div ——————————— position:relative; 不是最近的祖先定位元素，不是参照物&amp;lt;div—————————-没有设置为定位元素，不是参照物&amp;lt;div———————- position:relative 参照物&amp;lt;div box1&amp;lt;div box2 ——–posi">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="http://pic002.cnblogs.com/images/2012/422101/2012072618180663.jpg">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -161,19 +161,19 @@
             
             <p>层级关系为：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> ——————————— <span class="attr">position:relative</span>; 不是最近的祖先定位元素，不是参照物</span></span><br><span class="line">&lt;div—————————-没有设置为定位元素，不是参照物</span><br><span class="line"><span class="tag">&lt;<span class="name">div———————-</span> <span class="attr">position:relative</span> 参照物</span></span><br><span class="line">&lt;div box1</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">box2</span> ——–<span class="attr">position:absolute</span>; <span class="attr">top:50px</span>; <span class="attr">left:120px</span>;</span></span><br><span class="line">&lt;div box3</span><br><span class="line">```<span class="comment">&lt;!--more--&gt;</span></span><br><span class="line">效果图：</span><br><span class="line"></span><br><span class="line">![](http://pic002.cnblogs.com/images/2012/422101/2012072618164674.jpg)</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">为改变参照物（橘色框）后的效果</span><br><span class="line"></span><br><span class="line">层级关系为：</span><br><span class="line">```html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> ——————————— <span class="attr">position:relative</span>;最近的祖先定位元素，参照物</span></span><br><span class="line">&lt;div—————————-没有设置为定位元素，不是参照物</span><br><span class="line"><span class="tag">&lt;<span class="name">div———————-没有设置为定位元素，不是参照物</span></span></span><br><span class="line">&lt;div box1</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">box2</span> ——–<span class="attr">position:absolute</span>; <span class="attr">top:50px</span>; <span class="attr">left:120px</span>;</span></span><br><span class="line">&lt;div box3</span><br></pre></td></tr></table></figure></p>
 <p>效果图：</p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://pic002.cnblogs.com/images/2012/422101/2012072618180663.jpg" alt=""></p>
+<p><img src="http://pic002.cnblogs.com/images/2012/422101/2012072618180663.jpg" alt=""></p>
 <hr>
 <p>参照物为最顶级的元素情况。</p>
 <p>层级关系为：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> ———————————没有设置为定位元素，不是参照物</span></span><br><span class="line">&lt;div—————————-没有设置为定位元素，不是参照物</span><br><span class="line"><span class="tag">&lt;<span class="name">div———————-没有设置为定位元素，不是参照物</span></span></span><br><span class="line">&lt;div box1</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">box2</span> ——–<span class="attr">position:absolute</span>; <span class="attr">top:50px</span>; <span class="attr">left:120px</span>;</span></span><br><span class="line">&lt;div box3</span><br></pre></td></tr></table></figure></p>
 <p>效果图：</p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://pic002.cnblogs.com/images/2012/422101/2012072618185065.jpg" alt=""></p>
+<p><img src="http://pic002.cnblogs.com/images/2012/422101/2012072618185065.jpg" alt=""></p>
 <hr>
-<h3 id="导图总结"><a href="#导图总结" class="headerlink" title="导图总结"></a>导图总结</h3><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://7xq6al.com1.z0.glb.clouddn.com/css%E5%8D%95%E8%AF%8D.png" alt=""></p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://7xq6al.com1.z0.glb.clouddn.com/CSS%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%AE%9A%E4%BD%8D.png" alt=""></p>
+<h3 id="导图总结"><a href="#导图总结" class="headerlink" title="导图总结"></a>导图总结</h3><p><img src="http://7xq6al.com1.z0.glb.clouddn.com/css%E5%8D%95%E8%AF%8D.png" alt=""></p>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/CSS%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%AE%9A%E4%BD%8D.png" alt=""></p>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/6f1a8b1.html" title="绝对定位与相对定位">https://ru23.com/note/6f1a8b1.html</a></p>
         <footer>
@@ -318,6 +318,10 @@
             <div class="outer-ad-aside">
                 
                   
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
@@ -459,5 +463,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

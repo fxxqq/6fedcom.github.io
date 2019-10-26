@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、前言 在redux里，middleware是发送action和action到达reducer之间的第三方扩展，也就是中间层。也可以这样说，middleware是架在action和store之间的一座桥梁 在redux里，action仅仅是携带了数据的普通js对象   Reducer 拆分可以使组件获取其最小属性(state)，而不需要整个Store。中间件则可以在Action Creator">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.632Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ce57255f3fd73efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-195f2150c8aebccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redux之浅析中间件（八）">
 <meta name="twitter:description" content="一、前言 在redux里，middleware是发送action和action到达reducer之间的第三方扩展，也就是中间层。也可以这样说，middleware是架在action和store之间的一座桥梁 在redux里，action仅仅是携带了数据的普通js对象   Reducer 拆分可以使组件获取其最小属性(state)，而不需要整个Store。中间件则可以在Action Creator">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-ce57255f3fd73efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -196,11 +196,11 @@
 <p>因此，上面那个<code>ActionCreator</code>就可以改写为这样：因为<code>action</code>的返回值是一个函数</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> asyncSayActionCreator = <span class="function"><span class="keyword">function</span> (<span class="params">message</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">dispatch</span>) </span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            dispatch(&#123;</span><br><span class="line">                type: <span class="string">'SAY'</span>,</span><br><span class="line">                message</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;, <span class="number">2000</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-ce57255f3fd73efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-ce57255f3fd73efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li>上图表达的是 <code>redux</code> 中一个简单的同步数据流动的场景，点击<code>button</code> 后，在回调中 <code>dispatch</code> 一个 <code>action</code>，<code>reducer</code> 收到<code>action</code> 后，更新 <code>state</code> 并通知 <code>view</code> 重新渲染</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-195f2150c8aebccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-195f2150c8aebccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li>上面这张图展示了应用<code>middleware</code> 后 <code>redux</code> 处理事件的逻辑，每一个 <code>middleware</code> 处理一个相对独立的业务需求，通过串联不同的 <code>middleware</code>，实现变化多样的的功能。那么问题来了：<ul>
 <li><code>middleware</code> 怎么写？</li>
@@ -239,7 +239,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/f50d087a.html" title="Redux之浅析中间件（八）">https://ru23.com/note/f50d087a.html</a></p>
         <footer>
@@ -386,6 +386,10 @@
             <div class="outer-ad-aside">
                 
                   
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
@@ -527,5 +531,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>
