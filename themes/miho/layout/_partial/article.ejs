@@ -20,10 +20,10 @@
                 <a href="<%- url_for(post.path) %>" <% if (theme.open_new_link) {%> target="_blank"
                     <% } %>>
                     <% if (post.cover_picture) { %>
-                    <img class="post" src="<%- (/^(http:|https:)?\/\//.test(post.cover_picture) ? post.cover_picture: config.cdn.replace(/\/$/, '') + '/' + post.cover_picture)%>"
+                    <img class="post lazyload" src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="<%- (/^(http:|https:)?\/\//.test(post.cover_picture) ? post.cover_picture: config.cdn.replace(/\/$/, '') + '/' + post.cover_picture)%>"
                         alt="<%- post.title %>" title="<%- post.title %>">
                     <% } else { %>
-                    <img class="theme"  src="<%- (/^(http:|https:)?\/\//.test(theme.cover_picture) ? theme.cover_picture +'&id='+post.abbrlink : config.cdn.replace(/\/$/, '') + '/' + theme.cover_picture) %>"
+                    <img class="theme lazyload" src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="<%- (/^(http:|https:)?\/\//.test(theme.cover_picture) ? theme.cover_picture +'&id='+post.abbrlink : config.cdn.replace(/\/$/, '') + '/' + theme.cover_picture) %>"
                         alt="<%- post.title %>" title="<%- post.title %>" index="<%- post.abbrlink  %>">
                     <% } %>
                 </a>
