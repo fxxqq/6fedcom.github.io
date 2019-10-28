@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、创建同步Action Action是数据从应用传递到 store/state 的载体，也是开启一次完成数据流的开始  普通的action对象 123456const action = &amp;#123;	type:&apos;ADD_TODO&apos;,	name:&apos;poetries&apos;&amp;#125;dispatch(action) 封装action creator 12345678function actionCrea">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-7ada60211c8b6262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-7937f0072593a955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-22T05:01:02.961Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-09-29T01:30:17.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redux之异步Action及操作（七）">
 <meta name="twitter:description" content="一、创建同步Action Action是数据从应用传递到 store/state 的载体，也是开启一次完成数据流的开始  普通的action对象 123456const action = &amp;#123;	type:&apos;ADD_TODO&apos;,	name:&apos;poetries&apos;&amp;#125;dispatch(action) 封装action creator 12345678function actionCrea">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-7ada60211c8b6262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -207,7 +207,7 @@
 <p><code>redux-promise</code>中间处理这种<code>action</code></p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseAction</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function">(<span class="params">param</span>)=&gt;</span>&#123;</span><br><span class="line">            resolve(&#123;</span><br><span class="line">                type:<span class="string">'ADD_TODO'</span>,</span><br><span class="line">                name</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,<span class="number">3000</span>)</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">param</span>)=&gt;</span>&#123;</span><br><span class="line">        dispatch(action(<span class="string">"action2"</span>))</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">param</span>)=&gt;</span>&#123;</span><br><span class="line">        dispatch(action(<span class="string">"action3"</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三、redux异步流程"><a href="#三、redux异步流程" class="headerlink" title="三、redux异步流程"></a>三、redux异步流程</h2><p><img src="http://upload-images.jianshu.io/upload_images/1480597-7ada60211c8b6262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="三、redux异步流程"><a href="#三、redux异步流程" class="headerlink" title="三、redux异步流程"></a>三、redux异步流程</h2><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-7ada60211c8b6262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li>首先发起一个action，然后通过中间件，这里为什么要用中间件呢，因为这样<code>dispatch</code>的返回值才能是一个函数。</li>
 <li>通过<code>store.dispatch</code>，将状态的的改变传给<code>store</code>的小弟<code>reducer</code>，<code>reducer</code>根据<code>action</code>的改变，传递新的状态<code>state</code>。</li>
@@ -306,11 +306,11 @@
 <blockquote>
 <p>这样就完成了<code>redux</code>的异步操作。其实最主要的区别还是<code>action</code>里面还有中间件的调用，其他的地方基本跟同步的<code>redux</code>差不多的。搞懂了中间件，就基本搞懂了<code>redux</code>的异步操作</p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1480597-7937f0072593a955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-7937f0072593a955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/9e9b2557.html" title="Redux之异步Action及操作（七）">https://ru23.com/note/9e9b2557.html</a></p>
         <footer>
@@ -457,7 +457,7 @@
             <div class="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://url.cn/5bF66ng?a=可以复制链接到浏览器打开">
                       <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
                     </a>
                   
@@ -602,5 +602,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

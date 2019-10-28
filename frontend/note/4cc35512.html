@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-22T05:01:02.942Z">
+<meta property="og:updated_time" content="2019-09-29T01:30:17.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="arguments详解">
 <meta name="twitter:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">  
@@ -175,7 +175,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> maxNum = <span class="built_in">Number</span>.NEGATIVE_INFINITY;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">arguments</span>[i]&gt; maxNum)&#123;</span><br><span class="line">			maxNum = <span class="built_in">arguments</span>[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> maxNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">max(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">4</span>,<span class="number">10</span>); <span class="comment">//11</span></span><br><span class="line">max(<span class="number">2</span>,<span class="number">-10</span>,<span class="number">22</span>,<span class="number">11</span>);   <span class="comment">//22</span></span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/4cc35512.html" title="arguments详解">https://ru23.com/note/4cc35512.html</a></p>
         <footer>
@@ -270,19 +270,19 @@
 
 <nav id="article-nav">
   
-    <a href="/note/580a1014.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/note/40b57898.html" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          JS 中的 call、apply、bind 方法
+          javascript数组详解
         
       </span>
     </a>
   
   
-    <a href="/note/40b57898.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">javascript数组详解</span>
+    <a href="/note/b61cd12f.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JS继承的几种方法总结</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -320,7 +320,7 @@
             <div class="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://url.cn/5bF66ng?a=可以复制链接到浏览器打开">
                       <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
                     </a>
                   
@@ -465,5 +465,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

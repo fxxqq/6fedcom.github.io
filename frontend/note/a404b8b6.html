@@ -17,19 +17,19 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="nginx 的启动、停止与重启 建立软连接nginx到/usr/bin目录下 ln -s /usr/sbin/nginx /usr/bin  启动 启动代码格式：nginx安装目录地址 -c nginx配置文件地址  1[root@LinuxServer sbin]# /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf 停">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182744854-1291053517.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182652354-960281274.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183103651-1859453208.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183340010-2024212451.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102184633432-1268782338.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185023385-456612180.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185521057-1341380905.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185838167-234856506.png">
-<meta property="og:updated_time" content="2019-10-26T08:16:23.677Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-09-29T06:36:19.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx基础配置篇">
 <meta name="twitter:description" content="nginx 的启动、停止与重启 建立软连接nginx到/usr/bin目录下 ln -s /usr/sbin/nginx /usr/bin  启动 启动代码格式：nginx安装目录地址 -c nginx配置文件地址  1[root@LinuxServer sbin]# /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf 停">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182744854-1291053517.png">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -177,20 +177,20 @@
 <ul>
 <li>查看进程号 <code>ps -ef|grep nginx</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182744854-1291053517.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182744854-1291053517.png" alt=""></p>
 <ul>
 <li>杀死进程 kill -QUIT 2072</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182652354-960281274.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182652354-960281274.png" alt=""></p>
 <p><strong>快速停止</strong></p>
 <ul>
 <li>查看进程号 <code>ps -ef|grep nginx</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183103651-1859453208.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183103651-1859453208.png" alt=""></p>
 <ul>
 <li>杀死进程 <code>kill -TERM 2132</code> <code>kill -INT 2132</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183340010-2024212451.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183340010-2024212451.png" alt=""></p>
 <ul>
 <li>强制停止 <code>pkill -9 nginx</code></li>
 </ul>
@@ -201,18 +201,18 @@
 <ul>
 <li>方法一：进入<code>nginx</code>安装目录<code>sbin</code>下，输入命令<code>./nginx -t</code><br>看到如下显示<code>nginx.conf syntax is ok nginx.conf test is successful</code>说明配置文件正确</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102184633432-1268782338.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102184633432-1268782338.png" alt=""></p>
 <ul>
 <li>方法二：在启动命令<code>-c</code>前加<code>-t</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185023385-456612180.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185023385-456612180.png" alt=""></p>
 <p><strong>重启 nginx 服务</strong></p>
 <ul>
 <li>方法一：进入<code>nginx</code>可执行目录<code>sbin</code>下，输入命令<code>./nginx -s reload</code>即可</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185521057-1341380905.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185521057-1341380905.png" alt=""></p>
 <ul>
-<li>方法二：查找当前<code>nginx</code>进程号，然后输入命令：<code>kill -HUP</code> 进程号 实现重启<code>nginx</code>服务<br><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185838167-234856506.png" alt=""></li>
+<li>方法二：查找当前<code>nginx</code>进程号，然后输入命令：<code>kill -HUP</code> 进程号 实现重启<code>nginx</code>服务<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185838167-234856506.png" alt=""></li>
 </ul>
 <h3 id="nginx-基础配置"><a href="#nginx-基础配置" class="headerlink" title="nginx 基础配置"></a>nginx 基础配置</h3><ul>
 <li>在<code>nginx</code>目录下的<code>vhost或conf.d</code>目录下新建一个配置文件（如<code>poetries-80.conf</code>）</li>
@@ -236,7 +236,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年10月26日 16:16</p> -->
+        <!-- <p>最后更新： 2019年09月29日 14:36</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/a404b8b6.html" title="nginx基础配置篇">https://ru23.com/note/a404b8b6.html</a></p>
         <footer>
@@ -381,7 +381,7 @@
             <div class="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://url.cn/5bF66ng?a=可以复制链接到浏览器打开">
                       <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
                     </a>
                   
@@ -526,5 +526,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

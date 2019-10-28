@@ -17,12 +17,12 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="react快速入门 react组件的生命周期在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化   State 是一种数据结构，用于组件挂载时所需数据的默认值。State 可能会随着时间的推移而发生突变，但多数时候是作为用户事件行为的结果。Props(properties 的简写)则是组件的配置。props 由父组件传递给子组件，并且就子组件而言，p">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/img/2018/12/react-life-cycle.png">
-<meta property="og:updated_time" content="2019-09-22T05:01:02.989Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-09-29T01:30:17.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React生命周期以及注意事项">
 <meta name="twitter:description" content="react快速入门 react组件的生命周期在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化   State 是一种数据结构，用于组件挂载时所需数据的默认值。State 可能会随着时间的推移而发生突变，但多数时候是作为用户事件行为的结果。Props(properties 的简写)则是组件的配置。props 由父组件传递给子组件，并且就子组件而言，p">
-<meta name="twitter:image" content="https://cdn.ru23.com/img/2018/12/react-life-cycle.png">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -163,7 +163,7 @@
 </blockquote>
 <p>组件的生命主要包括3个阶段： 挂载、更新、卸载，React 16开始还添加了错误处理。</p>
 <p>韦博青少微信端用的是react15版本的，先简述下15版本的生命周期，react16的生命周期也是基于15上修改</p>
-<p><img src="https://cdn.ru23.com/img/2018/12/react-life-cycle.png" alt="react生命周期"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://cdn.ru23.com/img/2018/12/react-life-cycle.png" alt="react生命周期"></p>
 <h3 id="第一个是组件初始化-initialization-阶段"><a href="#第一个是组件初始化-initialization-阶段" class="headerlink" title="第一个是组件初始化(initialization)阶段"></a>第一个是组件初始化(initialization)阶段</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>构造方法(<code>constructor()</code> ),Test类继承了react Component这个基类，也就继承这个react的基类，才能有render(),生命周期等方法可以使用<br>super(props)用来调用基类的构造方法( <code>constructor()</code> ), 也将父组件的props注入给子组件，供子组件读取(组件中props只读不可变，state可变)<br>而<code>constructor()</code>用来做一些组件的初始化工作，如定义this.state的初始内容。</p>
 <h3 id="第二个是组件的挂载-Mounting-阶段"><a href="#第二个是组件的挂载-Mounting-阶段" class="headerlink" title="第二个是组件的挂载(Mounting)阶段"></a>第二个是组件的挂载(Mounting)阶段</h3><p><strong>此阶段分为componentWillMount，render，componentDidMount三个时期</strong><br><code>componentWillMount</code>:<br>在组件挂载到DOM前调用，且只会被调用一次，在这边调用this.setState不会引起组件重新渲染，也可以把写在这边的内容提前到<code>constructor()</code>中，所以项目中很少用。<br><code>render</code>:<br>根据组件的props和state（无两者的重传递和重赋值，论值是否有变化，都可以引起组件重新render） ，return 一个React元素（描述组件，即UI），不负责组件实际渲染工作，之后由React自身根据此元素去渲染出页面DOM。render是纯函数（Pure function：函数的返回结果只依赖于它的参数；函数执行过程里面没有副作用），不能在里面执行this.setState，会有改变组件状态的副作用。</p>
@@ -206,7 +206,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/9a17caa7.html" title="React生命周期以及注意事项">https://ru23.com/note/9a17caa7.html</a></p>
         <footer>
@@ -351,7 +351,7 @@
             <div class="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://url.cn/5bF66ng?a=可以复制链接到浏览器打开">
                       <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
                     </a>
                   
@@ -496,5 +496,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
