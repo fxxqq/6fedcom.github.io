@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="react和vue的业务逻辑是差不多，vue在react上封装了更简洁的方法，使用起来更加的便捷，如：提供了便捷的指令（v-for,v-if,v-model），还提供了更多的属性（computed,watch），我还是比较喜欢用react的，更接近js原生，更容易于理解它。 vue的生命周期一 如下图所示(很清晰)初始化、编译、更新、销毁 二 vue生命周期的栗子 注意触发vue的created事">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.745Z">
+<meta property="og:image" content="https://cdn.ru23.com/img/2018/10/vue-life-cycle.png">
+<meta property="og:image" content="https://cdn.ru23.com/img/2018/10/react-life-cycle.jpg">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue生命周期和react生命周期对比">
 <meta name="twitter:description" content="react和vue的业务逻辑是差不多，vue在react上封装了更简洁的方法，使用起来更加的便捷，如：提供了便捷的指令（v-for,v-if,v-model），还提供了更多的属性（computed,watch），我还是比较喜欢用react的，更接近js原生，更容易于理解它。 vue的生命周期一 如下图所示(很清晰)初始化、编译、更新、销毁 二 vue生命周期的栗子 注意触发vue的created事">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="https://cdn.ru23.com/img/2018/10/vue-life-cycle.png">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -158,9 +158,9 @@
             
             
             <p>react和vue的业务逻辑是差不多，vue在react上封装了更简洁的方法，使用起来更加的便捷，如：提供了便捷的指令（v-for,v-if,v-model），还提供了更多的属性（computed,watch），我还是比较喜欢用react的，更接近js原生，更容易于理解它。</p>
-<h1 id="vue的生命周期"><a href="#vue的生命周期" class="headerlink" title="vue的生命周期"></a>vue的生命周期</h1><h3 id="一-如下图所示-很清晰-初始化、编译、更新、销毁"><a href="#一-如下图所示-很清晰-初始化、编译、更新、销毁" class="headerlink" title="一 如下图所示(很清晰)初始化、编译、更新、销毁"></a>一 如下图所示(很清晰)初始化、编译、更新、销毁</h3><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://cdn.ru23.com/img/2018/10/vue-life-cycle.png" alt="vue生命周期"></p>
+<h1 id="vue的生命周期"><a href="#vue的生命周期" class="headerlink" title="vue的生命周期"></a>vue的生命周期</h1><h3 id="一-如下图所示-很清晰-初始化、编译、更新、销毁"><a href="#一-如下图所示-很清晰-初始化、编译、更新、销毁" class="headerlink" title="一 如下图所示(很清晰)初始化、编译、更新、销毁"></a>一 如下图所示(很清晰)初始化、编译、更新、销毁</h3><p><img src="https://cdn.ru23.com/img/2018/10/vue-life-cycle.png" alt="vue生命周期"></p>
 <h3 id="二-vue生命周期的栗子"><a href="#二-vue生命周期的栗子" class="headerlink" title="二 vue生命周期的栗子"></a>二 vue生命周期的栗子</h3><p> 注意触发vue的created事件以后,this便指向vue实例,这点很重要<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el: <span class="string">".test"</span>,</span><br><span class="line">	data: &#123;</span><br><span class="line">		a: <span class="string">"我是内容,在控制台输入myVue.a=123456,可以改变我的值"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//在实例创建之后同步调用。此时实例已经结束解析选项，这意味着已建立：数据绑定，计算属性，方法，watcher/事件回调。</span></span><br><span class="line">		<span class="comment">//但是还没有开始 dom 编译，$el 还不存在,但是实例存在,即this.a存在,可打印出来 。</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"建立"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	beforeCompile: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"未开始编译"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	compiled: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//在编译结束后调用。此时所有的指令已生效，因而数据的变化将触发 dom 更新。但是不担保 $el 已插入文档。</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"编译完成"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	ready: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//在编译结束和 $el 第一次插入文档之后调用，如在第一次 attached 钩子之后调用。注意必须是由 Vue 插入（如 vm.$appendTo() 等方法或指令更新）才触发 ready 钩子。</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"一切准备好了"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	attached: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//myVue.$appendTo(".test2")暂时触发不了,不知道怎么解决</span></span><br><span class="line">		<span class="comment">//在 vm.$el 插入 dom 时调用。必须是由指令或实例方法（如 $appendTo()）插入，直接操作 vm.$el 不会 触发这个钩子。</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"插入dom成功"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	detached: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//触发事件 myVue.$destroy(true),其中参数true控制是否删除dom节点或者myVue.$remove()</span></span><br><span class="line">		<span class="comment">//在 vm.$el 从 dom 中删除时调用。必须是由指令或实例方法删除，直接操作 vm.$el 不会 触发这个钩子。</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"删除dom成功"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	beforeDestroy: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//触发方式,在console里面打myVue.$destroy();</span></span><br><span class="line">		<span class="comment">//在开始销毁实例时调用。此时实例仍然有功能。</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"销毁前"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	destroyed: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//触发方式,在console里面打myVue.$destroy();其中myVue.$destroy(true)是删除dom节点,会触发detached函数,但是实例仍然存在</span></span><br><span class="line">		<span class="comment">//在实例被销毁之后调用。此时所有的绑定和实例的指令已经解绑，注意是解绑不是销毁,所有的子实例也已经被销毁。</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"已销毁"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h1 id="react生命周期"><a href="#react生命周期" class="headerlink" title="react生命周期"></a>react生命周期</h1><h3 id="React-生命周期分为三种状态-1-初始化-2-更新-3-销毁"><a href="#React-生命周期分为三种状态-1-初始化-2-更新-3-销毁" class="headerlink" title="React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁"></a>React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁</h3><p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://cdn.ru23.com/img/2018/10/react-life-cycle.jpg" alt="React生命周期"></p>
+<h1 id="react生命周期"><a href="#react生命周期" class="headerlink" title="react生命周期"></a>react生命周期</h1><h3 id="React-生命周期分为三种状态-1-初始化-2-更新-3-销毁"><a href="#React-生命周期分为三种状态-1-初始化-2-更新-3-销毁" class="headerlink" title="React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁"></a>React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁</h3><p><img src="https://cdn.ru23.com/img/2018/10/react-life-cycle.jpg" alt="React生命周期"></p>
 <p>•初始化</p>
 <p>1、<code>getDefaultProps()</code><br>设置默认的props，也可以用ufaultProps设置组件的默认属性.</p>
 <p>2、<code>getInitialState()</code><br>在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state。此时可以访问this.props</p>
@@ -179,7 +179,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/73225ea8.html" title="vue生命周期和react生命周期对比">https://ru23.com/note/73225ea8.html</a></p>
         <footer>
@@ -326,6 +326,10 @@
             <div class="outer-ad-aside">
                 
                   
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
@@ -467,5 +471,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

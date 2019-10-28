@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="7种方法解决移动端Retina屏幕1px边框问题在之前的项目中，UI告诉我说我们移动项目中的边框全部都变粗了。原谅我的近视眼，为什么我看不出什么差距了，结果UI把他的设计稿跟我的屏幕截图跟我看，居然真的不一样！！！没有办法，只有在后面的版本中去修改了，但是要改的话，需要知道是为什么。所以查了很多资料，终于搞懂了这个问题，并且总结了几种方法。 造成边框变粗的原因其实这个原因很简单，因为css中的1p">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T09:15:14.349Z">
+<meta property="og:image" content="https://ru23.com/img/201707/15000159723693.jpg">
+<meta property="og:image" content="https://ru23.com/img/201707/15000165069433.jpg">
+<meta property="og:image" content="https://ru23.com/img/201707/15000183504357.jpg">
+<meta property="og:updated_time" content="2019-10-26T08:16:23.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 1px">
 <meta name="twitter:description" content="7种方法解决移动端Retina屏幕1px边框问题在之前的项目中，UI告诉我说我们移动项目中的边框全部都变粗了。原谅我的近视眼，为什么我看不出什么差距了，结果UI把他的设计稿跟我的屏幕截图跟我看，居然真的不一样！！！没有办法，只有在后面的版本中去修改了，但是要改的话，需要知道是为什么。所以查了很多资料，终于搞懂了这个问题，并且总结了几种方法。 造成边框变粗的原因其实这个原因很简单，因为css中的1p">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="https://ru23.com/img/201707/15000159723693.jpg">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -156,7 +156,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">devicePixelRatio的官方的定义为：</span><br><span class="line">设备物理像素和设备独立像素的比例，也就是devicePixelRatio = 物理像素 / 独立像素。</span><br></pre></td></tr></table></figure>
 <h2 id="解决边框变粗的6种办法"><a href="#解决边框变粗的6种办法" class="headerlink" title="解决边框变粗的6种办法"></a>解决边框变粗的6种办法</h2><p><strong>1. 0.5px边框</strong></p>
 <p> 在2014年的 WWDC，“设计响应的Web体验” 一讲中，Ted O’Connor 讲到关于“retina<br>hairlines”（retina 极细的线）：在retina屏上仅仅显示1物理像素的边框，开发者应该如何处理呢。<br>他们曾介绍到 iOS 8 和 OS X Yosemite 即将支持 0.5px 的边框:</p>
-<center><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="../../../../img/201707/15000159723693.jpg"></center><center><code>0.5px边框</code></center>
+<center><img src="../../../../img/201707/15000159723693.jpg"></center><center><code>0.5px边框</code></center>
 
 <p>额的神呐！so easy! 果真如此吗？<br>这样还不够（WWDC幻灯片通常是“唬人”的），但是相差不多。<br>问题是 retina 屏的浏览器可能不认识0.5px的边框，将会把它解释成0px，没有边框。包括 iOS 7 和之前版本，OS X Mavericks 及以前版本，还有 Android 设备。</p>
 <p> <strong>解决方案：</strong><br>解决方案是通过 JavaScript 检测浏览器能否处理0.5px的边框，如果可以，给html标签元素添加个class。</p>
@@ -166,13 +166,13 @@
 <p> <strong>缺点</strong>：<br> 无法兼容安卓设备、 iOS 8 以下设备。</p>
 <p><strong>2.使用border-image实现</strong></p>
 <p> 准备一张符合你要求的border-image：</p>
- <center><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="../../../../img/201707/15000165069433.jpg"></center><center><code>底部边框</code></center>
+ <center><img src="../../../../img/201707/15000165069433.jpg"></center><center><code>底部边框</code></center>
 
 
 <p>样式设置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.border-bottom-1px &#123;</span><br><span class="line">  border-width: 0 0 1px 0;</span><br><span class="line">  -webkit-border-image: url(linenew.png) 0 0 2 0 stretch;</span><br><span class="line">  border-image: url(linenew.png) 0 0 2 0 stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上文是把border设置在边框的底部，所以使用的图片是2px高，上部的1px颜色为透明，下部的1px使用视觉规定的border的颜色。如果边框底部和顶部同时需要border，可以使用下面的border-image：</p>
-<center><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="../../../../img/201707/15000183504357.jpg"></center><br><center><code>上下边框</code></center>
+<center><img src="../../../../img/201707/15000183504357.jpg"></center><br><center><code>上下边框</code></center>
 
 <p>样式设置:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.border-image-1px &#123;</span><br><span class="line">  border-width: 1px 0;</span><br><span class="line">  -webkit-border-image: url(linenew.png) 2 0 stretch;</span><br><span class="line">  border-image: url(linenew.png) 2 0 stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -262,7 +262,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 17:15</p> -->
+        <!-- <p>最后更新： 2019年10月26日 16:16</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/e95cdfb9.html" title="CSS 1px">https://ru23.com/note/e95cdfb9.html</a></p>
         <footer>
@@ -407,6 +407,10 @@
             <div class="outer-ad-aside">
                 
                   
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
+                  
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
@@ -548,5 +552,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

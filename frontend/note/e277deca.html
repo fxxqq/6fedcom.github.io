@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.760Z">
+<meta property="og:image" content="https://cdn.ru23.com/img/2018/11/three-way-handshaking.jpg">
+<meta property="og:image" content="https://cdn.ru23.com/img/2018/11/https.jpg">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从输入URL到页面加载发生了什么">
 <meta name="twitter:description" content="眼过千遍，不如手敲一遍。文章参考：https://segmentfault.com/a/1190000006879700  DNS解析 TCP连接 发送HTTP请求 服务器处理HTTP请求 页面渲染 断开TCP连接  仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="https://cdn.ru23.com/img/2018/11/three-way-handshaking.jpg">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -181,7 +181,7 @@
 <li>发送方:ACK - 确认接收方在线可收消息，握手结束</li>
 <li>Accept</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://cdn.ru23.com/img/2018/11/three-way-handshaking.jpg" alt="TCP三次握手"></p>
+<p><img src="https://cdn.ru23.com/img/2018/11/three-way-handshaking.jpg" alt="TCP三次握手"></p>
 <p>（1）第一次握手：建立连接时，客户端A发送SYN包（SYN=j）到服务器B，并进入SYN_SEND状态，等待服务器B确认。</p>
 <p>（2）第二次握手：服务器B收到SYN包，必须确认客户A的SYN（ACK=j+1），同时自己也发送一个SYN包（SYN=k），即SYN+ACK包，此时服务器B进入SYN_RECV状态。</p>
 <p>（3）第三次握手：客户端A收到服务器B的SYN＋ACK包，向服务器B发送确认包ACK（ACK=k+1），此包发送完毕，客户端A和服务器B进入ESTABLISHED状态，完成三次握手。</p>
@@ -191,7 +191,7 @@
 <li>因为HTTP报文是包裹在TCP报文中发送的，服务端收到TCP报文时候会解包提取出HTTP报文。</li>
 <li>但是这个过程中存在一定的风险。HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的危险。那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://cdn.ru23.com/img/2018/11/https.jpg" alt="HTTPS"></p>
+<p><img src="https://cdn.ru23.com/img/2018/11/https.jpg" alt="HTTPS"></p>
 <h4 id="HTTPS过程"><a href="#HTTPS过程" class="headerlink" title="HTTPS过程"></a>HTTPS过程</h4><p>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL使用了非对称加密，对称加密以及hash等。具体过程请参考经典的阮一峰先生的博客TLS/SSL握手过程。<br>HTTPS相比于HTTP，虽然提供了安全保证，但是势必会带来一些时间上的损耗，如握手和加密等过程，<br><strong>是否使用HTTPS需要根据具体情况在安全和性能方面做出权衡</strong>。</p>
 <h3 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h3><p>构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080, HTTPS协议443)。<br>HTTP请求报文是由三部分组成: 请求行, 请求报头和请求正文。</p>
 <p><strong>请求行：</strong><br>Method Request-URL HTTP-Version CRLF</p>
@@ -209,7 +209,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/e277deca.html" title="从输入URL到页面加载发生了什么">https://ru23.com/note/e277deca.html</a></p>
         <footer>
@@ -346,6 +346,10 @@
 </section>
             <div class="outer-ad-aside">
                 
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
@@ -488,5 +492,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

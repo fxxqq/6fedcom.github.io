@@ -17,17 +17,17 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="原文出处 http://blog.poetries.top/2016/11/26/Ajax-summary  本文主要总结整理Ajax的一些常用的基础知识，适合初学者。 一、Ajax简介、优劣势、应用场景以及技术  Ajax简介 :  Asynchronous javascript And XML （异步的javascript和XML） 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.583Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-6937419905da762f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-13adc82666fac3a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-4c6beed36bb246c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-1092e842e08d9012.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ae7614423c64ebb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-9ea8be2721ca01c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax总结篇">
 <meta name="twitter:description" content="原文出处 http://blog.poetries.top/2016/11/26/Ajax-summary  本文主要总结整理Ajax的一些常用的基础知识，适合初学者。 一、Ajax简介、优劣势、应用场景以及技术  Ajax简介 :  Asynchronous javascript And XML （异步的javascript和XML） 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-6937419905da762f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -209,17 +209,17 @@
 </li>
 </ul>
 <p>在上面几中技术中，除了<code>XmlHttpRequest</code>对象以外，其它所有的技术都是基于<code>web</code>标准并且已经得到了广泛使用的，<code>XMLHttpRequest</code>虽然目前还没有被<code>W3C</code>所采纳，但是它已经是一个事实的标准，因为目前几乎所有的主流浏览器都支持它</p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-6937419905da762f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="两张著名的AJAX 介绍的图"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-6937419905da762f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="两张著名的AJAX 介绍的图"></p>
 <ul>
 <li>第一张图尤其说明了传统<code>Web</code> 应用程序的结构与采用了 <code>AJAX</code> 技术的 <code>Web</code><br>应用程序的结构上的差别</li>
 <li>主要的差别，其实不是 <code>javascript</code>，不是 <code>HTML/xhtml</code>和 <code>CSS</code>，而是采用<br>了 <code>XMLHttpRequest</code> 来向服务器异步的请求 <code>XML</code> 数据</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-13adc82666fac3a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AJAX 介绍的图"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-13adc82666fac3a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AJAX 介绍的图"></p>
 <ul>
 <li>再来看第二张图，传统的 <code>Web</code> 应用模式，用户的体验是割裂的，点击-&gt;等待-&gt;<br>看到新的页面-&gt;再点击-&gt;再等待。而采用了<code>AJAX</code>技术之后，大部分的计算工作，都是在用户不察觉的情况下，交由服务器去完成了</li>
 </ul>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-4c6beed36bb246c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="XMLHttpRequest对象的属性"></p>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-1092e842e08d9012.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="XMLHttpRequest对象的方法"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-4c6beed36bb246c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="XMLHttpRequest对象的属性"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-1092e842e08d9012.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="XMLHttpRequest对象的方法"></p>
 <h3 id="二、创建ajax的步骤"><a href="#二、创建ajax的步骤" class="headerlink" title="二、创建ajax的步骤"></a>二、创建ajax的步骤</h3><hr>
 <blockquote>
 <p><code>Ajax</code>的原理简单来说通过<code>XmlHttpRequest</code>对象来向服务器发异步请求，从服务器获得数据，然后用<code>javascript</code>来操作<code>dom</code>而更新页面。这其中最关键的一步就是从服务器获得请求数据。原生创建<code>ajax</code>可分为以下四步</p>
@@ -307,7 +307,7 @@
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params">responseText</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> saleDiv= <span class="built_in">document</span>.getElementById(<span class="string">"sales"</span>);</span><br><span class="line"><span class="keyword">var</span> sales = <span class="built_in">JSON</span>.parse(responseText);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;sales.length;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> sale = sales[i];</span><br><span class="line">         <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">         div.setAttribute(<span class="string">"class"</span>,<span class="string">"salseItem"</span>);</span><br><span class="line">        div.innerHTML = sale.name + sale.sales;</span><br><span class="line">        salseDiv.appendChild(div);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-ae7614423c64ebb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="HTTP状态码"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-ae7614423c64ebb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="HTTP状态码"></p>
 <h4 id="5、封装例子"><a href="#5、封装例子" class="headerlink" title="5、封装例子"></a>5、封装例子</h4><hr>
 <ul>
 <li>将AJAX请求封装成ajax()方法，它接受一个配置对象params</li>
@@ -321,7 +321,7 @@
 <li>这个过程是一定要记在脑子里的</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url, success, fail</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 1. 创建连接</span></span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">    <span class="comment">// 2. 连接服务器</span></span><br><span class="line">    xhr.open(<span class="string">'get'</span>, url, <span class="literal">true</span>)</span><br><span class="line">    <span class="comment">// 3. 发送请求</span></span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">    <span class="comment">// 4. 接受请求</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(xhr.status == <span class="number">200</span>)&#123;</span><br><span class="line">                success(xhr.responseText);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// fail</span></span><br><span class="line">                fail &amp;&amp; fail(xhr.status);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-9ea8be2721ca01c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="XMLHttpRequest 在异步请求远程数据时的工作流程"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1480597-9ea8be2721ca01c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="XMLHttpRequest 在异步请求远程数据时的工作流程"></p>
 <h5 id="谈谈JSONP"><a href="#谈谈JSONP" class="headerlink" title="谈谈JSONP"></a>谈谈JSONP</h5><hr>
 <ul>
 <li>要访问web服务器的数据除了XMLHttpRequest外还有一种方法是JSONP</li>
@@ -562,7 +562,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/d4e64c45.html" title="Ajax总结篇">https://ru23.com/note/d4e64c45.html</a></p>
         <footer>
@@ -659,19 +659,19 @@
 
 <nav id="article-nav">
   
-    <a href="/note/1e283ca4.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/note/6cc0c2d4.html" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          canvas 绘制动画时钟
+          html5之api总结
         
       </span>
     </a>
   
   
-    <a href="/note/6cc0c2d4.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">html5之api总结</span>
+    <a href="/note/2e40f178.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">bootstrap笔记总结</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -708,6 +708,10 @@
 </section>
             <div class="outer-ad-aside">
                 
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
@@ -850,5 +854,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

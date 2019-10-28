@@ -17,31 +17,31 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="概述浏览器的缓存机制也就是我们说的HTTP缓存机制，其机制是根据HTTP报文的缓存标识进行的，所以在分析浏览器缓存机制之前，我们先使用图文简单介绍一下HTTP报文，HTTP报文分为两种：  HTTP请求(Request)报文，报文格式为：请求行 – HTTP头(通用信息头，请求头，实体头) – 请求报文主体(只有POST才有报文主体)，如下图  HTTP响应(Response)报文，报文格式为：状">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.764Z">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Request.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Request-header.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Response-header.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Response.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.0.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.1.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.2.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/example1.0.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/disk.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/1.0.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/2.0.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/3.0.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/304.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/200.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/last-modify.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/since.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Etag.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Etag-match.jpg">
+<meta property="og:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/all.jpg">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="彻底理解浏览器的缓存机制">
 <meta name="twitter:description" content="概述浏览器的缓存机制也就是我们说的HTTP缓存机制，其机制是根据HTTP报文的缓存标识进行的，所以在分析浏览器缓存机制之前，我们先使用图文简单介绍一下HTTP报文，HTTP报文分为两种：  HTTP请求(Request)报文，报文格式为：请求行 – HTTP头(通用信息头，请求头，实体头) – 请求报文主体(只有POST才有报文主体)，如下图  HTTP响应(Response)报文，报文格式为：状">
-<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
+<meta name="twitter:image" content="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Request.jpg">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -177,13 +177,13 @@
             
             <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#概述" title="概述" target="_blank" rel="noopener"></a>概述</h2><p>浏览器的缓存机制也就是我们说的HTTP缓存机制，其机制是根据HTTP报文的缓存标识进行的，所以在分析浏览器缓存机制之前，我们先使用图文简单介绍一下HTTP报文，<strong>HTTP报文</strong>分为两种：</p>
 <ul>
-<li><p><strong>HTTP请求(Request)报文</strong>，报文格式为：<strong>请求行 – HTTP头(通用信息头，请求头，实体头) – 请求报文主体(只有POST才有报文主体)</strong>，如下图<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Request.jpg" alt="Request"><br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Request-header.jpg" alt="Request"></p>
+<li><p><strong>HTTP请求(Request)报文</strong>，报文格式为：<strong>请求行 – HTTP头(通用信息头，请求头，实体头) – 请求报文主体(只有POST才有报文主体)</strong>，如下图<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Request.jpg" alt="Request"><br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Request-header.jpg" alt="Request"></p>
 </li>
-<li><p><strong>HTTP响应(Response)报文</strong>，报文格式为：<strong>状态行 – HTTP头(通用信息头，响应头，实体头) – 响应报文主体</strong>，如下图<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Response-header.jpg" alt="Response"><br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Response.jpg" alt="Response"></p>
+<li><p><strong>HTTP响应(Response)报文</strong>，报文格式为：<strong>状态行 – HTTP头(通用信息头，响应头，实体头) – 响应报文主体</strong>，如下图<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Response-header.jpg" alt="Response"><br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Response.jpg" alt="Response"></p>
 </li>
 </ul>
 <p>注：<strong>通用信息头</strong>指的是请求和响应报文都支持的头域，分别为Cache-Control、Connection、Date、Pragma、Transfer-Encoding、Upgrade、Via；<strong>实体头</strong>则是实体信息的实体头域，分别为Allow、Content-Base、Content-Encoding、Content-Language、Content-Length、Content-Location、Content-MD5、Content-Range、Content-Type、Etag、Expires、Last-Modified、extension-header。这里只是为了方便理解，将通用信息头，响应头/请求头，实体头都归为了HTTP头。</p>
-<h2 id="缓存过程分析"><a href="#缓存过程分析" class="headerlink" title="缓存过程分析"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#缓存过程分析" title="缓存过程分析" target="_blank" rel="noopener"></a>缓存过程分析</h2><p>浏览器与服务器通信的方式为应答模式，即是：<strong>浏览器发起HTTP请求 – 服务器响应该请求</strong>。那么浏览器第一次向服务器发起该请求后拿到请求结果，会根据响应报文中HTTP头的缓存标识，决定是否缓存结果，是则将请求结果和缓存标识存入浏览器缓存中，简单的过程如下图：<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache.jpg" alt="cache"></p>
+<h2 id="缓存过程分析"><a href="#缓存过程分析" class="headerlink" title="缓存过程分析"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#缓存过程分析" title="缓存过程分析" target="_blank" rel="noopener"></a>缓存过程分析</h2><p>浏览器与服务器通信的方式为应答模式，即是：<strong>浏览器发起HTTP请求 – 服务器响应该请求</strong>。那么浏览器第一次向服务器发起该请求后拿到请求结果，会根据响应报文中HTTP头的缓存标识，决定是否缓存结果，是则将请求结果和缓存标识存入浏览器缓存中，简单的过程如下图：<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache.jpg" alt="cache"></p>
 <p>由上图我们可以知道：</p>
 <ul>
 <li><p>浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识</p>
@@ -194,11 +194,11 @@
 <p>以上两点结论就是浏览器缓存机制的关键，他确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了，本文也将围绕着这点进行详细分析。为了方便大家理解，这里我们根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是<strong>强制缓存</strong>和<strong>协商缓存</strong> 。</p>
 <h3 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#强制缓存" title="强制缓存" target="_blank" rel="noopener"></a>强制缓存</h3><p><strong>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程</strong>，强制缓存的情况主要有三种(暂不分析协商缓存过程)，如下：</p>
 <ul>
-<li><p>不存在该缓存结果和缓存标识，强制缓存失效，则直接向服务器发起请求（跟第一次发起请求一致），如下图：<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.0.jpg" alt="cache"></p>
+<li><p>不存在该缓存结果和缓存标识，强制缓存失效，则直接向服务器发起请求（跟第一次发起请求一致），如下图：<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.0.jpg" alt="cache"></p>
 </li>
-<li><p>存在该缓存结果和缓存标识，但该结果已失效，强制缓存失效，则使用协商缓存(暂不分析)，如下图<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.1.jpg" alt="cache"></p>
+<li><p>存在该缓存结果和缓存标识，但该结果已失效，强制缓存失效，则使用协商缓存(暂不分析)，如下图<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.1.jpg" alt="cache"></p>
 </li>
-<li><p>存在该缓存结果和缓存标识，且该结果尚未失效，强制缓存生效，直接返回该结果，如下图<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.2.jpg" alt="cache"></p>
+<li><p>存在该缓存结果和缓存标识，且该结果尚未失效，强制缓存生效，直接返回该结果，如下图<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/cache1.2.jpg" alt="cache"></p>
 </li>
 </ul>
 <blockquote>
@@ -223,7 +223,7 @@
 <li><p><strong>max-age=xxx (xxx is numeric)</strong>：缓存内容将在xxx秒后失效</p>
 </li>
 </ul>
-<p>接下来，我们直接看一个例子，如下：<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/example1.0.jpg" alt="example"></p>
+<p>接下来，我们直接看一个例子，如下：<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/example1.0.jpg" alt="example"></p>
 <p>由上面的例子我们可以知道：</p>
 <ul>
 <li><p>HTTP响应报文中expires的时间值，是一个绝对值</p>
@@ -237,7 +237,7 @@
 <blockquote>
 <p>浏览器的缓存存放在哪里，如何在浏览器中判断强制缓存是否生效？</p>
 </blockquote>
-<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/disk.jpg" alt="disk"><br>这里我们以博客的请求为例，状态码为灰色的请求则代表使用了强制缓存，请求对应的Size值则代表该缓存存放的位置，分别为<strong>from memory cache</strong> 和 <strong>from disk cache</strong>。</p>
+<p><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/disk.jpg" alt="disk"><br>这里我们以博客的请求为例，状态码为灰色的请求则代表使用了强制缓存，请求对应的Size值则代表该缓存存放的位置，分别为<strong>from memory cache</strong> 和 <strong>from disk cache</strong>。</p>
 <blockquote>
 <p>那么from memory cache 和 from disk cache又分别代表的是什么呢？什么时候会使用from disk cache，什么时候会使用from memory cache呢？</p>
 </blockquote>
@@ -245,13 +245,13 @@
 <p>虽然我已经直接把结论说出来了，但是相信有不少人对此不能理解，那么接下来我们一起详细分析一下缓存读取问题，这里仍让以我的博客为例进行分析：<br><strong>访问<a href="https://heyingye.github.iohttps://heyingye.github.io/" target="_blank" rel="noopener">https://heyingye.github.io/</a> –> 200 –&gt; 关闭博客的标签页 –&gt; 重新打开<a href="https://heyingye.github.iohttps://heyingye.github.io/" target="_blank" rel="noopener">https://heyingye.github.io/</a> –> 200(from disk cache) –&gt; 刷新 –&gt; 200(from memory cache)</strong></p>
 <p>过程如下：</p>
 <ul>
-<li><p>访问<a href="https://heyingye.github.iohttps://heyingye.github.io/" target="_blank" rel="noopener">https://heyingye.github.io/</a><br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/1.0.jpg" alt="200"></p>
+<li><p>访问<a href="https://heyingye.github.iohttps://heyingye.github.io/" target="_blank" rel="noopener">https://heyingye.github.io/</a><br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/1.0.jpg" alt="200"></p>
 </li>
 <li><p>关闭博客的标签页</p>
 </li>
-<li><p>重新打开<a href="https://heyingye.github.iohttps://heyingye.github.io/" target="_blank" rel="noopener">https://heyingye.github.io/</a><br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/2.0.jpg" alt="from disk cache"></p>
+<li><p>重新打开<a href="https://heyingye.github.iohttps://heyingye.github.io/" target="_blank" rel="noopener">https://heyingye.github.io/</a><br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/2.0.jpg" alt="from disk cache"></p>
 </li>
-<li><p>刷新<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/3.0.jpg" alt="from disk memory"></p>
+<li><p>刷新<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/3.0.jpg" alt="from disk memory"></p>
 </li>
 </ul>
 <blockquote>
@@ -273,31 +273,31 @@
 <p>在浏览器中，浏览器会在js和图片等文件解析执行后直接存入内存缓存中，那么当刷新页面时只需直接从内存缓存中读取(from memory cache)；而css文件则会存入硬盘文件中，所以每次渲染页面都需要从硬盘读取缓存(from disk cache)。</p>
 <h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#协商缓存" title="协商缓存" target="_blank" rel="noopener"></a>协商缓存</h3><p><strong>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程</strong>，主要有以下两种情况：</p>
 <ul>
-<li><p>协商缓存生效，返回304，如下<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/304.jpg" alt="304"></p>
+<li><p>协商缓存生效，返回304，如下<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/304.jpg" alt="304"></p>
 </li>
-<li><p>协商缓存失效，返回200和请求结果结果，如下<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/200.jpg" alt="200"></p>
+<li><p>协商缓存失效，返回200和请求结果结果，如下<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/200.jpg" alt="200"></p>
 </li>
 </ul>
 <p>同样，协商缓存的标识也是在响应报文的HTTP头中和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：<strong>Last-Modified / If-Modified-Since和Etag / If-None-Match</strong>，其中Etag / If-None-Match的优先级比Last-Modified / If-Modified-Since高。</p>
 <h4 id="Last-Modified-If-Modified-Since"><a href="#Last-Modified-If-Modified-Since" class="headerlink" title="Last-Modified / If-Modified-Since"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#Last-Modified-If-Modified-Since" title="Last-Modified / If-Modified-Since" target="_blank" rel="noopener"></a>Last-Modified / If-Modified-Since</h4><ul>
-<li><p>Last-Modified是服务器响应请求时，返回该资源文件在服务器最后被修改的时间，如下。<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/last-modify.jpg" alt="last-modify"></p>
+<li><p>Last-Modified是服务器响应请求时，返回该资源文件在服务器最后被修改的时间，如下。<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/last-modify.jpg" alt="last-modify"></p>
 </li>
-<li><p>If-Modified-Since则是客户端再次发起该请求时，携带上次请求返回的Last-Modified值，通过此字段值告诉服务器该资源上次请求返回的最后被修改时间。服务器收到该请求，发现请求头含有If-Modified-Since字段，则会根据If-Modified-Since的字段值与该资源在服务器的最后被修改时间做对比，若服务器的资源最后被修改时间大于If-Modified-Since的字段值，则重新返回资源，状态码为200；否则则返回304，代表资源无更新，可继续使用缓存文件，如下。<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/since.jpg" alt="since"></p>
+<li><p>If-Modified-Since则是客户端再次发起该请求时，携带上次请求返回的Last-Modified值，通过此字段值告诉服务器该资源上次请求返回的最后被修改时间。服务器收到该请求，发现请求头含有If-Modified-Since字段，则会根据If-Modified-Since的字段值与该资源在服务器的最后被修改时间做对比，若服务器的资源最后被修改时间大于If-Modified-Since的字段值，则重新返回资源，状态码为200；否则则返回304，代表资源无更新，可继续使用缓存文件，如下。<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/since.jpg" alt="since"></p>
 </li>
 </ul>
 <h4 id="Etag-If-None-Match"><a href="#Etag-If-None-Match" class="headerlink" title="Etag / If-None-Match"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#Etag-If-None-Match" title="Etag / If-None-Match" target="_blank" rel="noopener"></a>Etag / If-None-Match</h4><ul>
-<li><p>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)，如下。<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Etag.jpg" alt="Etag"></p>
+<li><p>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)，如下。<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Etag.jpg" alt="Etag"></p>
 </li>
-<li><p>If-None-Match是客户端再次发起该请求时，携带上次请求返回的唯一标识Etag值，通过此字段值告诉服务器该资源上次请求返回的唯一标识值。服务器收到该请求后，发现该请求头中含有If-None-Match，则会根据If-None-Match的字段值与该资源在服务器的Etag值做对比，一致则返回304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码为200，如下。<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Etag-match.jpg" alt="Etag-match"></p>
+<li><p>If-None-Match是客户端再次发起该请求时，携带上次请求返回的唯一标识Etag值，通过此字段值告诉服务器该资源上次请求返回的唯一标识值。服务器收到该请求后，发现该请求头中含有If-None-Match，则会根据If-None-Match的字段值与该资源在服务器的Etag值做对比，一致则返回304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码为200，如下。<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/Etag-match.jpg" alt="Etag-match"></p>
 </li>
 </ul>
 <p>注：Etag / If-None-Match优先级高于Last-Modified / If-Modified-Since，同时存在则只有Etag / If-None-Match生效。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#总结" title="总结" target="_blank" rel="noopener"></a>总结</h2><p>强制缓存优先于协商缓存进行，若强制缓存(Expires和Cache-Control)生效则直接使用缓存，若不生效则进行协商缓存(Last-Modified / If-Modified-Since和Etag / If-None-Match)，协商缓存由服务器决定是否使用缓存，若协商缓存失效，那么代表该请求的缓存失效，重新获取请求结果，再存入浏览器缓存中；生效则返回304，继续使用缓存，主要过程如下：<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/all.jpg" alt="all"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><a href="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/#总结" title="总结" target="_blank" rel="noopener"></a>总结</h2><p>强制缓存优先于协商缓存进行，若强制缓存(Expires和Cache-Control)生效则直接使用缓存，若不生效则进行协商缓存(Last-Modified / If-Modified-Since和Etag / If-None-Match)，协商缓存由服务器决定是否使用缓存，若协商缓存失效，那么代表该请求的缓存失效，重新获取请求结果，再存入浏览器缓存中；生效则返回304，继续使用缓存，主要过程如下：<br><img src="https://heyingye.github.io/2018/04/16/彻底理解浏览器的缓存机制/img/all.jpg" alt="all"></p>
 <p>原文出自：<a href="https://heyingye.github.io/2018/04/16/%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/#%E6%80%BB%E7%BB%93" target="_blank" rel="noopener">https://heyingye.github.io/2018/04/16/%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/#%E6%80%BB%E7%BB%93</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/5bb02710.html" title="彻底理解浏览器的缓存机制">https://ru23.com/note/5bb02710.html</a></p>
         <footer>
@@ -434,6 +434,10 @@
 </section>
             <div class="outer-ad-aside">
                 
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
@@ -576,5 +580,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>

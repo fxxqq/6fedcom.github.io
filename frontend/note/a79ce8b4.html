@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="123456789101112131415161718192021/** * 用于把用utf16编码的字符转换成实体字符，以供后台存储* @param  &amp;#123;string&amp;#125; str 将要转换的字符串，其中含有utf16字符将被自动检出* @return &amp;#123;string&amp;#125;     转换后的字符串，utf16字符将被转换成&amp;amp;#xxxx;形式的实体字符*/u">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T01:30:17.652Z">
+<meta property="og:updated_time" content="2019-09-22T05:01:02.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="emoji表情存储后台报错的问题">
 <meta name="twitter:description" content="123456789101112131415161718192021/** * 用于把用utf16编码的字符转换成实体字符，以供后台存储* @param  &amp;#123;string&amp;#125; str 将要转换的字符串，其中含有utf16字符将被自动检出* @return &amp;#123;string&amp;#125;     转换后的字符串，utf16字符将被转换成&amp;amp;#xxxx;形式的实体字符*/u">  
@@ -157,7 +157,7 @@
             <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">* 用于把用utf16编码的字符转换成实体字符，以供后台存储</span></span><br><span class="line"><span class="comment">* @param  &#123;string&#125; str 将要转换的字符串，其中含有utf16字符将被自动检出</span></span><br><span class="line"><span class="comment">* @return &#123;string&#125;     转换后的字符串，utf16字符将被转换成&amp;#xxxx;形式的实体字符</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">utf16toEntities(str) &#123;</span><br><span class="line">    <span class="keyword">var</span> patt = <span class="regexp">/[\ud800-\udbff][\udc00-\udfff]/g</span>; <span class="comment">// 检测utf16字符正则  </span></span><br><span class="line">    str = str.replace(patt, <span class="function"><span class="keyword">function</span>(<span class="params">char</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> H, L, code;</span><br><span class="line">        <span class="keyword">if</span> (char.length === <span class="number">2</span>) &#123;</span><br><span class="line">            H = char.charCodeAt(<span class="number">0</span>); <span class="comment">// 取出高位  </span></span><br><span class="line">            L = char.charCodeAt(<span class="number">1</span>); <span class="comment">// 取出低位  </span></span><br><span class="line">            code = (H - <span class="number">0xD800</span>) * <span class="number">0x400</span> + <span class="number">0x10000</span> + L - <span class="number">0xDC00</span>; <span class="comment">// 转换算法  </span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">"&amp;#"</span> + code + <span class="string">";"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> char;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月29日 09:30</p> -->
+        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/a79ce8b4.html" title="emoji表情存储后台报错的问题">https://ru23.com/note/a79ce8b4.html</a></p>
         <footer>
@@ -295,6 +295,10 @@
 </section>
             <div class="outer-ad-aside">
                 
+                  
+                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
+                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
@@ -437,5 +441,5 @@
 </script>
 
   </div>
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</body>
 </html>
