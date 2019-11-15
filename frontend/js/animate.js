@@ -1,27 +1,3 @@
-$(function () {
-    // 首页加载动画效果，并且不是手机端
-    if (mihoConfig.isHome === true && document.body.clientWidth > 700) {
-        // 滚动条监听使用 https://github.com/jlmakes/scrollreveal.js
-        // http://daneden.github.io/animate.css/
-        var animationNames = [
-                "pulse", "fadeInRight", "flipInX", "lightSpeedIn", "rotateInUpLeft", "slideInUp", "zoomIn",
-            ],
-            len = animationNames.length,
-            randomAnimationName = animationNames[Math.ceil(Math.random() * len) - 1];
-        window.sr = ScrollReveal();
-        //头部动画
-        sr.reveal('#header-row', {
-            duration: 0,
-            afterReveal: function (documentElement) {
-                $(documentElement).addClass('animated ' + randomAnimationName);
-            }
-        });
-        //文章动画
-        sr.reveal('.body-wrap > article', {
-            duration: 0,
-            afterReveal: function (documentElement) {
-                $(documentElement).addClass('animated ' + randomAnimationName);
-            }
-        });
-    }
-});
+// build time:Fri Nov 15 2019 13:45:27 GMT+0800 (GMT+08:00)
+$(function(){if(mihoConfig.isHome===true&&document.body.clientWidth>700){var e=["pulse","fadeInRight","flipInX","lightSpeedIn","rotateInUpLeft","slideInUp","zoomIn"],a=e.length,n=e[Math.ceil(Math.random()*a)-1];window.sr=ScrollReveal();sr.reveal("#header-row",{duration:0,afterReveal:function(e){$(e).addClass("animated "+n)}});sr.reveal(".body-wrap > article",{duration:0,afterReveal:function(e){$(e).addClass("animated "+n)}})}});
+//rebuild by neat 
