@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="虚拟表单的形式提交post请求 现需要把数据源解析提交到表单，创建一个隐藏的表单、隐藏的iframe,表单的target指向iframe的name  1var str = &amp;apos;hfrom_handle=206438&amp;amp;dnid=&amp;amp;dgroup_items__x_countz_=1&amp;amp;dgroup_items=1&amp;amp;dgroup_items_group=dl%2et">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-06cd3b80809500c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-b684987076cf78b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-22T05:01:02.953Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-11-12T07:10:39.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iframe+表单跨域提交POST请求">
 <meta name="twitter:description" content="虚拟表单的形式提交post请求 现需要把数据源解析提交到表单，创建一个隐藏的表单、隐藏的iframe,表单的target指向iframe的name  1var str = &amp;apos;hfrom_handle=206438&amp;amp;dnid=&amp;amp;dgroup_items__x_countz_=1&amp;amp;dgroup_items=1&amp;amp;dgroup_items_group=dl%2et">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1480597-06cd3b80809500c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -34,13 +34,6 @@
   </div>
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      ;(adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: 'ca-pub-5526491839331555',
-        enable_page_level_ads: true
-      })
-    </script>
   </head>
 </html>
 
@@ -118,7 +111,6 @@
         </div>
     </div>
 </header>
-    
       <div class="outer">
           <div class="outer-section">
             <section id="main" class="body-wrap"><article id="post-2017-09-js-post" class="article article-type-post" itemscope="" itemprop="blogPost">
@@ -164,18 +156,18 @@
 <ul>
 <li>解码后的数据</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1480597-06cd3b80809500c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-06cd3b80809500c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
 <li><p>创建一个隐藏的<code>input(type=&quot;hidden&quot;)</code>,然后把解码得到的数据处理填充到<code>input</code>的<code>name</code> <code>value</code>中，最后通过表单提交到<code>iframe</code>，此过程提交不会刷新页面</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*iframe post cross domain*/</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">js_iframe</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> i, e, key, n, v, inp, a, form, iframe;</span><br><span class="line">      </span><br><span class="line">     <span class="comment">// 原理：创建一个隐藏的form、一个隐藏的iframe,把表单的target指向iframe的name即可</span></span><br><span class="line">     form = <span class="built_in">document</span>.createElement(<span class="string">"form"</span>);</span><br><span class="line">     iframe = <span class="built_in">document</span>.createElement(<span class="string">"iframe"</span>);</span><br><span class="line">     iframe.style.display = <span class="string">"none"</span>;</span><br><span class="line">     iframe.name = <span class="string">"frame_post"</span>;</span><br><span class="line">     <span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line"></span><br><span class="line">     form.action = url;</span><br><span class="line">     form.target = <span class="string">"frame_post"</span>;		</span><br><span class="line">     form.method = <span class="string">"post"</span>;</span><br><span class="line">     form.style.display = <span class="string">"none"</span>;</span><br><span class="line">     <span class="keyword">for</span>(i = <span class="number">0</span>, a = (<span class="built_in">decodeURIComponent</span>(str)).split(<span class="string">"&amp;"</span>);i&lt;a.length;i++) &#123;</span><br><span class="line">         inp = <span class="built_in">document</span>.createElement(<span class="string">"input"</span>);</span><br><span class="line">         e = a[i].split(<span class="string">"="</span>)</span><br><span class="line">         inp.type = <span class="string">"hidden"</span>;</span><br><span class="line">         inp.name = e[<span class="number">0</span>];</span><br><span class="line">         inp.value = e[<span class="number">1</span>];</span><br><span class="line">         form.appendChild(inp);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">document</span>.body.appendChild(form);</span><br><span class="line">     form.submit(); </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>提交后表单处理的结果是这样：<br><img src="http://upload-images.jianshu.io/upload_images/1480597-b684987076cf78b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<li><p>提交后表单处理的结果是这样：<br><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="http://upload-images.jianshu.io/upload_images/1480597-b684987076cf78b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </li>
 </ul>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <!-- <p>最后更新： 2019年11月12日 15:10</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/2d05014a.html" title="iframe+表单跨域提交POST请求">https://ru23.com/note/2d05014a.html</a></p>
         <footer>
@@ -319,18 +311,43 @@
 <!-- Valine Comments end -->
 
 </section>
-            <div class="outer-ad-aside">
+            <div class="outer-ad-aside" id="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
-                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    <a title="腾讯云：11.11 爆品秒杀" target="_blank" href="https://cloud.tencent.com/act/cps/redirect?redirect=1049&cps_key=3bd05bbfb4f3f97d7bb5964ef12edda9&from=console">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          腾讯云双11爆品秒杀，活动截止2019-12-02
+                        </div>
+                      
+                      <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345-200-2e775f9b5cb10db244b6bd2791a26f7e862701a5.jpg" alt="腾讯云：11.11 爆品秒杀">
+                    </a>
+                  
+                    <a title="阿里云Hi拼团" target="_blank" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=6BF0A48A53ED78A511EDC58935AD349589B9F59A2D8E8A59&userCode=jh5fwy2j&activityId=3&share_source=copy_link">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云Hi拼团，活动截止2019-12-12
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1w1T2mrj1gK0jSZFuXXcrHpXa-1880-640.png" alt="阿里云Hi拼团">
+                    </a>
+                  
+                    <a title="阿里返利" target="_blank" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云新老用户通用红包
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1Gc3zmAL0gK0jSZFxXXXWHVXa-259-194.jpg" alt="阿里返利">
                     </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
                   
                     <a title="微信前端技术交流群" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
                     </a>
                   
@@ -339,9 +356,6 @@
           </div>
         
       </div>
-     
-    
-     
       <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -467,5 +481,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

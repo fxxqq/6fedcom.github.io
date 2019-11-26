@@ -4,7 +4,7 @@
 
 # Site
 title: 前端迷
-subtitle: 凡是预则立，不预则废
+subtitle: 凡事豫则立，不豫则废。言前定则不跲，事前定则不困，行前定则不疚，道前定则不穷。
 description: frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com
 keywords: 前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss
 author: frank
@@ -57,7 +57,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -144,3 +144,23 @@ lazyload:
   className: .lazyload #可选 e.g. .J-lazyload-img
   loadingImg: //cdn.ru23.com/lazyload/lazyload.gif #可选 eg. /images/loading.png
 
+# hexo-neat
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: false
+  exclude:
+# 压缩css
+neat_css:
+  enable: true
+  exclude:
+    - "**/*.min.css"
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - "**/*.min.js"

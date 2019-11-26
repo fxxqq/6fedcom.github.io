@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="React16常用api解析以及原理剖析  目录 Vue 与 React 两个框架的粗略区别对比 react 16 版本常见 api react 生命周期 react 事件机制 react.Component 如何实现组件化以及高阶组件的应用 setState 异步队列数据管理 react Fiber 架构分析 react hooks dom 的 diff 算法 snabbdom 源码，是怎样实现">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db48fc07ab0?w=999&h=574&f=jpeg&s=107298">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db490ba4e1c?w=1012&h=566&f=jpeg&s=95105">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db482ead4cd?w=715&h=324&f=png&s=36981">
-<meta property="og:updated_time" content="2019-10-26T08:16:23.732Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-11-12T07:10:39.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react常见api以及原理解析">
 <meta name="twitter:description" content="React16常用api解析以及原理剖析  目录 Vue 与 React 两个框架的粗略区别对比 react 16 版本常见 api react 生命周期 react 事件机制 react.Component 如何实现组件化以及高阶组件的应用 setState 异步队列数据管理 react Fiber 架构分析 react hooks dom 的 diff 算法 snabbdom 源码，是怎样实现">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db48fc07ab0?w=999&h=574&f=jpeg&s=107298">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -35,13 +35,6 @@
   </div>
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      ;(adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: 'ca-pub-5526491839331555',
-        enable_page_level_ads: true
-      })
-    </script>
   </head>
 </html>
 
@@ -119,7 +112,6 @@
         </div>
     </div>
 </header>
-    
       <div class="outer">
           <div class="outer-section">
             <section id="main" class="body-wrap"><article id="post-2019-09-react常见api以及原理解析" class="article article-type-post" itemscope="" itemprop="blogPost">
@@ -236,10 +228,10 @@
 <h4 id="社区活跃度"><a href="#社区活跃度" class="headerlink" title="社区活跃度"></a>社区活跃度</h4><ver>
 
 <p>从两者的 github 表现来看（数据取于 2019-09-16）</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/9/16/16d38db48fc07ab0?w=999&amp;h=574&amp;f=jpeg&amp;s=107298" alt="react"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://user-gold-cdn.xitu.io/2019/9/16/16d38db48fc07ab0?w=999&amp;h=574&amp;f=jpeg&amp;s=107298" alt="react"></p>
 <ver>
 
-<p><img src="https://user-gold-cdn.xitu.io/2019/9/16/16d38db490ba4e1c?w=1012&amp;h=566&amp;f=jpeg&amp;s=95105" alt="react"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://user-gold-cdn.xitu.io/2019/9/16/16d38db490ba4e1c?w=1012&amp;h=566&amp;f=jpeg&amp;s=95105" alt="react"></p>
 <ver>
 
 <p>可以看出 vue 的 star 数量已经是前端框架中最火爆的。从维护上来看，react 是 facebook 在维护，而 vue 现阶段虽然也有了团队，但主要还是尤雨溪在维护贡献代码，并且阿里巴巴开源的混合式框架 weex 也是基于 vue 的，所以我们相信 vue 未来将会得到更多的人和团队维护。</p>
@@ -393,7 +385,7 @@
 
 <p><code>ImmutableJS</code> 最大的两个特性就是： <code>immutable data structures</code>（持久性数据结构）与 <code>structural sharing</code>（结构共享），持久性数据结构保证数据一旦创建就不能修改，使用旧数据创建新数据时，旧数据也不会改变，不会像原生 js 那样新数据的操作会影响旧数据。而结构共享是指没有改变的数据共用一个引用，这样既减少了深拷贝的性能消耗，也减少了内存。</p>
 <p><ver><br>比如下图：<br></ver></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/9/16/16d38db482ead4cd?w=715&amp;h=324&amp;f=png&amp;s=36981" alt="react-tree"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://user-gold-cdn.xitu.io/2019/9/16/16d38db482ead4cd?w=715&amp;h=324&amp;f=png&amp;s=36981" alt="react-tree"></p>
 <ver>
 
 <p>左边是旧值，右边是新值，我需要改变左边红色节点的值，生成的新值改变了红色节点到根节点路径之间的所有节点，也就是所有青色节点的值，旧值没有任何改变，其他使用它的地方并不会受影响，而超过一大半的蓝色节点还是和旧值共享的。在 <code>ImmutableJS</code> 内部，构造了一种特殊的数据结构，把原生的值结合一系列的私有属性，创建成 <code>ImmutableJS</code> 类型，每次改变值，先会通过私有属性的辅助检测，然后改变对应的需要改变的私有属性和真实值，最后生成一个新的值，中间会有很多的优化，所以性能会很高。</p>
@@ -612,7 +604,7 @@
 </hor></ver></ver></ver></ver></ver></ver></hor></ver></ver></hor></ver></ver></ver></ver></ver></hor></ver></ver></hor></ver></ver></ver></hor></ver></ver></ver></ver></hor></hor></ver></hor></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></hor></ver></ver></ver></ver></ver></ver></ver></hor></ver></ver></hor></ver></ver></ver></ver></hor></ver></ver></ver></ver></hor></ver></ver></ver></ver></ver></hor></ver></ver></ver></ver></ver></ver></ver></ver></ver>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年10月26日 16:16</p> -->
+        <!-- <p>最后更新： 2019年11月12日 15:10</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/55bd244d.html" title="react常见api以及原理解析">https://ru23.com/note/55bd244d.html</a></p>
         <footer>
@@ -754,18 +746,43 @@
 <!-- Valine Comments end -->
 
 </section>
-            <div class="outer-ad-aside">
+            <div class="outer-ad-aside" id="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
-                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    <a title="腾讯云：11.11 爆品秒杀" target="_blank" href="https://cloud.tencent.com/act/cps/redirect?redirect=1049&cps_key=3bd05bbfb4f3f97d7bb5964ef12edda9&from=console">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          腾讯云双11爆品秒杀，活动截止2019-12-02
+                        </div>
+                      
+                      <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345-200-2e775f9b5cb10db244b6bd2791a26f7e862701a5.jpg" alt="腾讯云：11.11 爆品秒杀">
+                    </a>
+                  
+                    <a title="阿里云Hi拼团" target="_blank" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=6BF0A48A53ED78A511EDC58935AD349589B9F59A2D8E8A59&userCode=jh5fwy2j&activityId=3&share_source=copy_link">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云Hi拼团，活动截止2019-12-12
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1w1T2mrj1gK0jSZFuXXcrHpXa-1880-640.png" alt="阿里云Hi拼团">
+                    </a>
+                  
+                    <a title="阿里返利" target="_blank" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云新老用户通用红包
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1Gc3zmAL0gK0jSZFxXXXWHVXa-259-194.jpg" alt="阿里返利">
                     </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
                   
                     <a title="微信前端技术交流群" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
                     </a>
                   
@@ -774,9 +791,6 @@
           </div>
         
       </div>
-     
-    
-     
       <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -902,5 +916,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

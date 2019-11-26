@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="前言：大家好，我叫邵威儒，大家都喜欢喊我小邵，学的金融专业却凭借兴趣爱好入了程序猿的坑，从大学买的第一本vb和自学vb，我就与编程结下不解之缘，随后自学易语言写游戏辅助、交易软件，至今进入了前端领域，看到不少朋友都写文章分享，自己也弄一个玩玩，以下文章纯属个人理解，便于记录学习，肯定有理解错误或理解不到位的地方，意在站在前辈的肩膀，分享个人对技术的通俗理解，共同成长！  后续我会陆陆续续更新jav">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/23/165667de41433ef6?w=736&h=592&f=png&s=37794">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/23/165667ee2ec6da30?w=590&h=504&f=png&s=39703">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/24/1656b6202ef1d745?w=1128&h=1602&f=png&s=538332">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/29/16583897f9a176f8">
-<meta property="og:updated_time" content="2019-10-26T08:16:23.689Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-11-12T07:10:39.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记">
 <meta name="twitter:description" content="前言：大家好，我叫邵威儒，大家都喜欢喊我小邵，学的金融专业却凭借兴趣爱好入了程序猿的坑，从大学买的第一本vb和自学vb，我就与编程结下不解之缘，随后自学易语言写游戏辅助、交易软件，至今进入了前端领域，看到不少朋友都写文章分享，自己也弄一个玩玩，以下文章纯属个人理解，便于记录学习，肯定有理解错误或理解不到位的地方，意在站在前辈的肩膀，分享个人对技术的通俗理解，共同成长！  后续我会陆陆续续更新jav">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/8/23/165667de41433ef6?w=736&h=592&f=png&s=37794">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -36,13 +36,6 @@
   </div>
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      ;(adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: 'ca-pub-5526491839331555',
-        enable_page_level_ads: true
-      })
-    </script>
   </head>
 </html>
 
@@ -120,7 +113,6 @@
         </div>
     </div>
 </header>
-    
       <div class="outer">
           <div class="outer-section">
             <section id="main" class="body-wrap"><article id="post-2018-09-玩转es6" class="article article-type-post" itemscope="" itemprop="blogPost">
@@ -213,17 +205,17 @@
 <h2 id="那么我们实现数据双向绑定呢？"><a href="#那么我们实现数据双向绑定呢？" class="headerlink" title="那么我们实现数据双向绑定呢？"></a>那么我们实现数据双向绑定呢？</h2><p>这个问题在面试当中，会经常问这个问题，但是面试官更希望听到的是具体底层的实现方式，那么接下来我们也实现一下吧~ （ 简陋版的……(#^.^#)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">  &lt;title&gt;对象的数据双向绑定&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input id=&apos;input&apos; type=&quot;&quot; name=&quot;&quot; value=&quot;&quot;&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    let el = document.getElementById(&apos;input&apos;) // 1. 获取输入框的dom节点</span><br><span class="line">    let obj = &#123; // 2. 创建一个对象</span><br><span class="line">      name: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function oberseve(obj) &#123; // 3. 对对象进行观察</span><br><span class="line">      if (typeof obj !== &apos;object&apos;) return // 3.1 判断参数是否为对象</span><br><span class="line">      for (let key in obj) &#123; // 3.2 对对象进行遍历，目的是为了把每个属性都设置get/set</span><br><span class="line">        defineReactive(obj, key, obj[key])</span><br><span class="line">        oberseve(obj[key]) // 3.3 obj[key] 有可能还是一个函数，需要递归，给obj[key]里的属性进行设置get/set</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function defineReactive(target, property, value) &#123; // 4. 使用Object.defineProperty</span><br><span class="line">      Object.defineProperty(target, property, &#123;</span><br><span class="line">        get() &#123;</span><br><span class="line">          el.value = value // 4.1 当读取时，把值赋值给input框</span><br><span class="line">          return value</span><br><span class="line">        &#125;,</span><br><span class="line">        set(newVal) &#123;</span><br><span class="line">          el.value = newVal // 4.1 当设置时，把赋值给input框</span><br><span class="line">          value = newVal</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    oberseve(obj) // 5.执行该函数，对obj对象里的属性进行设置get/set</span><br><span class="line">    el.addEventListener(&apos;input&apos;, function () &#123; // 6.给输入框绑定input事件</span><br><span class="line">      obj.name = this.value // 7.当输入框输入内容时，我们会把输入框的</span><br><span class="line">                            //   内容赋值给obj.name，触发obj.name的set方法</span><br><span class="line">    &#125;)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>当我们在输入框输入内容时，再到控制台输入obj.name查看这个值时，会发现打印出”hello swr”</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/8/23/165667de41433ef6?w=736&amp;h=592&amp;f=png&amp;s=37794" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://user-gold-cdn.xitu.io/2018/8/23/165667de41433ef6?w=736&amp;h=592&amp;f=png&amp;s=37794" alt=""></p>
 <p>当我们在控制台，给obj.name赋值时，会发现输入框的内容也会作出相应更改</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/8/23/165667ee2ec6da30?w=590&amp;h=504&amp;f=png&amp;s=39703" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://user-gold-cdn.xitu.io/2018/8/23/165667ee2ec6da30?w=590&amp;h=504&amp;f=png&amp;s=39703" alt=""></p>
 <p>这样我们就实现了一个简陋版的数据双向绑定了，但是这也是有缺点的，这个只是针对对象进行了数据双向绑定,而尤大大的Vuejs就是基于Object.defineProperty实现的。</p>
 <p>除了Object.defineProperty可以实现数据双向绑定之外，还有其他方式吗？</p>
 <p>肯定是有其他方式可以实现的，利用es6的proxy代理也可以实现数据双向绑定，但是目前的框架还是比较少使用这种方式。</p>
 <hr>
 <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><p>Proxy代理也可以进行数据劫持，但是和Object.defineProperty不同的是，Proxy是在数据外层套了个壳，然后通过这层壳访问内部的数据，目前Proxy支持13种方式。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/8/24/1656b6202ef1d745?w=1128&amp;h=1602&amp;f=png&amp;s=538332" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://user-gold-cdn.xitu.io/2018/8/24/1656b6202ef1d745?w=1128&amp;h=1602&amp;f=png&amp;s=538332" alt=""></p>
 <p>Proxy，我的理解是在数据外层套了个壳，然后通过这层壳访问内部的数据，就像下面的图</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/8/29/16583897f9a176f8" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://user-gold-cdn.xitu.io/2018/8/29/16583897f9a176f8" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">let dog = &#123;</span><br><span class="line">  name:&quot;小黄&quot;,</span><br><span class="line">  firends:[&#123;</span><br><span class="line">    name:&quot;小红&quot;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 1.首先new一个Proxy对象</span><br><span class="line">let proxy = new Proxy(dog,&#123; // 2.参数一为需要代理的数据，参数二为上图可以代理的13种的配置对象</span><br><span class="line">    get(target,property)&#123; // 3.参数1为上面dog对象，参数2为dog的属性</span><br><span class="line">        console.log(&apos;get被监控到了&apos;)</span><br><span class="line">        return target[property]</span><br><span class="line">    &#125;,</span><br><span class="line">    set(target,property,value)&#123; // 4.参数1为上面dog对象，参数2为dog的属性，参数3为设置的新值</span><br><span class="line">                                // 有点类似Object.defineProperty</span><br><span class="line">        console.log(&apos;set被监控到了&apos;)</span><br><span class="line">        target[property] = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 那么接下来我们设置一下这个属性</span><br><span class="line">// dog.name = &apos;小红&apos;  // set值时，发现不会打印 &apos;set被监控到了&apos;</span><br><span class="line">// dog.name // get值时，发现不会打印 &apos;get被监控到了&apos;</span><br><span class="line"></span><br><span class="line">// 思考：为什么在set/get值的时候不会打印出来我们需要的东西呢？</span><br><span class="line"></span><br><span class="line">// 上面说得很明白了，proxy相当于是一个壳，代理我们需要监控的数据，也就是我们要通过proxy来访问内部数据才会被监控到</span><br><span class="line"></span><br><span class="line">proxy.name = &apos;小红&apos; // 打印输出 &apos;set被监控到了&apos;</span><br><span class="line">proxy.name // 打印输出 &apos;get被监控到了&apos;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// Reflect经常和Proxy搭配使用</span><br><span class="line">// 比如我们上面的例子中</span><br><span class="line">let proxy = new Proxy(dog,&#123; </span><br><span class="line">    get(target,property)&#123; </span><br><span class="line">        console.log(&apos;get被监控到了&apos;)</span><br><span class="line">        return target[property]</span><br><span class="line">    &#125;,</span><br><span class="line">    set(target,property,value)&#123; </span><br><span class="line">        console.log(&apos;set被监控到了&apos;)</span><br><span class="line">        // target[property] = value </span><br><span class="line">        // 这里的target[property] = value 可以用下面的写法</span><br><span class="line">        Reflect.set(target,property,value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 那么我们该怎样实现深度的数据劫持呢？</span><br><span class="line">let dog = &#123;</span><br><span class="line">  name:&quot;小黄&quot;,</span><br><span class="line">  firend:&#123;</span><br><span class="line">    name:&quot;小红&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 我们首先写一个set方法，希望是通过这样来调用</span><br><span class="line">set(dog.firend,funtion(obj)&#123;</span><br><span class="line">    console.log(obj) // &#123; name:&quot;小红&quot; &#125;  回调函数中的obj代表的是dog.firend的对象</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -310,7 +302,7 @@
 <h4 id="es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看"><a href="#es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看" class="headerlink" title="es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看~"></a>es6其实还有很多新语法，但是我们平时并不常用，所以也没一一列举，可以到阮大神的es6看看~</h4>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年10月26日 16:16</p> -->
+        <!-- <p>最后更新： 2019年11月12日 15:10</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/a5a8a12c.html" title="ES6学习笔记">https://ru23.com/note/a5a8a12c.html</a></p>
         <footer>
@@ -454,18 +446,43 @@
 <!-- Valine Comments end -->
 
 </section>
-            <div class="outer-ad-aside">
+            <div class="outer-ad-aside" id="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
-                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    <a title="腾讯云：11.11 爆品秒杀" target="_blank" href="https://cloud.tencent.com/act/cps/redirect?redirect=1049&cps_key=3bd05bbfb4f3f97d7bb5964ef12edda9&from=console">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          腾讯云双11爆品秒杀，活动截止2019-12-02
+                        </div>
+                      
+                      <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345-200-2e775f9b5cb10db244b6bd2791a26f7e862701a5.jpg" alt="腾讯云：11.11 爆品秒杀">
+                    </a>
+                  
+                    <a title="阿里云Hi拼团" target="_blank" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=6BF0A48A53ED78A511EDC58935AD349589B9F59A2D8E8A59&userCode=jh5fwy2j&activityId=3&share_source=copy_link">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云Hi拼团，活动截止2019-12-12
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1w1T2mrj1gK0jSZFuXXcrHpXa-1880-640.png" alt="阿里云Hi拼团">
+                    </a>
+                  
+                    <a title="阿里返利" target="_blank" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云新老用户通用红包
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1Gc3zmAL0gK0jSZFxXXXWHVXa-259-194.jpg" alt="阿里返利">
                     </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
                   
                     <a title="微信前端技术交流群" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
                     </a>
                   
@@ -474,9 +491,6 @@
           </div>
         
       </div>
-     
-    
-     
       <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -602,5 +616,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

@@ -17,16 +17,16 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、全局过滤器12345// 第一个参数表示：过滤器的名称// 第二个参数表示：函数，使用过滤器的时候，这个函数中的代码会被执行Vue.filter(&apos;filterName&apos;, function (value) &amp;#123;  // value 表示要过滤的内容&amp;#125;) 例子 123456789101112131415161718Vue.filter(&apos;date&apos;, function (in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-0bab828b656d1753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-2fd4231409acdea4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-631dabdbf85a1bd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-0941a212212fa3aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-0efefc41d3b8e530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-22T05:01:02.968Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-11-12T07:10:39.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue过滤器（八）">
 <meta name="twitter:description" content="一、全局过滤器12345// 第一个参数表示：过滤器的名称// 第二个参数表示：函数，使用过滤器的时候，这个函数中的代码会被执行Vue.filter(&apos;filterName&apos;, function (value) &amp;#123;  // value 表示要过滤的内容&amp;#125;) 例子 123456789101112131415161718Vue.filter(&apos;date&apos;, function (in">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1480597-0bab828b656d1753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -37,13 +37,6 @@
   </div>
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      ;(adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: 'ca-pub-5526491839331555',
-        enable_page_level_ads: true
-      })
-    </script>
   </head>
 </html>
 
@@ -121,7 +114,6 @@
         </div>
     </div>
 </header>
-    
       <div class="outer">
           <div class="outer-section">
             <section id="main" class="body-wrap"><article id="post-2018-03-vue-filters" class="article article-type-post" itemscope="" itemprop="blogPost">
@@ -169,23 +161,23 @@
 <p>一个项目中，可能要用到很多过滤器来处理数据，多个组件公用的，可以注册全局过滤器。单个组件使用的，就挂载到实例<code>filters</code>中。项目做的多了以后，可以整理一套常用的<code>filters</code>，不用反复的写。比如：时间等各种操作，数据格式转化，单位换算，部分数据的<code>md5</code>加密等…</p>
 </blockquote>
 <p><strong>创建一个filters专门放各种过滤器</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1480597-0bab828b656d1753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-0bab828b656d1753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p>filter.js</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1480597-2fd4231409acdea4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-2fd4231409acdea4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p> main.js</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1480597-631dabdbf85a1bd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-631dabdbf85a1bd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p>页面上直接用 ’｜过滤器名‘ 即可</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1480597-0941a212212fa3aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-0941a212212fa3aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
 <p>或者直接在<code>main.js</code>中直接自定义全局过滤器</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1480597-0efefc41d3b8e530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1480597-0efefc41d3b8e530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="二、局部过滤器"><a href="#二、局部过滤器" class="headerlink" title="二、局部过滤器"></a>二、局部过滤器</h2><blockquote>
 <p>在某一个vue实例的内创建的，只在当前实例中起作用</p>
 </blockquote>
@@ -193,7 +185,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <!-- <p>最后更新： 2019年11月12日 15:10</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/c243ab9b.html" title="vue过滤器（八）">https://ru23.com/note/c243ab9b.html</a></p>
         <footer>
@@ -335,18 +327,43 @@
 <!-- Valine Comments end -->
 
 </section>
-            <div class="outer-ad-aside">
+            <div class="outer-ad-aside" id="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
-                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    <a title="腾讯云：11.11 爆品秒杀" target="_blank" href="https://cloud.tencent.com/act/cps/redirect?redirect=1049&cps_key=3bd05bbfb4f3f97d7bb5964ef12edda9&from=console">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          腾讯云双11爆品秒杀，活动截止2019-12-02
+                        </div>
+                      
+                      <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345-200-2e775f9b5cb10db244b6bd2791a26f7e862701a5.jpg" alt="腾讯云：11.11 爆品秒杀">
+                    </a>
+                  
+                    <a title="阿里云Hi拼团" target="_blank" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=6BF0A48A53ED78A511EDC58935AD349589B9F59A2D8E8A59&userCode=jh5fwy2j&activityId=3&share_source=copy_link">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云Hi拼团，活动截止2019-12-12
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1w1T2mrj1gK0jSZFuXXcrHpXa-1880-640.png" alt="阿里云Hi拼团">
+                    </a>
+                  
+                    <a title="阿里返利" target="_blank" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云新老用户通用红包
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1Gc3zmAL0gK0jSZFxXXXWHVXa-259-194.jpg" alt="阿里返利">
                     </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
                   
                     <a title="微信前端技术交流群" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
                     </a>
                   
@@ -355,9 +372,6 @@
           </div>
         
       </div>
-     
-    
-     
       <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -483,5 +497,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

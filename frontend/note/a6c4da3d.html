@@ -17,19 +17,19 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、为什么需要虚拟dom 先介绍浏览器加载一个HTML文件需要做哪些事，帮助我们理解为什么我们需要虚拟dom。webkit引擎的处理流程    所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建dom tree –&amp;gt; 创建Style Rules -&amp;gt; 构建Render tree -&amp;gt; 布局Layout –&amp;gt; 绘制Painting   第一步，用HTML分析器，分析HT">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-409c2c86d78baa71.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-b834a19182079afd.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-fd068c191a95ea82.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-b592d77d1cc244e1.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-b13f0c68b7cc7c43.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-e5ca945bf041e1f4.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-17cf74f6fdd45468.png">
-<meta property="og:updated_time" content="2019-09-22T05:01:02.986Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-11-12T07:10:39.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟dom（二）">
 <meta name="twitter:description" content="一、为什么需要虚拟dom 先介绍浏览器加载一个HTML文件需要做哪些事，帮助我们理解为什么我们需要虚拟dom。webkit引擎的处理流程    所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建dom tree –&amp;gt; 创建Style Rules -&amp;gt; 构建Render tree -&amp;gt; 布局Layout –&amp;gt; 绘制Painting   第一步，用HTML分析器，分析HT">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -40,13 +40,6 @@
   </div>
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      ;(adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: 'ca-pub-5526491839331555',
-        enable_page_level_ads: true
-      })
-    </script>
   </head>
 </html>
 
@@ -124,7 +117,6 @@
         </div>
     </div>
 </header>
-    
       <div class="outer">
           <div class="outer-section">
             <section id="main" class="body-wrap"><article id="post-2018-10-vdom-improve" class="article article-type-post" itemscope="" itemprop="blogPost">
@@ -166,7 +158,7 @@
             <h2 id="一、为什么需要虚拟dom"><a href="#一、为什么需要虚拟dom" class="headerlink" title="一、为什么需要虚拟dom"></a>一、为什么需要虚拟dom</h2><blockquote>
 <p>先介绍浏览器加载一个<code>HTML</code>文件需要做哪些事，帮助我们理解为什么我们需要虚拟<code>dom</code>。<code>webkit</code>引擎的处理流程</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg" alt=""></p>
 <blockquote>
 <p>所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建<code>dom tree</code> –&gt; 创建<code>Style Rules</code> -&gt; 构建<code>Render tree</code> -&gt; 布局<code>Layout</code> –&gt; 绘制<code>Painting</code></p>
 </blockquote>
@@ -183,7 +175,7 @@
 <ul>
 <li>即使计算机硬件一直在更新迭代，操作<code>dom</code>的代价仍旧是昂贵的，频繁操作还是会出现页面卡顿，影响用户的体验。真实的<code>dom</code>节点，哪怕一个最简单的div也包含着很多属性，可以打印出来直观感受一下</li>
 </ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-409c2c86d78baa71.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-409c2c86d78baa71.png" alt=""></p>
 <blockquote>
 <p>虚拟<code>dom</code>就是为了解决这个浏览器性能问题而被设计出来的。例如前面的例子，假如一次操作中有<code>10</code>次更新<code>dom</code>的动作，虚拟<code>dom</code>不会立即操作<code>dom</code>，而是将这<code>10</code>次更新的<code>diff</code>内容保存到本地的一个<code>js</code>对象中，最终将这个js对象一次性<code>attach</code>到<code>dom</code>树上，通知浏览器去执行绘制工作，这样可以避免大量的无谓的计算量</p>
 </blockquote>
@@ -199,7 +191,7 @@
 <blockquote>
 <p>第一个参数是节点名（如<code>div</code>），第二个参数是节点的属性（如<code>class</code>），第三个参数是子节点（如<code>ul</code>的<code>li</code>）。除了这三个参数会被保存在对象上外，还保存了<code>key</code>和<code>count</code></p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-b834a19182079afd.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-b834a19182079afd.png" alt=""></p>
 <blockquote>
 <p>有了<code>js</code>对象后，最终还需要将其映射成真实的<code>dom</code></p>
 </blockquote>
@@ -221,7 +213,7 @@
 <blockquote>
 <p>第一种是最简单的，节点类型变了，例如下图中的<code>P</code>变成了<code>h3</code>。我们将这个过程称之为<code>REPLACE</code>。直接将旧节点卸载（<code>componentWillUnmount</code>）并装载新节点（<code>componentWillMount</code>）就行了</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-fd068c191a95ea82.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-fd068c191a95ea82.png" alt=""></p>
 <p>旧节点包括下面的子节点都将被卸载，如果新节点和旧节点仅仅是类型不同，但下面的所有子节点都一样时，这样做显得效率不高。但为了避免<code>O(n^3)</code>的时间复杂度，这样做是值得的。这也提醒了<code>React</code>开发者，应该避免无谓的节点类型的变化，例如运行时将<code>div</code>变成<code>p</code>就没什么太大意义</p>
 <blockquote>
 <p>第二种也比较简单，节点类型一样，仅仅属性或属性值变了</p>
@@ -235,19 +227,19 @@
 <li>第三种是文本变了，文本对也是一个<code>Text node</code>，也比较简单，直接修改文字内容就行了，我们将这个过程称之为<code>TEXT</code></li>
 <li>第四种是移动，增加，删除子节点，我们将这个过程称之为<code>REORDER</code></li>
 </ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-b592d77d1cc244e1.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-b592d77d1cc244e1.png" alt=""></p>
 <blockquote>
 <p>在中间插入一个节点，程序员写代码很简单：$(B).after(F)。但如何高效地插入呢？简单粗暴的做法是：卸载C，装载F，卸载D，装载C，卸载E，装载D，装载E。如下图</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-b13f0c68b7cc7c43.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-b13f0c68b7cc7c43.png" alt=""></p>
 <blockquote>
 <p>我们写<code>JSX</code>代码时，如果没有给数组或枚举类型定义一个<code>key</code>，就会看到下面这样的<code>warning</code>。<code>React</code>提醒我们，没有<code>key</code>的话，涉及到移动，增加，删除子节点的操作时，就会用上面那种简单粗暴的做法来更新。虽然程序运行不会有错，但效率太低，因此<code>React</code>会给我们一个<code>warning</code></p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-e5ca945bf041e1f4.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-e5ca945bf041e1f4.png" alt=""></p>
 <blockquote>
 <p>如果我们在<code>JSX</code>里为数组或枚举型元素增加上<code>key</code>后，<code>React</code>就能根据<code>key</code>，直接找到具体的位置进行操作，效率比较高。如下图</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1959053-17cf74f6fdd45468.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://upload-images.jianshu.io/upload_images/1959053-17cf74f6fdd45468.png" alt=""></p>
 <blockquote>
 <p>常见的最小编辑距离问题，可以用<code>Levenshtein Distance</code>算法来实现，时间复杂度是<code>O(M*N)</code>，但通常我们只要一些简单的移动就能满足需要，降低点精确性，将时间复杂度降低到<code>O(max(M, N)</code>即可</p>
 </blockquote>
@@ -268,7 +260,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <!-- <p>最后更新： 2019年11月12日 15:10</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/a6c4da3d.html" title="虚拟dom（二）">https://ru23.com/note/a6c4da3d.html</a></p>
         <footer>
@@ -412,18 +404,43 @@
 <!-- Valine Comments end -->
 
 </section>
-            <div class="outer-ad-aside">
+            <div class="outer-ad-aside" id="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
-                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    <a title="腾讯云：11.11 爆品秒杀" target="_blank" href="https://cloud.tencent.com/act/cps/redirect?redirect=1049&cps_key=3bd05bbfb4f3f97d7bb5964ef12edda9&from=console">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          腾讯云双11爆品秒杀，活动截止2019-12-02
+                        </div>
+                      
+                      <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345-200-2e775f9b5cb10db244b6bd2791a26f7e862701a5.jpg" alt="腾讯云：11.11 爆品秒杀">
+                    </a>
+                  
+                    <a title="阿里云Hi拼团" target="_blank" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=6BF0A48A53ED78A511EDC58935AD349589B9F59A2D8E8A59&userCode=jh5fwy2j&activityId=3&share_source=copy_link">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云Hi拼团，活动截止2019-12-12
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1w1T2mrj1gK0jSZFuXXcrHpXa-1880-640.png" alt="阿里云Hi拼团">
+                    </a>
+                  
+                    <a title="阿里返利" target="_blank" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云新老用户通用红包
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1Gc3zmAL0gK0jSZFxXXXWHVXa-259-194.jpg" alt="阿里返利">
                     </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
                   
                     <a title="微信前端技术交流群" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
                     </a>
                   
@@ -432,9 +449,6 @@
           </div>
         
       </div>
-     
-    
-     
       <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -560,5 +574,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

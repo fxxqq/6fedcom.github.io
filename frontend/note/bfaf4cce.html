@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="完成的效果  1234567891011121314151617181920212223&amp;lt;div id=&quot;mvvm-app&quot;&amp;gt;    &amp;lt;input type=&quot;text&quot; v-model=&quot;word&quot;&amp;gt;    &amp;lt;p&amp;gt;&amp;#123;&amp;#123;word&amp;#125;&amp;#125;&amp;lt;/p&amp;gt;    &amp;lt;button v-on:click=&quot;sayHi&quot;&amp;g">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/1.gif">
-<meta property="og:image" content="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/2.png">
-<meta property="og:image" content="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/3.png">
-<meta property="og:updated_time" content="2019-09-22T05:01:02.969Z">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">
+<meta property="og:updated_time" content="2019-11-12T07:10:39.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现数据的双向绑定mvvm-剖析Vue的原理">
 <meta name="twitter:description" content="完成的效果  1234567891011121314151617181920212223&amp;lt;div id=&quot;mvvm-app&quot;&amp;gt;    &amp;lt;input type=&quot;text&quot; v-model=&quot;word&quot;&amp;gt;    &amp;lt;p&amp;gt;&amp;#123;&amp;#123;word&amp;#125;&amp;#125;&amp;lt;/p&amp;gt;    &amp;lt;button v-on:click=&quot;sayHi&quot;&amp;g">
-<meta name="twitter:image" content="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/1.gif">  
+<meta name="twitter:image" content="https://cdn.ru23.com/lazyload/lazyload.gif">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -35,13 +35,6 @@
   </div>
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      ;(adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: 'ca-pub-5526491839331555',
-        enable_page_level_ads: true
-      })
-    </script>
   </head>
 </html>
 
@@ -119,7 +112,6 @@
         </div>
     </div>
 </header>
-    
       <div class="outer">
           <div class="outer-section">
             <section id="main" class="body-wrap"><article id="post-2018-03-vue-mvvm" class="article article-type-post" itemscope="" itemprop="blogPost">
@@ -162,7 +154,7 @@
 <p>完成的效果</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mvvm-app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"word"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;word&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"sayHi"</span>&gt;</span>change model<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"observer.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"watcher.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"compile.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"mvvm.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> vm = <span class="keyword">new</span> mvvm(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">'#mvvm-app'</span>,</span></span><br><span class="line"><span class="undefined">    data: &#123;</span></span><br><span class="line"><span class="javascript">        word: <span class="string">'Hello World!'</span></span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    methods: &#123;</span></span><br><span class="line"><span class="javascript">        sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.word = <span class="string">'Hi, everybody!'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/1.gif" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/1.gif" alt=""></p>
 <h2 id="一、几种实现双向绑定的做法"><a href="#一、几种实现双向绑定的做法" class="headerlink" title="一、几种实现双向绑定的做法"></a>一、几种实现双向绑定的做法</h2><blockquote>
 <p>目前几种主流的<code>mvc(vm)</code>框架都实现了单向数据绑定，而我所理解的双向数据绑定无非就是在单向绑定的基础上给可输入元素（<code>input</code>、<code>textare</code>等）添加了<code>change(input)</code>事件，来动态修改<code>model</code>和 <code>view</code>，并没有多高深。所以无需太过介怀是实现的单向或双向绑定。</p>
 </blockquote>
@@ -199,7 +191,7 @@
 <li><code>mvvm</code>入口函数，整合以上三者</li>
 </ul>
 <p>上述流程如图所示：</p>
-<p><img src="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/2.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/2.png" alt=""></p>
 <h3 id="2-1-实现Observer"><a href="#2-1-实现Observer" class="headerlink" title="2.1 实现Observer"></a>2.1 实现Observer</h3><ul>
 <li>我们知道可以利用<code>Obeject.defineProperty()</code>来监听属性变动</li>
 <li>那么将需要<code>observe</code>的数据对象进行递归遍历，包括子属性对象的属性，都加上<code>setter</code>和<code>getter</code></li>
@@ -225,7 +217,7 @@
 <li><code>compile</code>主要做的事情是解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图</li>
 <li>并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图，如图所示</li>
 </ul>
-<p><img src="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/3.png" alt=""></p>
+<p><img src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://github.com/honeydlp/mvvm/raw/master/defineProperty/img/3.png" alt=""></p>
 <ul>
 <li>因为遍历解析的过程有多次操作<code>dom</code>节点，为提高性能和效率，会先将跟节点<code>el</code>转换成文档碎片<code>fragment</code>进行解析编译操作</li>
 <li>解析完成，再将<code>fragment</code>添加回原来的真实<code>dom</code>节点中</li>
@@ -283,7 +275,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2019年09月22日 13:01</p> -->
+        <!-- <p>最后更新： 2019年11月12日 15:10</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/bfaf4cce.html" title="实现数据的双向绑定mvvm-剖析Vue的原理">https://ru23.com/note/bfaf4cce.html</a></p>
         <footer>
@@ -425,18 +417,43 @@
 <!-- Valine Comments end -->
 
 </section>
-            <div class="outer-ad-aside">
+            <div class="outer-ad-aside" id="outer-ad-aside">
                 
                   
-                    <a title="全球狂欢，亿万补贴" target="_blank" href="https://www.aliyun.com/1111/2019/home?spm=5176.12825654.a9ylfrljh.2.14df2c4aWJhHnF&aly_as=F19c4mr8">
-                      <img src="https://img.alicdn.com/tfs/TB166qCkXT7gK0jSZFpXXaTkpXa-750-400.png" alt="全球狂欢，亿万补贴">
+                    <a title="腾讯云：11.11 爆品秒杀" target="_blank" href="https://cloud.tencent.com/act/cps/redirect?redirect=1049&cps_key=3bd05bbfb4f3f97d7bb5964ef12edda9&from=console">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          腾讯云双11爆品秒杀，活动截止2019-12-02
+                        </div>
+                      
+                      <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345-200-2e775f9b5cb10db244b6bd2791a26f7e862701a5.jpg" alt="腾讯云：11.11 爆品秒杀">
+                    </a>
+                  
+                    <a title="阿里云Hi拼团" target="_blank" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=6BF0A48A53ED78A511EDC58935AD349589B9F59A2D8E8A59&userCode=jh5fwy2j&activityId=3&share_source=copy_link">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云Hi拼团，活动截止2019-12-12
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1w1T2mrj1gK0jSZFuXXcrHpXa-1880-640.png" alt="阿里云Hi拼团">
+                    </a>
+                  
+                    <a title="阿里返利" target="_blank" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=jh5fwy2j">
+                      
+                        <div class="ad-text" style='text-align:center;color: red;'>
+                          阿里云新老用户通用红包
+                        </div>
+                      
+                      <img src="https://img.alicdn.com/tfs/TB1Gc3zmAL0gK0jSZFxXXXWHVXa-259-194.jpg" alt="阿里返利">
                     </a>
                   
                     <a title="微信公众号：前端迷" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt="微信公众号：前端迷">
                     </a>
                   
                     <a title="微信前端技术交流群" target="_blank" ">
+                      
                       <img src="//cdn.ru23.com/hexo/public/group.png" alt="微信前端技术交流群">
                     </a>
                   
@@ -445,9 +462,6 @@
           </div>
         
       </div>
-     
-    
-     
       <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -573,5 +587,5 @@
 </script>
 
   </div>
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
