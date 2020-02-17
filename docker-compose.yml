@@ -1,0 +1,11 @@
+# /docker-compose.yml
+version: '3'
+services:
+  app:
+    container_name: blog
+    build:
+      context: ./
+      dockerfile: ./ci/Dockerfile
+    ports:
+    - "8080:80"
+    restart: on-failure
