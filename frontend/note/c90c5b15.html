@@ -1,0 +1,540 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       JavaScript深入之创建对象的多种方式以及优缺点 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="写在前面这篇文章讲解创建对象的各种方式，以及优缺点。 但是注意： 这篇文章更像是笔记，因为《JavaScript高级程序设计》写得真是太好了！  工厂模式  1234567891011function createPerson(name) {    var o = new Object();    o.name = name;    o.getName = function () {">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript深入之创建对象的多种方式以及优缺点">
+<meta property="og:url" content="https://ru23.com/note/c90c5b15.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="写在前面这篇文章讲解创建对象的各种方式，以及优缺点。 但是注意： 这篇文章更像是笔记，因为《JavaScript高级程序设计》写得真是太好了！  工厂模式  1234567891011function createPerson(name) {    var o = new Object();    o.name = name;    o.getName = function () {">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-11T11:01:06.349Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript深入之创建对象的多种方式以及优缺点">
+<meta name="twitter:description" content="写在前面这篇文章讲解创建对象的各种方式，以及优缺点。 但是注意： 这篇文章更像是笔记，因为《JavaScript高级程序设计》写得真是太好了！  工厂模式  1234567891011function createPerson(name) {    var o = new Object();    o.name = name;    o.getName = function () {">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  </head><body><div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+  
+
+
+
+
+  <div id="container">
+    <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="https://58fe.com">
+                        <i class="fa fa-heart"></i>
+                        <span>前端社区</span>
+                    </a>
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    <div class="outer">
+      <div class="outer-section">
+        <section id="main" class="body-wrap"><article id="post-2017-07-2017-05-29-js12-javascript-deeplearn-FACTORY" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      JavaScript深入之创建对象的多种方式以及优缺点
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-05-29
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <meta name="generator" content="Hexo 3.8.0"><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>这篇文章讲解创建对象的各种方式，以及优缺点。</p>
+<p>但是注意：</p>
+<p>这篇文章更像是笔记，因为《JavaScript高级程序设计》写得真是太好了！</p>
+<ol>
+<li>工厂模式</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function createPerson(name) {</span><br><span class="line">    var o = new Object();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.getName = function () {</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    return o;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">var person1 = createPerson('kevin');</span><br></pre></td></tr></tbody></table></figure>
+<p>缺点：对象无法识别，因为所有的实例都指向一个原型</p>
+<ol start="2">
+<li>构造函数模式</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) {</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.getName = function () {</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">var person1 = new Person('kevin');</span><br></pre></td></tr></tbody></table></figure>
+<p>优点：实例可以识别为一个特定的类型</p>
+<p>缺点：每次创建实例时，每个方法都要被创建一次</p>
+<p>2.1 构造函数模式优化</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) {</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.getName = getName;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function getName() {</span><br><span class="line">    console.log(this.name);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">var person1 = new Person('kevin');</span><br></pre></td></tr></tbody></table></figure>
+<p>优点：解决了每个方法都要被重新创建的问题</p>
+<p>缺点：这叫啥封装……</p>
+<ol start="3">
+<li>原型模式</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) {</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Person.prototype.name = 'keivn';</span><br><span class="line">Person.prototype.getName = function () {</span><br><span class="line">    console.log(this.name);</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">var person1 = new Person();</span><br></pre></td></tr></tbody></table></figure>
+<p>优点：方法不会重新创建</p>
+<p>缺点：1. 所有的属性和方法都共享 2. 不能初始化参数</p>
+<p>3.1 原型模式优化</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) {</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Person.prototype = {</span><br><span class="line">    name: 'kevin',</span><br><span class="line">    getName: function () {</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">var person1 = new Person();</span><br><span class="line"></span><br><span class="line">``</span><br><span class="line"></span><br><span class="line">优点：封装性好了一点</span><br><span class="line"></span><br><span class="line">缺点：重写了原型，丢失了constructor属性</span><br><span class="line"></span><br><span class="line">3.2 原型模式优化</span><br></pre></td></tr></tbody></table></figure>
+<p>function Person(name) {</p>
+<p>}</p>
+<p>Person.prototype = {<br>    constructor: Person,<br>    name: ‘kevin’,<br>    getName: function () {<br>        console.log(this.name);<br>    }<br>};</p>
+<p>var person1 = new Person();</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">优点：实例可以通过constructor属性找到所属构造函数</span><br><span class="line"></span><br><span class="line">缺点：原型模式该有的缺点还是有</span><br><span class="line"></span><br><span class="line">4. 组合模式</span><br><span class="line"></span><br><span class="line">构造函数模式与原型模式双剑合璧。</span><br></pre></td></tr></tbody></table></figure>
+<p>function Person(name) {<br>    this.name = name;<br>}</p>
+<p>Person.prototype = {<br>    constructor: Person,<br>    getName: function () {<br>        console.log(this.name);<br>    }<br>};</p>
+<p>var person1 = new Person();<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">优点：该共享的共享，该私有的私有，使用最广泛的方式</span><br><span class="line"></span><br><span class="line">缺点：有的人就是希望全部都写在一起，即更好的封装性</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4.1 动态原型模式</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>function Person(name) {<br>    this.name = name;<br>    if (typeof this.getName != “function”) {<br>        Person.prototype.getName = function () {<br>            console.log(this.name);<br>        }<br>    }<br>}</p>
+<p>var person1 = new Person();</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意：使用动态原型模式时，不能用对象字面量重写原型</span><br><span class="line"></span><br><span class="line">解释下为什么：</span><br></pre></td></tr></tbody></table></figure>
+<p>function Person(name) {<br>    this.name = name;<br>    if (typeof this.getName != “function”) {<br>        Person.prototype = {<br>            constructor: Person,<br>            getName: function () {<br>                console.log(this.name);<br>            }<br>        }<br>    }<br>}</p>
+<p>var person1 = new Person(‘kevin’);<br>var person2 = new Person(‘daisy’);</p>
+<p>// 报错 并没有该方法<br>person1.getName();</p>
+<p>// 注释掉上面的代码，这句是可以执行的。<br>person2.getName();</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">为了解释这个问题，假设开始执行var person1 = new Person('kevin')。</span><br><span class="line"></span><br><span class="line">如果对 new 和 apply 的底层执行过程不是很熟悉，可以阅读底部相关链接中的文章。</span><br><span class="line"></span><br><span class="line">我们回顾下 new 的实现步骤：</span><br><span class="line"></span><br><span class="line">首先新建一个对象</span><br><span class="line">然后将对象的原型指向 Person.prototype</span><br><span class="line">然后 Person.apply(obj)</span><br><span class="line">返回这个对象</span><br><span class="line">注意这个时候，回顾下 apply 的实现步骤，会执行 obj.Person 方法，这个时候就会执行 if 语句里的内容，注意构造函数的 prototype 属性指向了实例的原型，使用字面量方式直接覆盖 Person.prototype，并不会更改实例的原型的值，person1 依然是指向了以前的原型，而不是 Person.prototype。而之前的原型是没有 getName 方法的，所以就报错了！</span><br><span class="line"></span><br><span class="line">如果你就是想用字面量方式写代码，可以尝试下这种：</span><br></pre></td></tr></tbody></table></figure>
+<p>function Person(name) {<br>    this.name = name;<br>    if (typeof this.getName != “function”) {<br>        Person.prototype = {<br>            constructor: Person,<br>            getName: function () {<br>                console.log(this.name);<br>            }<br>        }</p>
+<pre><code>    return new Person(name);
+}
+</code></pre><p>}</p>
+<p>var person1 = new Person(‘kevin’);<br>var person2 = new Person(‘daisy’);</p>
+<p>person1.getName(); // kevin<br>person2.getName();  // daisy<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 5.1 寄生构造函数模式</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>function Person(name) {</p>
+<pre><code>var o = new Object();
+o.name = name;
+o.getName = function () {
+    console.log(this.name);
+};
+
+return o;
+</code></pre><p>}</p>
+<p>var person1 = new Person(‘kevin’);<br>console.log(person1 instanceof Person) // false<br>console.log(person1 instanceof Object)  // true<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">寄生构造函数模式，我个人认为应该这样读：</span><br><span class="line"></span><br><span class="line">寄生-构造函数-模式，也就是说寄生在构造函数的一种方法。</span><br><span class="line"></span><br><span class="line">也就是说打着构造函数的幌子挂羊头卖狗肉，你看创建的实例使用 instanceof 都无法指向构造函数！</span><br><span class="line"></span><br><span class="line">这样方法可以在特殊情况下使用。比如我们想创建一个具有额外方法的特殊数组，但是又不想直接修改Array构造函数，我们可以这样写：</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>function SpecialArray() {<br>    var values = new Array();</p>
+<pre><code>for (var i = 0, len = arguments.length; i < len; i++) {
+    values.push(arguments[i]);
+}
+
+values.toPipedString = function () {
+    return this.join("|");
+};
+return values;
+</code></pre><p>}</p>
+<p>var colors = new SpecialArray(‘red’, ‘blue’, ‘green’);<br>var colors2 = SpecialArray(‘red2’, ‘blue2’, ‘green2’);</p>
+<p>console.log(colors);<br>console.log(colors.toPipedString()); // red|blue|green</p>
+<p>console.log(colors2);<br>console.log(colors2.toPipedString()); // red2|blue2|green2<br><code>`</code></p>
+<p>所谓稳妥对象，指的是没有公共属性，而且其方法也不引用 this 的对象。</p>
+<p>与寄生构造函数模式有两点不同：</p>
+<ol>
+<li><p>新创建的实例方法不引用 this</p>
+</li>
+<li><p>不使用 new 操作符调用构造函数</p>
+</li>
+</ol>
+<p>稳妥对象最适合在一些安全的环境中。</p>
+<p>稳妥构造函数模式也跟工厂模式一样，无法识别对象所属类型。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2020年04月11日 19:01</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/c90c5b15.html" title="JavaScript深入之创建对象的多种方式以及优缺点">https://ru23.com/note/c90c5b15.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/c90c5b15.html&title=《JavaScript深入之创建对象的多种方式以及优缺点》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/c90c5b15.html&title=《JavaScript深入之创建对象的多种方式以及优缺点》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/c90c5b15.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript深入之创建对象的多种方式以及优缺点》 — 前端迷&url=https://ru23.com/note/c90c5b15.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/c90c5b15.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABuklEQVR42u3awa7CMAwEQP7/p/ukd0WEdUxckCanSkCZ9mAlaz8e8br+1/P183eeP11//3Fi4eLitrnXcr3iJqwrWLkBFxd3npsUr71StX7scrHDxcX9Mu5e2ao+Bi4u7m9xk0JWRePi4n4zt3M46R+WjpzVcHFxG9xOYPqp66F8FxcXt92VyIta3ia5GgsXF3eGm0ce/XbpetOTByW4uLgz3CqlWuCSY0y1UOLi4p7jdjYoe62XVtsGFxd3hFstJXtt1HVgWjj24OLiDnLzdshe5NE58Lzc6ODi4o5zO4FpdZgj3wbh4uLexa22P/Nil4xfFKJSXFzcw9ykuHQeNR/MKrw+XFzcY9zTMUcelUYPg4uLO8jdCzg6YxZ78SsuLu4Mt/OzvQCl8y+4uLgz3OrmJk8qCoUp3x7h4uIOcpOfdaLSPGR587JwcXEHuZ0ma6dNkr+acjcYFxe3wa0WlOoAVj6oUf0UFxf3NDcvXutCltOrA164uLh3cT/VFOkMc0RDXbi4uF/GrQapm72d9f1xcXF/ltuJV96c0nBxcQe5nVtX6XtbKFxc3EluNTDNI49O/IGLi3sT9w93nfwz6aOVQgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写在前面"><span class="post-toc-text">写在前面</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/f9519e56.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          JavaScript深入之类数组对象与arguments
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/2e927ba1.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">前端性能优化的三个维度</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        <div class="outer-ad-aside" id="outer-ad-aside">
+          
+          
+          <a style="display: block;" title="阿里云双十二大促，新老用户皆可返现" target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=jh5fwy2j&share_source=copy_link">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              阿里云双十二大促，新老用户皆可返现
+            </div>
+            
+            <img src="https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg" alt="阿里云双十二大促，新老用户皆可返现">
+          </a>
+          
+          <a style="display: block;" title="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元" target="_blank" href="https://url.cn/50C5WrF">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元
+            </div>
+            
+            <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345x200-c37e147ab2b4b8074e63d71ca21420cf1a7d4933.png" alt="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元">
+          </a>
+          
+          <a style="display: block;" target="_blank" ">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线
+            </div>
+            
+            <img src=" https://cdn.ru23.com/common/sale.png" alt="广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线">
+          </a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        © 2020 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">×</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="https://58fe.com">
+                    <i class="fa fa-heart"></i><span>前端社区</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">×</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

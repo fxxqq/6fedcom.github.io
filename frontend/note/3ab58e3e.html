@@ -1,0 +1,571 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       vue生命周期（五） |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是vue的生命周期   一、生命周期钩子函数 beforeCreate created beforeMount mounted beforeUpdate updated beforeDestroy destroyed  123456789101112131415161718192021222324252627282930313233">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue生命周期（五）">
+<meta property="og:url" content="https://ru23.com/note/3ab58e3e.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是vue的生命周期   一、生命周期钩子函数 beforeCreate created beforeMount mounted beforeUpdate updated beforeDestroy destroyed  123456789101112131415161718192021222324252627282930313233">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-6a86a28b511c8325.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-2f4e9e2df0a1d7fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-5403bd286ce4ea9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-8b2cb230f2e5722f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-39733c55ff054c34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-300f61cbacb6d931.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-150de7cdd6b1d0e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-e116245fa53bed64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-04-11T11:01:06.371Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue生命周期（五）">
+<meta name="twitter:description" content="每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是vue的生命周期   一、生命周期钩子函数 beforeCreate created beforeMount mounted beforeUpdate updated beforeDestroy destroyed  123456789101112131415161718192021222324252627282930313233">
+<meta name="twitter:image" content="https://cn.vuejs.org/images/lifecycle.png">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  </head><body><div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+  
+
+
+
+
+  <div id="container">
+    <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="https://58fe.com">
+                        <i class="fa fa-heart"></i>
+                        <span>前端社区</span>
+                    </a>
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    <div class="outer">
+      <div class="outer-section">
+        <section id="main" class="body-wrap"><article id="post-2018-03-vue-lifecircle" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      vue生命周期（五）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-08-26
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+<p>每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是vue的生命周期</p>
+</blockquote>
+<p><img src="https://cn.vuejs.org/images/lifecycle.png" alt></p>
+<h2 id="一、生命周期钩子函数"><a href="#一、生命周期钩子函数" class="headerlink" title="一、生命周期钩子函数"></a>一、生命周期钩子函数</h2><ul>
+<li><code>beforeCreate</code></li>
+<li><code>created</code></li>
+<li><code>beforeMount</code></li>
+<li><code>mounted</code></li>
+<li><code>beforeUpdate</code></li>
+<li><code>updated</code></li>
+<li><code>beforeDestroy</code></li>
+<li><code>destroyed</code></li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: {</span><br><span class="line">      message: <span class="string">'Vue的生命周期'</span></span><br><span class="line">    },</span><br><span class="line">    beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'------beforeCreate创建前状态------'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span> , <span class="string">"el     : "</span> + <span class="keyword">this</span>.$el); <span class="comment">//undefined</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//undefined </span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message) </span><br><span class="line">    },</span><br><span class="line">    created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'------created创建完毕状态------'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el); <span class="comment">//undefined</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//已被初始化 </span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); <span class="comment">//已被初始化</span></span><br><span class="line">    },</span><br><span class="line">    beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'------beforeMount挂载前状态------'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + (<span class="keyword">this</span>.$el)); <span class="comment">//已被初始化</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//已被初始化  </span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); <span class="comment">//已被初始化  </span></span><br><span class="line">    },</span><br><span class="line">    mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'------mounted 挂载结束状态------'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el); <span class="comment">//已被初始化</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);    </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//已被初始化</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); <span class="comment">//已被初始化 </span></span><br><span class="line">    },</span><br><span class="line">    beforeUpdate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'beforeUpdate 更新前状态===============》'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);   </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); </span><br><span class="line">    },</span><br><span class="line">    updated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'updated 更新完成状态===============》'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el); </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); </span><br><span class="line">    },</span><br><span class="line">    beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'beforeDestroy 销毁前状态===============》'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);    </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); </span><br><span class="line">    },</span><br><span class="line">    destroyed: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.group(<span class="string">'destroyed 销毁完成状态===============》'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);  </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message)</span><br><span class="line">    }</span><br><span class="line">  })</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-6a86a28b511c8325.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="二、生命周期详解"><a href="#二、生命周期详解" class="headerlink" title="二、生命周期详解"></a>二、生命周期详解</h2><blockquote>
+<p><code>vue</code>实例在创建过程中调用的几个生命周期钩子</p>
+</blockquote>
+<h3 id="2-1-beforeCreate、created"><a href="#2-1-beforeCreate、created" class="headerlink" title="2.1 beforeCreate、created"></a>2.1 beforeCreate、created</h3><blockquote>
+<p>在beforeCreate和created钩子函数之间的生命周期</p>
+</blockquote>
+<ul>
+<li>在这个生命周期之间，进行初始化事件，进行数据的观测，可以看到在<code>created</code>的时候数据已经和<code>data</code>属性进行绑定（放在<code>data</code>中的属性当值发生改变的同时，视图也会改变）,此时还是没有el选项</li>
+</ul>
+<h3 id="2-2-created、beforeMount"><a href="#2-2-created、beforeMount" class="headerlink" title="2.2 created、beforeMount"></a>2.2 created、beforeMount</h3><blockquote>
+<p>created钩子函数和beforeMount间的生命周期</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-2f4e9e2df0a1d7fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>首先会判断对象是否有el选项。如果有的话就继续向下编译，如果没有<code>el</code>选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上调用<code>vm.$mount(el)</code>。</li>
+<li>此时注释掉代码中 <code>el: '#app',</code> 然后运行可以看到到<code>created</code>的时候就停止了</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-5403bd286ce4ea9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>如果我们在后面继续调用<code>vm.$mount(el)</code>,可以发现代码继续向下执行了</p>
+</blockquote>
+<ul>
+<li><code>vm.$mount(el)</code> //这个el参数就是挂在的dom接点</li>
+</ul>
+<p><strong>template参数选项的有无对生命周期的影响</strong></p>
+<ul>
+<li>如果vue实例对象中有template参数选项，则将其作为模板编译成<code>render</code>函数</li>
+<li>如果没有<code>template</code>选项，则将外部HTML作为模板编译</li>
+<li>可以看到<code>template</code>中的模板优先级要高于<code>outer HTML</code>的优先级</li>
+</ul>
+<blockquote>
+<p>修改代码如下, 在HTML结构中增加了一串html，在<code>vue</code>对象中增加了<code>template</code>选项</p>
+</blockquote>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>></span></span><br><span class="line"><span class="tag"><<span class="name">head</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">title</span>></span>vue生命周期学习<span class="tag">title</span>></span><br><span class="line">  <span class="tag"><<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.4.2/vue.js"</span>></span><span class="undefined"></span><span class="tag">script</span>></span><br><span class="line"><span class="tag">head</span>></span><br><span class="line"><span class="tag"><<span class="name">body</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>></span></span><br><span class="line">    <span class="comment"><!--html中修改的--></span></span><br><span class="line">    <span class="tag"><<span class="name">h1</span>></span>{{message + '这是在outer HTML中的'}}<span class="tag">h1</span>></span><br><span class="line">  <span class="tag">div</span>></span><br><span class="line"><span class="tag">body</span>></span><br><span class="line"><span class="tag"><<span class="name">script</span>></span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="javascript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="javascript">    template: <span class="string">"<h1>{{message +'这是在template中的'}}</h1>"</span>, <span class="comment">//在vue配置项中修改的</span></span></span><br><span class="line"><span class="undefined">    data: {</span></span><br><span class="line"><span class="javascript">      message: <span class="string">'Vue的生命周期'</span></span></span><br><span class="line"><span class="undefined">    }</span></span><br><span class="line"><span class="undefined"></span><span class="tag">script</span>></span><br><span class="line"><span class="tag">html</span>></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>输出 <code>Vue的生命周期--这是在template中的</code></p>
+</blockquote>
+<p>那么将vue对象中<code>template</code>的选项注释掉后打印如下信息</p>
+<blockquote>
+<p>输出 <code>Vue的生命周期--这是在outer HTML中的</code></p>
+</blockquote>
+<ul>
+<li>可以想想什么el的判断要在template之前了~是因为vue需要通过el找到对应的outer template</li>
+<li>在vue对象中还有一个render函数，它是以createElement作为参数，然后做渲染操作，而且我们可以直接嵌入JSX.</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue({</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> createElement(<span class="string">'h1'</span>, <span class="string">'this is createElement'</span>)</span><br><span class="line">    }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>所以综合排名优先级</strong></p>
+<ul>
+<li><code>render</code>函数选项 > <code>template</code>选项 > <code>outer HTML</code></li>
+</ul>
+<h3 id="2-3-beforeMount、mounted"><a href="#2-3-beforeMount、mounted" class="headerlink" title="2.3 beforeMount、mounted"></a>2.3 beforeMount、mounted</h3><blockquote>
+<p>beforeMount和mounted钩子函数间的生命周期</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-8b2cb230f2e5722f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>可以看到此时是给<code>vue</code>实例对象添加<code>$el</code>成员，并且替换掉挂在的<code>dom</code>元素。因为在之前<code>console</code>中打印的结果可以看到<code>beforeMount</code>之前<code>el</code>上还是<code>undefined</code></p>
+</blockquote>
+<h3 id="2-4-mounted"><a href="#2-4-mounted" class="headerlink" title="2.4 mounted"></a>2.4 mounted</h3><p><img src="https://upload-images.jianshu.io/upload_images/1480597-39733c55ff054c34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>在<code>mounted</code>之前h1中还是通过<code>{message}</code>进行占位的，因为此时还有挂在到页面上，还是javascript中的虚拟dom形式存在的。在<code>mounted</code>之后可以看到h1中的内容发生了变化</p>
+</blockquote>
+<h3 id="2-5-beforeUpdate、updated"><a href="#2-5-beforeUpdate、updated" class="headerlink" title="2.5 beforeUpdate、updated"></a>2.5 beforeUpdate、updated</h3><blockquote>
+<p><code>beforeUpdate</code>钩子函数和<code>updated</code>钩子函数间的生命周期</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-300f61cbacb6d931.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>当vue发现data中的数据发生了改变，会触发对应组件的重新渲染，先后调用<code>beforeUpdate</code>和<code>updated</code>钩子函数。我们在console中输入</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.message = '触发组件更新'</span><br></pre></td></tr></tbody></table></figure>
+<p>发现触发了组件的更新</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-150de7cdd6b1d0e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="2-6-beforeDestroy、destroyed"><a href="#2-6-beforeDestroy、destroyed" class="headerlink" title="2.6 beforeDestroy、destroyed"></a>2.6 beforeDestroy、destroyed</h3><blockquote>
+<p><code>beforeDestroy</code>和<code>destroyed</code>钩子函数间的生命周期</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-e116245fa53bed64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li><code>beforeDestroy</code>钩子函数在实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+<li><code>destroyed</code>钩子函数在<code>Vue</code> 实例销毁后调用。调用后，<code>Vue</code>实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2020年04月11日 19:01</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/3ab58e3e.html" title="vue生命周期（五）">https://ru23.com/note/3ab58e3e.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/3ab58e3e.html&title=《vue生命周期（五）》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/3ab58e3e.html&title=《vue生命周期（五）》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/3ab58e3e.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue生命周期（五）》 — 前端迷&url=https://ru23.com/note/3ab58e3e.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/3ab58e3e.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByUlEQVR42u3ay47CMAwFUP7/pztbpBHptfPgoZMVogVOWVi5dh6PeF1P6/md8T3jz/6/c9nCxcWd5l7DlVDG3zO+Pzfg4uKe576qGMk94zJXpd/YcHFxP5I7LnO9B8DFxf0NbhJjqnEIFxf307h5GYq+NGBtz2q4uLgT3LxLue/1lv4uLi5ui3sVV/VhktZJ4ddxcXGPcPOC0mtzVActUXzCxcV9E7fa3JwJTkkQuklauLi4G7gzR696m6GkkVro5eDi4i7l5ocq8k3MzDGOm0/h4uIe4fYKVrWHuWrzhIuLe4Y70+iciU/N8IOLi3uEWy0ohbZFHI3yq7i4uCe5hTFGcDX/yepgBhcX9yQ3b2cs+A9amydcXNx3cZNNTF7akgKXF7Uo/ODi4m7g5mOP6sGLanC6+YNwcXEPcqshJ483+WC1EH5wcXHfyu0dyJiPRs1uDS4u7jT3Kq5e1Ekao+UOLi4u7jZuvuY3K/kjNYesuLi4S7n59qUXeKqlsHAwCxcXdzO3N96oDl3yJuzLd3Bxcb+Q24tPhdYJLi7ul3Afm9fiQoaLixtzq2OSaDsSfza5iouLe5I7P6etHrFKNkAL+ru4uLgd7h/CUZp54xkVvAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/vue/" class="color4">vue</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、生命周期钩子函数"><span class="post-toc-text">一、生命周期钩子函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、生命周期详解"><span class="post-toc-text">二、生命周期详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-beforeCreate、created"><span class="post-toc-text">2.1 beforeCreate、created</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-created、beforeMount"><span class="post-toc-text">2.2 created、beforeMount</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-text">{{message +'这是在template中的'}}</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-beforeMount、mounted"><span class="post-toc-text">2.3 beforeMount、mounted</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-mounted"><span class="post-toc-text">2.4 mounted</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-beforeUpdate、updated"><span class="post-toc-text">2.5 beforeUpdate、updated</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-6-beforeDestroy、destroyed"><span class="post-toc-text">2.6 beforeDestroy、destroyed</span></a></li></ol></li>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/dd238463.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          vue事件（六）
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/63a9f06.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">vue 基本指令（四）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        <div class="outer-ad-aside" id="outer-ad-aside">
+          
+          
+          <a style="display: block;" title="阿里云双十二大促，新老用户皆可返现" target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=jh5fwy2j&share_source=copy_link">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              阿里云双十二大促，新老用户皆可返现
+            </div>
+            
+            <img src="https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg" alt="阿里云双十二大促，新老用户皆可返现">
+          </a>
+          
+          <a style="display: block;" title="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元" target="_blank" href="https://url.cn/50C5WrF">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元
+            </div>
+            
+            <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345x200-c37e147ab2b4b8074e63d71ca21420cf1a7d4933.png" alt="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元">
+          </a>
+          
+          <a style="display: block;" target="_blank" ">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线
+            </div>
+            
+            <img src=" https://cdn.ru23.com/common/sale.png" alt="广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线">
+          </a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        © 2020 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">×</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="https://58fe.com">
+                    <i class="fa fa-heart"></i><span>前端社区</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">×</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

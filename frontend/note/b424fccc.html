@@ -1,0 +1,572 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       nodejs之基础api（三） |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="Path 提供了一些工具函数，用于处理文件与目录的路径  basename、dirname与extname  返回一个 path的最后一部分 返回一个 path 的目录名 返回 path 的扩展名  1234567const {basename,dirname,extname} = require("path");const filePath = "/usr/local/bin/test.txt"">
+<meta name="keywords" content="javascript,node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs之基础api（三）">
+<meta property="og:url" content="https://ru23.com/note/b424fccc.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="Path 提供了一些工具函数，用于处理文件与目录的路径  basename、dirname与extname  返回一个 path的最后一部分 返回一个 path 的目录名 返回 path 的扩展名  1234567const {basename,dirname,extname} = require("path");const filePath = "/usr/local/bin/test.txt"">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-11T11:01:06.357Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs之基础api（三）">
+<meta name="twitter:description" content="Path 提供了一些工具函数，用于处理文件与目录的路径  basename、dirname与extname  返回一个 path的最后一部分 返回一个 path 的目录名 返回 path 的扩展名  1234567const {basename,dirname,extname} = require("path");const filePath = "/usr/local/bin/test.txt"">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  </head><body><div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+  
+
+
+
+
+  <div id="container">
+    <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="https://58fe.com">
+                        <i class="fa fa-heart"></i>
+                        <span>前端社区</span>
+                    </a>
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    <div class="outer">
+      <div class="outer-section">
+        <section id="main" class="body-wrap"><article id="post-2017-10-node-base-api" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      nodejs之基础api（三）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/back-end/">back-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-10-15
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <meta name="generator" content="Hexo 3.8.0"><h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><blockquote>
+<p>提供了一些工具函数，用于处理文件与目录的路径</p>
+</blockquote>
+<p><strong>basename、dirname与extname</strong></p>
+<ul>
+<li>返回一个 <code>path</code>的最后一部分</li>
+<li>返回一个 <code>path</code> 的目录名</li>
+<li>返回 <code>path</code> 的扩展名</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> {basename,dirname,extname} = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filePath = <span class="string">"/usr/local/bin/test.txt"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(basename(filePath)); <span class="comment">// test.txt</span></span><br><span class="line"><span class="built_in">console</span>.log(dirname(filePath)); <span class="comment">// /usr/local/bin</span></span><br><span class="line"><span class="built_in">console</span>.log(extname(filePath)); <span class="comment">// .txt</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>join、normalize与resolve</strong></p>
+<ul>
+<li><code>path.join()</code>方法使用平台特定的分隔符把全部给定的 <code>path</code> 片段连接到一起，并规范化生成的路径</li>
+<li><code>path.normalize()</code> 方法会规范化给定的 <code>path</code>，并解析 <code>'..'</code>和 <code>'.'</code>片段</li>
+<li><code>path.resolve()</code> 方法会把一个相对路径解析为一个绝对路径</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.join(<span class="string">'/foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz/asdf'</span>, <span class="string">'quux'</span>, <span class="string">'..'</span>);</span><br><span class="line"><span class="comment">// 返回: '/foo/bar/baz/asdf'</span></span><br><span class="line"></span><br><span class="line">path.join(<span class="string">'foo'</span>, {}, <span class="string">'bar'</span>);</span><br><span class="line"><span class="comment">// 抛出 'TypeError: Path must be a string. Received {}'</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>path.format与path.parse</strong></p>
+<ul>
+<li><code>path.format()</code>方法会从一个对象返回一个路径字符串。 与 <code>path.parse()</code> 相反</li>
+<li><code>path.parse()</code>方法返回一个对象，对象的属性表示 <code>path</code> 的元素</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> {parse,format} = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filePath = <span class="string">"/usr/local/bin/test.txt"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> parse_ret = parse(filePath);</span><br><span class="line"><span class="keyword">const</span> format_ret = format(parse_ret)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(parse_ret);</span><br><span class="line"><span class="built_in">console</span>.log(format_ret);</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>结果</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="attr">root</span>: <span class="string">'/'</span>,</span><br><span class="line">  dir: <span class="string">'/usr/local/bin'</span>,</span><br><span class="line">  base: <span class="string">'test.txt'</span>,</span><br><span class="line">  ext: <span class="string">'.txt'</span>,</span><br><span class="line">  name: <span class="string">'test'</span> }</span><br><span class="line">/usr/local/bin\test.txt</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>sep、delimiter、win32、posix</strong></p>
+<blockquote>
+<p>和操作系统有关的东西</p>
+</blockquote>
+<ul>
+<li><code>sep</code>：提供了平台特定的路径片段分隔符<ul>
+<li><code>Windows</code> 上是<code>\</code></li>
+<li><code>POSIX</code> 上是 <code>/</code></li>
+</ul>
+</li>
+<li><code>path.win32</code>提供了 <code>path</code> 方法针对<code>Windows</code> 的实现</li>
+<li><code>posix</code>   属性提供了 <code>path</code>方法针对 <code>POSIX</code> 的实现</li>
+<li><code>delimiter</code> 就是 <code>":"</code></li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> {sep,delimiter,win32,posix} = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filePath = <span class="string">"/usr/local/bin/test.txt"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"sep "</span>,sep);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"posix sep "</span>,posix.sep);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"win32 sep "</span>,win32.sep);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"PATH"</span>,process.env.PATH);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"delimiter "</span>,delimiter);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sep  \</span><br><span class="line">posix sep  /</span><br><span class="line">win32 sep  \</span><br><span class="line">PATH C:\Python27\;C:\Python27\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\</span><br><span class="line">System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1<span class="number">.0</span>\;C:\Program Files\git\b</span><br><span class="line"><span class="keyword">in</span>;C:\Program Files\nodejs;;e:\Program Files\VS Code\bin;C:\Users\Administrator\</span><br><span class="line">AppData\Roaming\npm;.;;.;;.;</span><br><span class="line">delimiter  ;</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>回顾小结</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路径相关</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"__dirname"</span>, __dirname); <span class="comment">//文件夹</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"__filename"</span>, __filename); <span class="comment">//文件名</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"process.cwd()"</span>, process.cwd()); <span class="comment">//绝对路径</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"./"</span>, path.resolve()); <span class="comment">//根据相对路径取得绝对路径</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><code>__dirname</code>、<code>__filename</code> 总是返回文件的绝对路径</li>
+<li><code>process.cwd()</code>总是返回<code>node</code>命令所在文件夹（就是用户在哪里启动的<code>node</code>脚本的路径）</li>
+</ul>
+<h2 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h2><blockquote>
+<ul>
+<li>buffer用来处理二进制数据流的</li>
+<li>类似于整数数组，大小固定</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Buffer 类在 node.js 中是一个全局变量，因此无需使用 require(‘buffer’).Buffer</p>
+</blockquote>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个长度为 10、且用 0 填充的 Buffer。</span></span><br><span class="line"><span class="keyword">const</span> buf1 = Buffer.alloc(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个长度为 10、且用 0x1 填充的 Buffer。 </span></span><br><span class="line"><span class="keyword">const</span> buf2 = Buffer.alloc(<span class="number">10</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer。</span></span><br><span class="line"><span class="keyword">const</span> buf4 = Buffer.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Buffer类常用的方法</strong></p>
+<ul>
+<li><code>byteLength</code> 计算字符串占了几个字节</li>
+<li><code>Buffer.isBuffer</code>判断是否是<code>buffer</code>对象</li>
+<li><code>Buffer.concat</code>拼接<code>Buffer</code></li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// byteLength 计算字符串占了几个字节</span></span><br><span class="line"><span class="built_in">console</span>.log(Buffer.byteLength(<span class="string">"test"</span>)) <span class="comment">// 4 </span></span><br><span class="line"><span class="built_in">console</span>.log(Buffer.byteLength(<span class="string">"测试"</span>))  <span class="comment">// 6字节</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Buffer.isBuffer判断是否是buffer对象</span></span><br><span class="line"><span class="built_in">console</span>.log(Buffer.isBuffer({}))</span><br><span class="line"><span class="built_in">console</span>.log(Buffer.isBuffer(Buffer.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Buffer.concat拼接Buffer</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> buf1 = Buffer.from(<span class="string">"This "</span>)</span><br><span class="line"><span class="keyword">const</span> buf2 = Buffer.from(<span class="string">"is "</span>)</span><br><span class="line"><span class="keyword">const</span> buf3 = Buffer.from(<span class="string">"a "</span>)</span><br><span class="line"><span class="keyword">const</span> buf4 = Buffer.from(<span class="string">"test "</span>)</span><br><span class="line"><span class="keyword">const</span> buf5 = Buffer.from(<span class="string">"buffer"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> buf = Buffer.concat([buf1,buf2,buf3,buf4,buf5]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(buf.toString());</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">4</span></span><br><span class="line"><span class="comment">6</span></span><br><span class="line"><span class="comment">false</span></span><br><span class="line"><span class="comment">true</span></span><br><span class="line"><span class="comment">This is a test buffer</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Buffer实例常用方法</strong></p>
+<ul>
+<li><code>buf.length</code> </li>
+<li><code>buf.toString()</code></li>
+<li><code>buf.fill()</code> 填充一些值</li>
+<li><code>buf.equals()</code> 两个<code>buffer</code>的内容是否相等</li>
+<li><code>buf.indexOf()</code> 找到字符的位置</li>
+<li><code>buf.copy()</code></li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> buf = Buffer.from(<span class="string">"This is a test!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(buf.length); <span class="comment">// 15</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(buf.toString(<span class="string">"base64"</span>)); </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> buf1 = Buffer.allocUnsafe(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// buf1.fill填充一些值</span></span><br><span class="line"><span class="comment">//<buffer 25 a0 b4 00 01></buffer></span></span><br><span class="line"><span class="comment">//<buffer a0 b4 0a 00 01></buffer></span></span><br><span class="line"><span class="built_in">console</span>.log(buf1)</span><br><span class="line"><span class="built_in">console</span>.log(buf1.fill(<span class="number">10</span>,<span class="number">2</span>,<span class="number">6</span>)) <span class="comment">// 从第二个开始到第六个填充10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// buf.equals两个buffer的内容是否相等</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> buf2 = Buffer.from(<span class="string">"test"</span>)</span><br><span class="line"><span class="keyword">const</span> buf3 = Buffer.from(<span class="string">"test"</span>)</span><br><span class="line"><span class="keyword">const</span> buf4 = Buffer.from(<span class="string">"test!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(buf2.equals(buf3)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(buf2.equals(buf4)) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// buf.indexOf() 找到字符的位置</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(buf2.indexOf(<span class="string">"es"</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(buf2.indexOf(<span class="string">"esa"</span>)); <span class="comment">// -1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决中文乱码问题</span></span><br><span class="line"><span class="keyword">const</span> StringDecoder = <span class="built_in">require</span>(<span class="string">"string_decoder"</span>).StringDecoder;</span><br><span class="line"><span class="keyword">const</span> decoder = <span class="keyword">new</span> StringDecoder(<span class="string">"utf8"</span>);</span><br><span class="line"><span class="keyword">const</span> buf5 = Buffer.from(<span class="string">"中文字符串"</span>);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 乱码</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i<buf5.length;i+=<span class="number">5</buf5.length;i+=<span></span>) {<br><span class="line">	<span class="keyword">const</span> b = Buffer.allocUnsafe(<span class="number">5</span>);</span><br><span class="line">	buf5.copy(b,<span class="number">0</span>,i);</span><br><span class="line">	<span class="built_in">console</span>.log(b.toString());</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不在乱码</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i<buf5.length;i+=<span class="number">5</buf5.length;i+=<span></span>) {<br><span class="line">	<span class="keyword">const</span> b = Buffer.allocUnsafe(<span class="number">5</span>);</span><br><span class="line">	buf5.copy(b,<span class="number">0</span>,i);</span><br><span class="line">	<span class="built_in">console</span>.log(decoder.write(b));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="event"><a href="#event" class="headerlink" title="event"></a>event</h2><blockquote>
+<p>大多数 node.js 核心 api 都采用惯用的异步事件驱动架构，其中某些类型的对象（触发器）会周期性地触发命名事件来调用函数对象（监听器）</p>
+</blockquote>
+<ul>
+<li><code>eventEmitter.on()</code> 方法用于注册监听器，<code>eventEmitter.emit()</code> 方法用于触发事件</li>
+<li>这和在浏览器上不同，在浏览器上靠的是用户做的一些UI的操作触发，如<code>click\hover</code></li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">"events"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承EventEmitter类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEvent</span> <span class="keyword">extends</span> <span class="title">EventEmitter</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ce = <span class="keyword">new</span> CustomEvent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定一个事件名 test，完成事件处理程序</span></span><br><span class="line">ce.on(<span class="string">"test"</span>,()=>{</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"This is a test"</span>);</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span>=></span>{</span><br><span class="line">	<span class="comment">// emit触发事件</span></span><br><span class="line">	ce.emit(<span class="string">"test"</span>);</span><br><span class="line">},<span class="number">500</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">"events"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承EventEmitter类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEvent</span> <span class="keyword">extends</span> <span class="title">EventEmitter</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ce = <span class="keyword">new</span> CustomEvent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定事件处理程序</span></span><br><span class="line">ce.on(<span class="string">"error"</span>,(err,time) => {</span><br><span class="line">	<span class="built_in">console</span>.log(err);</span><br><span class="line">	<span class="built_in">console</span>.log(time);</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给事件处理程序传递多个参数</span></span><br><span class="line">ce.emit(<span class="string">"error"</span>, <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"出错了"</span>),<span class="built_in">Date</span>.now())</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">"events"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承EventEmitter类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEvent</span> <span class="keyword">extends</span> <span class="title">EventEmitter</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ce = <span class="keyword">new</span> CustomEvent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// once只响应一次事件 如jquery中的once()</span></span><br><span class="line">ce.once(<span class="string">"test"</span>,()=> {</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"test event once"</span>);</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span>=></span>{</span><br><span class="line">	<span class="comment">// emit触发事件</span></span><br><span class="line">	ce.emit(<span class="string">"test"</span>);</span><br><span class="line">},<span class="number">500</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">"events"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承EventEmitter类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEvent</span> <span class="keyword">extends</span> <span class="title">EventEmitter</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"fn1"</span>)</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"fn2"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ce = <span class="keyword">new</span> CustomEvent();</span><br><span class="line"></span><br><span class="line">ce.on(<span class="string">"test"</span>,fn1);</span><br><span class="line">ce.on(<span class="string">"test"</span>,fn2);</span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span>=></span>{</span><br><span class="line">	<span class="comment">// emit触发事件</span></span><br><span class="line">	ce.emit(<span class="string">"test"</span>);</span><br><span class="line">},<span class="number">500</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// removeListener移除事件</span></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=></span>{</span><br><span class="line">	<span class="comment">// ce.removeListener("test",fn2)</span></span><br><span class="line">	ce.removeAllListeners(<span class="string">"test"</span>); <span class="comment">//移除test绑定的事件</span></span><br><span class="line">},<span class="number">1500</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="fs"><a href="#fs" class="headerlink" title="fs"></a>fs</h2><ul>
+<li>异步方法的最后一个参数都是一个回调函数。 </li>
+<li>传给回调函数的参数取决于具体方法，但回调函数的第一个参数都会保留给异常。 如果操作成功完成，则第一个参数会是 <code>null</code> 或 <code>undefined</code></li>
+<li>当使用同步方法时，任何异常都会被立即抛出。 可以使用   <code>try/catch</code> 来处理异常，或让异常向上冒泡</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读文件</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// readFile 异步操作</span></span><br><span class="line"><span class="comment">// 规范：回调函数的第一个参数都会保留给异常</span></span><br><span class="line">fs.readFile(<span class="string">"./fs.js"</span>,<span class="string">"utf8"</span>,(err,data)=>{</span><br><span class="line">	<span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">	<span class="built_in">console</span>.log(data);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">// readFile 同步操作（同步先执行）</span></span><br><span class="line"><span class="keyword">const</span> data = fs.readFileSync(<span class="string">"./path.js"</span>,<span class="string">"utf8"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(data)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写文件</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">fs.writeFile(<span class="string">"./write.js"</span>,<span class="string">"This is a  test"</span>,{<span class="attr">encoding</span>:<span class="string">"utf8"</span>},err=>{</span><br><span class="line">	<span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"done"</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//stat文件信息</span></span><br><span class="line">fs.stat(<span class="string">"./fs.js"</span>,(err,stats)=>{</span><br><span class="line">	<span class="keyword">if</span> (err) {</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"文件不存在"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	};</span><br><span class="line"></span><br><span class="line">	<span class="built_in">console</span>.log(stats.isFile()) <span class="comment">//true</span></span><br><span class="line">	<span class="built_in">console</span>.log(stats.isDirectory()) <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">console</span>.log(stats)</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">		Stats {</span></span><br><span class="line"><span class="comment">		  dev: -835755091,</span></span><br><span class="line"><span class="comment">		  mode: 33206,</span></span><br><span class="line"><span class="comment">		  nlink: 1,</span></span><br><span class="line"><span class="comment">		  uid: 0,</span></span><br><span class="line"><span class="comment">		  gid: 0,</span></span><br><span class="line"><span class="comment">		  rdev: 0,</span></span><br><span class="line"><span class="comment">		  blksize: undefined,</span></span><br><span class="line"><span class="comment">		  ino: 562949953557826,</span></span><br><span class="line"><span class="comment">		  size: 216,</span></span><br><span class="line"><span class="comment">		  blocks: undefined,</span></span><br><span class="line"><span class="comment">		  atime: 2017-10-15T12:24:01.933Z,</span></span><br><span class="line"><span class="comment">		  mtime: 2017-10-15T12:49:00.341Z,</span></span><br><span class="line"><span class="comment">		  ctime: 2017-10-15T12:49:00.341Z,</span></span><br><span class="line"><span class="comment">		  birthtime: 2017-10-15T12:24:01.871Z</span></span><br><span class="line"><span class="comment">	    }</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rename修改文件名</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">fs.rename(<span class="string">"./write.js"</span>,<span class="string">"test.js"</span>,err=>{</span><br><span class="line">	<span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"done"</span>);</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// unlink删除文件</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">fs.unlink(<span class="string">"./test.js"</span>,err=>{</span><br><span class="line">	<span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"done"</span>);</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读文件夹相关操作</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">fs.readdir(<span class="string">"./"</span>,(err,files)=>{</span><br><span class="line">	<span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">	<span class="built_in">console</span>.log(files);</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">		[ '.vscode',</span></span><br><span class="line"><span class="comment">	  'buffer.js',</span></span><br><span class="line"><span class="comment">	  'events.js',</span></span><br><span class="line"><span class="comment">	  'fs.js',</span></span><br><span class="line"><span class="comment">	  'path.js',</span></span><br><span class="line"><span class="comment">	  'test1.js',</span></span><br><span class="line"><span class="comment">	  'test2.js',</span></span><br><span class="line"><span class="comment">	  'test3.js',</span></span><br><span class="line"><span class="comment">	  'test4.js' ]</span></span><br><span class="line"><span class="comment">	 **/</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建文件夹</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">fs.mkdir(<span class="string">"test"</span>,err=>{});</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除文件夹</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">fs.rmdir(<span class="string">"./test"</span>,err=>{});</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// watch监视文件变化</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">fs.watch(<span class="string">"./"</span>,{</span><br><span class="line">	recursive: <span class="literal">true</span> <span class="comment">//是否循环递归</span></span><br><span class="line">},(eventType,filename) => {</span><br><span class="line">	<span class="built_in">console</span>.log(eventType, filename)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// readStream 流 (从一个方向流向另一个方向)</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rs = fs.createReadStream(<span class="string">"./fs.js"</span>);</span><br><span class="line"></span><br><span class="line">rs.pipe(process.stdout) <span class="comment">// process.stdout控制台</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// writeStream </span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ws = fs.createWriteStream(<span class="string">"./test5.js"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> time = setInterval(<span class="function"><span class="params">()</span>=></span>{</span><br><span class="line">	<span class="keyword">const</span> num = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (num < <span class="number">7</span>) {</span><br><span class="line">		ws.write(num + <span class="string">""</span>); <span class="comment">// 需要转成字符串或者buffer才能写入</span></span><br><span class="line">	} <span class="keyword">else</span> {</span><br><span class="line">		clearInterval(time);</span><br><span class="line">		ws.end();<span class="comment">// 写完数据</span></span><br><span class="line">	}</span><br><span class="line">},<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用事件判断是否写完数据</span></span><br><span class="line">ws.on(<span class="string">"finish"</span>, () => {</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"done!"</span>);</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="异步解决方案"><a href="#异步解决方案" class="headerlink" title="异步解决方案"></a>异步解决方案</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步回调 node.js v8.0.0版本增加了util.promisify函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">const</span> promisify = <span class="built_in">require</span>(<span class="string">"util"</span>).promisify;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> read = promisify(fs.readFile); </span><br><span class="line"></span><br><span class="line">read(<span class="string">"./callback.js"</span>).then(<span class="function"><span class="params">data</span>=></span>{</span><br><span class="line">	<span class="built_in">console</span>.log(data.toString());</span><br><span class="line">}).catch(<span class="function"><span class="params">ex</span>=></span>{</span><br><span class="line">	<span class="built_in">console</span>.log(ex)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="comment">// async awit</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">try</span> {</span><br><span class="line">		<span class="keyword">const</span> content = awit read(<span class="string">"./callback.js"</span>);</span><br><span class="line">		<span class="built_in">console</span>.log(content.toString())</span><br><span class="line">	} <span class="keyword">catch</span> (ex) {</span><br><span class="line">		<span class="built_in">console</span>.log(ex)</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line">test()</span><br></pre></td></tr></tbody></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2020年04月11日 19:01</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/b424fccc.html" title="nodejs之基础api（三）">https://ru23.com/note/b424fccc.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/b424fccc.html&title=《nodejs之基础api（三）》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/b424fccc.html&title=《nodejs之基础api（三）》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/b424fccc.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《nodejs之基础api（三）》 — 前端迷&url=https://ru23.com/note/b424fccc.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/b424fccc.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3ayw7DMAhE0fz/T6fbSgnODBgaVderqs3jdDMC7OOQ13lZ399fr7neGz3z6Fhw4cItc8/liijRr9ETorvcJ8CFC3eSuw6a9TXKn6k8Hy5cuO/nrmPuIYaEWIQLF+5/cHMtE1y4cN/PVZqfXROMoV4NLly4Ba7+4r7PLfNduHDhprinudx4qgxJb54PFy7cEa4eKDl0RM+1T3Dhwp3hulGlb6i4Y5T1240pC1y4cDdx6w2PHk/K4YyHigwuXLiD3PXNbpLUj1nc3AUXLtwRbmVgmiuJ3K3W5IYKXLhwN3HdxibXzJSaH7hw4Y5wlbhxY04fl7jtEFy4cOe5bvLl2hh38/WmV4MLF+4Id29gVYoYKcjgwoXbzM1touQOcrljF6PYggsXbgO3Mu7Ut17cwxxhkMGFC3eQq79SL4Aq7VP4Xrhw4Y5z3e1PPQr1RstodeDChdvArTQzbpmS3PuFCxfuONcdla7pboIqMVc6RwYXLtwC1y1QFKJyfTIo4cKFO8h1g8b9S3qCPhzggAsX7iu5uRGJPRjNnQGBCxfuj7hK4XJsXS25CxcuXIHrDknda3IlEVy4cH/FzW18Vo5YVcoguHDhNnM/xntSwfOggW4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/node/" class="color5">node</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Path"><span class="post-toc-text">Path</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Buffer"><span class="post-toc-text">Buffer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#event"><span class="post-toc-text">event</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#fs"><span class="post-toc-text">fs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异步解决方案"><span class="post-toc-text">异步解决方案</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/6d4a6414.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          javascript继承的几种方式
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/795a0309.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">nodejs之环境&调试（二）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        <div class="outer-ad-aside" id="outer-ad-aside">
+          
+          
+          <a style="display: block;" title="阿里云双十二大促，新老用户皆可返现" target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=jh5fwy2j&share_source=copy_link">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              阿里云双十二大促，新老用户皆可返现
+            </div>
+            
+            <img src="https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg" alt="阿里云双十二大促，新老用户皆可返现">
+          </a>
+          
+          <a style="display: block;" title="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元" target="_blank" href="https://url.cn/50C5WrF">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元
+            </div>
+            
+            <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345x200-c37e147ab2b4b8074e63d71ca21420cf1a7d4933.png" alt="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元">
+          </a>
+          
+          <a style="display: block;" target="_blank" ">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线
+            </div>
+            
+            <img src=" https://cdn.ru23.com/common/sale.png" alt="广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线">
+          </a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        © 2020 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">×</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="https://58fe.com">
+                    <i class="fa fa-heart"></i><span>前端社区</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">×</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
