@@ -1,0 +1,557 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       javascript常用api合集 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="来源于互联网  一、节点1.1 节点属性 1234567891011121314151617181920node.nodeName   //返回节点名称，只读node.nodeType   //返回节点类型的常数值，只读node.nodeValue  //返回Text或Comment节点的文本值，只读node.textContent  //返回当前节点和它的所有后代节点的文本内容，可读写node">
+<meta name="keywords" content="javascript,api">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript常用api合集">
+<meta property="og:url" content="https://ru23.com/note/c5d4add4.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="来源于互联网  一、节点1.1 节点属性 1234567891011121314151617181920node.nodeName   //返回节点名称，只读node.nodeType   //返回节点类型的常数值，只读node.nodeValue  //返回Text或Comment节点的文本值，只读node.textContent  //返回当前节点和它的所有后代节点的文本内容，可读写node">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-11T11:59:26.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript常用api合集">
+<meta name="twitter:description" content="来源于互联网  一、节点1.1 节点属性 1234567891011121314151617181920node.nodeName   //返回节点名称，只读node.nodeType   //返回节点类型的常数值，只读node.nodeValue  //返回Text或Comment节点的文本值，只读node.textContent  //返回当前节点和它的所有后代节点的文本内容，可读写node">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  </head><body><div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+  
+
+
+
+
+  <div id="container">
+    <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="https://58fe.com">
+                        <i class="fa fa-heart"></i>
+                        <span>前端社区</span>
+                    </a>
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    <div class="outer">
+      <div class="outer-section">
+        <section id="main" class="body-wrap"><article id="post-2017-12-js-api" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      javascript常用api合集
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-24
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+<p>来源于互联网</p>
+</blockquote>
+<h2 id="一、节点"><a href="#一、节点" class="headerlink" title="一、节点"></a>一、节点</h2><p><strong>1.1 节点属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">node.nodeName   <span class="comment">//返回节点名称，只读</span></span><br><span class="line">node.nodeType   <span class="comment">//返回节点类型的常数值，只读</span></span><br><span class="line">node.nodeValue  <span class="comment">//返回Text或Comment节点的文本值，只读</span></span><br><span class="line">node.textContent  <span class="comment">//返回当前节点和它的所有后代节点的文本内容，可读写</span></span><br><span class="line">node.baseURI    <span class="comment">//返回当前网页的绝对路径</span></span><br><span class="line"></span><br><span class="line">node.ownerDocument  <span class="comment">//返回当前节点所在的顶层文档对象，即document</span></span><br><span class="line">node.nextSibling  <span class="comment">//返回紧跟在当前节点后面的第一个兄弟节点</span></span><br><span class="line">node.previousSibling  <span class="comment">//返回当前节点前面的、距离最近的一个兄弟节点</span></span><br><span class="line">node.parentnode   <span class="comment">//返回当前节点的父节点</span></span><br><span class="line">node.parentElement  <span class="comment">//返回当前节点的父Element节点</span></span><br><span class="line">node.childnodes   <span class="comment">//返回当前节点的所有子节点</span></span><br><span class="line">node.firstChild  <span class="comment">//返回当前节点的第一个子节点</span></span><br><span class="line">node.lastChild   <span class="comment">//返回当前节点的最后一个子节点</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//parentnode接口</span></span><br><span class="line">node.children  <span class="comment">//返回指定节点的所有Element子节点</span></span><br><span class="line">node.firstElementChild  <span class="comment">//返回当前节点的第一个Element子节点</span></span><br><span class="line">node.lastElementChild   <span class="comment">//返回当前节点的最后一个Element子节点</span></span><br><span class="line">node.childElementCount  <span class="comment">//返回当前节点所有Element子节点的数目。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>1.2 操作</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">node.appendChild(node)   <span class="comment">//向节点添加最后一个子节点</span></span><br><span class="line">node.hasChildnodes()   <span class="comment">//返回布尔值，表示当前节点是否有子节点</span></span><br><span class="line">node.clonenode(<span class="literal">true</span>);  <span class="comment">// 默认为false(克隆节点), true(克隆节点及其属性，以及后代)</span></span><br><span class="line">node.insertBefore(newnode,oldnode)  <span class="comment">// 在指定子节点之前插入新的子节点</span></span><br><span class="line">node.removeChild(node)   <span class="comment">//删除节点，在要删除节点的父节点上操作</span></span><br><span class="line">node.replaceChild(newChild,oldChild)  <span class="comment">//替换节点</span></span><br><span class="line">node.contains(node)  <span class="comment">//返回一个布尔值，表示参数节点是否为当前节点的后代节点。</span></span><br><span class="line">node.compareDocumentPosition(node)   <span class="comment">//返回一个7个比特位的二进制值，表示参数节点和当前节点的关系</span></span><br><span class="line">node.isEqualnode(noe)  <span class="comment">//返回布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。</span></span><br><span class="line">node.normalize()   <span class="comment">//用于清理当前节点内部的所有Text节点。它会去除空的文本节点，并且将毗邻的文本节点合并成一个。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Childnode接口</span></span><br><span class="line">node.remove()  <span class="comment">//用于删除当前节点</span></span><br><span class="line">node.before()  <span class="comment">//</span></span><br><span class="line">node.after()</span><br><span class="line">node.replaceWith()</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>1.3 Document节点</strong></p>
+<p><strong>1.3.1 Document节点的属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.doctype   <span class="comment">//</span></span><br><span class="line"><span class="built_in">document</span>.documentElement  <span class="comment">//返回当前文档的根节点</span></span><br><span class="line"><span class="built_in">document</span>.defaultView   <span class="comment">//返回document对象所在的window对象</span></span><br><span class="line"><span class="built_in">document</span>.body   <span class="comment">//返回当前文档的节点</span></span><br><span class="line"><span class="built_in">document</span>.head   <span class="comment">//返回当前文档的<meta name="generator" content="Hexo 3.8.0">节点</span></span><br><span class="line"><span class="built_in">document</span>.activeElement  <span class="comment">//返回当前文档中获得焦点的那个元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//节点集合属性</span></span><br><span class="line"><span class="built_in">document</span>.links  <span class="comment">//返回当前文档的所有a元素</span></span><br><span class="line"><span class="built_in">document</span>.forms  <span class="comment">//返回页面中所有表单元素</span></span><br><span class="line"><span class="built_in">document</span>.images  <span class="comment">//返回页面中所有图片元素</span></span><br><span class="line"><span class="built_in">document</span>.embeds  <span class="comment">//返回网页中所有嵌入对象</span></span><br><span class="line"><span class="built_in">document</span>.scripts  <span class="comment">//返回当前文档的所有脚本</span></span><br><span class="line"><span class="built_in">document</span>.styleSheets  <span class="comment">//返回当前网页的所有样式表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//文档信息属性</span></span><br><span class="line"><span class="built_in">document</span>.documentURI  <span class="comment">//表示当前文档的网址</span></span><br><span class="line"><span class="built_in">document</span>.URL  <span class="comment">//返回当前文档的网址</span></span><br><span class="line"><span class="built_in">document</span>.domain  <span class="comment">//返回当前文档的域名</span></span><br><span class="line"><span class="built_in">document</span>.lastModified  <span class="comment">//返回当前文档最后修改的时间戳</span></span><br><span class="line"><span class="built_in">document</span>.location  <span class="comment">//返回location对象，提供当前文档的URL信息</span></span><br><span class="line"><span class="built_in">document</span>.referrer  <span class="comment">//返回当前文档的访问来源</span></span><br><span class="line"><span class="built_in">document</span>.title    <span class="comment">//返回当前文档的标题</span></span><br><span class="line"><span class="built_in">document</span>.characterSet属性返回渲染当前文档的字符集，比如UTF<span class="number">-8</span>、ISO<span class="number">-8859</span><span class="number">-1</span>。</span><br><span class="line"><span class="built_in">document</span>.readyState  <span class="comment">//返回当前文档的状态</span></span><br><span class="line"><span class="built_in">document</span>.designMode  <span class="comment">//控制当前文档是否可编辑，可读写</span></span><br><span class="line"><span class="built_in">document</span>.compatMode  <span class="comment">//返回浏览器处理文档的模式</span></span><br><span class="line"><span class="built_in">document</span>.cookie   <span class="comment">//用来操作Cookie</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>1.3.2 Document节点的方法</strong></p>
+<p><strong>（1）读写方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.open()   <span class="comment">//用于新建并打开一个文档</span></span><br><span class="line"><span class="built_in">document</span>.close()   <span class="comment">//不安比open方法所新建的文档</span></span><br><span class="line"><span class="built_in">document</span>.write()   <span class="comment">//用于向当前文档写入内容</span></span><br><span class="line"><span class="built_in">document</span>.writeIn()  <span class="comment">//用于向当前文档写入内容，尾部添加换行符。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）查找节点</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(selectors)   <span class="comment">//接受一个CSS选择器作为参数，返回第一个匹配该选择器的元素节点。</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(selectors)  <span class="comment">//接受一个CSS选择器作为参数，返回所有匹配该选择器的元素节点。</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(tagName)  <span class="comment">//返回所有指定HTML标签的元素</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByClassName(className)   <span class="comment">//返回包括了所有class名字符合指定条件的元素</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByName(name)   <span class="comment">//用于选择拥有name属性的HTML元素（比如<form>、<radio>、<img>、、<embed>和<object>等）</object></radio></form></span></span><br><span class="line"><span class="built_in">document</span>.getElementById(id)   <span class="comment">//返回匹配指定id属性的元素节点。</span></span><br><span class="line"><span class="built_in">document</span>.elementFromPoint(x,y)  <span class="comment">//返回位于页面指定位置最上层的Element子节点。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（3）生成节点</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(tagName)   <span class="comment">//用来生成HTML元素节点。</span></span><br><span class="line"><span class="built_in">document</span>.createTextnode(text)   <span class="comment">//用来生成文本节点</span></span><br><span class="line"><span class="built_in">document</span>.createAttribute(name)  <span class="comment">//生成一个新的属性对象节点，并返回它。</span></span><br><span class="line"><span class="built_in">document</span>.createDocumentFragment()  <span class="comment">//生成一个DocumentFragment对象</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（4）事件方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createEvent(type)   <span class="comment">//生成一个事件对象，该对象能被element.dispatchEvent()方法使用</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(type,listener,capture)  <span class="comment">//注册事件</span></span><br><span class="line"><span class="built_in">document</span>.removeEventListener(type,listener,capture)  <span class="comment">//注销事件</span></span><br><span class="line"><span class="built_in">document</span>.dispatchEvent(event)  <span class="comment">//触发事件</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（5）其他</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.hasFocus()   //返回一个布尔值，表示当前文档之中是否有元素被激活或获得焦点。</span><br><span class="line">document.adoptnode(externalnode)  //将某个节点，从其原来所在的文档移除，插入当前文档，并返回插入后的新节点。</span><br><span class="line">document.importnode(externalnode, deep)   //从外部文档拷贝指定节点，插入当前文档。</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>1.4 Element节点</strong></p>
+<p><strong>1.4.1 Element节点的属性</strong></p>
+<p><strong>（1）特性属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Element.attributes  <span class="comment">//返回当前元素节点的所有属性节点</span></span><br><span class="line">Element.id  <span class="comment">//返回指定元素的id属性，可读写</span></span><br><span class="line">Element.tagName  <span class="comment">//返回指定元素的大写标签名</span></span><br><span class="line">Element.innerHTML   <span class="comment">//返回该元素包含的HTML代码，可读写</span></span><br><span class="line">Element.outerHTML  <span class="comment">//返回指定元素节点的所有HTML代码，包括它自身和包含的的所有子元素，可读写</span></span><br><span class="line">Element.className  <span class="comment">//返回当前元素的class属性，可读写</span></span><br><span class="line">Element.classList  <span class="comment">//返回当前元素节点的所有class集合</span></span><br><span class="line">Element.dataset   <span class="comment">//返回元素节点中所有的data-*属性。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）尺寸属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Element.clientHeight   <span class="comment">//返回元素节点可见部分的高度</span></span><br><span class="line">Element.clientWidth   <span class="comment">//返回元素节点可见部分的宽度</span></span><br><span class="line">Element.clientLeft   <span class="comment">//返回元素节点左边框的宽度</span></span><br><span class="line">Element.clientTop   <span class="comment">//返回元素节点顶部边框的宽度</span></span><br><span class="line">Element.scrollHeight  <span class="comment">//返回元素节点的总高度</span></span><br><span class="line">Element.scrollWidth  <span class="comment">//返回元素节点的总宽度</span></span><br><span class="line">Element.scrollLeft   <span class="comment">//返回元素节点的水平滚动条向右滚动的像素数值,通过设置这个属性可以改变元素的滚动位置</span></span><br><span class="line">Element.scrollTop   <span class="comment">//返回元素节点的垂直滚动向下滚动的像素数值</span></span><br><span class="line">Element.offsetHeight   <span class="comment">//返回元素的垂直高度(包含border,padding)</span></span><br><span class="line">Element.offsetWidth    <span class="comment">//返回元素的水平宽度(包含border,padding)</span></span><br><span class="line">Element.offsetLeft    <span class="comment">//返回当前元素左上角相对于Element.offsetParent节点的垂直偏移</span></span><br><span class="line">Element.offsetTop   <span class="comment">//返回水平位移</span></span><br><span class="line">Element.style  <span class="comment">//返回元素节点的行内样式</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（3）节点相关属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Element.children   <span class="comment">//包括当前元素节点的所有子元素</span></span><br><span class="line">Element.childElementCount   <span class="comment">//返回当前元素节点包含的子HTML元素节点的个数</span></span><br><span class="line">Element.firstElementChild  <span class="comment">//返回当前节点的第一个Element子节点  </span></span><br><span class="line">Element.lastElementChild   <span class="comment">//返回当前节点的最后一个Element子节点  </span></span><br><span class="line">Element.nextElementSibling  <span class="comment">//返回当前元素节点的下一个兄弟HTML元素节点</span></span><br><span class="line">Element.previousElementSibling  <span class="comment">//返回当前元素节点的前一个兄弟HTML节点</span></span><br><span class="line">Element.offsetParent   <span class="comment">//返回当前元素节点的最靠近的、并且CSS的position属性不等于static的父元素。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>1.4.2 Element节点的方法</strong></p>
+<p><strong>（1）位置方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">getBoundingClientRect()  </span><br><span class="line"><span class="comment">// getBoundingClientRect返回一个对象，包含top,left,right,bottom,width,height // width、height 元素自身宽高</span></span><br><span class="line"><span class="comment">// top 元素上外边界距窗口最上面的距离</span></span><br><span class="line"><span class="comment">// right 元素右外边界距窗口最上面的距离</span></span><br><span class="line"><span class="comment">// bottom 元素下外边界距窗口最上面的距离</span></span><br><span class="line"><span class="comment">// left 元素左外边界距窗口最上面的距离</span></span><br><span class="line"><span class="comment">// width 元素自身宽(包含border,padding) </span></span><br><span class="line"><span class="comment">// height 元素自身高(包含border,padding) </span></span><br><span class="line"></span><br><span class="line">getClientRects()   <span class="comment">//返回当前元素在页面上形参的所有矩形。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 元素在页面上的偏移量  </span></span><br><span class="line"><span class="keyword">var</span> rect = el.getBoundingClientRect()  </span><br><span class="line"><span class="keyword">return</span> {   </span><br><span class="line">  top: rect.top + <span class="built_in">document</span>.body.scrollTop,   </span><br><span class="line">  left: rect.left + <span class="built_in">document</span>.body.scrollLeft  </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）属性方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Element.getAttribute()：读取指定属性  </span><br><span class="line">Element.setAttribute()：设置指定属性  </span><br><span class="line">Element.hasAttribute()：返回一个布尔值，表示当前元素节点是否有指定的属性  </span><br><span class="line">Element.removeAttribute()：移除指定属性</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（3）查找方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Element.querySelector()  </span><br><span class="line">Element.querySelectorAll()  </span><br><span class="line">Element.getElementsByTagName()  </span><br><span class="line">Element.getElementsByClassName()</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（4）事件方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Element.addEventListener()：添加事件的回调函数  </span><br><span class="line">Element.removeEventListener()：移除事件监听函数  </span><br><span class="line">Element.dispatchEvent()：触发事件</span><br><span class="line"></span><br><span class="line"><span class="comment">//ie8</span></span><br><span class="line">Element.attachEvent(oneventName,listener)</span><br><span class="line">Element.detachEvent(oneventName,listener)</span><br><span class="line"></span><br><span class="line"><span class="comment">// event对象  </span></span><br><span class="line"><span class="keyword">var</span> event = <span class="built_in">window</span>.event||event;    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件的目标节点  </span></span><br><span class="line"><span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件代理  </span></span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{   </span><br><span class="line">  <span class="keyword">if</span> (event.target.tagName.toLowerCase() === <span class="string">'li'</span>) {   </span><br><span class="line">    <span class="built_in">console</span>.log(event.target.innerHTML)   </span><br><span class="line">  }  </span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（5）其他</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Element.scrollIntoView()   <span class="comment">//滚动当前元素，进入浏览器的可见区域</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//解析HTML字符串，然后将生成的节点插入dom树的指定位置。</span></span><br><span class="line">Element.insertAdjacentHTML(where, htmlString); </span><br><span class="line">Element.insertAdjacentHTML(<span class="string">'beforeBegin'</span>, htmlString); <span class="comment">// 在该元素前插入  </span></span><br><span class="line">Element.insertAdjacentHTML(<span class="string">'afterBegin'</span>, htmlString); <span class="comment">// 在该元素第一个子元素前插入 </span></span><br><span class="line">Element.insertAdjacentHTML(<span class="string">'beforeEnd'</span>, htmlString); <span class="comment">// 在该元素最后一个子元素后面插入 </span></span><br><span class="line">Element.insertAdjacentHTML(<span class="string">'afterEnd'</span>, htmlString); <span class="comment">// 在该元素后插入</span></span><br><span class="line"></span><br><span class="line">Element.remove()  <span class="comment">//用于将当前元素节点从dom中移除</span></span><br><span class="line">Element.focus()   <span class="comment">//用于将当前页面的焦点，转移到指定元素上</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="二、CSS操作"><a href="#二、CSS操作" class="headerlink" title="二、CSS操作"></a>二、CSS操作</h2><p><strong>（1）类名操作</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ie8以下</span></span><br><span class="line">Element.className  <span class="comment">//获取元素节点的类名</span></span><br><span class="line">Element.className += <span class="string">' '</span> + newClassName  <span class="comment">//新增一个类名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断是否有某个类名</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasClass</span>(<span class="params">element,className</span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(className,<span class="string">'gi'</span>).test(element.className);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//移除class</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClass</span>(<span class="params">element,className</span>)</span>{</span><br><span class="line">  element.className = element.className.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|\\b)'</span> + className.split(<span class="string">' '</span>).join(<span class="string">'|'</span>) + <span class="string">'(\\b|$)'</span>, <span class="string">'gi'</span>),<span class="string">''</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//ie10 </span></span><br><span class="line">element.classList.add(className)  <span class="comment">//新增</span></span><br><span class="line">element.classList.remove(className)  <span class="comment">//删除</span></span><br><span class="line">element.classList.contains(className)  <span class="comment">//是否包含</span></span><br><span class="line">element.classList.toggle(className)  <span class="comment">//toggle class</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）style操作</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">element.setAttribute(<span class="string">'style'</span>,<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">element.style.backgroundColor = <span class="string">'red'</span></span><br><span class="line"></span><br><span class="line">element.style.cssText <span class="comment">//用来读写或删除整个style属性</span></span><br><span class="line"></span><br><span class="line">element.style.setProperty(propertyName,value)  <span class="comment">//设置css属性</span></span><br><span class="line">element.style.getPropertyValue(property)  <span class="comment">//获取css属性</span></span><br><span class="line">element.style.removeProperty(property)  <span class="comment">//删除css属性</span></span><br><span class="line">操作非内联样式</span><br><span class="line"><span class="comment">//ie8</span></span><br><span class="line">element.currentStyle[attrName]</span><br><span class="line"><span class="comment">//ie9+</span></span><br><span class="line"><span class="built_in">window</span>.getComputedStyle(el,<span class="literal">null</span>)[attrName] </span><br><span class="line"><span class="built_in">window</span>.getComputedStyle(el,<span class="literal">null</span>).getPropertyValue(attrName)</span><br><span class="line"><span class="comment">//伪类</span></span><br><span class="line"><span class="built_in">window</span>.getComputedStyle(el,<span class="string">':after'</span>)[attrName]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="三、对象"><a href="#三、对象" class="headerlink" title="三、对象"></a>三、对象</h2><p><strong>3.1 Object对象</strong></p>
+<p><strong>（1）生成实例对象</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype   <span class="comment">//返回原型对象</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（3）方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(o)   <span class="comment">//遍历对象的可枚举属性</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyName(o)   <span class="comment">//遍历对象不可枚举的属性</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>对象实例的方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">valueOf()：返回当前对象对应的值。  </span><br><span class="line">toString()：返回当前对象对应的字符串形式。  </span><br><span class="line">toLocaleString()：返回当前对象对应的本地字符串形式。  </span><br><span class="line">hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。 </span><br><span class="line">isPrototypeOf()：判断当前对象是否为另一个对象的原型。</span><br><span class="line">propertyIsEnumerable()：判断某个属性是否可枚举。</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>3.2 Array对象</strong></p>
+<p><strong>（1）生成实例对象</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>()</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.length  <span class="comment">//长度</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（3）Array.isArray()</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray(a)   <span class="comment">//用来判断一个值是否为数组</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（4）Array实例的方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">a.valueof()   <span class="comment">//返回数组本身</span></span><br><span class="line">a.toString()  <span class="comment">//返回数组的字符串形式</span></span><br><span class="line">a.push(value,vlaue....)   <span class="comment">//用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。</span></span><br><span class="line">pop()   <span class="comment">//用于删除数组的最后一个元素，并返回该元素</span></span><br><span class="line">join()  <span class="comment">//以参数作为分隔符，将所有数组成员组成一个字符串返回。如果不提供参数，默认用逗号分隔。</span></span><br><span class="line">concat()  <span class="comment">//用于多个数组的合并。它将新数组的成员，添加到原数组的尾部，然后返回一个新数组，原数组不变。</span></span><br><span class="line">shift()  <span class="comment">//用于删除数组的第一个元素，并返回该元素。</span></span><br><span class="line">unshift(value)  <span class="comment">//用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。</span></span><br><span class="line">reverse()   <span class="comment">//用于颠倒数组中元素的顺序，返回改变后的数组</span></span><br><span class="line">slice(start_index, upto_index);   <span class="comment">//用于提取原数组的一部分，返回一个新数组，原数组不变。第一个参数为起始位置（从0开始），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。负数表示倒数第几个。</span></span><br><span class="line">splice(index, count_to_remove, addElement1, addElement2, ...);   <span class="comment">//用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素。第一个参数是删除的起始位置，第二个参数是被删除的元素个数。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素。</span></span><br><span class="line">sort()   <span class="comment">//对数组成员进行排序，默认是按照字典顺序排序。排序后，原数组将被改变。如果想让sort方法按照自定义方式排序，可以传入一个函数作为参数，表示按照自定义方法进行排序。该函数本身又接受两个参数，表示进行比较的两个元素。如果返回值大于0，表示第一个元素排在第二个元素后面；其他情况下，都是第一个元素排在第二个元素前面。</span></span><br><span class="line">map()   <span class="comment">//对数组的所有成员依次调用一个函数，根据函数结果返回一个新数组。</span></span><br><span class="line">map(elem,index,arr)   <span class="comment">//map方法接受一个函数作为参数。该函数调用时，map方法会将其传入三个参数，分别是当前成员、当前位置和数组本身。</span></span><br><span class="line">forEach()   <span class="comment">//遍历数组的所有成员，执行某种操作,参数是一个函数。它接受三个参数，分别是当前位置的值、当前位置的编号和整个数组。</span></span><br><span class="line">filter()   <span class="comment">//参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法不会改变原数组。</span></span><br><span class="line">some()    <span class="comment">//用来判断数组成员是否符合某种条件。接受一个函数作为参数，所有数组成员依次执行该函数，返回一个布尔值。该函数接受三个参数，依次是当前位置的成员、当前位置的序号和整个数组。只要有一个数组成员的返回值是true，则整个some方法的返回值就是true，否则false。</span></span><br><span class="line">every()   <span class="comment">//用来判断数组成员是否符合某种条件。接受一个函数作为参数，所有数组成员依次执行该函数，返回一个布尔值。该函数接受三个参数，依次是当前位置的成员、当前位置的序号和整个数组。所有数组成员的返回值都是true，才返回true，否则false。</span></span><br><span class="line">reduce()   <span class="comment">//依次处理数组的每个成员，最终累计为一个值。从左到右处理（从第一个成员到最后一个成员）</span></span><br><span class="line">reduceRight()  <span class="comment">//依次处理数组的每个成员，最终累计为一个值。从右到左（从最后一个成员到第一个成员）</span></span><br><span class="line">indexOf(s)   <span class="comment">//返回给定元素在数组中第一次出现的位置，如果没有出现则返回-1。可以接受第二个参数，表示搜索的开始位置</span></span><br><span class="line">lastIndexOf()  <span class="comment">//返回给定元素在数组中最后一次出现的位置，如果没有出现则返回-1。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>3.3 Number对象</strong></p>
+<p><strong>（1）生成对象</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">Number</span>()</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）Number对象的属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.POSITIVE_INFINITY：正的无限，指向<span class="literal">Infinity</span>。  </span><br><span class="line"><span class="built_in">Number</span>.NEGATIVE_INFINITY：负的无限，指向-<span class="literal">Infinity</span>。  </span><br><span class="line"><span class="built_in">Number</span>.NaN：表示非数值，指向<span class="literal">NaN</span>。  </span><br><span class="line"><span class="built_in">Number</span>.MAX_VALUE：表示最大的正数，相应的，最小的负数为-<span class="built_in">Number</span>.MAX_VALUE。  </span><br><span class="line"><span class="built_in">Number</span>.MIN_VALUE：表示最小的正数（即最接近<span class="number">0</span>的正数，在<span class="number">64</span>位浮点数体系中为<span class="number">5e-324</span>），相应的，最接近<span class="number">0</span>的负数为-<span class="built_in">Number</span>.MIN_VALUE。  </span><br><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER：表示能够精确表示的最大整数，即<span class="number">9007199254740991</span>。  </span><br><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER：表示能够精确表示的最小整数，即<span class="number">-9007199254740991</span>。</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（4）Number对象实例的方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">toString()   <span class="comment">//用来将一个数值转为字符串形式.可以接受一个参数，表示输出的进制。如果省略这个参数，默认将数值先转为十进制，再输出字符串；否则，就根据参数指定的进制，将一个数字转化成某个进制的字符串。</span></span><br><span class="line">toFixed()   <span class="comment">//用于将一个数转为指定位数的小数，返回这个小数对应的字符串。</span></span><br><span class="line">toExponential()  <span class="comment">//用于将一个数转为科学计数法形式。可传入一个参数，参数表示小数点后有效数字的位数，范围为0到20，超出这个范围，会抛出一个RangeError。</span></span><br><span class="line">toPrecision()  <span class="comment">//用于将一个数转为指定位数的有效数字。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>3.4 String 对象</strong></p>
+<p><strong>（1）生成实例对象</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">String</span>()</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）String对象的属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.length   <span class="comment">//返回字符串的长度</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（3）方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">s.chatAt(index)   <span class="comment">//返回指定位置的字符</span></span><br><span class="line">s.fromCharCode()    <span class="comment">//该方法的参数是一系列Unicode码点，返回对应的字符串。</span></span><br><span class="line">s.charCodeAt(index)    <span class="comment">//返回给定位置字符的Unicode码点（十进制表示）</span></span><br><span class="line">s.concat(s2)  <span class="comment">//用于连接两个字符串</span></span><br><span class="line">s.slice(start,end)   <span class="comment">//用于从原字符串取出子字符串并返回，不改变原字符串。第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。如果参数是负值，表示从结尾开始倒数计算的位置，即该负值加上字符串长度。</span></span><br><span class="line">s.substring(start,end)  <span class="comment">//用于从原字符串取出子字符串并返回，不改变原字符串.第一个参数表示子字符串的开始位置，第二个位置表示结束位置。</span></span><br><span class="line">s.substr(start,length)   <span class="comment">//用于从原字符串取出子字符串并返回，不改变原字符串。第一个参数是子字符串的开始位置，第二个参数是子字符串的长度。如果第一个参数是负数，表示倒数计算的字符位置。如果第二个参数是负数，将被自动转为0，因此会返回空字符串。</span></span><br><span class="line">s.indexOf(s)   <span class="comment">//返回给定元素在字符串中第一次出现的位置，如果没有出现则返回-1。可以接受第二个参数，表示搜索的开始位置 </span></span><br><span class="line">s.lastIndexOf()  <span class="comment">//返回给定元素在字符串中最后一次出现的位置，如果没有出现则返回-1。</span></span><br><span class="line">s.trim()  <span class="comment">//用于去除字符串两端的空格，返回一个新字符串</span></span><br><span class="line">s.toLowerCase()  <span class="comment">//用于将一个字符串全部转为小写,返回一个新字符串，不改变原字符串。</span></span><br><span class="line">s.toUpperCase()  <span class="comment">//全部转为大写</span></span><br><span class="line">s.localeCompare(s2)  <span class="comment">//用于比较两个字符串。它返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串。</span></span><br><span class="line">s.match(regexp)   <span class="comment">//用于确定原字符串是否匹配某个子字符串，返回一个数组，成员为匹配的第一个字符串。如果没有找到匹配，则返回null。</span></span><br><span class="line">s.search()  <span class="comment">//返回值为匹配的第一个位置。如果没有找到匹配，则返回-1。</span></span><br><span class="line">s.replace(oldValue,newValue)  <span class="comment">//用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有g修饰符的正则表达式）。</span></span><br><span class="line">s.split()  <span class="comment">//按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组。还可传入第二个参数，决定了返回数组的成员数。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>3.5 Math对象</strong></p>
+<p><strong>（1）属性</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.E：常数e。  </span><br><span class="line"><span class="built_in">Math</span>.LN2：<span class="number">2</span>的自然对数。  </span><br><span class="line"><span class="built_in">Math</span>.LN10：<span class="number">10</span>的自然对数。  </span><br><span class="line"><span class="built_in">Math</span>.LOG2E：以<span class="number">2</span>为底的e的对数。  </span><br><span class="line"><span class="built_in">Math</span>.LOG10E：以<span class="number">10</span>为底的e的对数。  </span><br><span class="line"><span class="built_in">Math</span>.PI：常数Pi。  </span><br><span class="line"><span class="built_in">Math</span>.SQRT1_2：<span class="number">0.5</span>的平方根。  </span><br><span class="line"><span class="built_in">Math</span>.SQRT2：<span class="number">2</span>的平方根。</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（2）数学方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.abs()：返回参数的绝对值  </span><br><span class="line"><span class="built_in">Math</span>.ceil()：向上取整，接受一个参数，返回大于该参数的最小整数。 </span><br><span class="line"><span class="built_in">Math</span>.floor()：向下取整  </span><br><span class="line"><span class="built_in">Math</span>.max(n,n1,...)：可接受多个参数，返回最大值  </span><br><span class="line"><span class="built_in">Math</span>.min(n,n1,..)：可接受多个参数，返回最小值  </span><br><span class="line"><span class="built_in">Math</span>.pow(n,e)：指数运算, 返回以第一个参数为底数、第二个参数为幂的指数值。 </span><br><span class="line"><span class="built_in">Math</span>.sqrt()：返回参数值的平方根。如果参数是一个负值，则返回<span class="literal">NaN</span>。  </span><br><span class="line"><span class="built_in">Math</span>.log()：返回以e为底的自然对数值。</span><br><span class="line"><span class="built_in">Math</span>.exp()：返回e的指数，也就是常数e的参数次方。</span><br><span class="line"><span class="built_in">Math</span>.round()：四舍五入  </span><br><span class="line"><span class="built_in">Math</span>.random()：返回<span class="number">0</span>到<span class="number">1</span>之间的一个伪随机数，可能等于<span class="number">0</span>，但是一定小于<span class="number">1</span>。</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>（3）三角函数方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.sin()：返回参数的正弦  </span><br><span class="line"><span class="built_in">Math</span>.cos()：返回参数的余弦  </span><br><span class="line"><span class="built_in">Math</span>.tan()：返回参数的正切  </span><br><span class="line"><span class="built_in">Math</span>.asin()：返回参数的反正弦（弧度值）  </span><br><span class="line"><span class="built_in">Math</span>.acos()：返回参数的反余弦（弧度值）  </span><br><span class="line"><span class="built_in">Math</span>.atan()：返回参数的反正切（弧度值）</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>3.6 JSON对象</strong></p>
+<p><strong>（1）方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify()   </span><br><span class="line"><span class="comment">//用于将一个值转为字符串。该字符串应该符合JSON格式，并且可以被JSON.parse方法还原。</span></span><br><span class="line"><span class="comment">//（JSON.stringify(obj, selectedProperties)）还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性。</span></span><br><span class="line"><span class="comment">//还可以接受第三个参数，用于增加返回的JSON字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.parse()   <span class="comment">//用于将JSON字符串转化成对象。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>3.7 console对象</strong></p>
+<p><strong>（1）方法</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(text,text2,...)   <span class="comment">//用于在console窗口输出信息。它可以接受多个参数，将它们的结果连接起来输出。如果第一个参数是格式字符串（使用了格式占位符），console.log方法将依次用后面的参数替换占位符，然后再进行输出。</span></span><br><span class="line"><span class="built_in">console</span>.info()   <span class="comment">//在console窗口输出信息，同时，会在输出信息的前面，加上一个蓝色图标。</span></span><br><span class="line"><span class="built_in">console</span>.debug()  <span class="comment">//在console窗口输出信息，同时，会在输出信息的前面，加上一个蓝色图标。</span></span><br><span class="line"><span class="built_in">console</span>.warn()  <span class="comment">//输出信息时，在最前面加一个黄色三角，表示警告；</span></span><br><span class="line"><span class="built_in">console</span>.error()  <span class="comment">//输出信息时，在最前面加一个红色的叉，表示出错，同时会显示错误发生的堆栈</span></span><br><span class="line"><span class="built_in">console</span>.table()  <span class="comment">//可以将复合类型的数据转为表格显示。</span></span><br><span class="line"><span class="built_in">console</span>.count()  <span class="comment">//用于计数，输出它被调用了多少次。</span></span><br><span class="line"><span class="built_in">console</span>.dir()    <span class="comment">//用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。</span></span><br><span class="line"><span class="built_in">console</span>.dirxml()  <span class="comment">//用于以目录树的形式，显示dom节点。</span></span><br><span class="line"><span class="built_in">console</span>.assert()  <span class="comment">//接受两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这两个方法用于计时，可以算出一个操作所花费的准确时间。</span></span><br><span class="line"><span class="built_in">console</span>.time()</span><br><span class="line"><span class="built_in">console</span>.timeEnd()</span><br><span class="line"><span class="comment">//time方法表示计时开始，timeEnd方法表示计时结束。它们的参数是计时器的名称。调用timeEnd方法之后，console窗口会显示“计时器名称: 所耗费的时间”。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.profile()  <span class="comment">//用来新建一个性能测试器（profile），它的参数是性能测试器的名字。</span></span><br><span class="line"><span class="built_in">console</span>.profileEnd()  <span class="comment">//用来结束正在运行的性能测试器。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.group()</span><br><span class="line"><span class="built_in">console</span>.groupend()</span><br><span class="line"><span class="comment">//上面这两个方法用于将显示的信息分组。它只在输出大量信息时有用，分在一组的信息，可以用鼠标折叠/展开。</span></span><br><span class="line"><span class="built_in">console</span>.groupCollapsed()  <span class="comment">//用于将显示的信息分组，该组的内容，在第一次显示时是收起的（collapsed），而不是展开的。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.trace()  <span class="comment">//显示当前执行的代码在堆栈中的调用路径。</span></span><br><span class="line"><span class="built_in">console</span>.clear()  <span class="comment">//用于清除当前控制台的所有输出，将光标回置到第一行。</span></span><br></pre></td></tr></tbody></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/c5d4add4.html" title="javascript常用api合集">https://ru23.com/note/c5d4add4.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/c5d4add4.html&title=《javascript常用api合集》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/c5d4add4.html&title=《javascript常用api合集》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/c5d4add4.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript常用api合集》 — 前端迷&url=https://ru23.com/note/c5d4add4.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/c5d4add4.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3aQW4DIQwF0Nz/0qnUVaU25BszzlR6rEYTxDyysIzN4xGP5/fYe//7+ed4XDFwcXHb3OdyrD+z/uR6M+v1X24JFxd3kJsEoyQ8vXqTB7s3Nlxc3Jtxk80k9Dwg4uLi/hduNUFJ0iNcXNx7cvOl9+oVnQ3j4uLOc6sF0yueL6zv4uLiFrn91KQKaiVGuLi4I9x+myQ/0lTDViEjw8XFvYCbt086H+78Nbi4uJPcampSLWSs16le9cDFxZ3krpOJ9Zzk1zwsvgltuLi4g9zqUWfv6lW1ffvHHFxc3HFufmUqb52ebeLi4uJ+llstYuaFkk5JBRcXd4abJCLJZam9VkqhIIKLizvOrU7NyyjVIFhIgHBxcce55bByQZO1EMhwcXGPcvdKFUm5s5owRQZcXNwPcatx49SlzOSIhYuLO8Pt9yzyJmsVUZiPi4t7lLuXdpxqtBy4somLi3sBt9Ps7C9aPWjh4uJOcvPyxNl2SP6tQvTFxcU9yt0rjK5ZZ4smuLi49+R2jjdJmbVQ5cXFxb0Zd/N+RzVg5ecwXFzcy7idw0+ygSSoRZvHxcUd4e4VTKtpUN6A6V/swMXFbXC/AP4I7As09z70AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/api/" class="color4">api</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、节点"><span class="post-toc-text">一、节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、CSS操作"><span class="post-toc-text">二、CSS操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、对象"><span class="post-toc-text">三、对象</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/84c8c02e.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          echart使用小结
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/3d3ed3e0.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">前端基础</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        <div class="outer-ad-aside" id="outer-ad-aside">
+          
+          
+          <a style="display: block;" title="阿里云双十二大促，新老用户皆可返现" target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=jh5fwy2j&share_source=copy_link">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              阿里云双十二大促，新老用户皆可返现
+            </div>
+            
+            <img src="https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg" alt="阿里云双十二大促，新老用户皆可返现">
+          </a>
+          
+          <a style="display: block;" title="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元" target="_blank" href="https://url.cn/50C5WrF">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元
+            </div>
+            
+            <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345x200-c37e147ab2b4b8074e63d71ca21420cf1a7d4933.png" alt="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元">
+          </a>
+          
+          <a style="display: block;" target="_blank" ">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线
+            </div>
+            
+            <img src=" https://cdn.ru23.com/common/sale.png" alt="广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线">
+          </a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        © 2020 frank<br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/todolist/">todolist</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">×</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="https://58fe.com">
+                    <i class="fa fa-heart"></i><span>前端社区</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 11.54px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 12.31px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todo/" style="font-size: 10.77px;">todo</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 13.08px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">×</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
