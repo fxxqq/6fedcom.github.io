@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -8,14 +8,14 @@
     
     <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
      <meta name="description" content="今天碰到了一个这样的需求，在自己写的动态的页面中，写入的AngularJS无效不能点击响应事件，以下给出代码以及解决方案  1.首先将我们要赋值给页面的数据new一下  1234567var html = ""```  2.用$compile函数编译一下上边的内容```htmlvar $html = $compile(html)($scope); 3.将编译好的内容插入到页面中  1$("body">
-<meta name="keywords" content="angular,踩过的坑">
+<meta name="keywords" content="踩过的坑,angular">
 <meta property="og:type" content="article">
 <meta property="og:title" content="详解angularJS动态生成的页面中ng-click无效解决办法">
 <meta property="og:url" content="https://ru23.com/note/f99d9594.html">
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="今天碰到了一个这样的需求，在自己写的动态的页面中，写入的AngularJS无效不能点击响应事件，以下给出代码以及解决方案  1.首先将我们要赋值给页面的数据new一下  1234567var html = ""```  2.用$compile函数编译一下上边的内容```htmlvar $html = $compile(html)($scope); 3.将编译好的内容插入到页面中  1$("body">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.099Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解angularJS动态生成的页面中ng-click无效解决办法">
 <meta name="twitter:description" content="今天碰到了一个这样的需求，在自己写的动态的页面中，写入的AngularJS无效不能点击响应事件，以下给出代码以及解决方案  1.首先将我们要赋值给页面的数据new一下  1234567var html = ""```  2.用$compile函数编译一下上边的内容```htmlvar $html = $compile(html)($scope); 3.将编译好的内容插入到页面中  1$("body">  
@@ -150,10 +150,10 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>今天碰到了一个这样的需求，在自己写的动态的页面中，写入的AngularJS无效不能点击响应事件，以下给出代码以及解决方案</p>
+            <p>今天碰到了一个这样的需求，在自己写的动态的页面中，写入的AngularJS无效不能点击响应事件，以下给出代码以及解决方案</p>
 <h5> 1.首先将我们要赋值给页面的数据new一下</h5>
 
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var html = "<span class="tag"><<span class="name">a</span> <span class="attr">href</span>=<span class="string">'javascript:void(0);'</span> <span class="attr">ng-click</span>=<span class="string">'test()'</span>></span><span class="tag">a</span>></span>"<br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="tag"><<span class="name">h5</span>></span>2.用$compile函数编译一下上边的内容<span class="tag">h5</span>></span><br><span class="line"></span><br><span class="line">```html</span><br><span class="line">var $html = $compile(html)($scope);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var html = "<span class="tag"><<span class="name">a</span> <span class="attr">href</span>=<span class="string">'javascript:void(0);'</span> <span class="attr">ng-click</span>=<span class="string">'test()'</span>></span><span class="tag"><!--<span class="name"-->a</span>></span>"<br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="tag"><<span class="name">h5</span>></span>2.用$compile函数编译一下上边的内容<span class="tag"><!--<span class="name"-->h5</span>></span><br><span class="line"></span><br><span class="line">```html</span><br><span class="line">var $html = $compile(html)($scope);</span><br></pre></td></tr></tbody></table></figure>
 <h5>3.将编译好的内容插入到页面中</h5>
 
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("body").append($html);</span><br></pre></td></tr></tbody></table></figure>
@@ -164,7 +164,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/f99d9594.html" title="详解angularJS动态生成的页面中ng-click无效解决办法">https://ru23.com/note/f99d9594.html</a></p>
         <footer>
@@ -239,9 +239,9 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/angular/" class="color3">angular</a>
-      
     <a href="/tags/踩过的坑/" class="color5">踩过的坑</a>
+      
+    <a href="/tags/angular/" class="color3">angular</a>
       
   </li>
 
@@ -254,7 +254,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#undefined"><span class="post-toc-text"> 1.首先将我们要赋值给页面的数据new一下</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#undefined"><span class="post-toc-text">3.将编译好的内容插入到页面中</span></a></li></ol><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-text">以下是完整版本</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#null"><span class="post-toc-text"> 1.首先将我们要赋值给页面的数据new一下</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#null"><span class="post-toc-text">3.将编译好的内容插入到页面中</span></a></li></ol><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#null"><span class="post-toc-text">以下是完整版本</span></a>
         </li></nav>
     </aside>
     

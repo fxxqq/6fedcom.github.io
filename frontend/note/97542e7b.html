@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-9bd38573bdc1456c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-ae36b6816feed422.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.111Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack4定制前端开发环境">
 <meta name="twitter:description" content="来源掘金小册笔记  一、webpack概念和基础使用1.1 安装和使用1234567npm install webpack webpack-cli -g # 或者yarn global add webpack webpack-cli# 然后就可以全局执行命令了webpack --help 1.2 webpack 的基本概念 webpack 本质上是一个打包工具，它会根据代码的内容解析模块依赖，帮">
@@ -153,7 +153,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+            <blockquote>
 <p>来源掘金小册笔记</p>
 </blockquote>
 <h1 id="一、webpack概念和基础使用"><a href="#一、webpack概念和基础使用" class="headerlink" title="一、webpack概念和基础使用"></a>一、webpack概念和基础使用</h1><h2 id="1-1-安装和使用"><a href="#1-1-安装和使用" class="headerlink" title="1.1 安装和使用"></a>1.1 安装和使用</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack webpack-cli -g </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">yarn global add webpack webpack-cli</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 然后就可以全局执行命令了</span></span><br><span class="line">webpack --help</span><br></pre></td></tr></tbody></table></figure>
@@ -576,7 +576,7 @@
 <blockquote>
 <p>我们需要在 HTML 中引用两个构建出来的 JS 文件，并且 <code>commons.js</code> 需要在入口代码之前。下面是个简单的例子</p>
 </blockquote>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span>=<span class="string">"commons.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>></span><span class="undefined"></span><span class="tag">script</span>></span><br><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span>=<span class="string">"entry.bundle.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>></span><span class="undefined"></span><span class="tag">script</span>></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span>=<span class="string">"commons.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>></span><span class="tag"><!--<span class="name"-->script</span>></span><br><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span>=<span class="string">"entry.bundle.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>></span><span class="tag"><!--<span class="name"-->script</span>></span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>如果你使用了 <code>html-webpack-plugin</code>，那么对应需要的 JS 文件都会在 HTML 文件中正确引用，不用担心。如果没有使用，那么你需要从 <code>stats</code> 的 <code>entrypoints</code> 属性来获取入口应该引用哪些 JS 文件，可以参考 node api 了解如何从 stats 中获取信息…</p>
 </blockquote>
@@ -631,7 +631,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/97542e7b.html" title="webpack4定制前端开发环境">https://ru23.com/note/97542e7b.html</a></p>
         <footer>

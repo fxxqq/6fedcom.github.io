@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/38230382-2911a2b2-3740-11e8-8ff1-ae8dbbb27098.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22697565/38230404-41cc0b62-3740-11e8-9cb6-f2b14a0a4cb4.png">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.099Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ie和safari浏览器new Date(yyyy-MM-dd HH:mm:ss )为NaN的解决方案">
 <meta name="twitter:description" content="今天碰到一个bug，在Safari浏览器里从日历选择器里面获取时间的时候，传给后台会报错，经排查发现，通过IE开发者工具控制台执行js代码，new Date(“2018-04-03 13:11:12”).getTime() 在IE下和Safari会返回NaN，而其他浏览器可以正常返回毫秒数。chorme ie和safari 由于毫秒数在IE浏览器下没有正确获得，所以在之后的计算中，计算结果为und">
@@ -153,7 +153,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>今天碰到一个bug，在Safari浏览器里从日历选择器里面获取时间的时候，传给后台会报错，经排查发现，通过IE开发者工具控制台执行js代码，new Date(“2018-04-03 13:11:12”).getTime() 在IE下和Safari会返回NaN，而其他浏览器可以正常返回毫秒数。<br>chorme<br><img src="https://user-images.githubusercontent.com/22697565/38230382-2911a2b2-3740-11e8-8ff1-ae8dbbb27098.png" alt="image"></p>
+            <p>今天碰到一个bug，在Safari浏览器里从日历选择器里面获取时间的时候，传给后台会报错，经排查发现，通过IE开发者工具控制台执行js代码，new Date(“2018-04-03 13:11:12”).getTime() 在IE下和Safari会返回NaN，而其他浏览器可以正常返回毫秒数。<br>chorme<br><img src="https://user-images.githubusercontent.com/22697565/38230382-2911a2b2-3740-11e8-8ff1-ae8dbbb27098.png" alt="image"></p>
 <p>ie和safari<br><img src="https://user-images.githubusercontent.com/22697565/38230404-41cc0b62-3740-11e8-9cb6-f2b14a0a4cb4.png" alt="image"></p>
 <p>由于毫秒数在IE浏览器下没有正确获得，所以在之后的计算中，计算结果为undefined</p>
 <p></p><h3>解决方案</h3><p></p>
@@ -165,7 +165,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/f192b16c.html" title="ie和safari浏览器new Date(yyyy-MM-dd HH:mm:ss )为NaN的解决方案">https://ru23.com/note/f192b16c.html</a></p>
         <footer>
@@ -253,7 +253,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-text">解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-text">方法1：自定义一个NewDate方法，通过调用NewDate方法获得毫秒数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-text">方法2：通过Date.parse()方法</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#null"><span class="post-toc-text">解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#null"><span class="post-toc-text">方法1：自定义一个NewDate方法，通过调用NewDate方法获得毫秒数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#null"><span class="post-toc-text">方法2：通过Date.parse()方法</span></a></li></ol></li></ol>
         </nav>
     </aside>
     

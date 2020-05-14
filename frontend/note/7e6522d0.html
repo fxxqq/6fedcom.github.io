@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="对象 对象的含义 所谓对象，就是一种无序的数据集合，由若干个“键值对”（key-value）构成">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.065Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP之类与对象">
 <meta name="twitter:description" content="对象 对象的含义 所谓对象，就是一种无序的数据集合，由若干个“键值对”（key-value）构成">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><hr>
+            <h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><hr>
 <h5 id="对象的含义"><a href="#对象的含义" class="headerlink" title="对象的含义"></a>对象的含义</h5><ul>
 <li><p>所谓对象，就是一种无序的数据集合，由若干个“键值对”（<code>key-value</code>）构成</p>
 <a id="more"></a>
@@ -162,7 +162,7 @@
 <ul>
 <li>使用对象字面量的形式</li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象字面量形式</span></span><br><span class="line"><span class="keyword">var</span> p ={</span><br><span class="line">    name: <span class="string">"tony"</span>,</span><br><span class="line">    work: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"working...."</span>);</span><br><span class="line">    },</span><br><span class="line">    _age: <span class="number">18</span>,</span><br><span class="line">    get age(){</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._age;</span><br><span class="line">    },</span><br><span class="line">    set age(val){</span><br><span class="line">        <span class="keyword">if</span>( val <<span class="number">0</span> || val > <span class="number">150</span>){</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"invalid value"</span>);</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="keyword">this</span>._age = val;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(p.name);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象字面量形式</span></span><br><span class="line"><span class="keyword">var</span> p ={</span><br><span class="line">    name: <span class="string">"tony"</span>,</span><br><span class="line">    work: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"working...."</span>);</span><br><span class="line">    },</span><br><span class="line">    _age: <span class="number">18</span>,</span><br><span class="line">    <span class="keyword">get</span> age(){</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._age;</span><br><span class="line">    },</span><br><span class="line">    <span class="keyword">set</span> age(val){</span><br><span class="line">        <span class="keyword">if</span>( val <<span class="number">0</span> || val > <span class="number">150</span>){</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"invalid value"</span>);</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="keyword">this</span>._age = val;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(p.name);</span><br></pre></td></tr></tbody></table></figure>
 <h5 id="对象的基本操作"><a href="#对象的基本操作" class="headerlink" title="对象的基本操作"></a>对象的基本操作</h5><ul>
 <li>成员属性的添加</li>
 </ul>
@@ -246,7 +246,7 @@
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#ele"</span>).click(person.hello.bind(person));</span><br><span class="line"><span class="comment">//相应元素被点击时，输出person says hello world</span></span><br></pre></td></tr></tbody></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/7e6522d0.html" title="OOP之类与对象">https://ru23.com/note/7e6522d0.html</a></p>
         <footer>
@@ -345,19 +345,19 @@
 
 <nav id="article-nav">
   
-    <a href="/note/ebeaea04.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/note/e36aeed5.html" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          JS 中的事件绑定、事件监听、事件委托
+          OOP之原型与原型链
         
       </span>
     </a>
   
   
-    <a href="/note/6c17c77b.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">OOP之面向对象</span>
+    <a href="/note/4cc35512.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">arguments详解</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

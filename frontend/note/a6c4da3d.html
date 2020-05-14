@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-b13f0c68b7cc7c43.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-e5ca945bf041e1f4.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1959053-17cf74f6fdd45468.png">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.116Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟dom（二）">
 <meta name="twitter:description" content="一、为什么需要虚拟dom 先介绍浏览器加载一个HTML文件需要做哪些事，帮助我们理解为什么我们需要虚拟dom。webkit引擎的处理流程    所有浏览器的引擎工作流程都差不多，如上图大致分5步：创建dom tree –&gt; 创建Style Rules -&gt; 构建Render tree -&gt; 布局Layout –&gt; 绘制Painting   第一步，用HTML分析器，分析HTML元素，构建一颗dom">
@@ -159,7 +159,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="一、为什么需要虚拟dom"><a href="#一、为什么需要虚拟dom" class="headerlink" title="一、为什么需要虚拟dom"></a>一、为什么需要虚拟dom</h2><blockquote>
+            <h2 id="一、为什么需要虚拟dom"><a href="#一、为什么需要虚拟dom" class="headerlink" title="一、为什么需要虚拟dom"></a>一、为什么需要虚拟dom</h2><blockquote>
 <p>先介绍浏览器加载一个<code>HTML</code>文件需要做哪些事，帮助我们理解为什么我们需要虚拟<code>dom</code>。<code>webkit</code>引擎的处理流程</p>
 </blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg" alt></p>
@@ -183,7 +183,7 @@
 <blockquote>
 <p>虚拟<code>dom</code>就是为了解决这个浏览器性能问题而被设计出来的。例如前面的例子，假如一次操作中有<code>10</code>次更新<code>dom</code>的动作，虚拟<code>dom</code>不会立即操作<code>dom</code>，而是将这<code>10</code>次更新的<code>diff</code>内容保存到本地的一个<code>js</code>对象中，最终将这个js对象一次性<code>attach</code>到<code>dom</code>树上，通知浏览器去执行绘制工作，这样可以避免大量的无谓的计算量</p>
 </blockquote>
-<h2 id="二、实现虚拟dom"><a href="#二、实现虚拟dom" class="headerlink" title="二、实现虚拟dom"></a>二、实现虚拟dom</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"real-container"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">p</span>></span>Real dom<span class="tag">p</span>></span><br><span class="line">    <span class="tag"><<span class="name">div</span>></span>cannot update<span class="tag">div</span>></span><br><span class="line">    <span class="tag"><<span class="name">ul</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>></span>Item 1<span class="tag">li</span>></span><br><span class="line">        <span class="tag"><<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>></span>Item 2<span class="tag">li</span>></span><br><span class="line">        <span class="tag"><<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>></span>Item 3<span class="tag">li</span>></span><br><span class="line">    <span class="tag">ul</span>></span><br><span class="line"><span class="tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="二、实现虚拟dom"><a href="#二、实现虚拟dom" class="headerlink" title="二、实现虚拟dom"></a>二、实现虚拟dom</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"real-container"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">p</span>></span>Real dom<span class="tag"><!--<span class="name"-->p</span>></span><br><span class="line">    <span class="tag"><<span class="name">div</span>></span>cannot update<span class="tag"><!--<span class="name"-->div</span>></span><br><span class="line">    <span class="tag"><<span class="name">ul</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>></span>Item 1<span class="tag"><!--<span class="name"-->li</span>></span><br><span class="line">        <span class="tag"><<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>></span>Item 2<span class="tag"><!--<span class="name"-->li</span>></span><br><span class="line">        <span class="tag"><<span class="name">li</span> <span class="attr">className</span>=<span class="string">"item"</span>></span>Item 3<span class="tag"><!--<span class="name"-->li</span>></span><br><span class="line">    <span class="tag"><!--<span class="name"-->ul</span>></span><br><span class="line"><span class="tag"><!--<span class="name"-->div</span>></span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>用<code>js</code>对象来模拟<code>dom</code>节点如下</p>
 </blockquote>
@@ -222,7 +222,7 @@
 <blockquote>
 <p>第二种也比较简单，节点类型一样，仅仅属性或属性值变了</p>
 </blockquote>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">renderA: <ul></ul></span><br><span class="line">renderB: <ul class: 'marginleft10'></ul></span><br><span class="line">=> [addAttribute class "marginLeft10"]</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">renderA: <ul><br><span class="line">renderB: <ul class: 'marginleft10'><br><span class="line">=> [addAttribute class "marginLeft10"]</span><br></ul></span></ul></span></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>我们将这个过程称之为<code>PROPS</code>。此时不会触发节点的卸载（<code>componentWillUnmount</code>）和装载（<code>componentWillMount</code>）动作。而是执行节点更新（<code>shouldComponentUpdate</code>到<code>componentDidUpdate</code>的一系列方法）</p>
 </blockquote>
@@ -264,7 +264,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/a6c4da3d.html" title="虚拟dom（二）">https://ru23.com/note/a6c4da3d.html</a></p>
         <footer>

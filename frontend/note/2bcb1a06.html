@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、fromJS 作用：是最最常用的将原生JS数据转换为ImmutableJS数据的转换方法,默认将原生JS的Array转为List，Object转为Map  12345678910111213141516171819202122232425262728Immutable.fromJS({  a: {    b: [1, 2, 3],    c: 40  }});// 得到Map {  "a":">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.093Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梳理Immutable常用api">
 <meta name="twitter:description" content="一、fromJS 作用：是最最常用的将原生JS数据转换为ImmutableJS数据的转换方法,默认将原生JS的Array转为List，Object转为Map  12345678910111213141516171819202122232425262728Immutable.fromJS({  a: {    b: [1, 2, 3],    c: 40  }});// 得到Map {  "a":">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="一、fromJS"><a href="#一、fromJS" class="headerlink" title="一、fromJS"></a>一、fromJS</h2><ul>
+            <h2 id="一、fromJS"><a href="#一、fromJS" class="headerlink" title="一、fromJS"></a>一、fromJS</h2><ul>
 <li>作用：是最最常用的将原生JS数据转换为<code>ImmutableJS</code>数据的转换方法,默认将原生<code>JS</code>的<code>Array</code>转为<code>List</code>，<code>Object</code>转为<code>Map</code></li>
 </ul>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Immutable.fromJS({</span><br><span class="line">  a: {</span><br><span class="line">    b: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">    c: <span class="number">40</span></span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"><span class="comment">// 得到</span></span><br><span class="line"><span class="built_in">Map</span> {</span><br><span class="line">  <span class="string">"a"</span>: <span class="built_in">Map</span> {</span><br><span class="line">    <span class="string">"b"</span>: List [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">    <span class="string">"c"</span>: <span class="number">40</span></span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常见</span></span><br><span class="line"><span class="keyword">const</span> t1 = Immutable.fromJS({<span class="attr">a</span>: {<span class="attr">b</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]}, <span class="attr">c</span>: <span class="number">40</span>});</span><br><span class="line"><span class="built_in">console</span>.log(t1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不常用</span></span><br><span class="line"><span class="keyword">const</span> t2 = Immutable.fromJS({<span class="attr">a</span>: {<span class="attr">b</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]}, <span class="attr">c</span>: <span class="number">40</span>}, <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>{</span><br><span class="line">    <span class="comment">// 定制转换方式，下这种就是将Array转换为List，Object转换为Map</span></span><br><span class="line">    <span class="keyword">const</span> isIndexed = Immutable.Iterable.isIndexed(value);</span><br><span class="line">    <span class="keyword">return</span> isIndexed ? value.toList() : value.toOrderedMap();</span><br><span class="line">    <span class="comment">// true, "b", {b: [10, 20, 30]}</span></span><br><span class="line">    <span class="comment">// false, "a", {a: {b: [10, 20, 30]}, c: 40}</span></span><br><span class="line">    <span class="comment">// false, "", {"": {a: {b: [10, 20, 30]}, c: 40}}</span></span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(t2);</span><br></pre></td></tr></tbody></table></figure>
@@ -363,7 +363,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/2bcb1a06.html" title="梳理Immutable常用api">https://ru23.com/note/2bcb1a06.html</a></p>
         <footer>

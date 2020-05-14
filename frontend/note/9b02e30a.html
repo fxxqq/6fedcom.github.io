@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -16,7 +16,7 @@
 <meta property="og:description" content="创建插件：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img1.tuicool.com/ENvyIz.png!web">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.042Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime Text添加插入带当前时间作者详细说明">
 <meta name="twitter:description" content="创建插件：">
@@ -152,7 +152,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h3 id="创建插件："><a href="#创建插件：" class="headerlink" title="创建插件："></a>创建插件：</h3><a id="more"></a>
+            <h3 id="创建插件："><a href="#创建插件：" class="headerlink" title="创建插件："></a>创建插件：</h3><a id="more"></a>
 <p>tools → New Plugin:</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import datetime</span><br><span class="line">import sublime_plugin</span><br><span class="line">class AddInfoCommand(sublime_plugin.TextCommand):</span><br><span class="line">  def run(self, edit):</span><br><span class="line">    self.view.run_command("insert_snippet",</span><br><span class="line">      {</span><br><span class="line">        "contents": "/**""\n"</span><br><span class="line">        " * @Author:	  name""\n"</span><br><span class="line">        " * @DateTime:	"  "%s"  %datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") +"\n"</span><br><span class="line">        " * @Description: Description""\n"</span><br><span class="line">        " */"</span><br><span class="line">      }</span><br><span class="line">    )</span><br></pre></td></tr></tbody></table></figure>
 <p>保存为Sublime Text 2\Packages\User\ addInfo.py</p>
@@ -163,7 +163,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/9b02e30a.html" title="Sublime Text添加插入带当前时间作者详细说明">https://ru23.com/note/9b02e30a.html</a></p>
         <footer>

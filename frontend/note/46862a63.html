@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="情景：怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。1234var arr = ["1","2","3","4"];var bbb = arr.reverse()console.log(arr); //["4", "3", "2", "1"]console.log(bbb); //["4", "3", "2", "1"] 直接改的话bbb和arr指向是同一个数组对象。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.107Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="怎么把数组倒置，又不影响原来数组，reverse不行">
 <meta name="twitter:description" content="情景：怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。1234var arr = ["1","2","3","4"];var bbb = arr.reverse()console.log(arr); //["4", "3", "2", "1"]console.log(bbb); //["4", "3", "2", "1"] 直接改的话bbb和arr指向是同一个数组对象。">  
@@ -150,14 +150,14 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h3 id="情景："><a href="#情景：" class="headerlink" title="情景："></a>情景：</h3><p>怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>];</span><br><span class="line"><span class="keyword">var</span> bbb = arr.reverse()</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//["4", "3", "2", "1"]</span></span><br><span class="line"><span class="built_in">console</span>.log(bbb); <span class="comment">//["4", "3", "2", "1"]</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+            <h3 id="情景："><a href="#情景：" class="headerlink" title="情景："></a>情景：</h3><p>怎么把数组倒置，又不影响原来数组，reverse不行，会把原数组也给反过来。<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>];</span><br><span class="line"><span class="keyword">var</span> bbb = arr.reverse()</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//["4", "3", "2", "1"]</span></span><br><span class="line"><span class="built_in">console</span>.log(bbb); <span class="comment">//["4", "3", "2", "1"]</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>直接改的话bbb和arr指向是同一个数组对象。reverse改变的是数组对象，a指向它，所以改变了，要改变就要让其指向不同</p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>];</span><br><span class="line"><span class="comment">//列举4个解决方案</span></span><br><span class="line"><span class="keyword">var</span> bbb = [...arr].reverse() <span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> bbb = [].concat(arr).reverse()  <span class="comment">//方法2</span></span><br><span class="line"><span class="keyword">var</span> bbb = <span class="built_in">Object</span>.assign([],arr).reverse()<span class="comment">//方法3</span></span><br><span class="line"><span class="keyword">var</span> bbb = arr.slice().reverse()<span class="comment">//方法4</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); </span><br><span class="line"><span class="built_in">console</span>.log(bbb);</span><br></pre></td></tr></tbody></table></figure>
 <p> ES6语法很方便~</p>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/46862a63.html" title="怎么把数组倒置，又不影响原来数组，reverse不行">https://ru23.com/note/46862a63.html</a></p>
         <footer>

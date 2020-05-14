@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-d55fad60b5d7d797.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-c71a6ade70f5f2fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-377d80bb1517bae2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.105Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析redux-saga中间件及用法">
 <meta name="twitter:description" content="一、redux-thunk1.1 redux的副作用处理 redux中的数据流大致是  1UI—————&gt;action（plain）—————&gt;reducer——————&gt;state——————&gt;UI   redux是遵循函数式编程的规则，上述的数据流中，action是一个原始js对象（plain object）且reducer是一个纯函数，对于同步且没有副作用的操作，上述的数据流起到可以管理数据">
@@ -159,7 +159,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="一、redux-thunk"><a href="#一、redux-thunk" class="headerlink" title="一、redux-thunk"></a>一、redux-thunk</h2><h3 id="1-1-redux的副作用处理"><a href="#1-1-redux的副作用处理" class="headerlink" title="1.1 redux的副作用处理"></a>1.1 redux的副作用处理</h3><blockquote>
+            <h2 id="一、redux-thunk"><a href="#一、redux-thunk" class="headerlink" title="一、redux-thunk"></a>一、redux-thunk</h2><h3 id="1-1-redux的副作用处理"><a href="#1-1-redux的副作用处理" class="headerlink" title="1.1 redux的副作用处理"></a>1.1 redux的副作用处理</h3><blockquote>
 <p>redux中的数据流大致是</p>
 </blockquote>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UI—————>action（plain）—————>reducer——————>state——————>UI</span><br></pre></td></tr></tbody></table></figure>
@@ -182,7 +182,7 @@
 <h3 id="1-2-redux-thunk源码"><a href="#1-2-redux-thunk源码" class="headerlink" title="1.2 redux-thunk源码"></a>1.2 redux-thunk源码</h3><blockquote>
 <p>在redux中，thunk是redux作者给出的中间件，实现极为简单，10多行代码</p>
 </blockquote>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createThunkMiddleware</span>(<span class="params">extraArgument</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">{ dispatch, getState }</span>) =></span> next => <span class="function"><span class="params">action</span> =></span> {</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> action === <span class="string">'function'</span>) {</span><br><span class="line">      <span class="keyword">return</span> action(dispatch, getState, extraArgument);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> next(action);</span><br><span class="line">  };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> thunk = createThunkMiddleware();</span><br><span class="line">thunk.withExtraArgument = createThunkMiddleware;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> thunk;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createThunkMiddleware</span>(<span class="params">extraArgument</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">{ dispatch, getState }</span>) =></span> <span class="function"><span class="params">next</span> =></span> <span class="function"><span class="params">action</span> =></span> {</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> action === <span class="string">'function'</span>) {</span><br><span class="line">      <span class="keyword">return</span> action(dispatch, getState, extraArgument);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> next(action);</span><br><span class="line">  };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> thunk = createThunkMiddleware();</span><br><span class="line">thunk.withExtraArgument = createThunkMiddleware;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> thunk;</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>这几行代码做的事情也很简单，判别action的类型，如果action是函数，就调用这个函数，调用的步骤为</p>
 </blockquote>
@@ -417,7 +417,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/54c6f1e.html" title="浅析redux-saga中间件及用法">https://ru23.com/note/54c6f1e.html</a></p>
         <footer>

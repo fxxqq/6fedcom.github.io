@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="两种情况：1.页面一开始就已经加载了音频，2.点击的时候为audio动态的更改音频路径，播放不同的音频 现象：第一种时长正常，第二种时长audio.duration为nan 分析：第一种情况，获取时长时，已经加载了音频，点击时可以获取音频时长；第二种，点击的时候，音频没有加载（虽然已经开始播放），获取不到时长。 解决方法：123audio.addEventListener("canplay", f">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.100Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:38.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生js获取mp3文件播放总时长的方法 ">
 <meta name="twitter:description" content="两种情况：1.页面一开始就已经加载了音频，2.点击的时候为audio动态的更改音频路径，播放不同的音频 现象：第一种时长正常，第二种时长audio.duration为nan 分析：第一种情况，获取时长时，已经加载了音频，点击时可以获取音频时长；第二种，点击的时候，音频没有加载（虽然已经开始播放），获取不到时长。 解决方法：123audio.addEventListener("canplay", f">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>两种情况：1.页面一开始就已经加载了音频，2.点击的时候为audio动态的更改音频路径，播放不同的音频</p>
+            <p>两种情况：1.页面一开始就已经加载了音频，2.点击的时候为audio动态的更改音频路径，播放不同的音频</p>
 <p>现象：第一种时长正常，第二种时长audio.duration为nan</p>
 <p>分析：第一种情况，获取时长时，已经加载了音频，点击时可以获取音频时长；第二种，点击的时候，音频没有加载（虽然已经开始播放），获取不到时长。</p>
 <p>解决方法：<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">audio.addEventListener(<span class="string">"canplay"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    duration=<span class="built_in">parseInt</span>(audio.duration);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure><p></p>
@@ -160,7 +160,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/f8a3521c.html" title="原生js获取mp3文件播放总时长的方法 ">https://ru23.com/note/f8a3521c.html</a></p>
         <footer>

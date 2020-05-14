@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="在工作中，用vue进行开发的，后来发现.vue文件中的逻辑处理特别多的话，那么会导致代码会特别长，即使你打了标签，都觉得写起来很不方便，所以就引发了我的思考，能不能把js和scss单独拎出去，vue文件只是负责写html的，后来我就在网上一顿查啊，终于，功夫不负有心人，让我给查到了，下面我就给大家演示一下把vue文件的html、scss、js如何分开写： 首先先在vue统计目录下新建一个js、sc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-11T11:59:26.123Z">
+<meta property="og:updated_time" content="2020-05-14T08:34:39.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决.vue文件代码过长的问题">
 <meta name="twitter:description" content="在工作中，用vue进行开发的，后来发现.vue文件中的逻辑处理特别多的话，那么会导致代码会特别长，即使你打了标签，都觉得写起来很不方便，所以就引发了我的思考，能不能把js和scss单独拎出去，vue文件只是负责写html的，后来我就在网上一顿查啊，终于，功夫不负有心人，让我给查到了，下面我就给大家演示一下把vue文件的html、scss、js如何分开写： 首先先在vue统计目录下新建一个js、sc">  
@@ -150,14 +150,14 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>在工作中，用vue进行开发的，后来发现.vue文件中的逻辑处理特别多的话，那么会导致代码会特别长，即使你打了标签，都觉得写起来很不方便，所以就引发了我的思考，能不能把js和scss单独拎出去，vue文件只是负责写html的，后来我就在网上一顿查啊，终于，功夫不负有心人，让我给查到了，下面我就给大家演示一下把vue文件的html、scss、js如何分开写：</p>
-<p>首先先在vue统计目录下新建一个js、scss文件，如下图所示，名字无所谓，你叫index.js和index.scss都行<br>然后在vue文件中这样写<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><template></template></span><br><span class="line">    <div class="loginModuel"></div></span><br><span class="line"></span><br><span class="line">    </span></pre></td></tr></tbody></table></figure></div><br><span class="line"></span><br><span class="line"></span><br><span class="line"><script></span><br><span class="line">    import index from "./index"</span><br><span class="line">    export default{</span><br><span class="line">        ...index</span><br><span class="line">    }</span><br><span class="line"></script></span><br><span class="line"><style lang="scss" scoped></span><br><span class="line">    @import "./index.scss";</span><br><span class="line"></style></span><br><p></p>
+            <p>在工作中，用vue进行开发的，后来发现.vue文件中的逻辑处理特别多的话，那么会导致代码会特别长，即使你打了标签，都觉得写起来很不方便，所以就引发了我的思考，能不能把js和scss单独拎出去，vue文件只是负责写html的，后来我就在网上一顿查啊，终于，功夫不负有心人，让我给查到了，下面我就给大家演示一下把vue文件的html、scss、js如何分开写：</p>
+<p>首先先在vue统计目录下新建一个js、scss文件，如下图所示，名字无所谓，你叫index.js和index.scss都行<br>然后在vue文件中这样写<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><template><br><span class="line">    <div class="loginModuel"><br><span class="line"></span><br><span class="line">    </span></div></span><br><span class="line"></span></template></span><br><span class="line"></span><br><span class="line"><script></span><br><span class="line">    import index from "./index"</span><br><span class="line">    export default{</span><br><span class="line">        ...index</span><br><span class="line">    }</span><br><span class="line"></script></span><br><span class="line"><style lang="scss" scoped></span><br><span class="line">    @import "./index.scss";</span><br><span class="line"></style></span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>index.js<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>{</span><br><span class="line">    data(){</span><br><span class="line">        <span class="keyword">return</span>{</span><br><span class="line">            msg:<span class="string">"这是登录页面"</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>棒极了</p>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年04月11日 19:59</p> -->
+        <!-- <p>最后更新： 2020年05月14日 16:34</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/511d4361.html" title="解决.vue文件代码过长的问题">https://ru23.com/note/511d4361.html</a></p>
         <footer>
@@ -241,7 +241,7 @@
             </ul>
             
         </footer>
-    
+    </div>
 </article>
 
 

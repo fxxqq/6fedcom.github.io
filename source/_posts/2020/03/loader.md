@@ -1,14 +1,13 @@
 ---
 title: 常见loader源码简析，以及动手实现一个md2html-loader
 categories: front-end
-abbrlink: 9dcfd273
-date: 2020-04-06 22:39:47
 tags: webpack
+abbrlink: 5ed37b6f
+date: 2020-04-06 22:39:47
 ---
 
 本文会带你简单的认识一下webpack的loader，动手实现一个利用md转成抽象语法树，再转成html字符串的loader。顺便简单的了解一下几个style-loader，vue-loader，babel-loader的源码以及工作流程。
 
-[md2html-loader源码地址](https://github.com/6fedcom/fe-blog/blob/master/webpack-loader/loaders/md-loader.js)
 ### loader简介
 webpack允许我们使用loader来处理文件，loader是一个导出为function的node模块。可以将匹配到的文件进行一次转换，同时loader可以链式传递。
 loader文件处理器是一个CommonJs风格的函数，该函数接收一个 String/Buffer 类型的入参，并返回一个 String/Buffer 类型的返回值。
@@ -149,7 +148,7 @@ module.exports = function(content) {
 };
 ```
 **md通过正则切割的方法转成抽象语树**
-![md-ast](https://user-gold-cdn.xitu.io/2020/4/18/1718d06de31d81b5?w=1084&h=1156&f=jpeg&s=245056)
+![md2ast](https://cdn.6fed.com/github/webpack/loader/md2ast.jpg)
 
 ```js
 const md = require('markdown-ast');//md通过正则匹配的方法把buffer转抽象语法树
@@ -205,10 +204,10 @@ class MdParser {
 	}
 }
 ```
-[完整的代码参考这里](https://github.com/6fedcom/fe-blog/blob/master/webpack-loader/loaders/md-loader.js)
+[完整的代码参考这里](https://github.com/6fedcom/blog/blob/master/webpack/loader/loaders/md-loader.js)
 
 **ast抽象语法数转成html字符串**
-![md-ast-string](https://user-gold-cdn.xitu.io/2020/4/18/1718d06cd7ec6746?w=1764&h=772&f=png&s=199593)
+![md2html](https://cdn.6fed.com/github/webpack/loader/md2html.png)
 
 ### loader的一些开发技巧
 1. 尽量保证一个loader去做一件事情，然后可以用不同的loader组合不同的场景需求
@@ -221,7 +220,6 @@ class MdParser {
 this.cacheable&&this.cacheable(false);
 ```
 5. `loader-runner` 是一个非常实用的工具，用来开发、调试loader,它允许你不依靠 webpack 单独运行 loader
-
 ```npm install loader-runner --save-dev```
 ```js
 // 创建 run-loader.js
@@ -246,7 +244,7 @@ runLoaders(
 看下源码。
 
 先去掉option处理代码，这样就比较清晰明了了
-![style-loader](https://user-gold-cdn.xitu.io/2020/4/19/1718e5c999a6691f?w=1654&h=1464&f=png&s=474579)
+![style-loader](https://cdn.6fed.com/github/webpack/loader/style-loader.png)
 返回一段js代码，通过require来获取css内容，再通过addStyle的方法把css插入到dom里
 自己实现一个简陋的`style-loader.js`
 ```js
@@ -284,10 +282,10 @@ module.exports = function (content) {
 
 ##### babel-loader源码简析
 首先看下跳过loader的配置处理，看下babel-loader输出
-![babel-loader-console](https://user-gold-cdn.xitu.io/2020/4/19/1718e5c99b0cb186?w=682&h=314&f=png&s=55853)
+![babel-loader-console](https://cdn.6fed.com/github/webpack/loader/babel-loader-console.png)
 上图我们可以看到是输出`transpile(source, options)`的code和map
 再来看下`transpile`方法做了啥
-![babel-loader-transpile](https://user-gold-cdn.xitu.io/2020/4/19/1718e5c99b6a3b0f?w=1174&h=1162&f=png&s=168221)
+![babel-loader-transpile](https://cdn.6fed.com/github/webpack/loader/babel-loader-transpile.png)
 babel-loader是通过babel.transform来实现对代码的编译的，
 这么看来，所以我们只需要几行代码就可以实现一个简单的babel-loader
 ```js
@@ -384,7 +382,7 @@ module.exports = {
 将`[pitchLoder, ...clonedRules, ...rules]`作为webapck新的rules。
 
 再看一下`vue-loader`结果的输出
-![vue-loader-result](https://user-gold-cdn.xitu.io/2020/4/19/17191d9dd1fe72bc?w=1698&h=1066&f=png&s=226397)
+![vue-loader-result](https://cdn.6fed.com/github/webpack/loader/vue-loader-result.png)
 当引入一个vue文件后，vue-loader是将vue单文件组件进行parse，获取每个 block 的相关内容，将不同类型的 block 组件的 Vue SFC 转化成 js module 字符串。
 
 ```js
@@ -412,7 +410,7 @@ const hasScoped = descriptor.styles.some(s => s.scoped)
 然后下一步将新生成的 js module 加入到 webpack 的编译环节，即对这个 js module 进行 AST 的解析以及相关依赖的收集过程。
 
 来看下源码是怎么操作不同type类型（`template/script/style`）的，selectBlock 方法内部主要就是根据不同的 type 类型，来获取 descriptor 上对应类型的 content 内容并传入到下一个 loader 处理
-![vue-loader源码](https://user-gold-cdn.xitu.io/2020/4/19/17191d9dc73e31ee?w=1460&h=1410&f=png&s=333873)
+![vue-loader-code](https://cdn.6fed.com/github/webpack/loader/vue-loader-code.png)
 这三段代码可以把不同type解析成一个import的字符串
 ```js
 import { render, staticRenderFns } from "./App.vue?vue&type=template&id=7ba5bd90&"
@@ -432,6 +430,9 @@ import style0 from "./App.vue?vue&type=style&index=0&lang=scss&scope=true&"
 会将传入的`scopeId`追加到每个标签的上，最后作为vnode的配置属性传递给`createElemenet`方法，
 在render函数调用并渲染页面时，会将`scopeId`属性作为原始属性渲染到页面上
 4. 在`stylePostLoader`中，通过PostCSS解析style标签内容
+
+### 文中涉及的demo源码
+[点击github仓库](https://github.com/6fedcom/fe-blog/tree/master/webpack/loader)
 
 ### 参考文献
 1. [webpack官网loader api](https://www.webpackjs.com/api/loaders/)
