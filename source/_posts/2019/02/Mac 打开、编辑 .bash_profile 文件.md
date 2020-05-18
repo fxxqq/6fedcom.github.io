@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Mac 打开、编辑 .bash_profile 文件
+abbrlink: d2e4e127
 date: 2019-02-04 17:29:11
 ---
  

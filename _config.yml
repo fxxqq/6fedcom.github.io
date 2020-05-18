@@ -91,9 +91,16 @@ baidu_url_submit:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# deploy:
+#   - type: git
+#     repo: git@github.com:6fed.com/fe-hexo-blog.git,master
+#   - type: baidu_url_submitter
 deploy:
   - type: git
-    repo: git@github.com:ru23/ru23.github.io.git,master
+    repo: git@github.com:6fedcom/fe-hexo-blog.git,hexo
+  - type: git
+    message: update
+    repo: root@106.14.179.21:/fe/blog.git,master
   - type: baidu_url_submitter
 
 # plugins:

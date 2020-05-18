@@ -3,6 +3,7 @@ layout: post
 title: github怎么提交pr
 tags:
   - github
+abbrlink: 4cc39851
 date: 2019-02-05 17:29:11
 ---
  
