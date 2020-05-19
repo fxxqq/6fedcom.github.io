@@ -2,22 +2,23 @@
     <meta charset="utf-8">
     
     <title>
-       归档: 2020 |  前端迷
+       函数柯里化curry |  前端迷
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
-     <meta name="description" content="frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com">
+     <meta name="description" content="函数柯里化12345678910111213141516171819202122232425262728293031323334// add 函数柯里化function add() {  //建立args,利用闭包特性，不断保存arguments  var args = [].slice.call(arguments)  //方法一，新建_add函数实现柯里化;  console.log(argu">
 <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端迷">
-<meta property="og:url" content="https://ru23.com/archives/2020/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数柯里化curry">
+<meta property="og:url" content="https://ru23.com/note/4bf41c9b.html">
 <meta property="og:site_name" content="前端迷">
-<meta property="og:description" content="frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com">
+<meta property="og:description" content="函数柯里化12345678910111213141516171819202122232425262728293031323334// add 函数柯里化function add() {  //建立args,利用闭包特性，不断保存arguments  var args = [].slice.call(arguments)  //方法一，新建_add函数实现柯里化;  console.log(argu">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-18T16:07:50.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端迷">
-<meta name="twitter:description" content="frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com">  
+<meta name="twitter:title" content="函数柯里化curry">
+<meta name="twitter:description" content="函数柯里化12345678910111213141516171819202122232425262728293031323334// add 函数柯里化function add() {  //建立args,利用闭包特性，不断保存arguments  var args = [].slice.call(arguments)  //方法一，新建_add函数实现柯里化;  console.log(argu">  
     <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
     
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -113,84 +114,179 @@
 </header>
     <div class="outer">
       <div class="outer-section">
-        <section id="main" class="body-wrap">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/note/9f79cea2.html" class="archive-article-date">
-  <time datetime="2020-05-06T14:39:47.000Z" itemprop="datePublished">05-06</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/note/9f79cea2.html" target="_blank">揭秘webpack插件工作流程和原理</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
+        <section id="main" class="body-wrap"><article id="post-2018-12-12月份todolist" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/webpack/" class="color3">webpack</a>
-      
-  </li>
+  
+    <h1 class="post-title" itemprop="name">
+      函数柯里化curry
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
 
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <meta name="generator" content="Hexo 3.8.0"><h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add 函数柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="comment">//建立args,利用闭包特性，不断保存arguments</span></span><br><span class="line">  <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">  <span class="comment">//方法一，新建_add函数实现柯里化;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(args)</span><br><span class="line">  <span class="keyword">var</span> _add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">0</span>) {</span><br><span class="line">      <span class="comment">//参数为空，对args执行加法</span></span><br><span class="line">      <span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">a, b</span>) =></span> {</span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line">      })</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      <span class="built_in">console</span>.log([].push.apply(args, <span class="built_in">arguments</span>))</span><br><span class="line"></span><br><span class="line">      <span class="comment">//否则，保存参数到args，返回一个函数</span></span><br><span class="line">      ;[].push.apply(args, <span class="built_in">arguments</span>)</span><br><span class="line">      <span class="keyword">return</span> _add</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">//返回_add函数</span></span><br><span class="line">  <span class="keyword">return</span> _add</span><br><span class="line"></span><br><span class="line">  <span class="comment">// //方法二，使用arguments.callee实现柯里化</span></span><br><span class="line">  <span class="comment">// return function () {</span></span><br><span class="line">  <span class="comment">//       if (arguments.length === 0) {</span></span><br><span class="line">  <span class="comment">//           return args.reduce(function(a,b){return a+b});</span></span><br><span class="line">  <span class="comment">//       }</span></span><br><span class="line">  <span class="comment">//       Array.prototype.push.apply(args, arguments);</span></span><br><span class="line">  <span class="comment">//       return arguments.callee;</span></span><br><span class="line">  <span class="comment">//   }</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)(<span class="number">7</span>, <span class="number">8</span>)()) <span class="comment">//42</span></span><br></pre></td></tr></tbody></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2020年05月19日 00:07</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/4bf41c9b.html" title="函数柯里化curry">https://ru23.com/note/4bf41c9b.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
         </div>
-      
-  </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/4bf41c9b.html&title=《函数柯里化curry》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/4bf41c9b.html&title=《函数柯里化curry》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/4bf41c9b.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《函数柯里化curry》 — 前端迷&url=https://ru23.com/note/4bf41c9b.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/4bf41c9b.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aMXLDMAwEQP//006bwhIPgMhxMssqY1vSKgWGOPD1itf7Yl19e3Xt1ScPL1xc3DH3fbvuQe/W+n1tbsDFxT3PvaoYya2T3+f3X9hwcXH/ILdatnBxcf8Ht9enJO0QLi7ut3GrZSjn9orjA70aLi7ugFt98I6/t+S7uLi4LW4v6MzDkUnx+nB/XFzcI9y8oExGLEloUmifcHFxj3B7o9bqK1W3UItXwsXF3cztBaZJDJof7SqEI7i4uEe4ydij9/jJMYvFVbi4uEe4+bajGmpU75kXR1xc3B3c6kh1Urzu/0NR84OLi3uEW73dPCjJRzKLfBcXF3czNy8o1U1ML3YpRK64uLgHuXlBKYcXraMbuLi457m9gpIXuF7zs0h2cXFxj3N75ax3PKscqeDi4h7n5tuRyWvk49sPv8TFxT3IzQei1dVrjaLOCRcXdwO39+BJXFLd7uDi4p7n5qt3014UMn8uLi7unFvdoFSHH5MwZXEwCxcXdzO3N97IxzB5C7S4ChcX9yu5vTKUl7zmvgkXF/druMkn88jjsUKGi4tb5OaHq6oHLPKGKmqxcHFxj3An0WfviNV8VIOLi7uN+wMcfgEvA+JdsAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+            </ul>
+            
+        </footer>
+    </div>
 </article>
 
-  
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数柯里化"><span class="post-toc-text">函数柯里化</span></a></li></ol>
+        </nav>
+    </aside>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/note/5ed37b6f.html" class="archive-article-date">
-  <time datetime="2020-04-06T14:39:47.000Z" itemprop="datePublished">04-06</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/note/5ed37b6f.html" target="_blank">常见loader源码简析，以及动手实现一个md2html-loader</a>
-    </h1>
-  
 
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/webpack/" class="color3">webpack</a>
-      
-  </li>
+<nav id="article-nav">
+  
+    <a href="/note/9a17caa7.html" id="article-nav-newer" class="article-nav-link-wrap">
 
-        </div>
-      
-  </div>
-</article>
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          React生命周期以及注意事项
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/e5037e31.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">手写一个promise，彻底掌握它的原理</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
 
-  
-  
-    </div></section>
-  
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
 
 </section>
         <div class="outer-ad-aside" id="outer-ad-aside">
