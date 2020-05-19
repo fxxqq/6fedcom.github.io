@@ -1,0 +1,947 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>
+       react常见api以及原理解析 |  前端迷
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss">
+     <meta name="description" content="React16常用api解析以及原理剖析  目录 Vue 与 React 两个框架的粗略区别对比 react 16 版本常见 api react 生命周期 react 事件机制 react.Component 如何实现组件化以及高阶组件的应用 setState 异步队列数据管理 react Fiber 架构分析 react hooks dom 的 diff 算法 snabbdom 源码，是怎样实现">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react常见api以及原理解析">
+<meta property="og:url" content="https://ru23.com/note/55bd244d.html">
+<meta property="og:site_name" content="前端迷">
+<meta property="og:description" content="React16常用api解析以及原理剖析  目录 Vue 与 React 两个框架的粗略区别对比 react 16 版本常见 api react 生命周期 react 事件机制 react.Component 如何实现组件化以及高阶组件的应用 setState 异步队列数据管理 react Fiber 架构分析 react hooks dom 的 diff 算法 snabbdom 源码，是怎样实现">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db48fc07ab0?w=999&h=574&f=jpeg&s=107298">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db490ba4e1c?w=1012&h=566&f=jpeg&s=95105">
+<meta property="og:image" content="https://ru23.com/note/%3Cspan">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db482ead4cd?w=715&h=324&f=png&s=36981">
+<meta property="og:updated_time" content="2020-05-18T15:10:37.533Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react常见api以及原理解析">
+<meta name="twitter:description" content="React16常用api解析以及原理剖析  目录 Vue 与 React 两个框架的粗略区别对比 react 16 版本常见 api react 生命周期 react 事件机制 react.Component 如何实现组件化以及高阶组件的应用 setState 异步队列数据管理 react Fiber 架构分析 react hooks dom 的 diff 算法 snabbdom 源码，是怎样实现">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/9/16/16d38db48fc07ab0?w=999&h=574&f=jpeg&s=107298">  
+    <link rel="icon" href="//cdn.ru23.com/img/favicon.ico">
+    
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/style.css"> <script src="//cdn.ru23.com/js/pace.min.js"></script> 
+  
+  </head><body><div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1275440747&web_id=1275440747" language="JavaScript"></script>
+  </div>
+
+
+  
+
+
+
+
+  <div id="container">
+    <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">前端迷</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="https://58fe.com">
+                        <i class="fa fa-heart"></i>
+                        <span>前端社区</span>
+                    </a>
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="//cdn.ru23.com/img/images/chrome.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        前端迷
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        凡事预则立，不预则废
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="公众号" target="_blank" href="https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA">
+                          <img src="//cdn.ru23.com/icon/mp.png" alt="logo">
+                          </a>
+                    
+                        <a title="掘金" target="_blank" href="https://juejin.im/user/57fb24cf816dfa0056c1f8af">
+                          <img src="//cdn.ru23.com/icon/juejin.png" alt="logo">
+                          </a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/ru23">
+                          <img src="//cdn.ru23.com/icon/github.png" alt="logo">
+                          </a>
+                    
+                        <a title="知乎" target="_blank" href="https://www.zhihu.com/people/58fe/activities">
+                          <img src="//cdn.ru23.com/icon/zhihu.png" alt="logo">
+                          </a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    <div class="outer">
+      <div class="outer-section">
+        <section id="main" class="body-wrap"><article id="post-2019-09-react常见api以及原理解析" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 class="post-title" itemprop="name">
+      react常见api以及原理解析
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/front-end/">front-end</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-09-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+            
+        </header>
+        
+        <div class="article-entry post-content" itemprop="articleBody">
+            
+            
+            <meta name="generator" content="Hexo 3.8.0"><h3 id="React16常用api解析以及原理剖析"><a href="#React16常用api解析以及原理剖析" class="headerlink" title="React16常用api解析以及原理剖析"></a><a href="https://ru23.github.io/react-ppt/" target="_blank" rel="noopener"><code>React16</code>常用<code>api</code>解析以及原理剖析</a></h3><ver>
+
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ol>
+<li><code>Vue</code> 与 <code>React</code> 两个框架的粗略区别对比</li>
+<li><code>react 16</code> 版本常见 <code>api</code></li>
+<li><code>react</code> 生命周期</li>
+<li><code>react</code> 事件机制</li>
+<li><code>react.Component</code> 如何实现组件化以及高阶组件的应用</li>
+<li><code>setState</code> 异步队列数据管理</li>
+<li><code>react Fiber</code> 架构分析</li>
+<li><code>react hooks</code></li>
+<li><code>dom</code> 的 <code>diff</code> 算法</li>
+<li><code>snabbdom</code> 源码，是怎样实现精简的 <code>Virtual DOM</code> 的</li>
+<li><code>redux</code>单向数据流架构如何设计</li>
+</ol>
+<ver>
+
+<h3 id="Vue-与-React-两个框架的粗略区别对比"><a href="#Vue-与-React-两个框架的粗略区别对比" class="headerlink" title="Vue 与 React 两个框架的粗略区别对比"></a><code>Vue</code> 与 <code>React</code> 两个框架的粗略区别对比</h3><p>Vue 的优势包括：</p>
+<ol>
+<li>模板和渲染函数的弹性选择</li>
+<li>简单的语法及项目创建</li>
+<li>更快的渲染速度和更小的体积</li>
+</ol>
+<p>React 的优势包括：</p>
+<ol>
+<li>更适用于大型应用和更好的可测试性</li>
+<li>同时适用于 Web 端和原生 App</li>
+<li>更大的生态圈带来的更多支持和工具</li>
+</ol>
+<ver>
+
+<h4 id="相似之处"><a href="#相似之处" class="headerlink" title="相似之处"></a>相似之处</h4><p>React 与 Vue 有很多相似之处，React 和 Vue 都是非常优秀的框架，它们之间的相似之处多过不同之处，并且它们大部分最棒的功能是相通的：如他们都是 JavaScript 的 UI 框架，专注于创造前端的富应用。不同于早期的 JavaScript 框架“功能齐全”，Reat 与 Vue 只有框架的骨架，其他的功能如路由、状态管理等是框架分离的组件。</p>
+<ver>
+
+<ul>
+<li>两者都是用于创建 UI 的 JavaScript 库；</li>
+<li>两者都快速轻便；</li>
+<li>都有基于组件的架构；</li>
+<li>都是用虚拟 DOM；</li>
+<li>都可放入单个 HTML 文件中，或者成为更复杂 webpack 设置中的模块；</li>
+<li>都有独立但常用的路由器和状态管理库；</li>
+<li>它们之间的最大区别是 Vue 通常使用 HTML 模板文件，而 React 则完全是 JavaScript。Vue 有双向绑定语法糖。</li>
+</ul>
+<ver>
+
+<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><ul>
+<li>Vue 组件分为全局注册和局部注册，在 react 中都是通过 import 相应组件，然后模版中引用；</li>
+<li>props 是可以动态变化的，子组件也实时更新，在 react 中官方建议 props 要像纯函数那样，输入输出一致对应，而且不太建议通过 props 来更改视图；</li>
+<li>子组件一般要显示地调用 props 选项来声明它期待获得的数据。而在 react 中不必需，另两者都有 props 校验机制；</li>
+</ul>
+<ver>
+
+<ul>
+<li>每个 Vue 实例都实现了事件接口，方便父子组件通信，小型项目中不需要引入状态管理机制，而 react 必需自己实现；</li>
+<li>使用插槽分发内容，使得可以混合父组件的内容与子组件自己的模板；</li>
+<li>多了指令系统，让模版可以实现更丰富的功能，而 React 只能使用 JSX 语法；</li>
+<li>Vue 增加的语法糖 computed 和 watch，而在 React 中需要自己写一套逻辑来实现；</li>
+</ul>
+<ver>
+
+<ul>
+<li>react 的思路是 all in js，通过 js 来生成 html，所以设计了 jsx，还有通过 js 来操作 css，社区的 styled-component、jss 等；而 vue 是把 html，css，js 组合到一起，用各自的处理方式，vue 有单文件组件，可以把 html、css、js 写到一个文件中，html 提供了模板引擎来处理。</li>
+</ul>
+<ver>
+
+<ul>
+<li>react 做的事情很少，很多都交给社区去做，vue 很多东西都是内置的，写起来确实方便一些， 比如 redux 的 combineReducer 就对应 vuex 的 modules， 比如 reselect 就对应 vuex 的 getter 和 vue 组件的 computed， vuex 的 mutation 是直接改变的原始数据，而 redux 的 reducer 是返回一个全新的 state，所以 redux 结合 immutable 来优化性能，vue 不需要。</li>
+</ul>
+<ver>
+
+<ul>
+<li>react 是整体的思路的就是函数式，所以推崇纯组件，数据不可变，单向数据流，当然需要双向的地方也可以做到，比如结合 redux-form，组件的横向拆分一般是通过高阶组件。而 vue 是数据可变的，双向绑定，声明式的写法，vue 组件的横向拆分很多情况下用 mixin。</li>
+</ul>
+<hor>
+
+<h4 id="社区活跃度"><a href="#社区活跃度" class="headerlink" title="社区活跃度"></a>社区活跃度</h4><ver>
+
+<p>从两者的 github 表现来看（数据取于 2019-09-16）</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/16/16d38db48fc07ab0?w=999&h=574&f=jpeg&s=107298" alt="react"></p>
+<ver>
+
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/16/16d38db490ba4e1c?w=1012&h=566&f=jpeg&s=95105" alt="react"></p>
+<ver>
+
+<p>可以看出 vue 的 star 数量已经是前端框架中最火爆的。从维护上来看，react 是 facebook 在维护，而 vue 现阶段虽然也有了团队，但主要还是尤雨溪在维护贡献代码，并且阿里巴巴开源的混合式框架 weex 也是基于 vue 的，所以我们相信 vue 未来将会得到更多的人和团队维护。</p>
+<p>根据不完全统计，包括饿了么、简书、高德、稀土掘金、苏宁易购、美团、天猫、荔枝 FM、房多多、Laravel、htmlBurger 等国内外知名大公司都在使用 vue 进行新项目的开发和旧项目的前端重构工作。</p>
+<p>使用 React 的公司 facebook、Twitter、INS、Airbnb、Yahoo、ThoughtWorks、蚂蚁金服、阿里巴巴、腾讯、百度、口碑、美团、滴滴出行、饿了么、京东、网易等。</p>
+<ver>
+
+<h4 id="UI-生态"><a href="#UI-生态" class="headerlink" title="UI 生态"></a>UI 生态</h4><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:right">vue</th>
+<th style="text-align:center">react</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pc 端</td>
+<td style="text-align:right">iview、element 等</td>
+<td style="text-align:center">Ant Design、Materal-UI 等</td>
+</tr>
+<tr>
+<td>h5 端</td>
+<td style="text-align:right">有赞 vant、mintui 等</td>
+<td style="text-align:center">Ant Design Mobile、weui</td>
+</tr>
+<tr>
+<td>混合开发</td>
+<td style="text-align:right">weexui、bui-weex</td>
+<td style="text-align:center">teaset、react-native-elements</td>
+</tr>
+<tr>
+<td>微信小程序</td>
+<td style="text-align:right">iview、Weapp、zanui</td>
+<td style="text-align:center">iView Weapp、Taro UI</td>
+</tr>
+</tbody>
+</table>
+<ver>
+
+<p>无论您选择 React.js 还是 Vue.js，两个框架都没有相当大的差异，根据您的要求，这个决定是非常主观的。如果您想将前端 JavaScript 框架集成到现有应用程序中，Vue.js 是更好的选择，如果您想使用 JavaScript 构建移动应用程序，React 绝对是您的选择。</p>
+<hor>
+
+<h3 id="react16-版本常见-api"><a href="#react16-版本常见-api" class="headerlink" title="react16 版本常见 api"></a><code>react16</code> 版本常见 <code>api</code></h3><ver>
+
+<p>先来看一下 react 暴露出来的 API</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> React = {</span><br><span class="line">  Children: {</span><br><span class="line">    map,</span><br><span class="line">    forEach,</span><br><span class="line">    count,</span><br><span class="line">    toArray,</span><br><span class="line">    only</span><br><span class="line">  },</span><br><span class="line"></span><br><span class="line">  createRef,</span><br><span class="line">  Component,</span><br><span class="line">  PureComponent,</span><br><span class="line"></span><br><span class="line">  createContext,</span><br><span class="line">  forwardRef,</span><br><span class="line"></span><br><span class="line">  Fragment: REACT_FRAGMENT_TYPE,</span><br><span class="line">  StrictMode: REACT_STRICT_MODE_TYPE,</span><br><span class="line">  unstable_AsyncMode: REACT_ASYNC_MODE_TYPE,</span><br><span class="line">  unstable_Profiler: REACT_PROFILER_TYPE,</span><br><span class="line"></span><br><span class="line">  createElement: __DEV__ ? createElementWithValidation : createElement,</span><br><span class="line">  cloneElement: __DEV__ ? cloneElementWithValidation : cloneElement,</span><br><span class="line">  createFactory: __DEV__ ? createFactoryWithValidation : createFactory,</span><br><span class="line">  isValidElement: isValidElement,</span><br><span class="line"></span><br><span class="line">  version: ReactVersion,</span><br><span class="line"></span><br><span class="line">  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h4 id="Children"><a href="#Children" class="headerlink" title="Children"></a><code>Children</code></h4><p>这个对象提供了一堆帮你处理 props.children 的方法，因为 children 是一个类似数组但是不是数组的数据结构，如果你要对其进行处理可以用 React.Children 外挂的方法。</p>
+<ver>
+
+<h4 id="createRef"><a href="#createRef" class="headerlink" title="createRef"></a><code>createRef</code></h4><p>新的 ref 用法，React 即将抛弃<code></code></p><div ref="myDiv"></div>这种 string ref 的用法，将来你只能使用两种方式来使用 ref<p></p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  <span class="keyword">constructor</span>() {</span><br><span class="line">    <span class="keyword">this</span>.ref = React.createRef()</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  render() {</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">div</span> <span class="attr">ref</span>=<span class="string">{this.ref}</span> /></span></span></span><br><span class="line"><span class="xml">    // or</span></span><br><span class="line">    return <div ref="{node" => (this.funRef = node)} /></div></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h4 id="createContext"><a href="#createContext" class="headerlink" title="createContext"></a><code>createContext</code></h4><p><code>createContext</code> 是官方定稿的 context 方案，在这之前我们一直在用的老的 context API 都是 React 不推荐的 API，现在新的 API 释出，官方也已经确定在 17 大版本会把老 API 去除(老 API 的性能不是一般的差)。</p>
+<p>新 API 的使用方法：</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> { Provider, Consumer } = React.createContext(<span class="string">'defaultValue'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ProviderComp = <span class="function">(<span class="params">props</span>) =></span> (</span><br><span class="line">  <provider value="{<span" class="string">'realValue'</provider></span>}><br><span class="line">    {props.children}</span><br><span class="line">  <<span class="regexp">/Provider></span></span><br><span class="line"><span class="regexp">)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const ConsumerComp = () => (</span></span><br><span class="line"><span class="regexp">  <consumer></consumer></span></span><br><span class="line"><span class="regexp">    {(value) => <p>{value}p>}</p></span><br><span class="line">  <<span class="regexp">/Consumber></span></span><br><span class="line"><span class="regexp">)</span></span><br></span></pre></td></tr></tbody></table></figure>
+<hor>
+
+<h3 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h3><ver>
+
+<p>目前 react 16.8 +的生命周期分为三个阶段,分别是挂载阶段、更新阶段、卸载阶段</p>
+<ul>
+<li>挂载阶段：<br><code>constructor(props)</code>: 实例化。<br><br><code>static getDerivedStateFromProps</code> 从 <code>props</code> 中获取 <code>state</code>。<br><br><code>render</code> 渲染。<br><br><code>componentDidMount</code>: 完成挂载。</li>
+</ul>
+<ver>
+
+<ul>
+<li>更新阶段：<br><code>static getDerivedStateFromProps</code> 从 props 中获取 state。<br><br><code>shouldComponentUpdate</code> 判断是否需要重绘。<br><br><code>render</code> 渲染。<br><br><code>getSnapshotBeforeUpdate</code> 获取快照。<br><br><code>componentDidUpdate</code> 渲染完成后回调。</li>
+<li>卸载阶段：<br><code>componentWillUnmount</code> 即将卸载。</li>
+<li>错误处理：<br><code>static getDerivedStateFromError</code> 从错误中获取 <code>state</code>。<br><br><code>componentDidCatch</code> 捕获错误并进行处理。</li>
+</ul>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleComponent</span> <span class="keyword">extends</span> <span class="title">react</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  <span class="comment">// 构造函数，最先被执行,我们通常在构造函数里初始化state对象或者给自定义方法绑定this</span></span><br><span class="line">  <span class="keyword">constructor</span>() {}</span><br><span class="line">  <span class="comment">//getDerivedStateFromProps(nextProps, prevState)用于替换 `componentWillReceiveProps` ，该函数会在初始化和 `update` 时被调用</span></span><br><span class="line">  <span class="comment">// 这是个静态方法,当我们接收到新的属性想去修改我们state，可以使用getDerivedStateFromProps</span></span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromProps(nextProps, prevState) {</span><br><span class="line">    <span class="comment">// 新的钩子 getDerivedStateFromProps() 更加纯粹, 它做的事情是将新传进来的属性和当前的状态值进行对比, 若不一致则更新当前的状态。</span></span><br><span class="line">    <span class="keyword">if</span> (nextProps.riderId !== prevState.riderId) {</span><br><span class="line">      <span class="keyword">return</span> {</span><br><span class="line">        riderId: nextProps.riderId</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 返回 null 则表示 state 不用作更新</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// shouldComponentUpdate(nextProps, nextState),有两个参数nextProps和nextState，表示新的属性和变化之后的state，返回一个布尔值，true表示会触发重新渲染，false表示不会触发重新渲染，默认返回true,我们通常利用此生命周期来优化react程序性能</span></span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) {</span><br><span class="line">    <span class="keyword">return</span> nextProps.id !== <span class="keyword">this</span>.props.id</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// 组件挂载后调用</span></span><br><span class="line">  <span class="comment">// 可以在该函数中进行请求或者订阅</span></span><br><span class="line">  componentDidMount() {}</span><br><span class="line">  <span class="comment">// getSnapshotBeforeUpdate(prevProps, prevState):这个方法在render之后，componentDidUpdate之前调用，有两个参数prevProps和prevState，表示之前的属性和之前的state，这个函数有一个返回值，会作为第三个参数传给componentDidUpdate，如果你不想要返回值，可以返回null，此生命周期必须与componentDidUpdate搭配使用</span></span><br><span class="line">  getSnapshotBeforeUpdate() {}</span><br><span class="line">  <span class="comment">// 组件即将销毁</span></span><br><span class="line">  <span class="comment">// 可以在此处移除订阅，定时器等等</span></span><br><span class="line">  componentWillUnmount() {}</span><br><span class="line">  <span class="comment">// 组件销毁后调用</span></span><br><span class="line">  componentDidUnMount() {}</span><br><span class="line">  <span class="comment">// componentDidUpdate(prevProps, prevState, snapshot):该方法在getSnapshotBeforeUpdate方法之后被调用，有三个参数prevProps，prevState，snapshot，表示之前的props，之前的state，和snapshot。第三个参数是getSnapshotBeforeUpdate返回的,如果触发某些回调函数时需要用到 DOM 元素的状态，则将对比或计算的过程迁移至 getSnapshotBeforeUpdate，然后在 componentDidUpdate 中统一触发回调或更新状态。</span></span><br><span class="line">  componentDidUpdate() {}</span><br><span class="line">  <span class="comment">// 渲染组件函数</span></span><br><span class="line">  render() {}</span><br><span class="line">  <span class="comment">// 以下函数不建议使用</span></span><br><span class="line">  UNSAFE_componentWillMount() {}</span><br><span class="line">  UNSAFE_componentWillUpdate(nextProps, nextState) {}</span><br><span class="line">  UNSAFE_componentWillReceiveProps(nextProps) {}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<p>react 版本 17 将弃用几个类组件 API 生命周期：<code>componentWillMount</code>，<code>componentWillReceiveProps</code>和<code>componentWillUpdate</code>。</p>
+<hor>
+
+<h3 id="react-事件机制"><a href="#react-事件机制" class="headerlink" title="react 事件机制"></a>react 事件机制</h3><p><ver><br>简单的理解 react 如何处理事件的，React 在组件加载(mount)和更新(update)时，将事件通过 addEventListener  统一注册到 document 上，然后会有一个事件池存储了所有的事件，当事件触发的时候，通过 dispatchEvent 进行事件分发。</ver></p>
+<p>引用<a href="https://juejin.im/post/5d6f127bf265da03cf7aab6d" target="_blank" rel="noopener">新手学习 react 迷惑的点(二)</a></p>
+<ul>
+<li>react 里面绑定事件的方式和在 HTML 中绑定事件类似，使用驼峰式命名指定要绑定的 onClick 属性为组件定义的一个方法{this.handleClick.bind(this)}。</li>
+<li>由于类的方法默认不会绑定 this，因此在调用的时候如果忘记绑定，this 的值将会是 undefined。 通常如果不是直接调用，应该为方法绑定 this，将事件函数上下文绑定要组件实例上。<ver>
+
+</ver></li>
+</ul>
+<h4 id="绑定事件的四种方式"><a href="#绑定事件的四种方式" class="headerlink" title="绑定事件的四种方式"></a>绑定事件的四种方式</h4><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">react</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  <span class="keyword">constructor</span>(props) {</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.handleClick1 = <span class="keyword">this</span>.handleClick1.bind(<span class="keyword">this</span>)</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">//方式1：在构造函数中使用bind绑定this，官方推荐的绑定方式，也是性能最好的方式</span></span><br><span class="line">  handleClick1() {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is:'</span>, <span class="keyword">this</span>)</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">//方式2：在调用的时候使用bind绑定this</span></span><br><span class="line">  handleClick2() {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is:'</span>, <span class="keyword">this</span>)</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">//方式3：在调用的时候使用箭头函数绑定this</span></span><br><span class="line">  <span class="comment">// 方式2和方式3会有性能影响并且当方法作为属性传递给子组件的时候会引起重渲问题</span></span><br><span class="line">  handleClick3() {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is:'</span>, <span class="keyword">this</span>)</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">//方式4：使用属性初始化器语法绑定this，需要babel转义</span></span><br><span class="line">  handleClick4 = <span class="function"><span class="params">()</span> =></span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is:'</span>, <span class="keyword">this</span>)</span><br><span class="line">  }</span><br><span class="line">  render() {</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <div></div></span><br><span class="line">        <button onclick="{<span" class="keyword">this</button></span>.handleClick1}>Click me<<span class="regexp">/button></span><br><span class="line"><span class="regexp">        <button onclick="{this.handleClick2.bind(this)}">Click mebutton></button></span><br><span class="line">        <button onclick="{()" => <span class="keyword">this</span>.handleClick3}>Click me<<span class="regexp">/button></span></button></span><br><span class="line"><span class="regexp">        <button onclick="{this.handleClick4}">Click mebutton></button></span><br><span class="line">      <<span class="regexp">/div></span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  }</span></span><br><span class="line"><span class="regexp">}</span></span><br></span></span></pre></td></tr></tbody></table></figure>
+<ver>
+
+<p>为什么直接调用方法会报错</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  handleClick() {</span><br><span class="line">    <span class="keyword">this</span>.setState({ <span class="attr">xxx</span>: aaa })</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  render() {</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">{this.handleClick.bind(this)}</span>></span>Click me<span class="tag">button</span>></span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>会被 babel 转化成</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">React.createElement(</span><br><span class="line">  <span class="string">'button'</span>,</span><br><span class="line">  {</span><br><span class="line">    onClick: <span class="keyword">this</span>.handleClick</span><br><span class="line">  },</span><br><span class="line">  <span class="string">'Click me'</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h4 id="“合成事件”和“原生事件”"><a href="#“合成事件”和“原生事件”" class="headerlink" title="“合成事件”和“原生事件”"></a>“合成事件”和“原生事件”</h4><p>react 实现了一个“合成事件”层（<code>synthetic event system</code>），这抹平了各个浏览器的事件兼容性问题。所有事件均注册到了元素的最顶层-document 上，“合成事件”会以事件委托（<code>event delegation</code>）的方式绑定到组件最上层，并且在组件卸载（<code>unmount</code>）的时候自动销毁绑定的事件。</p>
+<hor>
+
+<h3 id="react-组件开发"><a href="#react-组件开发" class="headerlink" title="react 组件开发"></a>react 组件开发</h3><ver>
+
+<h4 id="react-组件化思想"><a href="#react-组件化思想" class="headerlink" title="react 组件化思想"></a>react 组件化思想</h4><h5 id="一个-UI-组件的完整模板"><a href="#一个-UI-组件的完整模板" class="headerlink" title="一个 UI 组件的完整模板"></a>一个 UI 组件的完整模板</h5><figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> classNames <span class="keyword">from</span> <span class="string">'classnames'</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">react</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  <span class="comment">//参数传参与校验</span></span><br><span class="line">  <span class="keyword">static</span> propTypes = {</span><br><span class="line">    type: PropTypes.oneOf([<span class="string">'success'</span>, <span class="string">'normal'</span>]),</span><br><span class="line">    onClick: PropTypes.func</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">static</span> defaultProps = {</span><br><span class="line">    type: <span class="string">'normal'</span></span><br><span class="line">  }</span><br><span class="line">  handleClick() {}</span><br><span class="line">  render() {</span><br><span class="line">    <span class="keyword">let</span> { className, type, children, ...other } = <span class="keyword">this</span>.props</span><br><span class="line">    <span class="keyword">const</span> classes = classNames(</span><br><span class="line">      className,</span><br><span class="line">      <span class="string">'prefix-button'</span>,</span><br><span class="line">      <span class="string">'prefix-button-'</span> + type</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span classname="{classes}" {...other} onclick="{()" => <span class="keyword">this</span>.handleClick}></span><br><span class="line">        {children}</span><br><span class="line">      <<span class="regexp">/span></span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  }</span></span><br><span class="line"><span class="regexp">}</span></span><br></span></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h4 id="函数定义组件（Function-Component）"><a href="#函数定义组件（Function-Component）" class="headerlink" title="函数定义组件（Function Component）"></a>函数定义组件（Function Component）</h4><p>纯展示型的，不需要维护 state 和生命周期，则优先使用 <code>Function Component</code></p>
+<ol>
+<li>代码更简洁，一看就知道是纯展示型的，没有复杂的业务逻辑</li>
+<li>更好的复用性。只要传入相同结构的 props，就能展示相同的界面，不需要考虑副作用。</li>
+<li>打包体积小，执行效率高</li>
+</ol>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> react <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">props</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> { firstName, lastName } = props</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <div></div></span><br><span class="line">      <img src="<span" class="string">"avatar.png"</span> className=<span class="string">"profile"</span> /><br><span class="line">      <h3>{[firstName, lastName].join(<span class="string">' '</span>)}<<span class="regexp">/h3></span></h3></span><br><span class="line"><span class="regexp">    div></span><br><span class="line">  )</span><br><span class="line">}</span><br></span></pre></td></tr></tbody></table></figure>
+<p>会被 babel 转义成</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> React.createElement(</span><br><span class="line">  <span class="string">'div'</span>,</span><br><span class="line">  <span class="literal">null</span>,</span><br><span class="line">  React.createElement(<span class="string">'img'</span>, { <span class="attr">src</span>: <span class="string">'avatar.png'</span>, <span class="attr">className</span>: <span class="string">'profile'</span> }),</span><br><span class="line">  React.createElement(<span class="string">'h3'</span>, <span class="literal">null</span>, [firstName, lastName].join(<span class="string">' '</span>))</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<p>那么，<code>React.createElement</code> 是在做什么？看下相关部分代码：</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ReactElement = <span class="function"><span class="keyword">function</span>(<span class="params">type, key, ref, self, source, owner, props</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> element = {</span><br><span class="line">    <span class="comment">// This tag allow us to uniquely identify this as a React Element</span></span><br><span class="line">    $$<span class="keyword">typeof</span>: REACT_ELEMENT_TYPE,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Built-in properties that belong on the element</span></span><br><span class="line">    type: type,</span><br><span class="line">    key: key,</span><br><span class="line">    ref: ref,</span><br><span class="line">    props: props,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Record the component responsible for creating this element.</span></span><br><span class="line">    _owner: owner</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> element</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">ReactElement.createElement = <span class="function"><span class="keyword">function</span>(<span class="params">type, config, children</span>) </span>{</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> ReactElement(</span><br><span class="line">    type,</span><br><span class="line">    key,</span><br><span class="line">    ref,</span><br><span class="line">    self,</span><br><span class="line">    source,</span><br><span class="line">    ReactCurrentOwner.current,</span><br><span class="line">    props</span><br><span class="line">  )</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>React.createElement()来构建 React 元素的。它接受三个参数，第一个参数 type 可以是一个标签名。如 div、span，或者 React 组件。第二个参数 props 为传入的属性。第三个以及之后的参数 children，皆作为组件的子组件。</p>
+<p><code>createElement</code> 函数对 key 和 ref 等特殊的 props 进行处理，并获取 <code>defaultProps</code> 对默认 props 进行赋值，并且对传入的孩子节点进行处理，最终构造成一个 <code>reactElement</code> 对象（所谓的虚拟 DOM）。<br><code>reactDOM.render</code> 将生成好的虚拟 DOM 渲染到指定容器上，其中采用了批处理、事务等机制并且对特定浏览器进行了性能优化，最终转换为真实 DOM。</p>
+<ver>
+
+<h4 id="ES6-class-定义一个纯组件（PureComponent）"><a href="#ES6-class-定义一个纯组件（PureComponent）" class="headerlink" title="ES6 class 定义一个纯组件（PureComponent）"></a><code>ES6 class</code> 定义一个纯组件（<code>PureComponent</code>）</h4><p>组件需要维护 state 或使用生命周期方法，则优先使用 <code>PureComponent</code></p>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">react</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  render() {</span><br><span class="line">    <span class="keyword">let</span> { name } = <span class="keyword">this</span>.props</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">h1</span>></span>Hello, {name}<span class="tag">h1</span>></span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h5 id="PureComponent"><a href="#PureComponent" class="headerlink" title="PureComponent"></a><code>PureComponent</code></h5><p><code>Component</code> & <code>PureComponent</code> 这两个类基本相同，唯一的区别是 <code>PureComponent</code> 的原型上多了一个标识，<code>shallowEqual</code>（浅比较），来决定是否更新组件，浅比较类似于浅复制，只会比较第一层。使用 <code>PureComponent</code> 相当于省去了写 <code>shouldComponentUpdate</code> 函数</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ctor.prototype && ctor.prototype.isPureReactComponent) {</span><br><span class="line">  <span class="keyword">return</span> !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>这是检查组件是否需要更新的一个判断，ctor 就是你声明的继承自 <code>Component</code> or <code>PureComponent</code> 的类，他会判断你是否继承自 <code>PureComponent，如果是的话就</code> <code>shallowEqual</code> 比较 state 和 props。</p>
+<p>React 中对比一个 <code>ClassComponent</code> 是否需要更新，只有两个地方。一是看有没有 <code>shouldComponentUpdate</code> 方法，二就是这里的 <code>PureComponent</code> 判断</p>
+<hor>
+
+<h3 id="使用不可变数据结构-Immutablejs"><a href="#使用不可变数据结构-Immutablejs" class="headerlink" title="使用不可变数据结构 Immutablejs"></a>使用不可变数据结构 <code>Immutablejs</code></h3><ver>
+
+<p><code>Immutable.js</code> 是 Facebook 在 2014 年出的持久性数据结构的库，持久性指的是数据一旦创建，就不能再被更改，任何修改或添加删除操作都会返回一个新的 <code>Immutable</code> 对象。可以让我们更容易的去处理缓存、回退、数据变化检测等问题，简化开发。并且提供了大量的类似原生 JS 的方法，还有 <code>Lazy Operation</code> 的特性，完全的函数式编程。</p>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { <span class="built_in">Map</span> } <span class="keyword">from</span> <span class="string">'immutable'</span></span><br><span class="line"><span class="keyword">const</span> map1 = <span class="built_in">Map</span>({ <span class="attr">a</span>: { <span class="attr">aa</span>: <span class="number">1</span> }, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span> })</span><br><span class="line"><span class="keyword">const</span> map2 = map1.set(<span class="string">'b'</span>, <span class="number">50</span>)</span><br><span class="line">map1 !== map2 <span class="comment">// true</span></span><br><span class="line">map1.get(<span class="string">'b'</span>) <span class="comment">// 2</span></span><br><span class="line">map2.get(<span class="string">'b'</span>) <span class="comment">// 50</span></span><br><span class="line">map1.get(<span class="string">'a'</span>) === map2.get(<span class="string">'a'</span>) <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>可以看到，修改 map1 的属性返回 map2，他们并不是指向同一存储空间，map1 声明了只有，所有的操作都不会改变它。</p>
+<ver>
+
+<p><code>ImmutableJS</code>提供了大量的方法去更新、删除、添加数据，极大的方便了我们操纵数据。除此之外，还提供了原生类型与 <code>ImmutableJS</code> 类型判断与转换方法：</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { fromJS, isImmutable } <span class="keyword">from</span> <span class="string">'immutable'</span></span><br><span class="line"><span class="keyword">const</span> obj = fromJS({</span><br><span class="line">  a: <span class="string">'test'</span>,</span><br><span class="line">  b: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">}) <span class="comment">// 支持混合类型</span></span><br><span class="line">isImmutable(obj) <span class="comment">// true</span></span><br><span class="line">obj.size() <span class="comment">// 2</span></span><br><span class="line"><span class="keyword">const</span> obj1 = obj.toJS() <span class="comment">// 转换成原生 `js` 类型</span></span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<p><code>ImmutableJS</code> 最大的两个特性就是： <code>immutable data structures</code>（持久性数据结构）与 <code>structural sharing</code>（结构共享），持久性数据结构保证数据一旦创建就不能修改，使用旧数据创建新数据时，旧数据也不会改变，不会像原生 js 那样新数据的操作会影响旧数据。而结构共享是指没有改变的数据共用一个引用，这样既减少了深拷贝的性能消耗，也减少了内存。</p>
+<p><ver><br>比如下图：<br></ver></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/16/16d38db482ead4cd?w=715&h=324&f=png&s=36981" alt="react-tree"></p>
+<ver>
+
+<p>左边是旧值，右边是新值，我需要改变左边红色节点的值，生成的新值改变了红色节点到根节点路径之间的所有节点，也就是所有青色节点的值，旧值没有任何改变，其他使用它的地方并不会受影响，而超过一大半的蓝色节点还是和旧值共享的。在 <code>ImmutableJS</code> 内部，构造了一种特殊的数据结构，把原生的值结合一系列的私有属性，创建成 <code>ImmutableJS</code> 类型，每次改变值，先会通过私有属性的辅助检测，然后改变对应的需要改变的私有属性和真实值，最后生成一个新的值，中间会有很多的优化，所以性能会很高。</p>
+<ver>
+
+<h3 id="高阶组件-higher-order-component"><a href="#高阶组件-higher-order-component" class="headerlink" title="高阶组件(higher order component)"></a>高阶组件(<code>higher order component</code>)</h3><p>高阶组件是一个以组件为参数并返回一个新组件的函数。HOC 运行你重用代码、逻辑和引导抽象。</p>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">visible</span>(<span class="params">WrappedComponent</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>{</span><br><span class="line">    render() {</span><br><span class="line">      <span class="keyword">const</span> { visible, ...props } = <span class="keyword">this</span>.props</span><br><span class="line">      <span class="keyword">if</span> (visible === <span class="literal">false</span>) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">WrappedComponent</span> {<span class="attr">...props</span>} /></span></span></span><br><span class="line"><span class="xml">    }</span></span><br><span class="line"><span class="xml">  }</span></span><br><span class="line"><span class="xml">}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>上面的代码就是一个 HOC 的简单应用，函数接收一个组件作为参数，并返回一个新组件，新组建可以接收一个 visible props，根据 visible 的值来判断是否渲染 Visible。</p>
+<p><ver><br>最常见的还有 Redux 的 connect 函数。除了简单分享工具库和简单的组合，HOC 最好的方式是共享 react 组件之间的行为。如果你发现你在不同的地方写了大量代码来做同一件事时，就应该考虑将代码重构为可重用的 HOC。<br>下面就是一个简化版的 connect 实现：</ver></p>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> connect = (</span><br><span class="line">  mapStateToProps,</span><br><span class="line">  mapDispatchToProps</span><br><span class="line">) => <span class="function"><span class="params">WrappedComponent</span> =></span> {</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Connect</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> contextTypes = {</span><br><span class="line">      store: PropTypes.object</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>() {</span><br><span class="line">      <span class="keyword">super</span>()</span><br><span class="line">      <span class="keyword">this</span>.state = {</span><br><span class="line">        allProps: {}</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    componentWillMount() {</span><br><span class="line">      <span class="keyword">const</span> { store } = <span class="keyword">this</span>.context</span><br><span class="line">      <span class="keyword">this</span>._updateProps()</span><br><span class="line">      store.subscribe(<span class="function"><span class="params">()</span> =></span> <span class="keyword">this</span>._updateProps())</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    _updateProps() {</span><br><span class="line">      <span class="keyword">const</span> { store } = <span class="keyword">this</span>.context</span><br><span class="line">      <span class="keyword">let</span> stateProps = mapStateToProps</span><br><span class="line">        ? mapStateToProps(store.getState(), <span class="keyword">this</span>.props)</span><br><span class="line">        : {}</span><br><span class="line">      <span class="keyword">let</span> dispatchProps = mapDispatchToProps</span><br><span class="line">        ? mapDispatchToProps(store.dispatch, <span class="keyword">this</span>.props)</span><br><span class="line">        : {}</span><br><span class="line">      <span class="keyword">this</span>.setState({</span><br><span class="line">        allProps: {</span><br><span class="line">          ...stateProps,</span><br><span class="line">          ...dispatchProps,</span><br><span class="line">          ...this.props</span><br><span class="line">        }</span><br><span class="line">      })</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    render() {</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">WrappedComponent</span> {<span class="attr">...this.state.allProps</span>} /></span></span></span><br><span class="line"><span class="xml">    }</span></span><br><span class="line"><span class="xml">  }</span></span><br><span class="line"><span class="xml">  return Connect</span></span><br><span class="line"><span class="xml">}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>代码非常清晰，connect 函数其实就做了一件事，将 <code>mapStateToProps</code> 和 <code>mapDispatchToProps</code> 分别解构后传给原组件，这样我们在原组件内就可以直接用 <code>props</code> 获取 <code>state</code> 以及 <code>dispatch</code> 函数了。</p>
+<ver>
+
+<h4 id="高阶组件的应用"><a href="#高阶组件的应用" class="headerlink" title="高阶组件的应用"></a>高阶组件的应用</h4><p>某些页面需要记录用户行为，性能指标等等，通过高阶组件做这些事情可以省去很多重复代码。</p>
+<ver>
+
+<h5 id="日志打点"><a href="#日志打点" class="headerlink" title="日志打点"></a>日志打点</h5><figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logHoc</span>(<span class="params">WrappedComponent</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>{</span><br><span class="line">    componentWillMount() {</span><br><span class="line">      <span class="keyword">this</span>.start = <span class="built_in">Date</span>.now()</span><br><span class="line">    }</span><br><span class="line">    componentDidMount() {</span><br><span class="line">      <span class="keyword">this</span>.end = <span class="built_in">Date</span>.now()</span><br><span class="line">      <span class="built_in">console</span>.log(</span><br><span class="line">        <span class="string">`<span class="subst">${WrappedComponent.dispalyName}</span> 渲染时间：<span class="subst">${<span class="keyword">this</span>.end - <span class="keyword">this</span>.start}</span> ms`</span></span><br><span class="line">      )</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">${user}</span>进入<span class="subst">${WrappedComponent.dispalyName}</span>`</span>)</span><br><span class="line">    }</span><br><span class="line">    componentWillUnmount() {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">${user}</span>退出<span class="subst">${WrappedComponent.dispalyName}</span>`</span>)</span><br><span class="line">    }</span><br><span class="line">    render() {</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">WrappedComponent</span> {<span class="attr">...this.props</span>} /></span></span></span><br><span class="line"><span class="xml">    }</span></span><br><span class="line"><span class="xml">  }</span></span><br><span class="line"><span class="xml">}</span></span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h5 id="可用、权限控制"><a href="#可用、权限控制" class="headerlink" title="可用、权限控制"></a>可用、权限控制</h5><figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">auth</span>(<span class="params">WrappedComponent</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>{</span><br><span class="line">    render() {</span><br><span class="line">      <span class="keyword">const</span> { visible, auth, display = <span class="literal">null</span>, ...props } = <span class="keyword">this</span>.props</span><br><span class="line">      <span class="keyword">if</span> (visible === <span class="literal">false</span> || (auth && authList.indexOf(auth) === <span class="number">-1</span>)) {</span><br><span class="line">        <span class="keyword">return</span> display</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">WrappedComponent</span> {<span class="attr">...props</span>} /></span></span></span><br><span class="line"><span class="xml">    }</span></span><br><span class="line"><span class="xml">  }</span></span><br><span class="line"><span class="xml">}</span></span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h5 id="表单校验"><a href="#表单校验" class="headerlink" title="表单校验"></a>表单校验</h5><p>基于上面的双向绑定的例子，我们再来一个表单验证器，表单验证器可以包含验证函数以及提示信息，当验证不通过时，展示错误信息：</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validateHoc</span>(<span class="params">WrappedComponent</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>{</span><br><span class="line">    <span class="keyword">constructor</span>(props) {</span><br><span class="line">      <span class="keyword">super</span>(props)</span><br><span class="line">      <span class="keyword">this</span>.state = { <span class="attr">error</span>: <span class="string">''</span> }</span><br><span class="line">    }</span><br><span class="line">    onChange = <span class="function"><span class="params">event</span> =></span> {</span><br><span class="line">      <span class="keyword">const</span> { validator } = <span class="keyword">this</span>.props</span><br><span class="line">      <span class="keyword">if</span> (validator && <span class="keyword">typeof</span> validator.func === <span class="string">'function'</span>) {</span><br><span class="line">        <span class="keyword">if</span> (!validator.func(event.target.value)) {</span><br><span class="line">          <span class="keyword">this</span>.setState({ <span class="attr">error</span>: validator.msg })</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">          <span class="keyword">this</span>.setState({ <span class="attr">error</span>: <span class="string">''</span> })</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    render() {</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <div></div></span><br><span class="line">          <wrappedcomponent onchange="{<span" class="keyword">this</wrappedcomponent></span>.onChange} {...this.props} /><br><span class="line">          <div>{<span class="keyword">this</span>.state.error || <span class="string">''</span>}<<span class="regexp">/div></span></div></span><br><span class="line"><span class="regexp">        div></span><br><span class="line">      )</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></span></pre></td></tr></tbody></table></figure>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> validatorName = {</span><br><span class="line">  func: <span class="function">(<span class="params">val</span>) =></span> val && !<span class="built_in">isNaN</span>(val),</span><br><span class="line">  msg: <span class="string">'请输入数字'</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">const</span> validatorPwd = {</span><br><span class="line">  func: <span class="function">(<span class="params">val</span>) =></span> val && val.length > <span class="number">6</span>,</span><br><span class="line">  msg: <span class="string">'密码必须大于6位'</span></span><br><span class="line">}</span><br><span class="line"><hocinput validator="{validatorName}" v_model="<span" class="string">"name"</hocinput></span>><span class="xml"><span class="tag">HOCInput</span>></span><br><span class="line"><hocinput validator="{validatorPwd}" v_model="<span" class="string">"pwd"</hocinput></span>><span class="xml"><span class="tag">HOCInput</span>></span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h4 id="HOC-的缺陷"><a href="#HOC-的缺陷" class="headerlink" title="HOC 的缺陷"></a>HOC 的缺陷</h4><ul>
+<li>HOC 需要在原组件上进行包裹或者嵌套，如果大量使用 HOC，将会产生非常多的嵌套，这让调试变得非常困难。</li>
+<li>HOC 可以劫持 props，在不遵守约定的情况下也可能造成冲突。</li>
+</ul>
+<ver>
+
+<h4 id="render-props"><a href="#render-props" class="headerlink" title="render props"></a><code>render props</code></h4><p>一种在 React 组件之间使用一个值为函数的 prop 共享代码的简单技术<br>具有 render prop 的组件接受一个函数，该函数返回一个 React 元素并调用它而不是实现自己的渲染逻辑。</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><dataprovider render="{data" => <span class="xml"><span class="tag"><<span class="name">h1</span>></span>Hello {data.target}<span class="tag">h1</span>></span></dataprovider></span>} /><br></pre></td></tr></tbody></table></figure>
+<hor>
+
+<h3 id="setState-数据管理"><a href="#setState-数据管理" class="headerlink" title="setState 数据管理"></a><code>setState</code> 数据管理</h3><p><ver><br><strong>不要直接更新状态</strong></ver></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Wrong 此代码不会重新渲染组件,构造函数是唯一能够初始化 this.state 的地方。</span></span><br><span class="line"><span class="keyword">this</span>.state.comment = <span class="string">'Hello'</span></span><br><span class="line"><span class="comment">// Correct 应当使用 setState():</span></span><br><span class="line"><span class="keyword">this</span>.setState({ <span class="attr">comment</span>: <span class="string">'Hello'</span> })</span><br></pre></td></tr></tbody></table></figure>
+<p><ver><br>组件生命周期中或者 react 事件绑定中，setState 是通过异步更新的，在延时的回调或者原生事件绑定的回调中调用 setState 不一定是异步的。</ver></p>
+<ul>
+<li>多个 setState() 调用合并成一个调用来提高性能。</li>
+<li>this.props 和 this.state 可能是异步更新的，不应该依靠它们的值来计算下一个状态。</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Wrong</span></span><br><span class="line"><span class="keyword">this</span>.setState({</span><br><span class="line">  counter: <span class="keyword">this</span>.state.counter + <span class="keyword">this</span>.props.increment</span><br><span class="line">})</span><br><span class="line"><span class="comment">// Correct</span></span><br><span class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =></span> ({</span><br><span class="line">  counter: prevState.counter + props.increment</span><br><span class="line">}))</span><br></pre></td></tr></tbody></table></figure>
+<p><ver><br>原生事件绑定不会通过合成事件的方式处理，会进入更新事务的处理流程。<code>setTimeout</code> 也一样，在 <code>setTimeout</code> 回调执行时已经完成了原更新组件流程，不会放入 <code>dirtyComponent</code> 进行异步更新，其结果自然是同步的。</ver></p>
+<ver>
+
+<h4 id="setState-原理"><a href="#setState-原理" class="headerlink" title="setState 原理"></a><code>setState</code> 原理</h4><p>setState 并没有直接操作去渲染，而是执行了一个 <code>updateQueue</code>（异步 updater 队列），</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setState( stateChange ) {</span><br><span class="line">    <span class="built_in">Object</span>.assign( <span class="keyword">this</span>.state, stateChange );</span><br><span class="line">    <span class="comment">//合并接收到的state||stateChange改变的state（setState接收到的参数）</span></span><br><span class="line">    renderComponent( <span class="keyword">this</span> );<span class="comment">//调用render渲染组件</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>这种实现，每次调用 <code>setState</code> 都会更新 state 并马上渲染一次（不符合其更新优化机制），所以我们要合并 <code>setState</code>。</p>
+<p>具体可以阅读源码<br><a href="https://github.com/facebook/react/blob/03944bfb0bdacfe35b2a1722426ff744ae47d018/packages/react-reconciler/src/ReactUpdateQueue.js" target="_blank" rel="noopener"><code>ReactUpdateQueue.js</code></a></p>
+<hor>
+
+<h3 id="react-中的事务实现"><a href="#react-中的事务实现" class="headerlink" title="react 中的事务实现"></a><code>react</code> 中的事务实现</h3><p>待完善<br>这块看的还有点懵圈<br><a href="https://juejin.im/post/59cc4c4bf265da0648446ce0" target="_blank" rel="noopener">React 源码解析(三):详解事务与更新队列</a><br><a href="https://oychao.github.io/2017/09/25/react/16_transaction/" target="_blank" rel="noopener">React 中的 Transaction</a><br><a href="https://zhuanlan.zhihu.com/p/61367775" target="_blank" rel="noopener">React 的事务机制</a></p>
+<h4 id="transaction-事务"><a href="#transaction-事务" class="headerlink" title="transaction 事务"></a>transaction 事务</h4><hor>
+
+<h3 id="ErrorBoundary、Suspense-和-Fragment"><a href="#ErrorBoundary、Suspense-和-Fragment" class="headerlink" title="ErrorBoundary、Suspense 和 Fragment"></a><code>ErrorBoundary</code>、<code>Suspense</code> 和 <code>Fragment</code></h3><ver>
+
+<h4 id="Error-Boundaries"><a href="#Error-Boundaries" class="headerlink" title="Error Boundaries"></a><code>Error Boundaries</code></h4><p>react 16 提供了一个新的错误捕获钩子 <code>componentDidCatch(error, errorInfo)</code>, 它能将子组件生命周期里所抛出的错误捕获, 防止页面全局崩溃。demo<br><code>componentDidCatch</code> 并不会捕获以下几种错误</p>
+<ul>
+<li>事件机制抛出的错误(事件里的错误并不会影响渲染)</li>
+<li>Error Boundaries 自身抛出的错误</li>
+<li>异步产生的错误</li>
+<li>服务端渲染<ver>
+
+</ver></li>
+</ul>
+<h4 id="lazy、Suspence-延迟加载组件"><a href="#lazy、Suspence-延迟加载组件" class="headerlink" title="lazy、Suspence 延迟加载组件"></a><code>lazy、Suspence</code> 延迟加载组件</h4><p><code>lazy</code> 需要跟 <code>Suspence</code> 配合使用，否则会报错。</p>
+<p><code>lazy</code> 实际上是帮助我们实现代码分割 ，类似 webpack 的 <code>splitchunk</code> 的功能。</p>
+<p><code>Suspense</code> 意思是能暂停当前组件的渲染, 当完成某件事以后再继续渲染。简单来说就是减少首屏代码的体积，提升性能。</p>
+<ver>
+
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> react, { lazy, Suspense } <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">const</span> OtherComponent = lazy(<span class="function"><span class="params">()</span> =></span> <span class="keyword">import</span>(<span class="string">'./OtherComponent'</span>))</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <suspense fallback="{<div">loading...<<span class="regexp">/div>}></span></suspense></span><br><span class="line"><span class="regexp">      <othercomponent < span>></othercomponent></span><br><span class="line">    <<span class="regexp">/Suspense></span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">}</span></span><br></span></pre></td></tr></tbody></table></figure>
+<ver>
+
+<p>一种简单的预加载思路, 可参考 preload</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> OtherComponentPromise = <span class="keyword">import</span>(<span class="string">'./OtherComponent'</span>)</span><br><span class="line"><span class="keyword">const</span> OtherComponent = react.lazy(<span class="function"><span class="params">()</span> =></span> OtherComponentPromise)</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h4 id="Fragments（v16-2-0"><a href="#Fragments（v16-2-0" class="headerlink" title="Fragments（v16.2.0)"></a><code>Fragments（v16.2.0)</code></h4><p>Fragments 允许你将子列表分组，避免向 DOM 添加额外的节点。</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">render() {</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <></span><br><span class="line">      <childa></childa></span><br><span class="line">      <childb></childb></span><br><span class="line">      <childc></childc></span><br><span class="line">    <<span class="regexp">/></span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">}</span></span><br></pre></td></tr></tbody></table></figure>
+<hor>
+
+<h3 id="react-Fiber-架构分析"><a href="#react-Fiber-架构分析" class="headerlink" title="react Fiber 架构分析"></a><code>react Fiber</code> 架构分析</h3><p><code>react-fiber</code>是为了增强动画、布局、移动端手势领域的适用性，最重要的特性是对页面渲染的优化: 允许将渲染方面的工作拆分为多段进行。</p>
+<ver>
+
+<h4 id="react-Fiber-架构解决了什么问题"><a href="#react-Fiber-架构解决了什么问题" class="headerlink" title="react Fiber 架构解决了什么问题"></a><code>react Fiber</code> 架构解决了什么问题</h4><p><code>react-fiber</code> 可以为我们提供如下几个功能：</p>
+<ul>
+<li>设置渲染任务的优先</li>
+<li>采用新的 Diff 算法</li>
+<li>采用虚拟栈设计允许当优先级更高的渲染任务和较低优先的任务之间来回切换</li>
+</ul>
+<ver>
+
+<h4 id="Fiber-如何做到异步渲染-Virtual-Dom-和-Diff-算法"><a href="#Fiber-如何做到异步渲染-Virtual-Dom-和-Diff-算法" class="headerlink" title="Fiber 如何做到异步渲染 Virtual Dom 和 Diff 算法"></a><code>Fiber</code> 如何做到异步渲染 <code>Virtual Dom</code> 和 <code>Diff</code> 算法</h4><p>众所周知，画面每秒钟更新 60 次，页面在人眼中显得流畅，无明显卡顿。每秒 60 次，即 16ms 要更新一次页面，如果更新页面消耗的时间不到 16ms，那么在下一次更新时机来到之前会剩下一点时间执行其他的任务，只要保证及时在 16ms 的间隔下更新界面就完全不会影响到页面的流畅程度。fiber 的核心正是利用了 60 帧原则，实现了一个基于优先级和 requestIdleCallback 的循环任务调度算法。</p>
+<ver>
+
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fiber</span>(<span class="params">剩余时间</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (剩余时间 > 任务所需时间) {</span><br><span class="line">    做任务</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    requestIdleCallback(fiber)</span><br><span class="line">    <span class="comment">// requestIdleCallback 是浏览器提供的一个 api，可以让浏览器在空闲的时候执行回调，</span></span><br><span class="line">    <span class="comment">// 在回调参数中可以获取到当前帧剩余的时间，fiber 利用了这个参数，</span></span><br><span class="line">    <span class="comment">// 判断当前剩下的时间是否足够继续执行任务，</span></span><br><span class="line">    <span class="comment">// 如果足够则继续执行，否则暂停任务，</span></span><br><span class="line">    <span class="comment">// 并调用 requestIdleCallback 通知浏览器空闲的时候继续执行当前的任务</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<hor>
+
+<h3 id="react-hooks"><a href="#react-hooks" class="headerlink" title="react hooks"></a><code>react hooks</code></h3><p>在 react 16.7 之前, react 有两种形式的组件, 有状态组件(类)和无状态组件(函数)。<br>官方解释： hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。<br>个人理解：让传统的函数组件 function component 有内部状态 state 的函数 function,简单来说就是 hooks 让函数组件有了状态，可以完全替代 class。</p>
+<p>接下来梳理 Hooks 中最核心的 2 个 api, <code>useState</code> 和 <code>useEffect</code></p>
+<ver>
+
+<h4 id="useState"><a href="#useState" class="headerlink" title="useState"></a><code>useState</code></h4><p>useState 是一个钩子，他可以为函数式组件增加一些状态，并且提供改变这些状态的函数，同时它接收一个参数，这个参数作为状态的默认值。</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [count, setCount] = useState(initialState)</span><br></pre></td></tr></tbody></table></figure>
+<p>使用 Hooks 相比之前用 class 的写法最直观的感受是更为简洁</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <div></div></span><br><span class="line">      <p>You clicked {count} times<<span class="regexp">/p></span></p></span><br><span class="line"><span class="regexp">      <button onclick="{()" => setCount(count + 1)}>Click mebutton></button></span><br><span class="line">    <<span class="regexp">/div></span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">}</span></span><br></span></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h4 id="useEffect-fn"><a href="#useEffect-fn" class="headerlink" title="useEffect(fn)"></a><code>useEffect(fn)</code></h4><p>在每次 render 后都会执行这个钩子。可以将它当成是 <code>componentDidMount</code>、<code>componentDidUpdate`</code>、componentWillUnmount <code>的合集。因此使用</code>useEffect` 比之前优越的地方在于:</p>
+<p>可以避免在 <code>componentDidMount</code>、<code>componentDidUpdate</code> 书写重复的代码;<br>可以将关联逻辑写进一个 <code>useEffect</code>(在以前得写进不同生命周期里);</p>
+<hor>
+
+<h3 id="深入理解-react-原理"><a href="#深入理解-react-原理" class="headerlink" title="深入理解 react 原理"></a>深入理解 react 原理</h3><ver>
+
+<h4 id="react-虚拟-dom-原理剖析"><a href="#react-虚拟-dom-原理剖析" class="headerlink" title="react 虚拟 dom 原理剖析"></a>react 虚拟 dom 原理剖析</h4><ver>
+
+<h5 id="react-组件的渲染流程"><a href="#react-组件的渲染流程" class="headerlink" title="react 组件的渲染流程"></a>react 组件的渲染流程</h5><p>使用 <code>react.createElement</code> 或 JSX 编写 react 组件，实际上所有的 JSX 代码最后都会转换成 <code>react.createElement(...)</code>，Babel 帮助我们完成了这个转换的过程。</p>
+<p>createElement 函数对 key 和 ref 等特殊的 props 进行处理，并获取 <code>defaultProps</code> 对默认 props 进行赋值，并且对传入的孩子节点进行处理，最终构造成一个 <code>reactElement</code> 对象（所谓的虚拟 DOM）。</p>
+<p><code>reactDOM.render</code> 将生成好的虚拟 DOM 渲染到指定容器上，其中采用了批处理、事务等机制并且对特定浏览器进行了性能优化，最终转换为真实 DOM。</p>
+<ver>
+
+<h5 id="虚拟-DOM-的组成"><a href="#虚拟-DOM-的组成" class="headerlink" title="虚拟 DOM 的组成"></a>虚拟 DOM 的组成</h5><p>即 <code>reactElementelement</code> 对象，我们的组件最终会被渲染成下面的结构：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">`type`：元素的类型，可以是原生 html 类型（字符串），或者自定义组件（函数或 class）</span><br><span class="line">`key`：组件的唯一标识，用于 Diff 算法，下面会详细介绍</span><br><span class="line">`ref`：用于访问原生 dom 节点</span><br><span class="line">`props`：传入组件的 props，chidren 是 props 中的一个属性，它存储了当前组件的孩子节点，可以是数组（多个孩子节点）或对象（只有一个孩子节点）</span><br><span class="line">`owner`：当前正在构建的 Component 所属的 Component</span><br><span class="line">`self`：（非生产环境）指定当前位于哪个组件实例</span><br><span class="line">`_source`：（非生产环境）指定调试代码来自的文件(fileName)和代码行数(lineNumber)</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<p>当组件状态 state 有更改的时候，react 会自动调用组件的 render 方法重新渲染整个组件的 UI。<br>当然如果真的这样大面积的操作 DOM，性能会是一个很大的问题，所以 react 实现了一个 <code>Virtual DOM</code>，组件 DOM 结构就是映射到这个 <code>Virtual DOM</code>上，react 在这个 <code>Virtual DOM</code> 上实现了一个 diff 算法，当要重新渲染组件的时候，会通过 diff 寻找到要变更的 DOM 节点，再把这个修改更新到浏览器实际的 DOM 节点上，所以实际上不是真的渲染整个 DOM 树。这个 <code>Virtual DOM</code> 是一个纯粹的 JS 数据结构，所以性能会比原生 DOM 快很多。</p>
+<ver>
+
+<h5 id="react-是如何防止-XSS-的"><a href="#react-是如何防止-XSS-的" class="headerlink" title="react 是如何防止 XSS 的"></a><code>react</code> 是如何防止 <code>XSS</code> 的</h5><p><code>reactElement</code> 对象还有一个<code>$$typeof</code>属性，它是一个 Symbol 类型的变量<code>Symbol.for('react.element')</code>，当环境不支持 Symbol 时，<code>$$typeof</code> 被赋值为 <code>0xeac7</code>。<br>这个变量可以防止 XSS。如果你的服务器有一个漏洞，允许用户存储任意 JSON 对象， 而客户端代码需要一个字符串，这可能为你的应用程序带来风险。JSON 中不能存储 <code>Symbol</code> 类型的变量，而 react 渲染时会把没有<code>\$\$typeof</code> 标识的组件过滤掉。</p>
+<hor>
+
+<h4 id="diff-算法"><a href="#diff-算法" class="headerlink" title="diff 算法"></a><code>diff</code> 算法</h4><p>传统的 <code>diff</code> 算法通过循环递归对节点一次对比，效率很低，算法复杂度达到 O(n^3)，其中 n 是树中节点的总数,React 通过制定大胆的策略，将 O(n^3) 复杂度的问题转换成 O(n) 复杂度的问题。</p>
+<ver>
+
+<p><strong><code>diff</code> 策略:</strong></p>
+<ol>
+<li>web ui 中 Dom 节点跨层级的移动操作很少,<code>diff</code> 算法比较新旧节点的时候，比较只会在同层级比较，不会跨层级比较</li>
+<li>拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构。</li>
+<li>对于同一层级的一组子节点，他们可以通过唯一 key 进行区分</li>
+</ol>
+<p>基于以上三个前提策略，React 分别对 <code>tree diff</code>、<code>component diff</code> 以及 <code>element diff</code> 进行算法优化，事实也证明这三个前提策略是合理且准确的，它保证了整体界面构建的性能。<br>简单的讲就是：</p>
+<p>具体可以参考<a href="https://zhuanlan.zhihu.com/p/20346379" target="_blank" rel="noopener">React 源码剖析系列 － 不可思议的 react diff</a></p>
+<ver>
+
+<ul>
+<li>React 通过制定大胆的 diff 策略，将 O(n3) 复杂度的问题转换成 O(n) 复杂度的问题；</li>
+<li>React 通过分层求异的策略，对 <code>tree diff</code> 进行算法优化；</li>
+<li>React 通过相同类生成相似树形结构，不同类生成不同树形结构的策略，对 <code>component diff</code> 进行算法优化；</li>
+<li>React 通过设置唯一 key 的策略，对 <code>element diff</code> 进行算法优化；</li>
+</ul>
+<p>建议，在开发组件时，保持稳定的 DOM 结构会有助于性能的提升；<br>建议，在开发过程中，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作过于频繁时，在一定程度上会影响 React 的渲染性能。</p>
+<hor>
+
+<h4 id="snabbdom-源码，是怎样实现精简的-Virtual-DOM-的"><a href="#snabbdom-源码，是怎样实现精简的-Virtual-DOM-的" class="headerlink" title="snabbdom 源码，是怎样实现精简的 Virtual DOM 的"></a>snabbdom 源码，是怎样实现精简的 Virtual DOM 的</h4><p>待补充</p>
+<h3 id="react-性能分析与优化"><a href="#react-性能分析与优化" class="headerlink" title="react 性能分析与优化"></a>react 性能分析与优化</h3><ver>
+
+<h4 id="减少不必要的渲染"><a href="#减少不必要的渲染" class="headerlink" title="减少不必要的渲染"></a>减少不必要的渲染</h4><p>在使用 <code>class Component</code> 进行开发的时候，我们可以使用 <code>shouldComponentUpdate</code> 来减少不必要的渲染，那么在使用 <code>react hooks</code> 后，我们如何实现这样的功能呢？</p>
+<p>解决方案：<code>React.memo</code>和<code>useMemo</code><br>对于这种情况，react 当然也给出了官方的解决方案，就是使用 React.memo 和 useMemo。</p>
+<ver>
+
+<h5 id="React-memo"><a href="#React-memo" class="headerlink" title="React.memo"></a><code>React.memo</code></h5><p>React.momo 其实并不是一个 hook，它其实等价于 PureComponent，但是它只会对比 props。使用方式如下(用上面的例子):</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, { useState } <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Count = React.memo(<span class="function"><span class="params">props</span> =></span> {</span><br><span class="line">  <span class="keyword">const</span> [data, setData] = useState({</span><br><span class="line">    count: <span class="number">0</span>,</span><br><span class="line">    name: <span class="string">'cjg'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">  })</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleClick = <span class="function"><span class="params">()</span> =></span> {</span><br><span class="line">    <span class="keyword">const</span> { count } = data</span><br><span class="line">    setData({</span><br><span class="line">      ...data,</span><br><span class="line">      count: count + <span class="number">1</span></span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">{handleClick}</span>></span>count:{data.count}<span class="tag">button</span>></span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<ver>
+
+<h5 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h5><p>useMemo 它的用法其实跟 useEffects 有点像，我们直接看官方给的例子</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">{ a, b }</span>) </span>{</span><br><span class="line">  <span class="comment">// Only re-rendered if `a` changes:</span></span><br><span class="line">  <span class="keyword">const</span> child1 = useMemo(<span class="function"><span class="params">()</span> =></span> <child1 a="{a}">, [a])</child1></span><br><span class="line">  <span class="comment">// Only re-rendered if `b` changes:</span></span><br><span class="line">  <span class="keyword">const</span> child2 = useMemo(<span class="function"><span class="params">()</span> =></span> <child2 b="{b}">, [b])</child2></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <></span><br><span class="line">      {child1}</span><br><span class="line">      {child2}</span><br><span class="line">    <<span class="regexp">/></span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>从例子可以看出来，它的第二个参数和 useEffect 的第二个参数是一样的，只有在第二个参数数组的值发生变化时，才会触发子组件的更新。</p>
+<p>引用<a href="https://github.com/chenjigeng/blog/blob/master/React%20hooks%E5%AE%9E%E8%B7%B5.md" target="_blank" rel="noopener">React hooks 实践</a></p>
+<h5 id="使用-shouldComponentUpdate-防止不必要的重新渲染"><a href="#使用-shouldComponentUpdate-防止不必要的重新渲染" class="headerlink" title="使用 shouldComponentUpdate() 防止不必要的重新渲染"></a>使用 shouldComponentUpdate() 防止不必要的重新渲染</h5><p>当一个组件的 props 或 state 变更，React 会将最新返回的元素与之前渲染的元素进行对比，以此决定是否有必要更新真实的 DOM，当它们不相同时 React 会更新该 DOM。</p>
+<p>即使 React 只更新改变了的 DOM 节点，重新渲染仍然花费了一些时间。在大部分情况下它并不是问题，但是如果渲染的组件非常多时，就会浮现性能上的问题，我们可以通过覆盖生命周期方法 shouldComponentUpdate 来进行提速。</p>
+<p>shouldComponentUpdate 方法会在重新渲染前被触发。其默认实现总是返回 true，如果组件不需要更新，可以在 shouldComponentUpdate 中返回 false 来跳过整个渲染过程。其包括该组件的 render 调用以及之后的操作。</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shouldComponentUpdate(nextProps, nextState) {</span><br><span class="line">   <span class="keyword">return</span> nextProps.next !== <span class="keyword">this</span>.props.next</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="React-性能分析器"><a href="#React-性能分析器" class="headerlink" title="React 性能分析器"></a>React 性能分析器</h4><p>React 16.5 增加了对新的开发者工具 DevTools 性能分析插件的支持。 此插件使用 React 实验性的 Profiler API 来收集有关每个组件渲染的用时信息，以便识别 React 应用程序中的性能瓶颈。 它将与我们即将推出的 time slicing（时间分片） 和 suspense（悬停） 功能完全兼容。</p>
+<h3 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h3><p><code>Store</code>：保存数据的地方，你可以把它看成一个容器，整个应用只能有一个 <code>Store</code>。</p>
+<p><code>State</code>：<code>Store</code> 对象包含所有数据，如果想得到某个时点的数据，就要对 <code>Store</code> 生成快照，这种时点的数据集合，就叫做 <code>State</code>。</p>
+<p><code>Action</code>：<code>State</code> 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。</p>
+<p><code>Action Creator</code>：View 要发送多少种消息，就会有多少种 <code>Action</code>。如果都手写，会很麻烦，所以我们定义一个函数来生成 Action，这个函数就叫 <code>Action Creator</code>。</p>
+<p><code>Reducer</code>：<code>Store</code> 收到 <code>Action</code> 以后，必须给出一个新的 <code>State</code>，这样 View 才会发生变化。这种 <code>State</code> 的计算过程就叫做 <code>Reducer</code>。<code>Reducer</code> 是一个函数，它接受 Action 和当前 <code>State</code> 作为参数，返回一个新的 <code>State</code>。</p>
+<p><code>dispatch</code>：是 <code>View</code> 发出 <code>Action</code> 的唯一方法。</p>
+<ver>
+
+<h4 id="redux-的基本原理"><a href="#redux-的基本原理" class="headerlink" title="redux 的基本原理"></a>redux 的基本原理</h4><p>然后我们过下整个工作流程：</p>
+<p>首先，用户（通过 <code>View</code>）发出 <code>Action</code>，发出方式就用到了 <code>dispatch</code> 方法。</p>
+<p>然后，<code>Store</code> 自动调用 <code>Reducer</code>，并且传入两个参数：当前 <code>State</code> 和收到的 <code>Action</code>，<code>Reducer</code> 会返回新的 <code>State</code></p>
+<p><code>State</code> 一旦有变化，<code>Store</code> 就会调用监听函数，来更新 <code>View</code>。</p>
+<p>到这儿为止，一次用户交互流程结束。可以看到，在整个流程中数据都是单向流动的，这种方式保证了流程的清晰。</p>
+<ver>
+
+<h4 id="redux-单向数据流架构如何设计"><a href="#redux-单向数据流架构如何设计" class="headerlink" title="redux 单向数据流架构如何设计"></a><code>redux</code> 单向数据流架构如何设计</h4><p>待完善</p>
+<ver>
+
+<h4 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a><code>redux</code> 中间件</h4><p>Redux 的中间件提供的是位于 action 被发起之后，到达 reducer 之前的扩展点，换而言之，原本 view -> action -> reducer -> store 的数据流加上中间件后变成了 view -> action -> middleware -> reducer -> store ，在这一环节我们可以做一些 “副作用” 的操作，如 异步请求、打印日志等。</p>
+<p>redux 中间件通过改写 store.dispatch 方法实现了 action -> reducer 的拦截，从上面的描述中可以更加清晰地理解 redux 中间件的洋葱圈模型：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中间件A -> 中间件B-> 中间件C-> 原始 dispatch -> 中间件C -> 中间件B ->  中间件A</span><br></pre></td></tr></tbody></table></figure>
+<p>这也就提醒我们使用中间件时需要注意这个中间件是在什么时候 “搞事情” 的，比如 redux-thunk 在执行 next(action) 前就拦截了类型为 function 的 action，而 redux-saga 就在 next(action) 才会触发监听 sagaEmitter.emit(action), 并不会拦截已有 action 到达 reducer。</p>
+<hor>
+
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="https://juejin.im/post/5cb66fdaf265da0384128445" target="_blank" rel="noopener">深入分析虚拟 DOM 的渲染原理和特性</a></li>
+<li><a href="http://www.conardli.top/blog/article/react%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97/react%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6.html" target="_blank" rel="noopener">react 事件机制</a></li>
+<li><a href="https://juejin.im/post/5cad39b3f265da03502b1c0a" target="_blank" rel="noopener">从 Mixin 到 HOC 再到 Hook</a></li>
+<li><a href="https://tech.meituan.com/2017/07/14/redux-design-code.html" target="_blank" rel="noopener">美团技术团队-Redux 从设计到源码</a></li>
+<li><a href="https://github.com/creeperyang/blog/issues/33" target="_blank" rel="noopener">解析 snabbdom 源码，教你实现精简的 Virtual DOM 库</a></li>
+<li><a href="https://react.jokcy.me" target="_blank" rel="noopener">react 源码解析</a></li>
+<li><a href="https://segmentfault.com/a/1190000017414633" target="_blank" rel="noopener">Vue 与 React 两个框架的粗略区别对比</a></li>
+</ol>
+</hor></ver></ver></ver></ver></ver></ver></hor></ver></ver></hor></ver></ver></ver></ver></ver></hor></ver></ver></hor></ver></ver></ver></hor></ver></ver></ver></ver></hor></hor></ver></hor></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></ver></hor></ver></ver></ver></ver></ver></ver></ver></hor></ver></ver></hor></ver></ver></ver></ver></hor></ver></ver></ver></ver></hor></ver></ver></ver></ver></ver></hor></ver></ver></ver></ver></ver></ver></ver></ver></ver>
+            <div class="post-copyright">
+    <div class="content">
+        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <p>转载请保持原始链接</p>
+        <p>原始链接： <a class="post-url" href="/note/55bd244d.html" title="react常见api以及原理解析">https://ru23.com/note/55bd244d.html</a></p>
+        <footer>
+            <a href="https://ru23.com">
+                <img src="//cdn.ru23.com/img/images/chrome.png" alt="frank">
+                frank
+            </a>
+        </footer>
+    </div>
+</div>
+
+            
+            
+            
+
+            
+        </div>
+        <footer class="article-footer">
+            
+            
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ru23.com/note/55bd244d.html&title=《react常见api以及原理解析》 — 前端迷&pic=//cdn.ru23.com/img/images/chrome.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ru23.com/note/55bd244d.html&title=《react常见api以及原理解析》 — 前端迷&source=frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ru23.com/note/55bd244d.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《react常见api以及原理解析》 — 前端迷&url=https://ru23.com/note/55bd244d.html&via=https://ru23.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ru23.com/note/55bd244d.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aS27DMAwFwNz/0i7QdeM8kpaiAqNVYMTyaEOIn9crXtfvSp4kz9/987GFi4s75l63K8HdQ+/fyg24uLj7uffBK/nMfcx5t2duwMXFPZObHONDGAqOgYuL+7+4+QeS9AYXF/d8bpL8JOGsR1mSq+Hi4g641YLpit8L67u4uLhF7lVceSMkvwAVvo6Li7uFmzdQqylQHpHKO+Pi4i7m5m3UXpDKj5S0bXBxcfdze83RPEFKmisfAisuLu4WbnLhqIaz6g7lNi0uLu5ibm9wqjd+0Ut43lZxcHFxl3EnKc1kxCrfLcqWcHFxF3CrQw9JYjNPlnBxcc/hVkH5NaVXRimURXBxcR/iVgumeaKSj2skZRdcXNxvcfOw8lQEza9WuLi4O7mT0kZvbKvXcMXFxd3JzS8fk1UdAsPFxT2Bm4eYpPBRTXKSBg8uLu5+bnlAqlXUyEuu5Z4PLi7uo9xqQMkD2aSYUm674uLiLuBOUpfkrV4gw8XFPYFbrbPmbZK85BoNcODi4h7GnX+4erA/dsDFxT2Sm1xieoMdUbsXFxd3I7eXqMzHtvILEy4u7k5ur2A6GafoHQYXF3cL9wfKkSULVG6yKAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+            
+            <ul class="article-footer-menu">
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/react/" class="color1">react</a>
+      
+  </li>
+
+            </ul>
+            
+        </footer>
+    </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React16常用api解析以及原理剖析"><span class="post-toc-text">React16常用api解析以及原理剖析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#目录"><span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue-与-React-两个框架的粗略区别对比"><span class="post-toc-text">Vue 与 React 两个框架的粗略区别对比</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#相似之处"><span class="post-toc-text">相似之处</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#不同点"><span class="post-toc-text">不同点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#社区活跃度"><span class="post-toc-text">社区活跃度</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UI-生态"><span class="post-toc-text">UI 生态</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react16-版本常见-api"><span class="post-toc-text">react16 版本常见 api</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Children"><span class="post-toc-text">Children</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#createRef"><span class="post-toc-text">createRef</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#createContext"><span class="post-toc-text">createContext</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react-生命周期"><span class="post-toc-text">react 生命周期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react-事件机制"><span class="post-toc-text">react 事件机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#绑定事件的四种方式"><span class="post-toc-text">绑定事件的四种方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“合成事件”和“原生事件”"><span class="post-toc-text">“合成事件”和“原生事件”</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react-组件开发"><span class="post-toc-text">react 组件开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#react-组件化思想"><span class="post-toc-text">react 组件化思想</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#一个-UI-组件的完整模板"><span class="post-toc-text">一个 UI 组件的完整模板</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数定义组件（Function-Component）"><span class="post-toc-text">函数定义组件（Function Component）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-text">{[firstName, lastName].join(' ')}</h3></span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ES6-class-定义一个纯组件（PureComponent）"><span class="post-toc-text">ES6 class 定义一个纯组件（PureComponent）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#PureComponent"><span class="post-toc-text">PureComponent</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用不可变数据结构-Immutablejs"><span class="post-toc-text">使用不可变数据结构 Immutablejs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#高阶组件-higher-order-component"><span class="post-toc-text">高阶组件(higher order component)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高阶组件的应用"><span class="post-toc-text">高阶组件的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#日志打点"><span class="post-toc-text">日志打点</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#可用、权限控制"><span class="post-toc-text">可用、权限控制</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#表单校验"><span class="post-toc-text">表单校验</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HOC-的缺陷"><span class="post-toc-text">HOC 的缺陷</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#render-props"><span class="post-toc-text">render props</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#setState-数据管理"><span class="post-toc-text">setState 数据管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#setState-原理"><span class="post-toc-text">setState 原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react-中的事务实现"><span class="post-toc-text">react 中的事务实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#transaction-事务"><span class="post-toc-text">transaction 事务</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ErrorBoundary、Suspense-和-Fragment"><span class="post-toc-text">ErrorBoundary、Suspense 和 Fragment</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Error-Boundaries"><span class="post-toc-text">Error Boundaries</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#lazy、Suspence-延迟加载组件"><span class="post-toc-text">lazy、Suspence 延迟加载组件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Fragments（v16-2-0"><span class="post-toc-text">Fragments（v16.2.0)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react-Fiber-架构分析"><span class="post-toc-text">react Fiber 架构分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#react-Fiber-架构解决了什么问题"><span class="post-toc-text">react Fiber 架构解决了什么问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Fiber-如何做到异步渲染-Virtual-Dom-和-Diff-算法"><span class="post-toc-text">Fiber 如何做到异步渲染 Virtual Dom 和 Diff 算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react-hooks"><span class="post-toc-text">react hooks</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#useState"><span class="post-toc-text">useState</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#useEffect-fn"><span class="post-toc-text">useEffect(fn)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深入理解-react-原理"><span class="post-toc-text">深入理解 react 原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#react-虚拟-dom-原理剖析"><span class="post-toc-text">react 虚拟 dom 原理剖析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#react-组件的渲染流程"><span class="post-toc-text">react 组件的渲染流程</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#虚拟-DOM-的组成"><span class="post-toc-text">虚拟 DOM 的组成</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#react-是如何防止-XSS-的"><span class="post-toc-text">react 是如何防止 XSS 的</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#diff-算法"><span class="post-toc-text">diff 算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#snabbdom-源码，是怎样实现精简的-Virtual-DOM-的"><span class="post-toc-text">snabbdom 源码，是怎样实现精简的 Virtual DOM 的</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react-性能分析与优化"><span class="post-toc-text">react 性能分析与优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#减少不必要的渲染"><span class="post-toc-text">减少不必要的渲染</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#React-memo"><span class="post-toc-text">React.memo</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#useMemo"><span class="post-toc-text">useMemo</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#使用-shouldComponentUpdate-防止不必要的重新渲染"><span class="post-toc-text">使用 shouldComponentUpdate() 防止不必要的重新渲染</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#React-性能分析器"><span class="post-toc-text">React 性能分析器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redux"><span class="post-toc-text">redux</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#redux-的基本原理"><span class="post-toc-text">redux 的基本原理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#redux-单向数据流架构如何设计"><span class="post-toc-text">redux 单向数据流架构如何设计</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#redux-中间件"><span class="post-toc-text">redux 中间件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-text">参考：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/note/66fc267.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          taro在mac安装的坑 bash： taro： command not found
+        
+      </span>
+    </a>
+  
+  
+    <a href="/note/567b2f52.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Weex Flutter Hybrid</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<!-- Valine Comments -->
+<div class="comments vcomment" id="comments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- Valine Comments script -->
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    new Valine({
+        el: '#comments',
+        notify: 'true' == 'true',
+        verify: 'false' == 'true',
+        appId: "OOiJvCREqswvpnTL4RuSShLq-gzGzoHsz",
+        appKey: "OPfVBB2YjMrT3ngcc8mu6w8g",
+        avatar: "mm",
+        qrcode: "",
+        placeholder: "输入评论...",
+        guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+        pageSize: "10"
+    })
+</script>
+<!-- Valine Comments end -->
+
+</section>
+        <div class="outer-ad-aside" id="outer-ad-aside">
+          
+          
+          <a style="display: block;" title="阿里云双十二大促，新老用户皆可返现" target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=jh5fwy2j&share_source=copy_link">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              阿里云双十二大促，新老用户皆可返现
+            </div>
+            
+            <img src="https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg" alt="阿里云双十二大促，新老用户皆可返现">
+          </a>
+          
+          <a style="display: block;" title="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元" target="_blank" href="https://url.cn/50C5WrF">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元
+            </div>
+            
+            <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345x200-c37e147ab2b4b8074e63d71ca21420cf1a7d4933.png" alt="【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元">
+          </a>
+          
+          <a style="display: block;" title="微信公众号：前端迷" target="_blank" ">
+            
+            <img src="//cdn.ru23.com/hexo/public/wechat-mp.png" alt>
+          </a>
+          
+          <a style="display: block;" title="微信前端技术交流群" target="_blank" ">
+            
+            <img src="//cdn.ru23.com/hexo/public/group.png" alt>
+          </a>
+          
+          <a style="display: block;" target="_blank" ">
+            
+            <div class="ad-text" style="text-align:center;color: red;">
+              广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线
+            </div>
+            
+            <img src=" https://cdn.ru23.com/common/sale.png" alt="广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线">
+          </a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+
+                <p>
+                    CDN 存储在
+                    <a href="https://console.upyun.com/register/?invite=SJ3dme4q8" target="_blank">
+                        <style>
+                            .upyun0box {
+                                width: 14px;
+                                height: 14px;
+                                position: relative;
+                                top: 3px;
+                            }
+                        </style>
+                        <img class="upyun0box" src="https://www.upyun.com/static/favicon-64x64.png"> 又拍云
+                    </a>
+                    <br>
+                </p>
+                <p>
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> 主题是 <a href="https://github.com/6fedcom/fe-hexo-blog" target="_blank">基于MiHo主题优化</a> ©
+                    2020
+                        frank<br>
+                </p>
+        </div>
+    </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.fundebug.cn/fundebug.1.5.1.min.js" apikey="912ba8d8c6f372862c218e996a28cebb732bbb78559e974fc031204c813142f9"></script>
+<script>
+  var mihoConfig = {
+    root: "https://ru23.com",
+    animate: false,
+    isHome: false,
+    share: true,
+    reward: 2
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/algorithm/">algorithm</a><a class="category-link" href="/categories/back-end/">back-end</a><a class="category-link" href="/categories/fed-shared/">fed-shared</a><a class="category-link" href="/categories/front-end/">front-end</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/前端自动化/">前端自动化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 12.31px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10.77px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 14.62px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">×</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="https://58fe.com">
+                    <i class="fa fa-heart"></i><span>前端社区</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 13.08px;">CSS</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/HTTP/" style="font-size: 10.77px;">HTTP</a> <a href="/tags/Immutable/" style="font-size: 11.54px;">Immutable</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Snippet/" style="font-size: 13.08px;">Snippet</a> <a href="/tags/Vue/" style="font-size: 13.08px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.54px;">ajax</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 12.31px;">api</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/axios/" style="font-size: 12.31px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10.77px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 11.54px;">canvas</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 16.15px;">css</a> <a href="/tags/dom/" style="font-size: 13.08px;">dom</a> <a href="/tags/dva/" style="font-size: 11.54px;">dva</a> <a href="/tags/echart/" style="font-size: 10px;">echart</a> <a href="/tags/editconfig/" style="font-size: 10px;">editconfig</a> <a href="/tags/es6/" style="font-size: 13.85px;">es6</a> <a href="/tags/eslint/" style="font-size: 10.77px;">eslint</a> <a href="/tags/fed-shared/" style="font-size: 11.54px;">fed-shared</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 12.31px;">github</a> <a href="/tags/gulp/" style="font-size: 10.77px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10.77px;">hexo</a> <a href="/tags/hide/" style="font-size: 10.77px;">hide</a> <a href="/tags/html5/" style="font-size: 16.92px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 17.69px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js代码片段/" style="font-size: 12.31px;">js代码片段</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/ms/" style="font-size: 10px;">ms</a> <a href="/tags/mvvm/" style="font-size: 11.54px;">mvvm</a> <a href="/tags/nginx/" style="font-size: 12.31px;">nginx</a> <a href="/tags/node/" style="font-size: 13.85px;">node</a> <a href="/tags/npm/" style="font-size: 13.08px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/react/" style="font-size: 19.23px;">react</a> <a href="/tags/redux/" style="font-size: 13.08px;">redux</a> <a href="/tags/sublime/" style="font-size: 15.38px;">sublime</a> <a href="/tags/svn/" style="font-size: 10.77px;">svn</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/todolist/" style="font-size: 10px;">todolist</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/vscode/" style="font-size: 11.54px;">vscode</a> <a href="/tags/vue/" style="font-size: 18.46px;">vue</a> <a href="/tags/vuex/" style="font-size: 10.77px;">vuex</a> <a href="/tags/webpack/" style="font-size: 14.62px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/xhtml/" style="font-size: 10px;">xhtml</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/事件流/" style="font-size: 10px;">事件流</a> <a href="/tags/优质文章分享/" style="font-size: 11.54px;">优质文章分享</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/前端优化/" style="font-size: 10.77px;">前端优化</a> <a href="/tags/前端基础/" style="font-size: 10px;">前端基础</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/前端规范/" style="font-size: 14.62px;">前端规范</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 13.85px;">小程序</a> <a href="/tags/居中/" style="font-size: 10px;">居中</a> <a href="/tags/异步回调/" style="font-size: 10px;">异步回调</a> <a href="/tags/微信开发/" style="font-size: 11.54px;">微信开发</a> <a href="/tags/快应用/" style="font-size: 10px;">快应用</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/正则表达式/" style="font-size: 10.77px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/知识点/" style="font-size: 11.54px;">知识点</a> <a href="/tags/移动端/" style="font-size: 13.08px;">移动端</a> <a href="/tags/组件化/" style="font-size: 10px;">组件化</a> <a href="/tags/继承/" style="font-size: 10.77px;">继承</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/读书笔记/" style="font-size: 10.77px;">读书笔记</a> <a href="/tags/跨域/" style="font-size: 11.54px;">跨域</a> <a href="/tags/踩过的坑/" style="font-size: 16.92px;">踩过的坑</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/速查表/" style="font-size: 10px;">速查表</a> <a href="/tags/部署/" style="font-size: 10.77px;">部署</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10.77px;">面向对象</a> <a href="/tags/面试/" style="font-size: 12.31px;">面试</a> <a href="/tags/高阶函数/" style="font-size: 10.77px;">高阶函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">×</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="//cdn.ru23.com/js/search.js"></script>
+<script src="//cdn.ru23.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
+
+  </div>
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
