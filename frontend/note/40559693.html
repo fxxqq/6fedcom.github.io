@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="设置元素为可拖放首先，为了使元素可拖动，把 draggable 属性设置为 true ：1 拖动什么 - ondragstart 和 setData()然后，规定当元素被拖动时，会发生什么。在上面的例子中，ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据。dataTransfer.setData() 方法设置被拖数据的数据类型和值：123function d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.488Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html5 Drop 事件详解（摘自w3school）">
 <meta name="twitter:description" content="设置元素为可拖放首先，为了使元素可拖动，把 draggable 属性设置为 true ：1 拖动什么 - ondragstart 和 setData()然后，规定当元素被拖动时，会发生什么。在上面的例子中，ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据。dataTransfer.setData() 方法设置被拖数据的数据类型和值：123function d">  
@@ -143,7 +143,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h3 id="设置元素为可拖放"><a href="#设置元素为可拖放" class="headerlink" title="设置元素为可拖放"></a>设置元素为可拖放</h3><p>首先，为了使元素可拖动，把 draggable 属性设置为 true ：<br></p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">img</span> <span class="attr">draggable</span>=<span class="string">"true"</span>></span></span><br></pre></td></tr></tbody></table></figure><p></p>
+            <h3 id="设置元素为可拖放"><a href="#设置元素为可拖放" class="headerlink" title="设置元素为可拖放"></a>设置元素为可拖放</h3><p>首先，为了使元素可拖动，把 draggable 属性设置为 true ：<br></p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">img</span> <span class="attr">draggable</span>=<span class="string">"true"</span>></span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="拖动什么-ondragstart-和-setData"><a href="#拖动什么-ondragstart-和-setData" class="headerlink" title="拖动什么 - ondragstart 和 setData()"></a>拖动什么 - ondragstart 和 setData()</h3><p>然后，规定当元素被拖动时，会发生什么。<br>在上面的例子中，ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据。<br>dataTransfer.setData() 方法设置被拖数据的数据类型和值：<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drag</span>(<span class="params">ev</span>) </span>{</span><br><span class="line">	ev.dataTransfer.setData(<span class="string">"Text"</span>, ev.target.id);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>在这个例子中，数据类型是 “Text”，值是可拖动元素的 id (“drag1”)。</p>
 <h3 id="放到何处-ondragover"><a href="#放到何处-ondragover" class="headerlink" title="放到何处 - ondragover"></a>放到何处 - ondragover</h3><p>ondragover 事件规定在何处放置被拖动的数据。<br>默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。<br>这要通过调用 ondragover 事件的 event.preventDefault() 方法：<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.preventDefault()</span><br></pre></td></tr></tbody></table></figure><p></p>
@@ -158,7 +158,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/40559693.html" title="html5 Drop 事件详解（摘自w3school）">https://ru23.com/note/40559693.html</a></p>
         <footer>

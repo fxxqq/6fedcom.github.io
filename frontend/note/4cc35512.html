@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.431Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="arguments详解">
 <meta name="twitter:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。<code>arguments.length</code>为函数实参个数，<code>arguments.callee</code>引用函数自身。</p>
+            <p>每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。<code>arguments.length</code>为函数实参个数，<code>arguments.callee</code>引用函数自身。</p>
 <a id="more"></a>
 <h3 id="Arguments对象介绍"><a href="#Arguments对象介绍" class="headerlink" title="Arguments对象介绍"></a>Arguments对象介绍</h3><p>Arguments对象是一个伪数组对象，它有length属性，可以arguments[i]来访问对象中的元素，但它不能用数组的一些方法，例如push，pop，slice等。</p>
 <h4 id="Arguments的length属性"><a href="#Arguments的length属性" class="headerlink" title="Arguments的length属性"></a>Arguments的length属性</h4><p>Arguments的length属性，表示function函数实际所传参数的个数。函数名点length可以获取函数期望的传参个数。</p>
@@ -171,7 +171,7 @@
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params"></span>)</span>{</span><br><span class="line">	<span class="keyword">var</span> maxNum = <span class="built_in">Number</span>.NEGATIVE_INFINITY;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i<<span class="built_in">arguments</span>.length;i++){</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">arguments</span>[i]> maxNum){</span><br><span class="line">			maxNum = <span class="built_in">arguments</span>[i];</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> maxNum;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">max(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">4</span>,<span class="number">10</span>); <span class="comment">//11</span></span><br><span class="line">max(<span class="number">2</span>,<span class="number">-10</span>,<span class="number">22</span>,<span class="number">11</span>);   <span class="comment">//22</span></span><br></pre></td></tr></tbody></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/4cc35512.html" title="arguments详解">https://ru23.com/note/4cc35512.html</a></p>
         <footer>
@@ -277,8 +277,8 @@
     </a>
   
   
-    <a href="/note/580a1014.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">JS 中的 call、apply、bind 方法</span>
+    <a href="/note/40b57898.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">javascript数组详解</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

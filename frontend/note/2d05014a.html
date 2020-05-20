@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-06cd3b80809500c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-b684987076cf78b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.447Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iframe+表单跨域提交POST请求">
 <meta name="twitter:description" content="虚拟表单的形式提交post请求 现需要把数据源解析提交到表单，创建一个隐藏的表单、隐藏的iframe,表单的target指向iframe的name  1var str = 'hfrom_handle=206438&dnid=&dgroup_items__x_countz_=1&dgroup_items=1&dgroup_items_group=dl%2ets&dgroup_items_mirror">
@@ -153,7 +153,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="虚拟表单的形式提交post请求"><a href="#虚拟表单的形式提交post请求" class="headerlink" title="虚拟表单的形式提交post请求"></a>虚拟表单的形式提交post请求</h2><ul>
+            <h2 id="虚拟表单的形式提交post请求"><a href="#虚拟表单的形式提交post请求" class="headerlink" title="虚拟表单的形式提交post请求"></a>虚拟表单的形式提交post请求</h2><ul>
 <li>现需要把数据源解析提交到表单，创建一个隐藏的表单、隐藏的<code>iframe</code>,表单的target指向<code>iframe</code>的<code>name</code></li>
 </ul>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = 'hfrom_handle=206438&dnid=&dgroup_items__x_countz_=1&dgroup_items=1&dgroup_items_group=dl%2ets&dgroup_items_mirror_count=1&dgroup_items_flags__x_countz_=1&dgroup_items_flags=4&dgroup_items_keys__x_countz_=1&dgroup_items_keys=1jfiegbp3oyma&dgroup_items_tokens__x_countz_=1&dgroup_items_tokens=123456&dgroup_items_datas__x_countz_=1&dgroup_items_datas={%22key%22%3a%221jfiegbp3oyma%22,%22type%22%3a%22test%2epcba%22,%22time%22%3a%2220170904004724%2e838%22,%22g%22%3a[{%22n%22%3a%22mfc%22,%22p%22%3a[{%22n%22%3a%22factory%22,%22v%22%3a%22%22},{%22n%22%3a%22operator%22,%22v%22%3a%22xiaoming%22},{%22n%22%3a%22work%2eorder%22,%22v%22%3a%221889%22},{%22n%22%3a%22materal%2ecode%22,%22v%22%3a%22%22},{%22n%22%3a%22materal%2edesc%22,%22v%22%3a%22%22}]},{%22n%22%3a%22env%22,%22p%22%3a[{%22n%22%3a%22dev%2ehardware%2ecpu%2emodel%22,%22v%22%3a%22gm8136%22},{%22n%22%3a%22dev%2ehardware%2emodel%22,%22v%22%3a%22f127%22},{%22n%22%3a%22dev%2ehardware%2esensor%2emodel%22,%22v%22%3a%22soih42%22},{%22n%22%3a%22dev%2ehardware%2ewifi%2emac%22,%22v%22%3a%2228%3af3%3a66%3a1c%3aac%3a30%22},{%22n%22%3a%22dev%2ehardware%2ewifi%2emodel%22,%22v%22%3a%22rtl8188%22},{%22n%22%3a%22dev%2eversion%2ecurrent%22,%22v%22%3a%22v4%2e8%2e1%2e1708141702%22},{%22n%22%3a%22vtest%5fver%22,%22v%22%3a%224%2e8%2e1%2e1708031358%22},{%22n%22%3a%22dev%2eversion%2ebase%22,%22v%22%3a%22v3%2e3%2e2%2e1603301301%22},{%22n%22%3a%22pc%2eip%2epublic%22,%22v%22%3a%22120%2e236%2e230%2e234%22},{%22n%22%3a%22pc%2eip%2eprivate%22,%22v%22%3a%22192%2e168%2e3%2e180%22}]},{%22n%22%3a%22appearance%22,%22p%22%3a[{%22n%22%3a%22result%22,%22v%22%3a%22ok%22},{%22n%22%3a%22duration%22,%22v%22%3a%221605ms%22}]},{%22n%22%3a%22wifi%5fsignal%22,%22p%22%3a[{%22n%22%3a%22quality%22,%22v%22%3a%2284%22},{%22n%22%3a%22ssid%22,%22v%22%3a%22HW11%22},{%22n%22%3a%22result%22,%22v%22%3a%22ok%22}]},{%22n%22%3a%22activate%22,%22p%22%3a[{%22n%22%3a%22result%22,%22v%22%3a%22ccm%2esecurity%5fchip%2eactived%22},{%22n%22%3a%22code%22,%22v%22%3a%22%22}]}]}&dgroup_items_offsets__x_countz_=1&dgroup_items_offsets=0'</span><br></pre></td></tr></tbody></table></figure>
@@ -171,7 +171,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/2d05014a.html" title="iframe+表单跨域提交POST请求">https://ru23.com/note/2d05014a.html</a></p>
         <footer>

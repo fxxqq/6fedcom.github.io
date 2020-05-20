@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="什么是跨域？  概念如下：只要协议、域名、端口有任何一个不同，都被当作是不同的域  下面是具体的跨域情况详解    URL 说明 是否允许通信     http://www.a.com/a.js、http://www.a.com/b.js 同一域名下 允许   http://www.a.com/lab/a.js、http://www.a.com/script/b.js 同一域名下不同文件夹 允许">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.447Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web开发中跨域解决方案">
 <meta name="twitter:description" content="什么是跨域？  概念如下：只要协议、域名、端口有任何一个不同，都被当作是不同的域  下面是具体的跨域情况详解    URL 说明 是否允许通信     http://www.a.com/a.js、http://www.a.com/b.js 同一域名下 允许   http://www.a.com/lab/a.js、http://www.a.com/script/b.js 同一域名下不同文件夹 允许">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p><strong>什么是跨域？</strong></p>
+            <p><strong>什么是跨域？</strong></p>
 <ul>
 <li>概念如下：只要协议、域名、端口有任何一个不同，都被当作是不同的域</li>
 </ul>
@@ -222,7 +222,7 @@
 <ul>
 <li><code>document.domain</code>只能从子域设置到主域，往下设置以及往其他域名设置都是不允许的， 在<code>Chrome</code>中给出的错误是这样的</li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught domException: Failed to set the <span class="string">'domain'</span> property on <span class="string">'Document'</span>: <span class="string">'baidu.com'</span> is not a suffix <span class="keyword">of</span> <span class="string">'b.a.com'</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught domException: Failed to <span class="keyword">set</span> the 'domain' property on 'Document': 'baidu.com' is not a suffix of 'b.a.com'</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="二、有src的标签"><a href="#二、有src的标签" class="headerlink" title="二、有src的标签"></a>二、有src的标签</h2><hr>
 <ul>
 <li>原理：所有具有<code>src</code>属性的<code>HTML</code>标签都是可以跨域的，包括<code><img></code>, <code><script></code></li>
@@ -267,7 +267,7 @@
 <p>有些人注意到了<code>IE6/7</code>的一个漏洞：<code>iframe</code>之间的<code>window.navigator</code>对象是共享的。 我们可以把它作为一个<code>Messenger</code>，通过它来传递信息。比如一个简单的委托：</p>
 </blockquote>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.com</span></span><br><span class="line">navigation.onData(){</span><br><span class="line">    <span class="comment">// 数据到达的处理函数</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">typeof</span> navigation.getData === <span class="string">'function'</span> </span><br><span class="line">    || navigation.getData()</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// b.com</span></span><br><span class="line">navigation.getData = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    $.get(<span class="string">'/path/under/b.com'</span>)</span><br><span class="line">        .success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">            <span class="keyword">typeof</span> navigation.onData === <span class="string">'function'</span></span><br><span class="line">                || navigation.onData(data)</span><br><span class="line">        });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// b.com</span></span><br><span class="line">navigation.getData = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    $.<span class="keyword">get</span>('/path/under/b.com')</span><br><span class="line">        .success(function(data){</span><br><span class="line">            <span class="keyword">typeof</span> navigation.onData === <span class="string">'function'</span></span><br><span class="line">                || navigation.onData(data)</span><br><span class="line">        });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>与<code>document.navigator</code>类似，<code>window.name</code>也是当前窗口所有页面所共享的。也可以用它来传递信息。 同样蛋疼的办法还有传递<code>Hash</code>（有些人叫锚点），这是因为每次浏览器打开一个<code>URL</code>时，<code>URL</code>后面的<code>#xxx</code>部分会保留下来，那么新的页面可以从这里获得上一个页面的数据</p>
 </blockquote>
@@ -305,7 +305,7 @@
 </body></html>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/b28c200f.html" title="web开发中跨域解决方案">https://ru23.com/note/b28c200f.html</a></p>
         <footer>
@@ -448,7 +448,7 @@
 </script>
 <!-- Valine Comments end -->
 
-</code></li></ul></div></div></article></section>
+</code></li></ul></div></div></article></section><code>
         <div class="outer-ad-aside" id="outer-ad-aside">
           
           
@@ -491,9 +491,9 @@
           
           
         </div>
-      </div>
+      </code></div><code>
       
-    </div>
+    </code></div><code>
     <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
@@ -639,7 +639,7 @@
   $(".article-entry p img").popImg();
 </script>
 
-  </div>
+  </code></div><code>
 
 
-<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
+</code><script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

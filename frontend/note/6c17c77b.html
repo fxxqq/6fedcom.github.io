@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一般面向对象包含：继承，封装，多态，抽象  对象形式的继承 浅拷贝">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.432Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP之面向对象">
 <meta name="twitter:description" content="一般面向对象包含：继承，封装，多态，抽象  对象形式的继承 浅拷贝">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+            <blockquote>
 <p>一般面向对象包含：继承，封装，多态，抽象</p>
 </blockquote>
 <h4 id="对象形式的继承"><a href="#对象形式的继承" class="headerlink" title="对象形式的继承"></a>对象形式的继承</h4><hr>
@@ -210,7 +210,7 @@
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DetectorBase</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Abstract class can not be invoked directly!'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">DetectorBase.prototype.detect = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Detection starting...'</span>);</span><br><span class="line">};</span><br><span class="line">DetectorBase.prototype.stop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Detection stopped.'</span>);</span><br><span class="line">};</span><br><span class="line">DetectorBase.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Error'</span>);</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// var d = new DetectorBase();</span></span><br><span class="line"><span class="comment">// Uncaught Error: Abstract class can not be invoked directly!</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkDetector</span>(<span class="params"></span>) </span>{}</span><br><span class="line">LinkDetector.prototype = <span class="built_in">Object</span>.create(DetectorBase.prototype);</span><br><span class="line">LinkDetector.prototype.constructor = LinkDetector;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> l = <span class="keyword">new</span> LinkDetector();</span><br><span class="line"><span class="built_in">console</span>.log(l); <span class="comment">//LinkDetector {}__proto__: LinkDetector</span></span><br><span class="line">l.detect(); <span class="comment">//Detection starting...</span></span><br><span class="line">l.init(); <span class="comment">//Uncaught Error: Error</span></span><br></pre></td></tr></tbody></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/6c17c77b.html" title="OOP之面向对象">https://ru23.com/note/6c17c77b.html</a></p>
         <footer>
@@ -322,8 +322,8 @@
     </a>
   
   
-    <a href="/note/e36aeed5.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">OOP之原型与原型链</span>
+    <a href="/note/ebeaea04.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JS 中的事件绑定、事件监听、事件委托</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

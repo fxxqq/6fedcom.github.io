@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://cdn.ru23.com/img/2017/webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码/Jietu20170520-222013.jpg">
 <meta property="og:image" content="https://cdn.ru23.com/img/2017/webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码/Jietu20170520-222619.jpg">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.440Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码">
 <meta name="twitter:description" content="在一个合适的文件夹下npm初始化 1npm init 安装webpack 1cnpm install webpack --save-dev 创建webpack.config.js文件，也可以鼠标右键创建（下同，省略）。 1touch webpack.config.js 建立一个app文件夹 1mkdir app 在app文件夹中建立一个main.js的文件和一个index.html文件 1234c">
@@ -146,7 +146,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>在一个合适的文件夹下npm初始化</p>
+            <p>在一个合适的文件夹下npm初始化</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></tbody></table></figure>
 <p>安装webpack</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install webpack --save-dev</span><br></pre></td></tr></tbody></table></figure>
@@ -159,7 +159,7 @@
 <p>在main.js中随便写点什么，比如</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var app = document.getElementById("app");</span><br><span class="line">app.innerHTML = "This is an example";</span><br></pre></td></tr></tbody></table></figure>
 <p>在index.html中随便写点什么，其中id要与上面的代码对应</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">    <meta name="generator" content="Hexo 3.8.0"></span><br><span class="line">        <meta charset="utf-8"></span><br><span class="line">        <title>This is an example</title></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">        <div class></div></span><br><span class="line">            <p id="app"></p></span><br><span class="line">        </span></pre></td></tr></tbody></table></figure></div><br><span class="line">        <script type="text/javascript" src="../build/bundle.js"></script></span><br><span class="line">    </span><br><span class="line"></span><br>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">        <meta charset="utf-8"></span><br><span class="line">        <title>This is an example</title></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">        <div class><br><span class="line">            <p id="app"></p></span><br><span class="line">        </span></div></span><br><span class="line">        <script type="text/javascript" src="../build/bundle.js"></script></span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>在webpack.config.js文件中加入如下代码，其中其中publicPath是后面配置webpack.dev.server的时候用的。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var path = require("path");</span><br><span class="line">module.exports = {</span><br><span class="line">  entry: {</span><br><span class="line">    app: ["./app/main.js"]</span><br><span class="line">  },</span><br><span class="line">  output: {</span><br><span class="line">    path: path.resolve(__dirname, "build"),</span><br><span class="line">    publicPath: "/assets/",</span><br><span class="line">    filename: "bundle.js"</span><br><span class="line">  }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <p>运行以下webpack，先编译下试试，因为只是局部安装，所以运行的时候要这样</p>
@@ -207,7 +207,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/5987392c.html" title="webpack-dev-server开启服务监测js、HTML、CSS并自动刷新网页的套路详细步骤并附代码">https://ru23.com/note/5987392c.html</a></p>
         <footer>
@@ -282,7 +282,7 @@
             </ul>
             
         </footer>
-    
+    </div>
 </article>
 
 

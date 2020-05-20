@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/box-size-2.jpg">
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/hh2.png">
 <meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/hh1.png">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.426Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学会使用box-sizingCSS布局">
 <meta name="twitter:description" content="盒子模型">
@@ -157,7 +157,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><a id="more"></a>
+            <h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><a id="more"></a>
 <ul>
 <li>关于<code>CSS</code>重要的一个概念就是CSS盒子模型。它控制着页面这些元素的高度和宽度。盒子模型多少会让人产生一些困惑，尤其当涉及到高度和宽度计算的时候。真正盒子的宽度(在页面呈现出来的宽度)和高度，需要加上一些其它的属性，例如：<ul>
 <li><code>padding</code> + <code>border</code> + <code>width</code>= 盒子的宽度</li>
@@ -224,7 +224,7 @@
 </ul>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*, *<span class="selector-pseudo">:before</span>, *<span class="selector-pseudo">:after</span> {</span><br><span class="line">　　<span class="attribute">-moz-box-sizing</span>: border-box;</span><br><span class="line">　　<span class="attribute">-webkit-box-sizing</span>: border-box;</span><br><span class="line">　　<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">　　}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="box-sizing-布局三栏目案例"><a href="#box-sizing-布局三栏目案例" class="headerlink" title="box-sizing 布局三栏目案例"></a>box-sizing 布局三栏目案例</h3><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>{</span><br><span class="line">		<span class="attribute">height</span>:<span class="number">700px</span>;</span><br><span class="line">		<span class="attribute">float</span>:left;</span><br><span class="line">}</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.left</span>{</span><br><span class="line">		<span class="attribute">width</span>:<span class="number">25%</span>;</span><br><span class="line">		<span class="attribute">background</span>:red;</span><br><span class="line">}</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.cent</span>{</span><br><span class="line">		<span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">		<span class="attribute">box-sizing</span>:border-box;<span class="comment">/*可以改变元素以使其宽度包含填充*/</span></span><br><span class="line">				<span class="comment">/* 现在整个元素,包括填充在内,占页面总宽度的50%,所以元素的组合宽度为100%,这全程它们很好地适应于它们的容器.*/</span></span><br><span class="line">		<span class="attribute">background</span>:yellow;</span><br><span class="line">		<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">20px</span>;<span class="comment">/*加了这个会使盒子内容溢出 但是box-sizing很好的自适应了*/</span></span><br><span class="line">}</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.right</span>{</span><br><span class="line">       <span class="attribute">width</span>:<span class="number">25%</span>;</span><br><span class="line">        <span class="attribute">background</span>:blue;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>></span><span class="tag">div</span>></span><br><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cent"</span>></span><span class="tag">div</span>></span><br><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>></span><span class="tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>></span><span class="tag"><!--<span class="name"-->div</span>></span><br><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cent"</span>></span><span class="tag"><!--<span class="name"-->div</span>></span><br><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>></span><span class="tag"><!--<span class="name"-->div</span>></span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>效果</li>
 </ul>
@@ -233,7 +233,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/b485e090.html" title="学会使用box-sizingCSS布局">https://ru23.com/note/b485e090.html</a></p>
         <footer>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -16,7 +16,7 @@
 <meta property="og:description" content="声明 本教程整理于互联网  一、gulp 入门简介 gulp 是基于 node 实现Web 前端自动化开发的工具，利用它能够极大的提高开发效率。 在 Web 前端开发工作中有很多“重复工作”，比如压缩CSS/JS文件。而这些工作都是有规律的。找到这些规律，并编写 gulp 配置代码,让 gulp 自动执行这些“重复工作”。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://cloud.githubusercontent.com/assets/3949015/7137629/a1def1b8-e2ed-11e4-83e0-5a6adb22de6f.png">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.434Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp学习总结篇">
 <meta name="twitter:description" content="声明 本教程整理于互联网  一、gulp 入门简介 gulp 是基于 node 实现Web 前端自动化开发的工具，利用它能够极大的提高开发效率。 在 Web 前端开发工作中有很多“重复工作”，比如压缩CSS/JS文件。而这些工作都是有规律的。找到这些规律，并编写 gulp 配置代码,让 gulp 自动执行这些“重复工作”。">
@@ -152,7 +152,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+            <blockquote>
 <p>声明 本教程整理于互联网</p>
 </blockquote>
 <h2 id="一、gulp-入门简介"><a href="#一、gulp-入门简介" class="headerlink" title="一、gulp 入门简介"></a>一、gulp 入门简介</h2><hr>
@@ -376,7 +376,7 @@
 <h2 id="LESS-代码和编译后的CSS代码"><a href="#LESS-代码和编译后的CSS代码" class="headerlink" title="LESS 代码和编译后的CSS代码"></a>LESS 代码和编译后的CSS代码</h2><p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter5/less/a.less" target="_blank" rel="noopener">less/a.less</a></p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.less</span>{</span><br><span class="line">	a{</span><br><span class="line">        <span class="selector-tag">color</span><span class="selector-pseudo">:pink</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter5/less/import.less" target="_blank" rel="noopener">less/import.less</a></p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"a.less"</span>;</span><br><span class="line"><span class="selector-class">.import</span>{</span><br><span class="line">	a{</span><br><span class="line">		<span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">"a.less"</span>;</span><br><span class="line"><span class="selector-class">.import</span>{</span><br><span class="line">	a{</span><br><span class="line">		<span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter5/dist/css/a.css" target="_blank" rel="noopener">less/a.css</a></p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.less</span> <span class="selector-tag">a</span> {</span><br><span class="line">  <span class="attribute">color</span>: pink;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter5/dist/css/import.css" target="_blank" rel="noopener">less/import.css</a></p>
@@ -399,7 +399,7 @@
 <p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter6/sass/a.scss" target="_blank" rel="noopener">sass/a.scss</a></p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sass</span>{</span><br><span class="line">	a{</span><br><span class="line">        <span class="selector-tag">color</span><span class="selector-pseudo">:pink</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter6/sass/import.scss" target="_blank" rel="noopener">sass/import.scss</a></p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"a.scss"</span>;</span><br><span class="line"><span class="selector-class">.import</span>{</span><br><span class="line">	a{</span><br><span class="line">		<span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">"a.scss"</span>;</span><br><span class="line"><span class="selector-class">.import</span>{</span><br><span class="line">	a{</span><br><span class="line">		<span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter6/dist/css/a.css" target="_blank" rel="noopener">sass/a.css</a></p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sass</span> <span class="selector-tag">a</span> {</span><br><span class="line">  <span class="attribute">color</span>: pink;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p><a href="https://github.com/nimojs/gulp-book/tree/master/demo/chapter6/dist/css/import.css" target="_blank" rel="noopener">sass/import.css</a></p>
@@ -537,7 +537,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/51b4c428.html" title="gulp学习总结篇">https://ru23.com/note/51b4c428.html</a></p>
         <footer>

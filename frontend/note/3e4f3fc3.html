@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="在代码复用模式里面有一种叫做“复制属性模式”（copying properties pattern）。谈到代码复用的时候，很有可能想到的是代码的继承性（inheritance）,但重要的是要记住其最终目标——我们要复用代码。继承性只是实现代码复用的一种手段，而不是唯一的方法。复制属性也是一种复用模式，它跟继承性是有所不同的。这种模式中，对象将从另外一个在对象中获取成员，其方法是仅需将其复制即可。用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.446Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript Deep Copy">
 <meta name="twitter:description" content="在代码复用模式里面有一种叫做“复制属性模式”（copying properties pattern）。谈到代码复用的时候，很有可能想到的是代码的继承性（inheritance）,但重要的是要记住其最终目标——我们要复用代码。继承性只是实现代码复用的一种手段，而不是唯一的方法。复制属性也是一种复用模式，它跟继承性是有所不同的。这种模式中，对象将从另外一个在对象中获取成员，其方法是仅需将其复制即可。用">  
@@ -143,7 +143,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>在代码复用模式里面有一种叫做“复制属性模式”（copying properties pattern）。谈到代码复用的时候，很有可能想到的是代码的继承性（inheritance）,但重要的是要记住其最终目标——我们要复用代码。继承性只是实现代码复用的一种手段，而不是唯一的方法。复制属性也是一种复用模式，它跟继承性是有所不同的。这种模式中，对象将从另外一个在对象中获取成员，其方法是仅需将其复制即可。用过 jQuery 的都知道，它有一个\$.extend()方法，它的用途除了扩展第三方插件之外，还可以用来复制属性的。</p>
+            <p>在代码复用模式里面有一种叫做“复制属性模式”（copying properties pattern）。谈到代码复用的时候，很有可能想到的是代码的继承性（inheritance）,但重要的是要记住其最终目标——我们要复用代码。继承性只是实现代码复用的一种手段，而不是唯一的方法。复制属性也是一种复用模式，它跟继承性是有所不同的。这种模式中，对象将从另外一个在对象中获取成员，其方法是仅需将其复制即可。用过 jQuery 的都知道，它有一个\$.extend()方法，它的用途除了扩展第三方插件之外，还可以用来复制属性的。</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">parent, child</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> i</span><br><span class="line">  <span class="comment">//如果不传入第二参数child</span></span><br><span class="line">  <span class="comment">//那么就创建一个新的对象</span></span><br><span class="line">  child = child || {}</span><br><span class="line">  <span class="comment">//遍历parent对象的所有属性</span></span><br><span class="line">  <span class="comment">//并且过滤原型上的属性</span></span><br><span class="line">  <span class="comment">//然后将自身属性复制到child对象上</span></span><br><span class="line">  <span class="keyword">for</span> (i <span class="keyword">in</span> parent) {</span><br><span class="line">    <span class="keyword">if</span> (parent.hasOwnProperty(i)) {</span><br><span class="line">      child[i] = parent[i]</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">//返回目标对象child</span></span><br><span class="line">  <span class="keyword">return</span> child</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>上面的代码是一个简单的实现，它仅遍历父对象的成员并将其复制到子对象中去。下面我们用上面的 extend()方法来测试一下：</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dad = { <span class="attr">name</span>: <span class="string">'Adam'</span> }</span><br><span class="line"><span class="keyword">var</span> kid = extend(dad)</span><br><span class="line"><span class="built_in">console</span>.log(kid.name) <span class="comment">//Adam</span></span><br></pre></td></tr></tbody></table></figure>
@@ -162,7 +162,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/3e4f3fc3.html" title="javascript Deep Copy">https://ru23.com/note/3e4f3fc3.html</a></p>
         <footer>

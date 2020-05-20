@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="当我们利用v-bind：来绑定属性向子组件传递对象的时候，有时候我们需要子组件改变的时候不改变父组件的值，一般可以利用JSON.stringify(JSON.parse(jsonstr))将传递来的对象赋值到子组件自己的data，这样做的原理是对传过来的值重新赋予一个空间，从而解决双向绑定。，但是es6有一个深度赋值的方法也可以解决这个问题, let obj= Object.assign({},">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.483Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js深度拷贝解决双向绑定问题(包含es6方法)">
 <meta name="twitter:description" content="当我们利用v-bind：来绑定属性向子组件传递对象的时候，有时候我们需要子组件改变的时候不改变父组件的值，一般可以利用JSON.stringify(JSON.parse(jsonstr))将传递来的对象赋值到子组件自己的data，这样做的原理是对传过来的值重新赋予一个空间，从而解决双向绑定。，但是es6有一个深度赋值的方法也可以解决这个问题, let obj= Object.assign({},">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+            <blockquote>
 <p>当我们利用v-bind：来绑定属性向子组件传递对象的时候，有时候我们需要子组件改变的时候不改变父组件的值，一般可以利用JSON.stringify(JSON.parse(jsonstr))将传递来的对象赋值到子组件自己的data，这样做的原理是对传过来的值重新赋予一个空间，从而解决双向绑定。，但是es6有一个深度赋值的方法也可以解决这个问题, let obj= Object.assign({}, obj)也可以解决。</p>
 </blockquote>
 <p>比如一个数组（array）<strong>浅度拷贝是当数组a变量成数组b的时候，b改变里面的数组数值的时候，a也随着改变。</strong><br>浅度拷贝保存了一个指向该对象的指针，所有的操作都是对该引用的操作，所以对对象的修改会影响其他的复制对象。<br><strong>深度拷贝是当当数组a变量成数组b的时候，b改变里面的数组数值的时候，a里面的数组数组不随着改变。</strong></p>
@@ -187,7 +187,7 @@
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> objDeepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">source</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> sourceCopy = source <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : {};</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> source) {</span><br><span class="line">        sourceCopy[item] = <span class="keyword">typeof</span> source[item] === <span class="string">'object'</span> ? objDeepCopy(source[item]) : source[item];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> sourceCopy;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> objCopy = objDeepCopy(obj);</span><br><span class="line">objCopy[<span class="number">0</span>].a.a1[<span class="number">1</span>] = <span class="string">"a13"</span>;</span><br><span class="line">objCopy[<span class="number">1</span>][<span class="number">1</span>].e = <span class="string">"6"</span>;</span><br><span class="line">obj   <span class="comment">// => [{ "a": { "a1": ["a11", "a12"], "a2": 1 }, "b": 2 }, ["c", { "d": 4, "e": 5 }]]</span></span><br><span class="line">objCopy   <span class="comment">// => [{ "a": { "a1": ["a11", "a13"], "a2": 1 }, "b": 2 }, ["c", { "d": 4, "e": 6 }]]</span></span><br></pre></td></tr></tbody></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/284d188d.html" title="js深度拷贝解决双向绑定问题(包含es6方法)">https://ru23.com/note/284d188d.html</a></p>
         <footer>

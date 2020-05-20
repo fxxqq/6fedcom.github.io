@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="Sublime Text 2 Sublime Text 3 都可以使用:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.410Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sublimeText3配置浏览器预览路径localhost">
 <meta name="twitter:description" content="Sublime Text 2 Sublime Text 3 都可以使用:">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>Sublime Text 2 Sublime Text 3 都可以使用:</p>
+            <p>Sublime Text 2 Sublime Text 3 都可以使用:</p>
 <a id="more"></a>
 <h3 id="菜单-–-gt-tools-–-gt-New-Pugin"><a href="#菜单-–-gt-tools-–-gt-New-Pugin" class="headerlink" title="菜单 –> tools –> New Pugin"></a>菜单 –> tools –> New Pugin</h3><p>清掉内容, 添加如下代码<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import sublime, sublime_plugin</span><br><span class="line">import webbrowser</span><br><span class="line"></span><br><span class="line">url_map = {</span><br><span class="line">    'E:\phpStudy\WWW' : 'http://localhost',</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">class OpenBrowserCommand(sublime_plugin.TextCommand):</span><br><span class="line">    def run(self,edit):</span><br><span class="line">        window = sublime.active_window()</span><br><span class="line">        window.run_command('save')</span><br><span class="line">        url = self.view.file_name()</span><br><span class="line">        flag = False</span><br><span class="line">        for path, domain in url_map.items():</span><br><span class="line">            if url.startswith(path):</span><br><span class="line">                url = url.replace(path, domain).replace('\\', '/')</span><br><span class="line">                flag = True</span><br><span class="line">                break</span><br><span class="line">        if not flag:</span><br><span class="line">            url = 'file://' + url</span><br><span class="line">        webbrowser.open_new(url)</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>然后保存文件, 保存的路径类似如下:</p>
@@ -163,7 +163,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/fba80764.html" title="sublimeText3配置浏览器预览路径localhost">https://ru23.com/note/fba80764.html</a></p>
         <footer>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="如何中断事件的传播？ stopPropagation()    w3c取消冒泡 cancleBubble = true     IE取消冒泡">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.413Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript之事件的中断传播与行为阻止">
 <meta name="twitter:description" content="如何中断事件的传播？ stopPropagation()    w3c取消冒泡 cancleBubble = true     IE取消冒泡">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><ul>
+            <ul>
 <li>如何中断事件的传播？<ul>
 <li><code>stopPropagation()</code>    <code>w3c</code>取消冒泡</li>
 <li><code>cancleBubble = true</code>     <code>IE</code>取消冒泡<a id="more"></a></li>
@@ -164,7 +164,7 @@
 </li>
 </ul>
 <hr>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">'aa'</span>></span></span><br><span class="line">	<span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">'bb'</span>></span></span><br><span class="line">		<span class="tag"><<span class="name">div</span> <span class="attr">id</span> =<span class="string">'cc'</span>></span><span class="tag">div</span>></span><br><span class="line">	<span class="tag">div</span>></span><br><span class="line"><span class="tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">'aa'</span>></span></span><br><span class="line">	<span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">'bb'</span>></span></span><br><span class="line">		<span class="tag"><<span class="name">div</span> <span class="attr">id</span> =<span class="string">'cc'</span>></span><span class="tag"><!--<span class="name"-->div</span>></span><br><span class="line">	<span class="tag"><!--<span class="name"-->div</span>></span><br><span class="line"><span class="tag"><!--<span class="name"-->div</span>></span><br></pre></td></tr></tbody></table></figure>
  <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	<span class="selector-id">#aa</span>{</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">600px</span>;</span><br><span class="line">	<span class="attribute">background</span>: gray;</span><br><span class="line">}</span><br><span class="line"><span class="selector-id">#bb</span>{</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">	<span class="attribute">background</span>: green;</span><br><span class="line">}</span><br><span class="line"><span class="selector-id">#cc</span>{</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">background</span>: red;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>捕捉写法停止传播 从最顶层开始往下</li>
@@ -187,7 +187,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/45243f7e.html" title="javascript之事件的中断传播与行为阻止">https://ru23.com/note/45243f7e.html</a></p>
         <footer>

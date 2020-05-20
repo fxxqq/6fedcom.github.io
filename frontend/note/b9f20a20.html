@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="webpack原理与实战webpack是一个js打包工具，不一个完整的前端构建工具。它的流行得益于模块化和单页应用的流行。webpack提供扩展机制，在庞大的社区支持下各种场景基本它都可找到解决方案。本文的目的是教会你用webpack解决实战中常见的问题。 webpack原理在深入实战前先要知道webpack的运行原理 webpack核心概念 entry 一个可执行模块或库的入口文件。 chunk">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.443Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack">
 <meta name="twitter:description" content="webpack原理与实战webpack是一个js打包工具，不一个完整的前端构建工具。它的流行得益于模块化和单页应用的流行。webpack提供扩展机制，在庞大的社区支持下各种场景基本它都可找到解决方案。本文的目的是教会你用webpack解决实战中常见的问题。 webpack原理在深入实战前先要知道webpack的运行原理 webpack核心概念 entry 一个可执行模块或库的入口文件。 chunk">  
@@ -143,7 +143,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="webpack原理与实战"><a href="#webpack原理与实战" class="headerlink" title="webpack原理与实战"></a>webpack原理与实战</h2><p>webpack是一个js打包工具，不一个完整的前端构建工具。它的流行得益于模块化和单页应用的流行。webpack提供扩展机制，在庞大的社区支持下各种场景基本它都可找到解决方案。本文的目的是教会你用webpack解决实战中常见的问题。</p>
+            <h2 id="webpack原理与实战"><a href="#webpack原理与实战" class="headerlink" title="webpack原理与实战"></a>webpack原理与实战</h2><p>webpack是一个js打包工具，不一个完整的前端构建工具。它的流行得益于模块化和单页应用的流行。webpack提供扩展机制，在庞大的社区支持下各种场景基本它都可找到解决方案。本文的目的是教会你用webpack解决实战中常见的问题。</p>
 <h2 id="webpack原理"><a href="#webpack原理" class="headerlink" title="webpack原理"></a>webpack原理</h2><p>在深入实战前先要知道webpack的运行原理</p>
 <h3 id="webpack核心概念"><a href="#webpack核心概念" class="headerlink" title="webpack核心概念"></a>webpack核心概念</h3><ul>
 <li>entry 一个可执行模块或库的入口文件。</li>
@@ -174,7 +174,7 @@
 <p>要设置这些属性可以通过在js里配置</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">new WebPlugin({</span><br><span class="line">    filename: 'index.html',</span><br><span class="line">    requires: {</span><br><span class="line">         app:{</span><br><span class="line">              _dist:true,</span><br><span class="line">              _inline:false,</span><br><span class="line">         }</span><br><span class="line">    },</span><br><span class="line">}),</span><br></pre></td></tr></tbody></table></figure>
 <p>或者在模版里设置，使用模版的好处是灵活的控制资源注入点。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">new WebPlugin({</span><br><span class="line">      filename: 'index.html',</span><br><span class="line">      template: './template.html',</span><br><span class="line">}),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><meta name="generator" content="Hexo 3.8.0"></span><br><span class="line">    <link rel="stylesheet" href="app?_inline"></span><br><span class="line">    <script src="ie-polyfill?_ie"></script></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><div id="react-body"></div></span><br><span class="line"><script src="app"></script></span><br><span class="line"></span></pre></td></tr></tbody></table></figure><br><span class="line"></span><br>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">new WebPlugin({</span><br><span class="line">      filename: 'index.html',</span><br><span class="line">      template: './template.html',</span><br><span class="line">}),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <link rel="stylesheet" href="app?_inline"></span><br><span class="line">    <script src="ie-polyfill?_ie"></script></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><div id="react-body"></div></span><br><span class="line"><script src="app"></script></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>WebPlugin插件借鉴了fis3的思想，补足了webpack缺失的以HTML为入口的功能。想了解WebPlugin的更多功能，见文档。</p>
 <p>一个项目里管理多个单页应用</p>
 <p>一般项目里会包含多个单页应用，虽然多个单页应用也可以合并成一个但是这样做会导致用户没访问的部分也加载了。如果项目里有很多个单页应用，为每个单页应用配置一个entry和WebPlugin？如果项目又新增了一个单页应用，又去新增webpack配置？这样做太麻烦了，web-webpack-plugin里的AutoWebPlugin可以方便的解决这些问题。</p>
@@ -192,7 +192,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/b9f20a20.html" title="webpack">https://ru23.com/note/b9f20a20.html</a></p>
         <footer>

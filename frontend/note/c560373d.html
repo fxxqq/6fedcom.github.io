@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、列表进入详情页传参 例如商品列表页面前往商品详情页面，需要传一个商品id  1前往detail页面  c页面的路径为http://localhost:8080/#/detail?id=1，可以看到传了一个参数id=1，并且就算刷新页面id也还会存在。此时在c页面可以通过id来获取对应的详情数据，获取id的方式是this.$route.query.id  vue传参方式有：query、param">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.465Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue项目中的痛点（十四）">
 <meta name="twitter:description" content="一、列表进入详情页传参 例如商品列表页面前往商品详情页面，需要传一个商品id  1前往detail页面  c页面的路径为http://localhost:8080/#/detail?id=1，可以看到传了一个参数id=1，并且就算刷新页面id也还会存在。此时在c页面可以通过id来获取对应的详情数据，获取id的方式是this.$route.query.id  vue传参方式有：query、param">  
@@ -150,10 +150,10 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="一、列表进入详情页传参"><a href="#一、列表进入详情页传参" class="headerlink" title="一、列表进入详情页传参"></a>一、列表进入详情页传参</h2><blockquote>
+            <h2 id="一、列表进入详情页传参"><a href="#一、列表进入详情页传参" class="headerlink" title="一、列表进入详情页传参"></a>一、列表进入详情页传参</h2><blockquote>
 <p>例如商品列表页面前往商品详情页面，需要传一个商品id</p>
 </blockquote>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{path: 'detail', query: {id: 1}}"</span>></span>前往detail页面<span class="tag">router-link</span>></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{path: 'detail', query: {id: 1}}"</span>></span>前往detail页面<span class="tag"><!--<span class="name"-->router-link</span>></span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p><code>c</code>页面的路径为<code>http://localhost:8080/#/detail?id=1</code>，可以看到传了一个参数<code>id=1</code>，并且就算刷新页面id也还会存在。此时在c页面可以通过id来获取对应的详情数据，获取<code>id</code>的方式是<code>this.$route.query.id</code></p>
 </blockquote>
@@ -161,7 +161,7 @@
 <blockquote>
 <p><code>query</code>通过<code>path</code>切换路由，<code>params</code>通过<code>name</code>切换路由</p>
 </blockquote>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// query通过path切换路由</span><br><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{path: 'Detail', query: { id: 1 }}"</span>></span>前往Detail页面<span class="tag">router-link</span>></span><br><span class="line">// params通过name切换路由</span><br><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{name: 'Detail', params: { id: 1 }}"</span>></span>前往Detail页面<span class="tag">router-link</span>></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// query通过path切换路由</span><br><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{path: 'Detail', query: { id: 1 }}"</span>></span>前往Detail页面<span class="tag"><!--<span class="name"-->router-link</span>></span><br><span class="line">// params通过name切换路由</span><br><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{name: 'Detail', params: { id: 1 }}"</span>></span>前往Detail页面<span class="tag"><!--<span class="name"-->router-link</span>></span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p><code>query</code>通过<code>this.$route.query</code>来接收参数，<code>params</code>通过<code>this.$route.params</code>来接收参数</p>
 </blockquote>
@@ -175,7 +175,7 @@
 <ul>
 <li><strong>注意</strong>，<code>params</code>传参时，如果没有在路由中定义参数，也是可以传过去的，同时也能接收到，但是一旦刷新页面，这个参数就不存在了。这对于需要依赖参数进行某些操作的行为是行不通的</li>
 </ul>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 定义的路由中，只定义一个id参数</span><br><span class="line">{</span><br><span class="line">    path: 'detail/:id',</span><br><span class="line">    name: 'Detail',</span><br><span class="line">    components: Detail</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// template中的路由传参，</span><br><span class="line">// 传了一个id参数和一个token参数</span><br><span class="line">// id是在路由中已经定义的参数，而token没有定义</span><br><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{name: 'Detail', params: { id: 1, token: '123456' }}"</span>></span>前往Detail页面<span class="tag">router-link</span>></span><br><span class="line"></span><br><span class="line">// 在详情页接收</span><br><span class="line">created () {</span><br><span class="line">    // 以下都可以正常获取到</span><br><span class="line">    // 但是页面刷新后，id依然可以获取，而token此时就不存在了</span><br><span class="line">    const id = this.$route.params.id;</span><br><span class="line">    const token = this.$route.params.token;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 定义的路由中，只定义一个id参数</span><br><span class="line">{</span><br><span class="line">    path: 'detail/:id',</span><br><span class="line">    name: 'Detail',</span><br><span class="line">    components: Detail</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// template中的路由传参，</span><br><span class="line">// 传了一个id参数和一个token参数</span><br><span class="line">// id是在路由中已经定义的参数，而token没有定义</span><br><span class="line"><span class="tag"><<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"{name: 'Detail', params: { id: 1, token: '123456' }}"</span>></span>前往Detail页面<span class="tag"><!--<span class="name"-->router-link</span>></span><br><span class="line"></span><br><span class="line">// 在详情页接收</span><br><span class="line">created () {</span><br><span class="line">    // 以下都可以正常获取到</span><br><span class="line">    // 但是页面刷新后，id依然可以获取，而token此时就不存在了</span><br><span class="line">    const id = this.$route.params.id;</span><br><span class="line">    const token = this.$route.params.token;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>综上：尽量使用<code>query</code>来传参</p>
 </blockquote>
@@ -215,7 +215,7 @@
 <blockquote>
 <p>最后在在页面中使用：</p>
 </blockquote>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">van-button</span> <span class="attr">type</span>=<span class="string">"primary"</span>></span>按钮<span class="tag">van-button</span>></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">van-button</span> <span class="attr">type</span>=<span class="string">"primary"</span>></span>按钮<span class="tag"><!--<span class="name"-->van-button</span>></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="五、定时器问题"><a href="#五、定时器问题" class="headerlink" title="五、定时器问题"></a>五、定时器问题</h2><blockquote>
 <p>在a页面写一个定时，让他每秒钟打印一个1，然后跳转到b页面，此时可以看到，定时器依然在执行。这样是非常消耗性能的</p>
 </blockquote>
@@ -285,7 +285,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/c560373d.html" title="vue项目中的痛点（十四）">https://ru23.com/note/c560373d.html</a></p>
         <footer>

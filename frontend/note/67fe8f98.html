@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、块级作用域 1.1 let取代var  ES6提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，因为两者语义相同，而且let没有副作用 var命令存在变量提升效用，let命令没有这个问题 建议不再使用var命令，而是使用let命令取代  12345"use strict";if(true) {console.log(x); // ReferenceErrorle">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.438Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6编码风格">
 <meta name="twitter:description" content="一、块级作用域 1.1 let取代var  ES6提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，因为两者语义相同，而且let没有副作用 var命令存在变量提升效用，let命令没有这个问题 建议不再使用var命令，而是使用let命令取代  12345"use strict";if(true) {console.log(x); // ReferenceErrorle">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="一、块级作用域"><a href="#一、块级作用域" class="headerlink" title="一、块级作用域"></a>一、块级作用域</h2><hr>
+            <h2 id="一、块级作用域"><a href="#一、块级作用域" class="headerlink" title="一、块级作用域"></a>一、块级作用域</h2><hr>
 <h3 id="1-1-let取代var"><a href="#1-1-let取代var" class="headerlink" title="1.1 let取代var"></a>1.1 let取代var</h3><hr>
 <ul>
 <li><code>ES6</code>提出了两个新的声明变量的命令：<code>let</code>和<code>const</code>。其中，<code>let</code>完全可以取代<code>var</code>，因为两者语义相同，而且<code>let</code>没有副作用</li>
@@ -267,7 +267,7 @@
 <ul>
 <li>使用<code>export</code>取代<code>module.exports</code></li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonJS的写法</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> Breadcrumbs = React.createClass({</span><br><span class="line">render() {</span><br><span class="line"><span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">nav</span> /></span>;</span></span><br><span class="line"><span class="xml">}</span></span><br><span class="line"><span class="xml">});</span></span><br><span class="line"><span class="xml">module.exports = Breadcrumbs;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">// ES6的写法</span></span><br><span class="line"><span class="xml">import React from 'react';</span></span><br><span class="line"><span class="xml">const Breadcrumbs = React.createClass({</span></span><br><span class="line"><span class="xml">render() {</span></span><br><span class="line"><span class="xml">return <span class="tag"><<span class="name">nav</span> /></span>;</span></span><br><span class="line"><span class="xml">}</span></span><br><span class="line"><span class="xml">});</span></span><br><span class="line"><span class="xml">export default Breadcrumbs</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonJS的写法</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> Breadcrumbs = React.createClass({</span><br><span class="line">render() {</span><br><span class="line"><span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">nav</span> /></span></span>;</span><br><span class="line">}</span><br><span class="line">});</span><br><span class="line"><span class="built_in">module</span>.exports = Breadcrumbs;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6的写法</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">const</span> Breadcrumbs = React.createClass({</span><br><span class="line">render() {</span><br><span class="line"><span class="keyword">return</span> <span class="xml"><span class="tag"><<span class="name">nav</span> /></span></span>;</span><br><span class="line">}</span><br><span class="line">});</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Breadcrumbs</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>不要在模块输入中使用通配符。因为这样可以确保你的模块之中，有一个默认输出（export default）</li>
 </ul>
@@ -283,7 +283,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/67fe8f98.html" title="ES6编码风格">https://ru23.com/note/67fe8f98.html</a></p>
         <footer>

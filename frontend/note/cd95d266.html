@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="顺序执行？如果要问到 JavaScript 代码执行顺序的话，想必写过 JavaScript 的开发者都会有个直观的印象，那就是顺序执行，毕竟： 123456789101112131415var foo = function () {    console.log('foo1');}foo();  // foo1var foo = function () {    console.log('foo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.441Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入之执行上下文栈">
 <meta name="twitter:description" content="顺序执行？如果要问到 JavaScript 代码执行顺序的话，想必写过 JavaScript 的开发者都会有个直观的印象，那就是顺序执行，毕竟： 123456789101112131415var foo = function () {    console.log('foo1');}foo();  // foo1var foo = function () {    console.log('foo">  
@@ -143,7 +143,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="顺序执行？"><a href="#顺序执行？" class="headerlink" title="顺序执行？"></a>顺序执行？</h2><p>如果要问到 JavaScript 代码执行顺序的话，想必写过 JavaScript 的开发者都会有个直观的印象，那就是顺序执行，毕竟：</p>
+            <h2 id="顺序执行？"><a href="#顺序执行？" class="headerlink" title="顺序执行？"></a>顺序执行？</h2><p>如果要问到 JavaScript 代码执行顺序的话，想必写过 JavaScript 的开发者都会有个直观的印象，那就是顺序执行，毕竟：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var foo = function () {</span><br><span class="line"></span><br><span class="line">    console.log('foo1');</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo();  // foo1</span><br><span class="line"></span><br><span class="line">var foo = function () {</span><br><span class="line"></span><br><span class="line">    console.log('foo2');</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo(); // foo2</span><br></pre></td></tr></tbody></table></figure>
 <p>然而去看这段代码：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function foo() {</span><br><span class="line"></span><br><span class="line">    console.log('foo1');</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo();  // foo2</span><br><span class="line"></span><br><span class="line">function foo() {</span><br><span class="line"></span><br><span class="line">    console.log('foo2');</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo(); // foo2</span><br></pre></td></tr></tbody></table></figure>
@@ -178,7 +178,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/cd95d266.html" title="JavaScript深入之执行上下文栈">https://ru23.com/note/cd95d266.html</a></p>
         <footer>

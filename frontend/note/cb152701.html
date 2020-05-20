@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-5db240ac56b7d403.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-4ec22f18f2e38491.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1480597-62a5f00053f5f0d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.474Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序入门总结篇">
 <meta name="twitter:description" content="一、小程序代码组成 须知  App() 必须在 app.js 中注册，且不能注册多个。 编译后的代码包大小需小于 1MB，否则代码包将上传失败。 每个页面需要手动在app.json中进行注册，否则不能访问。 app.json中pages数组的第一项代表小程序的初始页面，小程序中新增/减少页面，都需要对 pages 数组进行修改。 直接修改 this.data无效，无法改变页面的状态，还会造成数据不">
@@ -163,7 +163,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h2 id="一、小程序代码组成"><a href="#一、小程序代码组成" class="headerlink" title="一、小程序代码组成"></a>一、小程序代码组成</h2><p><img src="https://upload-images.jianshu.io/upload_images/1519620-e7b4608440bc35a5.png?imageMogr2/auto-orient/" alt></p>
+            <h2 id="一、小程序代码组成"><a href="#一、小程序代码组成" class="headerlink" title="一、小程序代码组成"></a>一、小程序代码组成</h2><p><img src="https://upload-images.jianshu.io/upload_images/1519620-e7b4608440bc35a5.png?imageMogr2/auto-orient/" alt></p>
 <p><strong>须知</strong></p>
 <ul>
 <li><code>App()</code> 必须在 <code>app.js</code> 中注册，且不能注册多个。</li>
@@ -263,12 +263,12 @@
 <li><code>name</code> 定义组件模版的名称，引用模版的时候使用 <code>is</code> 属性指定模版的名字，<code>is</code> 可以进行简单的三目运算，需要传入模版需要的 <code>data</code> 数据。</li>
 <li>因为模版拥有自己的作用域，所以只能使用 <code>data</code> 传入数据，而不接受双花括号的写法</li>
 </ul>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><template name="msgItem"></template></span><br><span class="line"><view></view></span><br><span class="line"><text> {{index}}: {{msg}} </text></span><br><span class="line"><text> Time: {{time}} </text></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><!-- 其他代码 --></span><br><span class="line"><template is="msgItem" data="{{...item}}"></template></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><template name="msgItem"><br><span class="line"><view></view></span><br><span class="line"><text> {{index}}: {{msg}} </text></span><br><span class="line"><text> Time: {{time}} </text></span><br><span class="line"></span><br><span class="line"></span></template></span><br><span class="line"></span><br><span class="line"><!-- 其他代码 --></span><br><span class="line"><template is="msgItem" data="{{...item}}"><br>
 <h3 id="2-5-公共模块的引用"><a href="#2-5-公共模块的引用" class="headerlink" title="2.5 公共模块的引用"></a>2.5 公共模块的引用</h3><ul>
 <li><code>WXML</code> 提供 <code>import</code> 和 <code>include</code> 两种文件引用方式。</li>
 <li><code>import</code> 有作用域的概念，不能多重引用</li>
 </ul>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><!-- B.wxml --></span><br><span class="line"><import src="a.wxml"></import></span><br><span class="line"></span><br><span class="line"><!-- A.wxml --></span><br><span class="line"><template name="A"></template></span><br><span class="line"> <text> A template </text></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><!-- B.wxml --></span><br><span class="line"><import src="a.wxml"></import></span><br><span class="line"></span><br><span class="line"><!-- A.wxml --></span><br><span class="line"><template name="A"><br><span class="line"> <text> A template </text></span><br><span class="line"></span></template></span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p><code>include</code> 就可以多重引用</p>
 </blockquote>
@@ -431,13 +431,13 @@
 <blockquote>
 <p>这种方式一般是在wxml中绑定事件，同时设置需要传递的数据，如果需要传递多个，可以写多个<code>data-[参数]</code>的方式进行传递</p>
 </blockquote>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><view bindtap="clickMe" data-testid="{{testId}}" "></view></span><br><span class="line">    ...</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><view bindtap="clickMe" data-testid="{{testId}}""></view></span><br><span class="line">    ...</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>在js页面中自定义方法clickMe中接收</p>
 </blockquote>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Page({</span><br><span class="line">    clickMe: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> testId = event.currentTarget.dataset.testid;</span><br><span class="line">        wx.navigateTo({</span><br><span class="line">            url: <span class="string">'../../pages/test/test'</span></span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
 <p><strong>wxml中配置data-albumlist传递数组</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><view bindtap="clickMe" data-albumlist="{{testData.albumList}}" "></view></span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><view bindtap="clickMe" data-albumlist="{{testData.albumList}}""></view></span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在js页面中自定义方法clickMe中接收</span><br><span class="line"></span><br><span class="line">Page({</span><br><span class="line">    clickMe: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> albumList = event.currentTarget.dataset.albumlist.split(<span class="string">","</span>);</span><br><span class="line">        wx.navigateTo({</span><br><span class="line">            url: <span class="string">'../../pages/test/test'</span></span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
 <p><strong>4、通过数据缓存存储再获取</strong></p>
 <blockquote>
@@ -520,7 +520,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/cb152701.html" title="小程序入门总结篇">https://ru23.com/note/cb152701.html</a></p>
         <footer>
@@ -537,7 +537,7 @@
             
 
             
-        </div>
+        
         <footer class="article-footer">
             
             
@@ -602,8 +602,8 @@
             </ul>
             
         </footer>
-    </div>
-</article>
+    
+
 
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
@@ -661,7 +661,7 @@
 </script>
 <!-- Valine Comments end -->
 
-</section>
+
         <div class="outer-ad-aside" id="outer-ad-aside">
           
           
@@ -704,9 +704,9 @@
           
           
         </div>
-      </div>
       
-    </div>
+      
+    
     <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
@@ -852,7 +852,7 @@
   $(".article-entry p img").popImg();
 </script>
 
-  </div>
+  
 
 
-<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
+</template></span></pre></td></tr></tbody></table></figure></div></div></article></section></div></div></div><script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

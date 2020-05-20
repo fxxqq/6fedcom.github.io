@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="报错 1234567891011121314151617181920212223242526272829D:\astudy\element-dev\packages\theme-chalk\src\fonts\element-icons.ttf  1:1  error  Parsing error: Unexpected character ''D:\astudy\element-dev\pack">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.469Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改element ui 源码 npm run dist 报错以及解决方案">
 <meta name="twitter:description" content="报错 1234567891011121314151617181920212223242526272829D:\astudy\element-dev\packages\theme-chalk\src\fonts\element-icons.ttf  1:1  error  Parsing error: Unexpected character ''D:\astudy\element-dev\pack">  
@@ -150,14 +150,14 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>报错</p>
+            <p>报错</p>
 <figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">D:\astudy\element-dev\packages\theme-chalk\src\fonts\element-icons.ttf</span><br><span class="line">  <span class="number">1</span>:<span class="number">1</span>  error  Parsing error: Unexpected character <span class="string">''</span></span><br><span class="line"></span><br><span class="line">D:\astudy\element-dev\packages\theme-chalk\src\fonts\element-icons.woff</span><br><span class="line">  <span class="number">1</span>:<span class="number">5</span>  error  Parsing error: Unexpected character <span class="string">''</span></span><br><span class="line"></span><br><span class="line">✖ <span class="number">2</span> problems (<span class="number">2</span> errors, <span class="number">0</span> warnings)</span><br><span class="line"></span><br><span class="line">npm ERR! code ELIFECYCLE</span><br><span class="line">npm ERR! errno <span class="number">1</span></span><br><span class="line">npm ERR! element-ui@<span class="number">2.4</span><span class="number">.1</span> lint: <span class="string">`eslint src/**/* test/**/* packages/**/* build/**/* --quiet`</span></span><br><span class="line">npm ERR! Exit status <span class="number">1</span></span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Failed at the element-ui@<span class="number">2.4</span><span class="number">.1</span> lint script.</span><br><span class="line">npm ERR! This is probably not a problem <span class="keyword">with</span> npm. There is likely additional logging output above.</span><br><span class="line"></span><br><span class="line">npm ERR! A complete log <span class="keyword">of</span> <span class="keyword">this</span> run can be found <span class="keyword">in</span>:</span><br><span class="line">npm ERR!     C:\Users\terry.wt\AppData\Roaming\npm-cache\_logs\<span class="number">2018</span><span class="number">-06</span><span class="number">-25</span>T06_12_46_026Z-debug.log</span><br><span class="line">npm ERR! code ELIFECYCLE</span><br><span class="line">npm ERR! errno <span class="number">1</span></span><br><span class="line">npm ERR! element-ui@<span class="number">2.4</span><span class="number">.1</span> dist: <span class="string">`npm run clean && npm run build:file && npm run lint && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js</span></span><br><span class="line"><span class="string">&& npm run build:utils && npm run build:umd && npm run build:theme`</span></span><br><span class="line">npm ERR! Exit status <span class="number">1</span></span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Failed at the element-ui@<span class="number">2.4</span><span class="number">.1</span> dist script.</span><br><span class="line">npm ERR! This is probably not a problem <span class="keyword">with</span> npm. There is likely additional logging output above.</span><br><span class="line"></span><br><span class="line">npm ERR! A complete log <span class="keyword">of</span> <span class="keyword">this</span> run can be found <span class="keyword">in</span>:</span><br><span class="line">npm ERR!     C:\Users\terry.wt\AppData\Roaming\npm-cache\_logs\<span class="number">2018</span><span class="number">-06</span><span class="number">-25</span>T06_12_46_124Z-debug.log</span><br></pre></td></tr></tbody></table></figure>
 <p>报错是因为 eslint 检测出空格导致的，网上找了很多在 webpack 配置关闭 eslint 的方法不生效</p>
 <p>修改方案 找到 package.json 文件<br>找到 script 里面的 dist 方法，删除&&npm run lint 方法 就可以了</p>
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/47bf543f.html" title="修改element ui 源码 npm run dist 报错以及解决方案">https://ru23.com/note/47bf543f.html</a></p>
         <footer>

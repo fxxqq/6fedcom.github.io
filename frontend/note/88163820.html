@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="一、校验数字的表达式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.419Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梳理常用的正则表达式">
 <meta name="twitter:description" content="一、校验数字的表达式">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h3 id="一、校验数字的表达式"><a href="#一、校验数字的表达式" class="headerlink" title="一、校验数字的表达式"></a>一、校验数字的表达式</h3><hr>
+            <h3 id="一、校验数字的表达式"><a href="#一、校验数字的表达式" class="headerlink" title="一、校验数字的表达式"></a>一、校验数字的表达式</h3><hr>
 <a id="more"></a>
 <p>1 数字：<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[<span class="number">0</span><span class="number">-9</span>]*$</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>2 n位的数字：<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\d{n}$</span><br></pre></td></tr></tbody></table></figure><p></p>
@@ -210,7 +210,7 @@
 <p>26 中文字符的正则表达式：<br></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[\u4e00-\u9fa5]</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>27 双字节字符：<code>[^\x00-\xff]</code> (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</p>
 <p>28 空白行的正则表达式：<code>\n\s*\r</code> (可以用来删除空白行)</p>
-<p>29 HTML标记的正则表达式：<code><(\s?)[^>]>.?|<.?><!--.?--><!--(\s?)[^--></code> (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</p>
+<p>29 HTML标记的正则表达式：<code><(\S?)[^>]>.?<!--\1-->|<.? /></code> (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</p>
 <p>30 首尾空白字符的正则表达式：^\s|\s$或(^\s)|(\s$) (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</p>
 <p>31 腾讯QQ号：<code>[1-9][0-9]{4,}</code> (腾讯QQ号从10000开始)</p>
 <p>32 中国邮政编码：<code>[1-9]\d{5}(?!\d)</code> (中国邮政编码为6位数字)</p>
@@ -219,7 +219,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/88163820.html" title="梳理常用的正则表达式">https://ru23.com/note/88163820.html</a></p>
         <footer>

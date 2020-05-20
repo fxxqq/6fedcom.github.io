@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-1092e842e08d9012.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-ae7614423c64ebb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-9ea8be2721ca01c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.429Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax总结篇">
 <meta name="twitter:description" content="原文出处 http://blog.poetries.top/2016/11/26/Ajax-summary  本文主要总结整理Ajax的一些常用的基础知识，适合初学者。 一、Ajax简介、优劣势、应用场景以及技术  Ajax简介 :  Asynchronous javascript And XML （异步的javascript和XML） 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相">
@@ -157,7 +157,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+            <blockquote>
 <p>原文出处 <a href="http://blog.poetries.top/2016/11/26/Ajax-summary" target="_blank" rel="noopener">http://blog.poetries.top/2016/11/26/Ajax-summary</a></p>
 </blockquote>
 <p>本文主要总结整理<code>Ajax</code>的一些常用的基础知识，适合初学者。</p>
@@ -342,7 +342,7 @@
 <li><p>简单实例</p>
 </li>
 </ul>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> /></span>  </span><br><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>></span><span class="undefined">  </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">jsonpCallback</span>(<span class="params">result</span>) </span>{  </span></span><br><span class="line"><span class="undefined">        alert(result.a);  </span></span><br><span class="line"><span class="undefined">        alert(result.b);  </span></span><br><span class="line"><span class="undefined">        alert(result.c);  </span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> result) {  </span></span><br><span class="line"><span class="javascript">            alert(i+<span class="string">":"</span>+result[i]);<span class="comment">//循环输出a:1,b:2,etc.  </span></span></span><br><span class="line"><span class="undefined">        }  </span></span><br><span class="line"><span class="undefined">    }  </span></span><br><span class="line"><span class="undefined"></span><span class="tag">script</span>></span>  <br><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://crossdomain.com/services.php?callback=jsonpCallback"</span>></span><span class="undefined"></span><span class="tag">script</span>></span>  <br><span class="line"><span class="comment"><!--callback参数指示生成javascript代码时要使用的函数jsonpcallback--></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> /></span>  </span><br><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>></span>  </span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">jsonpCallback</span>(<span class="params">result</span>) </span>{  </span></span><br><span class="line">        alert(result.a);  </span><br><span class="line">        alert(result.b);  </span><br><span class="line">        alert(result.c);  </span><br><span class="line"><span class="javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> result) {  </span></span><br><span class="line"><span class="javascript">            alert(i+<span class="string">":"</span>+result[i]);<span class="comment">//循环输出a:1,b:2,etc.  </span></span></span><br><span class="line">        }  </span><br><span class="line">    }  </span><br><span class="line"><span class="tag"><!--<span class="name"-->script</span>></span>  <br><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://crossdomain.com/services.php?callback=jsonpCallback"</span>></span><span class="tag"><!--<span class="name"-->script</span>></span>  <br><span class="line"><span class="comment"><!--callback参数指示生成javascript代码时要使用的函数jsonpcallback--></span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>注意浏览器的缓存问题<ul>
 <li>在末尾增加一个随机数可避免频繁请求同一个链接出现的缓存问题</li>
@@ -366,7 +366,7 @@
 <ul>
 <li>使用jquery实现</li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><script src="<span" class="string">"jquery-3.1.0.min.js"</span>><span class="xml"><span class="tag"></<span class="name">script</span>></span></span></span><br><span class="line">		<script type=<span class="string">"text/javascript"</span>></span><br><span class="line"></span><br><span class="line">			$.ajax({</span><br><span class="line">				  type: <span class="string">"get"</span>,</span><br><span class="line">				  <span class="keyword">async</span>: <span class="literal">false</span>,</span><br><span class="line">				  url: <span class="string">"http://music.qq.com/musicbox/shop/v3/data/hit/hit_all.js"</span>,</span><br><span class="line">				  dataType: <span class="string">"jsonp"</span>,</span><br><span class="line">				  jsonp: <span class="string">"callback"</span>,</span><br><span class="line">				  jsonpCallback: <span class="string">"JsonCallback"</span>,</span><br><span class="line">				  scriptCharset: <span class="string">'GBK'</span>,<span class="comment">//设置编码，否则会乱码</span></span><br><span class="line">				  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{</span><br><span class="line">				    <span class="comment">//var result = JSON.stringify(data);</span></span><br><span class="line">					  JsonCallback(data);</span><br><span class="line">				  },</span><br><span class="line">				  error: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">				    alert(<span class="string">'fail'</span>);</span><br><span class="line">				  }</span><br><span class="line">				});</span><br><span class="line">			<span class="function"><span class="keyword">function</span> <span class="title">JsonCallback</span>(<span class="params">json</span>)</span>{</span><br><span class="line">				<span class="keyword">var</span> data = json.songlist;</span><br><span class="line">				<span class="keyword">var</span> html = <span class="string">''</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i<data.length;i++) {</span><br><span class="line">					<span class="built_in">document</span>.write(data[i].url+<span class="string">"<br>"</span>);</span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line">		<<span class="regexp">/script></span></span><br><span class="line"><span class="regexp">```      </span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">- 原生js简洁实现</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">```js</span></span><br><span class="line"><span class="regexp">var script = document.createElement("script");</span></span><br><span class="line"><span class="regexp">			script.src = 'http:/</span><span class="regexp">/music.qq.com/mu</span>sicbox/shop/v3/data/hit/hit_all.js?callback=JsonCallback<span class="string">';</span></span><br><span class="line"><span class="string">			document.body.appendChild(script);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">			function JsonCallback(json){</span></span><br><span class="line"><span class="string">				var data = json.songlist;</span></span><br><span class="line"><span class="string">				var html = '</span><span class="string">';</span></span><br><span class="line"><span class="string">				for (var i=0;i<data.length;i++) {</span></span><br><span class="line"><span class="string">					console.log(data[i]);</span></span><br><span class="line"><span class="string">				}</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">			}</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><script src="<span" class="string">"jquery-3.1.0.min.js"</span>><<span class="regexp">/script></span></span><br><span class="line"><span class="regexp">		<script type="text/</span>javascript<span class="string">"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">			$.ajax({</span></span><br><span class="line"><span class="string">				  type: "</span><span class="keyword">get</span>",</span><br><span class="line">				  async: false,</span><br><span class="line">				  url: "http://music.qq.com/musicbox/shop/v3/data/hit/hit_all.js",</span><br><span class="line">				  dataType: "jsonp",</span><br><span class="line">				  jsonp: "callback",</span><br><span class="line">				  jsonpCallback: "JsonCallback",</span><br><span class="line">				  scriptCharset: 'GBK',//设置编码，否则会乱码</span><br><span class="line">				  success: function(data) {</span><br><span class="line">				    <span class="comment">//var result = JSON.stringify(data);</span></span><br><span class="line">					  JsonCallback(data);</span><br><span class="line">				  },</span><br><span class="line">				  error: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">				    alert(<span class="string">'fail'</span>);</span><br><span class="line">				  }</span><br><span class="line">				});</span><br><span class="line">			<span class="function"><span class="keyword">function</span> <span class="title">JsonCallback</span>(<span class="params">json</span>)</span>{</span><br><span class="line">				<span class="keyword">var</span> data = json.songlist;</span><br><span class="line">				<span class="keyword">var</span> html = <span class="string">''</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i<data.length;i++) {</span><br><span class="line">					<span class="built_in">document</span>.write(data[i].url+<span class="string">"<br>"</span>);</span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line">		<<span class="regexp">/script></span></span><br><span class="line"><span class="regexp">```      </span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">- 原生js简洁实现</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">```js</span></span><br><span class="line"><span class="regexp">var script = document.createElement("script");</span></span><br><span class="line"><span class="regexp">			script.src = 'http:/</span><span class="regexp">/music.qq.com/mu</span>sicbox/shop/v3/data/hit/hit_all.js?callback=JsonCallback<span class="string">';</span></span><br><span class="line"><span class="string">			document.body.appendChild(script);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">			function JsonCallback(json){</span></span><br><span class="line"><span class="string">				var data = json.songlist;</span></span><br><span class="line"><span class="string">				var html = '</span><span class="string">';</span></span><br><span class="line"><span class="string">				for (var i=0;i<data.length;i++) {</span></span><br><span class="line"><span class="string">					console.log(data[i]);</span></span><br><span class="line"><span class="string">				}</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">			}</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="三、-jquery中的Ajax"><a href="#三、-jquery中的Ajax" class="headerlink" title="三、 jquery中的Ajax"></a>三、 jquery中的Ajax</h3><hr>
 <ul>
 <li>jquery中的<code>ajax</code>封装案例</li>
@@ -558,7 +558,7 @@
 </body></html>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/d4e64c45.html" title="Ajax总结篇">https://ru23.com/note/d4e64c45.html</a></p>
         <footer>
@@ -655,19 +655,19 @@
 
 <nav id="article-nav">
   
-    <a href="/note/1e283ca4.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/note/6cc0c2d4.html" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          canvas 绘制动画时钟
+          html5之api总结
         
       </span>
     </a>
   
   
-    <a href="/note/6cc0c2d4.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">html5之api总结</span>
+    <a href="/note/2e40f178.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">bootstrap笔记总结</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -701,7 +701,7 @@
 </script>
 <!-- Valine Comments end -->
 
-</span></pre></td></tr></tbody></table></figure></div></div></article></section>
+
         <div class="outer-ad-aside" id="outer-ad-aside">
           
           
@@ -744,9 +744,9 @@
           
           
         </div>
-      </div>
       
-    </div>
+      
+    
     <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
@@ -892,7 +892,7 @@
   $(".article-entry p img").popImg();
 </script>
 
-  </div>
+  
 
 
-<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
+</span></pre></td></tr></tbody></table></figure></div></div></article></section></div></div></div><script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

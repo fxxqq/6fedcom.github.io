@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -114,154 +114,6 @@
     <div class="outer">
       <div class="outer-section">
         <section id="main" class="body-wrap">
-  
-    <article id="post-2017-02-ie-compatibility-summary" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/note/12cd9bda.html" target="_blank">IE6下常见的兼容性问题</a>
-    </h1>
-  
-
-            
-            <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                
-                <a href="/categories/front-end/">
-                    front-end</a>
-                
-            </span>
-            
-        </header>
-        
-        <div class="article-entry " itemprop="articleBody">
-            
-            <div class="article-img">
-                <a href="/note/12cd9bda.html" target="_blank">
-                    
-                    <img class="theme lazyload" src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302&id=12cd9bda" alt="IE6下常见的兼容性问题" title="IE6下常见的兼容性问题" index="12cd9bda">
-                    
-                </a>
-            </div>
-            <div class="article-feed">
-                <p>
-                    </p><h4 id="常见问题一：在-Ie6-下，内容会把父元素设置好的宽高撑开。计算一定要精确"><a href="#常见问题一：在-Ie6-下，内容会把父元素设置好的宽高撑开。计算一定要精确" class="headerlink" title="常见问题一：在 Ie6 下，内容会把父元素设置好的宽高撑开。计算一定要精确"></a>常见问题一：在 Ie6 下，内容会把父元素设置好的宽高撑开。计算一定要精确</h4><hr>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> {</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.left</span> {</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">210px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.right</span> {</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.div</span> {</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">180px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">180px</span>;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>></span><span class="tag"></<span class="name">div</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div"</span>></span><span class="tag"></<span class="name">div</span>></span></span><br><span class="line">  <span class="tag"></<span class="name">div</span>></span></span><br><span class="line"><span class="tag"></<span class="name">div</span>></span></span><br></pre></td></tr></tbody></table></figure>
-<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/1-1.png" alt></p>
-<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/1-2.png" alt></p>
-                <p></p>
-            </div>
-            
-            
-        </div>
-        <footer class="article-footer">
-            
-            <ul class="article-footer-menu">
-                
-                <li><i class="fa fa-calendar"></i>
-                    2017-02-07
-                </li>
-                
-                
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/CSS/" class="color4">CSS</a>
-      
-  </li>
-
-            </ul>
-            
-            <a href="/note/12cd9bda.html#more" class="article-more-link" target="_blank">
-                阅读全文>></a>
-            
-        </footer>
-    </div>
-</article>
-
-
-  
-    <article id="post-2017-02-flex" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/note/cc5b9b13.html" target="_blank">弹性布局总结</a>
-    </h1>
-  
-
-            
-            <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                
-                <a href="/categories/front-end/">
-                    front-end</a>
-                
-            </span>
-            
-        </header>
-        
-        <div class="article-entry " itemprop="articleBody">
-            
-            <div class="article-img">
-                <a href="/note/cc5b9b13.html" target="_blank">
-                    
-                    <img class="theme lazyload" src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302&id=cc5b9b13" alt="弹性布局总结" title="弹性布局总结" index="cc5b9b13">
-                    
-                </a>
-            </div>
-            <div class="article-feed">
-                <p>
-                    
-以下6个属性设置在容器上
-flex-direction
-flex-wrap
-flex-flow
-justify-content
-align-items
-align-content
-
-
-属性详解...
-                </p>
-            </div>
-            
-            
-        </div>
-        <footer class="article-footer">
-            
-            <ul class="article-footer-menu">
-                
-                <li><i class="fa fa-calendar"></i>
-                    2017-02-06
-                </li>
-                
-                
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/html5/" class="color1">html5</a>
-      
-    <a href="/tags/flex/" class="color5">flex</a>
-      
-  </li>
-
-            </ul>
-            
-            <a href="/note/cc5b9b13.html#more" class="article-more-link" target="_blank">
-                阅读全文>></a>
-            
-        </footer>
-    </div>
-</article>
-
-
   
     <article id="post-2017-02-es6-new-property" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -728,7 +580,7 @@ webpack是当下最热门的前端资源模块化管理和打包工具。它可�
                     </p><blockquote>
 <p>声明 本教程整理于互联网</p>
 </blockquote>
-<p></p><p>先看一个例子</p>
+<p>先看一个例子</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">    <span class="comment">// 入口</span></span><br><span class="line">    entry: {</span><br><span class="line">        <span class="string">'index'</span>: <span class="string">'./index.js'</span></span><br><span class="line">    },</span><br><span class="line">    <span class="comment">// 输出</span></span><br><span class="line">    output: {</span><br><span class="line">        path: <span class="string">'./'</span>,</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            [name] 是 entry 中的 key</span></span><br><span class="line"><span class="comment">            entry: {</span></span><br><span class="line"><span class="comment">                key: value</span></span><br><span class="line"><span class="comment">            }</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        filename: <span class="string">"[name].b.js"</span></span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <p>module.exports 是 CommonJS 规范中定义一个文件对外接口的语法，<a href="webpack.config.js">webpack.config.js</a> 文件对外的接口是一个 object ，其中定义了一些配置参数。</p>
                 <p></p>
@@ -799,7 +651,7 @@ webpack是当下最热门的前端资源模块化管理和打包工具。它可�
                     </p><blockquote>
 <p>声明 本教程整理于互联网</p>
 </blockquote>
-<p></p><h2 id="一、gulp-入门简介"><a href="#一、gulp-入门简介" class="headerlink" title="一、gulp 入门简介"></a>一、gulp 入门简介</h2><hr>
+<h2 id="一、gulp-入门简介"><a href="#一、gulp-入门简介" class="headerlink" title="一、gulp 入门简介"></a>一、gulp 入门简介</h2><hr>
 <p><code>gulp</code> 是基于 <code>node</code> 实现<code>Web</code> 前端自动化开发的工具，利用它能够极大的提高开发效率。</p>
 <p>在 Web 前端开发工作中有很多“重复工作”，比如压缩<code>CSS/JS</code>文件。而这些工作都是有规律的。找到这些规律，并编写 <code>gulp</code> 配置代码,让 <code>gulp</code> 自动执行这些“重复工作”。</p>
                 <p></p>
@@ -826,6 +678,164 @@ webpack是当下最热门的前端资源模块化管理和打包工具。它可�
             </ul>
             
             <a href="/note/51b4c428.html#more" class="article-more-link" target="_blank">
+                阅读全文>></a>
+            
+        </footer>
+    </div>
+</article>
+
+
+  
+    <article id="post-2017-01-js-scope" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/note/c4e8b3f5.html" target="_blank">javascript作用域分析总结</a>
+    </h1>
+  
+
+            
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                
+                <a href="/categories/front-end/">
+                    front-end</a>
+                
+            </span>
+            
+        </header>
+        
+        <div class="article-entry " itemprop="articleBody">
+            
+            <div class="article-img">
+                <a href="/note/c4e8b3f5.html" target="_blank">
+                    
+                    <img class="theme lazyload" src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302&id=c4e8b3f5" alt="javascript作用域分析总结" title="javascript作用域分析总结" index="c4e8b3f5">
+                    
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    </p><blockquote>
+<p>原文链接 <a href="http://blog.poetries.top/2017/01/10/js-scope" target="_blank" rel="noopener">http://blog.poetries.top/2017/01/10/js-scope</a></p>
+</blockquote>
+<h4 id="一、JS解析顺序和作用域："><a href="#一、JS解析顺序和作用域：" class="headerlink" title="一、JS解析顺序和作用域："></a>一、JS解析顺序和作用域：</h4><ul>
+<li>解析顺序：<ul>
+<li>定义（先找<code>var</code>  <code>function</code>）  </li>
+<li>执行 ( 在逐步执行 )</li>
+<li>注意:如果函数名和<code>var</code>定义的变量相同，<code>var</code>会被函数覆盖</li>
+</ul>
+</li>
+<li>作用域：<ul>
+<li>每个<code>script</code>是一个作用域</li>
+<li>每个函数<code>{}</code>是一个作用域</li>
+<li>程序每执行到一个作用域，都是按照解析顺序解析代码；</li>
+<li>作用域链:从内往外找要找函数内的变量；</li>
+</ul>
+</li>
+</ul>
+                <p></p>
+            </div>
+            
+            
+        </div>
+        <footer class="article-footer">
+            
+            <ul class="article-footer-menu">
+                
+                <li><i class="fa fa-calendar"></i>
+                    2017-01-10
+                </li>
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/作用域/" class="color4">作用域</a>
+      
+  </li>
+
+            </ul>
+            
+            <a href="/note/c4e8b3f5.html#more" class="article-more-link" target="_blank">
+                阅读全文>></a>
+            
+        </footer>
+    </div>
+</article>
+
+
+  
+    <article id="post-2016-12-video-audio" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/note/1c7bdfba.html" target="_blank">html5中的视频音频使用详解</a>
+    </h1>
+  
+
+            
+            <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                
+                <a href="/categories/front-end/">
+                    front-end</a>
+                
+            </span>
+            
+        </header>
+        
+        <div class="article-entry " itemprop="articleBody">
+            
+            <div class="article-img">
+                <a href="/note/1c7bdfba.html" target="_blank">
+                    
+                    <img class="theme lazyload" src="//cdn.ru23.com/lazyload/lazyload.gif" data-original="https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302&id=1c7bdfba" alt="html5中的视频音频使用详解" title="html5中的视频音频使用详解" index="1c7bdfba">
+                    
+                </a>
+            </div>
+            <div class="article-feed">
+                <p>
+                    </p><h2 id="一、video"><a href="#一、video" class="headerlink" title="一、video"></a>一、video</h2><hr>
+<h3 id="1-1-video支持视频格式"><a href="#1-1-video支持视频格式" class="headerlink" title="1.1 video支持视频格式"></a>1.1 video支持视频格式</h3><hr>
+<ul>
+<li>常见的视频格式<ul>
+<li>视频的组成部分：画面、音频、编码格式</li>
+<li>视频编码：<code>H.264</code>、<code>Theora</code>、<code>VP8(google开源)</code>
+                <p></p>
+            </li></ul></li></ul></div>
+            
+            
+        </div>
+        <footer class="article-footer">
+            
+            <ul class="article-footer-menu">
+                
+                <li><i class="fa fa-calendar"></i>
+                    2016-12-30
+                </li>
+                
+                
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/html5/" class="color1">html5</a>
+      
+    <a href="/tags/video/" class="color1">video</a>
+      
+  </li>
+
+            </ul>
+            
+            <a href="/note/1c7bdfba.html#more" class="article-more-link" target="_blank">
                 阅读全文>></a>
             
         </footer>
@@ -930,7 +940,7 @@ webpack是当下最热门的前端资源模块化管理和打包工具。它可�
   var mihoConfig = {
     root: "https://ru23.com",
     animate: false,
-    isHome: true,
+    isHome: false,
     share: true,
     reward: 2
   }
@@ -1024,6 +1034,11 @@ webpack是当下最热门的前端资源模块化管理和打包工具。它可�
 
 
 
+
+<script src="//cdn.ru23.com/js/pop-img.js"></script>
+<script>
+  $(".article-entry p img").popImg();
+</script>
 
   </div>
 

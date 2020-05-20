@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。父组件中： 1 methods： 方案一：12345      getDescribe(id) {//   直接调用$router.push 实现携带参数的跳转        this.$router.push({          path: `/describe/${id}`,        }) 方案一，需要对">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.473Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue路由传参的三种基本方式">
 <meta name="twitter:description" content="现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。父组件中： 1 methods： 方案一：12345      getDescribe(id) {//   直接调用$router.push 实现携带参数的跳转        this.$router.push({          path: `/describe/${id}`,        }) 方案一，需要对">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。<br>父组件中：</p>
+            <p>现有如下场景，点击父组件的li元素跳转到子组件中，并携带参数，便于子组件获取数据。<br>父组件中：</p>
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"article in articles"</span> @<span class="attr">click</span>=<span class="string">"getDescribe(article.id)"</span>></span></span><br></pre></td></tr></tbody></table></figure>
 <p>methods：</p>
 <h5 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h5><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      getDescribe(id) {</span><br><span class="line"><span class="comment">//   直接调用$router.push 实现携带参数的跳转</span></span><br><span class="line">        <span class="keyword">this</span>.$router.push({</span><br><span class="line">          path: <span class="string">`/describe/<span class="subst">${id}</span>`</span>,</span><br><span class="line">        })</span><br></pre></td></tr></tbody></table></figure>
@@ -168,7 +168,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/701e9ca3.html" title="vue路由传参的三种基本方式">https://ru23.com/note/701e9ca3.html</a></p>
         <footer>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="splice()方法，号称最强大的数组方法！！ splice()的主要用途是向数组的中部插入项，但是用这种方法的方式则有如下3中。 1、删除：可以删除任意数量的项，只需指定2个参数：要删除的第一项的位置和要删除的项数。例如，splice(0, 2)会删除数组中的前两项。 2、插入：可以向指定位置插入任意数量的项，只需提供3个参数：起始位置、0(要删除的项数)和要插入的项。如果要插入多个项，可以再传">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.471Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组(Array)操作之splice() --删除、插入、替换">
 <meta name="twitter:description" content="splice()方法，号称最强大的数组方法！！ splice()的主要用途是向数组的中部插入项，但是用这种方法的方式则有如下3中。 1、删除：可以删除任意数量的项，只需指定2个参数：要删除的第一项的位置和要删除的项数。例如，splice(0, 2)会删除数组中的前两项。 2、插入：可以向指定位置插入任意数量的项，只需提供3个参数：起始位置、0(要删除的项数)和要插入的项。如果要插入多个项，可以再传">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><p>splice()方法，号称最强大的数组方法！！</p>
+            <p>splice()方法，号称最强大的数组方法！！</p>
 <p>splice()的主要用途是向数组的中部插入项，但是用这种方法的方式则有如下3中。</p>
 <p>1、删除：可以删除任意数量的项，只需指定2个参数：要删除的第一项的位置和要删除的项数。例如，splice(0, 2)会删除数组中的前两项。</p>
 <p>2、插入：可以向指定位置插入任意数量的项，只需提供3个参数：起始位置、0(要删除的项数)和要插入的项。如果要插入多个项，可以再传入第四、第五，以至任意多个项。例如，splice(2, 0, “red”, “green”)会从当前数组的位置2开始插字符串”red”和”green”。</p>
@@ -159,7 +159,7 @@
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];</span><br><span class="line"><span class="keyword">var</span> removed = colors.splice(<span class="number">0</span>, <span class="number">1</span>);    <span class="comment">//删除第一项</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"colors："</span> + colors);    <span class="comment">//green, blue</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"返回的数组："</span> + removed);    <span class="comment">//red,返回的数组中只包含一项</span></span><br><span class="line"></span><br><span class="line">removed = colors.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">"yellow"</span>, <span class="string">"orange"</span>);  <span class="comment">//从位置1开始插入两项</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"colors："</span> + colors);    <span class="comment">//green, yellow, orange, blue</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"返回的数组："</span> + removed);    <span class="comment">//返回的是一个空数组</span></span><br><span class="line"></span><br><span class="line">removed = colors.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">"red"</span>, <span class="string">"purple"</span>);   <span class="comment">//从位置1 删除一项，插入两项</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"colors："</span> + colors);    <span class="comment">//green, red, purple, orange, blue</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"返回的数组："</span> + removed);    <span class="comment">//yellow,返回的数组中只包含一项</span></span><br></pre></td></tr></tbody></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/c9afb08d.html" title="组(Array)操作之splice() --删除、插入、替换">https://ru23.com/note/c9afb08d.html</a></p>
         <footer>

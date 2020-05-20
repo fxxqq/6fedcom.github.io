@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -16,7 +16,7 @@
 <meta property="og:description" content="配置一套基于gulp的工作流，满足日常的基本开发。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1480597-12325acbb263363b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.433Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于gulp的工作流配置">
 <meta name="twitter:description" content="配置一套基于gulp的工作流，满足日常的基本开发。">
@@ -152,7 +152,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><blockquote>
+            <blockquote>
 <p>配置一套基于<code>gulp</code>的工作流，满足日常的基本开发。</p>
 </blockquote>
 <a id="more"></a>
@@ -168,7 +168,7 @@
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正式构建</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'build'</span>, [<span class="string">'clean'</span>,<span class="string">'css'</span>, <span class="string">'js'</span>, <span class="string">'img'</span>, <span class="string">'html'</span>,<span class="string">'copyFonts'</span>,<span class="string">'lib'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ================ 上传 upload ====</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'upload'</span>, () => {</span><br><span class="line">    gulp.src(<span class="string">'dist/**'</span>)</span><br><span class="line">        .pipe(ftp({</span><br><span class="line">            host: <span class="string">'8.8.8.8'</span>, <span class="comment">// 远程主机ip</span></span><br><span class="line">            port: <span class="number">22</span>, <span class="comment">// 端口</span></span><br><span class="line">            user: <span class="string">'username'</span>, <span class="comment">// 帐号</span></span><br><span class="line">            pass: <span class="string">'password'</span>, <span class="comment">// 密码</span></span><br><span class="line">            remotePath: <span class="string">'/project'</span> <span class="comment">// 上传路径，不存在则新建</span></span><br><span class="line">        }))</span><br><span class="line">        .pipe(gutil.noop())</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure></body></html>
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/3e0bf339.html" title="基于gulp的工作流配置">https://ru23.com/note/3e0bf339.html</a></p>
         <footer>
@@ -311,7 +311,7 @@
 </script>
 <!-- Valine Comments end -->
 
-</span></span></pre></td></tr></tbody></table></figure></div></div></article></section>
+
         <div class="outer-ad-aside" id="outer-ad-aside">
           
           
@@ -354,9 +354,9 @@
           
           
         </div>
-      </div>
       
-    </div>
+      
+    
     <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
@@ -502,7 +502,7 @@
   $(".article-entry p img").popImg();
 </script>
 
-  </div>
+  
 
 
-<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
+</span></span></pre></td></tr></tbody></table></figure></div></div></article></section></div></div></div><script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

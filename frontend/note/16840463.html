@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
     <title>
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="前端迷">
 <meta property="og:description" content="理解事件原理事件捕获/冒泡DOM事件流DOM2级事件规定事件包括三个阶段：① 事件捕获阶段② 处于目标阶段③ 事件冒泡阶段stopPropagation ES6let const ()=&gt; 模板字符串 解析结构 函数默认参数 展开运算符 对象字面量 与 class、 Promise Redux state ， action，reducer state的改变只能通过触发特定的action完成（act">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T15:10:37.485Z">
+<meta property="og:updated_time" content="2020-05-14T11:35:00.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="11月份整理的知识点">
 <meta name="twitter:description" content="理解事件原理事件捕获/冒泡DOM事件流DOM2级事件规定事件包括三个阶段：① 事件捕获阶段② 处于目标阶段③ 事件冒泡阶段stopPropagation ES6let const ()=&gt; 模板字符串 解析结构 函数默认参数 展开运算符 对象字面量 与 class、 Promise Redux state ， action，reducer state的改变只能通过触发特定的action完成（act">  
@@ -150,7 +150,7 @@
         <div class="article-entry post-content" itemprop="articleBody">
             
             
-            <meta name="generator" content="Hexo 3.8.0"><h3 id="理解事件原理"><a href="#理解事件原理" class="headerlink" title="理解事件原理"></a>理解事件原理</h3><p>事件捕获/冒泡<br>DOM事件流<br>DOM2级事件规定事件包括三个阶段：<br>① 事件捕获阶段<br>② 处于目标阶段<br>③ 事件冒泡阶段<br>stopPropagation</p>
+            <h3 id="理解事件原理"><a href="#理解事件原理" class="headerlink" title="理解事件原理"></a>理解事件原理</h3><p>事件捕获/冒泡<br>DOM事件流<br>DOM2级事件规定事件包括三个阶段：<br>① 事件捕获阶段<br>② 处于目标阶段<br>③ 事件冒泡阶段<br>stopPropagation</p>
 <h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><p>let const ()=> 模板字符串 解析结构 函数默认参数 展开运算符 对象字面量 与 class、 Promise</p>
 <h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p> state ， action，reducer<br> state的改变只能通过触发特定的action完成（action 是一个用于描述已发生事件的普通对象）Reducer 只是一些纯函数，它接收先前的 state 和 action，并返回新的 state。</p>
 <h3 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h3><p><a href="https://www.cnblogs.com/wubaiqing/p/6726429.html" target="_blank" rel="noopener">https://www.cnblogs.com/wubaiqing/p/6726429.html</a><br>DOM 很慢，为啥说它慢，先看一下 Webkit 引擎，所有浏览器都遵循类似的工作流，只<br>是在细节处理有些不同。一旦浏览器接收到一个 HTML 文件，渲染引擎 Render Engine<br>就开始解析它，根据 HTML 元素 Elements 对应地生成 DOM 节点 Nodes，最终组成一<br>棵 DOM 树。<br>构造了渲染树以后，浏览器引擎开始着手布局 Layout。布局时，渲染树上的每个节点根据<br>其在屏幕上应该出现的精确位置，分配一组屏幕坐标值。接着，浏览器将会通过遍历渲染树，<br>调用每个节点的 Paint 方法来绘制这些 Render 对象。Paint 方法根据浏览器平台，使用不<br>同的 UI后端 API（Agnostic UI Backend API）通过绘制，最终将在屏幕上展示内容。只要<br>在这过程中进行一次 DOM 更新，整个渲染流程都会重做一遍。<br>DOM 树上的结构、属性信息我们都可以很容易地用 javascript 对象表示出来。</p>
@@ -352,7 +352,7 @@ add.call(sub,3,1);
 
             <div class="post-copyright">
     <div class="content">
-        <!-- <p>最后更新： 2020年05月18日 23:10</p> -->
+        <!-- <p>最后更新： 2020年05月14日 19:35</p> -->
         <p>转载请保持原始链接</p>
         <p>原始链接： <a class="post-url" href="/note/16840463.html" title="11月份整理的知识点">https://ru23.com/note/16840463.html</a></p>
         <footer>
