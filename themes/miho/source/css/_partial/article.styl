@@ -1,12 +1,14 @@
 .body-wrap
   margin-bottom: block-margin
   min-height: calc(100vh - 530px)
+  width: 100%
+  max-width :900px
 .article
   margin: block-margin 0
   background: #fff
   border-radius: 0
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
-
+  max-width: 900px
 .article-inner
   @extend $block
   overflow: inherit
@@ -76,6 +78,8 @@
   border-top: 1px solid #e8e8e8
   border-bottom: 1px solid #e8e8e8
   color: color-default
+  img
+    width: 100%
   p, table
     line-height: line-height
     font-size: 1rem
@@ -458,7 +462,7 @@ $article-share-link
 .post-toc-pos
   z-index: 999
   bottom: 77%
-  left: calc(50% - 660px)
+  left: calc(50% - 760px)
   position: fixed
   .post-article
     float: left
@@ -481,6 +485,7 @@ $article-share-link
   width: 200px
   max-height: 400px
   color: #313131
+  overflow: scroll
   &.fixed
     top: 20px
     bottom: 140px

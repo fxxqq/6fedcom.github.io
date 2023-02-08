@@ -1,53 +1,7 @@
-[ru63.github.io](https://ru63.github.io/)
-frank的前端养成记(hexo博客)
 
-### hexo 新建一篇文章给它添加分类和标签:
-```
-hexo new "移动端限制input框只能输入数字"
-```
 
-### 通过mou编辑器打开：添加tags和categories
-```hexo 
----
-title: title #文章標題
-date: 2016-06-01 23:47:44 #文章生成時間
-categories: "Hexo教程" #文章分類目錄 可以省略
-tags: #文章标签 可以省略
-     - 标签1
-     - 标签2
-description: #你對本頁的描述 可以省略
----
-```
+frank 的前端养成记(hexo 博客)
 
-### 发布
-```
-hexo clean && hexo g && hexo d
-```
+![公众号](http://open.weixin.qq.com/qr/code?username=gh_e0e728eab9d2)
 
-### 创建新页面
-
-```
-hexo new page "about"
-```
-图片路径
-![React生命周期](https://cdn.ru23.com/img/2018/12/react-life-cycle.png)
-
----
-title: Hello World
-date: 2017-06-18
-categories: First
-tags:
-    - First
-    - Second
-cover_picture: /images/banner.jpg
----
- 
-<!-- more -->
-
-上传七牛云：
-上传
-hexo qiniu sync 
-更新
-hexo qiniu sync2 
-
- 
+『前端迷』公众号是一个公益性的前端技术分享社区，不定期为前端开发者带来面试经验，源码解析以及技术分享，欢迎关注。

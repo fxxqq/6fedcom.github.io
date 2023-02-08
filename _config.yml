@@ -4,7 +4,7 @@
 
 # Site
 title: 前端迷
-subtitle: 凡是预则立，不预则废
+subtitle: 凡事豫则立，不豫则废。言前定则不跲，事前定则不困，行前定则不疚，道前定则不穷。
 description: frank，前端开发爱好者，沉迷前端，无法自拔,欢迎一切技术交流（不局限于前端），邮箱fanqianweb@gmail.com
 keywords: 前端迷,前端开发,前端知识大全,前端优化,前端导航,小程序,ru23.com,JavaScript,ajax,angular,css,webpack,react,gulp,htmlhtml5,mocha,nginx,node,css3,vue,vue-cli,scss
 author: frank
@@ -13,8 +13,8 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://ru23.com/
-cdn: https://cdn.ru23.com
+url: https://6fedcom.github.io
+# cdn: //cdn.ru23.com
 root: /
 permalink: note/:abbrlink.html
 # permalink_defaults:
@@ -28,7 +28,7 @@ encrypt:
   enable: true
 # Directory
 source_dir: source
-public_dir: frontend
+public_dir: public
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -57,7 +57,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -84,39 +84,44 @@ pagination_dir: page
 theme: miho
 
 baidu_url_submit:
-  count: 10 # 提交最新的链接数
+  count: 50 # 提交最新的链接数
   host: ru23.com # 在百度站长平台中注册的域名,虽然官方推荐要带有 www, 但可以不带.
   token: mCi9bGbza3HmRDJx # 你的秘钥,每个人都不一样,获取方法在下面
   path: baidu_urls.txt # 文本文档的地址,新链接会保存在此文本文档里
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+ 
 deploy:
   - type: git
-    repo: git@github.com:ru23/ru23.github.io.git,master
-  - type: baidu_url_submitter
+    repo: git@github.com:6fedcom/6fedcom.github.io.git,master
+    branch: gh-pages
+  # - type: git
+  #   message: update
+  #   repo: root@106.14.179.21:/fe/blog.git,master
+  # - type: baidu_url_submitter
 
 # plugins:
-#   - hexo-qiniu-sync
 
-qiniu:
-  offline: false
-  sync: true
-  bucket: cdnru23
-  # secret_file: sec/qn.json or C:
-  access_key: HCct3FpW17hnRMdsSCnogNeqtklD5nIiUa9hOrvi
-  secret_key: 7Pp2QhmgJo0SdwpKCiuq5M1VMFHbZNj68mjLBwRz
-  # 上传的资源子目录前缀.如设置，需与urlPrefix同步
-  dirPrefix: img
-  #外链前缀
-  urlPrefix: https://cdn.ru23.com/img
-  #使用默认配置即可
-  up_host: http://upload.qiniu.com
-  #本地目录
-  local_dir:
-    source/img
-    # 是否更新已经上传过的文件(仅文件大小不同或在上次上传后进行更新的才会重新上传)
-  update_exist: true
+
+# qiniu:
+#   offline: false
+#   sync: true
+#   bucket: cdnru23
+#   # secret_file: sec/qn.json or C:
+#   access_key: HCct3FpW17hnRMdsSCnogNeqtklD5nIiUa9hOrvi
+#   secret_key: 7Pp2QhmgJo0SdwpKCiuq5M1VMFHbZNj68mjLBwRz
+#   # 上传的资源子目录前缀.如设置，需与urlPrefix同步
+#   dirPrefix: img
+#   #外链前缀
+#   urlPrefix: https://cdn.ru23.com/img
+#   #使用默认配置即可
+#   up_host: http://upload.qiniu.com
+#   #本地目录
+#   local_dir:
+#     source/img
+#     # 是否更新已经上传过的文件(仅文件大小不同或在上次上传后进行更新的才会重新上传)
+#   update_exist: true
   # image:
   #   folder: images
   #   extend:
@@ -137,3 +142,30 @@ index2_generator:
   exclude:
     - tag hide # 不包含标签为Hexo的文章
 
+lazyload:
+  enable: true
+  onlypost: false
+  # thumbPath: '/images/thumb'
+  className: .lazyload #可选 e.g. .J-lazyload-img
+  # loadingImg: //cdn.ru23.com/lazyload/lazyload.gif #可选 eg. /images/loading.png
+
+# hexo-neat
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: false
+  exclude:
+# 压缩css
+neat_css:
+  enable: true
+  exclude:
+    - "**/*.min.css"
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - "**/*.min.js"

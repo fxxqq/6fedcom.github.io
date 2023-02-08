@@ -2,7 +2,7 @@
 # https://github.com/wongminho/hexo-theme-miho
 
 # Favicon of your site | 网站icon
-favicon: https://cdn.ru23.com/img/favicon.ico
+favicon: //cdn.ru23.com/img/favicon.ico
 
 # Header
 
@@ -13,15 +13,20 @@ header_title: 前端迷
 # Head description | 头部描述
 header_description: 凡事预则立，不预则废
 # Link to your logo | logo地址
-logo: https://cdn.ru23.com/img/images/chrome.png
+logo: //cdn.ru23.com/img/images/chrome.png
 # Link to your banner_img | 首页banner图地址
-banner_img: https://cdn.ru23.com/img/images/banner.jpg
+# banner_img: //cdn.ru23.com/img/images/banner.jpg
+banner_img: https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302
 # Menu setting | 菜单设置
 #  name:                  Font Awesome icon | Font Awesome 图标
 #    title: Home          Title | 标题
 #    url: //minhow.com    Url, absolute or relative path | 链接，绝对或相对路径
 #    target: true         Whether to jump out | 是否跳出
 menu:
+  # heart:
+  #   title: 前端社区
+  #   url: https://58fe.com
+  #   target: true
   home:
     title: 主页
     url: /
@@ -45,23 +50,26 @@ menu:
 #    url: //minhow.com    Url, absolute or relative path | 链接，绝对或相对路径
 #    target: true         Whether to jump out | 是否跳出
 social:
-  github-square:
-    title: Github
-    url: //github.com/ru23
-    target: true
   wechat:
     title: 公众号
     url: https://mp.weixin.qq.com/s/K3yG4eyuQvZxXIU9jas8kA
     target: true
-  external-link-square:
+    icon: mp
+  juejin:
     title: 掘金
     url: https://juejin.im/user/57fb24cf816dfa0056c1f8af
     target: true
-  external-link:
+    icon: juejin
+  github:
+    title: Github
+    url: //github.com/ru23
+    target: true
+    icon: github
+  zhihu:
     title: 知乎
     url: https://www.zhihu.com/people/58fe/activities
     target: true
-
+    icon: zhihu
 # weibo:
 # title: Weibo
 #  url: //weibo.com/WongMinHo
@@ -82,13 +90,13 @@ social:
 # Content
 
 # Excerpt length | 摘录长度
-excerpt_length: 200
+excerpt_length: 100
 # Excerpt link | 摘录链接
-excerpt_link: more>>
+excerpt_link: 阅读全文>>
 # New window open link | 新窗口打开文章
 open_new_link: true
 # Article default cover picture，size：350*150 | 文章默认封面图，尺寸：350*150
-cover_picture: img/images/banner.jpg
+cover_picture: https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302
 # Open background particles | 开启背景粒子
 open_bg_particle: false
 # Open animation in homepage and head | 开启主页及头部动画
@@ -104,7 +112,7 @@ share: true
 # Style customization | 样式定制
 style:
   # Main color tone | 主色调
-  main_color: '#0cc'
+  main_color: "#0cc"
 
 # Reward | 打赏
 
@@ -115,9 +123,9 @@ reward:
   # 标题
   title: 请我吃糖~
   # 微信，关闭设为 false
-  wechat: https://cdn.ru23.com/img/images/wechat_code.jpg
+  wechat: //cdn.ru23.com/img/images/wechat_code.jpg
   # 支付宝，关闭设为 false
-  alipay: https://cdn.ru23.com/img/images/alipay_code.jpg
+  alipay: //cdn.ru23.com/img/images/alipay_code.jpg
 
 # Comments | 评论
 
@@ -131,9 +139,9 @@ disqus: false
 # gitment  https://github.com/imsun/gitment
 gitment:
   owner: false #你的 GitHub ID
-  repo: '' #存储评论的 repo
-  client_id: '' #client ID
-  client_secret: '' #client secret
+  repo: "" #存储评论的 repo
+  client_id: "" #client ID
+  client_secret: "" #client secret
 # Valine Comment system. https://valine.js.org
 valine:
   enable: true # 如果你想使用valine，请将值设置为 true
@@ -142,14 +150,14 @@ valine:
   notify: true # Mail notify
   verify: false # Verify code
   avatar: mm # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
-  placeholder: Just go go # Comment Box placeholder
+  placeholder: 输入评论... # Comment Box placeholder
   guest_info: nick,mail,link # Comment header info
   pageSize: 10 # comment list page size
 # Analytics | 分析
 # 站长分析，输入站点id
-cnzz_analytics: 1275440747
+cnzz_analytics: false
 # 百度分析，输入key值
-baidu_analytics: false
+baidu_analytics: aade39b808bb881ee0f06dae149c9450
 # google analytics | google分析
 google_analytics: false
 
@@ -162,4 +170,25 @@ access_counter:
   site_pv: 总访问量：
 
 # Copyright Information | 版权信息
-copyright: 2015-2020 Frank
+copyright: 2015-2020 frank
+
+aside:
+  aliyun:
+    title: "阿里云双十二大促，新老用户皆可返现"
+    tip: "阿里云双十二大促，新老用户皆可返现"
+    img: "https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg"
+    url: "https://www.aliyun.com/minisite/goods?userCode=jh5fwy2j&share_source=copy_link"
+  tencent-cloud:
+    title: "【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元"
+    tip: "【腾讯云】云产品采购季，助力行业复工。1核2G云服务器，首年99元"
+    img: "https://upload-dianshi-1255598498.file.myqcloud.com/345x200-c37e147ab2b4b8074e63d71ca21420cf1a7d4933.png"
+    url: "https://cloud.tencent.com/act/cps/redirect?redirect=1067&cps_key=3bd05bbfb4f3f97d7bb5964ef12edda9&from=console"
+  wechatmp:
+    title: "微信公众号：前端迷"
+    img: "/hexo/public/wechat-mp.png"
+  wechat-group:
+    title: "微信前端技术交流群"
+    img: "/hexo/public/group.png"
+  ad-more:
+    tip: "广告位出售，日ip100+，联系vx:qianduanmi,备注广告，价格5元/月，随时上线"
+    # img: " https://cdn.ru23.com/common/sale.png"

@@ -45,7 +45,8 @@
                 <div class="social">
                     <% for (var i in theme.social) { %>
                         <a <% if(theme.social[i].title){ %>title="<%= theme.social[i].title %>"<% } %> <% if(theme.social[i].target){ %>target="_blank"<% } %> <% if(theme.social[i].url){ %>href="<%- url_for(theme.social[i].url) %><% } %>">
-                            <i class="fa fa-<%= i %> fa-2x"></i></a>
+                          <img src="//cdn.ru23.com/icon<%= url_for(theme.social[i].icon) %>.png" alt="logo">
+                          </a>
                     <% } %>
                 </div>
             </nav>

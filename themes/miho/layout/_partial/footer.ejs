@@ -1,13 +1,29 @@
 <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      <%- partial('plugins/sites/visit') %>
-      <p>
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
-        &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title
-        %><br />
-      </p>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            <%- partial('plugins/sites/visit') %>
+
+                <p>
+                    CDN 存储在
+                    <a href="https://console.upyun.com/register/?invite=SJ3dme4q8" target="_blank">
+                        <style>
+                            .upyun0box {
+                                width: 14px;
+                                height: 14px;
+                                position: relative;
+                                top: 3px;
+                            }
+                        </style>
+                        <img class="upyun0box" src='https://www.upyun.com/static/favicon-64x64.png' /> 又拍云
+                    </a>
+                    <br />
+                </p>
+                <p>
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> 主题是 <a href="https://github.com/6fedcom/fe-hexo-blog" target="_blank">基于MiHo主题优化</a> &copy;
+                    <%= date(new Date(), 'YYYY') %>
+                        <%= config.author || config.title
+                 %><br />
+                </p>
+        </div>
     </div>
-  </div>
 </footer>
