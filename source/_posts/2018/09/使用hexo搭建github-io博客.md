@@ -94,7 +94,7 @@ Your identification has been saved in /Users/you/.ssh/id_rsa.
 
 `hexo deploy`
 
-然后访问: https://ye63.github.io/ (用户名改成自己的),就可以看到了.
+然后访问: https://6fedcom.github.io/ (用户名改成自己的),就可以看到了.
 
 #### 快捷命令
 ##### hexo 新建一篇文章给它添加分类和标签:
